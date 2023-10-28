@@ -15,6 +15,7 @@
     use App\Http\Controllers\PayPalController;
     use App\Http\Controllers\NotificationController;
     use App\Http\Controllers\HomeController;
+    use App\Livewire\HomePage;
     use \UniSharp\LaravelFilemanager\Lfm;
 
     /*
@@ -34,7 +35,7 @@
         request()->session()->flash('success', 'Successfully cache cleared.');
         return redirect()->back();
     })->name('cache.clear');
-
+    // Route::get('/', HomePage::class);
 
     // STORAGE LINKED ROUTE
     Route::get('storage-link',[AdminController::class,'storageLink'])->name('storage.link');
@@ -53,8 +54,6 @@
 // Socialite
     Route::get('login/{provider}/', [LoginController::class, 'redirect'])->name('login.redirect');
     Route::get('login/{provider}/callback/', [LoginController::class, 'Callback'])->name('login.callback');
-
-    Route::get('/', [FrontendController::class, 'home'])->name('home');
 
 // Frontend Routes
     Route::get('/home', [FrontendController::class, 'index']);
