@@ -2,7 +2,7 @@
         <div class="flex items-center justify-between h-full px-10 ">
             <!-- <!- Logo -->
             <div class='pr-2'>
-                <a href="index.html"><img class="xl:h-[80px]" src="/storage/product/Logo.svg" alt="Your Logo"></a>
+                <a href="{{route('home')}}"><img class="xl:h-[80px]" src="/storage/product/Logo.svg" alt="Your Logo"></a>
             </div>
             <!-- Search Bar -->
             <!--

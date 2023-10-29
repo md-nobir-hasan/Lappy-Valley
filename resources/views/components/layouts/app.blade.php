@@ -11,7 +11,7 @@
     </head>
     <body>
         <!------- Header Section -->
-        @livewire('header')
+            @livewire('header')
         <!-------header-section-end----->
 
         <!--------- Nav Section -->
@@ -19,7 +19,7 @@
         <!----------nav-end---------->
 
         {{ $slot }}
-        
+
          @livewire('footer')
          <script type="text/javascript" src="../node_modules/tw-elements/dist/js/tw-elements.umd.min.js"></script>
     </body>

@@ -15,9 +15,14 @@
     use App\Http\Controllers\PayPalController;
     use App\Http\Controllers\NotificationController;
     use App\Http\Controllers\HomeController;
-    use App\Livewire\HomePage;
-    use App\Livewire\Todo;
-    use \UniSharp\LaravelFilemanager\Lfm;
+use App\Livewire\Checkout;
+use App\Livewire\HomePage;
+use App\Livewire\ProductDeatils;
+use App\Livewire\Search;
+use App\Livewire\Shop;
+use App\Livewire\Todo;
+use App\Livewire\ViewCart;
+use \UniSharp\LaravelFilemanager\Lfm;
 
 /*
     |--------------------------------------------------------------------------
@@ -206,3 +211,8 @@
 //=====================================       Frontend section          ======================================
 //=============================================================================================================
     Route::get('/', HomePage::class)->name('home');
+    Route::get('/shop', Shop::class)->name('shop');
+    Route::get('/product-details', ProductDeatils::class)->name('product.deatils');
+    Route::get('/checkout', Checkout::class)->name('checkout');
+    Route::get('/view-cart', ViewCart::class)->name('vcart');
+    Route::get('/search', Search::class)->name('search');
