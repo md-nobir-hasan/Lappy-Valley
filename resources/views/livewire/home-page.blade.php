@@ -46,9 +46,10 @@
         <!-- Product  -->
 
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-col-5 gap-2 mt-6 mb-[78px]">
-            @foreach ($lps as $lp)
-              <livewire:products/>
-            @endforeach
+            @for ($i=1;$i<5;$i++)
+                <livewire:products/>
+            @endfor
+
         </div>
     </section>
 
@@ -78,9 +79,9 @@
         <!-- Products  -->
         <!-- Product  -->
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-col-5 gap-2 mt-6 mb-[78px]">
-            @foreach ($lps as $lp)
-              <livewire:products/>
-            @endforeach
+            @for ($i=1;$i<6;$i++)
+                <livewire:products/>
+            @endfor
         </div>
     </section>
 
@@ -100,9 +101,9 @@
         <!-- Product  -->
 
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-col-5 gap-2 mt-6 mb-[78px]">
-           @foreach ($lps as $lp)
-              <livewire:products/>
-            @endforeach
+             @for ($i=1;$i<6;$i++)
+                <livewire:products/>
+            @endfor
         </div>
 
     </section>
@@ -124,9 +125,9 @@
 
         <!-- Product  -->
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-col-5 gap-2 mt-6 mb-[78px]">
-         @foreach ($lps as $lp)
-              <livewire:products/>
-            @endforeach
+          @for ($i=1;$i<11;$i++)
+                <livewire:products/>
+            @endfor
         </div>
 
         <!-- See more button  -->

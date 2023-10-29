@@ -212,7 +212,7 @@ use \UniSharp\LaravelFilemanager\Lfm;
 //=============================================================================================================
     Route::get('/', HomePage::class)->name('home');
     Route::get('/shop', Shop::class)->name('shop');
-    Route::get('/product-details', ProductDeatils::class)->name('product.deatils');
+    Route::get('/product-details', ProductDeatils::class)->name('product.details');
     Route::get('/checkout', Checkout::class)->name('checkout');
     Route::get('/view-cart', ViewCart::class)->name('vcart');
     Route::get('/search', Search::class)->name('search');
