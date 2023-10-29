@@ -3,11 +3,24 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
         <title>{{ $title ?? 'Page Title' }}</title>
+        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+        <script defer src="/dist/alpine.js"></script>
+        <link rel="stylesheet" href="/dist/output.css">
+        <link rel="icon" href="/storage/product/figma.png" type="img/svg">
     </head>
     <body>
-        <h1>I am from APP</h1>
+        <!------- Header Section -->
+        @livewire('header')
+        <!-------header-section-end----->
+
+        <!--------- Nav Section -->
+            @livewire('nav')
+        <!----------nav-end---------->
+
         {{ $slot }}
+        
+         @livewire('footer')
+         <script type="text/javascript" src="../node_modules/tw-elements/dist/js/tw-elements.umd.min.js"></script>
     </body>
 </html>

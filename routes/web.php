@@ -16,9 +16,10 @@
     use App\Http\Controllers\NotificationController;
     use App\Http\Controllers\HomeController;
     use App\Livewire\HomePage;
+    use App\Livewire\Todo;
     use \UniSharp\LaravelFilemanager\Lfm;
 
-    /*
+/*
     |--------------------------------------------------------------------------
     | Web Routes
     |--------------------------------------------------------------------------
@@ -28,17 +29,16 @@
     | contains the "web" middleware group. Now create something great!
     |
     */
-
     // CACHE CLEAR ROUTE
     Route::get('cache-clear', function () {
         Artisan::call('optimize:clear');
         request()->session()->flash('success', 'Successfully cache cleared.');
         return redirect()->back();
     })->name('cache.clear');
-    // Route::get('/', HomePage::class);
 
     // STORAGE LINKED ROUTE
     Route::get('storage-link',[AdminController::class,'storageLink'])->name('storage.link');
+
 
 
     Auth::routes(['register' => false]);
@@ -118,7 +118,6 @@
 
 
 // Backend section start
-
     Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'admin']], function () {
         Route::get('/', [AdminController::class, 'index'])->name('admin');
         Route::get('/file-manager', function () {
@@ -200,3 +199,10 @@
     Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
         Lfm::routes();
     });
+
+
+
+// ===========================================================================================================
+//=====================================       Frontend section          ======================================
+//=============================================================================================================
+    Route::get('/', HomePage::class)->name('home');
