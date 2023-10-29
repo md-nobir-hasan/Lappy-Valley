@@ -15,14 +15,15 @@
     use App\Http\Controllers\PayPalController;
     use App\Http\Controllers\NotificationController;
     use App\Http\Controllers\HomeController;
-use App\Livewire\Checkout;
-use App\Livewire\HomePage;
-use App\Livewire\ProductDeatils;
-use App\Livewire\Search;
-use App\Livewire\Shop;
+    use App\Livewire\Checkout;
+    use App\Livewire\HomePage;
+    use App\Livewire\ProductDeatils;
+    use App\Livewire\Search;
+    use App\Livewire\Shop;
+use App\Livewire\Signup;
 use App\Livewire\Todo;
-use App\Livewire\ViewCart;
-use \UniSharp\LaravelFilemanager\Lfm;
+    use App\Livewire\ViewCart;
+    use \UniSharp\LaravelFilemanager\Lfm;
 
 /*
     |--------------------------------------------------------------------------
@@ -52,8 +53,8 @@ use \UniSharp\LaravelFilemanager\Lfm;
     Route::post('user/login', [FrontendController::class, 'loginSubmit'])->name('login.submit');
     Route::get('user/logout', [FrontendController::class, 'logout'])->name('user.logout');
 
-    Route::get('user/register', [FrontendController::class, 'register'])->name('register.form');
-    Route::post('user/register', [FrontendController::class, 'registerSubmit'])->name('register.submit');
+    // Route::get('user/register', [FrontendController::class, 'register'])->name('register.form');
+    // Route::post('user/register', [FrontendController::class, 'registerSubmit'])->name('register.submit');
 // Reset password
     Route::post('password-reset', [FrontendController::class, 'showResetForm'])->name('password.reset');
 // Socialite
@@ -216,3 +217,4 @@ use \UniSharp\LaravelFilemanager\Lfm;
     Route::get('/checkout', Checkout::class)->name('checkout');
     Route::get('/view-cart', ViewCart::class)->name('vcart');
     Route::get('/search', Search::class)->name('search');
+    Route::get('/user/register', Signup::class)->name('register.form');

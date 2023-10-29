@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class SettingTableSeeder extends Seeder
 {
@@ -18,9 +19,9 @@ class SettingTableSeeder extends Seeder
             'short_des'=>"Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.",
             'photo'=>"image.jpg",
             'logo'=>'logo.jpg',
-            'address'=>"NO. 342 - London Oxford Street, 012 United Kingdom",
-            'email'=>"eshop@gmail.com",
-            'phone'=>"+060 (800) 801-582",
+            'address'=>"Dhaka, Bangladesh",
+            'email'=>"admin@gmail.com",
+            'phone'=>"01518460933",
         );
         DB::table('settings')->insert($data);
     }

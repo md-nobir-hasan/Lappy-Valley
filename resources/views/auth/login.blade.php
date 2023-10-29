@@ -1,8 +1,10 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <title>E-SHOP || Login Page</title>
+  <title>Login || {{ENV('APP_NAME')}}</title>
   @include('backend.layouts.head')
 
 </head>
@@ -43,7 +45,7 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
-                    
+
                     </div>
                     <div class="form-group">
                         <div class="form-check">
@@ -59,7 +61,7 @@
                     </button>
                   </form>
                   <hr>
-                   
+
                   <div class="text-center">
                     @if (Route::has('password.request'))
                         <a class="btn btn-link small" href="{{ route('password.request') }}">
