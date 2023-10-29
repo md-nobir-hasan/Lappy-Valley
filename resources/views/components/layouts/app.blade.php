@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
         <script defer src="/dist/alpine.js"></script>
         <link rel="stylesheet" href="/dist/output.css">
-        <link rel="icon" href="/storage/product/figma.png" type="img/svg">
+        <link rel="icon" href="/storage/product/Logo.svg" type="img/svg">
     </head>
     <body>
         <!------- Header Section -->

@@ -11,7 +11,8 @@
               <div class="py-[12px] flex justify-between px-2">
                   <a href="#"
                       class="font-[jost] text-[14px] font-[600] leading-[20px] text-left text-[#DC275C]">1,50,000TK</a>
-                  <p class="font-[jost] text-[14px] font-[600] leading-[20px] text-left">Add to Cart</p>
+                 <livewire:add-to-cart :id="1" button='<p class="font-[jost] text-[14px] font-[600] leading-[20px] text-left cursor-pointer">Add to Cart</p>'/>
+
               </div>
           </div>
       </div>
