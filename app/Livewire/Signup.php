@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\User;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 #[Title('Signup')]
@@ -9,7 +10,10 @@ class Signup extends Component
 {
     public $email;
     public function save(){
-        dd($this->email);
+        User::create(
+            $this->only(['email'])
+        );
+        return $this->redirect(route('home'), navigate: true);
     }
     public function render()
     {
