@@ -1,7 +1,7 @@
 <nav class="bg-[#F2F2F2]  py-4 px-10">
         <ul class="font-[Jost] flex justify-between">
             <li class=" jost">
-                <a href="{{route('shop')}}" class="font-[jost] text-[20px] text-[#353535] flex items-center">All
+                <a href="{{route('shop')}}" wire:navigate class="font-[jost] text-[20px] text-[#353535] flex items-center">All
                     Categories
                     <span
                         class="border-[#353535] inline-block w-2 h-2 border-b-2 border-r-2 transform rotate-45 ml-1"></span>

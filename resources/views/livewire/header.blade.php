@@ -2,7 +2,8 @@
         <div class="flex items-center justify-between h-full px-10 ">
             <!-- <!- Logo -->
             <div class='pr-2'>
-                <a href="{{route('home')}}"><img class="xl:h-[80px]" src="/storage/product/Logo.svg" alt="Your Logo"></a>
+                <a href="{{ route('home') }}" wire:navigate><img class="xl:h-[80px]" src="/storage/product/Logo.svg"
+                        alt="Your Logo"></a>
             </div>
             <!-- Search Bar -->
             <!--
@@ -18,7 +19,7 @@
                         <div class="w-full p-3">
 
                             <div class="relative">
-                                <i class="absolute fa fa-search text-gray-400 top-4 left-4"></i>
+                                <i class="absolute text-gray-400 fa fa-search top-4 left-4"></i>
                                 <input type="text"
                                     class="bg-white h-[44px] w-[655px] text-[#353535] text-[16px] px-12 rounded-[5px] focus:outline-none hover:cursor-pointer"
                                     name="">

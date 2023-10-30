@@ -11,6 +11,7 @@
         "build": "tailwindcss -i ./resources/css/tailwind.css -o ./public/dist/output.css -w"
     },
     "devDependencies": {
+        "alpinejs": "^3.13.1",
         "axios": "^0.21",
         "bootstrap": "^4.0.0",
         "cross-env": "^7.0",
@@ -23,10 +24,9 @@
         "resolve-url-loader": "^2.3.1",
         "sass": "^1.20.1",
         "sass-loader": "^8.0.0",
-        "vue": "^2.5.17",
-        "vue-template-compiler": "^2.6.10",
         "tailwindcss": "^3.3.3",
-        "alpinejs": "^3.13.1",
-        "tw-elements": "^1.0.0"
+        "tw-elements": "^1.0.0",
+        "vue": "^2.5.17",
+        "vue-template-compiler": "^2.6.10"
     }
 }
