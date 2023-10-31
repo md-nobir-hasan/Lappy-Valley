@@ -28,9 +28,20 @@
                         used to support your experience throughout this website,
                         to manage access to your account, and for other purposes described in our privacy policy.</p>
                 </div>
-                <div class="my-[10px]">
-                    <button
-                        class="font-[jost] font-[500] text-[18px] text-[#fff] bg-gradient-to-r from-[#380D37] to-[#DC275C] py-[12px] w-full rounded-[5px]">Register</button>
+                <div class="my-[10px]" x-data="{show:false}">
+                    <button x-on:click="show = true"
+                        class="font-[jost] font-[500] text-[18px] text-[#fff] bg-gradient-to-r from-[#380D37] to-[#DC275C] py-[12px] w-full rounded-[5px] flex justify-center items-center">
+
+                        <div x-show='show'
+                            class="inline-block h-6 w-6 mr-2 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-success motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                            role="status">
+                            <span
+                                class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
+                                >Loading...
+                                </span>
+                        </div>
+                        Register
+                    </button>
                 </div>
             </div>
         </div>
