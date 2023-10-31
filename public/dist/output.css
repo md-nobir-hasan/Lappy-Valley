@@ -4137,6 +4137,24 @@ input[type="range"]:active::-webkit-slider-thumb {
   color: rgb(20 164 77 / var(--tw-text-opacity));
 }
 
+.text-red-900 {
+  --tw-text-opacity: 1;
+  color: rgb(127 29 29 / var(--tw-text-opacity));
+}
+
+.text-\[\] {
+  color: ;
+}
+
+.text-\[12\] {
+  color: 12;
+}
+
+.text-\[red\] {
+  --tw-text-opacity: 1;
+  color: rgb(255 0 0 / var(--tw-text-opacity));
+}
+
 .underline {
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
