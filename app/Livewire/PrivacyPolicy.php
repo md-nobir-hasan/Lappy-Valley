@@ -3,13 +3,13 @@
 namespace App\Livewire;
 
 use Livewire\Component;
-
 use Livewire\Attributes\Title;
-#[Title('Shop')]
-class Shop extends Component
+
+#[Title('Privacy Policy')]
+class PrivacyPolicy extends Component
 {
     public function render()
     {
-        return view('livewire.shop');
+        return view('livewire.privacy-policy');
     }
 }
