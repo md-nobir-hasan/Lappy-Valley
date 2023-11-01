@@ -1114,6 +1114,11 @@ input[type="range"]:active::-webkit-slider-thumb {
   margin-bottom: ;
 }
 
+.my-5 {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
 .-ml-\[1\.5rem\] {
   margin-left: -1.5rem;
 }
@@ -1360,6 +1365,10 @@ input[type="range"]:active::-webkit-slider-thumb {
 
 .mt-\[5px\] {
   margin-top: 5px;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
 }
 
 .box-border {
@@ -3203,6 +3212,10 @@ input[type="range"]:active::-webkit-slider-thumb {
   --tw-gradient-to: #DC275C var(--tw-gradient-to-position);
 }
 
+.bg-fixed {
+  background-attachment: fixed;
+}
+
 .bg-clip-padding {
   background-clip: padding-box;
 }
@@ -3270,6 +3283,10 @@ input[type="range"]:active::-webkit-slider-thumb {
 
 .p-\[px\] {
   padding: px;
+}
+
+.p-5 {
+  padding: 1.25rem;
 }
 
 .\!py-0 {
