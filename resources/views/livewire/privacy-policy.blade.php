@@ -5,7 +5,7 @@
         <div class='h-[2px] bg-[#764A8733]'></div>
 
      <div class='text-center mt-[40px] mb-[50px]'>
-        <h1 class='text-[#380D37] text-[36px] font-[jost] font-[700]'>Privacy Policy</h1>
+        <h2 class='text-[#380D37] text-[36px] font-[jost] font-[700]'>Privacy Policy</h2>
     </div>
 
     <div class='text-left w-[1030px] h-[1796px] mx-auto'>
