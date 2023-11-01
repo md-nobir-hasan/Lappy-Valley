@@ -25,7 +25,7 @@
             </div>
 
             <!-- Right-Side Logos/Icons -->
-            <div class='flex items-center justify-center '>
+            <div class='flex items-center justify-center mr-[100px]'>
                 <!-- <div class="flex item-center "> -->
                 <a href="#"><img class='w-[119px] h-[44px]' src="/storage/product/Offers.svg" alt="Logo 1"></a>
                 <a href="#"><img class='w-[118.76px] h-[43.72]' src="/storage/product/Cart.svg" alt="Logo 2"></a>

@@ -1,4 +1,6 @@
-  <div class="shadow-[2px_2px_5px_2px_#0000001A] p-2">
+<div x-data="{ open: false }">
+
+<div class="shadow-[2px_2px_5px_2px_#0000001A] p-2">
       <div class="bg-white rounded-lg">
           <a href="{{route('product.details')}}">
             <img class="object-center"
@@ -8,7 +10,7 @@
           <div>
               <p class="font-[jost] text-[16px] font-[500] leading-[23px] text-left text-[#380D37]">
                   Lenovo IdeaPad 15AMN7 AMD Ryzen 57520U 8-512 GB,Brand New Cloud grey</p>
-              <div class="py-[12px] flex justify-between px-2" x-data="{ open: false }">
+              <div class="py-[12px] flex justify-between px-2">
                   <a href="#"
                       class="font-[jost] text-[14px] font-[600] leading-[20px] text-left text-[#DC275C]">1,50,000TK</a>
                       @auth
@@ -18,8 +20,16 @@
                             <p class="font-[jost] text-[14px] font-[600] leading-[20px] text-left cursor-pointer" @click="open = ! open" >Add to Cart</p>
                         </a>
                         
-                      <!-- ----------cart----- -->
-                      <div class="w-[400px] h-[792px] gap-20 bg-[#F2F2F2] z-50" x-show="open" :class="{'bg-fixed': open}">
+                 
+                    
+                       @endauth
+
+              </div>
+          </div>
+      </div>
+  </div>
+       <!-- ----------cart----- -->
+  <div class="w-[400px] h-[792px] gap-20 bg-[#F2F2F2] right-0 top-0 fixed z-[9999]" x-show="open">
                                       <div class="w-[400px] h-[61px] bg-[#380D37] flex justify-between text-[20px] text-[#fff] items-center px-[20px]">
                                       <img class='h-[50px]' src="/storage/product/Cart.svg" alt="">
                                       <h2 class='font-[jost] font-[500] text-[20px] text-[#F2F2F2]'>Close</h2>
@@ -66,9 +76,5 @@
                                       </div>
                                   </div>
                 <!-- -----------------cart----end---- -->
-                       @endauth
 
-              </div>
-          </div>
-      </div>
-  </div>
+</div>
