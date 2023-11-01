@@ -5,14 +5,6 @@
                 <a href="{{ route('home') }}" wire:navigate><img class="xl:h-[80px]" src="/storage/product/Logo.svg"
                         alt="Your Logo"></a>
             </div>
-            <!-- Search Bar -->
-            <!--
-      <div class="relative">
-        <i class="fa fa-search absolute text-[aqua] mt-4 left-4" aria-hidden="true"></i>
-        <input type="text"
-        class="xl:w-[700px] border text-left border-gray-300 rounded-[6px] py-[12px] px-10 placeholder-white-0 focus:outline-none focus:ring focus:border-blue-300"
-         placeholder="Search"/>
-      </div> -->
             <div>
                 <div>
                     <div class="md:flex">

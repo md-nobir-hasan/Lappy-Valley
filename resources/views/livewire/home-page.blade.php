@@ -1,4 +1,10 @@
 <div class="container mx-auto lg:px-16">
+
+    {{-- Alert message  --}}
+    @if($success = session('success'))
+        <script> toastr.success("{{$success}}")</script>
+    @endif
+
     <!-- Hero Section  -->
     <section class=''>
         <div class="relative">
