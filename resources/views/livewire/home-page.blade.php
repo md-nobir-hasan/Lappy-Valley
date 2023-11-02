@@ -40,17 +40,17 @@
 
 
     <!-- Feature Laptop  -->
-    <section>
+    <section class='mt-[50px]'>
         <div class="py-1 text-center">
-            <h2 class="font-[jost] text-[40px] font-black text-[#353535]">Featurds Laptops </h2>
-            <p class="font-[jost] text-[16px] font-extrabold text-[#380D37]">The best we offer is here</p>
+            <h2 class="font-[jost] text-[40px] font-[500]  text-[#353535]">Featurds Laptops </h2>
+            <p class="font-[jost] text-[16px] font-[500] text-[#353535]">The best we offer is here</p>
         </div>
         <div class="pt-[60px]">
             <button
-                class="py-2 px-16 rounded-[1px] bg-[#380D37] text-white font-[500] text-[20px] font-[jost]">USA</button>
+                class="py-2 px-16 rounded-[4px] bg-[#F2F2F2] text-[#380D37] focus:bg-[#380D37] focus:text-white font-[500] text-[20px] font-[jost]">USA</button>
             <button
-                class="py-2 px-16 rounded-[1px] bg-[#F2F2F2] text-black font-[500] text-[20px] font-[jost]">ASIAN</button>
-            <div class="h-1 bg-[#380D37;]"></div>
+                class="py-2 px-16 rounded-[4px] focus:bg-[#380D37] focus:text-white bg-[#F2F2F2] text-[#380D37] font-[500] text-[20px] font-[jost]">ASIAN</button>
+            <div class="h-[2px] bg-[#380D37;]"></div>
         </div>
 
         <!-- Product  -->
@@ -66,23 +66,23 @@
     <!-- New arrival  -->
     <section>
         <!-- heading -->
-        <div class="py-[3rem] text-white bg-gradient-to-r from-[#380D37] to-[#DC275C]">
-            <h1 class="text-[27px] font-[jost] text-center">New Arrival</h1>
+        <div class=" h-[130px] flex justify-center items-center text-white bg-gradient-to-r from-[#380D37] to-[#DC275C]">
+            <h1 class="text-[40px] text-[#f2f2f2] font-[jost] font-[500] text-center">New Arrival</h1>
         </div>
 
         <!-- banner  -->
-        <div class="flex gap-2 mt-5 mb-5">
-            <div class="pt-[22px] inline-block font-[jost] text-[44px] font-[500] text-[#DC275C]">
+        <div class="flex gap-2 mt-6 mb-5">
+            <div class="pt-[22px] inline-block font-[jost] text-[52px] font-[500] text-[#DC275C]">
                 <p class="leading-[59px]"> Our newest <br>products are <br>here, just for you!</p>
                 <div class='text-center'>
                     <button
-                        class="mt-[-15px] py-2 px-3 text-[16px] text-[#F2F2F2] rounded-[4px] bg-gradient-to-r from-[#380D37] to-[#DC275C] ">
+                        class="mt-[60px] py-2 px-6 font-[jost] font-[500] text-[16px] text-[#F2F2F2] rounded-[4px] bg-gradient-to-r from-[#380D37] to-[#DC275C] ">
                         Visit Now!
                     </button>
                 </div>
             </div>
             <div>
-                <img class=" w-[820px] h-[352px]" src="/storage/product/Hero-Image.svg" alt="">
+                <img src="/storage/product/Hero-Image.svg" alt="">
             </div>
         </div>
 
@@ -98,15 +98,15 @@
     <!-- Feature Laptop  -->
     <section>
         <div class="py-1 text-center">
-            <h2 class="font-[jost] text-[40px] font-black text-[#353535]">Featurds Laptops </h2>
-            <p class="font-[jost] text-[16px] font-extrabold text-[#380D37]">The best we offer is here</p>
+            <h2 class="font-[jost] text-[40px] font-[500]  text-[#353535]">Featurds Laptops </h2>
+            <p class="font-[jost] text-[16px] font-[500] text-[#380D37]">The best we offer is here</p>
         </div>
         <div class="pt-[60px]">
             <button
-                class="py-2 px-16 rounded-[1px] bg-[#380D37] text-white font-[500] text-[20px] font-[jost]">USA</button>
+                class="py-2 px-16 rounded-[4px] bg-[#F2F2F2] text-[#380D37] focus:bg-[#380D37] focus:text-whitefont-[500] text-[20px] font-[jost]">USA</button>
             <button
-                class="py-2 px-16 rounded-[1px] bg-[#F2F2F2] text-black font-[500] text-[20px] font-[jost]">ASIAN</button>
-            <div class="container h-1 bg-[#380D37;]"></div>
+                class="py-2 px-16 rounded-[4px] bg-[#F2F2F2] text-[#380D37] focus:bg-[#380D37] focus:text-white font-[500] text-[20px] font-[jost]">Asian</button>
+            <div class="container h-[2px] bg-[#380D37;]"></div>
         </div>
         <!-- Product  -->
 
@@ -119,19 +119,22 @@
 
     </section>
 
+        <div class='mt-[15px] mb-[30px]'>
+        <div class="container h-[2px] bg-[#380D37;]"></div>
+        </div>
     <!-- Differential products  -->
     <!-- Feature Laptop  -->
-    <section>
+    <section class='mt-[70px]'>
         <div class="py-1 text-center">
-            <h2 class="font-[jost] text-[40px] font-black text-[#353535]">Differential Laptops </h2>
-            <p class="font-[jost] text-[16px] font-extrabold text-[#380D37]">The best we offer is here</p>
+            <h2 class="font-[jost] text-[40px] font-[500] text-[#353535]">Differential Laptops </h2>
+            <p class="font-[jost] text-[16px] font-[500] text-[#380D37]">The best we offer is here</p>
         </div>
         <div class="pt-[60px]">
             <button
-                class="py-2 px-16 rounded-[1px] bg-[#380D37] text-white font-[500] text-[20px] font-[jost]">USA</button>
+                class="py-2 px-16 rounded-[4px] bg-[#F2F2F2] text-[#380D37] focus:bg-[#380D37] focus:text-white font-[500] text-[20px] font-[jost]">USA</button>
             <button
-                class="py-2 px-16 rounded-[1px] bg-[#F2F2F2] text-black font-[500] text-[20px] font-[jost]">ASIAN</button>
-            <div class="container h-1 bg-[#380D37;]"></div>
+                class="py-2 px-16 rounded-[4px] bg-[#F2F2F2] text-[#380D37] focus:bg-[#380D37] focus:text-white font-[500] text-[20px] font-[jost]">Asian</button>
+            <div class="container h-[2px] bg-[#380D37;]"></div>
         </div>
 
         <!-- Product  -->
@@ -142,23 +145,27 @@
         </div>
 
         <!-- See more button  -->
-        <button
+       
+    </section>
+    <div>
+    <button
             class=" items-center justify-center flex my-[60px] mx-auto text-[16px] text-[#F2F4F8] w-[116px] h-[44px] rounded-[4px] bg-gradient-to-r from-[#380D37] to-[#DC275C]">
             <a href="">See More</a>
         </button>
-    </section>
-
+        <div class="container h-[2px] bg-[#380D37;]"></div>
+    </div>
+         
     <!-- Currention code from this line upto footer  -->
     <section>
         <div>
-            <h2 class="mt-8 text-center font-[jost] text-[40px] font-[500] leading-[58px] text-left text-[#353535]">
+            <h2 class="mt-8 text-center font-[jost] text-[40px] font-[500] leading-[58px]  text-[#353535]">
                 Why Choose Us?</h2>
         </div>
         <div class="grid grid-cols-5 gap-2 my-[50px] ">
             <div class=" rounded-[4px] shadow-[2px_2px_5px_2px_#0000001A] p-3">
                 <img class="mx-auto" src="/storage/product/Group-laptop.svg" alt="Product">
                 <h2
-                    class=" mt-[25px] mb-[10px] text-[#DC275C] font-[jost] text-[20px] font-black leading-[35px] text-center ">
+                    class=" mt-[25px] mb-[10px] text-[#DC275C] font-[jost] text-[24px] font-[500] leading-[35px] text-center ">
                     Wide Varieties</h2>
                 <p class="font-[jost] text-[14px] font-[500] leading-[20px] text-left text-[#380D37]">We have a
                     wide collection of laptops from different brands. We have brand new and pre-ownedlaptops in our
@@ -167,7 +174,7 @@
             <div class=" rounded-[4px] shadow-[2px_2px_5px_2px_#0000001A] p-3">
                 <img class="mx-auto" src="/storage/product/trust-1.svg" alt="Product">
                 <h2
-                    class=" mt-[25px] mb-[10px] text-[#DC275C] font-[jost] text-[19px] font-black leading-[35px] text-center ">
+                    class=" mt-[25px] mb-[10px] text-[#DC275C] font-[jost] text-[24px] font-[500] leading-[35px] text-center ">
                     Trusted and Reliable</h2>
                 <p class="font-[jost] text-[14px] font-[500] leading-[20px] text-left text-[#380D37]">We are
                     trusted and reliable shop. We provide you with the best services and good quality products.</p>
@@ -175,7 +182,7 @@
             <div class=" rounded-[4px] shadow-[2px_2px_5px_2px_#0000001A] p-3">
                 <img class="mx-auto" src="/storage/product/Best-service.svg" alt="Product">
                 <h2
-                    class=" mt-[25px] mb-[10px] text-[#DC275C] font-[jost] text-[20px] font-black leading-[35px] text-center ">
+                    class=" mt-[25px] mb-[10px] text-[#DC275C] font-[jost] text-[24px] font-[500] leading-[35px] text-center ">
                     Best Service</h2>
                 <p class="font-[jost] text-[14px] font-[500] leading-[20px] text-left text-[#380D37]">We provide
                     you with the best after sell services. Any problem, you take it to us and we will solve it.</p>
@@ -183,15 +190,15 @@
             <div class=" rounded-[4px] shadow-[2px_2px_5px_2px_#0000001A] p-3">
                 <img class="mx-auto" src="/storage/product/best-price-1.svg" alt="Product">
                 <h2
-                    class=" mt-[25px] mb-[10px] text-[#DC275C] font-[jost] text-[19px] font-black leading-[35px] text-center ">
+                    class=" mt-[25px] mb-[10px] text-[#DC275C] font-[jost] text-[24px] font-[500] leading-[35px] text-center ">
                     Best Price in Market</h2>
                 <p class="font-[jost] text-[14px] font-[500] leading-[20px] text-left text-[#380D37]">We will give
                     you the best and lowest possible price in market.</p>
             </div>
-            <div class=" rounded-[4px] shadow-[2px_2px_5px_2px_#0000001A] p-3">
+            <div class=" rounded-[4px] shadow-[2px_2px_5px_2px_#0000001A] p-3 h-[309px]">
                 <img class="mx-auto" src="/storage/product/fast-delivery-1.svg" alt="Product">
                 <h2
-                    class=" mt-[25px] mb-[10px] text-[#DC275C] font-[jost] text-[20px] font-black leading-[35px] text-center ">
+                    class=" mt-[25px] mb-[10px] text-[#DC275C] font-[jost] text-[24px] font-[500] leading-[35px] text-center ">
                     Fast Delivary</h2>
                 <p class="font-[jost] text-[14px] font-[500] leading-[20px] text-left text-[#380D37]">We deliver
                     our products carefully as fast as possible at your door step.</p>
