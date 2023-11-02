@@ -6598,6 +6598,10 @@ input[type="range"]:active::-webkit-slider-thumb {
     height: 80px;
   }
 
+  .xl\:h-\[60px\] {
+    height: 60px;
+  }
+
   .xl\:w-\[700px\] {
     width: 700px;
   }
