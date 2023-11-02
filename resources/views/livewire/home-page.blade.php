@@ -24,11 +24,15 @@
 
             <!-- The previous button -->
             <a class="absolute left-0 top-1/2 p-4 -translate-y-1/2 -translate-x-[42px] text-[40px] text-blue-500 opacity-50 hover:opacity-100 cursor-pointer"
-                onclick="moveSlide(-1)"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+                onclick="moveSlide(-1)"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="36" viewBox="0 0 23 40" fill="none">
+            <path d="M21 2L3 20L21 38" stroke="#999999" stroke-opacity="0.5" stroke-width="3"/>
+            </svg></a>
 
             <!-- The next button -->
             <a class="absolute right-0 top-1/2 p-4 -translate-y-1/2 translate-x-[42px] text-[40px] text-blue-500 opacity-50 hover:opacity-100 cursor-pointer"
-                onclick="moveSlide(1)"><i class="fa fa-angle-right" aria-hidden="true"></i></i></a>
+                onclick="moveSlide(1)"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="36" viewBox="0 0 23 40" fill="none">
+            <path d="M2 2L20 20L2 38" stroke="#999999" stroke-opacity="0.5" stroke-width="3"/>
+            </svg></i></a>
 
         </div>
     </section>
