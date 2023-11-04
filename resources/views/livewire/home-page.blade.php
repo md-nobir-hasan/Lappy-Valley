@@ -97,6 +97,11 @@
 
     <!-- Feature Laptop  -->
     <section>
+        <div class='flex justify-start translate-x-[-50px] translate-y-[470px]'>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="36" viewBox="0 0 23 40" fill="none">
+        <path d="M21 2L3 20L21 38" stroke="#999999" stroke-opacity="0.5" stroke-width="3"/>
+        </svg>
+                </div>
         <div class="py-1 text-center">
             <h2 class="font-[jost] text-[40px] font-[500]  text-[#353535]">Featurds Laptops </h2>
             <p class="font-[jost] text-[16px] font-[500] text-[#380D37]">The best we offer is here</p>
@@ -116,7 +121,11 @@
             @endfor
         </div>
         
-
+        <div class='flex justify-end translate-x-[50px] translate-y-[-250px]'>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="36" viewBox="0 0 23 40" fill="none">
+        <path d="M2 2L20 20L2 38" stroke="#999999" stroke-opacity="0.5" stroke-width="3"/>
+        </svg>
+                </div>
     </section>
 
         <div class='mt-[15px] mb-[30px]'>
