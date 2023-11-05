@@ -47,9 +47,9 @@
         </div>
         <div class="pt-[60px]">
             <button
-                class="py-2 px-16 rounded-[4px] bg-[#F2F2F2] text-[#380D37] focus:bg-[#380D37] focus:text-white font-[500] text-[20px] font-[jost]">USA</button>
+                class="py-2 px-16 rounded-[4px] bg-[#F2F2F2] focus:bg-[#380D37] text-[#380D37] focus:text-[#F2F2F2] font-[500] text-[20px] font-[jost]">USA</button>
             <button
-                class="py-2 px-16 rounded-[4px] focus:bg-[#380D37] focus:text-white bg-[#F2F2F2] text-[#380D37] font-[500] text-[20px] font-[jost]">ASIAN</button>
+                class="py-2 px-16 rounded-[4px] focus:bg-[#380D37] focus:text-[#F2F2F2] bg-[#F2F2F2] text-[#380D37] font-[500] text-[20px] font-[jost]">ASIAN</button>
             <div class="h-[2px] bg-[#380D37;]"></div>
         </div>
 
@@ -108,7 +108,7 @@
         </div>
         <div class="pt-[60px]">
             <button
-                class="py-2 px-16 rounded-[4px] bg-[#F2F2F2] text-[#380D37] focus:bg-[#380D37] focus:text-whitefont-[500] text-[20px] font-[jost]">USA</button>
+                class="py-2 px-16 rounded-[4px] bg-[#F2F2F2] text-[#380D37] focus:bg-[#380D37] focus:text-white font-[500] text-[20px] font-[jost]">USA</button>
             <button
                 class="py-2 px-16 rounded-[4px] bg-[#F2F2F2] text-[#380D37] focus:bg-[#380D37] focus:text-white font-[500] text-[20px] font-[jost]">Asian</button>
             <div class="container h-[2px] bg-[#380D37;]"></div>
@@ -200,7 +200,7 @@
             </div>
 
             <div class=" rounded-[4px] shadow-[2px_2px_5px_2px_#0000001A] p-3">
-                <img class=" mx-auto w-[116px] h-[116px]" src="/storage/product/Best-service.svg" alt="Product">
+                <img class=" mx-auto w-[116px] h-[116px]" src="/storage/product/best-service.svg" alt="Product">
                 <h2
                     class=" mt-[25px] mb-[10px] text-[#DC275C] font-[jost] text-[24px] font-[500] leading-[35px] text-center ">
                     Best Service</h2>
@@ -265,15 +265,19 @@
                             <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 22 22" fill="#FFA033">
                             <path d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z" fill="#FFA033" stroke="#FFA033" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg></a>
+
                             <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 22 22" fill="#FFA033">
                             <path d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z" fill="#FFA033" stroke="#FFA033" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg></a>
+
                             <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 22 22" fill="#FFA033">
                             <path d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z" fill="#FFA033" stroke="#FFA033" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg></a>
+
                             <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 22 22" fill="#FFA033">
                             <path d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z" fill="#FFA033" stroke="#FFA033" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg></a>
+
                             <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
                             <path d="M7.5 1.25L9.43125 5.1625L13.75 5.79375L10.625 8.8375L11.3625 13.1375L7.5 11.1062L3.6375 13.1375L4.375 8.8375L1.25 5.79375L5.56875 5.1625L7.5 1.25Z" stroke="#FFA033" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg></a>
