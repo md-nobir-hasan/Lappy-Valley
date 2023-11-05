@@ -5,12 +5,11 @@ namespace App\Livewire;
 use Livewire\Component;
 use Livewire\Attributes\Title;
 
-#[Title('Login')]
-
-class Login extends Component
+#[Title('Account')]
+class Account extends Component
 {
     public function render()
     {
-        return view('livewire.login');
+        return view('livewire.account');
     }
 }
