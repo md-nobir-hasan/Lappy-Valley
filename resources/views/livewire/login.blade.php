@@ -14,7 +14,7 @@
 <body>
     <!-- Header Section -->
     <header class="xl:h-[100px] bg-gradient-to-r from-[#380D37] to-[#DC275C] text-white">
-        <div class="flex items-center justify-between h-full px-10 ">
+        <div class="flex items-center justify-between h-full px-10">
             <!-- <!- Logo -->
             <div class='pr-2'>
                 <a href="#"><img class="xl:h-[80px]" src="/storage/product/Logo.svg" alt="Your Logo"></a>
@@ -90,8 +90,8 @@
     <!-- ------------------container--section-------start--- -->
     <div class="container mx-auto">
         <div class=>
-            <h1 class='font-[jost] xl:text-[20px] font-[400] leading-[25.3px] text-[#353535]'>Home / Account</h1>
-            <div class='h-1 bg-[#764A8733]'></div>
+            <h1 class='font-[jost] text-[16px] font-[400] leading-[25.3px] text-[#353535]'>Home / Account</h1>
+            <div class='h-[2px] bg-[#764A8733]'></div>
         </div>
         <!-- --------------log-in--section----------- -->
 

@@ -1,7 +1,7 @@
 <div class="container mx-auto">
     <div>
-        <h1 class='font-[jost] xl:text-[20px] font-[400] leading-[25.3px] text-[#353535]'>Home / Account</h1>
-        <div class='h-1 bg-[#764A8733]'></div>
+        <h1 class='font-[jost] xl:text-[16px] font-[400] leading-[25.3px] text-[#353535]'>Home / Account</h1>
+        <div class='h-[2px] bg-[#764A8733]'></div>
     </div>
     <form wire:submit='save'>
         <div class=" w-[490px] mx-auto mt-[40px] p-[px]">
