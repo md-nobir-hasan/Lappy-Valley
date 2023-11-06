@@ -5,8 +5,11 @@
     use App\Http\Controllers\AdminController;
     use App\Http\Controllers\FrontendController;
     use App\Http\Controllers\Auth\LoginController;
+    use App\Http\Controllers\BannerController;
+    use App\Http\Controllers\BrandController;
     use App\Http\Controllers\MessageController;
     use App\Http\Controllers\CartController;
+    use App\Http\Controllers\CategoryController;
     use App\Http\Controllers\WishlistController;
     use App\Http\Controllers\OrderController;
     use App\Http\Controllers\ProductReviewController;
@@ -15,13 +18,19 @@
     use App\Http\Controllers\PayPalController;
     use App\Http\Controllers\NotificationController;
     use App\Http\Controllers\HomeController;
-use App\Livewire\Account;
-use App\Livewire\Checkout;
-use App\Livewire\ConfirmPassword;
-use App\Livewire\ForgetPassword;
-use App\Livewire\HomePage;
-use App\Livewire\Login;
-use App\Livewire\PrivacyPolicy;
+    use App\Http\Controllers\PostCategoryController;
+    use App\Http\Controllers\PostController;
+    use App\Http\Controllers\PostTagController;
+    use App\Http\Controllers\ProductController;
+    use App\Http\Controllers\ShippingController;
+    use App\Http\Controllers\UsersController;
+    use App\Livewire\Account;
+    use App\Livewire\Checkout;
+    use App\Livewire\ConfirmPassword;
+    use App\Livewire\ForgetPassword;
+    use App\Livewire\HomePage;
+    use App\Livewire\Login;
+    use App\Livewire\PrivacyPolicy;
     use App\Livewire\ProductDeatils;
     use App\Livewire\RefundServicePolicy;
     use App\Livewire\Search;
@@ -29,8 +38,8 @@ use App\Livewire\PrivacyPolicy;
     use App\Livewire\Signup;
     use App\Livewire\TermComdition;
     use App\Livewire\Offer;
-use App\Livewire\ResetPassword;
-use App\Livewire\ViewCart;
+    use App\Livewire\ResetPassword;
+    use App\Livewire\ViewCart;
     use \UniSharp\LaravelFilemanager\Lfm;
 
 /*
@@ -117,12 +126,12 @@ use App\Livewire\ViewCart;
     Route::post('/subscribe', [FrontendController::class, 'subscribe'])->name('subscribe');
 
 // Product Review
-    Route::resource('/review', 'ProductReviewController');
+    Route::resource('/review', ProductReviewController::class);
     Route::post('product/{slug}/review', [ProductReviewController::class, 'store'])->name('review.store');
 
 // Post Comment
     Route::post('post/{slug}/comment', [PostCommentController::class, 'store'])->name('post-comment.store');
-    Route::resource('/comment', 'PostCommentController');
+    Route::resource('/comment', PostCommentController::class);
 // Coupon
     Route::post('/coupon-store', [CouponController::class, 'couponStore'])->name('coupon-store');
 // Payment
@@ -138,36 +147,36 @@ use App\Livewire\ViewCart;
             return view('backend.layouts.file-manager');
         })->name('file-manager');
         // user route
-        Route::resource('users', 'UsersController');
+        Route::resource('users', UsersController::class);
         // Banner
-        Route::resource('banner', 'BannerController');
+        Route::resource('banner', BannerController::class);
         // Brand
-        Route::resource('brand', 'BrandController');
+        Route::resource('brand', BrandController::class);
         // Profile
         Route::get('/profile', [AdminController::class, 'profile'])->name('admin-profile');
         Route::post('/profile/{id}', [AdminController::class, 'profileUpdate'])->name('profile-update');
         // Category
-        Route::resource('/category', 'CategoryController');
+        Route::resource('/category', CategoryController::class);
         // Product
-        Route::resource('/product', 'ProductController');
+        Route::resource('/product', ProductController::class);
         // Ajax for sub category
-        Route::post('/category/{id}/child', 'CategoryController@getChildByParent');
+        Route::post('/category/{id}/child', [CategoryController::class, 'getChildByParent']);
         // POST category
-        Route::resource('/post-category', 'PostCategoryController');
+        Route::resource('/post-category', PostCategoryController::class);
         // Post tag
-        Route::resource('/post-tag', 'PostTagController');
+        Route::resource('/post-tag', PostTagController::class);
         // Post
-        Route::resource('/post', 'PostController');
+        Route::resource('/post', PostController::class);
         // Message
-        Route::resource('/message', 'MessageController');
+        Route::resource('/message', MessageController::class);
         Route::get('/message/five', [MessageController::class, 'messageFive'])->name('messages.five');
 
         // Order
-        Route::resource('/order', 'OrderController');
+        Route::resource('/order', OrderController::class);
         // Shipping
-        Route::resource('/shipping', 'ShippingController');
+        Route::resource('/shipping', ShippingController::class);
         // Coupon
-        Route::resource('/coupon', 'CouponController');
+        Route::resource('/coupon', CouponController::class);
         // Settings
         Route::get('settings', [AdminController::class, 'settings'])->name('settings');
         Route::post('setting/update', [AdminController::class, 'settingsUpdate'])->name('settings.update');
@@ -189,8 +198,8 @@ use App\Livewire\ViewCart;
         Route::get('/profile', [HomeController::class, 'profile'])->name('user-profile');
         Route::post('/profile/{id}', [HomeController::class, 'profileUpdate'])->name('user-profile-update');
         //  Order
-        Route::get('/order', "HomeController@orderIndex")->name('user.order.index');
-        Route::get('/order/show/{id}', "HomeController@orderShow")->name('user.order.show');
+        Route::get('/order', [HomeController::class, 'orderIndex'])->name('user.order.index');
+        Route::get('/order/show/{id}', [HomeController::class, 'orderShow'])->name('user.order.show');
         Route::delete('/order/delete/{id}', [HomeController::class, 'userOrderDelete'])->name('user.order.delete');
         // Product Review
         Route::get('/user-review', [HomeController::class, 'productReviewIndex'])->name('user.productreview.index');
