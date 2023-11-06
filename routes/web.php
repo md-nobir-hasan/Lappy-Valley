@@ -38,8 +38,11 @@
     use App\Livewire\Signup;
     use App\Livewire\TermComdition;
     use App\Livewire\Offer;
-    use App\Livewire\ResetPassword;
-    use App\Livewire\ViewCart;
+use App\Livewire\OrderConfirm;
+use App\Livewire\OtpConfirm;
+use App\Livewire\ResetPassword;
+use App\Livewire\Review;
+use App\Livewire\ViewCart;
     use \UniSharp\LaravelFilemanager\Lfm;
 
 /*
@@ -244,3 +247,6 @@
     Route::get('/privacy-policy', PrivacyPolicy::class)->name('pp');
     Route::get('/offers', Offer::class)->name('offer');
     Route::get('/account', Account::class)->name('account');
+    Route::get('/order-confirm', OrderConfirm::class)->name('oc');
+    Route::get('/otp-confirm', OtpConfirm::class)->name('otpc');
+    Route::get('/product-review', Review::class)->name('review');
