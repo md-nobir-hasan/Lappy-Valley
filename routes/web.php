@@ -7,7 +7,8 @@
     use App\Http\Controllers\Auth\LoginController;
     use App\Http\Controllers\MessageController;
     use App\Http\Controllers\CartController;
-    use App\Http\Controllers\WishlistController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\WishlistController;
     use App\Http\Controllers\OrderController;
     use App\Http\Controllers\ProductReviewController;
     use App\Http\Controllers\PostCommentController;
@@ -15,13 +16,14 @@
     use App\Http\Controllers\PayPalController;
     use App\Http\Controllers\NotificationController;
     use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
 use App\Livewire\Account;
-use App\Livewire\Checkout;
-use App\Livewire\ConfirmPassword;
-use App\Livewire\ForgetPassword;
-use App\Livewire\HomePage;
-use App\Livewire\Login;
-use App\Livewire\PrivacyPolicy;
+    use App\Livewire\Checkout;
+    use App\Livewire\ConfirmPassword;
+    use App\Livewire\ForgetPassword;
+    use App\Livewire\HomePage;
+    use App\Livewire\Login;
+    use App\Livewire\PrivacyPolicy;
     use App\Livewire\ProductDeatils;
     use App\Livewire\RefundServicePolicy;
     use App\Livewire\Search;
@@ -29,8 +31,8 @@ use App\Livewire\PrivacyPolicy;
     use App\Livewire\Signup;
     use App\Livewire\TermComdition;
     use App\Livewire\Offer;
-use App\Livewire\ResetPassword;
-use App\Livewire\ViewCart;
+    use App\Livewire\ResetPassword;
+    use App\Livewire\ViewCart;
     use \UniSharp\LaravelFilemanager\Lfm;
 
 /*
@@ -147,9 +149,9 @@ use App\Livewire\ViewCart;
         Route::get('/profile', [AdminController::class, 'profile'])->name('admin-profile');
         Route::post('/profile/{id}', [AdminController::class, 'profileUpdate'])->name('profile-update');
         // Category
-        Route::resource('/category', 'CategoryController');
+        Route::resource('/category', CategoryController::class);
         // Product
-        Route::resource('/product', 'ProductController');
+        Route::resource('/product', ProductController::class);
         // Ajax for sub category
         Route::post('/category/{id}/child', 'CategoryController@getChildByParent');
         // POST category
