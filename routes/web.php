@@ -234,4 +234,4 @@ use App\Livewire\ViewCart;
     Route::get('/refund-and-service-policy', RefundServicePolicy::class)->name('rsp');
     Route::get('/privacy-policy', PrivacyPolicy::class)->name('pp');
     Route::get('/offers', Offer::class)->name('offer');
-    Route::get('/account', Account::class)->name('offer');
+    Route::get('/account', Account::class)->name('account');
