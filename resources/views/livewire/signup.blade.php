@@ -57,7 +57,6 @@
             <a href="#"><button class=' h-[44px] flex gap-2 items-center justify-center text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]'>Log in with <img src="/storage/product/facebook.svg" alt="Product"></button></a>
             </div>
           </div>
-
             </div>
          
         </div>
