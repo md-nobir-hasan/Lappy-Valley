@@ -6,12 +6,12 @@
     <form wire:submit='save'>
         <div class=" w-[490px] mx-auto mt-[40px] p-[px]">
             <div class="flex justify-between w-full gap-6 ">
-                <button
-                    class="bg-[#F2F2F2] text-[16px] focus:outline-none focus:bg-[#380D37] focus:text-[#fff] text-[#380D37] font-[jost] font-[600] px-[70px] w-full py-[12px] text-center rounded-[5px]"><a
-                        href="#">Log In</a></button>
-                <button
-                    class="bg-[#F2F2F2] text-[16px] focus:bg-[#380D37] focus:text-[#fff] text-[#380D37] font-[jost] font-[600] px-[78.5px] py-[12px] w-full text-center rounded-[5px]"><a
-                        href="#">Registration</a></button>
+                <a href="{{route('user.login')}}"> <button type="button"
+                        class="bg-[#F2F2F2] text-[16px] focus:outline-none focus:bg-[#380D37] focus:text-[#fff] text-[#380D37] font-[jost] font-[600] px-[70px] w-full py-[12px] text-center rounded-[5px]">Log
+                        In</button></a>
+                <a href="{{route('user.register')}}"> <button type="button"
+                        class="bg-[#F2F2F2] text-[16px] focus:bg-[#380D37] focus:text-[#fff] text-[#380D37] font-[jost] font-[600] px-[78.5px] py-[12px] w-full text-center rounded-[5px]">
+                        Registration</button></a>
             </div>
 
             <div
