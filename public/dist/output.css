@@ -4196,6 +4196,10 @@ input[type="range"]:active::-webkit-slider-thumb {
   line-height: 1rem;
 }
 
+.text-\[30px\] {
+  font-size: 30px;
+}
+
 .font-\[00\] {
   font-weight: 00;
 }
