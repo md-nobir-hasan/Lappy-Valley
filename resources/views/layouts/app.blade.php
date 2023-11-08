@@ -13,7 +13,6 @@
     @livewireStyles
 </head>
 <body>
-    <h1>ami nai akhane</h1>
     {{ $slot }}
 
     @livewireScripts
