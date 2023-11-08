@@ -8,7 +8,7 @@
               alt="">
             </a>
           <div>
-              <p class="font-[jost] text-[16px] font-[500] leading-[23px] text-left text-[#380D37]">
+              <p class="font-[jost] text-[16px] font-[500] leading-[23px] text-left text-[#764A87]">
                   Lenovo IdeaPad 15AMN7 AMD Ryzen 57520U 8-512 GB,Brand New Cloud grey</p>
               <div class="py-[12px] flex justify-between px-2">
                   <a href="#"
@@ -17,7 +17,7 @@
                         <livewire:add-to-cart :id="1" button='<p class="font-[jost] text-[14px] text-[#380D37] font-[600] leading-[20px] text-left cursor-pointer">Add to Cart</p>'/>
                       @else
                         <a href="javascript:void(0)">
-                            <p class="font-[jost] text-[14px] text-[#380D37] font-[600] leading-[20px] text-left cursor-pointer" @click="open = ! open" >Add to Cart</p>
+                            <p class="font-[jost] text-[14px] text-[#764A87] font-[600] leading-[20px] text-left cursor-pointer" @click="open = ! open" >Add to Cart</p>
                         </a>
                         @endauth
                     </div>

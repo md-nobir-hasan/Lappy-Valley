@@ -1,4 +1,4 @@
-<section class="bg-[#F2F2F2] h-[51px]  py-4 px-10">
+<section class="bg-[#F2F2F2] h-[51px]  py-4 px-[140px]">
         <nav class="font-[Jost] flex justify-between">
             <ul class=" relative" x-data="{open:false}">
 
