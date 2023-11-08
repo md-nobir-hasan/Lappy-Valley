@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="/dist/toastr/toastr.css">
         <script type="text/javascript" src="/dist/toastr/tastr-helper.js"></script>
         <script type="text/javascript" src="/dist/toastr/toastr.js"></script>
+        {{$styles ?? ''}}
         <link rel="stylesheet" href="/dist/output.css">
         <link rel="icon" href="/storage/product/Logo.svg" type="img/svg">
     </head>
@@ -45,8 +46,7 @@
 
          @livewire('footer')
 
-         <script type="text/javascript" src="/dist/tailwind-umd.min.js"></script>
-
-
+        {{-- <script type="text/javascript" src="/dist/tailwind-umd.min.js"></script> --}}
+        {{$script ?? ''}}
     </body>
 </html>
