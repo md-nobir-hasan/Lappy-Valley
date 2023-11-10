@@ -1,4 +1,4 @@
-  <footer class="bg-gradient-to-r from-[#764A87] to-[#DC275C] pt-4 text-white mt-20 h-[400px]">
+  <footer class="bg-gradient-to-r from-[#380D37] to-[#DC275C] pt-4 text-white mt-20 h-[400px]">
         <div class="flex justify-evenly">
 
             <div class="">
