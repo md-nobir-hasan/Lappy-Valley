@@ -21,7 +21,7 @@
         }
 
         function showSlide(n) {
-            console.log(n,slideIndex);
+            // console.log(n,slideIndex);
             let i;
             const slides = document.getElementsByClassName("slide");
 
@@ -599,3 +599,4 @@
         </div>
     </section>
 </div>
+

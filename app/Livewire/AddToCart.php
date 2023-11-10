@@ -14,10 +14,11 @@ class AddToCart extends Component
     public $msg;
     public $err_msg;
     public function addToCart($id){
+       
         $product = Product::find($id);
         if($product){
             $user_id = Auth::user()->id;
-            Cart::create(['product_id' => $id, 'user_id' => $user_id]);
+            Cart::create(['product_id' => $id, 'user_id' => $user_id,'price'=>$product->price, 'quantity'=>1, 'amount'=> $product->price]);
             $this->err_msg = "";
             $this->msg = "Added to your cart successfully";
         }else{
