@@ -23,13 +23,21 @@
                     @error('email')
                         <span class="text-[red] text-[12px]">{{ $message }}</span>
                     @enderror
-                    <input 
-                        class="italic my-[10px] rounded-[5px] bg-[#F2F2F2] py-[12px] text-[16px] text-[#353535] leading-[23.12px] opacity-[30%] w-full pl-[15px] font-[jost] font-[500]"
-                        type="email" placeholder="Set Password">
 
-                        <input
+                    <input name="password" wire:model.blur='password'
                         class="italic my-[10px] rounded-[5px] bg-[#F2F2F2] py-[12px] text-[16px] text-[#353535] leading-[23.12px] opacity-[30%] w-full pl-[15px] font-[jost] font-[500]"
-                        type="email" placeholder="Enter Your Email Address">
+                        type="password" placeholder="Set Password">
+                    @error('password')
+                        <span class="text-[red] text-[12px]">{{ $message }}</span>
+                    @enderror
+
+                        <input name="confirmed" wire:model.blur='confirmed'
+                        class="italic my-[10px] rounded-[5px] bg-[#F2F2F2] py-[12px] text-[16px] text-[#353535] leading-[23.12px] opacity-[30%] w-full pl-[15px] font-[jost] font-[500]"
+                        type="password" placeholder="Confirm The Password">
+
+                    @error('confirmed')
+                        <span class="text-[red] text-[12px]">{{ $message }}</span>
+                    @enderror
                 </div>
                 <div class="my-[10px]">
                     <button
@@ -58,7 +66,7 @@
             </div>
           </div>
             </div>
-         
+
         </div>
     </form>
 </div>

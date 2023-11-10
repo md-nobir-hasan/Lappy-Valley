@@ -1,61 +1,65 @@
 <x-slot name='styles'>
-    <link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
 </x-slot>
 <x-slot name='script'>
 
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
     <script>
-    // set the default active slide to the first one
-    let slideIndex = 1;
-    showSlide(slideIndex);
+        // set the default active slide to the first one
+        let slideIndex = 0;
+        showSlide(slideIndex);
 
-    // change slide with the prev/next button
-    function moveSlide(moveStep) {
-        showSlide(slideIndex += moveStep);
-    }
 
-    // change slide with the dots
-    function currentSlide(n) {
-        showSlide(slideIndex = n);
-    }
-
-    function showSlide(n) {
-        let i;
-        const slides = document.getElementsByClassName("slide");
-        const dots = document.getElementsByClassName('dot');
-
-        if (n > slides.length) {
-            slideIndex = 1
-        }
-        if (n < 1) {
-            slideIndex = slides.length
+        // change slide with the prev/next button
+        function moveSlide(moveStep) {
+            showSlide(slideIndex += moveStep);
         }
 
-        // hide all slides
-        for (i = 0; i < slides.length; i++) {
-            slides[i].classList.add('hidden');
+        // change slide with the dots
+        function currentSlide(n) {
+            showSlide(slideIndex = n);
         }
 
-        // remove active status from all dots
-        for (i = 0; i < dots.length; i++) {
-            dots[i].classList.remove('bg-yellow-500');
-            dots[i].classList.add('bg-green-600');
+        function showSlide(n) {
+            console.log(n,slideIndex);
+            let i;
+            const slides = document.getElementsByClassName("slide");
+
+            if (n > slides.length-1) {
+                slideIndex = 0
+            }
+            if (n < 0) {
+                slideIndex = slides.length-1
+            }
+
+
+            // const dots = document.getElementsByClassName('dot');
+                // hide all slides
+            for (i = 0; i < slides.length; i++) {
+                slides[i].classList.add('hidden');
+            }
+
+            // remove active status from all dots
+            // for (i = 0; i < dots.length; i++) {
+            //     dots[i].classList.remove('bg-yellow-500');
+            //     dots[i].classList.add('bg-green-600');
+            // }
+
+            // show the active slide
+            slides[slideIndex].classList.remove('hidden');
+
+            // // highlight the active dot
+            // dots[slideIndex - 1].classList.remove('bg-green-600');
+            // dots[slideIndex - 1].classList.add('bg-yellow-500');
         }
-
-        // show the active slide
-        slides[slideIndex - 1].classList.remove('hidden');
-
-        // highlight the active dot
-        dots[slideIndex - 1].classList.remove('bg-green-600');
-        dots[slideIndex - 1].classList.add('bg-yellow-500');
-    }
-</script>
+    </script>
 </x-slot>
 
 <div class="container mx-auto lg:px-16">
-
+    <form method="POST" action="{{ route('logout') }}" class="hidden">
+        @csrf
+        <button class="p4 bg-[red] rounded">Logout</button>
+    </form>
     {{-- Alert message  --}}
     @if ($success = session('success'))
         <script>
@@ -116,9 +120,10 @@
         <!-- Product  -->
 
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-col-5 gap-2 mt-6 mb-[78px]">
-            @for ($i = 1; $i < 6; $i++)
-                <livewire:products />
-            @endfor
+            @foreach ($products->take(5) as $product)
+                <livewire:products :product="$product" />
+            @endforeach
+
 
         </div>
     </section>
@@ -150,9 +155,12 @@
         <!-- Products  -->
         <!-- Product  -->
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-col-5 gap-2 mt-6 mb-[78px]">
-            @for ($i = 1; $i < 6; $i++)
+            {{-- @for ($i = 1; $i < 6; $i++)
                 <livewire:products />
-            @endfor
+            @endfor --}}
+            @foreach ($products->take(5) as $product)
+                <livewire:products :product="$product" />
+            @endforeach
         </div>
     </section>
 
@@ -177,9 +185,12 @@
         <!-- Product  -->
 
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-col-5 gap-2 mt-6 mb-[78px]">
-            @for ($i = 1; $i < 6; $i++)
+            {{-- @for ($i = 1; $i < 6; $i++)
                 <livewire:products />
-            @endfor
+            @endfor --}}
+            @foreach ($products->take(5) as $product)
+                <livewire:products :product="$product" />
+            @endforeach
         </div>
 
         <div class='flex justify-end translate-x-[50px] translate-y-[-425px]'>
@@ -209,9 +220,12 @@
 
         <!-- Product  -->
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-col-5 gap-2 mt-6 mb-[78px]">
-            @for ($i = 1; $i < 11; $i++)
+            {{-- @for ($i = 1; $i < 11; $i++)
                 <livewire:products />
-            @endfor
+            @endfor --}}
+            @foreach ($products->take(5) as $product)
+                <livewire:products :product="$product" />
+            @endforeach
         </div>
 
         <!-- See more button  -->
@@ -585,4 +599,3 @@
         </div>
     </section>
 </div>
-

@@ -17,23 +17,29 @@
                     </button>
                 </a>
             </div>
-
+        <form wire:submit='login'>
             <div class="border-[2px] border-[#380D37] rounded-[4px] left-[70px] pt-[33px] pb-[20px] pl-[65px] pr-[50px]">
                 <div class="mb-[15px]">
-                    <input
+                    <input wire:model.blur='email'
                         class="italic rounded-[5px] bg-[#F2F2F2] py-[12px] pl-[20px] pr-[180px] font-[jost] font-[500]"
                         type="email" placeholder="Enter Your Email Address">
+                         @error('email')
+                            <span class="text-[red] text-[12px]">{{ $message }}</span>
+                        @enderror
                 </div>
                 <div class="mb-[20px]">
-                    <input
+                    <input wire:model.blur='password'
                         class="italic rounded-[5px] bg-[#F2F2F2] py-[12px] pl-[20px] pr-[180px] font-[jost] font-[500]"
                         type="password" placeholder="Password">
+                        @error('password')
+                            <span class="text-[red] text-[12px]">{{ $message }}</span>
+                        @enderror
                 </div>
 
                 <div class="flex justify-between my-[15px]">
                     <div class="flex gap-[10px] text-[#000] text-[14px] font-[jost] font-[600]">
-                        <input type="checkbox">
-                        <label for="#">Remember Me</label>
+                        <input type="checkbox" id="remember">
+                        <label for="remember">Remember Me</label>
                     </div>
                     <div class="text-[#DC275C] text-[14px] font-[jost] font-[600]"><a
                             href="{{ route('user.fp') }}">Forgot
@@ -41,14 +47,36 @@
                 </div>
 
 
-
-
+                @if ($check_msg)
+                <span class="text-[red] text-[16px]">{{$check_msg}}</span>
+                @endif
+                @if ($success_msg)
+                <span class="text-[green] text-[16px]">{{$check_msg}}
+                    <div
+                    class="inline-block h-8 w-8 animate-[spinner-grow_0.75s_linear_infinite] rounded-full bg-current align-[-0.125em] text-secondary opacity-0 motion-reduce:animate-[spinner-grow_1.5s_linear_infinite]"
+                    role="status">
+                    <span
+                        class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
+                        >Loading...</span
+                    >
+                    </div>
+                </span>
+                @endif
                 <div class="my-[20px]">
-                    <button
-                        class="font-[jost] font-[500] text-[18px] text-[#fff] bg-gradient-to-r from-[#380D37] to-[#DC275C] py-[12px] px-[161px] rounded-[5px]">Log
-                        in</button>
+                     <button
+                        class="font-[jost] font-[500] text-[16px] text-[#f2f2f2] bg-gradient-to-r from-[#380D37] to-[#DC275C] py-[12px] w-full rounded-[5px] flex justify-center items-center">
+                        <div wire:loading
+                            class="inline-block h-6 w-6 mr-2 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-success motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                            role="status">
+                            <span
+                                class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...
+                            </span>
+                        </div>
+                        Login
+                    </button>
                 </div>
             </div>
+            </form>
         </div>
         <!--Sign in button-->
     </div>
