@@ -4,7 +4,7 @@
       <div class="bg-white rounded-lg">
           <a href="{{route('product.details')}}">
             <img class="object-center"
-              src="https://img.ep-cdn.com/i/500/500/al/altgyfzwibuorcempdvx/lenovo-ideapad-1-15amn7-cloud-grey-full-hd-ryzen-3-7320u-8gb-512gb-ssd-82vg0070ya-laptop-cene.jpg"
+              src="/storage/product/large-size-laptop.jpg"
               alt="">
             </a>
           <div>
@@ -32,7 +32,8 @@
               </div>
                  <div class=' w-[364px] mx-auto px-[5px]'>
                   <div class='flex justify-around mt-[10px] border-t-[#3535354D] border-t-[2px] border-b-[#3535354D] border-b-[2px] py-[10px] px-[5px] gap-[10px]'>
-                     <div class='items-center flex'><img class="w-[80px] h-[px]" src="https://img.ep-cdn.com/i/500/500/al/altgyfzwibuorcempdvx/lenovo-ideapad-1-15amn7-cloud-grey-full-hd-ryzen-3-7320u-8gb-512gb-ssd-82vg0070ya-laptop-cene.jpg"
+                     <div class='items-center flex'><img class="w-[80px] h-[px]"
+                      src="/storage/product/large-size-laptop.jpg"
                      alt=""></div>
                      <div>
                          <div>
