@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\BannerController;
@@ -257,3 +258,7 @@ Route::get('/edit-profile', EditProfile::class)->name('ep');
 Route::get('/change-password', ChangePassword::class)->name('cp');
 Route::get('/wishlist', Wishlist::class)->name('wishlist');
 Route::get('/address', Address::class)->name('address');
+
+Route::middleware('auth')->group(function(){
+    Route::post('/cart-sotre',[AjaxController::class,'cartStore'])->name('cart.store');
+});

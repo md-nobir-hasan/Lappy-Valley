@@ -4,8 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Cart;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 class Product extends Model
 {
+    use HasFactory;
+
     protected $fillable=['title','slug','summary','description','cat_id','child_cat_id','price','brand_id','discount','status','photo','size','stock','is_featured','condition'];
 
     public function cat_info(){

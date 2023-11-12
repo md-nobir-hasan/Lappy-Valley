@@ -36,6 +36,7 @@
         </script>
         <!------- Header Section -->
             @livewire('header')
+            @livewire('cart')
         <!-------header-section-end----->
 
         <!--------- Nav Section -->
@@ -45,8 +46,21 @@
         {{ $slot }}
 
          @livewire('footer')
-
+<script>
+    $(document).ready(function(){
+        // $('#side_cart').hide();
+        $('#side_cart_close').on('click',function(){
+               $('#side_cart').hide(500);
+        });
+        $('.add-to-cart').on('click',function(){
+            let index = $(this).index('.add-to-cart');
+            console.log(index);
+             $('#side_cart').show(500);
+        })
+    })
+</script>
         {{-- <script type="text/javascript" src="/dist/tailwind-umd.min.js"></script> --}}
         {{$script ?? ''}}
+
     </body>
 </html>
