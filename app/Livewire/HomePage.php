@@ -9,6 +9,7 @@ use Livewire\Component;
 #[Title('Home')]
 class HomePage extends Component
 {
+
     public function render()
     {
         $n['products'] = Product::get();
