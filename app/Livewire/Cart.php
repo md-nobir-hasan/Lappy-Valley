@@ -10,7 +10,10 @@ class Cart extends Component
 {
     public $carts;
     public function mount(){
-        $this->carts = ModelsCart::with(['product'])->where('user_id',Auth::user()->id)->get();
+        $user = Auth::user();
+        if($user){
+            $this->carts = ModelsCart::with(['product'])->where('user_id',$user->id)->get();
+        }
     }
     public function render()
     {
