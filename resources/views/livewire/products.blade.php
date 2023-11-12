@@ -2,7 +2,8 @@
     <div class="bg-white rounded-lg">
         <a href="{{ route('product.details') }}">
             <img class="object-center"
-                src="https://img.ep-cdn.com/i/500/500/al/altgyfzwibuorcempdvx/lenovo-ideapad-1-15amn7-cloud-grey-full-hd-ryzen-3-7320u-8gb-512gb-ssd-82vg0070ya-laptop-cene.jpg"
+
+                src="/storage/product/large-size-laptop.jpg"
                 alt="">
         </a>
 

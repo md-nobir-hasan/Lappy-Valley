@@ -111,10 +111,10 @@
         </div>
         <div class="pt-[60px]">
             <button
-                class=" w-[241px] h-[48px] items-center text-center rounded-[4px] bg-[#F2F2F2] focus:bg-[#764A87] text-[#380D37] focus:text-[#F2F2F2] font-[500] text-[20px] font-[jost]">DUBAI</button>
+                class=" w-[241px] h-[48px] items-center text-center rounded-[4px] bg-[#F2F2F2] focus:bg-[#380D37] text-[#380D37] focus:text-[#F2F2F2] font-[500] text-[20px] font-[jost]">USA</button>
             <button
-                class="w-[241px] h-[48px] items-center text-center rounded-[4px] focus:bg-[#764A87] focus:text-[#F2F2F2] bg-[#F2F2F2] text-[#380D37] font-[500] text-[20px] font-[jost]">UK</button>
-            <div class="h-[2px] bg-[#764A87] rouned-[2px]"></div>
+                class="w-[241px] h-[48px] items-center text-center rounded-[4px] focus:bg-[#380D37] focus:text-[#F2F2F2] bg-[#F2F2F2] text-[#380D37] font-[500] text-[20px] font-[jost]">ASIAN</button>
+            <div class="h-[2px] bg-[#380D37] rouned-[2px]"></div>
         </div>
 
         <!-- Product  -->
@@ -132,7 +132,7 @@
     <section>
         <!-- heading -->
         <div
-            class=" h-[130px] flex justify-center items-center text-white bg-gradient-to-r from-[#DC275C] to-[#764A87]">
+            class=" h-[130px] flex justify-center items-center text-white bg-gradient-to-r from-[#380D37] to-[#DC275C]">
             <h1 class="text-[40px] text-[#f2f2f2] font-[jost] font-[500] text-center">New Arrival</h1>
         </div>
 
@@ -142,7 +142,7 @@
                 <p class="leading-[75.14px]"> Our newest</br>products are</br>here,just for you!</p>
                 <div class='text-center'>
                     <button
-                        class="mt-[60px] py-2 px-6 font-[jost] font-[500] text-[16px] text-[#F2F2F2] rounded-[4px] bg-gradient-to-r from-[#764A87] to-[#DC275C]">
+                        class="mt-[60px] py-2 px-6 font-[jost] font-[500] text-[16px] text-[#F2F2F2] rounded-[4px] bg-gradient-to-r from-[#380D37] to-[#DC275C]">
                         Visit Now!
                     </button>
                 </div>
@@ -166,7 +166,7 @@
 
     <!-- Feature Laptop  -->
     <section>
-        <div class='flex justify-start translate-x-[-50px] translate-y-[300px]'>
+        <div class='flex justify-start translate-x-[-50px] translate-y-[480px]'>
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="36" viewBox="0 0 23 40" fill="none">
                 <path d="M21 2L3 20L21 38" stroke="#999999" stroke-opacity="50%" stroke-width="3" />
             </svg>
@@ -177,10 +177,10 @@
         </div>
         <div class="pt-[60px]">
             <button
-                class="w-[241px] h-[48px] items-center text-center rounded-[4px] bg-[#F2F2F2] text-[#380D37] focus:bg-[#764A87] focus:text-white font-[500] text-[20px] font-[jost]">DUBAI</button>
+                class="w-[241px] h-[48px] items-center text-center rounded-[4px] bg-[#F2F2F2] text-[#380D37] focus:bg-[#380D37] focus:text-white font-[500] text-[20px] font-[jost]">USA</button>
             <button
-                class="w-[241px] h-[48px] items-center text-center rounded-[4px] bg-[#F2F2F2] text-[#380D37] focus:bg-[#764A87] focus:text-white font-[500] text-[20px] font-[jost]">UK</button>
-            <div class="container h-[2px] bg-[#764A87]"></div>
+                class="w-[241px] h-[48px] items-center text-center rounded-[4px] bg-[#F2F2F2] text-[#380D37] focus:bg-[#380D37] focus:text-white font-[500] text-[20px] font-[jost]">Asian</button>
+            <div class="container h-[2px] bg-[#380D37]"></div>
         </div>
         <!-- Product  -->
 
@@ -193,7 +193,7 @@
             @endforeach
         </div>
 
-        <div class='flex justify-end translate-x-[50px] translate-y-[-425px]'>
+        <div class='flex justify-end translate-x-[50px] translate-y-[-245px]'>
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="36" viewBox="0 0 23 40" fill="none">
                 <path d="M2 2L20 20L2 38" stroke="#999999" stroke-opacity="50%" stroke-width="3" />
             </svg>
@@ -201,7 +201,7 @@
     </section>
 
     <div class='mt-[15px] mb-[30px]'>
-        <div class="container h-[2px] bg-[#764A87]"></div>
+        <div class="container h-[2px] bg-[#380D37]"></div>
     </div>
     <!-- Differential products  -->
     <!-- Feature Laptop  -->
@@ -212,10 +212,10 @@
         </div>
         <div class="pt-[60px]">
             <button
-                class="w-[241px] h-[48px] items-center text-center rounded-[4px] bg-[#F2F2F2] text-[#380D37] focus:bg-[#764A87] focus:text-white font-[500] text-[20px] font-[jost]">DUBAI</button>
+                class="w-[241px] h-[48px] items-center text-center rounded-[4px] bg-[#F2F2F2] text-[#380D37] focus:bg-[#380D37] focus:text-white font-[500] text-[20px] font-[jost]">USA</button>
             <button
-                class="w-[241px] h-[48px] items-center text-center rounded-[4px] bg-[#F2F2F2] text-[#380D37] focus:bg-[#764A87] focus:text-white font-[500] text-[20px] font-[jost]">UK</button>
-            <div class="container h-[2px] bg-[#764A87]"></div>
+                class="w-[241px] h-[48px] items-center text-center rounded-[4px] bg-[#F2F2F2] text-[#380D37] focus:bg-[#380D37] focus:text-white font-[500] text-[20px] font-[jost]">Asian</button>
+            <div class="container h-[2px] bg-[#380D37]"></div>
         </div>
 
         <!-- Product  -->
@@ -233,10 +233,10 @@
     </section>
     <div>
         <button
-            class=" items-center justify-center flex my-[60px] mx-auto text-[16px] text-[#F2F4F8] w-[116px] h-[44px] rounded-[4px] bg-gradient-to-r from-[#764A87] to-[#DC275C]">
+            class=" items-center justify-center flex my-[60px] mx-auto text-[16px] text-[#F2F4F8] w-[116px] h-[44px] rounded-[4px] bg-gradient-to-r from-[#380D37] to-[#DC275C]">
             <a href="">See More</a>
         </button>
-        <div class="container h-[2px] bg-[#764A87]"></div>
+        <div class="container h-[2px] bg-[#380D37]"></div>
     </div>
 
     <!-- Currention code from this line upto footer  -->
@@ -261,7 +261,7 @@
                 <h2
                     class=" mt-[25px] mb-[10px] text-[#DC275C] font-[jost] text-[24px] font-[500] leading-[35px] text-center ">
                     Wide Varieties</h2>
-                <p class="font-[jost] text-[14px] font-[500] leading-[20px] text-left text-[#764A87]">We have a
+                <p class="font-[jost] text-[14px] font-[500] leading-[20px] text-left text-[#380D37]">We have a
                     wide collection of laptops from different brands. We have brand new and pre-ownedlaptops in our
                     collection.</p>
             </div>
@@ -270,7 +270,7 @@
                 <h2
                     class=" mt-[25px] mb-[10px] text-[#DC275C] font-[jost] text-[24px]  font-[500] leading-[35px] text-center ">
                     Trusted and Reliable</h2>
-                <p class="font-[jost] text-[14px] font-[500] leading-[20px] text-left text-[#764A87]">We are
+                <p class="font-[jost] text-[14px] font-[500] leading-[20px] text-left text-[#380D37]">We are
                     trusted and reliable shop. We provide you with the best services and good quality products.</p>
             </div>
 
@@ -279,7 +279,7 @@
                 <h2
                     class=" mt-[25px] mb-[10px] text-[#DC275C] font-[jost] text-[24px] font-[500] leading-[35px] text-center ">
                     Best Service</h2>
-                <p class="  font-[jost] text-[14px] font-[500] leading-[20px] text-left text-[#764A87]">We provide
+                <p class="  font-[jost] text-[14px] font-[500] leading-[20px] text-left text-[#380D37]">We provide
                     you with the best after sell services. Any problem, you take it to us and we will solve it.</p>
             </div>
             <div class=" rounded-[4px] shadow-[2px_2px_5px_2px_#0000001A] p-3">
@@ -287,7 +287,7 @@
                 <h2
                     class=" mt-[25px] mb-[10px] text-[#DC275C] font-[jost] text-[24px] font-[500] leading-[35px] text-center ">
                     Best Price in Market</h2>
-                <p class="font-[jost] text-[14px] font-[500] leading-[20px] text-left text-[#764A87]">We will give
+                <p class="font-[jost] text-[14px] font-[500] leading-[20px] text-left text-[#380D37]">We will give
                     you the best and lowest possible price in market.</p>
             </div>
             <div class=" rounded-[4px] shadow-[2px_2px_5px_2px_#0000001A] p-3 h-[309px]">
@@ -295,7 +295,7 @@
                 <h2
                     class=" mt-[25px] mb-[10px] text-[#DC275C] font-[jost] text-[24px] font-[500] leading-[35px] text-center ">
                     Fast Delivary</h2>
-                <p class="font-[jost] text-[14px] font-[500] leading-[20px] text-left text-[#764A87]">We deliver
+                <p class="font-[jost] text-[14px] font-[500] leading-[20px] text-left text-[#380D37]">We deliver
                     our products carefully as fast as possible at your door step.</p>
             </div>
     </section>
@@ -310,7 +310,7 @@
         </div>
         <div>
             <p class="font-[jost] text-[16px] text-[#353535] font-[500]">Brand New and used Laptop import from
-                DUBAI, Dubai & Japan. MacBook, HP,ASUS, Dell, Lenovo, MSI, Acer, Microsoft
+                USA, USA & Japan. MacBook, HP,ASUS, Dell, Lenovo, MSI, Acer, Microsoft
                 Surface, Toshiba, Razer Blade & Samsung laptop are available in different models with a very
                 competitive market price.</p>
         </div>
@@ -389,7 +389,7 @@
                     Suspendisse sed magnaeget nibh in turpis. Consequat duis diam lacus arcu. Faucibus venenatis
                     felis id augue
                     sit cursus pellentesqueenim arcu.Elementum felis magna pretium in tincidunt.
-                    Suspendisse sed magna eget nibh in turpis. Consequat duis diam lacDUBAIrcu.</p>
+                    Suspendisse sed magna eget nibh in turpis. Consequat duis diam lacUSArcu.</p>
             </div>
             <div
                 class="rounded-[12px] bg-[#fff] py-4 px-6 w-[398px] h-[398px] items-center  shadow-[2px_2px_5px_2px_#0000001A]">
@@ -455,7 +455,7 @@
                     Suspendisse sed magnaeget nibh in turpis. Consequat duis diam lacus arcu. Faucibus venenatis
                     felis id augue
                     sit cursus pellentesqueenim arcu.Elementum felis magna pretium in tincidunt.
-                    Suspendisse sed magna eget nibh in turpis. Consequat duis diam lacDUBAIrcu.</p>
+                    Suspendisse sed magna eget nibh in turpis. Consequat duis diam lacUSArcu.</p>
             </div>
 
             <div class="rounded-[12px] py-4 px-6 bg-[#fff] w-[280px] h-[306px] shadow-[2px_2px_5px_2px_#0000001A]">
@@ -521,7 +521,7 @@
                     Suspendisse sed magnaeget nibh in turpis. Consequat duis diam lacus arcu. Faucibus venenatis
                     felis id augue
                     sit cursus pellentesqueenim arcu.Elementum felis magna pretium in tincidunt.
-                    Suspendisse sed magna eget nibh in turpis. Consequat duis diam lacDUBAIrcu.</p>
+                    Suspendisse sed magna eget nibh in turpis. Consequat duis diam lacUSArcu.</p>
             </div>
         </div>
         <div class=" mx-auto w-[177px] h-[17px] flex justify-around pt-[40px] items-center gap-8 my-[30px] ">
@@ -551,7 +551,7 @@
                 </svg>
             </div>
         </div>
-        <div class="mt-16 h-[2px] bg-[#764A87]"></div>
+        <div class="mt-16 h-[2px] bg-[#380D37]"></div>
     </section>
 
     <!-- Drop/submit a review  -->
@@ -591,7 +591,7 @@
                 </div>
                 <div class="items-center">
                     <button
-                        class="text-[#F2F2F2] text-[16px] h-[44px] w-[116px] rounded-[4px] font-[500] font-[jost] mt-[15px] pt-[5px] pr-[30px] pl-[30px] pb-[5px] bg-gradient-to-r from-[#764A87] to-[#DC275C] "
+                        class="text-[#F2F2F2] text-[16px] h-[44px] w-[116px] rounded-[4px] font-[500] font-[jost] mt-[15px] pt-[5px] pr-[30px] pl-[30px] pb-[5px] bg-gradient-to-r from-[#380D37] to-[#DC275C] "
                         type="submit">Post
                     </button>
                 </div>
