@@ -113,6 +113,13 @@
             })
         })
     </script>
+
+    {{-- Global function  --}}
+    <script>
+        function mFormat(money) {
+            return Number(money).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,");
+        }
+    </script>
     {{-- <script type="text/javascript" src="/dist/tailwind-umd.min.js"></script> --}}
     {{ $script ?? '' }}
 
