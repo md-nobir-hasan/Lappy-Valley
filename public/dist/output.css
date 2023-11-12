@@ -1422,6 +1422,10 @@ input[type="range"]:active::-webkit-slider-thumb {
   margin-top: 7px;
 }
 
+.mb-\[100px\] {
+  margin-bottom: 100px;
+}
+
 .box-border {
   box-sizing: border-box;
 }
@@ -1814,6 +1818,10 @@ input[type="range"]:active::-webkit-slider-thumb {
   height: 20.88px;
 }
 
+.h-\[41px\] {
+  height: 41px;
+}
+
 .max-h-\[calc\(100\%-64px\)\] {
   max-height: calc(100% - 64px);
 }
@@ -2160,6 +2168,14 @@ input[type="range"]:active::-webkit-slider-thumb {
 
 .w-\[22\.3px\] {
   width: 22.3px;
+}
+
+.w-\[133px\] {
+  width: 133px;
+}
+
+.w-\[48px\] {
+  width: 48px;
 }
 
 .min-w-0 {
