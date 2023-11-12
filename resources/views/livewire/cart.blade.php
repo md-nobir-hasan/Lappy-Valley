@@ -45,8 +45,7 @@
                                 <span x-text="qty"
                                 class='text-[#380D37] h-[19.231px] w-[40px] border-[#380D37] border-r-[2px]  flex items-center  justify-center'
                                     >
-                                     {{-- <input
-                                    type="number" readonly name="cps[{{$cart->product_id}}][qty]" value="1"> --}}
+
                                 </span>
                                 <span x-on:click="plus"
                                     class='text-[#380D37] h-[19.231px] pr-[5px] flex items-center cursor-pointer text-center'>+</span>
@@ -54,8 +53,7 @@
                             <div>
                                 <p class='text-[#353535] text-[16px] font-[jost] font-[500] text-center'>
                                     <span x-text="qty"></span> x <span class='text-[#DC275C]' x-text="mFormat(Number(price))"></span>
-                                    {{-- (Number(price)).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') --}}
-                                    {{-- (new Intl.NumberFormat('BD',{style:'currency',currency:'BDT'})).format(245390) --}}
+                                   
                                         TAKA
                                 </p>
 
