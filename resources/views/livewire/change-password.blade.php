@@ -47,15 +47,15 @@
         <div>
         <div class='my-[15px]'>
         <label for="address" class='text-[16px] text-[#353535] font-[jost] font-[500] leading-[23.12px] tracking-[3%] block my-[5px]'>Old Password:</label>
-            <input type="email" placeholder='Old Password' class='w-[344px] h-[44px] bg-[#F2F2F2] block italic px-[10px] rounded-[4px]'>
+            <input type="text" placeholder='Old Password' class='w-[344px] h-[44px] bg-[#F2F2F2] block italic px-[10px] rounded-[4px]'>
         </div>
         <div class='my-[15px]'>
         <label for="address" class='text-[16px] text-[#353535] font-[jost] font-[500] leading-[23.12px] tracking-[3%] block my-[5px]'>New Password:</label>
-            <input type="email" placeholder='New Password' class='w-[344px] h-[44px] bg-[#F2F2F2] blcok italic px-[10px] rounded-[4px]'>
+            <input type="text" placeholder='New Password' class='w-[344px] h-[44px] bg-[#F2F2F2] blcok italic px-[10px] rounded-[4px]'>
             </div>
         <div class='my-[15px]'>
             <label for="address" class='text-[16px] text-[#353535] font-[jost] font-[500] leading-[23.12px] tracking-[3%] block my-[5px]'>Confirm Password:</label>
-            <input type="email" placeholder='Confirm Password' class='w-[344px] h-[44px] bg-[#F2F2F2] block italic px-[10px] rounded-[4px]'>
+            <input type="text" placeholder='Confirm Password' class='w-[344px] h-[44px] bg-[#F2F2F2] block italic px-[10px] rounded-[4px]'>
         </div>
         <div class='my-[30px]'>
             <button class='w-[133px] h-[41px] rounded-[4px] text-[#F2F2F2] text-[14px] font-[jost] font-[500] leading-[20.23px] bg-gradient-to-r from-[#380D37] to-[#DC275C]'>Save Changes</button>
