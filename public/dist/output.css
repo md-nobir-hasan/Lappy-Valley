@@ -1852,6 +1852,10 @@ input[type="range"]:active::-webkit-slider-thumb {
   height: 534px;
 }
 
+.h-\[39px\] {
+  height: 39px;
+}
+
 .max-h-\[calc\(100\%-64px\)\] {
   max-height: calc(100% - 64px);
 }
@@ -2230,6 +2234,10 @@ input[type="range"]:active::-webkit-slider-thumb {
 
 .w-\[548px\] {
   width: 548px;
+}
+
+.w-\[78px\] {
+  width: 78px;
 }
 
 .min-w-0 {
@@ -3963,6 +3971,11 @@ input[type="range"]:active::-webkit-slider-thumb {
 .py-\[8px\] {
   padding-top: 8px;
   padding-bottom: 8px;
+}
+
+.px-\[30px\] {
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .pb-0 {

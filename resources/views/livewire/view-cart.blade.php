@@ -28,9 +28,7 @@
             <div
                 class="flex justify-between items-center py-[14px] px-[12px] text-[20px] font-[jost] font-[500] border-b-[#380D37] border-b-[2px]">
                 <div class="flex justify-between items-center gap-[50px]">
-                    <img class="w-[50px]"
-                        src="https://img.ep-cdn.com/i/500/500/al/altgyfzwibuorcempdvx/lenovo-ideapad-1-15amn7-cloud-grey-full-hd-ryzen-3-7320u-8gb-512gb-ssd-82vg0070ya-laptop-cene.jpg"
-                        alt="">
+                <img src="/storage/product/large-size-laptop.jpg" alt="Product" class='w-[48px] h-[48px]'>
                     <h1>Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U</h1>
                 </div>
                 <div class="flex justify-between gap-[128px]">

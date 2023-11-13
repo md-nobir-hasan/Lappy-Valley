@@ -39,7 +39,9 @@
        <div class='h-[2px] bg-[#764A8733]'></div>
 
        <div>
-        <div><h1 class='text-[20px] text-[#000000] font-[Inter] font-[500] leading-24.2px[]'>Wish List:</h1></div>
+        <div class='my-[15px]'>
+            <h1 class='text-[20px] text-[#000000] font-[Inter] font-[500] leading-24.2px[]'>Wish List:</h1>
+        </div>
         <div class='bg-[#380D37] grid grid-cols-2 items-center gap-[50px] px-[20px] py-[15px]'>
 
             <div class='flex gap-[50px]'>
