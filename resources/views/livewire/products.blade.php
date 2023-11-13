@@ -1,7 +1,7 @@
 <div class="shadow-[2px_2px_5px_2px_#0000001A] p-2">
     <div class="bg-white rounded-lg product_div">
         <a href="{{ route('product.details') }}">
-            <img class="object-center pimg" src="/storage/product/large-size-laptop.jpg" alt="">
+            <img class="object-center pimg" src="/storage/{{$product->photo}}" alt="">
         </a>
 
         <div>

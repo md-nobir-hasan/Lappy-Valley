@@ -21,7 +21,7 @@ class ProductFactory extends Factory
             'slug' => "kfdsaie".rand(0,9999),
             'summary' => fake()->paragraph(),
             'description' => fake()->paragraph(2),
-            'photo' => "https://img.ep-cdn.com/i/500/500/al/altgyfzwibuorcempdvx/lenovo-ideapad-1-15amn7-cloud-grey-full-hd-ryzen-3-7320u-8gb-512gb-ssd-82vg0070ya-laptop-cene.jpg",
+            'photo' => "product/large-size-laptop.jpg",
             'status' => 'active',
             'is_featured' => false,
             'price' => rand(12000,500000),

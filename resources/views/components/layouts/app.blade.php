@@ -12,6 +12,7 @@
     {{ $styles ?? '' }}
     <link rel="stylesheet" href="/dist/output.css">
     <link rel="icon" href="/storage/product/Logo.svg" type="img/svg">
+
 </head>
 
 <body>
@@ -51,86 +52,109 @@
 
     {{-- Jquery --}}
     <script>
-        $(document).ready(function(){
-            const sc =  $('#side_cart');
+        $(document).ready(function() {
+            const sc = $('#side_cart');
             // sc.hide();
 
             //close side cart
-            $('#side_cart_close').on('click',function(){
-                   sc.hide(500);
+            $('#side_cart_close').on('click', function() {
+                sc.hide(500);
             });
-
+            let cart_product_no = $('.cart-product').length - 1;
+console.log(cart_product_no);
             //open cart by clicking on add to cart
-            $('.add-to-cart').on('click',function(){
+            $('.add-to-cart').on('click', function() {
+                cart_product_no += 1;
+                console.log(cart_product_no);
                 let index = $(this).index('.add-to-cart');
-                $('#cart_count').text( Number($('#cart_count').text()) + 1)
+                $('#cart_count').text(Number($('#cart_count').text()) + 1)
                 const pd = $(`.product_div:eq(${index})`);
                 const ptitle = pd.find('.ptitle').text();
                 const img_path = pd.find('.pimg').prop('src');
                 const pprice = pd.find('.pprice').text();
-                const price = pd.find('.pprice').attr('value');
+                const price = Number(pd.find('.pprice').attr('value'));
                 const p_id = $(this).prop('id');
 
                 const product = `
-                 <div x-data="{ qty: 1,price:'${price}', subtotal:'${price}',
-                         plus() {
-                            const pq = ++this.qty; const stotal = pq*this.price;
-                            total = total - this.subtotal + stotal; this.subtotal = stotal;
-                        }, minus() {
-                           const mq =  --this.qty; const stotal = mq*this.price;
-                           total = total - this.subtotal + stotal; this.subtotal = stotal;
-                        } }"
-                        class='flex justify-around mt-[10px] border-t-[#3535354D] border-t-[2px] border-b-[#3535354D] border-b-[2px] py-[10px] px-[5px] gap-[10px]'>
+                                <div x-data="{ qty: 1,price:'${price}', subtotal:'${price}', cp_show:true,
+                                    mplus() {
+                                        console.log(total,Number(this.price),'I am plus()');
+                                        const pq = ++this.qty; const stotal = pq*this.price;
+                                        total = total - this.subtotal + stotal; this.subtotal = stotal;
+                                    }, minus() {
+                                    const mq =  --this.qty; const stotal = mq*this.price;
+                                    total = total - this.subtotal + stotal; this.subtotal = stotal;
+                                    },addtototal(){
 
-                        <input type="hidden" name="cps[${p_id}][product_id]"
-                            value="${p_id}">
-                        <input type="hidden" name="cps[${p_id}][qty]"
-                            :value="qty">
+                                            total = Number(total) + Number(this.price);
+                                            console.log(total,Number(this.price),'I am addtototal()');
+                                    } }" x-show='cp_show'
+                                    class='cart-product flex justify-around mt-[10px] border-t-[#3535354D] border-t-[2px] border-b-[#3535354D] border-b-[2px] py-[10px] px-[5px] gap-[10px]'>
 
-                        <div class='flex items-center'>
-                            <img class="w-[80px] h-[px]" src="${img_path}"
-                                alt="${ptitle}">
-                        </div>
+                                    <input type="hidden" name="cps[${cart_product_no}][product_id]"
+                                        value="${p_id}">
+                                    <input type="hidden" name="cps[${cart_product_no}][qty]"
+                                        :value="qty">
+                                    <span x-init="addtototal" class='hidden'></span>
+                                    <div class='flex items-center'>
+                                        <img class="w-[80px] h-[px]" src="${img_path}"
+                                            alt="${ptitle}">
+                                    </div>
 
-                        <div>
-                            <div>
-                                <p class='text-[12px] text-[#380D37] font-[jost] font-[500]'>
-                                    ${ptitle}
-                                </p>
-                            </div>
-                            <div
-                                class='border-[#380D37] w-[85px] h-[19.231px] border-[2px] rounded-[4px] my-[10px] flex items-center justify-around'>
-                                <span x-on:click="minus"
-                                    class='text-[#380D37] h-[19.231px] border-[#380D37] border-r-[2px] pr-[5px] flex items-center cursor-pointer  text-center'>-</span>
-                                <span x-text="qty"
-                                class='text-[#380D37] h-[19.231px] w-[40px] border-[#380D37] border-r-[2px]  flex items-center  justify-center'
-                                    >
+                                    <div>
+                                        <div>
+                                            <p class='text-[12px] text-[#380D37] font-[jost] font-[500]'>
+                                                ${ptitle}
+                                            </p>
+                                        </div>
+                                        <div
+                                            class='border-[#380D37] w-[85px] h-[19.231px] border-[2px] rounded-[4px] my-[10px] flex items-center justify-around'>
+                                            <span @click="minus" wire:click="removeQty(${p_id})"
+                                                class='text-[#380D37] h-[19.231px] border-[#380D37] border-r-[2px] pr-[5px] flex items-center cursor-pointer  text-center'>-</span>
+                                            <span x-text="qty"
+                                            class='text-[#380D37] h-[19.231px] w-[40px] border-[#380D37] border-r-[2px]  flex items-center  justify-center'
+                                                >
 
-                                </span>
-                                <span x-on:click="plus"
-                                    class='text-[#380D37] h-[19.231px] pr-[5px] flex items-center cursor-pointer text-center'>+</span>
-                            </div>
-                            <div>
-                                <p class='text-[#353535] text-[16px] font-[jost] font-[500] text-center'>
-                                    <span x-text="qty"></span> x <span class='text-[#DC275C]' x-text="mFormat(Number(price))"></span>
+                                            </span>
+                                            <span @click="mplus" wire:click="addQty(${p_id})"
+                                                class='text-[#380D37] h-[19.231px] pr-[5px] flex items-center cursor-pointer text-center'>+</span>
+                                        </div>
+                                        <div>
+                                            <p class='text-[#353535] text-[16px] font-[jost] font-[500] text-center'>
+                                                <span x-text="qty"></span> x <span class='text-[#DC275C]' x-text="mFormat(Number(price))"></span>
 
-                                        TAKA
-                                </p>
+                                                    TAKA
+                                            </p>
 
-                            </div>
-                        </div>
+                                        </div>
+                                    </div>
 
-                        <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                        </div>
-                    </div>`;
+                                    <div>
+                                        <span  @clik='()=>{
+                                            $wire.delete(${p_id});
+                                            cp_show = false;
+                                        }'  class="cursor-pointer cart_prd_delete">
+                                            <svg  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                            </svg>
+                                        </span>
+                                    </div>
+                                </div>`;
                 $('#side_cart_body').append(product);
-                 sc.show(500);
+                sc.show(500);
             })
         })
+
+        //delete products of side cart
+        // $('.cart_prd_delete').each(function(index){
+        //     console.log(index);
+        //     // $(this).on('click',function(){
+
+        //     // $(`.cart-product:eq(${index})`).remove();
+        //     // console.log('successfully removed')
+        //     // });
+        // })
     </script>
 
     {{-- Global function  --}}
