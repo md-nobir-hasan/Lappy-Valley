@@ -69,7 +69,7 @@
 
     <!-- Hero Section  -->
     <section class=''>
-        <div class="relative">
+        <div class="relative" x-data="{active:true}">
             <div class="relative slide">
                 <img class="container" src="/storage/product/Hero-Image.svg">
 
@@ -85,17 +85,20 @@
             </div>
 
             <!-- The previous button -->
-            <a class="absolute left-0 top-1/2 p-4 -translate-y-1/2 -translate-x-[42px] text-[40px] text-blue-500 opacity-50 hover:opacity-100 cursor-pointer"
-                onclick="moveSlide(-1)"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="36"
+            <a  class="absolute left-0 top-1/2 p-4 -translate-y-1/2 -translate-x-[42px] text-[40px] text-blue-500 opacity-50 hover:opacity-100 cursor-pointer"
+                onclick="moveSlide(-1)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="36"
                     viewBox="0 0 23 40" fill="none">
-                    <path d="M21 2L3 20L21 38" stroke="#999999" stroke-opacity="0.5" stroke-width="3" />
-                </svg></a>
+                    <path  d="M21 2L3 20L21 38" stroke="#999999" stroke-opacity="1" stroke-width="5" />
+                </svg>
+            </a>
+
 
             <!-- The next button -->
             <a class="absolute right-0 top-1/2 p-4 -translate-y-1/2 translate-x-[42px] text-[40px] text-blue-500 opacity-50 hover:opacity-100 cursor-pointer"
                 onclick="moveSlide(1)"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="36"
                     viewBox="0 0 23 40" fill="none">
-                    <path d="M2 2L20 20L2 38" stroke="#999999" stroke-opacity="0.5" stroke-width="3" />
+                    <path :class="{'text-[black]':active,''}" d="M2 2L20 20L2 38" stroke="#999999" stroke-opacity="0.5" stroke-width="3" />
                 </svg></i></a>
 
         </div>
@@ -103,7 +106,7 @@
     <!-- --------hero--section --end ----  -->
 
 
-    <!-- Feature Laptop  -->
+    <!-- Feature Laptops -->
     <section class='mt-[50px]'>
         <div class="py-1 text-center">
             <h2 class="font-[jost] text-[40px] font-[500]  text-[#353535]">Featurds Laptops </h2>
@@ -120,13 +123,14 @@
         <!-- Product  -->
 
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-col-5 gap-2 mt-6 mb-[78px]">
-            @foreach ($products->take(5) as $product)
+            @foreach ($features->take(5) as $product)
                 <livewire:products :product="$product" />
             @endforeach
 
 
         </div>
     </section>
+
 
     <!-- New arrival  -->
     <section>
@@ -158,13 +162,13 @@
             {{-- @for ($i = 1; $i < 6; $i++)
                 <livewire:products />
             @endfor --}}
-            @foreach ($products->take(5) as $product)
+            @foreach ($new_arrival->take(5) as $product)
                 <livewire:products :product="$product" />
             @endforeach
         </div>
     </section>
 
-    <!-- Feature Laptop  -->
+    <!-- Feature Laptops  -->
     <section>
         <div class='flex justify-start translate-x-[-50px] translate-y-[480px]'>
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="36" viewBox="0 0 23 40" fill="none">
@@ -188,7 +192,7 @@
             {{-- @for ($i = 1; $i < 6; $i++)
                 <livewire:products />
             @endfor --}}
-            @foreach ($products->take(5) as $product)
+            @foreach ($features->take(5) as $product)
                 <livewire:products :product="$product" />
             @endforeach
         </div>
@@ -203,11 +207,12 @@
     <div class='mt-[15px] mb-[30px]'>
         <div class="container h-[2px] bg-[#380D37]"></div>
     </div>
-    <!-- Differential products  -->
-    <!-- Feature Laptop  -->
+
+
+    <!-- Differential Variants  -->
     <section class='mt-[70px]'>
         <div class="py-1 text-center">
-            <h2 class="font-[jost] text-[40px] font-[500] text-[#353535]">Differential Laptops </h2>
+            <h2 class="font-[jost] text-[40px] font-[500] text-[#353535]">Differential Variants </h2>
             <p class="font-[jost] text-[16px] font-[500] text-[#380D37]">The best we offer is here</p>
         </div>
         <div class="pt-[60px]">
@@ -223,7 +228,7 @@
             {{-- @for ($i = 1; $i < 11; $i++)
                 <livewire:products />
             @endfor --}}
-            @foreach ($products->take(5) as $product)
+            @foreach ($dpds->take(5) as $product)
                 <livewire:products :product="$product" />
             @endforeach
         </div>
@@ -231,6 +236,7 @@
         <!-- See more button  -->
 
     </section>
+
     <div>
         <button
             class=" items-center justify-center flex my-[60px] mx-auto text-[16px] text-[#F2F4F8] w-[116px] h-[44px] rounded-[4px] bg-gradient-to-r from-[#380D37] to-[#DC275C]">

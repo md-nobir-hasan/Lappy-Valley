@@ -23,6 +23,7 @@ class ProductFactory extends Factory
             'description' => fake()->paragraph(2),
             'photo' => "product/large-size-laptop.jpg",
             'model' => "15AMN7",
+            'views' => rand(0,20),
             'status' => 'active',
             'is_featured' => false,
             'price' => rand(12000,500000),
