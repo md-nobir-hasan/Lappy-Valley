@@ -74,6 +74,15 @@ console.log(cart_product_no);
                 const pprice = pd.find('.pprice').text();
                 const price = Number(pd.find('.pprice').attr('value'));
                 const p_id = $(this).prop('id');
+                $.ajax({
+                    type: "get",
+                    url: "{{route('addToCart')}}",
+                    data: {pid:p_id},
+                    dataType: "json",
+                    success: function (response) {
+                        console.log(response);
+                    }
+                });
 
                 const product = `
                                 <div x-data="{ qty: 1,price:'${price}', subtotal:'${price}', cp_show:true,
@@ -146,15 +155,6 @@ console.log(cart_product_no);
             })
         })
 
-        //delete products of side cart
-        // $('.cart_prd_delete').each(function(index){
-        //     console.log(index);
-        //     // $(this).on('click',function(){
-
-        //     // $(`.cart-product:eq(${index})`).remove();
-        //     // console.log('successfully removed')
-        //     // });
-        // })
     </script>
 
     {{-- Global function  --}}

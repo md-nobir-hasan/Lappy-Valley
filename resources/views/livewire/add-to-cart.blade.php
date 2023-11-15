@@ -1,6 +1,6 @@
 <span>
-    <span wire:click="addToCart('{{ $id }}')" class="flex items-center justify-center">
-        
+    <span  id="{{$id}}" class="flex items-center justify-center add-to-cart">
+
         {!! $button !!}
     </span>
     {{-- @if ($err_msg)

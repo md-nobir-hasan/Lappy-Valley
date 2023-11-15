@@ -14,7 +14,7 @@
                        >{{ number_format($product->price) }}</span> TK</a>
                 @auth
                     <livewire:add-to-cart :id="$product->id"
-                        button='<p id="{{$product->id}}" class="font-[jost] text-[14px] text-[#380D37] font-[600] leading-[20px] text-left cursor-pointer add-to-cart">Add to Cart</p>' />
+                        button='<p  class="font-[jost] text-[14px] text-[#380D37] font-[600] leading-[20px] text-left cursor-pointer ">Add to Cart</p>' />
                 @else
                     <a href="{{ route('user.login') }}">
                         <p

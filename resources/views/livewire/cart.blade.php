@@ -43,14 +43,14 @@
                             </div>
                             <div
                                 class='border-[#380D37] w-[85px] h-[19.231px] border-[2px] rounded-[4px] my-[10px] flex items-center justify-around'>
-                                <span @click="minus"
+                                <span @click="minus;$wire.removeQty({{$cart->id}})"
                                     class='text-[#380D37] h-[19.231px] border-[#380D37] border-r-[2px] pr-[5px] flex items-center cursor-pointer  text-center'>-</span>
                                 <span x-text="qty"
                                 class='text-[#380D37] h-[19.231px] w-[40px] border-[#380D37] border-r-[2px]  flex items-center  justify-center'
                                     >
 
                                 </span>
-                                <span @click="plus" wire:click="addQty({{$cart->id}})"
+                                <span @click="plus;$wire.addQty({{$cart->id}})"
                                     class='text-[#380D37] h-[19.231px] pr-[5px] flex items-center cursor-pointer text-center'>+</span>
                             </div>
 
@@ -71,7 +71,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                                 </svg>
                             </span>
-                            {{$msg}}
+                            {{-- {{$msg}} --}}
                         </div>
                     </div>
                 @endforeach
