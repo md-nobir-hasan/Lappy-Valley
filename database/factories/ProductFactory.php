@@ -22,10 +22,11 @@ class ProductFactory extends Factory
             'summary' => fake()->paragraph(),
             'description' => fake()->paragraph(2),
             'photo' => "product/large-size-laptop.jpg",
+            'model' => "15AMN7",
             'status' => 'active',
             'is_featured' => false,
             'price' => rand(12000,500000),
-            'discount' => rand(1000,11500),
+            'discount' => rand(0,60),
         ];
     }
 }

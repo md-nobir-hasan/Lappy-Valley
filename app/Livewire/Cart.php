@@ -20,7 +20,18 @@ class Cart extends Component
     public function addQty($id){
         $cart = ModelsCart::with('product')->find($id);
         $qty = $cart->quantity + 1;
-        $price = $cart->product->price * $qty;
+        $price = $cart->price * $qty;
+        // $already_cart->quantity = $already_cart->quantity + 1;
+            // $already_cart->amount = $product->price + $already_cart->amount;
+            // return $already_cart->quantity;
+            // if ($already_cart->product->stock < $already_cart->quantity || $already_cart->product->stock <= 0) return back()->with('error', 'Stock not sufficient!.');
+            // $already_cart->save();// $already_cart->quantity = $already_cart->quantity + 1;
+            // $already_cart->amount = $product->price + $already_cart->amount;
+            // return $already_cart->quantity;
+            if($cart->product->stock != null){
+                if ($cart->product->stock < $cart->quantity || $cart->product->stock <= 0) return $this->msg = 'Not sufficient stock';
+            }
+            // $already_cart->save();
         $cart->update([
             'quantity' => $qty,
             'amount' => $price,
@@ -32,7 +43,7 @@ class Cart extends Component
     public function removeQty($id){
         $cart = ModelsCart::with('product')->find($id);
         $qty = $cart->quantity - 1;
-        $price = $cart->product->price * $qty;
+        $price = $cart->price * $qty;
         $cart->update([
             'quantity' => $qty,
             'amount' => $price,

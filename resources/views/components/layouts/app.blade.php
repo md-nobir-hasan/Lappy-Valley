@@ -54,7 +54,7 @@
     <script>
         $(document).ready(function() {
             const sc = $('#side_cart');
-            // sc.hide();
+            sc.hide();
 
             //close side cart
             $('#side_cart_close').on('click', function() {
@@ -72,40 +72,43 @@
                 // const img_path = pd.find('.pimg').prop('src');
                 // const pprice = pd.find('.pprice').text();
                 // const price = Number(pd.find('.pprice').attr('value'));
-                // const p_id = $(this).prop('id');
+                const p_id = $(this).prop('id');
                 $.ajax({
                     type: "get",
                     url: "{{route('add_to_cart')}}",
                     data: {pid:p_id},
                     dataType: "json",
                     success: function (response) {
-                        if(response==2){
-                            toastr.error("Can't add to cart");
-                        }else if(response == 3){
-                            toastr.error('This product is out of stock')
+                        sc.show(500);
+                        if(response.msg){
+                            toastr.error(response.msg);
                         }else{
+                            console.log(response);
                             const product = `
-                                <div x-data="{ qty: 1,price:'${response.product.price}', subtotal:'${response.product.price}', cp_show:true,
+                                <div x-data="{ qty: 1,price:'${response.price}', subtotal:'${response.amount}', cp_show:true,
                                     mplus() {
                                         const pq = ++this.qty; const stotal = pq*this.price;
                                         total = total - this.subtotal + stotal; this.subtotal = stotal;
                                     }, minus() {
-                                    const mq =  --this.qty; const stotal = mq*this.price;
-                                    total = total - this.subtotal + stotal; this.subtotal = stotal;
+                                        const mq =  --this.qty; const stotal = mq*this.price;
+                                        total = total - this.subtotal + stotal; this.subtotal = stotal;
                                     },addtototal(){
-
-                                            total = Number(total) + Number(this.price);
-                                            console.log(total,Number(this.price),'I am addtototal()');
+                                        total = Number(total) + Number(this.price);
+                                        console.log(total,Number(this.price),'I am addtototal()');
+                                    },removeProd(){
+                                        $wire.delete(${response.id});
+                                        total = total - this.subtotal;
+                                        this.cp_show = false;
                                     } }" x-show='cp_show'
                                     class='cart-product flex justify-around mt-[10px] border-t-[#3535354D] border-t-[2px] border-b-[#3535354D] border-b-[2px] py-[10px] px-[5px] gap-[10px]'>
 
                                     <input type="hidden" name="cps[${cart_product_no}][product_id]"
                                         value="${response.product_id}">
                                     <input type="hidden" name="cps[${cart_product_no}][qty]"
-                                        value="${$response.id}">
+                                        value="${response.id}">
                                     <span x-init="addtototal" class='hidden'></span>
                                     <div class='flex items-center'>
-                                        <img class="w-[80px] h-[px]" src="${response.product.photo}"
+                                        <img class="w-[80px] h-[px]" src="/storage/${response.product.photo}"
                                             alt="${response.product.title}">
                                     </div>
 
@@ -138,10 +141,7 @@
                                     </div>
 
                                     <div>
-                                        <span  @clik='()=>{
-                                            $wire.delete(${response.id});
-                                            cp_show = false;
-                                        }'  class="cursor-pointer cart_prd_delete">
+                                        <span   @click="removeProd"  class="cursor-pointer cart_prd_delete">
                                             <svg  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                                 stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -151,7 +151,7 @@
                                 </div>`;
 
                             $('#side_cart_body').append(product);
-                            sc.show(500);
+
                         }
                     }
                 });
