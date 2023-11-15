@@ -258,6 +258,8 @@ Route::get('/edit-profile', EditProfile::class)->name('ep');
 Route::get('/change-password', ChangePassword::class)->name('cp');
 Route::get('/wishlist', Wishlist::class)->name('wishlist');
 Route::get('/address', Address::class)->name('address');
+Route::get('/review', Review::class)->name('review');
+Route::get('/edit-profile', EditProfile::class)->name('edit.profile');
 
 Route::middleware('auth')->group(function(){
     Route::post('/cart-sotre',[AjaxController::class,'cartStore'])->name('cart.store');
