@@ -1,5 +1,5 @@
-<form action="{{ route('checkout') }}" method="POST">
-    @csrf
+{{-- <form action="{{ route('checkout') }}" method="POST">
+    @csrf --}}
     <!-- ----------cart----- -->
     <div id="side_cart" x-data="{total:'{{$carts?->sum('amount')}}'}" class="w-[400px] h-[792px] gap-20 bg-[#F2F2F2] right-0 top-0 fixed z-[9999] overflow-y-scroll">
         {{-- cart header (cart icon and close button) --}}
@@ -12,7 +12,7 @@
         <div class='w-[364px] mx-auto px-[5px]' id="side_cart_body">
             @if ($carts)
                 @foreach ($carts as $cart)
-                    <div  x-data="{ qty: {{$cart->quantity}},price:'{{$cart->product->price}}', subtotal:'{{$cart->amount}}', cp_show:true,
+                    <div  x-data="{ qty: {{$cart->quantity}},price:'{{$cart->price}}', subtotal:'{{$cart->amount}}', cp_show:true,
                          plus() {
                             const pq = ++this.qty; const stotal = pq*this.price;
                             total = total - this.subtotal + stotal; this.subtotal = stotal;
@@ -20,7 +20,11 @@
                            const mq =  --this.qty; const stotal = mq*this.price;
                            total = total - this.subtotal + stotal; this.subtotal = stotal;
 
-                        } }" x-show='cp_show'
+                        },removeProd(){
+                            $wire.delete('{{$cart->id}}');
+                            total = total - this.subtotal;
+                            this.cp_show = false;
+                        }}" x-show='cp_show'
                         class='cart-product flex justify-around mt-[10px] border-t-[#3535354D] border-t-[2px] border-b-[#3535354D] border-b-[2px] py-[10px] px-[5px] gap-[10px]'>
 
                         <input type="hidden" name="cps[{{ $loop->index }}][product_id]"
@@ -65,7 +69,7 @@
                         </div>
 
                         <div>
-                            <span @click="$wire.delete({{$cart->id}}); cp_show = false;"  class="cursor-pointer cart_prd_delete">
+                            <span @click="removeProd"  class="cursor-pointer cart_prd_delete">
                                 <svg  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -89,15 +93,22 @@
                 </ul>
             </div>
             <div class='items-center flex justify-center w-[364px] my-[30px]'>
-                <button
-                    class='w-[364px]  border-[1px] border-[#380D37] rounded-[4px] px-[50px] py-[10px] text-[#380D37] text-[20px] font-[jost] font-[500]'>View
-                    Cart</button>
+              <a href="{{route('vcart')}}" wire:navigate>
+                  <button type="button"
+                        class='w-[364px]  border-[1px] border-[#380D37] rounded-[4px] px-[50px] py-[10px] text-[#380D37] text-[20px] font-[jost] font-[500]'>View
+                        Cart
+                    </button>
+              </a>
             </div>
             <div class='items-center flex justify-center w-[ 364px] my-[30px]'>
-                <button
-                    class='w-[364px] rounded-[4px] items-center px-[50px] py-[10px] text-[#F2F2F2] bg-gradient-to-r from-[#380D37] to-[#DC275C] text-[20px] font-[jost] font-[500] mb-[54px]'>Checkout</button>
+                <a href="{{route('checkout')}}" wire:navigate>
+                    <button
+                    class='w-[364px] rounded-[4px] items-center px-[50px] py-[10px] text-[#F2F2F2] bg-gradient-to-r from-[#380D37] to-[#DC275C] text-[20px] font-[jost] font-[500] mb-[54px]'>
+                    Checkout
+                </button>
+                </a>
             </div>
         </div>
     </div>
     <!-- -----------------cart----end---- -->
-</form>
+{{-- </form> --}}
