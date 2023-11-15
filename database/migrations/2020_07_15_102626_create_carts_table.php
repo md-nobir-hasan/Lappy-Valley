@@ -19,10 +19,10 @@ class CreateCartsTable extends Migration
             $table->unsignedBigInteger('order_id')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->string('ip')->nullable();
-            $table->float('price')->nullable();
+            $table->unsignedBigInteger('price')->nullable();
             $table->enum('status',['new','progress','delivered','cancel'])->default('new');
             $table->integer('quantity')->nullable();
-            $table->float('amount')->nullable();
+            $table->unsignedBigInteger('amount')->nullable();
             $table->foreign('product_id')->references('id')->on('products')->onDelete('CASCADE');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('CASCADE');
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('SET NULL');

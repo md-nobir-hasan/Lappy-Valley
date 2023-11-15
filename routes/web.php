@@ -263,4 +263,6 @@ Route::get('/edit-profile', EditProfile::class)->name('edit.profile');
 
 Route::middleware('auth')->group(function(){
     Route::post('/cart-sotre',[AjaxController::class,'cartStore'])->name('cart.store');
+    Route::get('/add-to-cart',[AjaxController::class,'addToCart'])->name('add_to_cart');
+    // Route::get('/billing',[AjaxController::class,'addToCart'])->name('add_to_cart');
 });
