@@ -61,33 +61,32 @@
                 sc.hide(500);
             });
             let cart_product_no = $('.cart-product').length - 1;
-console.log(cart_product_no);
+
             //open cart by clicking on add to cart
             $('.add-to-cart').on('click', function() {
                 cart_product_no += 1;
-                console.log(cart_product_no);
-                let index = $(this).index('.add-to-cart');
-                $('#cart_count').text(Number($('#cart_count').text()) + 1)
-                const pd = $(`.product_div:eq(${index})`);
-                const ptitle = pd.find('.ptitle').text();
-                const img_path = pd.find('.pimg').prop('src');
-                const pprice = pd.find('.pprice').text();
-                const price = Number(pd.find('.pprice').attr('value'));
-                const p_id = $(this).prop('id');
+                // let index = $(this).index('.add-to-cart');
+                // $('#cart_count').text(Number($('#cart_count').text()) + 1)
+                // const pd = $(`.product_div:eq(${index})`);
+                // const ptitle = pd.find('.ptitle').text();
+                // const img_path = pd.find('.pimg').prop('src');
+                // const pprice = pd.find('.pprice').text();
+                // const price = Number(pd.find('.pprice').attr('value'));
+                // const p_id = $(this).prop('id');
                 $.ajax({
                     type: "get",
-                    url: "{{route('addToCart')}}",
+                    url: "{{route('add_to_cart')}}",
                     data: {pid:p_id},
                     dataType: "json",
                     success: function (response) {
-                        console.log(response);
-                    }
-                });
-
-                const product = `
-                                <div x-data="{ qty: 1,price:'${price}', subtotal:'${price}', cp_show:true,
+                        if(response==2){
+                            toastr.error("Can't add to cart");
+                        }else if(response == 3){
+                            toastr.error('This product is out of stock')
+                        }else{
+                            const product = `
+                                <div x-data="{ qty: 1,price:'${response.product.price}', subtotal:'${response.product.price}', cp_show:true,
                                     mplus() {
-                                        console.log(total,Number(this.price),'I am plus()');
                                         const pq = ++this.qty; const stotal = pq*this.price;
                                         total = total - this.subtotal + stotal; this.subtotal = stotal;
                                     }, minus() {
@@ -101,31 +100,31 @@ console.log(cart_product_no);
                                     class='cart-product flex justify-around mt-[10px] border-t-[#3535354D] border-t-[2px] border-b-[#3535354D] border-b-[2px] py-[10px] px-[5px] gap-[10px]'>
 
                                     <input type="hidden" name="cps[${cart_product_no}][product_id]"
-                                        value="${p_id}">
+                                        value="${response.product_id}">
                                     <input type="hidden" name="cps[${cart_product_no}][qty]"
-                                        :value="qty">
+                                        value="${$response.id}">
                                     <span x-init="addtototal" class='hidden'></span>
                                     <div class='flex items-center'>
-                                        <img class="w-[80px] h-[px]" src="${img_path}"
-                                            alt="${ptitle}">
+                                        <img class="w-[80px] h-[px]" src="${response.product.photo}"
+                                            alt="${response.product.title}">
                                     </div>
 
                                     <div>
                                         <div>
                                             <p class='text-[12px] text-[#380D37] font-[jost] font-[500]'>
-                                                ${ptitle}
+                                                ${response.product.title}
                                             </p>
                                         </div>
                                         <div
                                             class='border-[#380D37] w-[85px] h-[19.231px] border-[2px] rounded-[4px] my-[10px] flex items-center justify-around'>
-                                            <span @click="minus" wire:click="removeQty(${p_id})"
+                                            <span @click="minus" wire:click="removeQty(${response.id})"
                                                 class='text-[#380D37] h-[19.231px] border-[#380D37] border-r-[2px] pr-[5px] flex items-center cursor-pointer  text-center'>-</span>
                                             <span x-text="qty"
                                             class='text-[#380D37] h-[19.231px] w-[40px] border-[#380D37] border-r-[2px]  flex items-center  justify-center'
                                                 >
 
                                             </span>
-                                            <span @click="mplus" wire:click="addQty(${p_id})"
+                                            <span @click="mplus" wire:click="addQty(${response.id})"
                                                 class='text-[#380D37] h-[19.231px] pr-[5px] flex items-center cursor-pointer text-center'>+</span>
                                         </div>
                                         <div>
@@ -140,7 +139,7 @@ console.log(cart_product_no);
 
                                     <div>
                                         <span  @clik='()=>{
-                                            $wire.delete(${p_id});
+                                            $wire.delete(${response.id});
                                             cp_show = false;
                                         }'  class="cursor-pointer cart_prd_delete">
                                             <svg  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -150,8 +149,14 @@ console.log(cart_product_no);
                                         </span>
                                     </div>
                                 </div>`;
-                $('#side_cart_body').append(product);
-                sc.show(500);
+
+                            $('#side_cart_body').append(product);
+                            sc.show(500);
+                        }
+                    }
+                });
+
+
             })
         })
 
