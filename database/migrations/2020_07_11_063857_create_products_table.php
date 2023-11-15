@@ -20,11 +20,12 @@ class CreateProductsTable extends Migration
             $table->text('summary');
             $table->longText('description')->nullable();
             $table->text('photo');
-            $table->integer('stock')->default(1);
+            $table->string('model');
+            $table->integer('stock')->nullable();
             $table->string('size')->default('M')->nullable();
             $table->enum('condition',['default','new','hot'])->default('default');
             $table->enum('status',['active','inactive'])->default('inactive');
-            $table->float('price');
+            $table->unsignedBigInteger('price');
             $table->float('discount')->nullabale();
             $table->boolean('is_featured')->deault(false);
             $table->unsignedBigInteger('cat_id')->nullable();

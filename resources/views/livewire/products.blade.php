@@ -1,7 +1,7 @@
 <div class="shadow-[2px_2px_5px_2px_#0000001A] p-2">
     <div class="bg-white rounded-lg product_div">
         <a href="{{ route('product.details') }}">
-            <img class="pimg object-center" src="/storage/product/large-size-laptop.jpg" alt="">
+            <img class="object-center pimg" src="/storage/{{$product->photo}}" alt="">
         </a>
 
         <div>
@@ -14,7 +14,7 @@
                        >{{ number_format($product->price) }}</span> TK</a>
                 @auth
                     <livewire:add-to-cart :id="$product->id"
-                        button='<p class="font-[jost] text-[14px] text-[#380D37] font-[600] leading-[20px] text-left cursor-pointer add-to-cart">Add to Cart</p>' />
+                        button='<p  class="font-[jost] text-[14px] text-[#380D37] font-[600] leading-[20px] text-left cursor-pointer ">Add to Cart</p>' />
                 @else
                     <a href="{{ route('user.login') }}">
                         <p
