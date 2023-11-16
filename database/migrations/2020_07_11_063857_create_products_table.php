@@ -22,6 +22,7 @@ class CreateProductsTable extends Migration
             $table->text('photo');
             $table->string('model');
             $table->integer('stock')->nullable();
+            $table->unsignedBigInteger('views')->nullable();
             $table->string('size')->default('M')->nullable();
             $table->enum('condition',['default','new','hot'])->default('default');
             $table->enum('status',['active','inactive'])->default('inactive');

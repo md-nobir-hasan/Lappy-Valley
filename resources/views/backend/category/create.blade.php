@@ -68,7 +68,11 @@
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
-        <div class="form-group mb-3">
+          <div class="form-group">
+          <label for="is_parent">Serial No.</label><br>
+          <input type="checkbox" name='is_parent' id='is_parent' value='1' checked> Yes
+        </div>
+        <div class="mb-3 form-group">
           <button type="reset" class="btn btn-warning">Reset</button>
            <button class="btn btn-success" type="submit">Submit</button>
         </div>
