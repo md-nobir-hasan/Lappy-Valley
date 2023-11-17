@@ -4,15 +4,15 @@
 @endpush
 @section('main-content')
  <!-- DataTales Example -->
- <div class="card shadow mb-4">
+ <div class="mb-4 shadow card">
      <div class="row">
          <div class="col-md-12">
             @include('backend.layouts.notification')
          </div>
      </div>
-    <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary float-left">Category Lists</h6>
-      <a href="{{route('category.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add Category</a>
+    <div class="py-3 card-header">
+      <h6 class="float-left m-0 font-weight-bold text-primary">Category Lists</h6>
+      <a href="{{route('category.create')}}" class="float-right btn btn-primary btn-sm" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add Category</a>
     </div>
     <div class="card-body">
       <div class="table-responsive">
@@ -48,7 +48,7 @@
               @php
               @endphp
                 <tr>
-                    <td>{{$category->id}}</td>
+                    <td>{{$category->serial}}</td>
                     <td>{{$category->title}}</td>
                     <td>{{$category->slug}}</td>
                     <td>{{(($category->is_parent==1)? 'Yes': 'No')}}</td>
@@ -70,7 +70,7 @@
                         @endif
                     </td>
                     <td>
-                        <a href="{{route('category.edit',$category->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
+                        <a href="{{route('category.edit',$category->id)}}" class="float-left mr-1 btn btn-primary btn-sm" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
                     <form method="POST" action="{{route('category.destroy',[$category->id])}}">
                       @csrf
                       @method('delete')

@@ -37,7 +37,7 @@
 
 
       {{-- Home page --}}
-      <li class="mx-1 nav-item dropdown no-arrow">
+      <li class="m-auto mx-1 nav-item dropdown no-arrow">
         {{-- <a class="nav-link dropdown-toggle" href="{{route('home')}}" target="_blank" data-toggle="tooltip" data-placement="bottom" title="home"  role="button"> --}}
           <i class="fas fa-home fa-fw"></i>
         </a>

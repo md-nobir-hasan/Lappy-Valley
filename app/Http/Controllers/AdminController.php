@@ -19,11 +19,12 @@ class AdminController extends Controller
         ->groupBy('day_name','day')
         ->orderBy('day')
         ->get();
-     $array[] = ['Name', 'Number'];
+     $array = ['Name', 'Number'];
      foreach($data as $key => $value)
      {
        $array[++$key] = [$value->day_name, $value->count];
      }
+    //  dd($array,$data);
     //  return $data;
      return view('backend.index')->with('users', json_encode($array));
     }

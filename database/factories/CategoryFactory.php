@@ -21,6 +21,7 @@ class CategoryFactory extends Factory
         return [
            'title' => fake()->word(2),
            'slug' => rand(1,9999),
+           'serial' => rand(1,11),
            'status' => 'active'
         ];
     }
