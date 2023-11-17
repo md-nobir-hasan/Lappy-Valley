@@ -27,6 +27,7 @@ use App\Http\Controllers\ShippingController;
 use App\Http\Controllers\UsersController;
 use App\Livewire\Account;
 use App\Livewire\Address;
+use App\Livewire\CatWiseShop;
 use App\Livewire\ChangePassword;
 use App\Livewire\Checkout;
 use App\Livewire\ConfirmPassword;
@@ -86,6 +87,7 @@ Route::post('password-reset', [FrontendController::class, 'showResetForm'])->nam
 Route::get('login/{provider}/', [LoginController::class, 'redirect'])->name('login.redirect');
 Route::get('login/{provider}/callback/', [LoginController::class, 'Callback'])->name('login.callback');
 
+
 // Frontend Routes
 Route::get('/home', [FrontendController::class, 'index']);
 Route::get('/about-us', [FrontendController::class, 'aboutUs'])->name('about-us');
@@ -96,6 +98,7 @@ Route::post('/product/search', [FrontendController::class, 'productSearch'])->na
 Route::get('/product-cat/{slug}', [FrontendController::class, 'productCat'])->name('product-cat');
 Route::get('/product-sub-cat/{slug}/{sub_slug}', [FrontendController::class, 'productSubCat'])->name('product-sub-cat');
 Route::get('/product-brand/{slug}', [FrontendController::class, 'productBrand'])->name('product-brand');
+
 // Cart section
 Route::get('/add-to-cart/{slug}', [CartController::class, 'addToCart'])->name('add-to-cart')->middleware('user');
 Route::post('/add-to-cart', [CartController::class, 'singleAddToCart'])->name('single-add-to-cart')->middleware('user');
@@ -237,6 +240,7 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
 //=============================================================================================================
 Route::get('/', HomePage::class)->name('home');
 Route::get('/shop', Shop::class)->name('shop');
+Route::get('/category-wise/{slug}', CatWiseShop::class)->name('cate_wise.shop');
 Route::get('/product-details', ProductDeatils::class)->name('product.details');
 Route::get('/checkout', Checkout::class)->name('checkout');
 Route::get('/view-cart', ViewCart::class)->name('vcart');

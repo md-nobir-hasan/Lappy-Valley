@@ -18,9 +18,8 @@ class HomePage extends Component
         $n['new_arrival'] = $pd->whereBetween('created_at',[Carbon::now()->subDays(7),Carbon::now()]);
         $n['features'] = $pd;
         $n['dpds'] = $pd->take(5);
-        $n['menus'] = Category::where('status', 'active')->orderBy('title', 'ASC')->get()->groupBy('parent_id');
-        // dd($n);
-        // dd($n);
+        $n['menus'] = Category::with('child_cat')->where('status', 'active')->where('is_parent', 1)->orderBy('title', 'ASC')->get();
+       
         return view('livewire.home-page',$n);
     }
 }

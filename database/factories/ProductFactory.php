@@ -18,11 +18,12 @@ class ProductFactory extends Factory
     {
         return [
             'title' => "Lenovo IdeaPad 15AMN7 AMD Ryzen 57520U 8-512 GB,Brand New Cloud grey",
-            'slug' => "kfdsaie".rand(0,9999),
+            'slug' => fake()->unique()->uuid(),
             'summary' => fake()->paragraph(),
             'description' => fake()->paragraph(2),
             'photo' => "product/large-size-laptop.jpg",
             'model' => "15AMN7",
+            'cat_id' => rand(1,42),
             'views' => rand(0,20),
             'status' => 'active',
             'is_featured' => false,
