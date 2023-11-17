@@ -2,7 +2,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
 </x-slot>
 <x-slot name='script'>
-
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
     <script>
         // set the default active slide to the first one
@@ -124,7 +123,8 @@
 
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-col-5 gap-2 mt-6 mb-[78px]">
             @foreach ($features->take(5) as $product)
-                <livewire:products :product="$product" />
+            <x-product :product="$product"></x-product>
+                {{-- <livewire:products :product="$product" /> --}}
             @endforeach
 
 
@@ -163,7 +163,7 @@
                 <livewire:products />
             @endfor --}}
             @foreach ($new_arrival->take(5) as $product)
-                <livewire:products :product="$product" />
+                 <x-product :product="$product"></x-product>
             @endforeach
         </div>
     </section>
@@ -193,8 +193,8 @@
                 <livewire:products />
             @endfor --}}
             @foreach ($features->take(5) as $product)
-                <livewire:products :product="$product" />
-            @endforeach
+                <x-product :product="$product"></x-product>
+             @endforeach
         </div>
 
         <div class='flex justify-end translate-x-[50px] translate-y-[-245px]'>
@@ -229,7 +229,7 @@
                 <livewire:products />
             @endfor --}}
             @foreach ($dpds->take(5) as $product)
-                <livewire:products :product="$product" />
+                 <x-product :product="$product"></x-product>
             @endforeach
         </div>
 

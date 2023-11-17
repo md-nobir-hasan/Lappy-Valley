@@ -2,7 +2,7 @@
 
 use App\Models\Category;
 use App\Models\Product;
-use Database\Factories\CategoryFactory;
+use Database\Seeders\CategorySeeder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Seeder;
 
@@ -20,9 +20,10 @@ class DatabaseSeeder extends Seeder
         $this->call(UsersTableSeeder::class);
         $this->call(SettingTableSeeder::class);
         $this->call(CouponSeeder::class);
+        // $this->call(CategorySeeder::class);
 
-        Category::factory()->count(5)->create();
-        Product::factory()->count(10)->create();
+        Category::factory()->count(35)->create();
+        Product::factory()->count(100)->create();
 
     }
 }
