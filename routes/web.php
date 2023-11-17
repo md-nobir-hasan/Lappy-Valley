@@ -253,12 +253,12 @@ Route::get('/offers', Offer::class)->name('offer');
 Route::get('/account', Account::class)->name('account');
 Route::get('/order-confirm', OrderConfirm::class)->name('oc');
 Route::get('/otp-confirm', OtpConfirm::class)->name('otpc');
-Route::get('/product-review', Review::class)->name('review');
+Route::get('/product-review', Review::class)->name('preview');
 Route::get('/edit-profile', EditProfile::class)->name('ep');
 Route::get('/change-password', ChangePassword::class)->name('cp');
 Route::get('/wishlist', Wishlist::class)->name('wishlist');
 Route::get('/address', Address::class)->name('address');
-Route::get('/review', Review::class)->name('review');
+Route::get('/your-review', Review::class)->name('freview');
 Route::get('/edit-profile', EditProfile::class)->name('edit.profile');
 
 Route::middleware('auth')->group(function(){

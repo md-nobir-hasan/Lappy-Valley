@@ -15,7 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $category=Category::getAllCategory();
+        $category=Category::where('status','active')->orderBy('serial','asc')->paginate();
         // return $category;
         return view('backend.category.index')->with('categories',$category);
     }
@@ -27,8 +27,11 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        $parent_cats=Category::where('is_parent',1)->orderBy('title','ASC')->get();
-        return view('backend.category.create')->with('parent_cats',$parent_cats);
+        $category = Category::all();
+        $n['serial'] = $category->count();
+        $n['parent_cats']=Category::where('is_parent',1)->orderBy('title','ASC')->get();
+
+        return view('backend.category.create',$n);
     }
 
     /**
@@ -47,6 +50,7 @@ class CategoryController extends Controller
             'status'=>'required|in:active,inactive',
             'is_parent'=>'sometimes|in:1',
             'parent_id'=>'nullable|exists:categories,id',
+            'serial'=> 'required|numeric',
         ]);
         $data= $request->all();
         $slug=Str::slug($request->title);
@@ -111,6 +115,7 @@ class CategoryController extends Controller
             'status'=>'required|in:active,inactive',
             'is_parent'=>'sometimes|in:1',
             'parent_id'=>'nullable|exists:categories,id',
+            'serial' => 'required|numeric',
         ]);
         $data= $request->all();
         $data['is_parent']=$request->input('is_parent',0);
