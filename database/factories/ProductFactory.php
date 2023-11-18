@@ -21,7 +21,7 @@ class ProductFactory extends Factory
             'slug' => fake()->unique()->uuid(),
             'summary' => fake()->paragraph(),
             'description' => fake()->paragraph(2),
-            'photo' => "product/large-size-laptop.jpg",
+            'photo' => "/storage/product/large-size-laptop.jpg",
             'model' => "15AMN7",
             'cat_id' => rand(1,42),
             'views' => rand(0,20),
