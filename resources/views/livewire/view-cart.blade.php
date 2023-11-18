@@ -10,7 +10,7 @@
              <h1 class="text-[#353535] text-[20px] font-[jost] font-[500]">Shopping Cart</h1>
          </div>
 
-         {{-- <nav class="flex justify-between bg-[#380D37] py-[12px] px-[20px] text-[20px] font-[jost] font-[500]">
+         {{-- <div class="flex justify-between bg-[#380D37] py-[12px] px-[20px] text-[20px] font-[jost] font-[500]">
              <div class="flex justify-between text-[#FFF] gap-[45px]">
                  <h1>Image</h1>
                  <h1>Product Name</h1>
@@ -25,7 +25,7 @@
                      <h1>Total</h1>
                  </div>
              </div>
-         </nav> --}}
+         </d> --}}
          {{-- @forelse ($carts as $cart)
              <div
                  class="flex justify-between items-center py-[14px] px-[12px] text-[20px] font-[jost] font-[500] border-b-[#380D37] border-b-[2px]">
@@ -52,25 +52,25 @@
 
 
          <div class="relative overflow-x-auto">
-             <table class="w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400">
-                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                     <tr>
-                         <th scope="col" class="px-6 py-3">
-                             Image
+             <table class="w-full text-sm text-left text-[#FFFFFF] rtl:text-right bg-[#380D37]">
+                 <thead class="text-xs text-[14px] text-[#FFFFFF]  bg-[#380D37] h-[37px]">
+                     <tr> 
+                         <th scope="col" class=' px-6 py-3'>
+                         Image
                          </th>
-                         <th scope="col" class="px-6 py-3">
+                         <th scope="col"  class=' px-6 py-3'>
                              Product name
                          </th>
-                         <th scope="col" class="px-6 py-3">
+                         <th scope="col"  class=' px-16 py-3'>
                              Model
                          </th>
-                         <th scope="col" class="px-6 py-3">
+                         <th scope="col"  class=' pl-6 pr-[16rem] py-3 '>
                              Quantity
                          </th>
-                         <th scope="col" class="px-6 py-3">
+                         <th scope="col"  class=' px-16 py-3 '>
                              Unit Price
                          </th>
-                         <th scope="col" class="px-6 py-3">
+                         <th scope="col"  class='px-2 py-3'>
                              total
                          </th>
                      </tr>
@@ -84,7 +84,9 @@
                                      width="60px">
                              </td>
                              <td class="px-6 py-4">
-                                 {{ $cart->product->title }}
+                       
+                                 {{ $cart->product->title }} 
+                               
                              </td>
                              <td class="px-6 py-4">
                                  {{ $cart->product->model ?? '15AMN7' }}
@@ -95,7 +97,7 @@
                              <td class="px-6 py-4">
                                  {{ $cart->price }}
                              </td>
-                             <td class="px-6 py-4">
+                             <td class="px-2 py-4">
                                  {{ $cart->amount }}
                              </td>
                          </tr>
@@ -113,13 +115,13 @@
          <tbody>
              <tr class="border-b-[2px] border-b-[#380D37] gap-[80px] flex py-[12px] pl-[50px] justify-end">
                  <td class="text-[20px] text-[#380D37] font-[jost] font-[600]">Sub-Total:</td>
-                 <td class="text-[20px] text-[#DC275C] font-[jost] font-[00]">
+                 <td class="text-[20px] text-[#DC275C] font-[jost] font-[500] pr-[30px]">
                      {{ number_format($cart->sum('amount')) }}৳
                  </td>
              </tr>
              <tr class="border-b-[2px] border-b-[#380D37] gap-[80px] flex py-[12px] pl-[50px] justify-end">
                  <td class="text-[20px] text-[#380D37] font-[jost] font-[600]">Total:</td>
-                 <td class="text-[20px] text-[#DC275C] font-[jost] font-[500]">
+                 <td class="text-[20px] text-[#DC275C] font-[jost] font-[500] pr-[30px]">
                      {{ number_format($cart->sum('amount')) }}৳</td>
              </tr>
          </tbody>

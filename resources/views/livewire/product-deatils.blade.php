@@ -58,7 +58,7 @@
         <div class="my-[15px]">
             <ul class="flex gap-[20px]">
                 <li data-area="specification"
-                    class="bg-[#380D37] text-[20px] text-[#F2F2F2] font-[700] font-[jost] py-[10px] px-6 rounded-[5px]">
+                    class="bg-[#380D37] text-[20px] text-[#F2F2F2] font-[700] font-[jost] py-[10px] px-6 rounded-[5px] w-[822px]">
                     Specification</li>
                 <li data-area="description"
                     class="text-[#380D37] bg-[#F2F2F2] text-[20px] font-[700] font-[jost] py-[10px] px-6 rounded-[5px]">
@@ -80,7 +80,7 @@
 
                         <thead>
                             <tr>
-                                <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] font-[600] pl-[14px] pr-[500px] rounded-[5px]"
+                                <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] font-[600] pl-[14px] pr-[500px] rounded-[5px] w-[822px]"
                                     colspan="3">Processor:</td>
                             </tr>
                         </thead>
@@ -484,7 +484,7 @@
                 </section>
             </div>
             <div>
-                <div class="p-[10px] border-[2px] border-[#380D37] rounded-[3px] w-[300px] h-[650px]">
+                <div class="p-[10px] border-[2px] border-[#380D37] rounded-[3px] w-[301px] h-[650px]">
 
                     <section class="">
                         <div class="p-[10px]">
