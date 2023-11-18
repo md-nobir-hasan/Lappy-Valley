@@ -5,7 +5,7 @@
         </a>
 
         <div>
-            <p  class="ptitle font-[jost] text-[16px] font-[500] leading-[23px] text-left text-[#764A87] ">
+            <p  class="ptitle font-[jost] text-[16px] font-[500] leading-[23px] text-left text-[#380D37] ">
                 {{ $product->title }}
             </p>
             <div class="py-[12px] flex justify-between px-2">
@@ -18,7 +18,7 @@
                 @else
                     <a href="{{ route('user.login') }}">
                         <p
-                            class="font-[jost] text-[14px] text-[#764A87] font-[600] leading-[20px] text-left cursor-pointer">
+                            class="font-[jost] text-[14px] text-[#380D37] font-[600] leading-[20px] text-left cursor-pointer">
                             Add to Cart</p>
                     </a>
                 @endauth

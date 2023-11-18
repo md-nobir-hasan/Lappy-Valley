@@ -3886,6 +3886,46 @@ input[type="range"]:active::-webkit-slider-thumb {
   padding-bottom: 8px;
 }
 
+.px-\[170px\] {
+  padding-left: 170px;
+  padding-right: 170px;
+}
+
+.px-\[17px\] {
+  padding-left: 17px;
+  padding-right: 17px;
+}
+
+.px-\[172px\] {
+  padding-left: 172px;
+  padding-right: 172px;
+}
+
+.px-\[175px\] {
+  padding-left: 175px;
+  padding-right: 175px;
+}
+
+.px-\[180\] {
+  padding-left: 180;
+  padding-right: 180;
+}
+
+.px-\[180px\] {
+  padding-left: 180px;
+  padding-right: 180px;
+}
+
+.px-\[185px\] {
+  padding-left: 185px;
+  padding-right: 185px;
+}
+
+.px-\[190px\] {
+  padding-left: 190px;
+  padding-right: 190px;
+}
+
 .pb-0 {
   padding-bottom: 0px;
 }
