@@ -16,6 +16,13 @@
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
+        <div class="form-group">
+          <label for="model" class="col-form-label">Title <span class="text-danger">*</span></label>
+          <input id="model" type="text" name="model" placeholder="Enter model"  value="{{old('model')}}" class="form-control">
+          @error('model')
+          <span class="text-danger">{{$message}}</span>
+          @enderror
+        </div>
 
         <div class="form-group">
           <label for="summary" class="col-form-label">Summary <span class="text-danger">*</span></label>
@@ -141,7 +148,7 @@
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
-        <div class="form-group mb-3">
+        <div class="mb-3 form-group">
           <button type="reset" class="btn btn-warning">Reset</button>
            <button class="btn btn-success" type="submit">Submit</button>
         </div>

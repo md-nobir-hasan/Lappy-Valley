@@ -1,12 +1,14 @@
 <x-slot name='styles'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
 </x-slot>
+
 <x-slot name='script'>
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
+
     <script>
         // set the default active slide to the first one
         let slideIndex = 0;
-        showSlide(slideIndex);
+        // showSlide(slideIndex);
 
 
         // change slide with the prev/next button
@@ -20,36 +22,24 @@
         }
 
         function showSlide(n) {
-            // console.log(n,slideIndex);
             let i;
             const slides = document.getElementsByClassName("slide");
 
-            if (n > slides.length-1) {
+            if (n > slides.length - 1) {
                 slideIndex = 0
             }
             if (n < 0) {
-                slideIndex = slides.length-1
+                slideIndex = slides.length - 1
             }
 
-
             // const dots = document.getElementsByClassName('dot');
-                // hide all slides
+            // hide all slides
             for (i = 0; i < slides.length; i++) {
                 slides[i].classList.add('hidden');
             }
 
-            // remove active status from all dots
-            // for (i = 0; i < dots.length; i++) {
-            //     dots[i].classList.remove('bg-yellow-500');
-            //     dots[i].classList.add('bg-green-600');
-            // }
-
             // show the active slide
             slides[slideIndex].classList.remove('hidden');
-
-            // // highlight the active dot
-            // dots[slideIndex - 1].classList.remove('bg-green-600');
-            // dots[slideIndex - 1].classList.add('bg-yellow-500');
         }
     </script>
 </x-slot>
@@ -68,27 +58,27 @@
 
     <!-- Hero Section  -->
     <section class=''>
-        <div class="relative" x-data="{active:true}">
+        <div class="relative" x-data="{ active: true }">
             <div class="relative slide">
                 <img class="container" src="/storage/product/Hero-Image.svg">
 
             </div>
 
-            <div class="relative slide">
+            <div class="relative hidden slide">
                 <img class="container" src="/storage/product/Hero-Image.svg">
 
             </div>
 
-            <div class="relative slide">
+            <div class="relative hidden slide">
                 <img class="container" src="/storage/product/Hero-Image.svg">
             </div>
 
             <!-- The previous button -->
-            <a  class="absolute left-0 top-1/2 p-4 -translate-y-1/2 -translate-x-[42px] text-[40px] text-blue-500 opacity-50 hover:opacity-100 cursor-pointer"
+            <a class="absolute left-0 top-1/2 p-4 -translate-y-1/2 -translate-x-[42px] text-[40px] text-blue-500 opacity-50 hover:opacity-100 cursor-pointer"
                 onclick="moveSlide(-1)">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="36"
-                    viewBox="0 0 23 40" fill="none">
-                    <path  d="M21 2L3 20L21 38" stroke="#999999" stroke-opacity="1" stroke-width="5" />
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="36" viewBox="0 0 23 40"
+                    fill="none">
+                    <path d="M21 2L3 20L21 38" stroke="#999999" stroke-opacity="1" stroke-width="5" />
                 </svg>
             </a>
 
@@ -97,13 +87,13 @@
             <a class="absolute right-0 top-1/2 p-4 -translate-y-1/2 translate-x-[42px] text-[40px] text-blue-500 opacity-50 hover:opacity-100 cursor-pointer"
                 onclick="moveSlide(1)"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="36"
                     viewBox="0 0 23 40" fill="none">
-                    <path :class="{'text-[black]':active,''}" d="M2 2L20 20L2 38" stroke="#999999" stroke-opacity="0.5" stroke-width="3" />
+                    <path :class="{ 'text-[black]': active, '' }" d="M2 2L20 20L2 38" stroke="#999999"
+                        stroke-opacity="0.5" stroke-width="3" />
                 </svg></i></a>
 
         </div>
     </section>
     <!-- --------hero--section --end ----  -->
-
 
     <!-- Feature Laptops -->
     <section class='mt-[50px]'>
@@ -123,14 +113,13 @@
 
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-col-5 gap-2 mt-6 mb-[78px]">
             @foreach ($features->take(5) as $product)
-            <x-product :product="$product"></x-product>
+                <x-product :product="$product"></x-product>
                 {{-- <livewire:products :product="$product" /> --}}
             @endforeach
 
 
         </div>
     </section>
-
 
     <!-- New arrival  -->
     <section>
@@ -163,7 +152,7 @@
                 <livewire:products />
             @endfor --}}
             @foreach ($new_arrival->take(5) as $product)
-                 <x-product :product="$product"></x-product>
+                <x-product :product="$product"></x-product>
             @endforeach
         </div>
     </section>
@@ -194,7 +183,7 @@
             @endfor --}}
             @foreach ($features->take(5) as $product)
                 <x-product :product="$product"></x-product>
-             @endforeach
+            @endforeach
         </div>
 
         <div class='flex justify-end translate-x-[50px] translate-y-[-245px]'>
@@ -207,7 +196,6 @@
     <div class='mt-[15px] mb-[30px]'>
         <div class="container h-[2px] bg-[#380D37]"></div>
     </div>
-
 
     <!-- Differential Variants  -->
     <section class='mt-[70px]'>
@@ -229,7 +217,7 @@
                 <livewire:products />
             @endfor --}}
             @foreach ($dpds->take(5) as $product)
-                 <x-product :product="$product"></x-product>
+                <x-product :product="$product"></x-product>
             @endforeach
         </div>
 
@@ -306,9 +294,7 @@
             </div>
     </section>
 
-
     <!-- ----------------choose-secton--end-------- -->
-
     <!-- About us  -->
     <section>
         <div class="mb-3">
@@ -605,4 +591,3 @@
         </div>
     </section>
 </div>
-

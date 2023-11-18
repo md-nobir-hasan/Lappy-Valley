@@ -6,7 +6,7 @@
                     class="font-[jost] text-[16px] text-[#353535] flex items-center">
                     All Categories
                 </a>
-                <a href="#">
+                <a href="javascript::void(0)">
                     <svg xmlns="http://www.w3.org/2000/svg" @click="open = ! open" class='w-[14.9991px] h-[16px] mt-[3px]'
                         viewBox="0 0 15 17" fill="none">
                         <g clip-path="url(#clip0_1014_691)">
@@ -46,7 +46,7 @@
                         class="font-[jost] text-[16px] text-[#353535] flex items-center">
                         {{ $menu->title }}
                     </a>
-                    <a href="#">
+                    <a href="javascript::void(0)">
                         <svg xmlns="http://www.w3.org/2000/svg" @click="open = ! open"
                             class='w-[14.999px] h-[16px] mt-[3px]' viewBox="0 0 15 17" fill="none">
                             <g clip-path="url(#clip0_1014_691)">
