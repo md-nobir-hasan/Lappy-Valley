@@ -7,10 +7,12 @@ use App\Models\Product;
 use Carbon\Carbon;
 use Livewire\Attributes\Title;
 use Livewire\Component;
+// use Livewire\WithPagination;
 
 #[Title('Home')]
 class HomePage extends Component
 {
+    // use WithPagination;
 
     public function render()
     {
@@ -19,7 +21,7 @@ class HomePage extends Component
         $n['features'] = $pd;
         $n['dpds'] = $pd->take(5);
         $n['menus'] = Category::with('child_cat')->where('status', 'active')->where('is_parent', 1)->orderBy('title', 'ASC')->get();
-       
+
         return view('livewire.home-page',$n);
     }
 }

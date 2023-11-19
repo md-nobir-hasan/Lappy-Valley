@@ -241,7 +241,7 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
 Route::get('/', HomePage::class)->name('home');
 Route::get('/shop', Shop::class)->name('shop');
 Route::get('/category-wise/{slug}', CatWiseShop::class)->name('cate_wise.shop');
-Route::get('/product-details', ProductDeatils::class)->name('product.details');
+Route::get('/product-details/{slug}', ProductDeatils::class)->name('product.details');
 Route::get('/checkout', Checkout::class)->name('checkout');
 Route::get('/view-cart', ViewCart::class)->name('vcart');
 Route::get('/search', Search::class)->name('search');

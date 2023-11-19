@@ -61,17 +61,9 @@
                 sc.hide(500);
             });
             let cart_product_no = $('.cart-product').length - 1;
-
             //open cart by clicking on add to cart
             $('.add-to-cart').on('click', function() {
                 cart_product_no += 1;
-                // let index = $(this).index('.add-to-cart');
-                // $('#cart_count').text(Number($('#cart_count').text()) + 1)
-                // const pd = $(`.product_div:eq(${index})`);
-                // const ptitle = pd.find('.ptitle').text();
-                // const img_path = pd.find('.pimg').prop('src');
-                // const pprice = pd.find('.pprice').text();
-                // const price = Number(pd.find('.pprice').attr('value'));
                 const p_id = $(this).prop('id');
                 $.ajax({
                     type: "get",

@@ -9,14 +9,29 @@
                 <div>
                     <div class="md:flex">
                         <div class="w-full p-3">
+                            <div class="relative" x-data="{
+                                    search: '',
+                                    hidden:true,
 
-                            <div class="relative">
+                                    items: {{$products}},
+
+                                    get filteredItems() {
+                                        const searchLower = this.search.toLowerCase();
+                                        return this.items.filter((i) => i.title.toLowerCase().startsWith(searchLower));
+                                    }
+                                }">
                                 <i class=" w-[20px] h-[20.83px] absolute text-gray-400 fa fa-search top-6 left-4"></i>
-                                <input type="text"
+                                <input type="text" x-model="search" @click="hidden = false"
                                     class="bg-white h-[44px] w-[655px] tex-center items-center text-[#353535] text-[20px] leading-[26px] font-[jost] font-[400] mt-[10px] pl-[35px] rounded-[5px] focus:outline-none hover:cursor-pointer" placeholder='Search'
                                     name="">
+                                <ul :class="{'hidden':hidden}" class="fixed z-50">
+                                    <template x-for="item in filteredItems" :key="item.id">
+                                        <a :href="'/product-details/'+item.slug">
+                                            <li x-text="item.title"></li>
+                                        </a>
+                                    </template>
+                                </ul>
                             </div>
-
                         </div>
 
                     </div>
