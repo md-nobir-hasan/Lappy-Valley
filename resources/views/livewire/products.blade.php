@@ -16,7 +16,7 @@
         </a>
 
         <div>
-            <p  class="ptitle font-[jost] text-[16px] font-[500] leading-[23px] text-left text-[#380D37] ">
+            <p  class=" font-[jost] text-[16px] font-[500] leading-[23px] text-left text-[#380D37] ">
                 {{ $product->title }}
             </p>
             <div class="py-[12px] flex justify-between px-2">

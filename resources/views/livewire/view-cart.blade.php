@@ -64,7 +64,7 @@
                          <th scope="col"  class=' px-16 py-3'>
                              Model
                          </th>
-                         <th scope="col"  class=' pl-6 pr-[16rem] py-3'>
+                         <th scope="col"  class=' pl-6 pr-[12rem] py-3'>
                              Quantity
                          </th>
                          <th scope="col"  class=' px-16 py-3 '>
