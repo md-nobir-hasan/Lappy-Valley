@@ -26,9 +26,13 @@
                                     name="">
                                 <ul :class="{'hidden':hidden}" class="fixed z-50">
                                     <template x-for="item in filteredItems" :key="item.id">
-                                        <a :href="'/product-details/'+item.slug">
-                                            <li x-text="item.title"></li>
-                                        </a>
+                                          <li >
+                                             <a :href="'/product-details/'+item.slug">
+                                                <img :src="item.photo" alt="" height="40px">
+                                                <span x-text="item.title"></span>
+                                                <span>kfjsdkj</span>
+                                            </a>
+                                          </li>
                                     </template>
                                 </ul>
                             </div>

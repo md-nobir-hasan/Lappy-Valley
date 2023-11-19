@@ -9,65 +9,23 @@
          <div class="my-[10px]">
              <h1 class="text-[#353535] text-[20px] font-[jost] font-[500]">Shopping Cart</h1>
          </div>
-
-         {{-- <div class="flex justify-between bg-[#380D37] py-[12px] px-[20px] text-[20px] font-[jost] font-[500]">
-             <div class="flex justify-between text-[#FFF] gap-[45px]">
-                 <h1>Image</h1>
-                 <h1>Product Name</h1>
-             </div>
-             <div class="flex justify-between gap-[210px]">
-                 <div class="flex justify-between text-[#FFF] gap-[100px]">
-                     <h1>Model</h1>
-                     <h1>Quantity</h1>
-                 </div>
-                 <div class="flex justify-between text-[#FFF] gap-[142px]">
-                     <h1>Unit Price</h1>
-                     <h1>Total</h1>
-                 </div>
-             </div>
-         </d> --}}
-         {{-- @forelse ($carts as $cart)
-             <div
-                 class="flex justify-between items-center py-[14px] px-[12px] text-[20px] font-[jost] font-[500] border-b-[#380D37] border-b-[2px]">
-                 <div class="flex justify-between items-center gap-[50px]">
-                     <img class="w-[50px]" src="/storage/{{ $cart->product->photo }}" alt="">
-                     <h1>{{ $cart->product->title }}</h1>
-                 </div>
-                 <div class="flex justify-between gap-[128px]">
-                     <div class="flex justify-between gap-[80px]">
-                         <h1>{{ $cart->model ?? '15AMN7' }}</h1>
-                         <div class="flex justify-evenly gap-[12px]">
-                             <h1 class="py-[10px] px-[40px] bg-[#F2F2F2]">{{ $cart->quantity }}</h1>
-
-                         </div>
-                     </div>
-                     <div class="flex justify-between gap-[100px]">
-                         <h1 class="text-[#000]">{{ number_format($cart->price) }}৳</h1>
-                         <h1 class="text-[#000]">{{ number_format($cart->amount) }}৳</h1>
-                     </div>
-                 </div>
-             </div>
-         @empty
-         @endforelse --}}
-
-
          <div class="relative overflow-x-auto">
              <table class="w-full text-sm text-left text-[#FFFFFF] rtl:text-right bg-[#380D37]">
                  <thead class="text-xs text-[14px] text-[#FFFFFF]  bg-[#380D37] h-[37px]">
-                     <tr> 
-                         <th scope="col" class=' px-6 py-3'>
+                     <tr>
+                         <th scope="col" class='px-6 py-3 '>
                          Image
                          </th>
-                         <th scope="col"  class=' px-6 py-3'>
+                         <th scope="col"  class='px-6 py-3 '>
                              Product name
                          </th>
-                         <th scope="col"  class=' px-16 py-3'>
+                         <th scope="col"  class='px-16 py-3 '>
                              Model
                          </th>
                          <th scope="col"  class=' pl-6 pr-[12rem] py-3'>
                              Quantity
                          </th>
-                         <th scope="col"  class=' px-16 py-3 '>
+                         <th scope="col"  class='px-16 py-3 '>
                              Unit Price
                          </th>
                          <th scope="col"  class='px-2 py-3'>
@@ -84,9 +42,8 @@
                                      width="60px">
                              </td>
                              <td class="px-6 py-4">
-                       
-                                 {{ $cart->product->title }} 
-                               
+                                 {{ $cart->product->title }}
+
                              </td>
                              <td class="px-6 py-4">
                                  {{ $cart->product->model ?? '15AMN7' }}
@@ -102,6 +59,7 @@
                              </td>
                          </tr>
                      @empty
+                     
                      @endforelse
                  </tbody>
                  {{-- <tfoot>
