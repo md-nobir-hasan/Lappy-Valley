@@ -264,6 +264,9 @@ Route::get('/wishlist', Wishlist::class)->name('wishlist');
 Route::get('/address', Address::class)->name('address');
 Route::get('/your-review', Review::class)->name('freview');
 Route::get('/edit-profile', EditProfile::class)->name('edit.profile');
+Route::get('/plus',[AjaxController::class,'plus'])->name('plus');
+Route::get('/minus',[AjaxController::class, 'minus'])->name('minus');
+Route::get('/delete',[AjaxController::class, 'delete'])->name('delete');
 Route::get('/add-to-cart',[AjaxController::class,'addToCart'])->name('add_to_cart');
 
 Route::middleware('auth')->group(function(){

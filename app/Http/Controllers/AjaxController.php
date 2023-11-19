@@ -66,4 +66,46 @@ class AjaxController extends Controller
             return response()->json($fetch_cart);
         }
     }
+
+    public function plus(Request $req){
+       $cart = Cart::with('product')->find($req->id);
+        $qty = $cart->quantity + 1;
+        $amount = $cart->price * $qty;
+        if ($cart->product->stock != null) {
+            if ($cart->product->stock < $cart->quantity || $cart->product->stock <= 0) return response()->json(['msg' => "No sufficient stock"]);;
+        }
+
+        $cart->update([
+            'quantity' => $qty,
+            'amount' => $amount,
+        ]);
+        return response()->json($cart);
+    }
+    public function minus(Request $req){
+       $cart = Cart::with('product')->find($req->id);
+        $qty = $cart->quantity - 1;
+        $amount = $cart->price * $qty;
+        if ($qty < 1) {
+            return response()->json(['msg' => "You can't less quantity then 1"]);
+        }
+
+        $cart->update([
+            'quantity' => $qty,
+            'amount' => $amount,
+        ]);
+        return response()->json($cart);
+    }
+
+    public function delete(Request $req){
+        $model = "App\\Models\\".$req->mt;
+        $delete = $model::find($req->id);
+        if($delete){
+            $delete->delete();
+            return response()->json($delete);
+        }else{
+            return response()->json(['msg'=> 'Product Not found']);
+        }
+
+
+    }
 }

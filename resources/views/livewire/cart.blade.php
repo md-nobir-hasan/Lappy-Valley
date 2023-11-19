@@ -1,7 +1,7 @@
 {{-- <form action="{{ route('checkout') }}" method="POST">
     @csrf --}}
     <!-- ----------cart----- -->
-    <div id="side_cart" x-data="{total:'{{$carts?->sum('amount')}}'}" class="w-[400px] h-[792px] gap-20 bg-[#F2F2F2] right-0 top-0 fixed z-[9999] overflow-y-scroll">
+    <div id="side_cart" x-data="{total:'{{$carts?->sum('amount')}}'}" class="hidden w-[400px] h-[792px] gap-20 bg-[#F2F2F2] right-0 top-0 fixed z-[9999] overflow-y-scroll">
         {{-- cart header (cart icon and close button) --}}
         <div class="w-[400px] h-[61px] bg-[#380D37] flex justify-between text-[20px] text-[#fff] items-center px-[20px]">
             <img class='h-[50px]' src="/storage/product/Cart.svg" alt="">
@@ -19,8 +19,19 @@
                                 return false;
                             }
                             const pq = ++this.qty; const stotal = pq*this.price;
-
                             total = total - this.subtotal + stotal; this.subtotal = stotal;
+                            $.ajax({
+                                url:'{{route('plus')}}',
+                                method:'get',
+                                data:{id:{{$cart->id}}},
+                                success:function(res){
+                                     if(res.msg){
+                                        toastr.warning($res.msg)
+                                    }else{
+                                        console.log('Successfully increase quantity')
+                                    }
+                                }
+                            });
                         }, minus() {
                              if(this.qty <= 1){
                                 toastr.warning('You cant remove all quantity');
@@ -28,11 +39,35 @@
                             }
                             const mq =  --this.qty; const stotal = mq*this.price;
                             total = total - this.subtotal + stotal; this.subtotal = stotal;
+                            $.ajax({
+                                url:'{{route('minus')}}',
+                                method:'get',
+                                data:{id:{{$cart->id}}},
+                                success:function(res){
+                                    if(res.msg){
+                                        toastr.warning($res.msg)
+                                    }else{
+                                        console.log('Successfully decrease quantity')
+                                    }
+                                }
+                            });
                         },removeProd(){
-                            total = total - this.subtotal;
-                            this.cp_show = false;
-                            $wire.delete('{{$cart->id}}');
-                        }}" x-show='cp_show'
+
+                              $.ajax({
+                                url:'{{route('delete')}}',
+                                method:'get',
+                                data:{id:{{$cart->id}},mt:'Cart'},
+                                success:(res)=>{
+                                    if(res.msg){
+                                        toastr.warning(res.msg)
+                                    }else{
+                                        total = total - this.subtotal;
+                                        this.cp_show = false;
+                                    }
+                                }
+                            });
+                        }}"
+                        x-show='cp_show'
                         class='cart-product flex justify-around mt-[10px] border-t-[#3535354D] border-t-[2px] border-b-[#3535354D] border-b-[2px] py-[10px] px-[5px] gap-[10px]'>
 
                         <input type="hidden" name="cps[{{ $loop->index }}][product_id]"
