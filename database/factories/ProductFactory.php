@@ -17,7 +17,7 @@ class ProductFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => "Lenovo IdeaPad 15AMN7 AMD Ryzen 57520U 8-512 GB,Brand New Cloud grey",
+            'title' => "Lenovo IdeaPad 15AMN7 AMD Ryzen 57520U 8-512 GB",
             'slug' => fake()->unique()->uuid(),
             'summary' => fake()->paragraph(),
             'description' => fake()->paragraph(2),
