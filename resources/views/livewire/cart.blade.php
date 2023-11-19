@@ -14,16 +14,24 @@
                 @foreach ($carts as $cart)
                     <div  x-data="{ qty: {{$cart->quantity}},price:'{{$cart->price}}', subtotal:'{{$cart->amount}}', cp_show:true,
                          plus() {
+                              if(this.qty>= 5){
+                                toastr.warning('You cant add more then 5 products');
+                                return false;
+                            }
                             const pq = ++this.qty; const stotal = pq*this.price;
+
                             total = total - this.subtotal + stotal; this.subtotal = stotal;
                         }, minus() {
-                           const mq =  --this.qty; const stotal = mq*this.price;
-                           total = total - this.subtotal + stotal; this.subtotal = stotal;
-
+                             if(this.qty <= 1){
+                                toastr.warning('You cant remove all quantity');
+                                return false;
+                            }
+                            const mq =  --this.qty; const stotal = mq*this.price;
+                            total = total - this.subtotal + stotal; this.subtotal = stotal;
                         },removeProd(){
-                            $wire.delete('{{$cart->id}}');
                             total = total - this.subtotal;
                             this.cp_show = false;
+                            $wire.delete('{{$cart->id}}');
                         }}" x-show='cp_show'
                         class='cart-product flex justify-around mt-[10px] border-t-[#3535354D] border-t-[2px] border-b-[#3535354D] border-b-[2px] py-[10px] px-[5px] gap-[10px]'>
 
@@ -35,7 +43,7 @@
                             :value="subtotal">
 
                         <div class='flex items-center'>
-                            <img class="w-[80px] h-[px]" src="/storage/{{$cart->product->photo}}"
+                            <img class="w-[80px] h-[px]" src="{{$cart->product->photo}}"
                                 alt="{{ $cart->product->title }}">
                         </div>
 
@@ -47,14 +55,14 @@
                             </div>
                             <div
                                 class='border-[#380D37] w-[85px] h-[19.231px] border-[2px] rounded-[4px] my-[10px] flex items-center justify-around'>
-                                <span @click="minus;$wire.removeQty({{$cart->id}})"
+                                <span @click="minus"
                                     class='text-[#380D37] h-[19.231px] border-[#380D37] border-r-[2px] pr-[5px] flex items-center cursor-pointer  text-center'>-</span>
                                 <span x-text="qty"
                                 class='text-[#380D37] h-[19.231px] w-[40px] border-[#380D37] border-r-[2px]  flex items-center  justify-center'
                                     >
 
                                 </span>
-                                <span @click="plus;$wire.addQty({{$cart->id}})"
+                                <span @click="plus"
                                     class='text-[#380D37] h-[19.231px] pr-[5px] flex items-center cursor-pointer text-center'>+</span>
                             </div>
 

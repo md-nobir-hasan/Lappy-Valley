@@ -87,11 +87,20 @@
                             const product = `
                                 <div x-data="{ qty: 1,price:'${response.price}', subtotal:'${response.amount}', cp_show:true,
                                     mplus() {
+                                         if(this.qty>= 5){
+                                            toastr.warning('You cant add more then 5 products');
+                                            return false;
+                                        }
                                         const pq = ++this.qty; const stotal = pq*this.price;
                                         total = total - this.subtotal + stotal; this.subtotal = stotal;
-                                    }, minus() {
+                                    }, mminus() {
+                                        if(this.qty <= 1){
+                                            toastr.warning('You cant remove all quantity');
+                                            return false;
+                                        }
                                         const mq =  --this.qty; const stotal = mq*this.price;
                                         total = total - this.subtotal + stotal; this.subtotal = stotal;
+
                                     },addtototal(){
                                         total = Number(total) + Number(this.price);
                                         console.log(total,Number(this.price),'I am addtototal()');
@@ -108,7 +117,7 @@
                                         value="${response.id}">
                                     <span x-init="addtototal" class='hidden'></span>
                                     <div class='flex items-center'>
-                                        <img class="w-[80px] h-[px]" src="/storage/${response.product.photo}"
+                                        <img class="w-[80px] h-[px]" src="${response.product.photo}"
                                             alt="${response.product.title}">
                                     </div>
 
@@ -120,28 +129,27 @@
                                         </div>
                                         <div
                                             class='border-[#380D37] w-[85px] h-[19.231px] border-[2px] rounded-[4px] my-[10px] flex items-center justify-around'>
-                                            <span @click="minus" wire:click="removeQty(${response.id})"
+                                            <span @click="mminus"
                                                 class='text-[#380D37] h-[19.231px] border-[#380D37] border-r-[2px] pr-[5px] flex items-center cursor-pointer  text-center'>-</span>
                                             <span x-text="qty"
                                             class='text-[#380D37] h-[19.231px] w-[40px] border-[#380D37] border-r-[2px]  flex items-center  justify-center'
                                                 >
 
                                             </span>
-                                            <span @click="mplus" wire:click="addQty(${response.id})"
+                                            <span @click="mplus"
                                                 class='text-[#380D37] h-[19.231px] pr-[5px] flex items-center cursor-pointer text-center'>+</span>
                                         </div>
                                         <div>
                                             <p class='text-[#353535] text-[16px] font-[jost] font-[500] text-center'>
                                                 <span x-text="qty"></span> x <span class='text-[#DC275C]' x-text="mFormat(Number(price))"></span>
-
-                                                    TAKA
+                                                TAKA
                                             </p>
 
                                         </div>
                                     </div>
 
                                     <div>
-                                        <span   @click="removeProd"  class="cursor-pointer cart_prd_delete">
+                                        <span @click="removeProd" class="cursor-pointer cart_prd_delete">
                                             <svg  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                                 stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />

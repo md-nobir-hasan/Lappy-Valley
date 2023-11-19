@@ -14,6 +14,8 @@ class Header extends Component
         $user = Auth::user();
         if ($user) {
             $this->cart_count = Cart::where('user_id', $user->id)->get()->count();
+        }else{
+            $this->cart_count = Cart::where('ip', request()->ip())->get()->count();
         }
     }
     public function render()

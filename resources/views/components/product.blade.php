@@ -3,7 +3,17 @@
 <div class="shadow-[2px_2px_5px_2px_#0000001A] p-2">
     <div class="bg-white rounded-lg product_div">
         <a href="{{ route('product.details') }}">
-            <img class="object-center pimg" src="/storage/{{$product->photo}}" alt="">
+            {{-- <img class="object-center pimg" src="{{$product->photo}}" alt=""> --}}
+            @if ($product->photo)
+                @php
+                    $photo = explode(',', $product->photo);
+                    // dd($photo);
+                @endphp
+                <img src="{{ $photo[0] }}" class="object-center pimg"  alt="{{ $product->photo }}">
+            @else
+                <img src="{{ asset('backend/img/thumbnail-default.jpg') }}" class="object-center pimg"
+                    alt="avatar.png">
+            @endif
         </a>
 
         <div>
@@ -15,17 +25,17 @@
                 <a href="#" class="font-[jost] text-[14px] font-[600] leading-[20px] text-left text-[#DC275C]">
                     <span class="pprice" value='{{$product->price}}'
                        >{{ number_format($product->price - (($product->price * $product->discount) / 100) ) }}</span> TK</a>
-                @auth
+                {{-- @auth --}}
                     <livewire:add-to-cart :id="$product->id"
                         button='<p  class="font-[jost] text-[14px] text-[#380D37] font-[600] leading-[20px] text-left cursor-pointer ">Add to Cart</p>' />
-                @else
+                {{-- @else
                     <a href="{{ route('user.login') }}">
                         <p
                             class="font-[jost] text-[14px] text-[#764A87] font-[600] leading-[20px] text-left cursor-pointer">
                             Add to Cart
                         </p>
                     </a>
-                @endauth
+                @endauth --}}
             </div>
         </div>
     </div>
