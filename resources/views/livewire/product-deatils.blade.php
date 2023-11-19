@@ -56,21 +56,21 @@
 
         <!-- -----------------description------ -->
         <div class="my-[15px]">
-            <ul class="flex gap-[20px]">
-                <li data-area="specification"
-                    class="bg-[#380D37] text-[20px] text-[#F2F2F2] font-[700] font-[jost] py-[10px] px-6 rounded-[5px]">
-                    Specification</li>
-                <li data-area="description"
-                    class="text-[#380D37] bg-[#F2F2F2] text-[20px] font-[700] font-[jost] py-[10px] px-6 rounded-[5px]">
-                    Description</li>
-                <li class="text-[#380D37] bg-[#F2F2F2] text-[20px] font-[700] font-[jost] py-[10px] px-8 rounded-[5px]"
-                    data-area="ask-question">Review</li>
-            </ul>
+            <div class="flex gap-[20px]">
+                <a data-area="specification"
+                    class="focus:bg-[#380D37] bg-[#F2F2F2] text-[20px] text-[#380D37] focus:text-[#F2F2F2] text-center font-[700] font-[jost] py-[10px] px-6 rounded-[5px] w-[168px] h-[50px]">
+                    Specification</a>
+                <a data-area="description"
+                    class="focus:bg-[#380D37] bg-[#F2F2F2] text-[20px] text-[#380D37] focus:text-[#F2F2F2] text-center font-[700] font-[jost] py-[10px] px-6 rounded-[5px] w-[168px] h-[50px]">
+                    Description</a>
+                <a class="focus:bg-[#380D37] bg-[#F2F2F2] text-[20px] text-[#380D37] focus:text-[#F2F2F2]  text-center font-[700] font-[jost] py-[10px] px-8 rounded-[5px] w-[168px] h-[50px]"
+                    data-area="ask-question">Review</a>
+            </div>
         </div>
 
         <!-- -----table--section---start----- -->
         <div class="flex justify-between gap-[30px] ">
-            <div class="w-[1200px]">
+            <div class="w-[878px]">
                 <section class="border-[2px] border-[#380D37] p-[20px] rounded-[5px] leading-[50px]"
                     id="specification">
                     <div class="text-[#353535] text-[20px] font-[jost] font-[500] ">
@@ -80,7 +80,7 @@
 
                         <thead>
                             <tr>
-                                <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] font-[600] pl-[14px] pr-[500px] rounded-[5px]"
+                                <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] font-[600] pl-[5px] pl-[14px] pr-[500px] rounded-[5px] w-[822px]"
                                     colspan="3">Processor:</td>
                             </tr>
                         </thead>
@@ -484,7 +484,7 @@
                 </section>
             </div>
             <div>
-                <div class="p-[10px] border-[2px] border-[#380D37] rounded-[3px] w-[300px] h-[650px]">
+                <div class="p-[10px] border-[2px] border-[#380D37] rounded-[3px] w-[301px] h-[650px]">
 
                     <section class="">
                         <div class="p-[10px]">
