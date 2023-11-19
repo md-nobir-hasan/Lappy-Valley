@@ -1,7 +1,18 @@
 <div class="shadow-[2px_2px_5px_2px_#0000001A] p-2">
     <div class="bg-white rounded-lg product_div">
         <a href="{{ route('product.details') }}">
-            <img class="object-center pimg" src="/storage/{{$product->photo}}" alt="">
+               @if ($product->photo)
+                                            @php
+                                                $photo = explode(',', $product->photo);
+                                                // dd($photo);
+                                            @endphp
+                                            <img src="{{ $photo[0] }}" class="img-fluid zoom" style="max-width:80px"
+                                                alt="{{ $product->photo }}">
+                                        @else
+                                            <img src="{{ asset('backend/img/thumbnail-default.jpg') }}" class="img-fluid"
+                                                style="max-width:80px" alt="avatar.png">
+                                        @endif
+            {{-- <img class="object-center pimg" src="{{$product->photo}}" alt=""> --}}
         </a>
 
         <div>

@@ -241,7 +241,7 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
 Route::get('/', HomePage::class)->name('home');
 Route::get('/shop', Shop::class)->name('shop');
 Route::get('/category-wise/{slug}', CatWiseShop::class)->name('cate_wise.shop');
-Route::get('/product-details', ProductDeatils::class)->name('product.details');
+Route::get('/product-details/{slug}', ProductDeatils::class)->name('product.details');
 Route::get('/checkout', Checkout::class)->name('checkout');
 Route::get('/view-cart', ViewCart::class)->name('vcart');
 Route::get('/search', Search::class)->name('search');
@@ -264,9 +264,12 @@ Route::get('/wishlist', Wishlist::class)->name('wishlist');
 Route::get('/address', Address::class)->name('address');
 Route::get('/your-review', Review::class)->name('freview');
 Route::get('/edit-profile', EditProfile::class)->name('edit.profile');
+Route::get('/plus',[AjaxController::class,'plus'])->name('plus');
+Route::get('/minus',[AjaxController::class, 'minus'])->name('minus');
+Route::get('/delete',[AjaxController::class, 'delete'])->name('delete');
+Route::get('/add-to-cart',[AjaxController::class,'addToCart'])->name('add_to_cart');
 
 Route::middleware('auth')->group(function(){
     Route::post('/cart-sotre',[AjaxController::class,'cartStore'])->name('cart.store');
-    Route::get('/add-to-cart',[AjaxController::class,'addToCart'])->name('add_to_cart');
     // Route::get('/billing',[AjaxController::class,'addToCart'])->name('add_to_cart');
 });

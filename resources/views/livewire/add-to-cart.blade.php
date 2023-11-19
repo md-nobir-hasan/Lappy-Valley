@@ -1,4 +1,4 @@
-<span>
+<span class="cursor-pointer">
     <span  id="{{$id}}" class="flex items-center justify-center add-to-cart">
 
         {!! $button !!}

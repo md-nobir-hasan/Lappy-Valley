@@ -1,11 +1,22 @@
  <div class="border-[2px] border-[#380D37] rounded-[6px] py-2 px-4">
-     <img class="object-center"
-         src="https://img.ep-cdn.com/i/500/500/al/altgyfzwibuorcempdvx/lenovo-ideapad-1-15amn7-cloud-grey-full-hd-ryzen-3-7320u-8gb-512gb-ssd-82vg0070ya-laptop-cene.jpg"
-         alt="">
+     {{-- <img class="object-center"
+         src="{{$product->photo}}"
+         alt="{{$product->title}}"> --}}
+          @if ($product->photo)
+                @php
+                    $photo = explode(',', $product->photo);
+                    // dd($photo);
+                @endphp
+                <img src="{{ $photo[0] }}" class="object-center" alt="{{ $product->photo }}">
+            @else
+                <img src="{{ asset('backend/img/thumbnail-default.jpg') }}" class="img-fluid"
+                    alt="avatar.png">
+            @endif
      <div class='border-t-[1px] border-b-[1px] border-[#380D3733] py-2'>
          <div class="">
              <p class="font-[jost] text-[18px] font-[600] leading-[30px] text-left text-[#380D37]">
-                 Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB</p>
+                {{$product->title}}
+            </p>
          </div>
          <div class='mt-2'>
              <ul class='text-[#353535] list-decimal px-4 text-[16px] leading-[30px]'>
@@ -17,13 +28,16 @@
          </div>
      </div>
      <div class="my-3 text-center ">
-         <a href="#" class="font-[jost] text-[16px] font-[600] leading-[30px] text-[#DC275C] block">1,50,000
-             TAKA</a>
+         <a href="#" class="font-[jost] text-[16px] font-[600] leading-[30px] text-[#DC275C] block">
+          {{number_format($product->price)}}
+        </a>
          <button class='bg-[#380D37] text-white py-[8px] px-[70px] rounded-[5px] my-[10px]'><a
                  href="..src/product-details.html"><a href="product-details.html">Buy
                      Now</a></a></button>
-         <a href="">
+         {{-- <a href="">
              <p class="font-[jost] text-[16px] font-[600] leading-[30px]">Add to Cart</p>
-         </a>
+         </a> --}}
+                <livewire:add-to-cart :id="$product->id"
+                        button=' <p class="font-[jost] text-[16px] font-[600] leading-[30px]">Add to Cart</p>' />
      </div>
  </div>

@@ -14,7 +14,11 @@ class ViewCart extends Component
 
     public function render()
     {
-        $this->carts = Cart::with('product')->where('user_id',auth()->user()->id)->get();
+        if($user = auth()->user()){
+            $this->carts = Cart::with('product')->where('user_id',$user->id)->get();
+        }else{
+            $this->carts = Cart::with('product')->where('ip',request()->ip())->get();
+        }
         return view('livewire.view-cart');
     }
 }
