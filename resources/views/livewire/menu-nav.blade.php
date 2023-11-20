@@ -4,23 +4,18 @@
           <h1>Brand New</h1>
       </div>
       <div class="flex justify-between font-[jost] font-[500] text-[17px]">
-          <div class="">
+          <div class="w-[100px] h-[30px] border-[2px] border-[black] bg-[#f2f2f2]">
               <label for="text">Show:</label>
-              <select name="input-sort" class="py-[7px] pr-[6px] border-[1.5px] ">
-                  <option value="20">20</option>
-                  <option value="30">30</option>
-                  <option value="30">30</option>
-                  <option value="30">30</option>
-              </select>
+              <ul name="input-sort" class="py-[7px] pr-[6px] border-[1.5px] ">
+                  <li value="20">20</li>
+                  <li value="30">30</li>
+                  <li value="30">30</li>
+                  <li value="30">30</li>
+              </ul>
           </div>
-          <div class="">
-              <label for="text">Short By:</label>
-              <select name="input-sort" class="py-[8px] pr-[40px] border-[1.5px]">>
-                  <option value="20">Default</option>
-                  <option value="30">30</option>
-                  <option value="30">30</option>
-                  <option value="30">30</option>
-              </select>
-          </div>
+          <div class="shop-view"><span>View</span><a href="#" class="grid-view mf-shop-view current" data-view="grid">
+          <i class="fa fa-th" aria-hidden="true"></i></a>
+            <a href="#" class="list-view mf-shop-view" data-view="list"><i class="fa fa-list" aria-hidden="true"></i></i>
+        </a></div>
       </div>
   </nav>
