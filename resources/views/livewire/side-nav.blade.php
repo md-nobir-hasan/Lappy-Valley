@@ -1,6 +1,30 @@
 <div class="[min-width:230px] mt-2">
+    <!-- ----price-range------ -->
+<div class='bg-[#F2F2F2] shadow-[0_2px_4px_rgba(0,0,0,.1)] rounded-[10px] p-4'>
+        <div class="flex justify-between">
+            <span class='text-[#380D37] font-[jost] font-[600] text-[17px] leading-[25.23px] '
+                for="text">Price Range</span>
+        </div>
+        <div class="h-[1.5px] bg-[#380D3733] min-w-[114%] ml-[-15px] translate-y-[15px]">
+        </div>
+        <div x-show="open" class='px-[0px] pt-[20px] pb-[2px]'>
+            <label class='block' for="#">
+                <input class='border-[2px] border-[#764A87]' type="checkbox" name='status' valu='7'>
+                <span class='font-[jost] text-[16px] leading-[30px] text-[#380D37]'>In Stock</span>
+            </label>
+            <label class='block' for="#">
+                <input class='border-[2px] border-[#764A87]' class='' type="checkbox" name='status'
+                    valu='7'>
+                <span class='font-[jost] text-[16px] leading-[30px] text-[#380D37]'>Pre Order</span>
+            </label>
+            <label class='block' for="#">
+                <input class='border-[2px] border-[#764A87]' type="checkbox" name='status' valu='7'>
+                <span class='font-[jost] text-[16px] leading-[30px] text-[#380D37]'>Up Coming</span>
+            </label>
+        </div>
+    </div>
     <!-- ---------------nav-1st--part--------------- -->
-    <div x-data="{ open: true, toggle() { this.open = !this.open } }" class='bg-[#F2F2F2] shadow-[0_2px_4px_rgba(0,0,0,.1)] rounded-[10px] p-4'>
+    <div x-data="{ open: true, toggle() { this.open = !this.open } }" class='bg-[#F2F2F2] shadow-[0_2px_4px_rgba(0,0,0,.1)] rounded-[10px] mt-3 p-4'>
         <div class="flex justify-between">
             <span class='text-[#380D37] font-[jost] font-[600] text-[17px] leading-[25.23px] '
                 for="text">Availability</span>
