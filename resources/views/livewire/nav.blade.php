@@ -6,7 +6,7 @@
                     class="font-[jost] text-[16px] text-[#353535] flex items-center">
                     All Categories
                 </a>
-                <a href="javascript::void(0)">
+                <span class="cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg" @click="open = ! open" class='w-[14.9991px] h-[16px] mt-[3px]'
                         viewBox="0 0 15 17" fill="none">
                         <g clip-path="url(#clip0_1014_691)">
@@ -20,7 +20,7 @@
                             </clipPath>
                         </defs>
                     </svg>
-                </a>
+                </span>
             </li>
 
             <li>
@@ -35,7 +35,6 @@
                             </li>
                         </a>
                     @endforeach
-
                 </ul>
             </li>
         </ul>
@@ -46,7 +45,7 @@
                         class="font-[jost] text-[16px] text-[#353535] flex items-center">
                         {{ $menu->title }}
                     </a>
-                    <a href="javascript::void(0)">
+                    <span class="cursor-pointer">
                         <svg xmlns="http://www.w3.org/2000/svg" @click="open = ! open"
                             class='w-[14.999px] h-[16px] mt-[3px]' viewBox="0 0 15 17" fill="none">
                             <g clip-path="url(#clip0_1014_691)">
@@ -60,8 +59,7 @@
                                 </clipPath>
                             </defs>
                         </svg>
-                    </a>
-
+                    </span>
                 </li>
 
                 <li>
@@ -80,7 +78,7 @@
             </ul>
         @endforeach
 
-        <ul class="relative " x-data="{ open: false }">
+        <ul class="relative" >
             <li class='flex items-center gap-[5px] jost h-[23px]'>
                 <a href="{{route('about_us')}}" wire:navigate
                     class="font-[jost] text-[16px] text-[#353535] flex items-center">
