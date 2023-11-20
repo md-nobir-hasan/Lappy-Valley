@@ -68,17 +68,25 @@
                     <ul x-show="open"
                         class='leading-[38px] py-[15px] px-[10px] items-center bg-[#f2f2f2] w-[195px] z-[9999] left-0 top-0 absolute mt-[34px] mr-[3px]'>
                         @foreach ($menu->child_cat as $cc)
-                        <a href="{{ route('cate_wise.shop', [$cc->slug]) }}" wire:navigate>
-                            <li
-                                class='text-center w-full text-[16px] text-[#353535] font-[jost] font-[500] rounded-[2px] hover:bg-[#380D37] hover:text-[#f2f2f2] border-b-[1px] border-[#353535]'>
-                                {{ $cc->title }}
-                            </li>
-                        </a>
+                            <a href="{{ route('cate_wise.shop', [$cc->slug]) }}" wire:navigate>
+                                <li
+                                    class='text-center w-full text-[16px] text-[#353535] font-[jost] font-[500] rounded-[2px] hover:bg-[#380D37] hover:text-[#f2f2f2] border-b-[1px] border-[#353535]'>
+                                    {{ $cc->title }}
+                                </li>
+                            </a>
                         @endforeach
                     </ul>
                 </li>
             </ul>
         @endforeach
 
+        <ul class="relative " x-data="{ open: false }">
+            <li class='flex items-center gap-[5px] jost h-[23px]'>
+                <a href="{{route('about_us')}}" wire:navigate
+                    class="font-[jost] text-[16px] text-[#353535] flex items-center">
+                    Hotline: +880171264420
+                </a>
+            </li>
+        </ul>
     </nav>
 </section>
