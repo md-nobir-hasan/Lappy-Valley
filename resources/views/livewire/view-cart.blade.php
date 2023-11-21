@@ -1,6 +1,7 @@
  <div class="container mx-auto">
      <div class=>
-         <h1 class='font-[jost] xl:text-[20px] font-[400] leading-[25.3px] text-[#353535]'>Shopping Cart/View Cart
+         <h1 class='font-[jost] xl:text-[20px] font-[400] leading-[25.3px] text-[#353535]'>
+            Shopping Cart/View Cart
          </h1>
          <div class='h-1 bg-[#764A8733]'></div>
      </div>
@@ -37,30 +38,34 @@
                      @forelse ($carts as $cart)
                          <tr class="bg-white">
                              <td scope="row"
-                                 class="px-6 py-4 whitespace-nowrap">
+                                 class="whitespace-nowrap">
                                  <img src="{{ $cart->product->photo }}" alt="{{ $cart->product->title }}"
                                      width="60px">
                              </td>
-                             <td class="px-6 py-4 text-[#380D37]">
+                             <td class="text-[#380D37]">
                                  {{ $cart->product->title }}
 
                              </td>
-                             <td class="px-6 py-4 text-[#380D37]">
+                             <td class="text-[#380D37]">
                                  {{ $cart->product->model ?? '15AMN7' }}
                              </td>
-                             <td class="bg-[#F2F2F2] text-[#380D37] text-center">
-                                 {{ $cart->quantity }}
+                             <td class="text-[#380D37] text-center">
+                                 <span class=" p-4 bg-[#F2F2F2]">{{ $cart->quantity }} x</span>
                              </td>
 
-                             <td class="px-6 py-4 text-[black]">
-                                 {{ $cart->price }}
+                             <td class="text-[black]">
+                                {{ number_format($cart->price) }}৳
                              </td>
+<<<<<<< HEAD
                              <td class="px-2 py-4 text-[black]">
+=======
+                             <td class="">
+>>>>>>> Development
                                  {{ $cart->amount }}
                              </td>
                          </tr>
                      @empty
-                     
+
                      @endforelse
                  </tbody>
                  {{-- <tfoot>

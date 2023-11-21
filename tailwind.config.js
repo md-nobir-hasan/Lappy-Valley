@@ -7,6 +7,13 @@ module.exports = {
         "./node_modules/tw-elements/dist/js/**/*.js"
     ],
     plugins: [require("tw-elements/dist/plugin.cjs")],
-    darkMode: "class"
+    darkMode: "class",
+    theme: {
+        fontFamily: {
+            sans: ["Roboto", "sans-serif"],
+            body: ["Roboto", "sans-serif"],
+            mono: ["ui-monospace", "monospace"]
+        }
+    }
 };
 

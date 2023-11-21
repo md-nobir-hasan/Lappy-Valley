@@ -1,6 +1,12 @@
 <div class="[min-width:230px] mt-2">
     <!-- ----price-range------ -->
-<div class='bg-[#F2F2F2] shadow-[0_2px_4px_rgba(0,0,0,.1)] rounded-[10px] p-4'>
+    <style>
+        .nobir-sumon{
+            background: black !important;
+
+        }
+    </style>
+<div class='bg-[#F2F2F2] shadow-[0_2px_4px_rgba(0,0,0,.1)] rounded-[10px] p-4 nobir-sumon'>
         <div class="flex justify-between">
             <span class='text-[#380D37] font-[jost] font-[600] text-[17px] leading-[25.23px] '
                 for="text">Price Range</span>
