@@ -35,23 +35,24 @@
                  </thead>
                  <tbody>
                      @forelse ($carts as $cart)
-                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                         <tr class="bg-white">
                              <td scope="row"
-                                 class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                 class="px-6 py-4 whitespace-nowrap">
                                  <img src="{{ $cart->product->photo }}" alt="{{ $cart->product->title }}"
                                      width="60px">
                              </td>
-                             <td class="px-6 py-4">
+                             <td class="px-6 py-4 text-[#380D37]">
                                  {{ $cart->product->title }}
 
                              </td>
-                             <td class="px-6 py-4">
+                             <td class="px-6 py-4 text-[#380D37]">
                                  {{ $cart->product->model ?? '15AMN7' }}
                              </td>
-                             <td class="px-6 py-4">
+                             <td class="bg-[#F2F2F2] text-[#380D37] text-center">
                                  {{ $cart->quantity }}
                              </td>
-                             <td class="px-6 py-4">
+
+                             <td class="px-6 py-4 text-[black]">
                                  {{ $cart->price }}
                              </td>
                              <td class="px-2 py-4">

@@ -25,8 +25,8 @@
             <button class=' w-[236px] h-[60.69px] rounded-[4px] items-center text-[20px] text-[#F2F2F2] font-[jost] font-[500] leading-[28.9px] bg-gradient-to-r from-[#380D37] to-[#DC275C]'>Post your review</button>
          </div>
       </div>
-
    </div>
- 
 </div>
-<!-- <textarea name="" id="" cols="30" rows="10"></textarea> -->
+
+ 
+

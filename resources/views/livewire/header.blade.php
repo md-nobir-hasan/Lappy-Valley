@@ -12,19 +12,37 @@
                             <div class="relative" x-data="{
                                 search: '',
                                 hidden: true,
-
                                 items: {{ $products }},
-
-                                get filteredItems() {
-                                    const searchLower = this.search.toLowerCase();
-                                    return this.items.filter((i) => i.title.toLowerCase().startsWith(searchLower));
-                                }
-                            }">
-                                <i class=" w-[20px] h-[20.83px] absolute text-gray-400 fa fa-search top-6 left-4"></i>
+                                    get filteredItems() {
+                                        const searchLower = this.search.toLowerCase();
+                                        return this.items.filter((i) => i.title.toLowerCase().startsWith(searchLower));
+                                    }
+                                }">
+                                <!-- <i class=" w-[20px] h-[20.83px] absolute text-gray-400 fa fa-search top-6 left-4"></i>
                                 <input type="text" x-model="search" @click="hidden = false"
-                                    class="bg-white h-[44px] w-[655px] tex-center items-center text-[#353535] text-[20px] leading-[26px] font-[jost] font-[400] mt-[10px] pl-[35px] rounded-[5px] focus:outline-none hover:cursor-pointer"
-                                    placeholder='Search' name="">
-                                <ul :class="{ 'hidden': hidden }" class="fixed z-50">
+                                    class="bg-white h-[44px] w-[655px] tex-center items-center text-[#353535] text-[20px] leading-[26px] font-[jost] font-[400] mt-[10px] pl-[35px] rounded-[5px] focus:outline-none hover:cursor-pointer" placeholder='Search'
+                                    name=""> -->
+                                    
+                                <form class='h-[44px] w-[655px]'>
+                                    <div class="flex">
+                                    <select class="block w-[80px] p-2.5 text-[#380D37] text-[14px] font-[jost] font-[400] leading-[20.23px] border-r-[2px] border-[#380D37]">
+                                        <option selected>All</option>
+                                        <option value="US">United States</option>
+                                        <option value="CA">Canada</option>
+                                        <option value="FR">France</option>
+                                        <option value="DE">Germany</option>
+                                    </select> 
+                                        <div class="relative w-full">
+                                            <input type="search" id="search-dropdown" class="block p-2.5 w-full z-20" placeholder="Search Mockups, Logos, Design Templates..." required>
+                                            <button type="submit" class="absolute top-0 end-0 py-2.5 px-[30px] text-sm  h-full text-[#f2f2f2] bg-[#380D37] rounded-r-[2px] overflow-hidden">
+                                                <span class="">Search</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+
+                                <ul :class="{'hidden':hidden}" class="fixed z-50">
+
                                     <template x-for="item in filteredItems" :key="item.id">
                                         <li>
                                             <a :href="'/product-details/' + item.slug">

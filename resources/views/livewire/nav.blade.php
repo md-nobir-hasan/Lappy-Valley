@@ -3,7 +3,7 @@
         <ul class="relative " x-data="{ open: false }">
             <li class='flex items-center gap-[5px] jost h-[23px]'>
                 <a href="{{ route('shop') }}" wire:navigate
-                    class="font-[jost] text-[16px] text-[#353535] flex items-center">
+                    class="font-[jost-font] font-[500] text-[16px] text-[#353535] flex items-center" >
                     All Categories
                 </a>
                 <span class="cursor-pointer">
