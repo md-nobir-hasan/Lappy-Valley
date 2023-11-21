@@ -2212,6 +2212,10 @@ input[type="range"]:active::-webkit-slider-thumb {
   width: 100vw;
 }
 
+.w-\[230px\] {
+  width: 230px;
+}
+
 .min-w-0 {
   min-width: 0px;
 }
@@ -2234,6 +2238,26 @@ input[type="range"]:active::-webkit-slider-thumb {
 
 .min-w-\[64px\] {
   min-width: 64px;
+}
+
+.min-w-\[100\%\] {
+  min-width: 100%;
+}
+
+.min-w-\[102\%\] {
+  min-width: 102%;
+}
+
+.min-w-\[110\%\] {
+  min-width: 110%;
+}
+
+.min-w-\[108\%\] {
+  min-width: 108%;
+}
+
+.min-w-\[108px\] {
+  min-width: 108px;
 }
 
 .max-w-\[200px\] {

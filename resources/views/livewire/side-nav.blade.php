@@ -1,33 +1,162 @@
 <div class="[min-width:230px] mt-2">
     <!-- ----price-range------ -->
-    <style>
-        .nobir-sumon{
-            background: black !important;
 
-        }
+
+<div class="wrapper w-full">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+/* *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+} */
+/* body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #17A2B8;
+} */
+::selection{
+  /* color: #fff; */
+  background: #17A2B8;
+}
+.wrapper{
+  /* width: 400px; */
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px 25px 40px;
+  /* box-shadow: 0 2px 4px rgba(0,0,0,.1); */
+}
+header h2{
+  font-size: 24px;
+  font-weight: 600;
+}
+header p{
+  margin-top: 5px;
+  font-size: 16px;
+}
+.price-input{
+  width: 100%;
+  display: flex;
+  margin: 30px 0 35px;
+}
+.price-input .field{
+  display: flex;
+  width: 100%;
+  height: 45px;
+  align-items: center;
+}
+.field input{
+  width: 100%;
+  height: 100%;
+  outline: none;
+  font-size: 19px;
+  margin-left: 12px;
+  border-radius: 5px;
+  text-align: center;
+  border: 1px solid #999;
+  -moz-appearance: textfield;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+.price-input .separator{
+  width: 130px;
+  display: flex;
+  font-size: 19px;
+  align-items: center;
+  justify-content: center;
+}
+.slider{
+  height: 5px;
+  position: relative;
+  background: #ddd;
+  border-radius: 5px;
+}
+.slider .progress{
+  height: 100%;
+  left: 25%;
+  right: 25%;
+  position: absolute;
+  border-radius: 5px;
+  background: #17A2B8;
+}
+.range-input{
+  position: relative;
+}
+.range-input input{
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  top: -5px;
+  background: none;
+  pointer-events: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+input[type="range"]::-webkit-slider-thumb{
+  height: 17px;
+  width: 17px;
+  border-radius: 50%;
+  background: #17A2B8;
+  pointer-events: auto;
+  -webkit-appearance: none;
+  box-shadow: 0 0 6px rgba(0,0,0,0.05);
+}
+input[type="range"]::-moz-range-thumb{
+  height: 17px;
+  width: 17px;
+  border: none;
+  border-radius: 50%;
+  background: #17A2B8;
+  pointer-events: auto;
+  -moz-appearance: none;
+  box-shadow: 0 0 6px rgba(0,0,0,0.05);
+}
+      
     </style>
-<div class='bg-[#F2F2F2] shadow-[0_2px_4px_rgba(0,0,0,.1)] rounded-[10px] p-4 nobir-sumon'>
-        <div class="flex justify-between">
-            <span class='text-[#380D37] font-[jost] font-[600] text-[17px] leading-[25.23px] '
-                for="text">Price Range</span>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- ------------------------------ -->
+<div class='bg-[#F2F2F2] shadow-[0_2px_4px_rgba(0,0,0,.1)] rounded-[10px] p-4 w-full'>
+<h2 class='my-[10px]'>Price Range</h2>
+<div class="h-[1.5px] bg-[#380D3733] min-w-[110%] ml-[-15px] my-[30px]">
         </div>
-        <div class="h-[1.5px] bg-[#380D3733] min-w-[114%] ml-[-15px] translate-y-[15px]">
+      
+      
+      <div class="slider">
+        <div class="progress"></div>
+      </div>
+      <div class="range-input">
+        <input type="range" class="range-min" min="0" max="10000" value="0" step="100">
+        <input type="range" class="range-max" min="0" max="10000" value="7500" step="100">
+      </div>
+      <div class="price-input">
+        <div class="field">
+        
+          <input type="number" class="input-min" value="2500">
         </div>
-        <div x-show="open" class='px-[0px] pt-[20px] pb-[2px]'>
-            <label class='block' for="#">
-                <input class='border-[2px] border-[#764A87]' type="checkbox" name='status' valu='7'>
-                <span class='font-[jost] text-[16px] leading-[30px] text-[#380D37]'>In Stock</span>
-            </label>
-            <label class='block' for="#">
-                <input class='border-[2px] border-[#764A87]' class='' type="checkbox" name='status'
-                    valu='7'>
-                <span class='font-[jost] text-[16px] leading-[30px] text-[#380D37]'>Pre Order</span>
-            </label>
-            <label class='block' for="#">
-                <input class='border-[2px] border-[#764A87]' type="checkbox" name='status' valu='7'>
-                <span class='font-[jost] text-[16px] leading-[30px] text-[#380D37]'>Up Coming</span>
-            </label>
+        <div class="separator">-</div>
+        <div class="field">
+       
+          <input type="number" class="input-max" value="7500">
         </div>
+      </div>
+    </div>
+    
     </div>
     <!-- ---------------nav-1st--part--------------- -->
     <div x-data="{ open: true, toggle() { this.open = !this.open } }" class='bg-[#F2F2F2] shadow-[0_2px_4px_rgba(0,0,0,.1)] rounded-[10px] mt-3 p-4'>
@@ -37,7 +166,7 @@
             <i @click="toggle()" :class="{ 'rotate-180': !open }"
                 class="fa fa-angle-up text-[#000000] text-[16px] cursor-pointer" aria-hidden="true"></i>
         </div>
-        <div class="h-[1.5px] bg-[#380D3733] min-w-[114%] ml-[-15px] translate-y-[15px]">
+        <div class="h-[1.5px] bg-[#380D3733] min-w-[108%] ml-[-15px] translate-y-[15px]">
         </div>
         <div x-show="open" class='px-[0px] pt-[20px] pb-[2px]'>
             <label class='block' for="#">
@@ -63,7 +192,7 @@
             <i @click="toggle()" :class="{ 'rotate-180': !open }"
                 class="fa fa-angle-up text-[#000000] text-[16px] cursor-pointer" aria-hidden="true"></i>
         </div>
-        <div class="h-[1.5px] bg-[#380D3733] min-w-[114%] ml-[-15px] translate-y-[15px]">
+        <div class="h-[1.5px] bg-[#380D3733] min-w-[108px] ml-[-15px] translate-y-[15px]">
         </div>
         <div x-show="open" class='px-[0px] pt-[20px] pb-[2px]'>
             <label class='block' for="#">
@@ -101,7 +230,7 @@
             <i @click="toggle()" :class="{ 'rotate-180': !open }"
                 class="fa fa-angle-up text-[#000000] text-[16px] cursor-pointer" aria-hidden="true"></i>
         </div>
-        <div class="h-[1.5px] bg-[#380D3733] min-w-[114%] ml-[-15px] translate-y-[15px]">
+        <div class="h-[1.5px] bg-[#380D3733] min-w-[108px] ml-[-15px] translate-y-[15px]">
         </div>
         <div x-show="open" class='px-[0px] pt-[20px] pb-[2px]'>
             <label class='block' for="#">
@@ -175,7 +304,7 @@
             <i @click="toggle()" :class="{ 'rotate-180': !open }"
                 class="fa fa-angle-up text-[#000000] text-[16px] mt-[4px] cursor-pointer" aria-hidden="true"></i>
         </div>
-        <div class="h-[1.5px] bg-[#380D3733] min-w-[114%] ml-[-15px] translate-y-[15px]"></div>
+        <div class="h-[1.5px] bg-[#380D3733] min-w-[108px] ml-[-15px] translate-y-[15px]"></div>
         <div x-show="open" class='px-[0px] pt-[20px] pb-[2px]'>
             <label class='block' for="#">
                 <input class='border-[2px] border-[#764A87]' type="checkbox" name='status' valu='7'>
@@ -249,7 +378,7 @@
             <i @click="toggle()" :class="{ 'rotate-180': !open }"
                 class="fa fa-angle-up text-[#000000] text-[16px] cursor-pointer" aria-hidden="true"></i>
         </div>
-        <div class="h-[1.5px] bg-[#380D3733] min-w-[114%] ml-[-15px] translate-y-[15px]">
+        <div class="h-[1.5px] bg-[#380D3733] min-w-[108px] ml-[-15px] translate-y-[15px]">
         </div>
         <div x-show="open" class='px-[0px] pt-[20px] pb-[2px]'>
             <label class='block' for="#">
@@ -292,7 +421,7 @@
             <i @click="toggle()" :class="{ 'rotate-180': !open }"
                 class="fa fa-angle-up text-[#000000] text-[16px] cursor-pointer" aria-hidden="true"></i>
         </div>
-        <div class="h-[1.5px] bg-[#380D3733] min-w-[114%] ml-[-15px] translate-y-[15px]">
+        <div class="h-[1.5px] bg-[#380D3733] min-w-[108px] ml-[-15px] translate-y-[15px]">
         </div>
         <div x-show="open" class='px-[0px] pt-[20px] pb-[2px]'>
             <label class='block' for="#">
@@ -334,7 +463,7 @@
             <i @click="toggle()" :class="{ 'rotate-180': !open }"
                 class="fa fa-angle-up text-[#000000] text-[16px] cursor-pointer" aria-hidden="true"></i>
         </div>
-        <div class="h-[1.5px] bg-[#380D3733] min-w-[114%] ml-[-15px] translate-y-[15px]">
+        <div class="h-[1.5px] bg-[#380D3733] min-w-[108px] ml-[-15px] translate-y-[15px]">
         </div>
         <div x-show="open" class='px-[0px] pt-[20px] pb-[2px]'>
             <label class='block' for="#">
@@ -368,7 +497,7 @@
             <i @click="toggle()" :class="{ 'rotate-180': !open }"
                 class="fa fa-angle-up text-[#000000] text-[16px] cursor-pointer" aria-hidden="true"></i>
         </div>
-        <div class="h-[1.5px] bg-[#380D3733] min-w-[114%] ml-[-15px] translate-y-[15px]">
+        <div class="h-[1.5px] bg-[#380D3733] min-w-[108px] ml-[-15px] translate-y-[15px]">
         </div>
         <div x-show="open" class='px-[0px] pt-[20px] pb-[2px]'>
             <label class='block' for="#">
@@ -385,7 +514,7 @@
             <i @click="toggle()" :class="{ 'rotate-180': !open }"
                 class="fa fa-angle-up text-[#000000] text-[16px] cursor-pointer" aria-hidden="true"></i>
         </div>
-        <div class="h-[1.5px] bg-[#380D3733] min-w-[114%] ml-[-15px] translate-y-[15px]">
+        <div class="h-[1.5px] bg-[#380D3733] min-w-[108px] ml-[-15px] translate-y-[15px]">
         </div>
         <div x-show="open" class='px-[0px] pt-[20px] pb-[2px]'>
             <label class='block' for="#">
@@ -415,7 +544,7 @@
             <i @click="toggle()" :class="{ 'rotate-180': !open }"
                 class="fa fa-angle-up text-[#000000] text-[16px] cursor-pointer" aria-hidden="true"></i>
         </div>
-        <div class="h-[1.5px] bg-[#380D3733] min-w-[114%] ml-[-15px] translate-y-[15px]">
+        <div class="h-[1.5px] bg-[#380D3733] min-w-[108px] ml-[-15px] translate-y-[15px]">
         </div>
         <div x-show="open" class='px-[0px] pt-[20px] pb-[2px]'>
             <label class='block' for="#">
@@ -449,7 +578,7 @@
             <i @click="toggle()" :class="{ 'rotate-180': !open }"
                 class="fa fa-angle-up text-[#000000] text-[16px] cursor-pointer" aria-hidden="true"></i>
         </div>
-        <div class="h-[1.5px] bg-[#380D3733] min-w-[114%] ml-[-15px] translate-y-[15px]">
+        <div class="h-[1.5px] bg-[#380D3733] min-w-[108px] ml-[-15px] translate-y-[15px]">
         </div>
         <div x-show="open" class='px-[0px] pt-[20px] pb-[2px]'>
             <label class='block' for="#">
