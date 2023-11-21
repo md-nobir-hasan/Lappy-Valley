@@ -5,7 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $title ? $title . ' || ' : '' }} {{ ENV('APP_NAME') }}</title>
-    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    {{-- <link rel="stylesheet" href="/frontend/css/fonts/jost-font/Jost-VariableFont_wght.ttf"> --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+{{-- <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,500;1,100&family=Noto+Sans+Bengali:wght@900&display=swap" rel="stylesheet"> --}}
     <link rel="stylesheet" href="/dist/toastr/toastr.css">
     <script type="text/javascript" src="/dist/toastr/tastr-helper.js"></script>
     <script type="text/javascript" src="/dist/toastr/toastr.js"></script>
