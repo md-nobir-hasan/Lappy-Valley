@@ -55,7 +55,7 @@
                              <td class="px-6 py-4 text-[black]">
                                  {{ $cart->price }}
                              </td>
-                             <td class="px-2 py-4">
+                             <td class="px-2 py-4 text-[black]">
                                  {{ $cart->amount }}
                              </td>
                          </tr>
