@@ -3820,6 +3820,21 @@ input[type="range"]:active::-webkit-slider-thumb {
   padding-bottom: 8px;
 }
 
+.px-\[\] {
+  padding-left: ;
+  padding-right: ;
+}
+
+.px-\[8r\] {
+  padding-left: 8r;
+  padding-right: 8r;
+}
+
+.px-\[8rem\] {
+  padding-left: 8rem;
+  padding-right: 8rem;
+}
+
 .pb-0 {
   padding-bottom: 0px;
 }
@@ -4010,6 +4025,86 @@ input[type="range"]:active::-webkit-slider-thumb {
 
 .pt-\[6px\] {
   padding-top: 6px;
+}
+
+.pl-8 {
+  padding-left: 2rem;
+}
+
+.pl-\[\] {
+  padding-left: ;
+}
+
+.pl-\[40px\] {
+  padding-left: 40px;
+}
+
+.pl-\[60px\] {
+  padding-left: 60px;
+}
+
+.pr-\[14rem\] {
+  padding-right: 14rem;
+}
+
+.pr-\[rem\] {
+  padding-right: rem;
+}
+
+.pr-\[10rem\] {
+  padding-right: 10rem;
+}
+
+.pr-\[16rem\] {
+  padding-right: 16rem;
+}
+
+.pr-\[\] {
+  padding-right: ;
+}
+
+.pr-16 {
+  padding-right: 4rem;
+}
+
+.pr-14 {
+  padding-right: 3.5rem;
+}
+
+.pr-1 {
+  padding-right: 0.25rem;
+}
+
+.pr-8 {
+  padding-right: 2rem;
+}
+
+.pr-6 {
+  padding-right: 1.5rem;
+}
+
+.pr-4 {
+  padding-right: 1rem;
+}
+
+.pr-\[8rm\] {
+  padding-right: 8rm;
+}
+
+.pr-\[8rem\] {
+  padding-right: 8rem;
+}
+
+.pr-\[18rem\] {
+  padding-right: 18rem;
+}
+
+.pr-\[20rem\] {
+  padding-right: 20rem;
+}
+
+.pr-\[22rem\] {
+  padding-right: 22rem;
 }
 
 .text-left {
