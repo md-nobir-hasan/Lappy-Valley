@@ -8,8 +8,9 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Session;
 
-class PasswordSendMail extends Mailable
+class PasswordSendMail extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
@@ -22,6 +23,7 @@ class PasswordSendMail extends Mailable
     {
         $this->data = $data;
         $this->password = rand(1, 999999);
+          Session::put('otp',$this->password);
     }
 
     /**
