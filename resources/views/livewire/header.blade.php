@@ -1,3 +1,4 @@
+<div>
     <header class="h-[78px] bg-gradient-to-r from-[#380D37] to-[#DC275C] text-[#f2f2f2] px-[72px]">
         <div class="flex items-center justify-evenly h-full  py-[10px] gap-[5px]">
             <!-- <!- Logo -->
@@ -88,3 +89,4 @@
             </div>
         </div>
     </header>
+    </div>

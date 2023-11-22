@@ -1,8 +1,9 @@
 <div class='container mx-auto'>
 <div class='flex justify-between'>
-            <h1 class='font-[jost] text-[16px] font-[400] leading-[25.3px] text-[#353535]'>Home / Account</h1>
-            <div class='flex gap-[5px] items-center'><img src="/storage/product/vector-1.svg" alt="Product" class='w-[16px] h-[14px]'><span class='text-[16px] text-[#380D37] font-[jost] font-[400] leading-[23.12px]'>Log Out</span></div>
-            <div class='h-[2px] bg-[#764A8733]'></div>
+       <h1 class='font-[jost] text-[16px] font-[400] leading-[25.3px] text-[#353535]'>Search / Lenovo</h1>
+       <div class='flex gap-[5px] items-center'><img src="/storage/product/vector-1.svg" alt="Product" class='w-[16px] h-[14px]'><span class='text-[16px] text-[#380D37] font-[jost] font-[400] leading-[23.12px]'>Log Out</span></div>
+       </div>
+        <div class='h-[2px] bg-[#764A8733]'></div>
         </div>
         <div class='h-[2px] bg-[#764A8733]'></div>
 
@@ -41,7 +42,7 @@
                           </div>
                         </div>
                         <div class='mt-[10px]'>
-                            <p class='text-[#380D37] text-[16px] font-[jost] font-[500] items-center'>Orders</p>
+                            <p class='text-[#380D37] text-[16px] font-[jost] font-[500] items-center w-[182px] h-[118px]'>Orders</p>
                         </div>
                     </div>
 

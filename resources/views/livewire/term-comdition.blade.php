@@ -10,7 +10,7 @@
 
     <div class='text-left w-[1030px] mx-auto'>
        <div class='my-[25px]'>
-        <h1 class='text-[20px] text-[#353535] font-[jost] font-[700] tracking-[.6px]'> Dear Customer,</h1>
+        <h1 class='text-[16px] text-[#353535] font-[jost] font-[400] tracking-[.6px]'> Dear Customer,</h1>
         <p class='text-[16px] text-[#353535] font-[jost] font-[400] tracking-[.48px] my-[10px]'> The Return and Refund policy of Lappy Valley are given below –</br>ল্যাপী ভ্যালি এর রিটার্ন ও রিফান্ড পলিসি নিম্নরূপ –</p>
        </div>
 
