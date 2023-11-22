@@ -42,7 +42,7 @@
                           </div>
                         </div>
                         <div class='mt-[10px]'>
-                            <p class='text-[#380D37] text-[16px] font-[jost] font-[500] items-center w-[182px] h-[118px]'>Orders</p>
+                            <p class='text-[#380D37] text-[16px] font-[jost] font-[500] items-center'>Orders</p>
                         </div>
                     </div>
 
