@@ -41,6 +41,9 @@
             // show the active slide
             slides[slideIndex].classList.remove('hidden');
         }
+
+
+        
     </script>
 </x-slot>
 

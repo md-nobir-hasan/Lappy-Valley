@@ -22,7 +22,7 @@
                 <div class="mb-[15px]">
                     <input wire:model.blur='email'
                         class="italic rounded-[5px] bg-[#F2F2F2] py-[12px] pl-[20px] pr-[180px] font-[jost] font-[500]"
-                        type="email" placeholder="Enter Your Email Address">
+                        type="email" placeholder="User Name or Email Address">
                          @error('email')
                             <span class="text-[red] text-[12px]">{{ $message }}</span>
                         @enderror
