@@ -139,6 +139,6 @@
                 
                   
                 </div>
-           
+                <div class='h-[2px] bg-[#764A8733] my-[100px]'></div>
        
 </div>
