@@ -16,8 +16,9 @@ class ProductFactory extends Factory
      */
     public function definition(): array
     {
+        $brand = ['HP','Levovo',"Apple",'Asus','Acer','Walton'];
         return [
-            'title' => "Lenovo IdeaPad 15AMN7 AMD Ryzen 57520U 8-512 GB",
+            'title' => $brand[rand(0,5)]." IdeaPad 15AMN7 AMD Ryzen 57520U ".fake()->word(1),
             'slug' => fake()->unique()->uuid(),
             'summary' => fake()->paragraph(),
             'description' => fake()->paragraph(2),

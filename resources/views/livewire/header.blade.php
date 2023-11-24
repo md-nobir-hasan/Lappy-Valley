@@ -13,7 +13,7 @@
                         <div class="w-full p-3">
                             <div class="relative" x-data="{
                                 search: '',
-                                hidden: true,
+                                open: false,
                                 items: $wire.products,
                                 get filteredItems() {
                                     const searchLower = this.search.toLowerCase();
@@ -26,8 +26,8 @@
                                     name=""> -->
 
                                 <form class='h-[44px] w-[655px]'>
-                                    <div class="flex">
-                                        <select wire:model.live='cat' wire:change='prdouctFetch'
+                                    <div class="flex" @click.outside='open = false'>
+                                        <select name="cat_id" wire:model.live='cat' wire:change='prdouctFetch' @change='open=true'
                                             class="block w-[80px] p-2.5 text-[#380D37] text-[14px] font-[jost] font-[400] leading-[20.23px] border-r-[2px] border-[#380D37]">
                                             <option value="" selected>All</option>
                                             @foreach ($cats as $ct)
@@ -40,7 +40,7 @@
                                         <div class="relative w-full">
                                             <div class="w-full">
                                                 <span class="relative">
-                                                     <input x-model="search" @click="hidden = false" type="search"
+                                                     <input name="search_text" wire:model.live="search" wire:keyup="searchFuc" @click="open = true" type="search"
                                                     id="search-dropdown" class="z-20 block p-2.5 w-full"
                                                     placeholder="I am shopping for..." required>
                                                     <div wire:loading
@@ -51,12 +51,12 @@
                                                         </span>
                                                     </div>
                                                 </span>
-
-                                                <ul :class="{ 'hidden': hidden }"
+                                                @if (count($products)>0)
+                                                <ul  x-show='open'
                                                     class="fixed z-50 bg-[white] text-[black] px-6 max-h-[530px] overflow-scroll">
                                                     @foreach ($products as $prd)
                                                         <li>
-                                                            <a href="{{ $prd->title }}" class="flex">
+                                                            <a href="{{ route('product.details',[$prd->slug]) }}" wire:navigate class="flex">
                                                                 <img src="{{ $prd->photo }}" alt=""
                                                                     width="40px" height="40px">
                                                                 <div>
@@ -71,6 +71,7 @@
                                                         </li>
                                                     @endforeach
                                                 </ul>
+                                                @endif
                                                 {{-- <ul :class="{ 'hidden': hidden }"
                                                     class="fixed z-50 bg-[white] text-[black] px-6 h-[530px] overflow-scroll">
                                                     <template x-for="item in filteredItems" :key="item.id">
