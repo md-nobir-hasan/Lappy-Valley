@@ -22,10 +22,8 @@
                     </svg>
                 </span>
             </li>
-
-            <li>
-                <ul x-show="open"
-                    class='leading-[38px] py-[15px] px-[10px] items-center bg-[#f2f2f2] w-[195px] z-[9999] left-0 top-0 absolute mt-[34px] mr-[3px]'>
+                <ul x-show="open" :class="{ 'block': open }"
+                    class=' hidden active:block leading-[38px] py-[15px] px-[10px] items-center bg-[#f2f2f2] w-[195px] z-[9999] left-0 top-0 absolute mt-[34px] mr-[3px]'>
                     @foreach ($menus as $menu)
                         <a href="{{ route('cate_wise.shop', [$menu->slug]) }}" wire:navigate>
                             <li
@@ -36,7 +34,7 @@
                         </a>
                     @endforeach
                 </ul>
-            </li>
+            
         </ul>
         @foreach ($menus as $menu)
             <ul class="relative " x-data="{ open: false }">
@@ -62,7 +60,6 @@
                     </span>
                 </li>
 
-                <li>
                     <ul x-show="open"
                         class='leading-[38px] py-[15px] px-[10px] items-center bg-[#f2f2f2] w-[195px] z-[9999] left-0 top-0 absolute mt-[34px] mr-[3px]'>
                         @foreach ($menu->child_cat as $cc)
@@ -74,7 +71,6 @@
                             </a>
                         @endforeach
                     </ul>
-                </li>
             </ul>
         @endforeach
 

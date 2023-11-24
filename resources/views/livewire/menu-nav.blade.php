@@ -15,10 +15,11 @@
         <option value="DE">Germany</option>
     </select> 
     
-    <div class="shop-view text-[#380D37] text-[14px] font-[jost] font-[400] leading-[20.23px] gap-[20px] mx-[20px]"><span>View</span>
+    <div class="shop-view text-[#380D37] text-[14px] font-[jost] font-[400] leading-[20.23px]  mx-[20px] flex items-center justify-center transparent">
+      <span class='text-center'>View</span>
     <a href="#" class="grid-view mf-shop-view current mx-[20px]" data-view="grid">
-    <i class="fa fa-th" aria-hidden="true"></i></a>
-      <a href="#" class="list-view mf-shop-view mx-[20px]" data-view="list"><i class="fa fa-list" aria-hidden="true"></i></i>
+    <img src="/storage/product/grid2.png" alt=""></a>
+      <a href="#" class="list-view mf-shop-view mx-[20px]" data-view="list"><img src="/storage/product/list-view.png" alt=""></i>
     </a></div>
     </div>
 

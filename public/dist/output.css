@@ -2902,6 +2902,10 @@ input[type="range"]:active::-webkit-slider-thumb {
   gap: 80px;
 }
 
+.gap-\[\] {
+  gap: ;
+}
+
 .space-x-2 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(0.5rem * var(--tw-space-x-reverse));
@@ -5440,6 +5444,10 @@ input[type="range"]:active::-webkit-slider-thumb {
   z-index: 10;
 }
 
+.focus\:block:focus {
+  display: block;
+}
+
 .focus\:rounded-\[50\%\]:focus {
   border-radius: 50%;
 }
@@ -5793,6 +5801,10 @@ input[type="range"]:active::-webkit-slider-thumb {
 .checked\:focus\:after\:bg-transparent:focus:checked::after {
   content: var(--tw-content);
   background-color: transparent;
+}
+
+.active\:block:active {
+  display: block;
 }
 
 .active\:bg-\[\#cacfd1\]:active {
