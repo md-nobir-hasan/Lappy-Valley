@@ -41,7 +41,7 @@
                                             <div class="w-full">
                                                 <span class="relative">
                                                      <input name="search_text" wire:model.live="search" wire:keyup="searchFuc" @click="open = true" type="search"
-                                                    id="search-dropdown" class="z-20 block p-2.5 w-full"
+                                                    id="search-dropdown" class="z-20 block p-2.5 w-full text-[#380D37]"
                                                     placeholder="I am shopping for..." required>
                                                     <div wire:loading
                                                         class="absolute right-[6.5rem] top-2.5 inline-block h-6 w-6 mr-2 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-success motion-reduce:animate-[spin_1.5s_linear_infinite]"
@@ -92,7 +92,7 @@
                                                 </ul> --}}
                                             </div>
                                             <button type="submit"
-                                                class="absolute top-0 end-0 py-2.5 px-[30px] text-sm  h-full text-[#f2f2f2] bg-[#380D37] rounded-r-[2px] overflow-hidden">
+                                                class="absolute top-0 end-0 py-2.5 px-[30px] text-sm  h-full bg-[#df146e] text-[#f2f2f2] rounded-r-[2px] overflow-hidden">
                                                 <span class="">Search</span>
                                             </button>
                                         </div>
