@@ -2305,6 +2305,18 @@ input[type="range"]:active::-webkit-slider-thumb {
   width: 100vw;
 }
 
+.w-\[\] {
+  width: ;
+}
+
+.w-\[500px\] {
+  width: 500px;
+}
+
+.w-\[460px\] {
+  width: 460px;
+}
+
 .min-w-0 {
   min-width: 0px;
 }

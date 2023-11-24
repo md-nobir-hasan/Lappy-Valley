@@ -1,4 +1,4 @@
-<div class="[min-width:230px] mt-2">
+<div class="[min-width:230px]">
     <!-- ----price-range------ -->
 
 

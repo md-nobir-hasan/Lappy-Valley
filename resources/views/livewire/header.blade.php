@@ -37,14 +37,16 @@
                                             <option value="FR">France</option>
                                             <option value="DE">Germany</option> --}}
                                         </select>
-                                        <div class="relative w-full">
+                                        <div class="relative flex w-full">
                                             <div class="w-full">
-                                                <span class="relative">
+                                                <span class="">
                                                      <input name="search_text" wire:model.live="search" wire:keyup="searchFuc" @click="open = true" type="search"
-                                                    id="search-dropdown" class="z-20 block p-2.5 w-full text-[#380D37]"
+                                                    id="search-dropdown" class=" z-20 block p-2.5 w-full text-[#380D37]"
                                                     placeholder="I am shopping for..." required>
                                                     <div wire:loading
-                                                        class="absolute right-[6.5rem] top-2.5 inline-block h-6 w-6 mr-2 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-success motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                                                        class="absolute right-[6.5rem] top-2.5 inline-block h-6 w-6 mr-2 animate-spin rounded-full 
+                                                        border-4 border-solid border-current border-r-transparent align-[-0.125em]
+                                                         text-success motion-reduce:animate-[spin_1.5s_linear_infinite]"
                                                         role="status">
                                                         <span
                                                             class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...
@@ -53,7 +55,7 @@
                                                 </span>
                                                 @if (count($products)>0)
                                                 <ul  x-show='open'
-                                                    class="fixed z-50 bg-[white] text-[black] px-6 max-h-[530px] overflow-scroll">
+                                                    class="absolute z-50 bg-[white] text-[black] px-6 max-h-[530px] overflow-scroll w-full">
                                                     @foreach ($products as $prd)
                                                         <li>
                                                             <a href="{{ route('product.details',[$prd->slug]) }}" wire:navigate class="flex">
@@ -92,7 +94,7 @@
                                                 </ul> --}}
                                             </div>
                                             <button type="submit"
-                                                class="absolute top-0 end-0 py-2.5 px-[30px] text-sm  h-full bg-[#df146e] text-[#f2f2f2] rounded-r-[2px] overflow-hidden">
+                                                class=" top-0 end-0 py-2.5 px-[30px]   h-full bg-[#df146e] text-[#f2f2f2] rounded-r-[2px] overflow-hidden">
                                                 <span class="">Search</span>
                                             </button>
                                         </div>
