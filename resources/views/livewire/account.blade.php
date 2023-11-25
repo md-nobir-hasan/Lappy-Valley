@@ -8,9 +8,11 @@
         </div>
         <div class='h-[2px] bg-[#764A8733]'></div>
     </div>
- 
 
-    <div class='flex items-center gap-[5px] translate-x-[370px] mt-[50px] mb-[30px]'>
+
+  <div class="flex justify-center items-center flex-col">
+   <div class="grid grid-cols-4 ml-12">
+    <div class='mt-[50px] mb-[30px] flex justify-center items-center gap-[5px]'>
         <div>
             <svg xmlns="http://www.w3.org/2000/svg" width="74" height="74" viewBox="0 0 74 74" fill="none">
                 <path
@@ -27,9 +29,10 @@
         </div>
 
     </div>
+   </div>
 
-    <div class='flex justify-center items-center gap-[20px]'>
-        <!-- -----------------cart-1------------------------ -->
+    <div class="grid grid-cols-4 gap-[10px]">
+         {{-- -----------------cart-1------------------------ --> --}}
         <div class='bg-[#f2f2f2] w-[182px] h-[118px] rounded-[4px] text-center py-[26px]'>
             <div class='items-center'>
                 <div class='flex justify-center items-center'>
@@ -141,7 +144,7 @@
 
     <!-- -----------------------group-2------------------ -->
 
-    <div class='flex translate-x-[374px] items-center gap-[20px] mt-[20px]'>
+    <div class='mt-[20px] grid grid-cols-4 gap-[10px]'>
         <!-- -----------------cart-1------------------------ -->
         <div class='bg-[#f2f2f2] w-[182px] h-[118px] rounded-[4px] text-center py-[26px]'>
             <div class='items-center'>
@@ -175,6 +178,7 @@
 
 
     </div>
+  </div>
     <div class='h-[2px] bg-[#764A8733] my-[100px]'></div>
 
 </div>

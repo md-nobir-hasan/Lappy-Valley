@@ -1468,6 +1468,14 @@ input[type="range"]:active::-webkit-slider-thumb {
   margin-top: auto;
 }
 
+.ml-\[3rem\] {
+  margin-left: 3rem;
+}
+
+.ml-12 {
+  margin-left: 3rem;
+}
+
 .box-border {
   box-sizing: border-box;
 }
@@ -2768,6 +2776,10 @@ input[type="range"]:active::-webkit-slider-thumb {
   grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .\!flex-row {
   flex-direction: row !important;
 }
@@ -2782,6 +2794,10 @@ input[type="range"]:active::-webkit-slider-thumb {
 
 .flex-wrap {
   flex-wrap: wrap;
+}
+
+.items-start {
+  align-items: flex-start;
 }
 
 .items-end {
