@@ -10,7 +10,7 @@ use Livewire\Attributes\Title;
 
 class ViewCart extends Component
 {
-    public $carts;
+    public $carts = [];
 
     public function render()
     {
