@@ -52,7 +52,7 @@
                              <td class="text-[#380D37] text-center flex gap-[10px] justify-center items-center  pr-[22rem] py-3">
                                  <span class=" p-4 bg-[#F2F2F2] w-[78px] h-[39px] flex justify-center items-center">{{ $cart->quantity }} </span>
                                  <span><img src="/storage/product/swap.svg" alt="Product"></span>
-                                 <span><img src="/storage/product/Vector(8).svg" alt="Product"></span>
+                                 <span><img src="/storage/product/cross-icon.svg" alt="Product"></span>
                              </td>
 
                              <td class=" text-[black] px-16 py-3">
