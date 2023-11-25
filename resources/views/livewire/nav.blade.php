@@ -22,12 +22,12 @@
                     </svg>
                 </span>
             </li>
-            <ul x-show="open"
-                class=' absolute hidden  leading-[38px] py-[15px] px-[10px] items-center bg-[#f2f2f2] w-[195px] z-[9999] left-0 top-0 mt-[34px] mr-[3px]'>
+            <ul  x-show="open" :class="{'block': open }"
+                class='absolute hidden leading-[38px] py-[15px] px-[10px] items-center bg-[#f2f2f2] w-[195px] z-[9999] left-0 top-0 mt-[34px] mr-[3px]'>
                 @foreach ($menus as $menu)
-                    <a href="{{ route('cate_wise.shop', [$menu->slug]) }}" wire:navigate>
-                        <li
-                            class=' block text-center w-full text-[16px] text-[#353535] font-[jost] font-[500] rounded-[2px] hover:bg-[#380D37] hover:text-[#f2f2f2] border-b-[1px] border-[#353535]'>
+                    <a href="{{ route('cate_wise.shop', [$menu->slug]) }}" wire:navigate >
+                        <li 
+                            class='text-center w-full text-[16px] text-[#353535] font-[jost] font-[500] rounded-[2px] hover:bg-[#380D37] hover:text-[#f2f2f2] border-b-[1px] border-[#353535]'>
 
                             {{ $menu->title }}
                         </li>
