@@ -49,40 +49,40 @@
                  
                    <td class=" py-3 px-6 text-[14px] text-[#FFFFFF] font-[jost] font-[500]">Date</td>
                     <td class=" py-3 px-6 text-[14px] text-[#FFFFFF] font-[jost] font-[500]">1,50,000৳</td>
+                    <td class="py-3 px-6 text-[14px] text-[#FFFFFF] font-[jost] font-[500]">Sub-Total:</td>
+                    <td class=" py-3 px-6 text-[14px] text-[#FFFFFF] font-[jost] font-[500]">1,50,000৳</td>
+                    <td class="py-3 px-6 text-[14px] text-[#FFFFFF] font-[jost] font-[500]">Sub-Total:</td>
+                     <td class="py-3 px-6 text-[14px] text-[#FFFFFF] font-[jost] font-[500]">1,50,000৳</td>
+                 </tr>
+                 </thead>
+                 <tbody>
+                   <tr class=" py-[20px]  px-[30px]  items-center">
+                       <td class=" py-3 px-6 text-[14px] text-[#000000] font-[jost] font-[500]">29 October 2023</td>
+                        <td class="py-3 px-6 text-[14px] text-[#000000] font-[jost] font-[500]">Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U</td>
+                        <td class="py-3 px-6  text-[14px] text-[#000000] font-[jost] font-[500]"><span class="bg-[#F2F2F2] px-8 py-2">1</span></td>
+                        <td class=" py-3 px-6 text-[14px] text-[#000000] font-[jost] font-[500]">1,50,000৳</td>
+                        <td class="py-3 px-6 text-[14px] text-[#000000] font-[jost] font-[500]">1,50,000৳</td>
+                         <td class="py-3 px-6 text-[14px] text-[#000000] font-[jost] font-[500]">Deliverd</td>
+                        </tr>
+                     </tbody>
+                    </table>
+                  </div>
+                   <div class='h-[1px] bg-[#380D37] mb-[100px]'></div>
+                 </div>
                 
                 
 
-                    <td class="py-3 px-6 text-[14px] text-[#FFFFFF] font-[jost] font-[500]">Sub-Total:</td>
-                    <td class=" py-3 px-6 text-[14px] text-[#FFFFFF] font-[jost] font-[500]">1,50,000৳</td>
                
-                   <td class="py-3 px-6 text-[14px] text-[#FFFFFF] font-[jost] font-[500]">Sub-Total:</td>
-                    <td class="py-3 px-6 text-[14px] text-[#FFFFFF] font-[jost] font-[500]">1,50,000৳</td>
-                </tr>
-                </thead>
                   
                 
-          <tbody>
-            <tr class=" py-[20px]  px-[30px]  items-center">
                  
-                <td class=" py-3 px-6 text-[14px] text-[#000000] font-[jost] font-[500]">29 October 2023</td>
-                 <td class="py-3 px-6 text-[14px] text-[#000000] font-[jost] font-[500]">Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U</td>
+            
+              
+       
              
 
               
-                 <td class="py-3 px-6  text-[14px] text-[#000000] font-[jost] font-[500]"><span class="bg-[#F2F2F2] px-8 py-2">1</span></td>
-                 <td class=" py-3 px-6 text-[14px] text-[#000000] font-[jost] font-[500]">1,50,000৳</td>
-            
-                <td class="py-3 px-6 text-[14px] text-[#000000] font-[jost] font-[500]">1,50,000৳</td>
-                 <td class="py-3 px-6 text-[14px] text-[#000000] font-[jost] font-[500]">Deliverd</td>
               
                
                
-             </tr>
-          </tbody>
-           
-        </table>
-      </div>
-       <div class='h-[1px] bg-[#380D37] mb-[100px]'></div>
-    
-</div>
 
