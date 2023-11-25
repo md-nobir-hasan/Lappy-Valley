@@ -91,7 +91,7 @@
                 onclick="moveSlide(1)"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="36"
                     viewBox="0 0 23 40" fill="none">
                     <path :class="{ 'text-[black]': active}" d="M2 2L20 20L2 38" stroke="#999999"
-                        stroke-opacity="0.5" stroke-width="3" />
+                        stroke-opacity="0.5" stroke-width="5" />
                 </svg></i></a>
 
         </div>

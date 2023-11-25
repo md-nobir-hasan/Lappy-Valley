@@ -1,10 +1,10 @@
-<div class="[min-width:230px] mt-2">
+<div class="[min-width:230px]">
     <!-- ----price-range------ -->
 
 
-<div class="wrapper w-full">
+{{-- <div class="wrapper w-full"> --}}
 
-<style>
+{{-- <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 /* *{
   margin: 0;
@@ -118,7 +118,7 @@ input[type="range"]::-moz-range-thumb{
   box-shadow: 0 0 6px rgba(0,0,0,0.05);
 }
       
-    </style>
+    </style> --}}
 
 
 
@@ -131,7 +131,7 @@ input[type="range"]::-moz-range-thumb{
 
 
     <!-- ------------------------------ -->
-<div class='bg-[#F2F2F2] shadow-[0_2px_4px_rgba(0,0,0,.1)] rounded-[10px] p-4 w-full'>
+{{-- <div class='bg-[#F2F2F2] shadow-[0_2px_4px_rgba(0,0,0,.1)] rounded-[10px] p-4 w-full'>
 <h2 class='my-[10px]'>Price Range</h2>
 <div class="h-[1.5px] bg-[#380D3733] min-w-[110%] ml-[-15px] my-[30px]">
         </div>
@@ -157,7 +157,7 @@ input[type="range"]::-moz-range-thumb{
       </div>
     </div>
     
-    </div>
+    </div> --}}
     <!-- ---------------nav-1st--part--------------- -->
     <div x-data="{ open: true, toggle() { this.open = !this.open } }" class='bg-[#F2F2F2] shadow-[0_2px_4px_rgba(0,0,0,.1)] rounded-[10px] mt-3 p-4'>
         <div class="flex justify-between">
