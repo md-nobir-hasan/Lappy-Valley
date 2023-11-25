@@ -3,7 +3,7 @@
         <ul class="relative" x-data="{ open: false }">
             <li class='flex items-center gap-[5px] jost h-[23px]'>
                 <a href="{{ route('shop') }}" wire:navigate
-                    class="font-[jost-font] font-[500] text-[16px] text-[#353535] flex items-center" >
+                    class="font-[jost-font] font-[500] text-[16px] text-[#353535] flex items-center">
                     All Categories
                 </a>
                 <span class="cursor-pointer">
@@ -22,19 +22,19 @@
                     </svg>
                 </span>
             </li>
-                <ul x-show="open"
-                    class=' absolute hidden active-block leading-[38px] py-[15px] px-[10px] items-center bg-[#f2f2f2] w-[195px] z-[9999] left-0 top-0 mt-[34px] mr-[3px]'>
-                    @foreach ($menus as $menu)
-                        <a href="{{ route('cate_wise.shop', [$menu->slug]) }}" wire:navigate>
-                            <li
-                                class='text-center w-full text-[16px] text-[#353535] font-[jost] font-[500] rounded-[2px] hover:bg-[#380D37] hover:text-[#f2f2f2] border-b-[1px] border-[#353535]'>
+            <ul x-show="open"
+                class=' absolute hidden  leading-[38px] py-[15px] px-[10px] items-center bg-[#f2f2f2] w-[195px] z-[9999] left-0 top-0 mt-[34px] mr-[3px]'>
+                @foreach ($menus as $menu)
+                    <a href="{{ route('cate_wise.shop', [$menu->slug]) }}" wire:navigate>
+                        <li
+                            class=' block text-center w-full text-[16px] text-[#353535] font-[jost] font-[500] rounded-[2px] hover:bg-[#380D37] hover:text-[#f2f2f2] border-b-[1px] border-[#353535]'>
 
-                                {{ $menu->title }}
-                            </li>
-                        </a>
-                    @endforeach
-                </ul>
-            
+                            {{ $menu->title }}
+                        </li>
+                    </a>
+                @endforeach
+            </ul>
+
         </ul>
         @foreach ($menus as $menu)
             <ul class="relative " x-data="{ open: false }">
@@ -60,23 +60,23 @@
                     </span>
                 </li>
 
-                    <ul x-show="open"
-                        class='leading-[38px] py-[15px] px-[10px] items-center bg-[#f2f2f2] w-[195px] z-[9999] left-0 top-0 absolute mt-[34px] mr-[3px]'>
-                        @foreach ($menu->child_cat as $cc)
-                            <a href="{{ route('cate_wise.shop', [$cc->slug]) }}" wire:navigate>
-                                <li
-                                    class='text-center w-full text-[16px] text-[#353535] font-[jost] font-[500] rounded-[2px] hover:bg-[#380D37] hover:text-[#f2f2f2] border-b-[1px] border-[#353535]'>
-                                    {{ $cc->title }}
-                                </li>
-                            </a>
-                        @endforeach
-                    </ul>
+                <ul x-show="open"
+                    class='leading-[38px] py-[15px] px-[10px] items-center bg-[#f2f2f2] w-[195px] z-[9999] left-0 top-0 absolute mt-[34px] mr-[3px]'>
+                    @foreach ($menu->child_cat as $cc)
+                        <a href="{{ route('cate_wise.shop', [$cc->slug]) }}" wire:navigate>
+                            <li
+                                class='text-center w-full text-[16px] text-[#353535] font-[jost] font-[500] rounded-[2px] hover:bg-[#380D37] hover:text-[#f2f2f2] border-b-[1px] border-[#353535]'>
+                                {{ $cc->title }}
+                            </li>
+                        </a>
+                    @endforeach
+                </ul>
             </ul>
         @endforeach
 
-        <ul class="relative" >
+        <ul class="relative">
             <li class='flex items-center gap-[5px] jost h-[23px]'>
-                <a href="{{route('about_us')}}" wire:navigate
+                <a href="{{ route('about_us') }}" wire:navigate
                     class="font-[jost] text-[16px] text-[#353535] flex items-center">
                     Hotline: +880171264420
                 </a>
