@@ -36,7 +36,7 @@
                  </thead>
                  <tbody>
                      @forelse ($carts as $cart)
-                         <tr class="bg-white items-center">
+                         <tr class="items-center bg-white">
                              <td scope="row"
                                  class="whitespace-nowrap">
                                  <img src="{{ $cart->product->photo }}" alt="{{ $cart->product->title }}"
@@ -51,15 +51,15 @@
                              </td>
                              <td class="text-[#380D37] text-center flex gap-[10px] justify-center items-center  pr-[22rem] py-3">
                                  <span class=" p-4 bg-[#F2F2F2] w-[78px] h-[39px] flex justify-center items-center">{{ $cart->quantity }} </span>
-                                 <span><img src="storage/product/swap.svg" alt="Product"></span>
-                                 <span><img src="storage/product/Vector(8).svg" alt="Product"></span>
+                                 <span><img src="/storage/product/swap.svg" alt="Product"></span>
+                                 <span><img src="/storage/product/Vector(8).svg" alt="Product"></span>
                              </td>
 
                              <td class=" text-[black] px-16 py-3">
                                 {{ number_format($cart->price) }}৳
                              </td>
                              <td class=" text-[black] px-2 py-3">
-                           
+
                                 {{ $cart->amount }}৳
                              </td>
                          </tr>
@@ -79,13 +79,13 @@
              <tr class="border-b-[2px] border-b-[#380D37] gap-[80px] flex py-[12px] pl-[50px] justify-end">
                  <td class="text-[20px] text-[#380D37] font-[jost] font-[600]">Sub-Total:</td>
                  <td class="text-[20px] text-[#DC275C] font-[jost] font-[500] pr-4 ">
-                     {{ number_format($cart->sum('amount')) }}৳
+                     {{ number_format($carts->sum('amount')) }}৳
                  </td>
              </tr>
              <tr class="border-b-[2px] border-b-[#380D37] gap-[80px] flex py-[12px] pl-[50px] justify-end">
                  <td class="text-[20px] text-[#380D37] font-[jost] font-[600]">Total:</td>
                  <td class="text-[20px] text-[#DC275C] font-[jost] font-[500] pr-4 ">
-                     {{ number_format($cart->sum('amount')) }}৳</td>
+                     {{ number_format($carts->sum('amount')) }}৳</td>
              </tr>
          </tbody>
 
