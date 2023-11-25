@@ -1,6 +1,6 @@
 <section class="bg-[#F2F2F2] h-[51px]  py-4 px-[80px]">
     <nav class="font-[Jost] flex justify-between">
-        <ul class="relative " x-data="{ open: false }">
+        <ul class="relative" x-data="{ open: false }">
             <li class='flex items-center gap-[5px] jost h-[23px]'>
                 <a href="{{ route('shop') }}" wire:navigate
                     class="font-[jost-font] font-[500] text-[16px] text-[#353535] flex items-center" >
@@ -22,8 +22,8 @@
                     </svg>
                 </span>
             </li>
-                <ul x-show="open" :class="{ 'block': open }"
-                    class=' hidden active:block leading-[38px] py-[15px] px-[10px] items-center bg-[#f2f2f2] w-[195px] z-[9999] left-0 top-0 absolute mt-[34px] mr-[3px]'>
+                <ul x-show="open"
+                    class=' absolute hidden active-block leading-[38px] py-[15px] px-[10px] items-center bg-[#f2f2f2] w-[195px] z-[9999] left-0 top-0 mt-[34px] mr-[3px]'>
                     @foreach ($menus as $menu)
                         <a href="{{ route('cate_wise.shop', [$menu->slug]) }}" wire:navigate>
                             <li
