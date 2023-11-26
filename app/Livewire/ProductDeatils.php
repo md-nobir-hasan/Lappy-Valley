@@ -12,6 +12,8 @@ class ProductDeatils extends Component
 {
     public $slug;
     public $product;
+    public $maxPrice;
+    public $minPrice;
 
     public function mount(){
         $this->product = Product::where('slug',$this->slug)->first();

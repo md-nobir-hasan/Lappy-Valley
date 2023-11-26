@@ -105,12 +105,11 @@
             <a data-area="specification"
                 class="focus:bg-[#380D37] bg-[#F2F2F2] text-[20px] text-[#380D37] focus:text-[#F2F2F2] text-center font-[700] font-[jost] py-[10px] px-6 rounded-[5px] w-[168px] h-[50px]">
                 Specification</a>
-            <a href="#description"  data-te-smooth-scroll-init
-                    data-te-offset="25"
+            <a href="#description" data-te-smooth-scroll-init data-te-offset="25"
                 class="focus:bg-[#380D37] bg-[#F2F2F2] text-[20px] text-[#380D37] focus:text-[#F2F2F2] text-center font-[700] font-[jost] py-[10px] px-6 rounded-[5px] w-[168px] h-[50px]">
                 Description</a>
-            <a href='#review' data-te-smooth-scroll-init
-                    data-te-offset="25" class="  focus:bg-[#380D37] bg-[#F2F2F2] text-[20px] text-[#380D37] focus:text-[#F2F2F2]  text-center font-[700] font-[jost] py-[10px] px-8 rounded-[5px] w-[168px] h-[50px]"
+            <a href='#review' data-te-smooth-scroll-init data-te-offset="25"
+                class="  focus:bg-[#380D37] bg-[#F2F2F2] text-[20px] text-[#380D37] focus:text-[#F2F2F2]  text-center font-[700] font-[jost] py-[10px] px-8 rounded-[5px] w-[168px] h-[50px]"
                 data-area="ask-question">Review</a>
         </div>
     </div>
@@ -458,7 +457,8 @@
                 <div class="mt-[20px] mb-[40px]">
                     <h2 class="text-justify text-[#353535] text-[18px] font-[600]">Lenovo IdeaPad 1 15AMN7 AMD
                         Ryzen 5 512GB SSD 15.6" FHD Laptop with DDR5 RAM</h2>
-                    <p class="text-justify text-[#353535] text-[16px] font-[500] font-[jost]">The Lenovo IdeaPad 1 15AMN7 is a
+                    <p class="text-justify text-[#353535] text-[16px] font-[500] font-[jost]">The Lenovo IdeaPad 1
+                        15AMN7 is a
                         stylish and powerful laptop that offers high-performance computing for a variety of jobs.
                         This laptop can perform complex programs with ease thanks to an AMD Ryzen 5 7520U (2.8 GHz
                         up to 4.3 GHz).
@@ -490,74 +490,78 @@
                         Battery adapter 1 year).</p>
                 </div>
             </section>
-            <section class="mt-[20px] border-[2px] border-[#380D37] p-[20px] rounded-[5px]" id='review'>
+
+
+            <section x-data="{ open: false }" class="mt-[20px] border-[2px] border-[#380D37] p-[20px] rounded-[5px]"
+                id='review'>
                 <div class="flex items-center justify-between">
                     <div class="title-n-action">
                         <h2 class="my-[10px] font-[jost] font-[600]">Reviews(1))</h2>
                         <p class="my-[10px] font-[jost] font-[500]">Get Specific Details about this product from
                             customers who own it.</p>
                     </div>
-                    <div class="border-[2px] border-[#380D37] py-[5px] px-[10px] rounded-[5px]">
+
+                    <div class="relative top-0 left-0 ">
 
 
-<!-- Modal toggle -->
-<button data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="block text-[#353535] rounded-lg  px-5 py-2.5" type="button">
- Write a review
-</button>
+                        <!-- Modal toggle -->
+                        <button @click="open = ! open" class="py-[8px] px-[20px] border-[2px] rounded-[4px] border-[#380D37] block text-[#353535]"
+                            type="button">
+                            Write a review
+                        </button>
 
-<!-- Main modal -->
-<div id="crud-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-    <div class="relative w-full max-w-md max-h-full p-4">
-        <!-- Modal content -->
-        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-            <!-- Modal header -->
-            <div class="flex items-center justify-between p-4 border-b rounded-t md:p-5 dark:border-gray-600">
-                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-                    Create New Product
-                </h3>
-                <button type="button" class="inline-flex items-center justify-center w-8 h-8 text-sm text-gray-400 bg-transparent rounded-lg hover:bg-gray-200 hover:text-gray-900 ms-auto dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="crud-modal">
-                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-                    </svg>
-                    <span class="sr-only">Close modal</span>
-                </button>
-            </div>
-            <!-- Modal body -->
-            <form action="#" class="p-4 md:p-5">
-                <div class="grid grid-cols-2 gap-4 mb-4">
-                    <div class="col-span-2">
-                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
-                        <input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type product name" required="">
-                    </div>
-                    <div class="col-span-2 sm:col-span-1">
-                        <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price</label>
-                        <input type="number" name="price" id="price" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="$2999" required="">
-                    </div>
-                    <div class="col-span-2 sm:col-span-1">
-                        <label for="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category</label>
-                        <select id="category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                            <option selected="">Select category</option>
-                            <option value="TV">TV/Monitors</option>
-                            <option value="PC">PC</option>
-                            <option value="GA">Gaming/Console</option>
-                            <option value="PH">Phones</option>
-                        </select>
-                    </div>
-                    <div class="col-span-2">
-                        <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product Description</label>
-                        <textarea id="description" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write product description here"></textarea>
-                    </div>
-                </div>
-                <button type="submit" class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                    <svg class="w-5 h-5 me-1 -ms-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path></svg>
-                    Add new product
-                </button>
-            </form>
-        </div>
-    </div>
-</div>
+                        <!-- Main modal -->
+                        <div x-show='open' class="fixed left-8 top-4 bg-[#FFFFFF] border-[2px] border-[#380D37] p-[15px] rounded-[4px]">
+                            <div class='p-[10px] mx-auto rounded-[4px]'>
+                         
+                                <div class='flex justify-between w-[496px]'>
+                                    <input type="text" placeholder='First Name'
+                                        class='w-[236px] h-[44px] rounded-[4px] border-[2px] border-[#380D37] bg-[#F2F2F2] italic text-[#000000] text-[12px] font-[jost] font-[400] leading-[17.34px] px-[10px]'>
+                                    <input type="text" placeholder='Last Name'
+                                        class='w-[236px] h-[44px] rounded-[4px] border-[2px] border-[#380D37] bg-[#F2F2F2]  italic text-[#000000] text-[12px] font-[jost] font-[400] leading-[17.34px] px-[10px]'>
+                                </div>
+                                <div class='my-[10px]'>
+                                    <input type='text' placeholder='Write your review here...'
+                                        class='w-[496px] pb-[200px] pt-[10px] rounded-[4px] border-[2px] border-[#380D37] bg-[#F2F2F2] italic text-[#000000] text-[12px] font-[jost] font-[400] leading-[17.34px] px-[10px]'>
+                                </div>
+                                <div class=' flex justify-between my-[50px] items-center'>
+                                    <div class='items-center'>
+                                        <div>
+                                            <h1 class='text-[24px] text-[#380D37] font-[jost] font-[50px] leading-[34.68px]'>Reviews</h1>
+                                        </div>
+                                        <div class='flex my-[10px] items-center'>
+                                            <img src="/storage/product/star2.svg" alt="Product" class='h-[37.45px]'>
+                                            <img src="/storage/product/star2.svg" alt="Product" class='h-[37.45px]'>
+                                            <img src="/storage/product/star2.svg" alt="Product" class='h-[37.45px]'>
+                                            <img src="/storage/product/star-white.svg" alt="Product" class='h-[37.45px]'>
+                                            <img src="/storage/product/star-white.svg" alt="Product" class='h-[37.45px]'>
+                                        </div>
+                                    </div>
+                                    <div class='mt-[20px]'>
+                                        <button
+                                            class=' w-[236px] h-[60.69px] rounded-[4px] items-center text-[20px] text-[#F2F2F2] font-[jost] font-[500] leading-[28.9px] bg-gradient-to-r from-[#380D37] to-[#DC275C]'>Post
+                                            your review</button>
+                                    </div>
+                                </div>
+                                <button type="submit"
+                                class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                <svg class="w-5 h-5 me-1 -ms-1" fill="currentColor" viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                Add Image
+                            </button>
+                            </div>
+                         
+                           
+                         </div>
 
+                       
+                          
                     </div>
+
                 </div>
                 <div class="flex my-[10px]">
                     <img src="../dist/img/star2.svg" alt="">
@@ -731,7 +735,97 @@
                         </div>
                     </div>
                 </section>
+
+                <div class="h-screen flex justify-center items-center ">
+                    <div x-data="range()" x-init="mintrigger(); maxtrigger()" class="relative max-w-xl w-full">
+                      <div>
+                        <input type="range" step="100" x-bind:min="min" x-bind:max="max" x-on:input="mintrigger" x-model="minprice" class="absolute pointer-events-none appearance-none z-20 h-2 w-full opacity-0 cursor-pointer">
+                  
+                        <input type="range" step="100" x-bind:min="min" x-bind:max="max" x-on:input="maxtrigger" x-model="maxprice" class="absolute pointer-events-none appearance-none z-20 h-2 w-full opacity-0 cursor-pointer">
+                  
+                        <div class="relative z-10 h-2">
+                  
+                          <div class="absolute z-10 left-0 right-0 bottom-0 top-0 rounded-md bg-gray-200"></div>
+                  
+                          <div class="absolute z-20 top-0 bottom-0 rounded-md bg-green-300" x-bind:style="'right:'+maxthumb+'%; left:'+minthumb+'%'"></div>
+                  
+                          <div class="absolute z-30 w-6 h-6 top-0 left-0 bg-green-300 rounded-full -mt-2" x-bind:style="'left: '+minthumb+'%'"></div>
+                  
+                          <div class="absolute z-30 w-6 h-6 top-0 right-0 bg-green-300 rounded-full -mt-2" x-bind:style="'right: '+maxthumb+'%'"></div>
+                  
+                        </div>
+                  
+                      </div>
+                  
+                        <div class="flex items-center justify-between pt-5 space-x-4 text-sm text-gray-700">
+                          <div>
+                            <input type="text" maxlength="5" x-on:input.debounce="mintrigger" x-model="minprice"
+                              wire:model.debounce.300="minPrice"
+                              class="w-24 px-3 py-2 text-center border border-gray-200 rounded-lg bg-gray-50 focus:border-yellow-400 focus:outline-none">
+                          </div>
+                          <div>
+                            <input type="text" maxlength="5" x-on:input.debounce.300="maxtrigger" x-model="maxprice"
+                              wire:model.debounce="maxPrice"
+                              class="w-24 px-3 py-2 text-center border border-gray-200 rounded-lg bg-gray-50 focus:border-yellow-400 focus:outline-none">
+                          </div>
+                        </div>
+                  
+                    </div>
+                  
+                    <script>
+                      function range() {
+                        return {
+                          minprice: 0,
+                          maxprice: 10000,
+                          min: 0,
+                          max: 10000,
+                          minthumb: 0,
+                          maxthumb: 0,
+                          mintrigger() {
+                            this.validation();
+                            this.minprice = Math.min(this.minprice, this.maxprice - 500);
+                            this.minthumb = ((this.minprice - this.min) / (this.max - this.min)) * 100;
+                          },
+                          maxtrigger() {
+                            this.validation();
+                            this.maxprice = Math.max(this.maxprice, this.minprice + 200);
+                            this.maxthumb = 100 - (((this.maxprice - this.min) / (this.max - this.min)) * 100);
+                          },
+                          validation() {
+                            if (/^\d*$/.test(this.minprice)) {
+                              if (this.minprice > this.max) {
+                                this.minprice = 9500;
+                              }
+                              if (this.minprice < this.min) {
+                                this.minprice = this.min;
+                              }
+                            } else {
+                              this.minprice = 0;
+                            }
+                            if (/^\d*$/.test(this.maxprice)) {
+                              if (this.maxprice > this.max) {
+                                this.maxprice = this.max;
+                              }
+                              if (this.maxprice < this.min) {
+                                this.maxprice = 200;
+                              }
+                            } else {
+                              this.maxprice = 10000;
+                            }
+                          }
+                        }
+                      }
+                    </script>
+                    <div class="flex items-end justify-end absolute bottom-0 right-0 mb-4 mr-4">
+                      <div>
+                        <a title="Buy me a coffee" href="https://www.buymeacoffee.com/rHcLDkY" target="_blank" class="block w-16 h-16">
+                          <img alt="Buy me a coffee" class="object-cover object-center w-full h-full rounded-full shadow-md hover:shadow-lg" src="https://cdn.dribbble.com/users/3349322/screenshots/14039201/media/616e4ae6995fb288e434c3f0927541ce.png"/>
+                        </a>   
+                      </div>
+                    </div>
+                  </div>
             </div>
         </div>
     </div>
+
 </div>

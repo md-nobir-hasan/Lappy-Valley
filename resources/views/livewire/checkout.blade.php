@@ -103,22 +103,22 @@
                      <div class="my-[10px]">
                          <h1 class="text-[#353535] text-[14px] font-[jost] font-[500]">Select Payment Method</h1>
                      </div>
-                     <div class="my-[10px]">
+                     <div class="my-[10px] flex gap-[5px]">
                          <input class="w-[20px] h-[20px]" type="radio" value="Cash on Delivery">
                          <label class="text-[#353535] text-[14px] font-[jost] font-[500]" for="#">Cash on
                              Delivery</label>
                      </div>
-                     <div class="my-[10px]">
+                     <div class="my-[10px] flex gap-[5px]">
                          <input class="text-[#000] w-[20px] h-[20px]" type="radio" value="">
                          <label class="text-[#353535] text-[14px] font-[jost] font-[500]" for="">Online
                              Payment</label>
                      </div>
 
                      <div>
-                         <div class="my-[10px]">
+                         <div class="my-[9px]">
                              <h1 class="text-[#353535] text-[14px] font-[jost] font-[500]">We Accept:</h1>
                          </div>
-                         <div class="my-[10px]">
+                         <div class="my-[8px]">
                              <img src="/storage/product/payment.svg" alt="">
                          </div>
                      </div>
@@ -141,15 +141,16 @@
                              <h1 class="text-[#353535] text-[14px] font-[jost] font-[500]">Select Delivery Method
                              </h1>
                          </div>
-                      
-                         <div class="my-[10px]">
+
+                         <div class="my-[10px] flex gap-[5px]">
                              <input class="w-[20px] h-[20px]" type="radio">
                              <label class="text-[#353535] text-[14px] font-[jost] font-[500]" for="">Store
                                  Pickup- 0 Taka</label>
                          </div>
-                         <div class="my-[10px]">
+                         <div class="my-[10px] flex gap-[5px]">
                              <input class="text-[#000] w-[20px] h-[20px]" type="radio" value="">
-                             <label class="text-[#353535] text-[14px] font-[jost] font-[500]" for="">Request Express delivery-120 Taka <br/><span class="pl-[25px]">Through SA P.B</span></label>
+                             <label class="text-[#353535] text-[14px] font-[jost] font-[500]" for="">Request
+                                 Express delivery-120 Taka <br/><span>Through SA P.B</span></label>
                          </div>
                      </div>
                  </div>
@@ -157,7 +158,7 @@
              <!-- ------------------delivery method end --------------------------- -->
 
              <!-- ----------order-view--section-------- -->
-             <div class="border-[#380D37] border-[3px] rounded-[5px] mt-[20px] pl-[20px] pt-[20px] pr-[20px]">
+             <div class="border-[#380D37] border-[3px] rounded-[5px] mt-[50px] pl-[20px] pt-[20px] pr-[20px]">
                  <div class="flex gap-[15px] font-[jost] font-[600] text-center my-[10px]">
                      <div class="w-[25px] h-[25px] bg-[#000] text-[#fff] rounded-[100%] text-center mt-[5px]">
                          <h1>4</h1>
@@ -168,7 +169,7 @@
                      </div>
                  </div>
                  <div>
-                     <table class="text-[#380D37] text-[14px] font-[jost] font-[400] w-full text-left text-">
+                     <table class="text-[#380D37] text-[14px] font-[jost] font-[400] w-full text-left">
                          <tr class="border-b-[rgba(0_0_0_0.20)] border-b-[1px] py-[20px]">
                              <th>Product Name</th>
                              <th class="text-right py-[10px]">Price</th>

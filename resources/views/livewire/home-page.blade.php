@@ -139,7 +139,7 @@
         <!-- banner  -->
         <div class="flex mt-6 mb-5">
             <div class=" pt-[22px]  font-[jost] text-[52px] font-[500] text-[#DC275C]">
-                <p class="leading-[75.14px]"> Our newest</br>products are here,just for you!</p>
+                <p class="leading-[75.14px]"> Our newest</br>products are</br>here,just for you!</p>
                 <div class='text-center'>
                     <button
                         class="mt-[60px] py-2 px-6 font-[jost] font-[500] text-[16px] text-[#F2F2F2] rounded-[4px] bg-gradient-to-r from-[#380D37] to-[#DC275C]">
