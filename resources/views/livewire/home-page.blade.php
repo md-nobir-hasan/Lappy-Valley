@@ -48,6 +48,10 @@
 </x-slot>
 
 <div class="container mx-auto lg:px-16">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Alkalami&family=Comme:wght@200;600;800&family=Jost&family=Lato:ital,wght@1,300&display=swap');
+      </style>
     <form method="POST" action="{{ route('logout') }}" class="hidden">
         @csrf
         <button class="p4 bg-[red] rounded">Logout</button>

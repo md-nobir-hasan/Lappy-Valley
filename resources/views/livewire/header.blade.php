@@ -1,4 +1,7 @@
 <div>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Alkalami&family=Comme:wght@200;600;800&family=Jost&family=Lato:ital,wght@1,300&display=swap');
+      </style>
     <header class="h-[78px] bg-gradient-to-r from-[#380D37] to-[#DC275C] text-[#f2f2f2] px-[72px]">
         <div class="flex items-center justify-evenly h-full  py-[10px] gap-[5px]">
             <!-- <!- Logo -->

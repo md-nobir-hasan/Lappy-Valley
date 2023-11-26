@@ -7,7 +7,7 @@
     <!-- Sidenav -->
     <div class="container mx-auto mt-4">
         <div class="flex justify-between gap-8">
-            <livewire:side-nav/>e
+            <livewire:side-nav/>
             <!-- ------------right---part--start--- -->
             <div class="mt-2">
               <livewire:menu-nav/>
