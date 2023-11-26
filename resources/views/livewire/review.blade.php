@@ -1,5 +1,5 @@
 <div x-data='{open: false}' class=" top-0 left-0">
-   <div class='p-[30px] border-[3px] border-[#380D37] w-[548px] h-[534px] mx-auto my-[100px] rounded-[4px]'>
+   {{-- <div class='p-[30px] border-[3px] border-[#380D37] w-[548px] h-[534px] mx-auto my-[100px] rounded-[4px]'>
 
       <div
       class="flex items-center justify-between p-4 border-b rounded-t md:p-5 dark:border-gray-600">
@@ -121,8 +121,246 @@
               </div>
           </div>
       </div> 
-</div>
+</div> --}}
+
+<style>
+
+:root {
+    --s-primary: #ef4a23;
+    --s-secondary: #3749bb;
+    --s-hf-bg: #081621;
+    --s-b-bg: #f2f4f8;
+    --s-m-bg: #6e2594;
+    --s-s-bg: rgba(55,73,187,.1);
+    --s-f-c1: #666;
+    --s-f-c2: #fff;
+}
+  .price-filter {
+    display: inline-block;
+    /* width: 100%; */
+    padding: 0 20px 20px;
+    height: 170px;
+}
+
+.ws-box {
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.1);
+}
+
+.price-filter .label {
+    margin: 0 -20px 30px;
+}
+
+.price-filter .label, .filter-group .label {
+    padding: 0 0 0 20px;
+    height: 50px;
+    line-height: 50px;
+    cursor: pointer;
+    color: #111;
+    font-size: 17px;
+    border-bottom: 1px solid #eee;
+}
+.pf-wrap {
+    height: 40px;
+    overflow: hidden;
+}
+.filters .range-label {
+    position: relative;
+}
+.filters .range-label input {
+    float: left;
+    width: 80px;
+    height: 30px;
+    border: 1px solid #c5cbd5;
+    margin: 5px 0 0 -1px;
+    outline: 0;
+    padding: 6px 0;
+    border-radius: 0;
+    font-size: 14px;
+    text-align: center;
+}
+.filters .range-label {
+    position: relative;
+}
+filters .range-label.to input {
+    float: right;
+}
+
+.filters .range-label input {
+    /* float: left; */
+    width: 80px;
+    height: 30px;
+    border: 1px solid #c5cbd5;
+    margin: 5px 0 0 -1px;
+    outline: 0;
+    padding: 6px 0;
+    border-radius: 0;
+    font-size: 14px;
+    text-align: center;
+}
+.price-filter .noUi-horizontal {
+    width: calc(100% - 20px);
+    margin-top: 10px;
+}
+
+.noUi-horizontal {
+    height: 10px;
+    width: 84%;
+    margin: 0 auto;
+}
+.noUi-target {
+    position: relative;
+    direction: ltr;
+}
+.price-filter .noUi-base {
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+    background: #eee;
+}
+.noUi-base, .noUi-connects {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+}
+.noUi-connects {
+    overflow: hidden;
+    border-radius: 3px;
+    z-index: 0;
+}
+
+.noUi-base, .noUi-connects {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.price-filter .noUi-connect {
+    background: var(--s-primary);
+    transform: translate(0%, 0px) scale(0.46602, 1);
+}
+.noUi-connect, .noUi-origin {
+    will-change: transform;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    -ms-transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+}
+
+.noUi-horizontal .noUi-origin {
+    left: auto;
+    right: 0;
+    height: 0;
+    transform: translate(-100%, 0px);
+    z-index: 5;
+}
+.noUi-connect, .noUi-origin {
+    will-change: transform;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    -ms-transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+}
+.noUi-target, .noUi-target * {
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    -ms-touch-action: none;
+    touch-action: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.price-filter .noUi-handle {
+    background: #fff;
+    border: 2px solid var(--s-primary);
+    box-shadow: 0 0 0 4px #fff inset , 0 0 0 9px var(--s-primary) inset , 0 0 0 2px #fff;
+}
+
+.noUi-handle {
+    position: absolute;
+    top: -6px;
+    height: 20px;
+    width: 20px;
+    border-radius: 50px;
+    outline: none;
+    right: -10px!important;
+    left: auto;
+    border: 1px solid #d9d9d9;
+    background: #fff;
+    cursor: default;
+    box-shadow: inset 0 0 1px #fff, inset 0 1px 7px #ebebeb, 0 3px 6px -3px #bbb;
+}
+
+.noUi-horizontal .noUi-origin {
+    left: auto;
+    right: 0;
+    height: 0;
+    transform: translate(-53.398%, 0px);
+    z-index: 6;
+}
+.noUi-connect, .noUi-origin {
+    will-change: transform;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    -ms-transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+}
+
+.price-filter .noUi-handle {
+    background: #fff;
+    border: 2px solid var(--s-primary);
+    box-shadow: 0 0 0 4px #fff inset , 0 0 0 9px var(--s-primary) inset , 0 0 0 2px #fff;
+}
+
+.noUi-handle {
+    position: absolute;
+    top: -6px;
+    height: 20px;
+    width: 20px;
+    border-radius: 50px;
+    outline: none;
+    right: -10px!important;
+    left: auto;
+    border: 1px solid #d9d9d9;
+    background: #fff;
+    cursor: default;
+    box-shadow: inset 0 0 1px #fff, inset 0 1px 7px #ebebeb, 0 3px 6px -3px #bbb;
+}
+
+
+</style>
   
+<div class="price-filter ws-box">
+  <div class="label">
+    <span>Price Range</span>
+  </div>
+  <div class="pf-wrap">
+  <div id="rang-slider" class="noUi-horizontal noUi-target noUi-ltr" data-from="15200" data-to="65999" data-min="15200" data-max="65999"><div class="noUi-base"><div class="noUi-connects"><div class="noUi-connect" style="transform: translate(0%, 0px) scale(1, 1);"></div></div><div class="noUi-origin" style="transform: translate(-100%, 0px); z-index: 5;"><div class="noUi-handle noUi-handle-lower" data-handle="0" tabindex="0" role="slider" aria-orientation="horizontal" aria-valuemin="0.0" aria-valuemax="100.0" aria-valuenow="0.0" aria-valuetext="15200.00" title="Lower Handle"></div></div><div class="noUi-origin" style="transform: translate(0%, 0px); z-index: 4;"><div class="noUi-handle noUi-handle-upper" data-handle="1" tabindex="0" role="slider" aria-orientation="horizontal" aria-valuemin="0.0" aria-valuemax="100.0" aria-valuenow="100.0" aria-valuetext="65999.00" title="Upper Handle"></div></div></div></div>
+  </div>
+  <label class="range-label from"><input class="border-[1px] border-black" type="num" id="range-to" name="from"></label>
+  <label class="range-label to"><input class="border-[1px] border-black" type="num" id="range-from" name="to"></label>
+</div>
+
 
   
 </div>

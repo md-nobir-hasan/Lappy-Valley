@@ -2339,6 +2339,14 @@ input[type="range"]:active::-webkit-slider-thumb{
   width: 548px;
 }
 
+.w-\[\]{
+  width: ;
+}
+
+.w-\[220px\]{
+  width: 220px;
+}
+
 .min-w-0{
   min-width: 0px;
 }
@@ -3413,6 +3421,15 @@ input[type="range"]:active::-webkit-slider-thumb{
 .border-white{
   --tw-border-opacity: 1;
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
+}
+
+.border-\[\]{
+  border-color: ;
+}
+
+.border-black{
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
 }
 
 .border-b-\[\#3535354D\]{
