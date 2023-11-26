@@ -1,6 +1,7 @@
-<div class='ml-[40px]'>
+<div>
+    <div class='ml-[40px]'>
     <h1 class='font-[jost] xl:text-[20px] font-[400] leading-[25.3px] text-[#353535]'>All Categories/
-        {{ Str::of($slug)->headline() }}</h1>
+        {{ Str::of($slug ?? 'Search')->headline() }}</h1>
     <div class='h-1 bg-[#764A8733]'></div>
 </div>
 
@@ -31,4 +32,5 @@
 
         </div>
     </div>
+</div>
 </div>

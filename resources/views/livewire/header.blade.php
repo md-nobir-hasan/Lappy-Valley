@@ -20,12 +20,9 @@
                                     return this.items.filter((i) => i.title.toLowerCase().startsWith(searchLower));
                                 }
                             }">
-                                <!-- <i class=" w-[20px] h-[20.83px] absolute text-gray-400 fa fa-search top-6 left-4"></i>
-                                <input type="text" x-model="search" @click="hidden = false"
-                                    class="bg-white h-[44px] w-[655px] tex-center items-center text-[#353535] text-[20px] leading-[26px] font-[jost] font-[400] mt-[10px] pl-[35px] rounded-[5px] focus:outline-none hover:cursor-pointer" placeholder='Search'
-                                    name=""> -->
 
-                                <form class='h-[44px] w-[655px]'>
+
+                                <form wire:submit='searchTo' class='h-[44px] w-[655px]'>
                                     <div class="flex" @click.outside='open = false'>
                                         <select name="cat_id" wire:model.live='cat' wire:change='prdouctFetch' @change='open=true'
                                             class="block w-[80px] p-2.5 text-[#380D37] text-[14px] font-[jost] font-[400] leading-[20.23px] border-r-[2px] border-[#380D37]">
@@ -44,7 +41,7 @@
                                                     id="search-dropdown" class=" z-20 block p-2.5 w-full text-[#380D37]"
                                                     placeholder="I am shopping for..." required>
                                                     <div wire:loading
-                                                        class="absolute right-[6.5rem] top-2.5 inline-block h-6 w-6 mr-2 animate-spin rounded-full 
+                                                        class="absolute right-[6.5rem] top-2.5 inline-block h-6 w-6 mr-2 animate-spin rounded-full
                                                         border-4 border-solid border-current border-r-transparent align-[-0.125em]
                                                          text-success motion-reduce:animate-[spin_1.5s_linear_infinite]"
                                                         role="status">

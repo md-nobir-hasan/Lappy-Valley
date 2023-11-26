@@ -48,6 +48,7 @@ use App\Livewire\OrderConfirm;
 use App\Livewire\OtpConfirm;
 use App\Livewire\ResetPassword;
 use App\Livewire\Review;
+use App\Livewire\SearchingProduct;
 use App\Livewire\ViewCart;
 use App\Livewire\Wishlist;
 use \UniSharp\LaravelFilemanager\Lfm;
@@ -242,6 +243,7 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
 Route::get('/', HomePage::class)->name('home');
 Route::get('/shop', Shop::class)->name('shop');
 Route::get('/category-wise/{slug}', CatWiseShop::class)->name('cate_wise.shop');
+Route::get('/search/{stext}/{cat?}', SearchingProduct::class)->name('searching_product');
 Route::get('/product-details/{slug}', ProductDeatils::class)->name('product.details');
 Route::get('/checkout', Checkout::class)->name('checkout');
 Route::get('/view-cart', ViewCart::class)->name('vcart');
