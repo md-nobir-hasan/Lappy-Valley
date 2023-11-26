@@ -138,7 +138,7 @@
 
         <!-- banner  -->
         <div class="flex mt-6 mb-5">
-            <div class=" pt-[22px]  font-[jost] text-[52px] font-[500] text-[#DC275C]">
+            <div class=" pt-[22px]  font-[jost] text-[52px] font-[500] text-[#DC275C] ">
                 <p class="leading-[75.14px]"> Our newest</br>products are</br>here,just for you!</p>
                 <div class='text-center'>
                     <button
