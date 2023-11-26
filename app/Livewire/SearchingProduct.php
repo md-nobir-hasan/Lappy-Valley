@@ -17,10 +17,22 @@ class SearchingProduct extends Component
 
     public function mount()
     {
-         if ($this->cat) {
-            $this->slug_wise_product = DB::table('products')->where('cat_id', $this->cat)->where('title', 'like', '%' . $this->stext . '%')->select('id', 'photo', 'title', 'slug', 'price', 'discount')->get();
+        if (($id = $this->cat) && ($s = $this->stext)) {
+            $this->slug_wise_product = DB::table('products')->select('id', 'photo', 'title', 'slug', 'price', 'discount')
+            ->where('cat_id', $id)
+                ->where('title', 'like', '%' . $this->stext . '%')
+                ->get();
+        } elseif (($id = $this->cat)) {
+            $this->slug_wise_product = DB::table('products')->select('id', 'photo', 'title', 'slug', 'price', 'discount')
+            ->where('cat_id', $id)
+                ->get();
+        } elseif (($s = $this->stext)) {
+            $this->slug_wise_product = DB::table('products')->select('id', 'photo', 'title', 'slug', 'price', 'discount')
+            ->where('title', 'like', '%' . $this->stext . '%')
+                ->get();
         } else {
-            $this->slug_wise_product = DB::table('products')->where('title', 'like', '%' . $this->stext . '%')->select('id', 'photo', 'title', 'slug', 'price', 'discount')->get();
+            $this->slug_wise_product = DB::table('products')->select('id', 'photo', 'title', 'slug', 'price', 'discount')
+            ->get();
         }
     }
 
