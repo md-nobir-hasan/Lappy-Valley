@@ -15,15 +15,17 @@ class PasswordSendMail extends Mailable implements ShouldQueue
     use Queueable, SerializesModels;
 
     public $data;
-    public $password;
+    public $fotp;
     /**
      * Create a new message instance.
      */
     public function __construct($data)
     {
         $this->data = $data;
-        $this->password = rand(1, 999999);
-          Session::put('otp',$this->password);
+        $otp = rand(1, 999999);
+        Session::put('fotp', $otp);
+        $this->fotp = $otp;
+        Session::put('femail', $data);
     }
 
     /**
@@ -32,7 +34,7 @@ class PasswordSendMail extends Mailable implements ShouldQueue
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Your Password',
+            subject: 'Your OTP from LappyValley',
         );
     }
 
