@@ -1,3 +1,5 @@
+
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     content: [
@@ -10,9 +12,10 @@ module.exports = {
     darkMode: "class",
     theme: {
         fontFamily: {
-            sans: ["Roboto", "sans-serif"],
-            body: ["Roboto", "sans-serif"],
-            mono: ["ui-monospace", "monospace"]
+            // alkalami: ['Alkalami', serif],
+            // comme: ['Comme', sans-serif],
+            jost: ['Jost','sans-serif'],
+            // lato: ['Lato', sans-serif],
         }
     }
 };
