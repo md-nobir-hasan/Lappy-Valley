@@ -2,6 +2,8 @@
 
 namespace App\Livewire;
 
+use App\Mail\PasswordSendMail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
@@ -16,19 +18,22 @@ class ConfirmPassword extends Component
     public $otp;
 
     public $msg;
+    public $resent_msg;
     public function save()
     {
-
         $this->validate();
-        if ($this->otp == Session::get('opt')) {
+        if ($this->otp == Session::get('fotp')) {
             $this->redirect(ResetPassword::class, navigate: true);
         }else{
-            $this->msg = "Otp don't mass";
+            $this->msg = "Otp don't match";
         }
     }
-public function resend(){
-         
-}
+    public function resend(){
+        $email = Session::get('femail');
+        Mail::to($email)->send(new PasswordSendMail($email));
+        $this->resent_msg = "Otp code is send again to $email";
+    }
+
     public function render()
     {
 
