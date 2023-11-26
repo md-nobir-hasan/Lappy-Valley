@@ -246,7 +246,7 @@
     </div>
 
     <!-- Currention code from this line upto footer  -->
-    <section>
+    <section class="#about-us">
         <div>
             <h2 class="mt-8 text-center font-[jost] text-[40px] font-[500] leading-[58px]  text-[#353535]">
                 Why Choose Us?</h2>
@@ -324,60 +324,8 @@
     <section class="mt-16">
         <h2 class="mb-12 text-center font-[500] font-[jost] text-[42px] text-[#353535]">What Our Clients Say About
             Us</h2>
-        
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
-            Demo styles 
-          <style>
-             html,
-             body {
-               position: relative;
-               height: 100%;
-             }
-         
-             body {
-               background: #eee;
-               font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-               font-size: 14px;
-               color: #000;
-               margin: 0;
-               padding: 0;
-             }
-         
-             .swiper {
-               width: 100%;
-               height: 100%;
-             }
-         
-              .swiper-slide {
-               text-align: center;
-               font-size: 18px;
-               background: #fff;
-               display: flex;
-               justify-content: center;
-               align-items: center;
-             }
-         
-             .swiper-slide img {
-               display: block;
-               width: 100%;
-               height: 100%;
-               object-fit: cover;
-             }
-         
-             .swiper {
-               margin-left: auto;
-               margin-right: auto;
-             }
-           </style>
-           <!-- Swiper -->
-           <div class="swiper mySwiper">
-             <div class="swiper-wrapper">
-               <div class="swiper-slide"><div>
-         
-               </div></div>
-               <div class="flex items-center justify-around">
-               <div class="swiper-slide">  <div class="rounded-[12px] py-4 px-6 bg-[#fff] w-[280px] h-[306px] shadow-[2px_2px_5px_2px_#0000001A]">
+        <div class="flex justify-around ">
+          <div class="rounded-[12px] py-4 px-6 bg-[#fff] w-[280px] h-[306px] shadow-[2px_2px_5px_2px_#0000001A]">
                  <div class="flex justify-center">
                      <div class="flex items-center">
                          <img class="rounded-[100%] w-[60px] h-[60px]" src="/storage/product/client-photo.svg"
@@ -446,8 +394,8 @@
                      felis id augue
                      sit cursus pellentesqueenim arcu.Elementum felis magna pretium in tincidunt.
                      Suspendisse sed magna eget nibh in turpis. Consequat duis diam lacUSArcu.</p>
-             </div></div>
-               <div class="swiper-slide">   <div
+             </div>
+                 <div
                  class="rounded-[12px] bg-[#fff] py-4 px-6 w-[398px] h-[398px] items-center  shadow-[2px_2px_5px_2px_#0000001A]">
                  <div class="flex justify-center">
                      <div class="flex items-center">
@@ -512,8 +460,8 @@
                      felis id augue
                      sit cursus pellentesqueenim arcu.Elementum felis magna pretium in tincidunt.
                      Suspendisse sed magna eget nibh in turpis. Consequat duis diam lacUSArcu.</p>
-             </div></div>
-               <div class="swiper-slide">
+             </div>
+             
                  <div class="rounded-[12px] py-4 px-6 bg-[#fff] w-[280px] h-[306px] shadow-[2px_2px_5px_2px_#0000001A]">
                    <div class="flex justify-center">
                        <div class="flex items-center">
@@ -578,7 +526,7 @@
                  sit cursus pellentesqueenim arcu.Elementum felis magna pretium in tincidunt.
                  Suspendisse sed magna eget nibh in turpis. Consequat duis diam lacUSArcu.</p>
          </div>
-         </div>
+        </div>
          <div class=" mx-auto w-[177px] h-[17px] flex justify-around pt-[40px] items-center gap-8 my-[30px] ">
          <div>
              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36"
@@ -586,37 +534,32 @@
                  <path d="M22.5 9L13.5 18L22.5 27" stroke="#353535" stroke-width="5" stroke-linecap="round"
                      stroke-linejoin="round" />
              </svg>
-         </div></div>
-               {{-- <div class="swiper-slide"><img src="hsc-disital-img.png" alt=""></div>
-               <div class="swiper-slide"><img src="hsc-disital-img.png" alt=""></div>
-               <div class="swiper-slide"><img src="hsc-disital-img.png" alt=""></div>
-               <div class="swiper-slide"><img src="hsc-disital-img.png" alt=""></div>
-               <div class="swiper-slide"><img src="hsc-disital-img.png" alt=""></div> --}}
-             </div>
-             <div class="swiper-button-next"></div>
-             <div class="swiper-button-prev"></div>
-             <div class="swiper-pagination"></div>
-           </div>
+         </div>
+ 
+         <div class='mx-auto w-[177px] h-[17px]'>
+             <svg xmlns="http://www.w3.org/2000/svg" width="177" height="17" viewBox="0 0 177 17"
+                 fill="none">
+                 <circle cx="8.5" cy="8.5" r="8.5" fill="#353535" />
+                 <circle cx="104.5" cy="8.5" r="8.5" fill="#C5C5C5" />
+                 <circle cx="40.5" cy="8.5" r="8.5" fill="#C5C5C5" />
+                 <circle cx="136.5" cy="8.5" r="8.5" fill="#C5C5C5" />
+                 <circle cx="72.5" cy="8.5" r="8.5" fill="#C5C5C5" />
+                 <circle cx="168.5" cy="8.5" r="8.5" fill="#C5C5C5" />
+             </svg>
+         </div>
+         <div>
+             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36"
+                 fill="none">
+                 <path d="M13.5 27L22.5 18L13.5 9" stroke="#353535" stroke-width="5" stroke-linecap="round"
+                     stroke-linejoin="round" />
+             </svg>
+         </div>
+     </div>
+  
+     <div class="mt-16 h-[2px] bg-[#380D37]"></div>
+ </section>
          
-           <!-- Swiper JS -->
-           <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
          
-           <!-- Initialize Swiper -->
-           <script>
-             var swiper = new Swiper(".mySwiper", {
-               slidesPerView: 1,
-               spaceBetween: 30,
-               loop: true,
-               pagination: {
-                 el: ".swiper-pagination",
-                 clickable: true,
-               },
-               navigation: {
-                 nextEl: ".swiper-button-next",
-                 prevEl: ".swiper-button-prev",
-               },
-             });
-           </script>
          
 
            
@@ -626,27 +569,6 @@
 
 
 
-            {{-- <div class='mx-auto w-[177px] h-[17px]'>
-                <svg xmlns="http://www.w3.org/2000/svg" width="177" height="17" viewBox="0 0 177 17"
-                    fill="none">
-                    <circle cx="8.5" cy="8.5" r="8.5" fill="#353535" />
-                    <circle cx="104.5" cy="8.5" r="8.5" fill="#C5C5C5" />
-                    <circle cx="40.5" cy="8.5" r="8.5" fill="#C5C5C5" />
-                    <circle cx="136.5" cy="8.5" r="8.5" fill="#C5C5C5" />
-                    <circle cx="72.5" cy="8.5" r="8.5" fill="#C5C5C5" />
-                    <circle cx="168.5" cy="8.5" r="8.5" fill="#C5C5C5" />
-                </svg>
-            </div>
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36"
-                    fill="none">
-                    <path d="M13.5 27L22.5 18L13.5 9" stroke="#353535" stroke-width="5" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                </svg>
-            </div>
-        </div>
-        <div class="mt-16 h-[2px] bg-[#380D37]"></div>
-    </section> --}}
 
     <!-- Drop/submit a review  -->
     <section class="mt-16 mb-5">

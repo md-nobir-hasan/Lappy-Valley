@@ -1156,6 +1156,11 @@ input[type="range"]:active::-webkit-slider-thumb {
   margin-bottom: auto;
 }
 
+.my-16 {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
 .-ml-\[1\.5rem\] {
   margin-left: -1.5rem;
 }
@@ -2854,6 +2859,10 @@ input[type="range"]:active::-webkit-slider-thumb {
   gap: 80px;
 }
 
+.gap-10 {
+  gap: 2.5rem;
+}
+
 .space-x-2 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(0.5rem * var(--tw-space-x-reverse));
@@ -3864,6 +3873,16 @@ input[type="range"]:active::-webkit-slider-thumb {
   padding-bottom: 8px;
 }
 
+.px-\[100px\] {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.px-24 {
+  padding-left: 6rem;
+  padding-right: 6rem;
+}
+
 .pb-0 {
   padding-bottom: 0px;
 }
@@ -4062,6 +4081,10 @@ input[type="range"]:active::-webkit-slider-thumb {
 
 .pt-\[6px\] {
   padding-top: 6px;
+}
+
+.pl-\[25px\] {
+  padding-left: 25px;
 }
 
 .text-left {
@@ -6907,6 +6930,10 @@ input[type="range"]:active::-webkit-slider-thumb {
 
   .xl\:text-\[30px\] {
     font-size: 30px;
+  }
+
+  .xl\:text-\[14px\] {
+    font-size: 14px;
   }
 }
 

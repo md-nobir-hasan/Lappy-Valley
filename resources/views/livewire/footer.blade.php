@@ -34,6 +34,7 @@
             <div class='text-left'>
                 <p class="text-[#F2F2F2] font-[jost] text-[40px] font-[500]  my-3">Company</p>
                 <ul class="text-[#F2F2F2] font-[jost] text-[16px] font-[500] leading-[23px] ml-[30px]">
+                    <li class="mb-[25px] list-disc hover:bg-blue-950"><a href="#" id='about-us'>About Us</a></li>
                     <li class="mb-[25px] list-disc hover:bg-blue-950"><a href="#">Terms& Conditions</a></li>
                     <li class="mb-[25px] list-disc hover:bg-blue-950"><a href="#">Privay Policy</a></li>
                     <li class="mb-[25px] list-disc hover:bg-blue-950"><a href="#">My account</a></li>
