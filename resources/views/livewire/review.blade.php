@@ -1,5 +1,5 @@
 <div x-data='{open: false}' class=" top-0 left-0">
-   {{-- <div class='p-[30px] border-[3px] border-[#380D37] w-[548px] h-[534px] mx-auto my-[100px] rounded-[4px]'>
+    {{-- <div class='p-[30px] border-[3px] border-[#380D37] w-[548px] h-[534px] mx-auto my-[100px] rounded-[4px]'>
 
       <div
       class="flex items-center justify-between p-4 border-b rounded-t md:p-5 dark:border-gray-600">
@@ -123,7 +123,7 @@
       </div> 
 </div> --}}
 
-<style>
+    {{-- <style>
 
 :root {
     --s-primary: #ef4a23;
@@ -359,12 +359,171 @@ filters .range-label.to input {
   </div>
   <label class="range-label from"><input class="border-[1px] border-black" type="num" id="range-to" name="from"></label>
   <label class="range-label to"><input class="border-[1px] border-black" type="num" id="range-from" name="to"></label>
+</div> --}}
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .p-item-page .bottom-bar {
+            padding: 15px 0;
+            margin: 15px 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            min-height: 36px;
+        }
+
+        .row {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            margin-right: -15px;
+            margin-left: -15px;
+        }
+
+        @media (min-width: 768px) .col-md-6 {
+            -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+
+        .col-sm-12 {
+            -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+
+        .pagination li {
+            display: inline-block;
+            margin-right: 5px;
+            font-size: 12px;
+            font-weight: bold;
+            line-height: 34px;
+            text-align: center;
+            min-width: 36px;
+            text-decoration: none;
+            transition: background-color .3s;
+        }
+
+        .pagination li span.disabled {
+            /* color: #666; */
+            cursor: default;
+        }
+
+        .pagination li a,
+        .pagination li span {
+            background: #f1f3f5;
+            padding: 0 10px;
+            color: #111;
+            display: block;
+            border-radius: 4px;
+        }
+
+        .pagination li {
+            display: inline-block;
+            margin-right: 5px;
+            font-size: 12px;
+            font-weight: bold;
+            line-height: 34px;
+            text-align: center;
+            min-width: 36px;
+            text-decoration: none;
+            transition: background-color .3s;
+        }
+
+        .pagination li.active span {
+            background-color: var(--s-primary);
+            color: #fff;
+        }
+
+        .pagination li a,
+        .pagination li span {
+            background: #f1f3f5;
+            padding: 0 10px;
+            color: #111;
+            display: block;
+            border-radius: 4px;
+        }
+
+        :root {
+            --s-primary: #ef4a23;
+            --s-secondary: #3749bb;
+            --s-hf-bg: #081621;
+            --s-b-bg: #f2f4f8;
+            --s-m-bg: #6e2594;
+            --s-s-bg: rgba(55, 73, 187, .1);
+            --s-f-c1: #666;
+            --s-f-c2: #fff;
+        }
+
+        .pagination li a,
+        .pagination li span {
+            background: #f1f3f5;
+            padding: 0 10px;
+            color: #111;
+            display: block;
+            border-radius: 4px;
+        }
+
+        a {
+            text-decoration: none;
+            background-color: transparent;
+            -webkit-text-decoration-skip: objects;
+            color: var(--s-primary);
+        }
+
+        .text-right {
+    text-align: right;
+}
+
+@media (min-width: 768px)
+.col-md-6 {
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+.bottom-bar p {
+    font-size: 14px;
+    line-height: 34px;
+    color: #111;
+    margin: 0;
+}
+
+p {
+    margin-bottom: 10px;
+    font-size: 15px;
+    color: #01132d;
+    line-height: 26px;
+}
+  .col-md-6 {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+    </style>
+
+    <div class="bottom-bar">
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <ul class="pagination">
+                    <li><span class="disabled hover:bg-[#ef4a23] hover:text-[#fff] active:bg-[#ef4a23] active:text-[#fff]">PREV</span></li>
+                    <li class="active"><span>1</span></li>
+                    <li><a href="tablet-pc4658.html?page=2">2</a></li>
+                    <li><a href="tablet-pc9ba9.html?page=3">3</a></li>
+                    <li><a href="tablet-pcfdb0.html?page=4">4</a></li>
+                    <li><a href="tablet-pcaf4d.html?page=5">5</a></li>
+                    <li><a href="tablet-pc4658.html?page=2">NEXT</a></li>
+                </ul>
+            </div>
+            <div class="col-md-6 rs-none text-right">
+                <p>Showing 1 to 20 of 84 (5 Pages)</p>
+            </div>
+        </div>
+    </div>
+
 </div>
-
-
-  
-</div>
-
-
-
- 

@@ -1,5 +1,6 @@
 <x-slot name='styles'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
+    <link href="tablet-pcfdb0.html?page=4" rel="next">
 </x-slot>
 
 <x-slot name='script'>
@@ -45,7 +46,7 @@
 </x-slot>
 <div class="container mx-auto">
     <div class=>
-        <h1 class='font-[jost] xl:text-[20px] font-[400] leading-[25.3px] text-[#353535]'>Home/Brand New/
+        <h1 class='font-[jost] xl:text-[20px] font-[jost] font-[400] leading-[25.3px] text-[#353535]'>Home/Brand New/
             Lenovo/Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB </h1>
         <div class='h-1 bg-[#764A8733]'></div>
     </div>
@@ -53,51 +54,43 @@
     <div class="grid grid-cols-2 items-center mt-[30px]">
         <div>
             <div class="[background:lightgray 50% / cover no-repeat] flex justify-center">
-                <img class="object-center"
-                    src="https://img.ep-cdn.com/i/500/500/al/altgyfzwibuorcempdvx/lenovo-ideapad-1-15amn7-cloud-grey-full-hd-ryzen-3-7320u-8gb-512gb-ssd-82vg0070ya-laptop-cene.jpg"
-                    alt="Product">
+                <img class="object-center" src="/storage/product/large-size-laptop.jpg" alt="Product">
             </div>
             <div class="flex items-center justify-center mt-2">
-                <div class="w-[100px] border-[2px] border-[#380D37] rounded-[3px] ">
-                    <img class="object-center"
-                        src="https://img.ep-cdn.com/i/500/500/al/altgyfzwibuorcempdvx/lenovo-ideapad-1-15amn7-cloud-grey-full-hd-ryzen-3-7320u-8gb-512gb-ssd-82vg0070ya-laptop-cene.jpg"
-                        alt="">
+                <div class="w-[60px] border-[2px] border-[#380D37] rounded-[3px] ">
+                    <img class="object-center" src="/storage/product/large-size-laptop.jpg" alt="Product">
                 </div>
-                <div class="w-[80px] border-b-[2px] border-t-[2px] border-r-[2px] border-[rgba(53_53_53_0.30)]">
-                    <img class="object-center"
-                        src="https://img.ep-cdn.com/i/500/500/al/altgyfzwibuorcempdvx/lenovo-ideapad-1-15amn7-cloud-grey-full-hd-ryzen-3-7320u-8gb-512gb-ssd-82vg0070ya-laptop-cene.jpg"
-                        alt="">
+                <div class="w-[52px] border-b-[2px] border-t-[2px] border-r-[2px] border-[rgba(53_53_53_0.30)]">
+                    <img class="object-center" src="/storage/product/large-size-laptop.jpg" alt="Product">
                 </div>
-                <div class="w-[80px] border-b-[2px] border-t-[2px] border-r-[2px] border-[rgba(53_53_53_0.30)]">
-                    <img class="object-center"
-                        src="https://img.ep-cdn.com/i/500/500/al/altgyfzwibuorcempdvx/lenovo-ideapad-1-15amn7-cloud-grey-full-hd-ryzen-3-7320u-8gb-512gb-ssd-82vg0070ya-laptop-cene.jpg"
-                        alt="">
+                <div class="w-[52px] border-b-[2px] border-t-[2px] border-r-[2px] border-[rgba(53_53_53_0.30)]">
+                    <img class="object-center" src="/storage/product/large-size-laptop.jpg" alt="Product">
                 </div>
             </div>
         </div>
         <div class="text-left ">
-            <h1 class="font-[jost] text-[#380D37] lg:text-[28px] xl:text-[30px] font-[600] leading-[-1px]">Lenovo
+            <h1 class="font-[jost] text-[#380D37] text-[28px] font-[500]">Lenovo
                 IdeaPad 15AMN7 AMD Ryzen 5 7520U</h1>
-            <ul class="mt-6 mb-3 leading-[55px]">
-                <li class=" lg:text-[22px] xl:text-[24px] text-[#353535] font-[jost] font-[600]">Key Features:</li>
-                <li class=" lg:text-[20px] xl:text-[22px] text-[#353535] font-[jost] font-[500]">MPN: 82VG008YIN
+            <ul class="mt-6 mb-3 leading-[32px]">
+                <li class="text-[20px] text-[#353535] font-[jost] font-[500]">Key Features:</li>
+                <li class="text-[16px] text-[#353535] font-[jost] font-[400]">MPN: 82VG008YIN
                 </li>
-                <li class=" lg:text-[20px] xl:text-[22px] text-[#353535] font-[jost] font-[500]"> Model: IdeaPad 1
+                <li class=" text-[16px] text-[#353535] font-[jost] font-[400]"> Model: IdeaPad 1
                     15AMN7</li>
-                <li class=" lg:text-[20px] xl:text-[22px] text-[#353535] font-[jost] font-[500]">RAM: 8GB DDR5
+                <li class=" text-[16px] text-[#353535] font-[jost] font-[400]">RAM: 8GB DDR5
                     5500MHz, Storage: 256GB SSD</>
-                <li class=" lg:text-[20px] xl:text-[22px] text-[#353535] font-[jost] font-[500]">Display: 15.6" FHD
+                <li class=" text-[16px] text-[#353535] font-[jost] font-[400]">Display: 15.6" FHD
                     (1920X1080)</li>
-                <li class=" lg:text-[22px] xl:text-[23px] text-[#353535] font-[jost] font-[600]">Price:</li>
-                <li class=" lg:text-[22px] xl:text-[24px] text-[#DC275C] font-[jost] font-[700]">1,50,000 TK</li>
+                <li class=" text-[20px] text-[#353535] font-[jost] font-[500] mt-[20px]">Price:</li>
+                <li class=" text-[20px] text-[#DC275C] font-[jost] font-[700]">1,50,000 TK</li>
             </ul>
             <button
-                class="text-[white] bg-gradient-to-r from-[#380D37] to-[#DC275C] text-[20px] py-[18px] px-[50px] font-[600] mt-8 rounded-[5px]">BUY
+                class="text-[white] bg-gradient-to-r from-[#380D37] to-[#DC275C] text-[20px] py-[16px] px-[50px] font-[700] mt-8 rounded-[5px]">BUY
                 NOW</button>
         </div>
     </div>
     <!-- -------------ideapad---section---end--- -->
-    <div class="h-[3px] bg-[#380D37] my-[50px]"></div>
+    <div class="h-[2px] bg-[#380D37] my-[50px]"></div>
 
     <!-- -----------------description------ -->
     <div class="my-[15px]">
@@ -115,7 +108,7 @@
     </div>
     <!-- -----table--section---start----- -->
     <div class="flex justify-between gap-[30px] ">
-        <div class="w-[1100px]">
+        <div class="">
             <section class="border-[2px] border-[#380D37] p-[20px] rounded-[5px] leading-[50px]" id="specification">
                 <div class="text-[#353535] text-[20px] font-[jost] font-[500] ">
                     <h2>Specification</h2>
@@ -124,35 +117,41 @@
 
                     <thead>
                         <tr>
-                            <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] font-[600] pl-[5px] pl-[14px] pr-[500px] rounded-[5px] w-[822px]"
+                            <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] text-[20] font-[500]  pl-[14px] rounded-[5px]"
                                 colspan="3">Processor:</td>
                         </tr>
                     </thead>
                     <tbody class="ml-[20px] mb-[30px]">
                         <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[400] pl-[20px]">Processor Brand:</td>
-                            <td class="text-[#353535] text-[16px] font-[400]">15.6"</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">Processor Brand:
+                            </td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">15.6"</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[400] pl-[20px]">Processor Model:</td>
-                            <td class="text-[#353535] text-[16px] font-[400]">TN</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">Processor Model:
+                            </td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">TN</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[400] pl-[20px]">Processor Frequency:</td>
-                            <td class="text-[#353535] text-[16px] font-[400]">FHD (1920*1080)</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">Processor Frequency:
+                            </td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">FHD (1920*1080)</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[400] pl-[20px]">Processor Core:</td>
-                            <td class="text-[#353535] text-[16px] font-[400]">N/A</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">Processor Core:</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">N/A</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[400] pl-[20px]">Processor Thread:</td>
-                            <td class="text-[#353535] text-[16px] font-[400]">220 nits, anti-glare, 170° Viewing
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">Processor Thread:
+                            </td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">220 nits, anti-glare, 170°
+                                Viewing
                                 Angle</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[400] pb-[100px] pl-[20px]">CPU Cache:</td>
-                            <td class="text-[#353535] text-[16px] font-[400]">
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px] translate-y-[-30px]">
+                                CPU Cache:</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] leading-[30px]">
                                 <li class="list-none">L1 Cache: 256KB</li>
                                 <li class="list-none">L2 Cache: 2MB</li>
                                 <li class="list-none">L3 Cache: 4MB</li>
@@ -162,302 +161,324 @@
                     <!-- ----------2nd --part----- -->
                     <thead>
                         <tr>
-                            <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] font-[600] pl-[14px] pr-[500px] rounded-[5px] mt-[10px]"
+                            <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] text-[20] font-[500] pl-[14px] rounded-[5px] mt-[10px]"
                                 colspan="3">Display Features:</td>
                         </tr>
                     </thead>
                     <tbody class="ml-[20px]">
                         <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[400] pl-[20px]">Display Size:</td>
-                            <td class="text-[#353535] text-[16px] font-[400]">15.6"</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">Display Size:</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">15.6"</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[400] pl-[20px]">Display Type:</td>
-                            <td class="text-[#353535] text-[16px] font-[400]">TN</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">Display Type:</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">TN</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[400] pl-[20px]">Display Resolution:</td>
-                            <td class="text-[#353535] text-[16px] font-[400]">FHD (1920*1080)</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">Display Resolution:
+                            </td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">FHD (1920*1080)</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[400] pl-[20px]">Touch Screen:</td>
-                            <td class="text-[#353535] text-[16px] font-[400]">N/A</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">Touch Screen:</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">N/A</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[400] pl-[20px]">Display Features:</td>
-                            <td class="text-[#353535] text-[16px] font-[400]">220 nits, anti-glare, 170° Viewing
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">Display Features:
+                            </td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">220 nits, anti-glare, 170°
+                                Viewing
                                 Angle</td>
                         </tr>
                     </tbody>
                     <!-- --------3rd---------part---------- -->
                     <thead>
                         <tr>
-                            <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] font-[600] pl-[14px] pr-[500px] rounded-[5px]"
+                            <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] text-[20] font-[500] pl-[14px] rounded-[5px]"
                                 colspan="3">Memory:</td>
                         </tr>
                     </thead>
                     <tbody class="ml-[20px]">
                         <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[400] pl-[20px]">RAM:</td>
-                            <td class="text-[#353535] text-[16px] font-[400]">8GB (On Board)</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">RAM:</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">8GB (On Board)</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[400] pl-[20px]">RAM Type:</td>
-                            <td class="text-[#353535] text-[16px] font-[400]">DDR5/td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">RAM Type:</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">DDR5/td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[400] pl-[20px]">Removable:</td>
-                            <td class="text-[#353535] text-[16px] font-[400]">NO</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">Removable:</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">NO</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[400] pl-[20px]">BUS Speed:</td>
-                            <td class="text-[#353535] text-[16px] font-[400]">5500MHz</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">BUS Speed:</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">5500MHz</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[400] pl-[20px]">Total RAM Slot:</td>
-                            <td class="text-[#353535] text-[16px] font-[400]">1</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">Total RAM Slot:
+                            </td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">1</td>
                         </tr>
                     </tbody>
                     <!-- --------------4th---part------------------ -->
                     <thead>
                         <tr>
-                            <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] font-[600] pl-[14px] pr-[500px] rounded-[5px]"
+                            <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] text-[20] font-[500] pl-[14px] rounded-[5px]"
                                 colspan="3">Storage:</td>
                         </tr>
                     </thead>
                     <tbody class="ml-[20px]">
                         <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[400] pl-[20px]">Storage Type:</td>
-                            <td class="text-[#353535] text-[16px] font-[400]">NVMe SSD</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">Storage Type:</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">NVMe SSD</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[400] pl-[20px]">Storage Capacity:</td>
-                            <td class="text-[#353535] text-[16px] font-[400]">512 GB</td>
-                        </tr>
-                        <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[400] pl-[20px]">Extra M.2 Slot:</td>
-                            <td class="text-[#353535] text-[16px] font-[400]">N/A</td>
-                        </tr>
-                        <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[400] pl-[20px]">Processor Core:</td>
-                            <td class="text-[#353535] text-[16px] font-[400]">N/A</td>
-                        </tr>
-                        <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[400] pl-[20px]">Supported SSD Type:</td>
-                            <td class="text-[#353535] text-[16px] font-[400]">2PCIe NVMe M.2</td>
-                        </tr>
-                        <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[400] pb-[100px] pl-[20px]">Storage Upgrade:
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">Storage Capacity:
                             </td>
-                            <td class="text-[#353535] text-[16px] font-[400]">Installed SSD can be upgradeable</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">512 GB</td>
+                        </tr>
+                        <tr class="border-[#764A8733] border-b-[2px]">
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">Extra M.2 Slot:
+                            </td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">N/A</td>
+                        </tr>
+                        <tr class="border-[#764A8733] border-b-[2px]">
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">Processor Core:
+                            </td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">N/A</td>
+                        </tr>
+                        <tr class="border-[#764A8733] border-b-[2px]">
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">Supported SSD Type:
+                            </td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">2PCIe NVMe M.2</td>
+                        </tr>
+                        <tr class="border-[#764A8733] border-b-[2px]">
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]  pl-[20px]">Storage Upgrade:
+                            </td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">Installed SSD can be
+                                upgradeable</td>
                         </tr>
                     </tbody>
                     <!-- ------------------5th------part------------------ -->
                     <thead>
                         <tr>
-                            <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] font-[600] pl-[14px] pr-[500px] rounded-[5px]"
+                            <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] text-[20] font-[500] pl-[14px] rounded-[5px]"
                                 colspan="3">Graphics:</td>
                         </tr>
                     </thead>
                     <tbody class="ml-[20px]">
                         <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[400] pl-[20px]">Graphics Model:</td>
-                            <td class="text-[#353535] text-[16px] font-[400]">AMD Radeon 610M</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">Graphics Model:
+                            </td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">AMD Radeon 610M</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[400] pl-[20px]">Graphics Memory:</td>
-                            <td class="text-[#353535] text-[16px] font-[400]">Shared</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">Graphics Memory:
+                            </td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">Shared</td>
                         </tr>
                     </tbody>
                     <!-- -------------------6th--part------------ -->
                     <thead>
                         <tr>
-                            <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] font-[600] pl-[14px] pr-[500px] rounded-[5px]"
+                            <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] text-[20] font-[500] pl-[14px] rounded-[5px]"
                                 colspan="3">Keyboard & Touchpad:</td>
                         </tr>
                     </thead>
                     <tbody class="ml-[20px]">
                         <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[400] pl-[20px]">Keyboard Type:</td>
-                            <td class="text-[#353535] text-[16px] font-[400]">Standard</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">Keyboard Type:</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">Standard</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[400] pl-[20px]">TouchPad:</td>
-                            <td class="text-[#353535] text-[16px] font-[400]">Yes</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">TouchPad:</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">Yes</td>
                         </tr>
                     </tbody>
                     <!-- ----------7th--part------------- -->
                     <thead>
                         <tr>
-                            <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] font-[600] pl-[14px] pr-[500px] rounded-[5px]"
+                            <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] text-[20] font-[500] pl-[14px] rounded-[5px]"
                                 colspan="3">Camera & Audio:</td>
                         </tr>
                     </thead>
                     <tbody class="ml-[20px]">
                         <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[400] pl-[20px]">WebCam:</td>
-                            <td class="text-[#353535] text-[16px] font-[400]">Yes</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">WebCam:</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">Yes</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[400] pl-[20px]">Microphone:</td>
-                            <td class="text-[#353535] text-[16px] font-[400]">Yes</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">Microphone:</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">Yes</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[400] pl-[20px]">Speaker:</td>
-                            <td class="text-[#353535] text-[16px] font-[400]">Yes</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">Speaker:</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">Yes</td>
                         </tr>
                     </tbody>
                     <!-- -----------8th---part----- -->
                     <thead>
                         <tr>
-                            <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] font-[600] pl-[14px] pr-[500px] rounded-[5px]"
+                            <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] text-[20] font-[500] pl-[14px] rounded-[5px]"
                                 colspan="3">Ports & Slots:</td>
                         </tr>
                     </thead>
                     <tbody class="ml-[20px]">
                         <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[400] pl-[20px]">Optical Drive:</td>
-                            <td class="text-[#353535] text-[16px] font-[400]">N/A</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">Optical Drive:</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">N/A</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[400] pl-[20px]">Card Reader:</td>
-                            <td class="text-[#353535] text-[16px] font-[400]">SD Media Card Reader</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">Card Reader:</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">SD Media Card Reader</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[400] pl-[20px]">HDMI Port:</td>
-                            <td class="text-[#353535] text-[16px] font-[400]">1x HDMI 1.4b)</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">HDMI Port:</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">1x HDMI 1.4b)</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[400] pl-[20px]">USB 2 Port:</td>
-                            <td class="text-[#353535] text-[16px] font-[400]">1x USB 2.0 Type-A</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">USB 2 Port:</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">1x USB 2.0 Type-A</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[400] pl-[20px]">USB 3 Port:</td>
-                            <td class="text-[#353535] text-[16px] font-[400]">1x USB 3.2 Gen 1 Type-A</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">USB 3 Port:</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">1x USB 3.2 Gen 1 Type-A</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[400] pb-[100px] pl-[20px]">USB Type-C /
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px] leading-[20px]">USB
+                                Type-C /<br />
                                 Thunderbolt Port:</td>
-                            <td class="text-[#353535] text-[16px] font-[400]">1x USB-C 3.2 Gen 1 (support data
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">1x USB-C 3.2 Gen 1 (support
+                                data
                                 transfer only)</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[400] pl-[20px]">Headphone & Microphone
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px] leading-[20px]">
+                                Headphone &<br /> Microphone
                                 Port::</td>
-                            <td class="text-[#353535] text-[16px] font-[400]">1 x Headphone/ Microphone Port
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">1 x Headphone/ Microphone
+                                Port
                                 Combo/td>
                         </tr>
                     </tbody>
                     <!-- ---------------9th--part------ -->
                     <thead>
                         <tr>
-                            <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] font-[600] pl-[14px] pr-[500px] rounded-[5px]"
+                            <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] text-[20] font-[500] pl-[14px] rounded-[5px]"
                                 colspan="3">Network & Connectivity:</td>
                         </tr>
                     </thead>
                     <tbody class="ml-[20px]">
                         <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[400] pl-[20px]">WiFi:</td>
-                            <td class="text-[#353535] text-[16px] font-[400]">11ax, 2x2</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">WiFi:</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">11ax, 2x2</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[400] pl-[20px]">Bluetooth:</td>
-                            <td class="text-[#353535] text-[16px] font-[400]">Bluetooth 5.0</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">Bluetooth:</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">Bluetooth 5.0</td>
                         </tr>
                     </tbody>
                     <!-- ---------------10th---part---------- -->
                     <thead>
                         <tr>
-                            <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] font-[600] pl-[14px] pr-[500px] rounded-[5px]"
+                            <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] text-[20] font-[500] pl-[14px] rounded-[5px]"
                                 colspan="3">Security:</td>
                         </tr>
                     </thead>
                     <tbody class="ml-[20px]">
                         <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[400] pl-[20px]">Fingerprint Sensor:</td>
-                            <td class="text-[#353535] text-[16px] font-[400]">N/A"</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">Fingerprint Sensor:
+                            </td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">N/A"</td>
                         </tr>
                     </tbody>
                     <!-- ---------------11th---part---------- -->
                     <thead>
                         <tr>
-                            <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] font-[600] pl-[14px] pr-[500px] rounded-[5px]"
+                            <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] text-[20] font-[500] pl-[14px] rounded-[5px]"
                                 colspan="3">Software:</td>
                         </tr>
                     </thead>
                     <tbody class="ml-[20px]">
                         <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[400] pl-[20px]">Operating System:</td>
-                            <td class="text-[#353535] text-[16px] font-[400]">Windows</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">Operating System:
+                            </td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">Windows</td>
                         </tr>
                     </tbody>
                     <!-- ---------------12th---part---------- -->
                     <thead>
                         <tr>
-                            <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] font-[600] pl-[14px] pr-[500px] rounded-[5px]"
+                            <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] text-[20] font-[500] pl-[14px] rounded-[5px]"
                                 colspan="3">Power:</td>
                         </tr>
                     </thead>
                     <tbody class="ml-[20px]">
                         <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[400] pl-[20px]">Battery Type:</td>
-                            <td class="text-[#353535] text-[16px] font-[400]">3 Cell Li-ion</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">Battery Type:</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">3 Cell Li-ion</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[400] pl-[20px]">Battery Capacity:</td>
-                            <td class="text-[#353535] text-[16px] font-[400]">42Whr</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">Battery Capacity:
+                            </td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">42Whr</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[400] pl-[20px]">Adapter Type:</td>
-                            <td class="text-[#353535] text-[16px] font-[400]">65W Round Tip (3-pin)</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">Adapter Type:</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">65W Round Tip (3-pin)</td>
                         </tr>
                     </tbody>
                     <!-- ---------------13th---part---------- -->
                     <thead>
                         <tr>
-                            <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] font-[600] pl-[14px] pr-[500px] rounded-[5px]"
+                            <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] text-[20] font-[500] pl-[14px] rounded-[5px]"
                                 colspan="3">Physical Specification:</td>
                         </tr>
                     </thead>
                     <tbody class="ml-[20px]">
                         <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[400] pl-[20px]">Color:</td>
-                            <td class="text-[#353535] text-[16px] font-[400]">Cloud Grey</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">Color:</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">Cloud Grey</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[400] pl-[20px]">Dimensions:</td>
-                            <td class="text-[#353535] text-[16px] font-[400]">325.3 x 216.5 x 17.9 mm/td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">Dimensions:</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">325.3 x 216.5 x 17.9 mm/td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[400] pl-[20px]">Weight:</td>
-                            <td class="text-[#353535] text-[16px] font-[400]">1.58 kg</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">Weight:</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">1.58 kg</td>
                         </tr>
                     </tbody>
                     <!-- ---------------14th---part---------- -->
                     <thead>
                         <tr>
-                            <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] font-[600] pl-[14px] pr-[500px] rounded-[5px]"
+                            <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] text-[20] font-[500] pl-[14px] rounded-[5px]"
                                 colspan="3">Warranty :</td>
                         </tr>
                     </thead>
                     <tbody class="ml-[20px]">
                         <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[400] pl-[20px]">Warranty Details</td>
-                            <td class="text-[#353535] text-[16px] font-[400]">2 years warranty ( Battery adapter 1
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">Warranty Details
+                            </td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">2 years warranty ( Battery
+                                adapter 1
                                 year)</td>
                         </tr>
                     </tbody>
                 </table>
             </section>
 
-            <section class="mt-[20px] border-[2px] border-[#380D37] p-[20px] rounded-[5px] " id="description">
+            <section class="mt-[20px] border-[2px] border-[#380D37] py-[20px] pl-[20px] pr-[40px] rounded-[5px] "
+                id="description">
                 <div>
-                    <h2 class="text-[#353535] text-[20px] font-[600]">Description</h2>
+                    <h2 class="text-[#353535] text-[20px] text-[20] font-[jost] font-[700]">Description</h2>
                 </div>
                 <div class="mt-[20px] mb-[40px]">
-                    <h2 class="text-justify text-[#353535] text-[18px] font-[600]">Lenovo IdeaPad 1 15AMN7 AMD
+                    <h2 class="text-justify text-[#353535] text-[18px] text-[20] font-[jost] font-[500] my-[20px]">
+                        Lenovo IdeaPad 1 15AMN7 AMD
                         Ryzen 5 512GB SSD 15.6" FHD Laptop with DDR5 RAM</h2>
-                    <p class="text-justify text-[#353535] text-[16px] font-[500] font-[jost]">The Lenovo IdeaPad 1
+                    <p class="text-justify text-[#353535] text-[16px] font-[400] font-[jost]">The Lenovo IdeaPad 1
                         15AMN7 is a
                         stylish and powerful laptop that offers high-performance computing for a variety of jobs.
                         This laptop can perform complex programs with ease thanks to an AMD Ryzen 5 7520U (2.8 GHz
@@ -480,9 +501,11 @@
                         can manage your workload with ease.</p>
                 </div>
                 <div itemprop="description">
-                    <h2 class="text-justify text-[#353535] text-[18px] font-[600]">Buy Lenovo IdeaPad 1 15AMN7 AMD
+                    <h2 class="text-justify text-[#353535] text-[18px] text-[20] font-[jost] font-[500]">Buy Lenovo
+                        IdeaPad 1 15AMN7 AMD
                         Ryzen 5 512GB 15.6" FHD Laptop with DDR5 RAM from the best Computer Shop in BD</h2>
-                    <p class="text-justify text-[#353535] text-[16px] font-[500]">In Bangladesh, you can get the
+                    <p class="text-justify text-[#353535] text-[16px] font-[jost] font-[400]">In Bangladesh, you can
+                        get the
                         original Lenovo IdeaPad 1 14AMN7 AMD Ryzen 5 15.6" FHD Laptop from LappyVally.
                         We have a large collection of the latest Lenovo Laptops to purchase. Order Online Or Visit
                         your shop to get yours at the lowest price.
@@ -495,7 +518,7 @@
             <section class="mt-[20px] border-[2px] border-[#380D37] p-[20px] rounded-[5px]" id='review'>
                 <div class="flex items-center justify-between">
                     <div class="title-n-action">
-                        <h2 class="my-[10px] font-[jost] font-[600]">Reviews(1))</h2>
+                        <h2 class="my-[10px] font-[jost] text-[20] font-[500]">Reviews(1))</h2>
                         <p class="my-[10px] font-[jost] font-[500]">Get Specific Details about this product from
                             customers who own it.</p>
                     </div>
@@ -572,7 +595,7 @@
                                 <div
                                     class="flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
                                     <!--Modal title-->
-                                    <h5 class="text-xl font-medium leading-normal text-neutral-800 dark:text-neutral-200"
+                                    <h5 class="text-xl font-medium font-[jost] leading-norma"
                                         id="exampleModalCenteredScrollableLabel">
                                         Review
                                     </h5>
@@ -592,13 +615,13 @@
                                 <div class="relative p-4">
                                     <div class="flex justify-between gap-[10px] my-[10px]">
                                         <input type="text" placeholder="First Name"
-                                            class="relative p-[10px] m-0 -mr-0.5 block w-full flex-auto rounded-l bg-[#F2F2F2] font-[jost] font-[400] text-[12px] text-[#000000] italic" />
+                                            class="relative p-[10px] m-0 -mr-0.5 block w-full flex-auto rounded-l bg-[#F2F2F2] font-[jost] font-[jost] font-[400] text-[12px] text-[#000000] italic" />
                                         <input type="text" placeholder="Last Name"
-                                            class="relative p-[10px]  m-0 -mr-0.5 block w-full flex-auto rounded-l bg-[#F2F2F2] font-[jost] font-[400] text-[12px] text-[#000000] italic" />
+                                            class="relative p-[10px]  m-0 -mr-0.5 block w-full flex-auto rounded-l bg-[#F2F2F2] font-[jost] font-[jost] font-[400] text-[12px] text-[#000000] italic" />
                                     </div>
                                     <div class="mt-[20px]">
                                         <textarea placeholder="Write your review here..."
-                                            class="relative pl-[10px] pt-[10px] pb-[100px] m-0 -mr-0.5 block w-full flex-auto rounded-l bg-[#F2F2F2] font-[jost] font-[400] text-[12px] text-[#000000] italic"
+                                            class="relative pl-[10px] pt-[10px] pb-[100px] m-0 -mr-0.5 block w-full flex-auto rounded-l bg-[#F2F2F2] font-[jost] font-[jost] font-[400] text-[12px] text-[#000000] italic"
                                             id="message-text"></textarea>
                                     </div>
 
@@ -606,7 +629,7 @@
                                         <div class='items-center'>
                                             <div>
                                                 <h1
-                                                    class='text-[24px] text-[#380D37] font-[jost] font-[50px] leading-[34.68px]'>
+                                                    class='text-[24px] text-[#380D37] font-[jost] font-[500] leading-[34.68px]'>
                                                     Reviews</h1>
                                             </div>
                                             <div class='flex my-[10px] items-center'>
@@ -666,7 +689,7 @@
                     <img src="../dist/img/star2.svg" alt="">
                     <img src="../dist/img/star2.svg" alt="">
                     <img src="../dist/img/star2.svg" alt="">
-                    <span class="font-[jost] font-[600] mt-[5px] ml-[5px]">5 out of 5</span>
+                    <span class="font-[jost] text-[20] font-[500] mt-[5px] ml-[5px]">5 out of 5</span>
                 </div>
                 <div class="h-[2px] bg-[#764A8733]"></div>
 
@@ -688,28 +711,23 @@
             </section>
         </div>
         <div>
-            <div class="p-[10px] border-[2px] border-[#380D37] rounded-[3px] w-[400px] h-[650px]">
+            <div class="p-[10px] border-[2px] border-[#380D37] rounded-[3px] w-[301px]">
 
-                <section class="">
+               
                     <div class="p-[10px]">
                         <h1 class="text-[#380D37] text-[20px] font-[jost] font-[500] flex justify-center">Related
                             Products</h1>
-                        <div class="h-[3px] bg-[#380D37]"></div>
+                        <div class="h-[2px] bg-[#380D37]"></div>
                     </div>
-                    <div class="grid justify-center grid-cols-2">
-                        <div class="w-[100px]">
-                            <img class="object-center"
-                                src="https://img.ep-cdn.com/i/500/500/al/altgyfzwibuorcempdvx/lenovo-ideapad-1-15amn7-cloud-grey-full-hd-ryzen-3-7320u-8gb-512gb-ssd-82vg0070ya-laptop-cene.jpg"
-                                alt="">
+
+                    <div class="flex gap-[15px] leading-[20.23px]">
+                        <div class="w-[72px]">
+                            <img class="object-center " src="/storage/product/large-size-laptop.jpg" alt="Product">
                         </div>
                         <div>
-                            <p class="text-[#000000] text-[16px] font-[jost] font-[500] my-[10px]">Lenovo IdeaPad 1
-                                15AMN7
-                                AMD Ryzen 5 512GB SSD
-                                15.6" FHD Laptop
-                                with DDR5 RAM</p>
-                            <a href="" class="text-[#DC275C] text-[20px] font-[jost] font-[600]">1,50,000
-                                TK</a>
+                            <p class="text-[#000000] text-[14px] font-[jost] font-[400]">Lenovo IdeaPad 1 15AMN7<br/>
+                                AMD Ryzen 5 512GB SSD <br/> 15.6" FHD Laptop<br/> with DDR5 RAM</p>
+                            <p class="text-[#DC275C] text-[16px] font-[jost] font-[700] my-[10px]"><a>1,50,000 TK</a></p>
 
                         </div>
                     </div>
@@ -717,22 +735,16 @@
                     <!-- <section> -->
                     <div class="p-[10px]">
 
-                        <div class="h-[3px] bg-[#764A8733]"></div>
+                        <div class="h-[2px] bg-[#764A8733]"></div>
                     </div>
-                    <div class="grid justify-center grid-cols-2">
-                        <div class="w-[100px]">
-                            <img class="object-center"
-                                src="https://img.ep-cdn.com/i/500/500/al/altgyfzwibuorcempdvx/lenovo-ideapad-1-15amn7-cloud-grey-full-hd-ryzen-3-7320u-8gb-512gb-ssd-82vg0070ya-laptop-cene.jpg"
-                                alt="">
+                    <div class="flex gap-[15px] leading-[20.23px]">
+                        <div class="w-[72px]">
+                            <img class="object-center " src="/storage/product/large-size-laptop.jpg" alt="Product">
                         </div>
                         <div>
-                            <p class="text-[#000000] text-[16px] font-[jost] font-[500] my-[10px]">Lenovo IdeaPad 1
-                                15AMN7
-                                AMD Ryzen 5 512GB SSD
-                                15.6" FHD Laptop
-                                with DDR5 RAM</p>
-                            <a href="" class="text-[#DC275C] text-[20px] font-[jost] font-[600]">1,50,000
-                                TK</a>
+                            <p class="text-[#000000] text-[14px] font-[jost] font-[400]">Lenovo IdeaPad 1 15AMN7<br/>
+                                AMD Ryzen 5 512GB SSD <br/> 15.6" FHD Laptop<br/> with DDR5 RAM</p>
+                            <p class="text-[#DC275C] text-[16px] font-[jost] font-[700] my-[10px]"><a>1,50,000 TK</a></p>
 
                         </div>
                     </div>
@@ -740,71 +752,36 @@
                     <!-- <section> -->
                     <div class="p-[10px]">
 
-                        <div class="h-[3px] bg-[#764A8733]"></div>
+                        <div class="h-[2px] bg-[#764A8733]"></div>
                     </div>
-                    <div class="grid justify-center grid-cols-2">
-                        <div class="w-[100px]">
-                            <img class="object-center"
-                                src="https://img.ep-cdn.com/i/500/500/al/altgyfzwibuorcempdvx/lenovo-ideapad-1-15amn7-cloud-grey-full-hd-ryzen-3-7320u-8gb-512gb-ssd-82vg0070ya-laptop-cene.jpg"
-                                alt="">
+                    <div class="flex gap-[15px] leading-[20.23px]">
+                        <div class="w-[72px]">
+                            <img class="object-center " src="/storage/product/large-size-laptop.jpg" alt="Product">
                         </div>
                         <div>
-                            <p class="text-[#000000] text-[16px] font-[jost] font-[500] my-[10px]">Lenovo IdeaPad 1
-                                15AMN7
-                                AMD Ryzen 5 512GB SSD
-                                15.6" FHD Laptop
-                                with DDR5 RAM</p>
-                            <a href="" class="text-[#DC275C] text-[20px] font-[jost] font-[600]">1,50,000
-                                TK</a>
+                            <p class="text-[#000000] text-[14px] font-[jost] font-[400]">Lenovo IdeaPad 1 15AMN7<br/>
+                                AMD Ryzen 5 512GB SSD <br/> 15.6" FHD Laptop<br/> with DDR5 RAM</p>
+                            <p class="text-[#DC275C] text-[16px] font-[jost] font-[700] my-[10px]"><a>1,50,000 TK</a></p>
+
                         </div>
                     </div>
-                </section>
+                
             </div>
             <!-- ------------------2nd--part------------- -->
-            <div class="p-[10px] border-[2px] border-[#380D37] rounded-[3px] w-[400px] h-[650px] mt-[20px]">
-                <section class="">
+            <div class="p-[10px] border-[2px] border-[#380D37] rounded-[3px] w-[301px] mt-[20px]">
                     <div class="p-[10px]">
-                        <h1 class="text-[#380D37] text-[20px] font-[jost] font-[500] flex justify-center">Related
-                            Products</h1>
-                        <div class="h-[3px] bg-[#380D37]"></div>
+                        <h1 class="text-[#380D37] text-[20px] font-[jost] font-[500] flex justify-center">Recently
+                            Viewed</h1>
+                        <div class="h-[2px] bg-[#380D37]"></div>
                     </div>
-                    <div class="grid justify-center grid-cols-2">
-                        <div class="w-[100px]">
-                            <img class="object-center"
-                                src="https://img.ep-cdn.com/i/500/500/al/altgyfzwibuorcempdvx/lenovo-ideapad-1-15amn7-cloud-grey-full-hd-ryzen-3-7320u-8gb-512gb-ssd-82vg0070ya-laptop-cene.jpg"
-                                alt="">
+                    <div class="flex gap-[15px] leading-[20.23px]">
+                        <div class="w-[72px]">
+                            <img class="object-center " src="/storage/product/large-size-laptop.jpg" alt="Product">
                         </div>
                         <div>
-                            <p class="text-[#000000] text-[16px] font-[jost] font-[500] my-[10px]">Lenovo IdeaPad 1
-                                15AMN7
-                                AMD Ryzen 5 512GB SSD
-                                15.6" FHD Laptop
-                                with DDR5 RAM</p>
-                            <a href="" class="text-[#DC275C] text-[20px] font-[jost] font-[600]">1,50,000
-                                TK</a>
-                        </div>
-                    </div>
-                    <!-- </section> -->
-
-                    <!-- <section> -->
-                    <div class="p-[10px]">
-
-                        <div class="h-[3px] bg-[#764A8733]"></div>
-                    </div>
-                    <div class="grid justify-center grid-cols-2">
-                        <div class="w-[100px]">
-                            <img class="object-center"
-                                src="https://img.ep-cdn.com/i/500/500/al/altgyfzwibuorcempdvx/lenovo-ideapad-1-15amn7-cloud-grey-full-hd-ryzen-3-7320u-8gb-512gb-ssd-82vg0070ya-laptop-cene.jpg"
-                                alt="">
-                        </div>
-                        <div>
-                            <p class="text-[#000000] text-[16px] font-[jost] font-[500] my-[10px]">Lenovo IdeaPad 1
-                                15AMN7
-                                AMD Ryzen 5 512GB SSD
-                                15.6" FHD Laptop
-                                with DDR5 RAM</p>
-                            <a href="" class="text-[#DC275C] text-[20px] font-[jost] font-[600]">1,50,000
-                                TK</a>
+                            <p class="text-[#000000] text-[14px] font-[jost] font-[400]">Lenovo IdeaPad 1 15AMN7<br/>
+                                AMD Ryzen 5 512GB SSD <br/> 15.6" FHD Laptop<br/> with DDR5 RAM</p>
+                            <p class="text-[#DC275C] text-[16px] font-[jost] font-[700] my-[10px]"><a>1,50,000 TK</a></p>
 
                         </div>
                     </div>
@@ -813,125 +790,37 @@
                     <!-- <section> -->
                     <div class="p-[10px]">
 
-                        <div class="h-[3px] bg-[#764A8733]"></div>
+                        <div class="h-[2px] bg-[#764A8733]"></div>
                     </div>
-                    <div class="grid justify-center grid-cols-2">
-                        <div class="w-[100px]">
-                            <img class="object-center"
-                                src="https://img.ep-cdn.com/i/500/500/al/altgyfzwibuorcempdvx/lenovo-ideapad-1-15amn7-cloud-grey-full-hd-ryzen-3-7320u-8gb-512gb-ssd-82vg0070ya-laptop-cene.jpg"
-                                alt="">
+                    <div class="flex gap-[15px] leading-[20.23px]">
+                        <div class="w-[72px]">
+                            <img class="object-center " src="/storage/product/large-size-laptop.jpg" alt="Product">
                         </div>
                         <div>
-                            <p class="text-[#000000] text-[16px] font-[jost] font-[500] my-[10px]">Lenovo IdeaPad 1
-                                15AMN7
-                                AMD Ryzen 5 512GB SSD
-                                15.6" FHD Laptop
-                                with DDR5 RAM</p>
-                            <a href="" class="text-[#DC275C] text-[20px] font-[jost] font-[600]">1,50,000
-                                TK</a>
+                            <p class="text-[#000000] text-[14px] font-[jost] font-[400]">Lenovo IdeaPad 1 15AMN7<br/>
+                                AMD Ryzen 5 512GB SSD <br/> 15.6" FHD Laptop<br/> with DDR5 RAM</p>
+                            <p class="text-[#DC275C] text-[16px] font-[jost] font-[700] my-[10px]"><a>1,50,000 TK</a></p>
+
                         </div>
                     </div>
-                </section>
+                    <!-- </section> -->
 
-                <div class="h-screen flex justify-center items-center ">
-                    <div x-data="range()" x-init="mintrigger();
-                    maxtrigger()" class="relative max-w-xl w-full">
+                    <!-- <section> -->
+                    <div class="p-[10px]">
+
+                        <div class="h-[2px] bg-[#764A8733]"></div>
+                    </div>
+                    <div class="flex gap-[15px] leading-[20.23px]">
+                        <div class="w-[72px]">
+                            <img class="object-center " src="/storage/product/large-size-laptop.jpg" alt="Product">
+                        </div>
                         <div>
-                            <input type="range" step="100" x-bind:min="min"
-                                x-bind:max="max" x-on:input="mintrigger" x-model="minprice"
-                                class="absolute pointer-events-none appearance-none z-20 h-2 w-full opacity-0 cursor-pointer">
+                            <p class="text-[#000000] text-[14px] font-[jost] font-[400]">Lenovo IdeaPad 1 15AMN7<br/>
+                                AMD Ryzen 5 512GB SSD <br/> 15.6" FHD Laptop<br/> with DDR5 RAM</p>
+                            <p class="text-[#DC275C] text-[16px] font-[jost] font-[700] my-[10px]"><a>1,50,000 TK</a></p>
 
-                            <input type="range" step="100" x-bind:min="min"
-                                x-bind:max="max" x-on:input="maxtrigger" x-model="maxprice"
-                                class="absolute pointer-events-none appearance-none z-20 h-2 w-full opacity-0 cursor-pointer">
-
-                            <div class="relative z-10 h-2">
-
-                                <div class="absolute z-10 left-0 right-0 bottom-0 top-0 rounded-md bg-gray-200"></div>
-
-                                <div class="absolute z-20 top-0 bottom-0 rounded-md bg-green-300"
-                                    x-bind:style="'right:' + maxthumb + '%; left:' + minthumb + '%'"></div>
-
-                                <div class="absolute z-30 w-6 h-6 top-0 left-0 bg-green-300 rounded-full -mt-2"
-                                    x-bind:style="'left: ' + minthumb + '%'"></div>
-
-                                <div class="absolute z-30 w-6 h-6 top-0 right-0 bg-green-300 rounded-full -mt-2"
-                                    x-bind:style="'right: ' + maxthumb + '%'"></div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="flex items-center justify-between pt-5 space-x-4 text-sm text-gray-700">
-                            <div>
-                                <input type="text" maxlength="5" x-on:input.debounce="mintrigger"
-                                    x-model="minprice" wire:model.debounce.300="minPrice"
-                                    class="w-24 px-3 py-2 text-center border border-gray-200 rounded-lg bg-gray-50 focus:border-yellow-400 focus:outline-none">
-                            </div>
-                            <div>
-                                <input type="text" maxlength="5" x-on:input.debounce.300="maxtrigger"
-                                    x-model="maxprice" wire:model.debounce="maxPrice"
-                                    class="w-24 px-3 py-2 text-center border border-gray-200 rounded-lg bg-gray-50 focus:border-yellow-400 focus:outline-none">
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <script>
-                        function range() {
-                            return {
-                                minprice: 0,
-                                maxprice: 10000,
-                                min: 0,
-                                max: 10000,
-                                minthumb: 0,
-                                maxthumb: 0,
-                                mintrigger() {
-                                    this.validation();
-                                    this.minprice = Math.min(this.minprice, this.maxprice - 500);
-                                    this.minthumb = ((this.minprice - this.min) / (this.max - this.min)) * 100;
-                                },
-                                maxtrigger() {
-                                    this.validation();
-                                    this.maxprice = Math.max(this.maxprice, this.minprice + 200);
-                                    this.maxthumb = 100 - (((this.maxprice - this.min) / (this.max - this.min)) * 100);
-                                },
-                                validation() {
-                                    if (/^\d*$/.test(this.minprice)) {
-                                        if (this.minprice > this.max) {
-                                            this.minprice = 9500;
-                                        }
-                                        if (this.minprice < this.min) {
-                                            this.minprice = this.min;
-                                        }
-                                    } else {
-                                        this.minprice = 0;
-                                    }
-                                    if (/^\d*$/.test(this.maxprice)) {
-                                        if (this.maxprice > this.max) {
-                                            this.maxprice = this.max;
-                                        }
-                                        if (this.maxprice < this.min) {
-                                            this.maxprice = 200;
-                                        }
-                                    } else {
-                                        this.maxprice = 10000;
-                                    }
-                                }
-                            }
-                        }
-                    </script>
-                    <div class="flex items-end justify-end absolute bottom-0 right-0 mb-4 mr-4">
-                        <div>
-                            <a title="Buy me a coffee" href="https://www.buymeacoffee.com/rHcLDkY" target="_blank"
-                                class="block w-16 h-16">
-                                <img alt="Buy me a coffee"
-                                    class="object-cover object-center w-full h-full rounded-full shadow-md hover:shadow-lg"
-                                    src="https://cdn.dribbble.com/users/3349322/screenshots/14039201/media/616e4ae6995fb288e434c3f0927541ce.png" />
-                            </a>
                         </div>
                     </div>
-                </div>
             </div>
         </div>
     </div>
