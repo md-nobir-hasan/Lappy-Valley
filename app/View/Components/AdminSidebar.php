@@ -56,7 +56,12 @@ class AdminSidebar extends Component
         ]],
         ['title' => ' General Settings', 'child' => [
             ['title' => 'Coupon', 'route' => 'coupon.index', 'child' => []],
-            ['title' => 'Users', 'route' => 'users.index', 'child' => []],
+            // ['title' => 'Users', 'route' => 'users.index', 'child' => []],
+            ['title' => 'User Management', 'route' => 'auser.*', 'child' => [
+                ['title' => 'Users', 'route' => 'auser.users.index'],
+                ['title' => 'Roles', 'route' => 'auser.role.index'],
+                ['title' => 'Permissions', 'route' => 'auser.permission'],
+            ]],
             ['title' => 'Settings', 'route' => 'settings', 'child' => []],
         ]],
     ];

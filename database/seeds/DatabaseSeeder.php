@@ -2,7 +2,8 @@
 
 use App\Models\Category;
 use App\Models\Product;
-use Database\Seeders\CategorySeeder;
+// use Database\Seeders\CategorySeeder;
+use Database\Seeders\RolePermissionSeeder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Seeder;
 
@@ -17,10 +18,13 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
-        $this->call(UsersTableSeeder::class);
-        $this->call(SettingTableSeeder::class);
-        $this->call(CouponSeeder::class);
-        // $this->call(CategorySeeder::class);
+        $this->call([
+            UsersTableSeeder::class,
+            RolePermissionSeeder::class,
+            SettingTableSeeder::class,
+            CouponSeeder::class,
+        ]);
+
 
         Category::factory()->count(35)->create();
         Product::factory()->count(100)->create();

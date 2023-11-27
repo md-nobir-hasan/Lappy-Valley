@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\User;
+use Spatie\Permission\Models\Role;
+
 class UsersController extends Controller
 {
     /**
@@ -14,8 +16,9 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users=User::orderBy('id','ASC')->paginate(10);
-        return view('backend.users.index')->with('users',$users);
+        $n['users']=User::orderBy('id','ASC')->paginate(10);
+
+        return view('backend.auser.users.index',$n);
     }
 
     /**
@@ -25,7 +28,8 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('backend.users.create');
+        $n['roles'] = Role::all();
+        return view('backend.auser.users.create',$n);
     }
 
     /**
@@ -41,7 +45,7 @@ class UsersController extends Controller
             'name'=>'string|required|max:30',
             'email'=>'string|required|unique:users',
             'password'=>'string|required',
-            'role'=>'required|in:admin,user',
+            'role'=>'required',
             'status'=>'required|in:active,inactive',
             'photo'=>'nullable|string',
         ]);
@@ -49,15 +53,16 @@ class UsersController extends Controller
         $data=$request->all();
         $data['password']=Hash::make($request->password);
         // dd($data);
-        $status=User::create($data);
+        $status= User::create($data);
         // dd($status);
+        $status->syncRoles($request->role);
         if($status){
             request()->session()->flash('success','Successfully added user');
         }
         else{
             request()->session()->flash('error','Error occurred while adding user');
         }
-        return redirect()->route('users.index');
+        return redirect()->route('auser.users.index');
 
     }
 
@@ -80,8 +85,9 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        $user=User::findOrFail($id);
-        return view('backend.users.edit')->with('user',$user);
+        $n['user']=User::findOrFail($id);
+        $n['roles'] = Role::all();
+        return view('backend.auser.users.edit',$n);
     }
 
     /**
@@ -98,22 +104,24 @@ class UsersController extends Controller
         [
             'name'=>'string|required|max:30',
             'email'=>'string|required',
-            'role'=>'required|in:admin,user',
-            'status'=>'required|in:active,inactive',
+            'role'=>'required',
+            'status'=>'required',
             'photo'=>'nullable|string',
         ]);
         // dd($request->all());
         $data=$request->all();
         // dd($data);
-        
-        $status=$user->fill($data)->save();
+
+        $status= $user->fill($data)->save();
+        // dd($status);
         if($status){
+            $user->syncRoles($request->role);
             request()->session()->flash('success','Successfully updated');
         }
         else{
             request()->session()->flash('error','Error occured while updating');
         }
-        return redirect()->route('users.index');
+        return redirect()->route('auser.users.index');
 
     }
 
@@ -133,6 +141,6 @@ class UsersController extends Controller
         else{
             request()->session()->flash('error','There is an error while deleting users');
         }
-        return redirect()->route('users.index');
+        return redirect()->route('auser.users.index');
     }
 }
