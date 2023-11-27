@@ -9,7 +9,7 @@
         <div class="flex justify-between gap-8">
             <livewire:side-nav/>
             <!-- ------------right---part--start--- -->
-            <div class="mt-2">
+            <div class="">
               <livewire:menu-nav/>
                 <!-- ------cart--group----1st--part--- -->
 

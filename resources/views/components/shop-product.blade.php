@@ -1,5 +1,6 @@
- <div class="relative overflow-hidden border-[2px] border-[#380D37] rounded-[4px] box-border p-2 mx-3 mt-6 flex flex-col bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] "> 
-    <a href="#" >
+ <div
+     class="relative overflow-hidden border-[2px] border-[#380D37] rounded-[4px] box-border mt-6 flex flex-col bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] ">
+     <a href="#">
          {{-- <img class="object-center"
          src="{{$product->photo}}"
          alt="{{$product->title}}"> --}}
@@ -10,8 +11,8 @@
              @endphp
              <img src="{{ $photo[0] }}" class="object-center" alt="{{ $product->photo }}">
          @else
-             <img src="{{ asset('backend/img/thumbnail-default.jpg') }}" class="img-fluid rounded-t-lg " data-te-ripple-init
-             data-te-ripple-color="dark" alt="avatar.png">
+             <img src="{{ asset('backend/img/thumbnail-default.jpg') }}" class="img-fluid rounded-t-lg "
+                 data-te-ripple-init data-te-ripple-color="dark" alt="avatar.png">
          @endif
      </a>
      <div class="p-6">
@@ -30,7 +31,7 @@
          </div>
      </div>
 
-     <div class="mt-auto px-6 py-3 text-center">
+     <div class="mt-auto px-6 pb-3 text-center">
          <div>
              <a href="#" class="font-[jost] text-[16px] font-[600] leading-[30px] text-[#DC275C] block">
                  {{ number_format($product->price) }}
@@ -39,7 +40,7 @@
          <div class="my-3 text-center">
 
              <a href="..src/product-details.html" class="">
-                 <button class='bg-[#380D37] text-white text-[12px] py-[8px] px-[70px] rounded-[5px]'>Buy Now
+                 <button class='bg-[#380D37] text-white text-[12px] py-[8px] px-[60px] rounded-[5px]'>Buy Now
                  </button></a>
          </div>
          <div>
@@ -50,5 +51,4 @@
          {{-- <livewire:add-to-cart :id="$product->id"
              button=' <p class="font-[jost] text-[10px] font-[600] leading-[30px]">Add to Cart</p>' /> --}}
      </div>
-     </div>
-
+ </div>
