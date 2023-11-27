@@ -23,6 +23,7 @@ use App\Http\Controllers\PostCategoryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostTagController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ShippingController;
 use App\Http\Controllers\UsersController;
 use App\Livewire\AboutUs;
@@ -155,12 +156,21 @@ Route::get('payment/success', [PayPalController::class, 'success'])->name('payme
 
 // Backend section start
 Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'admin']], function () {
+
+    //Dashboard
     Route::get('/', [AdminController::class, 'index'])->name('admin');
+
+    //Fill Manager
     Route::get('/file-manager', function () {
         return view('backend.layouts.file-manager');
     })->name('file-manager');
-    // user route
-    Route::resource('users', UsersController::class);
+
+    // User Management
+    Route::prefix('/admin-user')->name('auser.')->group(function(){
+        Route::resource('users', UsersController::class);
+        Route::resource('role', RoleController::class);
+        Route::get('permission',[RoleController::class,'permission'])->name('permission');
+    });
     // Banner
     Route::resource('banner', BannerController::class);
     // Brand

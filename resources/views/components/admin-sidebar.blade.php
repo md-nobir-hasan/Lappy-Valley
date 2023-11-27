@@ -31,27 +31,7 @@
                 </li>
             @endif
         @endforeach
-
-        {{-- <!-- Nav Item - Pages Collapse Menu -->
-        <!-- Nav Item - Charts -->
-
-
-
-        <li class="nav-item ">
-            <a class="nav-link collapsed " href="#" data-toggle="collapse" data-target="#collapseTwo"
-                aria-expanded="true" aria-controls="collapseTwo">
-                <i class="fas fa-image"></i>
-                <span>Banners</span>
-            </a>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                <div class="py-2 bg-white rounded collapse-inner">
-                    <h6 class="collapse-header">Banner Options:</h6>
-                    <a class="collapse-item" href="{{ route('banner.index') }}">Banners</a>
-                    <a class="collapse-item" href="{{ route('banner.create') }}">Add Banners</a>
-                </div>
-            </div>
-        </li> --}}
-        <!-- Divider -->
+        
         <hr class="sidebar-divider">
     </div>
 @endforeach

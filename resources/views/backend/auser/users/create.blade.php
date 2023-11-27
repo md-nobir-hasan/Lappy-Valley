@@ -7,7 +7,7 @@
 <div class="card">
     <h5 class="card-header">Add User</h5>
     <div class="card-body">
-      <form method="post" action="{{route('users.store')}}">
+      <form method="post" action="{{route('auser.users.store')}}">
         {{csrf_field()}}
         <div class="form-group">
           <label for="inputTitle" class="col-form-label">Name</label>
@@ -48,15 +48,12 @@
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
-        @php
-        $roles=DB::table('users')->select('role')->get();
-        @endphp
         <div class="form-group">
             <label for="role" class="col-form-label">Role</label>
             <select name="role" class="form-control">
                 <option value="">-----Select Role-----</option>
                 @foreach($roles as $role)
-                    <option value="{{$role->role}}">{{$role->role}}</option>
+                    <option value="{{$role->name}}">{{$role->name}}</option>
                 @endforeach
             </select>
           @error('role')
@@ -73,7 +70,7 @@
           <span class="text-danger">{{$message}}</span>
           @enderror
           </div>
-        <div class="form-group mb-3">
+        <div class="mb-3 form-group">
           <button type="reset" class="btn btn-warning">Reset</button>
            <button class="btn btn-success" type="submit">Submit</button>
         </div>
