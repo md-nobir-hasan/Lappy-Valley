@@ -297,12 +297,17 @@
                     you the best and lowest possible price in market.</p>
             </div>
             <div class=" rounded-[4px] shadow-[2px_2px_5px_2px_#0000001A] p-3 h-[309px]">
-                <img class="mx-auto w-[116px] h-[116px]" src="/storage/product/fast-delivery-1.svg" alt="Product">
+                <div>
+                    <img class="mx-auto w-[116px] h-[116px]" src="/storage/product/fast-delivery-1.svg" alt="Product">
+               
                 <h2
-                    class=" mt-[25px] mb-[10px] text-[#DC275C] font-[jost] text-[24px] font-[500] leading-[35px] text-center ">
-                    Fast Delivary</h2>
-                <p class="font-[jost] text-[14px] font-[500] leading-[20px] text-left text-[#380D37]">We deliver
-                    our products carefully as fast as possible at your door step.</p>
+                class=" mt-[25px] mb-[10px] text-[#DC275C] font-[jost] text-[24px] font-[500] leading-[35px] text-center ">
+                Fast Delivary</h2>
+               </div>
+                <div class="mt-auto">
+                    <p class="font-[jost] text-[14px] font-[500] leading-[20px] text-left text-[#380D37]">We deliver
+                        our products carefully as fast as possible at your door step.</p>
+                </div>
             </div>
     </section>
 

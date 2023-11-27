@@ -1,4 +1,5 @@
 
+   <div>
     <div class="shadow-[2px_2px_5px_2px_#0000001A] p-2">
         <div class="bg-white rounded-lg product_div">
             <a href="{{ route('product.details') }}">
@@ -38,4 +39,5 @@
             </div>
         </div>
     </div>
+   </div>
 
