@@ -21,7 +21,7 @@ class UsersTableSeeder extends Seeder
                 'status'=>'active'
             ),
             array(
-                'name'=>'Admin',
+                'name'=>'Md Nobir Hasan',
                 'email'=>'nobir.sau@gmail.com',
                 'password'=>Hash::make('1111'),
                 'role'=>'admin',
