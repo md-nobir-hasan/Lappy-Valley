@@ -1,5 +1,5 @@
  <div
-     class="relative overflow-hidden border-[2px] border-[#380D37] rounded-[4px] box-border mt-6 flex flex-col bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] ">
+     class="relative overflow-hidden border-[1px] border-[#380D37] rounded-[4px] box-border px-[5px] mt-2 flex flex-col bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] ">
      <a href="#">
          {{-- <img class="object-center"
          src="{{$product->photo}}"
@@ -15,7 +15,7 @@
                  data-te-ripple-init data-te-ripple-color="dark" alt="avatar.png">
          @endif
      </a>
-     <div class="p-6">
+     <div class="p-6 border-t-[2px] border-b-[2px]  border-[#380D3733]">
          <div class=' border-[#380D3733] mb-2'>
              <h1 class="font-[jost] text-[12px] font-[600] leading-[20px] text-left text-[#380D37]">
                  {{ $product->title }}
@@ -30,22 +30,22 @@
              </ul>
          </div>
      </div>
-
-     <div class="mt-auto px-6 pb-3 text-center">
+    
+     <div class="mt-auto px-6 py-6 text-center">
          <div>
-             <a href="#" class="font-[jost] text-[16px] font-[600] leading-[30px] text-[#DC275C] block">
-                 {{ number_format($product->price) }}
+             <a href="#" class="font-[jost] text-[12px] font-[700] leading-[24px] text-[#DC275C] block">
+                 {{ number_format($product->price) }}<span class="ml-[5px] text-[12px] font-[jost] font-[700]">TAKA</span>
              </a>
          </div>
          <div class="my-3 text-center">
 
              <a href="..src/product-details.html" class="">
-                 <button class='bg-[#380D37] text-white text-[12px] py-[8px] px-[60px] rounded-[5px]'>Buy Now
+                 <button class='bg-[#380D37] text-[#F2F2F2] text-[10px] font-[jost] font-[500] py-[8px] px-[60px] rounded-[5px]'>Buy Now
                  </button></a>
          </div>
          <div>
              <a href="">
-                 <p class="font-[jost] text-[10px] text-[#380D37] font-[600] leading-[20px]">Add to Cart</p>
+                 <p class="font-[jost] text-[10px] text-[#380D37] font-[500] leading-[20px]">Add to Cart</p>
              </a>
          </div>
          {{-- <livewire:add-to-cart :id="$product->id"

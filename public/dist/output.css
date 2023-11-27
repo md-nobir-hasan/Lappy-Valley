@@ -1499,6 +1499,10 @@ input[type="range"]:active::-webkit-slider-thumb{
   margin-top: auto;
 }
 
+.ml-\[2px\]{
+  margin-left: 2px;
+}
+
 .box-border{
   box-sizing: border-box;
 }
@@ -3172,6 +3176,11 @@ input[type="range"]:active::-webkit-slider-thumb{
   border-width: 3px;
 }
 
+.border-y-\[2px\]{
+  border-top-width: 2px;
+  border-bottom-width: 2px;
+}
+
 .border-b{
   border-bottom-width: 1px;
 }
@@ -3985,6 +3994,11 @@ input[type="range"]:active::-webkit-slider-thumb{
   padding-bottom: 2rem;
 }
 
+.py-6{
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
 .pb-0{
   padding-bottom: 0px;
 }
@@ -4529,6 +4543,10 @@ input[type="range"]:active::-webkit-slider-thumb{
 
 .leading-\[\]{
   line-height: ;
+}
+
+.leading-\[24px\]{
+  line-height: 24px;
 }
 
 .tracking-\[-0\.00833em\]{
