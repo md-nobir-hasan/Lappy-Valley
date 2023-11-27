@@ -1,7 +1,7 @@
 <div>
       <div class='container mx-auto'>
-        <h1 class='font-[jost] xl:text-[20px] font-[400] leading-[25.3px] text-[#353535]'>All Categories</h1>
-        <div class='h-1 bg-[#764A8733]'></div>
+        <h1 class='font-[jost] text-[16px] font-[400] leading-[23.12px] tracking-[3%] text-[#353535]'>All Categories/ Pre-Owned</h1>
+        <div class='h-[2px] bg-[#764A8733]'></div>
     </div>
 
     <!-- Sidenav -->
@@ -9,7 +9,7 @@
         <div class="flex justify-between gap-8">
             <livewire:side-nav/>
             <!-- ------------right---part--start--- -->
-            <div class="mt-2">
+            <div>
               <livewire:menu-nav/>
                 <!-- ------cart--group----1st--part--- -->
 
