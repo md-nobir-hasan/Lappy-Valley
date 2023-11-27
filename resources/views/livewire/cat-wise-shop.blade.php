@@ -29,8 +29,10 @@
                 @endforeach
 
             </div>
-
+            <div class="mt-8">
+                {{$slug_wise_product->links('vendor.pagination.tailwind')}}
+            </div>
         </div>
     </div>
-</div>  
+</div>
 </div>

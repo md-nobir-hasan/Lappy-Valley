@@ -1,5 +1,5 @@
- <div class="relative overflow-hidden border-[2px] border-[#380D37] rounded-[4px] box-border p-2 mx-3 mt-6 flex flex-col bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] "> 
-    <a href="#" >
+ <div class="relative overflow-hidden border-[2px] border-[#380D37] rounded-[4px] box-border p-2 mx-3 mt-6 flex flex-col bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] ">
+    <a href="{{route('product.details',[$product->slug])}}" >
          {{-- <img class="object-center"
          src="{{$product->photo}}"
          alt="{{$product->title}}"> --}}
@@ -10,7 +10,7 @@
              @endphp
              <img src="{{ $photo[0] }}" class="object-center" alt="{{ $product->photo }}">
          @else
-             <img src="{{ asset('backend/img/thumbnail-default.jpg') }}" class="img-fluid rounded-t-lg " data-te-ripple-init
+             <img src="{{ asset('backend/img/thumbnail-default.jpg') }}" class="rounded-t-lg img-fluid " data-te-ripple-init
              data-te-ripple-color="dark" alt="avatar.png">
          @endif
      </a>
@@ -30,7 +30,7 @@
          </div>
      </div>
 
-     <div class="mt-auto px-6 py-3 text-center">
+     <div class="px-6 py-3 mt-auto text-center">
          <div>
              <a href="#" class="font-[jost] text-[16px] font-[600] leading-[30px] text-[#DC275C] block">
                  {{ number_format($product->price) }}

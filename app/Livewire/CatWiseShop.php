@@ -13,14 +13,13 @@ use Livewire\Attributes\Title;
 class CatWiseShop extends Component
 {
     public $slug;
-    public $slug_wise_product;
-    public function mount(){
-        $cat = Category::where('slug',$this->slug)->first();
-        $this->slug_wise_product = Product::where('cat_id',$cat->id)->where('status','active')->get();
-    }
+    // public $slug_wise_product;
+    // public function mount(){
+    //     $this->slug_wise_product = Product::where('cat_id',$cat->id)->where('status','active')->paginate(20);
+    // }
     public function render()
     {
-
-        return view('livewire.cat-wise-shop');
+        $cat = Category::where('slug', $this->slug)->first();
+        return view('livewire.cat-wise-shop',['slug_wise_product'=> Product::where('cat_id', $cat->id)->where('status', 'active')->paginate(2)]);
     }
 }

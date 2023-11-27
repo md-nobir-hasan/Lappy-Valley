@@ -26,9 +26,10 @@
                             </div>
                         </x-shop-product>
                    @endforeach
-
                 </div>
-
+                <div class="mt-8">
+                    {{$products->links('vendor.pagination.tailwind')}}
+                </div>
             </div>
         </div>
     </div>
