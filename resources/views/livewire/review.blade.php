@@ -57,7 +57,7 @@
 
 
   <!-- Swiper -->
-  <div class="swiper-container mySwiper">
+  <div class=" container mx-auto overflow-hidden Swiper miaSwiper">
     <div class="swiper-wrapper">
       <div class="swiper-slide">
 
@@ -738,8 +738,8 @@
 
   <!-- Initialize Swiper -->
   <script>
-    var swiper = new Swiper(".mySwiper", {
-      slidesPerView: 5,
+    var swiper = new Swiper(".miaSwiper", {
+      slidesPerView: 4,
       spaceBetween: 10,
       slidesPerGroup: 1,
       loop: true,
