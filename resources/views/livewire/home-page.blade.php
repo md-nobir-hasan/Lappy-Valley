@@ -43,7 +43,7 @@
         }
 
 
-        
+
     </script>
 </x-slot>
 
@@ -164,7 +164,7 @@
         </div>
     </section>
 
-    <!-- Feature Laptops  -->
+    <!-- Feature Laptops Sliders -->
     <section>
 
         <div class="py-1 text-center">
@@ -185,7 +185,7 @@
                     <path d="M21 2L3 20L21 38" stroke="#999999" stroke-opacity="50%" stroke-width="3" />
                 </svg>
             </button>
-            
+
             <button class='translate-x-[50px]'>
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="36" viewBox="0 0 23 40" fill="none">
                     <path d="M2 2L20 20L2 38" stroke="#999999" stroke-opacity="50%" stroke-width="3" />
@@ -198,11 +198,53 @@
                 <livewire:products />
             @endfor --}}
             @foreach ($features->take(5) as $product)
-                <x-product :product="$product"></x-product>
+            {{-- @foreach ($products as $product) --}}
+<div class="shadow-[2px_2px_5px_2px_#0000001A] p-2">
+    <div class="bg-white rounded-lg product_div">
+        <a href="">
+            {{-- <img class="object-center pimg" src="{{$product->photo}}" alt=""> --}}
+            @if ($product->photo)
+                @php
+                    $photo = explode(',', $product->photo);
+                    // dd($photo);
+                @endphp
+                <img src="{{ $photo[0] }}" class="object-center pimg" alt="{{ $product->photo }}">
+            @else
+                <img src="{{ asset('backend/img/thumbnail-default.jpg') }}" class="object-center pimg" alt="avatar.png">
+            @endif
+        </a>
+
+        <div>
+            <p class="ptitle font-[jost] text-[16px] font-[500] leading-[23px] text-left text-[#380D37] ">
+                {{ $product->title }}
+            </p>
+            <div class="py-[12px] flex justify-between px-2">
+                <a href="#" class="font-[jost] text-[14px] font-[600] leading-[20px] text-left text-[#DC275C]">
+                    <span class="pprice"
+                        value='{{ $product->price }}'>{{ number_format($product->price - ($product->price * $product->discount) / 100) }}</span>
+                    TK</a>
+                {{-- @auth --}}
+                <livewire:add-to-cart :id="$product->id"
+                    button='<p  class="font-[jost] text-[14px] text-[#380D37] font-[600] leading-[20px] text-left cursor-pointer ">Add to Cart</p>' />
+                {{-- @else
+                    <a href="{{ route('user.login') }}">
+                        <p
+                            class="font-[jost] text-[14px] text-[#380D37] font-[600] leading-[20px] text-left cursor-pointer">
+                            Add to Cart
+                        </p>
+                    </a>
+                @endauth --}}
+            </div>
+        </div>
+    </div>
+</div>
+{{-- @endforeach --}}
+
+                {{-- <x-product :product="$product"></x-product> --}}
             @endforeach
         </div>
 
-    
+
     </section>
 
     <div class='mt-[15px] mb-[30px]'>
@@ -359,10 +401,10 @@
                          </div>
                      </div>
                      <!-- <div class="flex items-baseline"> -->
-         
+
                      <!-- <div class="flex items-center"> -->
                      <div class="flex mt-[40px] ml-auto">
-         
+
                          <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
                                  viewBox="0 0 22 22" fill="#FFA033">
                                  <path
@@ -370,7 +412,7 @@
                                      fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
                                      stroke-linejoin="round" />
                              </svg></a>
-         
+
                          <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
                                  viewBox="0 0 22 22" fill="#FFA033">
                                  <path
@@ -378,7 +420,7 @@
                                      fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
                                      stroke-linejoin="round" />
                              </svg></a>
-         
+
                          <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
                                  viewBox="0 0 22 22" fill="#FFA033">
                                  <path
@@ -386,7 +428,7 @@
                                      fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
                                      stroke-linejoin="round" />
                              </svg></a>
-         
+
                          <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
                                  viewBox="0 0 22 22" fill="#FFA033">
                                  <path
@@ -394,7 +436,7 @@
                                      fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
                                      stroke-linejoin="round" />
                              </svg></a>
-         
+
                          <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
                                  viewBox="0 0 15 15" fill="none">
                                  <path
@@ -404,7 +446,7 @@
                      </div>
                      <!-- </div> -->
                      <!-- </div> -->
-         
+
                  </div>
                  <h1 class="my-[19px] font-[Lato] font-[700] text-[18px]  text-center text-[#353535]">
                      It was a very good experience</h1>
@@ -430,7 +472,7 @@
                          </div>
                      </div>
                      <!-- <div class="flex items-baseline"> -->
-         
+
                      <!-- <div class="flex items-center"> -->
                      <div class="flex mt-[40px] ml-auto">
                          <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
@@ -470,7 +512,7 @@
                      </div>
                      <!-- </div> -->
                      <!-- </div> -->
-         
+
                  </div>
                  <h1 class="my-[19px] font-[Lato] font-[700] text-[24px] text-center text-[#353535]">
                      It was a very good experience</h1>
@@ -482,7 +524,7 @@
                      sit cursus pellentesqueenim arcu.Elementum felis magna pretium in tincidunt.
                      Suspendisse sed magna eget nibh in turpis. Consequat duis diam lacUSArcu.</p>
              </div>
-             
+
                  <div class="rounded-[12px] py-4 px-6 bg-[#fff] w-[280px] h-[306px] shadow-[2px_2px_5px_2px_#0000001A]">
                    <div class="flex justify-center">
                        <div class="flex items-center">
@@ -535,7 +577,7 @@
                  </div>
                  <!-- </div> -->
                  <!-- </div> -->
-         
+
              </div>
              <h1 class="my-[19px] font-[Lato] font-[700] text-[18px] text-center text-[#353535]">
                  It was a very good experience</h1>
@@ -556,7 +598,7 @@
                      stroke-linejoin="round" />
              </svg>
          </div>
- 
+
          <div class='mx-auto w-[177px] h-[17px]'>
              <svg xmlns="http://www.w3.org/2000/svg" width="177" height="17" viewBox="0 0 177 17"
                  fill="none">
@@ -576,16 +618,16 @@
              </svg>
          </div>
      </div>
-  
+
      <div class="mt-16 h-[2px] bg-[#380D37]"></div>
  </section>
-         
-         
-         
 
-           
 
-                   
+
+
+
+
+
 
 
 

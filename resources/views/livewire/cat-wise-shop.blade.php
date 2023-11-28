@@ -16,7 +16,7 @@
             <!-- ------cart--group----1st--part--- -->
             <div class='grid grid-cols-4 gap-8 mt-4'>
                 @foreach ($slug_wise_product as $product)
-                    <x-product :product="$product">
+                    <x-shop-product :product="$product">
                         <div class='mt-2'>
                             <ul class='text-[#353535] list-decimal px-4 text-[16px] leading-[30px]'>
                                 <li>Processor: AMD Ryzen 5 7520U (2.8 GHz up to 4.3 GHz)</li>
@@ -25,7 +25,7 @@
                                 <li>Features: Type-C</li>
                             </ul>
                         </div>
-                    </x-product>
+                    </x-shop-product>
                 @endforeach
 
             </div>
