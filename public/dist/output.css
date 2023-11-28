@@ -2841,6 +2841,10 @@ input[type="range"]:active::-webkit-slider-thumb{
   gap: 80px;
 }
 
+.gap-4{
+  gap: 1rem;
+}
+
 .space-x-2 > :not([hidden]) ~ :not([hidden]){
   --tw-space-x-reverse: 0;
   margin-right: calc(0.5rem * var(--tw-space-x-reverse));
@@ -3606,6 +3610,10 @@ input[type="range"]:active::-webkit-slider-thumb{
 
 .p-\[px\]{
   padding: px;
+}
+
+.p-1{
+  padding: 0.25rem;
 }
 
 .\!py-0{
@@ -5856,6 +5864,11 @@ input[type="range"]:active::-webkit-slider-thumb{
 .active\:bg-primary-accent-200:active{
   --tw-bg-opacity: 1;
   background-color: rgb(206 219 238 / var(--tw-bg-opacity));
+}
+
+.active\:bg-\[\#380D37\]:active{
+  --tw-bg-opacity: 1;
+  background-color: rgb(56 13 55 / var(--tw-bg-opacity));
 }
 
 .active\:text-gray-500:active{

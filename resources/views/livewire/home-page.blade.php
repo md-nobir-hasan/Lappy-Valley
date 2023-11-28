@@ -252,8 +252,9 @@
                 Why Choose Us?</h2>
         </div>
         <div class="grid grid-cols-5 gap-2 my-[50px] ">
-            <div class=" rounded-[4px] shadow-[2px_2px_5px_2px_#0000001A] p-3">
-                <div class='mx-auto w-[116px] h-[116px]'>
+            <div class=" rounded-[4px] shadow-[2px_2px_5px_2px_#0000001A]">
+               <div>
+                <div class='p-3 mx-auto w-[116px] h-[116px]'>
                     <div class='flex items-center mx-auto'>
                         <img class='w-[55.36px] h-[55.36px]' src="/storage/product/laptop-1.jpg" alt="Product">
                         <img class='w-[55.36px]' src="/storage/product/laptop.jpg" alt="Product">
@@ -265,46 +266,61 @@
                 </div>
 
                 <h2
-                    class=" mt-[25px] mb-[10px] text-[#DC275C] font-[jost] text-[24px] font-[500] leading-[35px] text-center ">
+                    class="px-1 py-4 text-[#DC275C] font-[jost] text-[24px] font-[500] leading-[35px] text-center ">
                     Wide Varieties</h2>
+               </div>
+              <div class="p-3 mt-auto">
                 <p class="font-[jost] text-[14px] font-[500] leading-[20px] text-left text-[#380D37]">We have a
                     wide collection of laptops from different brands. We have brand new and pre-ownedlaptops in our
                     collection.</p>
+              </div>
             </div>
-            <div class=" rounded-[4px] shadow-[2px_2px_5px_2px_#0000001A] p-3">
-                <img class="mx-auto w-[116px] h-[116px]" src="/storage/product/trust-1.svg" alt="Product">
+            <div class=" rounded-[4px] shadow-[2px_2px_5px_2px_#0000001A]">
+              <div>
+                <img class="p-3 mx-auto w-[116px] h-[116px]" src="/storage/product/trust-1.svg" alt="Product">
                 <h2
-                    class=" mt-[25px] mb-[10px] text-[#DC275C] font-[jost] text-[24px]  font-[500] leading-[35px] text-center ">
+                    class="px-1 py-4 text-[#DC275C] font-[jost] text-[24px]  font-[500] leading-[35px] text-center ">
                     Trusted and Reliable</h2>
+              </div>
+              <div class="p-3 mt-auto">
                 <p class="font-[jost] text-[14px] font-[500] leading-[20px] text-left text-[#380D37]">We are
                     trusted and reliable shop. We provide you with the best services and good quality products.</p>
+              </div>
             </div>
 
-            <div class=" rounded-[4px] shadow-[2px_2px_5px_2px_#0000001A] p-3">
-                <img class=" mx-auto w-[116px] h-[116px]" src="/storage/product/best-service.svg" alt="Product">
+            <div class=" rounded-[4px] shadow-[2px_2px_5px_2px_#0000001A]">
+              <div>
+                <img class="p-3 mx-auto w-[116px] h-[116px]" src="/storage/product/best-service.svg" alt="Product">
                 <h2
-                    class=" mt-[25px] mb-[10px] text-[#DC275C] font-[jost] text-[24px] font-[500] leading-[35px] text-center ">
+                    class="px-1 py-4 text-[#DC275C] font-[jost] text-[24px] font-[500] leading-[35px] text-center ">
                     Best Service</h2>
-                <p class="  font-[jost] text-[14px] font-[500] leading-[20px] text-left text-[#380D37]">We provide
-                    you with the best after sell services. Any problem, you take it to us and we will solve it.</p>
+              </div>
+                <div class="p-3 mt-auto">
+                    <p class="font-[jost] text-[14px] font-[500] leading-[20px] text-left text-[#380D37]">We provide
+                        you with the best after sell services. Any problem, you take it to us and we will solve it.</p>
+                </div>
             </div>
-            <div class=" rounded-[4px] shadow-[2px_2px_5px_2px_#0000001A] p-3">
-                <img class="mx-auto w-[116px] h-[116px]" src="/storage/product/best-price-1.svg" alt="Product">
+            <div class=" rounded-[4px] shadow-[2px_2px_5px_2px_#0000001A]">
+              <div>
+                <img class="p-3 mx-auto w-[116px] h-[116px]" src="/storage/product/best-price-1.svg" alt="Product">
                 <h2
-                    class=" mt-[25px] mb-[10px] text-[#DC275C] font-[jost] text-[24px] font-[500] leading-[35px] text-center ">
+                    class="px-1 py-4 text-[#DC275C] font-[jost] text-[24px] font-[500] leading-[35px] text-center ">
                     Best Price in Market</h2>
+              </div>
+             <div class="p-3 mt-auto">
                 <p class="font-[jost] text-[14px] font-[500] leading-[20px] text-left text-[#380D37]">We will give
                     you the best and lowest possible price in market.</p>
+             </div>
             </div>
-            <div class=" rounded-[4px] shadow-[2px_2px_5px_2px_#0000001A] p-3 h-[309px]">
-                <div>
-                    <img class="mx-auto w-[116px] h-[116px]" src="/storage/product/fast-delivery-1.svg" alt="Product">
-               
+            <div class=" rounded-[4px] shadow-[2px_2px_5px_2px_#0000001A]">
+                <div class="">
+                    <img class="p-3 mx-auto w-[116px] h-[116px]" src="/storage/product/fast-delivery-1.svg" alt="Product">
+            
                 <h2
-                class=" mt-[25px] mb-[10px] text-[#DC275C] font-[jost] text-[24px] font-[500] leading-[35px] text-center ">
+                class="px-1 py-4 text-[#DC275C] font-[jost] text-[24px] font-[500] leading-[35px] text-center ">
                 Fast Delivary</h2>
                </div>
-                <div class="mt-auto">
+                <div class="p-3 mt-auto">
                     <p class="font-[jost] text-[14px] font-[500] leading-[20px] text-left text-[#380D37]">We deliver
                         our products carefully as fast as possible at your door step.</p>
                 </div>
