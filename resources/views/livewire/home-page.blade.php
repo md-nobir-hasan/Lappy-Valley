@@ -41,17 +41,63 @@
             // show the active slide
             slides[slideIndex].classList.remove('hidden');
         }
-
-
-
     </script>
 </x-slot>
 
 <div class="container mx-auto lg:px-16">
 
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Alkalami&family=Comme:wght@200;600;800&family=Jost&family=Lato:ital,wght@1,300&display=swap');
-      </style>
+        html,
+        body {
+            position: relative;
+            height: 100%;
+        }
+
+        /* body {
+          background: #eee;
+          font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+          font-size: 14px;
+          color: #000;
+          margin: 0;
+          padding: 0;
+      } */
+
+        .swiper-container {
+            /* width: 100%; */
+            height: 100%;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            /* background: #fff; */
+
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            display: block;
+            /* width: 100%; */
+            /* height: 100%; */
+            /* object-fit: cover; */
+        }
+    </style>
+
+  
+
     <form method="POST" action="{{ route('logout') }}" class="hidden">
         @csrf
         <button class="p4 bg-[red] rounded">Logout</button>
@@ -94,8 +140,8 @@
             <a class="absolute right-0 top-1/2 p-4 -translate-y-1/2 translate-x-[42px] text-[40px] text-blue-500 opacity-50 hover:opacity-100 cursor-pointer"
                 onclick="moveSlide(1)"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="36"
                     viewBox="0 0 23 40" fill="none">
-                    <path :class="{ 'text-[black]': active}" d="M2 2L20 20L2 38" stroke="#999999"
-                        stroke-opacity="0.5" stroke-width="5" />
+                    <path :class="{ 'text-[black]': active }" d="M2 2L20 20L2 38" stroke="#999999" stroke-opacity="0.5"
+                        stroke-width="5" />
                 </svg></i></a>
 
         </div>
@@ -179,71 +225,206 @@
             <div class="container h-[2px] bg-[#380D37]"></div>
         </div>
         <!-- Product  -->
-        <div class="flex justify-between translate-y-[215px]">
+        {{-- <div class="flex justify-between translate-y-[215px]">
             <button class='translate-x-[-50px]'>
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="36" viewBox="0 0 23 40" fill="none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="36" viewBox="0 0 23 40"
+                    fill="none">
                     <path d="M21 2L3 20L21 38" stroke="#999999" stroke-opacity="50%" stroke-width="3" />
                 </svg>
             </button>
 
             <button class='translate-x-[50px]'>
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="36" viewBox="0 0 23 40" fill="none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="36" viewBox="0 0 23 40"
+                    fill="none">
                     <path d="M2 2L20 20L2 38" stroke="#999999" stroke-opacity="50%" stroke-width="3" />
                 </svg>
             </button>
-        </div>
+        </div> --}}
 
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-col-5 gap-2 mt-6 mb-[78px]">
-            {{-- @for ($i = 1; $i < 6; $i++)
-                <livewire:products />
-            @endfor --}}
-            @foreach ($features->take(5) as $product)
-            {{-- @foreach ($products as $product) --}}
-<div class="shadow-[2px_2px_5px_2px_#0000001A] p-2">
-    <div class="bg-white rounded-lg product_div">
-        <a href="">
-            {{-- <img class="object-center pimg" src="{{$product->photo}}" alt=""> --}}
-            @if ($product->photo)
-                @php
-                    $photo = explode(',', $product->photo);
-                    // dd($photo);
-                @endphp
-                <img src="{{ $photo[0] }}" class="object-center pimg" alt="{{ $product->photo }}">
-            @else
-                <img src="{{ asset('backend/img/thumbnail-default.jpg') }}" class="object-center pimg" alt="avatar.png">
-            @endif
-        </a>
+        <div class="container mx-auto">
 
-        <div>
-            <p class="ptitle font-[jost] text-[16px] font-[500] leading-[23px] text-left text-[#380D37] ">
-                {{ $product->title }}
-            </p>
-            <div class="py-[12px] flex justify-between px-2">
-                <a href="#" class="font-[jost] text-[14px] font-[600] leading-[20px] text-left text-[#DC275C]">
-                    <span class="pprice"
-                        value='{{ $product->price }}'>{{ number_format($product->price - ($product->price * $product->discount) / 100) }}</span>
-                    TK</a>
-                {{-- @auth --}}
-                <livewire:add-to-cart :id="$product->id"
-                    button='<p  class="font-[jost] text-[14px] text-[#380D37] font-[600] leading-[20px] text-left cursor-pointer ">Add to Cart</p>' />
-                {{-- @else
-                    <a href="{{ route('user.login') }}">
-                        <p
-                            class="font-[jost] text-[14px] text-[#380D37] font-[600] leading-[20px] text-left cursor-pointer">
-                            Add to Cart
-                        </p>
-                    </a>
-                @endauth --}}
+  
+        
+        
+        
+            <div class="swiper-container overflow-hidden mx-auto mySwiper">
+                <div class="swiper-wrapper gap-[5px]">
+                    <div class="swiper-slide">
+                        <div class=" flex flex-col bg-white p-[10px] gap-[10px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
+                            <div>
+                                <img src="/storage/product/large-size-laptop.jpg" alt="">
+                            </div>
+                            <div>
+                                <p class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]">
+                                    Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
+                                </p>
+                            </div>
+                            <div class="flex justify-between text-[14px] font-[jost] font-[700] leading-[20.23px]">
+                                <span class="text-[#DC275C]">1,50,000 TK</span>
+                                <span class="text-[#380D37]">Add to Cart</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class=" flex flex-col bg-white p-[10px] gap-[15px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
+                            <div>
+                                <img src="/storage/product/large-size-laptop.jpg" alt="">
+                            </div>
+                            <div>
+                                <p class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]">
+                                    Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
+                                </p>
+                            </div>
+                            <div class="flex justify-between text-[14px] font-[jost] font-[700] leading-[20.23px]">
+                                <span class="text-[#DC275C]">1,50,000 TK</span>
+                                <span class="text-[#380D37]">Add to Cart</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class=" flex flex-col bg-white p-[10px] gap-[15px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
+                            <div>
+                                <img src="/storage/product/large-size-laptop.jpg" alt="">
+                            </div>
+                            <div>
+                                <p class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]">
+                                    Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
+                                </p>
+                            </div>
+                            <div class="flex justify-between text-[14px] font-[jost] font-[700] leading-[20.23px]">
+                                <span class="text-[#DC275C]">1,50,000 TK</span>
+                                <span class="text-[#380D37]">Add to Cart</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class=" flex flex-col bg-white p-[10px] gap-[15px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
+                            <div>
+                                <img src="/storage/product/large-size-laptop.jpg" alt="">
+                            </div>
+                            <div>
+                                <p class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]">
+                                    Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
+                                </p>
+                            </div>
+                            <div class="flex justify-between text-[14px] font-[jost] font-[700] leading-[20.23px]">
+                                <span class="text-[#DC275C]">1,50,000 TK</span>
+                                <span class="text-[#380D37]">Add to Cart</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class=" flex flex-col bg-white p-[10px] gap-[15px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
+                            <div>
+                                <img src="/storage/product/large-size-laptop.jpg" alt="">
+                            </div>
+                            <div>
+                                <p class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]">
+                                    Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
+                                </p>
+                            </div>
+                            <div class="flex justify-between text-[14px] font-[jost] font-[700] leading-[20.23px]">
+                                <span class="text-[#DC275C]">1,50,000 TK</span>
+                                <span class="text-[#380D37]">Add to Cart</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class=" flex flex-col bg-white p-[10px] gap-[15px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
+                            <div>
+                                <img src="/storage/product/large-size-laptop.jpg" alt="">
+                            </div>
+                            <div>
+                                <p class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]">
+                                    Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
+                                </p>
+                            </div>
+                            <div class="flex justify-between text-[14px] font-[jost] font-[700] leading-[20.23px]">
+                                <span class="text-[#DC275C]">1,50,000 TK</span>
+                                <span class="text-[#380D37]">Add to Cart</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class=" flex flex-col bg-white p-[10px] gap-[15px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
+                            <div>
+                                <img src="/storage/product/large-size-laptop.jpg" alt="">
+                            </div>
+                            <div>
+                                <p class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]">
+                                    Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
+                                </p>
+                            </div>
+                            <div class="flex justify-between text-[14px] font-[jost] font-[700] leading-[20.23px]">
+                                <span class="text-[#DC275C]">1,50,000 TK</span>
+                                <span class="text-[#380D37]">Add to Cart</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class=" flex flex-col bg-white p-[10px] gap-[15px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
+                            <div>
+                                <img src="/storage/product/large-size-laptop.jpg" alt="">
+                            </div>
+                            <div>
+                                <p class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]">
+                                    Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
+                                </p>
+                            </div>
+                            <div class="flex justify-between text-[14px] font-[jost] font-[700] leading-[20.23px]">
+                                <span class="text-[#DC275C]">1,50,000 TK</span>
+                                <span class="text-[#380D37]">Add to Cart</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class=" flex flex-col bg-white p-[10px] gap-[15px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
+                            <div>
+                                <img src="/storage/product/large-size-laptop.jpg" alt="">
+                            </div>
+                            <div>
+                                <p class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]">
+                                    Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
+                                </p>
+                            </div>
+                            <div class="flex justify-between text-[14px] font-[jost] font-[700] leading-[20.23px]">
+                                <span class="text-[#DC275C]">1,50,000 TK</span>
+                                <span class="text-[#380D37]">Add to Cart</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
             </div>
-        </div>
-    </div>
-</div>
-{{-- @endforeach --}}
+        
+            <!-- Swiper JS -->
+            <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        
+            <!-- Initialize Swiper -->
+            <script>
+                var swiper = new Swiper(".mySwiper", {
+                    slidesPerView: 5,
+                    spaceBetween: 30,
+                    slidesPerGroup: 1,
+                    loop: true,
+                    loopFillGroupWithBlank: true,
+                    pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: ".swiper-button-next",
+                        prevEl: ".swiper-button-prev",
+                    },
+                });
+            </script>
+        
 
-                {{-- <x-product :product="$product"></x-product> --}}
-            @endforeach
-        </div>
 
+      
+   
 
     </section>
 
@@ -295,75 +476,79 @@
         </div>
         <div class="grid grid-cols-5 gap-2 my-[50px] ">
             <div class=" rounded-[4px] shadow-[2px_2px_5px_2px_#0000001A]">
-               <div>
-                <div class='p-3 mx-auto w-[116px] h-[116px]'>
-                    <div class='flex items-center mx-auto'>
-                        <img class='w-[55.36px] h-[55.36px]' src="/storage/product/laptop-1.jpg" alt="Product">
-                        <img class='w-[55.36px]' src="/storage/product/laptop.jpg" alt="Product">
+                <div>
+                    <div class='p-3 mx-auto w-[116px] h-[116px]'>
+                        <div class='flex items-center mx-auto'>
+                            <img class='w-[55.36px] h-[55.36px]' src="/storage/product/laptop-1.jpg" alt="Product">
+                            <img class='w-[55.36px]' src="/storage/product/laptop.jpg" alt="Product">
+                        </div>
+                        <div class='flex items-center mx-auto'>
+                            <img class='w-[55.36px] h-[55.36px]' src="/storage/product/web-traffic.jpg"
+                                alt="Product">
+                            <img class='w-[55.36px] h-[55.36px]' src="/storage/product/laptop-2.jpg" alt="Product">
+                        </div>
                     </div>
-                    <div class='flex items-center mx-auto'>
-                        <img class='w-[55.36px] h-[55.36px]' src="/storage/product/web-traffic.jpg" alt="Product">
-                        <img class='w-[55.36px] h-[55.36px]' src="/storage/product/laptop-2.jpg" alt="Product">
-                    </div>
+
+                    <h2
+                        class="px-1 py-4 text-[#DC275C] font-[jost] text-[24px] font-[500] leading-[35px] text-center ">
+                        Wide Varieties</h2>
                 </div>
-
-                <h2
-                    class="px-1 py-4 text-[#DC275C] font-[jost] text-[24px] font-[500] leading-[35px] text-center ">
-                    Wide Varieties</h2>
-               </div>
-              <div class="p-3 mt-auto">
-                <p class="font-[jost] text-[14px] font-[500] leading-[20px] text-left text-[#380D37]">We have a
-                    wide collection of laptops from different brands. We have brand new and pre-ownedlaptops in our
-                    collection.</p>
-              </div>
-            </div>
-            <div class=" rounded-[4px] shadow-[2px_2px_5px_2px_#0000001A]">
-              <div>
-                <img class="p-3 mx-auto w-[116px] h-[116px]" src="/storage/product/trust-1.svg" alt="Product">
-                <h2
-                    class="px-1 py-4 text-[#DC275C] font-[jost] text-[24px]  font-[500] leading-[35px] text-center ">
-                    Trusted and Reliable</h2>
-              </div>
-              <div class="p-3 mt-auto">
-                <p class="font-[jost] text-[14px] font-[500] leading-[20px] text-left text-[#380D37]">We are
-                    trusted and reliable shop. We provide you with the best services and good quality products.</p>
-              </div>
-            </div>
-
-            <div class=" rounded-[4px] shadow-[2px_2px_5px_2px_#0000001A]">
-              <div>
-                <img class="p-3 mx-auto w-[116px] h-[116px]" src="/storage/product/best-service.svg" alt="Product">
-                <h2
-                    class="px-1 py-4 text-[#DC275C] font-[jost] text-[24px] font-[500] leading-[35px] text-center ">
-                    Best Service</h2>
-              </div>
                 <div class="p-3 mt-auto">
-                    <p class="font-[jost] text-[14px] font-[500] leading-[20px] text-left text-[#380D37]">We provide
+                    <p class="font-[jost] text-[14px] font-[500] leading-[20px] text-left shadow-[2px_2px_5px_2px_#0000001A] text-[#380D37]">We have a
+                        wide collection of laptops from different brands. We have brand new and pre-ownedlaptops in our
+                        collection.</p>
+                </div>
+            </div>
+            <div class=" rounded-[4px] shadow-[2px_2px_5px_2px_#0000001A]">
+                <div>
+                    <img class="p-3 mx-auto w-[116px] h-[116px]" src="/storage/product/trust-1.svg" alt="Product">
+                    <h2
+                        class="px-1 py-4 text-[#DC275C] font-[jost] text-[24px]  font-[500] leading-[35px] text-center ">
+                        Trusted and Reliable</h2>
+                </div>
+                <div class="p-3 mt-auto">
+                    <p class="font-[jost] text-[14px] font-[500] leading-[20px] text-left shadow-[2px_2px_5px_2px_#0000001A] text-[#380D37]">We are
+                        trusted and reliable shop. We provide you with the best services and good quality products.</p>
+                </div>
+            </div>
+
+            <div class=" rounded-[4px] shadow-[2px_2px_5px_2px_#0000001A]">
+                <div>
+                    <img class="p-3 mx-auto w-[116px] h-[116px]" src="/storage/product/best-service.svg"
+                        alt="Product">
+                    <h2
+                        class="px-1 py-4 text-[#DC275C] font-[jost] text-[24px] font-[500] leading-[35px] text-center ">
+                        Best Service</h2>
+                </div>
+                <div class="p-3 mt-auto">
+                    <p class="font-[jost] text-[14px] font-[500] leading-[20px] text-left shadow-[2px_2px_5px_2px_#0000001A] text-[#380D37]">We provide
                         you with the best after sell services. Any problem, you take it to us and we will solve it.</p>
                 </div>
             </div>
             <div class=" rounded-[4px] shadow-[2px_2px_5px_2px_#0000001A]">
-              <div>
-                <img class="p-3 mx-auto w-[116px] h-[116px]" src="/storage/product/best-price-1.svg" alt="Product">
-                <h2
-                    class="px-1 py-4 text-[#DC275C] font-[jost] text-[24px] font-[500] leading-[35px] text-center ">
-                    Best Price in Market</h2>
-              </div>
-             <div class="p-3 mt-auto">
-                <p class="font-[jost] text-[14px] font-[500] leading-[20px] text-left text-[#380D37]">We will give
-                    you the best and lowest possible price in market.</p>
-             </div>
+                <div>
+                    <img class="p-3 mx-auto w-[116px] h-[116px]" src="/storage/product/best-price-1.svg"
+                        alt="Product">
+                    <h2
+                        class="px-1 py-4 text-[#DC275C] font-[jost] text-[24px] font-[500] leading-[35px] text-center ">
+                        Best Price in Market</h2>
+                </div>
+                <div class="p-3 mt-auto">
+                    <p class="font-[jost] text-[14px] font-[500] leading-[20px] text-left shadow-[2px_2px_5px_2px_#0000001A] text-[#380D37]">We will give
+                        you the best and lowest possible price in market.</p>
+                </div>
             </div>
             <div class=" rounded-[4px] shadow-[2px_2px_5px_2px_#0000001A]">
                 <div class="">
-                    <img class="p-3 mx-auto w-[116px] h-[116px]" src="/storage/product/fast-delivery-1.svg" alt="Product">
-            
-                <h2
-                class="px-1 py-4 text-[#DC275C] font-[jost] text-[24px] font-[500] leading-[35px] text-center ">
-                Fast Delivary</h2>
-               </div>
+                    <img class="p-3 mx-auto w-[116px] h-[116px]" src="/storage/product/fast-delivery-1.svg"
+                        alt="Product">
+
+                    <h2
+                        class="px-1 py-4 text-[#DC275C] font-[jost] text-[24px] font-[500] leading-[35px] text-center ">
+                        Fast Delivary</h2>
+                </div>
                 <div class="p-3 mt-auto">
-                    <p class="font-[jost] text-[14px] font-[500] leading-[20px] text-left text-[#380D37]">We deliver
+                    <p class="font-[jost] text-[14px] font-[500] leading-[20px] text-left shadow-[2px_2px_5px_2px_#0000001A] text-[#380D37]">We deliver
                         our products carefully as fast as possible at your door step.</p>
                 </div>
             </div>
@@ -388,239 +573,239 @@
         <h2 class="mb-12 text-center font-[500] font-[jost] text-[42px] text-[#353535]">What Our Clients Say About
             Us</h2>
         <div class="flex justify-around ">
-          <div class="rounded-[12px] py-4 px-6 bg-[#fff] w-[280px] h-[306px] shadow-[2px_2px_5px_2px_#0000001A]">
-                 <div class="flex justify-center">
-                     <div class="flex items-center">
-                         <img class="rounded-[100%] w-[60px] h-[60px]" src="/storage/product/client-photo.svg"
-                             alt="">
-                         <div class="ml-2">
-                             <h1 class="font-[Lato] text-[18px] font-[700]  text-center text-[#353535]">
-                                 Leo</h1>
-                             <p class="font-[Lato] text-[12px] font-[400] text-center text-[#353535]">
-                                 Lead Designer</p>
-                         </div>
-                     </div>
-                     <!-- <div class="flex items-baseline"> -->
+            <div class="rounded-[12px] py-4 px-6 bg-[#fff] w-[280px] h-[306px] shadow-[2px_2px_5px_2px_#0000001A]">
+                <div class="flex justify-center">
+                    <div class="flex items-center">
+                        <img class="rounded-[100%] w-[60px] h-[60px]" src="/storage/product/client-photo.svg"
+                            alt="">
+                        <div class="ml-2">
+                            <h1 class="font-[Lato] text-[18px] font-[700]  text-center text-[#353535]">
+                                Leo</h1>
+                            <p class="font-[Lato] text-[12px] font-[400] text-center text-[#353535]">
+                                Lead Designer</p>
+                        </div>
+                    </div>
+                    <!-- <div class="flex items-baseline"> -->
 
-                     <!-- <div class="flex items-center"> -->
-                     <div class="flex mt-[40px] ml-auto">
+                    <!-- <div class="flex items-center"> -->
+                    <div class="flex mt-[40px] ml-auto">
 
-                         <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
-                                 viewBox="0 0 22 22" fill="#FFA033">
-                                 <path
-                                     d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
-                                     fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
-                                     stroke-linejoin="round" />
-                             </svg></a>
+                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
+                                viewBox="0 0 22 22" fill="#FFA033">
+                                <path
+                                    d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
+                                    fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg></a>
 
-                         <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
-                                 viewBox="0 0 22 22" fill="#FFA033">
-                                 <path
-                                     d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
-                                     fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
-                                     stroke-linejoin="round" />
-                             </svg></a>
+                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
+                                viewBox="0 0 22 22" fill="#FFA033">
+                                <path
+                                    d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
+                                    fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg></a>
 
-                         <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
-                                 viewBox="0 0 22 22" fill="#FFA033">
-                                 <path
-                                     d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
-                                     fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
-                                     stroke-linejoin="round" />
-                             </svg></a>
+                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
+                                viewBox="0 0 22 22" fill="#FFA033">
+                                <path
+                                    d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
+                                    fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg></a>
 
-                         <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
-                                 viewBox="0 0 22 22" fill="#FFA033">
-                                 <path
-                                     d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
-                                     fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
-                                     stroke-linejoin="round" />
-                             </svg></a>
+                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
+                                viewBox="0 0 22 22" fill="#FFA033">
+                                <path
+                                    d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
+                                    fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg></a>
 
-                         <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
-                                 viewBox="0 0 15 15" fill="none">
-                                 <path
-                                     d="M7.5 1.25L9.43125 5.1625L13.75 5.79375L10.625 8.8375L11.3625 13.1375L7.5 11.1062L3.6375 13.1375L4.375 8.8375L1.25 5.79375L5.56875 5.1625L7.5 1.25Z"
-                                     stroke="#FFA033" stroke-linecap="round" stroke-linejoin="round" />
-                             </svg></a>
-                     </div>
-                     <!-- </div> -->
-                     <!-- </div> -->
+                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
+                                viewBox="0 0 15 15" fill="none">
+                                <path
+                                    d="M7.5 1.25L9.43125 5.1625L13.75 5.79375L10.625 8.8375L11.3625 13.1375L7.5 11.1062L3.6375 13.1375L4.375 8.8375L1.25 5.79375L5.56875 5.1625L7.5 1.25Z"
+                                    stroke="#FFA033" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg></a>
+                    </div>
+                    <!-- </div> -->
+                    <!-- </div> -->
 
-                 </div>
-                 <h1 class="my-[19px] font-[Lato] font-[700] text-[18px]  text-center text-[#353535]">
-                     It was a very good experience</h1>
-                 <p class="my-[17px] font-[jost] font-[400] text-[12px] leading-[13.5px] text-left text-[#353535]">
-                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursusnibh mauris, nec turpis orci
-                     lectus maecenas.
-                     Suspendisse sed magnaeget nibh in turpis. Consequat duis diam lacus arcu. Faucibus venenatis
-                     felis id augue
-                     sit cursus pellentesqueenim arcu.Elementum felis magna pretium in tincidunt.
-                     Suspendisse sed magna eget nibh in turpis. Consequat duis diam lacUSArcu.</p>
-             </div>
-                 <div
-                 class="rounded-[12px] bg-[#fff] py-4 px-6 w-[398px] h-[398px] items-center  shadow-[2px_2px_5px_2px_#0000001A]">
-                 <div class="flex justify-center">
-                     <div class="flex items-center">
-                         <img class="rounded-[100%] w-[72px] h-[72px]" src="/storage/product/client-photo.svg"
-                             alt="">
-                         <div class="ml-2">
-                             <h1 class="font-[Lato] text-[24px] font-[700] text-center text-[#353535]">
-                                 Leo</h1>
-                             <p class="font-[Lato] text-[18px] font-[400] text-center text-[#353535]">
-                                 Lead Designer</p>
-                         </div>
-                     </div>
-                     <!-- <div class="flex items-baseline"> -->
+                </div>
+                <h1 class="my-[19px] font-[Lato] font-[700] text-[18px]  text-center text-[#353535]">
+                    It was a very good experience</h1>
+                <p class="my-[17px] font-[jost] font-[400] text-[12px] leading-[13.5px] text-left shadow-[2px_2px_5px_2px_#0000001A] text-[#353535]">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursusnibh mauris, nec turpis orci
+                    lectus maecenas.
+                    Suspendisse sed magnaeget nibh in turpis. Consequat duis diam lacus arcu. Faucibus venenatis
+                    felis id augue
+                    sit cursus pellentesqueenim arcu.Elementum felis magna pretium in tincidunt.
+                    Suspendisse sed magna eget nibh in turpis. Consequat duis diam lacUSArcu.</p>
+            </div>
+            <div
+                class="rounded-[12px] bg-[#fff] py-4 px-6 w-[398px] h-[398px] items-center  shadow-[2px_2px_5px_2px_#0000001A]">
+                <div class="flex justify-center">
+                    <div class="flex items-center">
+                        <img class="rounded-[100%] w-[72px] h-[72px]" src="/storage/product/client-photo.svg"
+                            alt="">
+                        <div class="ml-2">
+                            <h1 class="font-[Lato] text-[24px] font-[700] text-center text-[#353535]">
+                                Leo</h1>
+                            <p class="font-[Lato] text-[18px] font-[400] text-center text-[#353535]">
+                                Lead Designer</p>
+                        </div>
+                    </div>
+                    <!-- <div class="flex items-baseline"> -->
 
-                     <!-- <div class="flex items-center"> -->
-                     <div class="flex mt-[40px] ml-auto">
-                         <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
-                                 viewBox="0 0 22 22" fill="#FFA033">
-                                 <path
-                                     d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
-                                     fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
-                                     stroke-linejoin="round" />
-                             </svg></a>
-                         <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
-                                 viewBox="0 0 22 22" fill="#FFA033">
-                                 <path
-                                     d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
-                                     fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
-                                     stroke-linejoin="round" />
-                             </svg></a>
-                         <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
-                                 viewBox="0 0 22 22" fill="#FFA033">
-                                 <path
-                                     d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
-                                     fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
-                                     stroke-linejoin="round" />
-                             </svg></a>
-                         <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
-                                 viewBox="0 0 22 22" fill="#FFA033">
-                                 <path
-                                     d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
-                                     fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
-                                     stroke-linejoin="round" />
-                             </svg></a>
-                         <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
-                                 viewBox="0 0 15 15" fill="none">
-                                 <path
-                                     d="M7.5 1.25L9.43125 5.1625L13.75 5.79375L10.625 8.8375L11.3625 13.1375L7.5 11.1062L3.6375 13.1375L4.375 8.8375L1.25 5.79375L5.56875 5.1625L7.5 1.25Z"
-                                     stroke="#FFA033" stroke-linecap="round" stroke-linejoin="round" />
-                             </svg></a>
-                     </div>
-                     <!-- </div> -->
-                     <!-- </div> -->
+                    <!-- <div class="flex items-center"> -->
+                    <div class="flex mt-[40px] ml-auto">
+                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                                viewBox="0 0 22 22" fill="#FFA033">
+                                <path
+                                    d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
+                                    fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg></a>
+                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                                viewBox="0 0 22 22" fill="#FFA033">
+                                <path
+                                    d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
+                                    fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg></a>
+                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                                viewBox="0 0 22 22" fill="#FFA033">
+                                <path
+                                    d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
+                                    fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg></a>
+                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                                viewBox="0 0 22 22" fill="#FFA033">
+                                <path
+                                    d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
+                                    fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg></a>
+                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                                viewBox="0 0 15 15" fill="none">
+                                <path
+                                    d="M7.5 1.25L9.43125 5.1625L13.75 5.79375L10.625 8.8375L11.3625 13.1375L7.5 11.1062L3.6375 13.1375L4.375 8.8375L1.25 5.79375L5.56875 5.1625L7.5 1.25Z"
+                                    stroke="#FFA033" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg></a>
+                    </div>
+                    <!-- </div> -->
+                    <!-- </div> -->
 
-                 </div>
-                 <h1 class="my-[19px] font-[Lato] font-[700] text-[24px] text-center text-[#353535]">
-                     It was a very good experience</h1>
-                 <p class="my-[17px] font-[jost] font-[400] text-[18px] leading-[23.13px] text-left text-[#353535]">
-                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursusnibh mauris, nec turpis orci
-                     lectus maecenas.
-                     Suspendisse sed magnaeget nibh in turpis. Consequat duis diam lacus arcu. Faucibus venenatis
-                     felis id augue
-                     sit cursus pellentesqueenim arcu.Elementum felis magna pretium in tincidunt.
-                     Suspendisse sed magna eget nibh in turpis. Consequat duis diam lacUSArcu.</p>
-             </div>
+                </div>
+                <h1 class="my-[19px] font-[Lato] font-[700] text-[24px] text-center text-[#353535]">
+                    It was a very good experience</h1>
+                <p class="my-[17px] font-[jost] font-[400] text-[18px] leading-[23.13px] text-left shadow-[2px_2px_5px_2px_#0000001A] text-[#353535]">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursusnibh mauris, nec turpis orci
+                    lectus maecenas.
+                    Suspendisse sed magnaeget nibh in turpis. Consequat duis diam lacus arcu. Faucibus venenatis
+                    felis id augue
+                    sit cursus pellentesqueenim arcu.Elementum felis magna pretium in tincidunt.
+                    Suspendisse sed magna eget nibh in turpis. Consequat duis diam lacUSArcu.</p>
+            </div>
 
-                 <div class="rounded-[12px] py-4 px-6 bg-[#fff] w-[280px] h-[306px] shadow-[2px_2px_5px_2px_#0000001A]">
-                   <div class="flex justify-center">
-                       <div class="flex items-center">
-                           <img class="rounded-[100%] w-[60px] h-[60px]" src="/storage/product/client-photo.svg"
-                               alt="">
-                           <div class="ml-2">
-                               <h1 class="font-[Lato] text-[18px] font-[700] text-center text-[#353535]">
-                                   Leo</h1>
-                               <p class="font-[Lato] text-[12px] font-[400] text-center text-[#353535]">
-                                   Lead Designer</p>
-                           </div>
-                       </div>
-                       <!-- <div class="flex items-baseline"> -->
-                  <!-- <div class="flex items-center"> -->
-                 <div class="flex mt-[40px] ml-auto">
-                     <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
-                             viewBox="0 0 22 22" fill="#FFA033">
-                             <path
-                                 d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
-                                 fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
-                                 stroke-linejoin="round" />
-                         </svg></a>
-                     <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
-                             viewBox="0 0 22 22" fill="#FFA033">
-                             <path
-                                 d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
-                                 fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
-                                 stroke-linejoin="round" />
-                         </svg></a>
-                     <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
-                             viewBox="0 0 22 22" fill="#FFA033">
-                             <path
-                                 d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
-                                 fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
-                                 stroke-linejoin="round" />
-                         </svg></a>
-                     <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
-                             viewBox="0 0 22 22" fill="#FFA033">
-                             <path
-                                 d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
-                                 fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
-                                 stroke-linejoin="round" />
-                         </svg></a>
-                     <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
-                             viewBox="0 0 15 15" fill="none">
-                             <path
-                                 d="M7.5 1.25L9.43125 5.1625L13.75 5.79375L10.625 8.8375L11.3625 13.1375L7.5 11.1062L3.6375 13.1375L4.375 8.8375L1.25 5.79375L5.56875 5.1625L7.5 1.25Z"
-                                 stroke="#FFA033" stroke-linecap="round" stroke-linejoin="round" />
-                         </svg></a>
-                 </div>
-                 <!-- </div> -->
-                 <!-- </div> -->
+            <div class="rounded-[12px] py-4 px-6 bg-[#fff] w-[280px] h-[306px] shadow-[2px_2px_5px_2px_#0000001A]">
+                <div class="flex justify-center">
+                    <div class="flex items-center">
+                        <img class="rounded-[100%] w-[60px] h-[60px]" src="/storage/product/client-photo.svg"
+                            alt="">
+                        <div class="ml-2">
+                            <h1 class="font-[Lato] text-[18px] font-[700] text-center text-[#353535]">
+                                Leo</h1>
+                            <p class="font-[Lato] text-[12px] font-[400] text-center text-[#353535]">
+                                Lead Designer</p>
+                        </div>
+                    </div>
+                    <!-- <div class="flex items-baseline"> -->
+                    <!-- <div class="flex items-center"> -->
+                    <div class="flex mt-[40px] ml-auto">
+                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
+                                viewBox="0 0 22 22" fill="#FFA033">
+                                <path
+                                    d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
+                                    fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg></a>
+                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
+                                viewBox="0 0 22 22" fill="#FFA033">
+                                <path
+                                    d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
+                                    fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg></a>
+                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
+                                viewBox="0 0 22 22" fill="#FFA033">
+                                <path
+                                    d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
+                                    fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg></a>
+                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
+                                viewBox="0 0 22 22" fill="#FFA033">
+                                <path
+                                    d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
+                                    fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg></a>
+                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
+                                viewBox="0 0 15 15" fill="none">
+                                <path
+                                    d="M7.5 1.25L9.43125 5.1625L13.75 5.79375L10.625 8.8375L11.3625 13.1375L7.5 11.1062L3.6375 13.1375L4.375 8.8375L1.25 5.79375L5.56875 5.1625L7.5 1.25Z"
+                                    stroke="#FFA033" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg></a>
+                    </div>
+                    <!-- </div> -->
+                    <!-- </div> -->
 
-             </div>
-             <h1 class="my-[19px] font-[Lato] font-[700] text-[18px] text-center text-[#353535]">
-                 It was a very good experience</h1>
-             <p class="my-[17px] font-[jost] font-[400] text-[12px] leading-[13.5px] text-left text-[#353535]">
-                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursusnibh mauris, nec turpis orci
-                 lectus maecenas.
-                 Suspendisse sed magnaeget nibh in turpis. Consequat duis diam lacus arcu. Faucibus venenatis
-                 felis id augue
-                 sit cursus pellentesqueenim arcu.Elementum felis magna pretium in tincidunt.
-                 Suspendisse sed magna eget nibh in turpis. Consequat duis diam lacUSArcu.</p>
-         </div>
+                </div>
+                <h1 class="my-[19px] font-[Lato] font-[700] text-[18px] text-center text-[#353535]">
+                    It was a very good experience</h1>
+                <p class="my-[17px] font-[jost] font-[400] text-[12px] leading-[13.5px] text-left shadow-[2px_2px_5px_2px_#0000001A] text-[#353535]">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursusnibh mauris, nec turpis orci
+                    lectus maecenas.
+                    Suspendisse sed magnaeget nibh in turpis. Consequat duis diam lacus arcu. Faucibus venenatis
+                    felis id augue
+                    sit cursus pellentesqueenim arcu.Elementum felis magna pretium in tincidunt.
+                    Suspendisse sed magna eget nibh in turpis. Consequat duis diam lacUSArcu.</p>
+            </div>
         </div>
-         <div class=" mx-auto w-[177px] h-[17px] flex justify-around pt-[40px] items-center gap-8 my-[30px] ">
-         <div>
-             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36"
-                 fill="none">
-                 <path d="M22.5 9L13.5 18L22.5 27" stroke="#353535" stroke-width="5" stroke-linecap="round"
-                     stroke-linejoin="round" />
-             </svg>
-         </div>
+        <div class=" mx-auto w-[177px] h-[17px] flex justify-around pt-[40px] items-center gap-8 my-[30px] ">
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36"
+                    fill="none">
+                    <path d="M22.5 9L13.5 18L22.5 27" stroke="#353535" stroke-width="5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </div>
 
-         <div class='mx-auto w-[177px] h-[17px]'>
-             <svg xmlns="http://www.w3.org/2000/svg" width="177" height="17" viewBox="0 0 177 17"
-                 fill="none">
-                 <circle cx="8.5" cy="8.5" r="8.5" fill="#353535" />
-                 <circle cx="104.5" cy="8.5" r="8.5" fill="#C5C5C5" />
-                 <circle cx="40.5" cy="8.5" r="8.5" fill="#C5C5C5" />
-                 <circle cx="136.5" cy="8.5" r="8.5" fill="#C5C5C5" />
-                 <circle cx="72.5" cy="8.5" r="8.5" fill="#C5C5C5" />
-                 <circle cx="168.5" cy="8.5" r="8.5" fill="#C5C5C5" />
-             </svg>
-         </div>
-         <div>
-             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36"
-                 fill="none">
-                 <path d="M13.5 27L22.5 18L13.5 9" stroke="#353535" stroke-width="5" stroke-linecap="round"
-                     stroke-linejoin="round" />
-             </svg>
-         </div>
-     </div>
+            <div class='mx-auto w-[177px] h-[17px]'>
+                <svg xmlns="http://www.w3.org/2000/svg" width="177" height="17" viewBox="0 0 177 17"
+                    fill="none">
+                    <circle cx="8.5" cy="8.5" r="8.5" fill="#353535" />
+                    <circle cx="104.5" cy="8.5" r="8.5" fill="#C5C5C5" />
+                    <circle cx="40.5" cy="8.5" r="8.5" fill="#C5C5C5" />
+                    <circle cx="136.5" cy="8.5" r="8.5" fill="#C5C5C5" />
+                    <circle cx="72.5" cy="8.5" r="8.5" fill="#C5C5C5" />
+                    <circle cx="168.5" cy="8.5" r="8.5" fill="#C5C5C5" />
+                </svg>
+            </div>
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36"
+                    fill="none">
+                    <path d="M13.5 27L22.5 18L13.5 9" stroke="#353535" stroke-width="5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </div>
+        </div>
 
-     <div class="mt-16 h-[2px] bg-[#380D37]"></div>
- </section>
+        <div class="mt-16 h-[2px] bg-[#380D37]"></div>
+    </section>
 
 
 
@@ -652,7 +837,7 @@
             <form>
                 <div class="grid grid-cols-2 gap-2">
                     <input
-                        class=" h-[64px] rounded-[4px] bg-[#F2F2F2] font-[jost] text-[16px] italic font-[500] leading-[23px] text-left py-[8px] px-[12px]"
+                        class=" h-[64px] rounded-[4px] bg-[#F2F2F2] font-[jost] text-[16px] italic font-[500] leading-[23px] text-left shadow-[2px_2px_5px_2px_#0000001A] py-[8px] px-[12px]"
                         id="name" type="text" placeholder="Name*">
                     <input
                         class=" h-[64px] rounded-[4px] bg-[#F2F2F2] font-[jost] text-[16px] italic font-[500] leading-[23px]  py-[8px] px-[12px]"
@@ -678,24 +863,5 @@
         </div>
     </section>
 
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
-    <!-- Initialize Swiper -->
-    <script>
-      var swiper = new Swiper(".mySwiper", {
-        slidesPerView: 4,
-        spaceBetween: 10,
-        slidesPerGroup: 1,
-        loop: true,
-        loopFillGroupWithBlank: true,
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-      });
-    </script>
+ 
 </div>
