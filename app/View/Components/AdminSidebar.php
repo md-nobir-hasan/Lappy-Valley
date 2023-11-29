@@ -12,57 +12,57 @@ class AdminSidebar extends Component
      * Create a new component instance.
      */
     public   $side_menus = [
-        ['title' => 'Banner', 'child' => [
-            ['title' => 'Media Manager', 'route' => 'file-manager', 'child' => []],
-            ['title' => 'Banners', 'route' => 'banner.*', 'child' => [
-                ['title' => 'Banners', 'route' => 'banner.index'],
-                ['title' => 'Add Banners', 'route' => 'banner.create']
+        ['access' => ['Show Product'],'title' => 'Banner', 'child' => [
+            ['access' => 'Show Product','title' => 'Media Manager', 'route' => 'file-manager', 'child' => []],
+            ['access' => 'Show Product','title' => 'Banners', 'route' => 'banner.*', 'child' => [
+                ['access' => 'Show Product','title' => 'Banners', 'route' => 'banner.index'],
+                ['access' => 'Show Product','title' => 'Add Banners', 'route' => 'banner.create']
             ]]
         ]],
-        ['title' => 'Shop', 'child' => [
-            ['title' => 'Category', 'route' => 'category.*', 'child' => [
-                ['title' => 'Category', 'route' => 'category.index',],
-                ['title' => 'Add Category', 'route' => 'category.create']
+        ['access' => ['Show Product'],'title' => 'Shop', 'child' => [
+            ['access' => 'Show Product','title' => 'Category', 'route' => 'category.*', 'child' => [
+                ['access' => 'Show Product','title' => 'Category', 'route' => 'category.index',],
+                ['access' => 'Show Product','title' => 'Add Category', 'route' => 'category.create']
             ]],
-            ['title' => 'Products', 'route' => 'product.*', 'child' => [
-                ['title' => 'Products', 'route' => 'product.index',],
-                ['title' => 'Add Products', 'route' => 'product.create']
+            ['title' => 'Products', 'route' => 'product.*', 'access'=>'Show Product', 'child' => [
+                ['title' => 'Products', 'route' => 'product.index', 'access' => 'Show Product',],
+                ['title' => 'Add Products', 'route' => 'product.create','access'=>'Create Product',]
             ]],
-            ['title' => 'Brands', 'route' => 'brand.*', 'child' => [
-                ['title' => 'Brands', 'route' => 'brand.index',],
-                ['title' => 'Add Brands', 'route' => 'brand.create']
+            ['access' => 'Show Product','title' => 'Brands', 'route' => 'brand.*', 'child' => [
+                ['access' => 'Show Product','title' => 'Brands', 'route' => 'brand.index',],
+                ['access' => 'Show Product','title' => 'Add Brands', 'route' => 'brand.create']
             ]],
-            ['title' => 'Shipping', 'route' => 'shipping.*', 'child' => [
-                ['title' => 'Shipping', 'route' => 'shipping.index',],
-                ['title' => 'Add Shipping', 'route' => 'shipping.create']
+            ['access' => 'Show Product','title' => 'Shipping', 'route' => 'shipping.*', 'child' => [
+                ['access' => 'Show Product','title' => 'Shipping', 'route' => 'shipping.index',],
+                ['access' => 'Show Product','title' => 'Add Shipping', 'route' => 'shipping.create']
             ]],
-            ['title' => 'Orders', 'route' => 'order.index', 'child' => []],
-            ['title' => 'Reviews', 'route' => 'review.index', 'child' => []],
+            ['access' => 'Show Product','title' => 'Orders', 'route' => 'order.index', 'child' => []],
+            ['access' => 'Show Product','title' => 'Reviews', 'route' => 'review.index', 'child' => []],
         ]],
-        ['title' => 'Posts', 'child' => [
-            ['title' => 'Posts', 'route' => 'post.*', 'child' => [
-                ['title' => 'Posts', 'route' => 'post.index'],
-                ['title' => 'Add Posts', 'route' => 'post.create']
+        ['access' => ['Show Product'],'title' => 'Posts', 'child' => [
+            ['access' => 'Show Product','title' => 'Posts', 'route' => 'post.*', 'child' => [
+                ['access' => 'Show Product','title' => 'Posts', 'route' => 'post.index'],
+                ['access' => 'Show Product','title' => 'Add Posts', 'route' => 'post.create']
             ]],
-            ['title' => 'Category', 'route' => 'post-category.*', 'child' => [
-                ['title' => 'Category', 'route' => 'post-category.index'],
-                ['title' => 'Add Category', 'route' => 'post-category.create']
+            ['access' => 'Show Product','title' => 'Category', 'route' => 'post-category.*', 'child' => [
+                ['access' => 'Show Product','title' => 'Category', 'route' => 'post-category.index'],
+                ['access' => 'Show Product','title' => 'Add Category', 'route' => 'post-category.create']
             ]],
-            ['title' => 'Tags', 'route' => 'post-tag.*', 'child' => [
-                ['title' => 'Tags', 'route' => 'post-tag.index'],
-                ['title' => 'Add Tags', 'route' => 'post-tag.create']
+            ['access' => 'Show Product','title' => 'Tags', 'route' => 'post-tag.*', 'child' => [
+                ['access' => 'Show Product','title' => 'Tags', 'route' => 'post-tag.index'],
+                ['access' => 'Show Product','title' => 'Add Tags', 'route' => 'post-tag.create']
             ]],
-            ['title' => 'Comments', 'route' => 'comment.index', 'child' => []],
+            ['access' => 'Show Product','title' => 'Comments', 'route' => 'comment.index', 'child' => []],
         ]],
-        ['title' => ' General Settings', 'child' => [
-            ['title' => 'Coupon', 'route' => 'coupon.index', 'child' => []],
-            // ['title' => 'Users', 'route' => 'users.index', 'child' => []],
-            ['title' => 'User Management', 'route' => 'auser.*', 'child' => [
-                ['title' => 'Users', 'route' => 'auser.users.index'],
-                ['title' => 'Roles', 'route' => 'auser.role.index'],
-                ['title' => 'Permissions', 'route' => 'auser.permission'],
+        ['access' => ['Show Product'],'title' => ' General Settings', 'child' => [
+            ['access' => 'Show Product','title' => 'Coupon', 'route' => 'coupon.index', 'child' => []],
+            // ['access' => 'Show Product','title' => 'Users', 'route' => 'users.index', 'child' => []],
+            ['access' => 'Show Product','title' => 'User Management', 'route' => 'auser.*', 'child' => [
+                ['access' => 'Show Product','title' => 'Users', 'route' => 'auser.users.index'],
+                ['access' => 'Show Product','title' => 'Roles', 'route' => 'auser.role.index'],
+                ['access' => 'Show Product','title' => 'Permissions', 'route' => 'auser.permission'],
             ]],
-            ['title' => 'Settings', 'route' => 'settings', 'child' => []],
+            ['access' => 'Show Product','title' => 'Settings', 'route' => 'settings', 'child' => []],
         ]],
     ];
     public function __construct()
