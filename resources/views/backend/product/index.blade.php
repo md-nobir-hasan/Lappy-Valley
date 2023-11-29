@@ -12,7 +12,7 @@
         </div>
         <div class="py-3 card-header">
             <h6 class="float-left m-0 font-weight-bold text-primary">Product Lists</h6>
-            @can('Show Product')
+            @can('Create Product')
                 <a href="{{ route('product.create') }}" class="float-right btn btn-primary btn-sm" data-toggle="tooltip"
                     data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add Product</a>
             @endcan
@@ -35,9 +35,9 @@
                                 <th>Stock</th>
                                 <th>Photo</th>
                                 <th>Status</th>
-                                @can(['Edit Product', 'Delete Product'])
+                                @canany(['Edit Product', 'Delete Product'])
                                     <th>Action</th>
-                                @endcan
+                                @endcanany
                             </tr>
                         </thead>
                         <tfoot>
@@ -54,9 +54,9 @@
                                 <th>Stock</th>
                                 <th>Photo</th>
                                 <th>Status</th>
-                                @can(['Edit Product', 'Delete Product'])
+                                @canany(['Edit Product', 'Delete Productd'])
                                     <th>Action</th>
-                                @endcan
+                                @endcanany
                             </tr>
                         </tfoot>
                         <tbody>

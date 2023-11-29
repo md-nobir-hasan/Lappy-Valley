@@ -4,15 +4,17 @@
 @endpush
 @section('main-content')
  <!-- DataTales Example -->
- <div class="card shadow mb-4">
+ <div class="mb-4 shadow card">
      <div class="row">
          <div class="col-md-12">
             @include('backend.layouts.notification')
          </div>
      </div>
-    <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary float-left">Post Category Lists</h6>
-      <a href="{{route('post-category.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add Post Category</a>
+    <div class="py-3 card-header">
+      <h6 class="float-left m-0 font-weight-bold text-primary">Post Category Lists</h6>
+      @can('Create pCategory')
+      <a href="{{route('post-category.create')}}" class="float-right btn btn-primary btn-sm" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add Post Category</a>
+      @endcan
     </div>
     <div class="card-body">
       <div class="table-responsive">
@@ -24,7 +26,9 @@
               <th>Title</th>
               <th>Slug</th>
               <th>Status</th>
-              <th>Action</th>
+              @canany(['Edit pCategory', 'Delete pCategory'])
+                                    <th>Action</th>
+                                @endcanany
             </tr>
           </thead>
           <tfoot>
@@ -33,7 +37,9 @@
               <th>Title</th>
               <th>Slug</th>
               <th>Status</th>
-              <th>Action</th>
+              @canany(['Edit pCategory', 'Delete pCategory'])
+                                    <th>Action</th>
+                                @endcanany
               </tr>
           </tfoot>
           <tbody>
@@ -50,12 +56,16 @@
                         @endif
                     </td>
                     <td>
-                        <a href="{{route('post-category.edit',$data->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
-                    <form method="POST" action="{{route('post-category.destroy',[$data->id])}}">
+                        @can('Edit pCategory')
+                        <a href="{{route('post-category.edit',$data->id)}}" class="float-left mr-1 btn btn-primary btn-sm" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
+                        @endcan
+                    @can('Delete pCategory')
+<form method="POST" action="{{route('post-category.destroy',[$data->id])}}">
                       @csrf
                       @method('delete')
                           <button class="btn btn-danger btn-sm dltBtn" data-id={{$data->id}} style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
                         </form>
+                    @endcan
                     </td>
                     {{-- Delete Modal --}}
                     {{-- <div class="modal fade" id="delModal{{$user->id}}" tabindex="-1" role="dialog" aria-labelledby="#delModal{{$user->id}}Label" aria-hidden="true">
@@ -81,7 +91,7 @@
             @endforeach
           </tbody>
         </table>
-        <span style="float:right">{{$postCategories->links()}}</span>
+        <span style="float:right">{{$postCategories->links('vendor.pagination.bootstrap-4')}}</span>
         @else
           <h6 class="text-center">No Post Category found!!! Please create post category</h6>
         @endif

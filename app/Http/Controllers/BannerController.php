@@ -12,8 +12,15 @@ class BannerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware(['can:Show Banner']);
+    }
+
     public function index()
     {
+        $this->ccan('Show Banner');
+
         $banner=Banner::orderBy('id','DESC')->paginate(10);
         return view('backend.banner.index')->with('banners',$banner);
     }
@@ -25,6 +32,8 @@ class BannerController extends Controller
      */
     public function create()
     {
+        $this->ccan('Create Banner');
+
         return view('backend.banner.create');
     }
 
@@ -36,6 +45,8 @@ class BannerController extends Controller
      */
     public function store(Request $request)
     {
+        $this->ccan('Create Banner');
+
         // return $request->all();
         $this->validate($request,[
             'title'=>'string|required|max:50',
@@ -80,6 +91,8 @@ class BannerController extends Controller
      */
     public function edit($id)
     {
+        $this->ccan('Edit Banner');
+
         $banner=Banner::findOrFail($id);
         return view('backend.banner.edit')->with('banner',$banner);
     }
@@ -93,6 +106,8 @@ class BannerController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->ccan('Edit Banner');
+
         $banner=Banner::findOrFail($id);
         $this->validate($request,[
             'title'=>'string|required|max:50',
@@ -126,6 +141,8 @@ class BannerController extends Controller
      */
     public function destroy($id)
     {
+        $this->ccan('Delete Banner');
+
         $banner=Banner::findOrFail($id);
         $status=$banner->delete();
         if($status){

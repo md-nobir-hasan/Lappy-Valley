@@ -15,6 +15,10 @@ use App\Notifications\StatusNotification;
 
 class OrderController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['can:Show Order']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -22,6 +26,8 @@ class OrderController extends Controller
      */
     public function index()
     {
+        $this->ccan('Show Order');
+
         $orders=Order::orderBy('id','DESC')->paginate(10);
         return view('backend.order.index')->with('orders',$orders);
     }
@@ -44,6 +50,8 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
+        $this->ccan('Create Order');
+
         $this->validate($request,[
             'first_name'=>'string|required',
             'last_name'=>'string|required',
@@ -146,8 +154,8 @@ class OrderController extends Controller
         }
         Cart::where('user_id', auth()->user()->id)->where('order_id', null)->update(['order_id' => $order->id]);
 
-        // dd($users);        
-        request()->session()->flash('success','Your product successfully placed in order');
+        // dd($users);
+        request()->session()->flash('success','Your Order successfully placed in order');
         return redirect()->route('home');
     }
 
@@ -159,6 +167,8 @@ class OrderController extends Controller
      */
     public function show($id)
     {
+        $this->ccan('Show Order');
+
         $order=Order::find($id);
         // return $order;
         return view('backend.order.show')->with('order',$order);
@@ -172,6 +182,8 @@ class OrderController extends Controller
      */
     public function edit($id)
     {
+        $this->ccan('Edit Order');
+
         $order=Order::find($id);
         return view('backend.order.edit')->with('order',$order);
     }
@@ -185,6 +197,8 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->ccan('Edit Order');
+
         $order=Order::find($id);
         $this->validate($request,[
             'status'=>'required|in:new,process,delivered,cancel'
@@ -217,6 +231,8 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
+        $this->ccan('Delete Order');
+
         $order=Order::find($id);
         if($order){
             $status=$order->delete();
@@ -238,7 +254,7 @@ class OrderController extends Controller
         return view('frontend.pages.order-track');
     }
 
-    public function productTrackOrder(Request $request){
+    public function OrderTrackOrder(Request $request){
         // return $request->all();
         $order=Order::where('user_id',auth()->user()->id)->where('order_number',$request->order_number)->first();
         if($order){
@@ -250,17 +266,17 @@ class OrderController extends Controller
             elseif($order->status=="process"){
                 request()->session()->flash('success','Your order is under processing please wait.');
                 return redirect()->route('home');
-    
+
             }
             elseif($order->status=="delivered"){
                 request()->session()->flash('success','Your order is successfully delivered.');
                 return redirect()->route('home');
-    
+
             }
             else{
                 request()->session()->flash('error','Your order canceled. please try again');
                 return redirect()->route('home');
-    
+
             }
         }
         else{

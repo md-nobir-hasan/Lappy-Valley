@@ -1,5 +1,6 @@
 @foreach ($side_menus as $smenu)
-    @can($smenu['access'])
+
+    @canany($smenu['access'])
         <div>
             <!-- Heading -->
             <div class="sidebar-heading">
@@ -44,5 +45,5 @@
 
             <hr class="sidebar-divider">
         </div>
-    @endcan
+    @endcanany
 @endforeach
