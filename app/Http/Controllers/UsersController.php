@@ -9,6 +9,10 @@ use Spatie\Permission\Models\Role;
 
 class UsersController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['can:Show User']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -16,6 +20,8 @@ class UsersController extends Controller
      */
     public function index()
     {
+        $this->ccan('Show User');
+
         $n['users']=User::orderBy('id','ASC')->paginate(10);
 
         return view('backend.auser.users.index',$n);
@@ -28,6 +34,8 @@ class UsersController extends Controller
      */
     public function create()
     {
+        $this->ccan('Create User');
+
         $n['roles'] = Role::all();
         return view('backend.auser.users.create',$n);
     }
@@ -40,6 +48,8 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
+        $this->ccan('Create User');
+
         $this->validate($request,
         [
             'name'=>'string|required|max:30',
@@ -85,6 +95,8 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
+        $this->ccan('Edit User');
+
         $n['user']=User::findOrFail($id);
         $n['roles'] = Role::all();
         return view('backend.auser.users.edit',$n);
@@ -99,6 +111,8 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->ccan('Edit User');
+
         $user=User::findOrFail($id);
         $this->validate($request,
         [
@@ -133,6 +147,8 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
+        $this->ccan('Delete User');
+
         $delete=User::findorFail($id);
         $status=$delete->delete();
         if($status){

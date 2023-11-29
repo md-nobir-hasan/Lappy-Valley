@@ -12,12 +12,13 @@
     <hr class="my-0 sidebar-divider">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item {{ request()->routeIs('admin') ? 'active' : '' }}">
-        <a class="nav-link" href="{{ route('admin') }}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a>
-    </li>
-
+    @can('Dashboard')
+        <li class="nav-item {{ request()->routeIs('admin') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('admin') }}">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Dashboard</span></a>
+        </li>
+    @endcan
     <!-- Divider -->
     <hr class="sidebar-divider">
     <x-admin-sidebar />

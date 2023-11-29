@@ -8,6 +8,11 @@ use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['can:Show Category']);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,6 +20,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
+        $this->ccan('Show Category');
+
         $category=Category::where('status','active')->orderBy('serial','asc')->paginate();
         // return $category;
         return view('backend.category.index')->with('categories',$category);
@@ -27,6 +34,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
+        $this->ccan('Create Category');
+
         $category = Category::all();
         $n['serial'] = $category->count();
         $n['parent_cats']=Category::where('is_parent',1)->orderBy('title','ASC')->get();
@@ -42,6 +51,8 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+        $this->ccan('Create Category');
+
         // return $request->all();
         $this->validate($request,[
             'title'=>'string|required',
@@ -92,6 +103,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
+        $this->ccan('Edit Category');
+
         $parent_cats=Category::where('is_parent',1)->get();
         $category=Category::findOrFail($id);
         return view('backend.category.edit')->with('category',$category)->with('parent_cats',$parent_cats);
@@ -106,6 +119,8 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->ccan('Edit Category');
+
         // return $request->all();
         $category=Category::findOrFail($id);
         $this->validate($request,[
@@ -138,6 +153,8 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
+        $this->ccan('Delete Category');
+
         $category=Category::findOrFail($id);
         $child_cat_id=Category::where('parent_id',$id)->pluck('id');
         // return $child_cat_id;

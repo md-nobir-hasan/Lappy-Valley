@@ -10,6 +10,10 @@ use App\Notifications\StatusNotification;
 use App\Models\PostComment;
 class PostCommentController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['can:Show Comment']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -17,6 +21,8 @@ class PostCommentController extends Controller
      */
     public function index()
     {
+        $this->ccan('Show Comment');
+
         $comments=PostComment::getAllComments();
         return view('backend.comment.index')->with('comments',$comments);
     }
@@ -39,6 +45,8 @@ class PostCommentController extends Controller
      */
     public function store(Request $request)
     {
+        $this->ccan('Create Comment');
+
         // return $request->all();
         $post_info=Post::getPostBySlug($request->slug);
         // return $post_info;
@@ -83,6 +91,8 @@ class PostCommentController extends Controller
      */
     public function edit($id)
     {
+        $this->ccan('Edit Comment');
+
         $comments=PostComment::find($id);
         if($comments){
             return view('backend.comment.edit')->with('comment',$comments);
@@ -102,6 +112,8 @@ class PostCommentController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->ccan('Edit Comment');
+
         $comment=PostComment::find($id);
         if($comment){
             $data=$request->all();
@@ -130,6 +142,8 @@ class PostCommentController extends Controller
      */
     public function destroy($id)
     {
+        $this->ccan('Delete Comment');
+
         $comment=PostComment::find($id);
         if($comment){
             $status=$comment->delete();

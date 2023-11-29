@@ -31,7 +31,7 @@
           <td>{{$message->subject}}</td>
           <td>{{$message->created_at->format('F d, Y h:i A')}}</td>
           <td>
-            <a href="{{route('message.show',$message->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="view" data-placement="bottom"><i class="fas fa-eye"></i></a>
+            <a href="{{route('message.show',$message->id)}}" class="float-left mr-1 btn btn-primary btn-sm" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="view" data-placement="bottom"><i class="fas fa-eye"></i></a>
             <form method="POST" action="{{route('message.destroy',[$message->id])}}">
               @csrf
               @method('delete')
@@ -44,7 +44,7 @@
       </tbody>
     </table>
     <nav class="blog-pagination justify-content-center d-flex">
-      {{$messages->links()}}
+      {{$messages->links('vendor.pagination.bootstrap-4')}}
     </nav>
     @else
       <h2>Messages Empty!</h2>

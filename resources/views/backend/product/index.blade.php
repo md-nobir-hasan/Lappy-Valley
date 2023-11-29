@@ -12,8 +12,10 @@
         </div>
         <div class="py-3 card-header">
             <h6 class="float-left m-0 font-weight-bold text-primary">Product Lists</h6>
-            <a href="{{ route('product.create') }}" class="float-right btn btn-primary btn-sm" data-toggle="tooltip"
-                data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add Product</a>
+            @can('Create Product')
+                <a href="{{ route('product.create') }}" class="float-right btn btn-primary btn-sm" data-toggle="tooltip"
+                    data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add Product</a>
+            @endcan
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -33,7 +35,9 @@
                                 <th>Stock</th>
                                 <th>Photo</th>
                                 <th>Status</th>
-                                <th>Action</th>
+                                @canany(['Edit Product', 'Delete Product'])
+                                    <th>Action</th>
+                                @endcanany
                             </tr>
                         </thead>
                         <tfoot>
@@ -50,7 +54,9 @@
                                 <th>Stock</th>
                                 <th>Photo</th>
                                 <th>Status</th>
-                                <th>Action</th>
+                                @canany(['Edit Product', 'Delete Productd'])
+                                    <th>Action</th>
+                                @endcanany
                             </tr>
                         </tfoot>
                         <tbody>
@@ -108,29 +114,38 @@
                                             <span class="badge badge-warning">{{ $product->status }}</span>
                                         @endif
                                     </td>
+
                                     <td>
-                                        <a href="{{ route('product.edit', $product->id) }}"
-                                            class="float-left mr-1 btn btn-primary btn-sm"
-                                            style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip"
-                                            title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
-                                        <form method="POST" action="{{ route('product.destroy', [$product->id]) }}">
-                                            @csrf
-                                            @method('delete')
-                                            <button class="btn btn-danger btn-sm dltBtn" data-id={{ $product->id }}
+                                        @can('Edit Product')
+                                            <a href="{{ route('product.edit', $product->id) }}"
+                                                class="float-left mr-1 btn btn-primary btn-sm"
                                                 style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip"
-                                                data-placement="bottom" title="Delete"><i
-                                                    class="fas fa-trash-alt"></i></button>
-                                        </form>
+                                                title="edit" data-placement="bottom"><i class="fas fa-edit"></i>
+                                            </a>
+                                        @endcan
+                                        @can('Delete Product')
+                                            <form method="POST" action="{{ route('product.destroy', [$product->id]) }}">
+                                                @csrf
+                                                @method('delete')
+                                                <button class="btn btn-danger btn-sm dltBtn" data-id={{ $product->id }}
+                                                    style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip"
+                                                    data-placement="bottom" title="Delete"><i
+                                                        class="fas fa-trash-alt"></i></button>
+                                            </form>
+                                        @endcan
+
                                     </td>
+
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
-                    <span style="float:right">{{ $products->links() }}</span>
+                    <span style="float:right">{{ $products->links('vendor.pagination.bootstrap-4') }}</span>
                 @else
                     <h6 class="text-center">No Products found!!! Please create Product</h6>
                 @endif
             </div>
+
         </div>
     </div>
 @endsection
