@@ -74,6 +74,12 @@
             height: 100%;
             object-fit: cover;
         }
+        .bs{
+            color:#99999980;
+        }
+        .bs:hover{
+            color:#be13f880;
+        }
     </style>
 
 
@@ -374,11 +380,15 @@
                         </div>
                     </div>
                 </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
+                {{-- <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div> --}}
                 {{-- <div class="swiper-pagination"></div> --}}
 
             </div>
+        <div class="relative">
+            <div class="swiper-button-next translate-x-[55px] translate-y-[-192px] bs"></div>
+            <div class="swiper-button-prev translate-x-[-40px] translate-y-[-192px] bs"></div>
+        </div>
 
             <!-- Swiper JS -->
             <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
@@ -404,7 +414,7 @@
 
     </section>
 
-    <div class='mt-[15px] mb-[30px]'>
+    <div class='mt-[40px] mb-[30px]'>
         <div class="container h-[2px] bg-[#380D37]"></div>
     </div>
 
@@ -554,11 +564,13 @@
         <h2 class="mb-12 text-center font-[500] font-[jost] text-[42px] text-[#353535]">What Our Clients Say About
             Us</h2>
         <div class="flex justify-around ">
-            <div class="rounded-[16px] py-4 px-4 bg-[#fff] w-[398px] shadow-[2px_2px_5px_2px_#0000001A]">
+         <div class="rounded-[16px] py-4 px-4 bg-[#fff] w-[398px] shadow-[2px_2px_5px_2px_#0000001A]">
                 <div class="flex justify-center">
                     <div class="flex items-center">
-                        <img class="rounded-[100%] w-[72px] h-[72px]" src="/storage/product/client-photo.svg"
+                        <div>
+                            <img class="rounded-[100%] w-[72px] h-[72px]" src="/storage/product/client-photo.svg"
                             alt="">
+                        </div>
                         <div class="ml-2">
                             <h1 class="font-[Lato] text-[24px] font-[700]  text-center text-[#353535]">
                                 Leo</h1>
@@ -566,9 +578,7 @@
                                 Lead Designer</p>
                         </div>
                     </div>
-                    <!-- <div class="flex items-baseline"> -->
 
-                    <!-- <div class="flex items-center"> -->
                     <div class="flex mt-[40px] ml-auto">
 
                         <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
