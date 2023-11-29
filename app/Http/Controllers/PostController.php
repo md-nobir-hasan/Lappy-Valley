@@ -11,6 +11,10 @@ use App\User;
 
 class PostController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['can:Show Post']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -18,6 +22,8 @@ class PostController extends Controller
      */
     public function index()
     {
+        $this->ccan('Show Post');
+
         $posts=Post::getAllPost();
         // return $posts;
         return view('backend.post.index')->with('posts',$posts);
@@ -30,6 +36,8 @@ class PostController extends Controller
      */
     public function create()
     {
+        $this->ccan('Create Post');
+
         $categories=PostCategory::get();
         $tags=PostTag::get();
         $users=User::get();
@@ -44,6 +52,8 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        $this->ccan('Create Post');
+
         // return $request->all();
         $this->validate($request,[
             'title'=>'string|required',
@@ -104,6 +114,8 @@ class PostController extends Controller
      */
     public function edit($id)
     {
+        $this->ccan('Edit Post');
+
         $post=Post::findOrFail($id);
         $categories=PostCategory::get();
         $tags=PostTag::get();
@@ -120,6 +132,8 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->ccan('Edit Post');
+
         $post=Post::findOrFail($id);
          // return $request->all();
          $this->validate($request,[
@@ -163,10 +177,12 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
+        $this->ccan('Delete Post');
+
         $post=Post::findOrFail($id);
-       
+
         $status=$post->delete();
-        
+
         if($status){
             request()->session()->flash('success','Post successfully deleted');
         }

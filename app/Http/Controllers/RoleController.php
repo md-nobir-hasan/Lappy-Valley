@@ -10,11 +10,17 @@ use Spatie\Permission\Models\Permission;
 
 class RoleController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['can:Show Role']);
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
+        $this->ccan('Show Role');
+
         $n['roles'] = Role::with('permissions')->paginate(10);
 
         return view('backend.auser.role.index',$n);
@@ -25,6 +31,8 @@ class RoleController extends Controller
      */
     public function create()
     {
+        $this->ccan('Create Role');
+
         $n['permissions'] = Permission::get();
         return view('backend.auser.role.create', $n);
     }
@@ -34,6 +42,8 @@ class RoleController extends Controller
      */
     public function store(StoreRoleRequest $request)
     {
+        $this->ccan('Create Role');
+
       try{
             $role = Role::create($request->only(['name']));
             $rper = $role->syncPermissions($request->permissions);
@@ -58,6 +68,8 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
+        $this->ccan('Delete Role');
+
         $n['permissions'] = Permission::get();
         $n['role'] = $role;
 
@@ -69,6 +81,8 @@ class RoleController extends Controller
      */
     public function update(UpdateRoleRequest $request, Role $role)
     {
+        $this->ccan('Delete Role');
+
         try {
             $role->update($request->only(['name']));
            $role->syncPermissions($request->permissions);
@@ -85,12 +99,15 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {
+        $this->ccan('Delete Role');
+
         $role->delete();
         request()->session()->flash('success', "The role is deleted successfully");
         return redirect()->route('auser.role.index');
     }
 
     public function permission(){
+        $this->ccan('Show Permission');
         $n['permissions'] = Permission::all();
         return view('backend.auser.permission.index',$n);
     }

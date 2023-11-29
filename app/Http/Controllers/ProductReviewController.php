@@ -10,6 +10,10 @@ use App\User;
 use App\Models\ProductReview;
 class ProductReviewController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['can:Show Review']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -17,8 +21,10 @@ class ProductReviewController extends Controller
      */
     public function index()
     {
+        $this->ccan('Show Review');
+
         $reviews=ProductReview::getAllReview();
-        
+
         return view('backend.review.index')->with('reviews',$reviews);
     }
 
@@ -29,7 +35,7 @@ class ProductReviewController extends Controller
      */
     public function create()
     {
-        
+
     }
 
     /**
@@ -40,6 +46,8 @@ class ProductReviewController extends Controller
      */
     public function store(Request $request)
     {
+        $this->ccan('Create Review');
+
         $this->validate($request,[
             'rate'=>'required|numeric|min:1'
         ]);
@@ -88,6 +96,8 @@ class ProductReviewController extends Controller
      */
     public function edit($id)
     {
+        $this->ccan('Edit Review');
+
         $review=ProductReview::find($id);
         // return $review;
         return view('backend.review.edit')->with('review',$review);
@@ -102,6 +112,8 @@ class ProductReviewController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->ccan('Edit Review');
+
         $review=ProductReview::find($id);
         if($review){
             // $product_info=Product::getProductBySlug($request->slug);

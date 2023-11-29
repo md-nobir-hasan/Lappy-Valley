@@ -7,6 +7,12 @@ use App\Models\PostCategory;
 use Illuminate\Support\Str;
 class PostCategoryController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware(['can:Show pCategory']);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,6 +20,8 @@ class PostCategoryController extends Controller
      */
     public function index()
     {
+        $this->ccan('Show pCategory');
+
         $postCategory=PostCategory::orderBy('id','DESC')->paginate(10);
         return view('backend.postcategory.index')->with('postCategories',$postCategory);
     }
@@ -25,6 +33,8 @@ class PostCategoryController extends Controller
      */
     public function create()
     {
+        $this->ccan('Create pCategory');
+
         return view('backend.postcategory.create');
     }
 
@@ -36,6 +46,8 @@ class PostCategoryController extends Controller
      */
     public function store(Request $request)
     {
+        $this->ccan('Create pCategory');
+
         // return $request->all();
         $this->validate($request,[
             'title'=>'string|required',
@@ -77,6 +89,8 @@ class PostCategoryController extends Controller
      */
     public function edit($id)
     {
+        $this->ccan('Edit pCategory');
+
         $postCategory=PostCategory::findOrFail($id);
         return view('backend.postcategory.edit')->with('postCategory',$postCategory);
     }
@@ -90,6 +104,8 @@ class PostCategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->ccan('Edit pCategory');
+
         $postCategory=PostCategory::findOrFail($id);
          // return $request->all();
          $this->validate($request,[
@@ -115,10 +131,12 @@ class PostCategoryController extends Controller
      */
     public function destroy($id)
     {
+        $this->ccan('Delete pCategory');
+
         $postCategory=PostCategory::findOrFail($id);
-       
+
         $status=$postCategory->delete();
-        
+
         if($status){
             request()->session()->flash('success','Post Category successfully deleted');
         }

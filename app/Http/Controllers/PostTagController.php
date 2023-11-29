@@ -5,8 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\PostTag;
 use Illuminate\Support\Str;
-class PostTagController extends Controller
+class TagTagController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['can:Show Tag']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,6 +18,8 @@ class PostTagController extends Controller
      */
     public function index()
     {
+        $this->ccan('Show Tag');
+
         $postTag=PostTag::orderBy('id','DESC')->paginate(10);
         return view('backend.posttag.index')->with('postTags',$postTag);
     }
@@ -25,6 +31,8 @@ class PostTagController extends Controller
      */
     public function create()
     {
+        $this->ccan('Create Tag');
+
         return view('backend.posttag.create');
     }
 
@@ -36,6 +44,8 @@ class PostTagController extends Controller
      */
     public function store(Request $request)
     {
+        $this->ccan('Create Tag');
+
         $this->validate($request,[
             'title'=>'string|required',
             'status'=>'required|in:active,inactive'
@@ -76,6 +86,8 @@ class PostTagController extends Controller
      */
     public function edit($id)
     {
+        $this->ccan('Edit Tag');
+
         $postTag=PostTag::findOrFail($id);
         return view('backend.posttag.edit')->with('postTag',$postTag);
     }
@@ -89,6 +101,8 @@ class PostTagController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->ccan('Edit Tag');
+
         $postTag=PostTag::findOrFail($id);
          // return $request->all();
          $this->validate($request,[
@@ -114,15 +128,17 @@ class PostTagController extends Controller
      */
     public function destroy($id)
     {
+        $this->ccan('Delete Tag');
+
         $postTag=PostTag::findOrFail($id);
-       
+
         $status=$postTag->delete();
-        
+
         if($status){
             request()->session()->flash('success','Post Tag successfully deleted');
         }
         else{
-            request()->session()->flash('error','Error while deleting post tag');
+            request()->session()->flash('error','Error while deleting Tag tag');
         }
         return redirect()->route('post-tag.index');
     }

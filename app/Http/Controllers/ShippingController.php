@@ -8,6 +8,10 @@ use App\Models\Coupon;
 
 class ShippingController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['can:Show Shipping']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,6 +19,8 @@ class ShippingController extends Controller
      */
     public function index()
     {
+        $this->ccan('Show Shipping');
+
         $shipping=Shipping::orderBy('id','DESC')->paginate(10);
         return view('backend.shipping.index')->with('shippings',$shipping);
     }
@@ -26,6 +32,8 @@ class ShippingController extends Controller
      */
     public function create()
     {
+        $this->ccan('Create Shipping');
+
         return view('backend.shipping.create');
     }
 
@@ -37,6 +45,8 @@ class ShippingController extends Controller
      */
     public function store(Request $request)
     {
+        $this->ccan('Create Shipping');
+
         $this->validate($request,[
             'type'=>'string|required',
             'price'=>'nullable|numeric',
@@ -73,6 +83,8 @@ class ShippingController extends Controller
      */
     public function edit($id)
     {
+        $this->ccan('Edit Shipping');
+
         $shipping=Shipping::find($id);
         if(!$shipping){
             request()->session()->flash('error','Shipping not found');
@@ -89,6 +101,8 @@ class ShippingController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->ccan('Edit Shipping');
+
         $shipping=Shipping::find($id);
         $this->validate($request,[
             'type'=>'string|required',
@@ -115,6 +129,8 @@ class ShippingController extends Controller
      */
     public function destroy($id)
     {
+        $this->ccan('Delete Shipping');
+
         $shipping=Shipping::find($id);
         if($shipping){
             $status=$shipping->delete();

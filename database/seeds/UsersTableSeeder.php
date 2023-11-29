@@ -14,7 +14,7 @@ class UsersTableSeeder extends Seeder
     {
         $data=array(
             array(
-                'name'=>'Admin',
+                'name'=>'Super Admin',
                 'email'=>'admin@gmail.com',
                 'password'=>Hash::make('1111'),
                 'role'=>'admin',

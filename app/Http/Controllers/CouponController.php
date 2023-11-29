@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 use App\Models\Cart;
 class CouponController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['can:Show Cupon']);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,6 +18,8 @@ class CouponController extends Controller
      */
     public function index()
     {
+        $this->ccan('Show Cupon');
+
         $coupon=Coupon::orderBy('id','DESC')->paginate('10');
         return view('backend.coupon.index')->with('coupons',$coupon);
     }
@@ -24,6 +31,8 @@ class CouponController extends Controller
      */
     public function create()
     {
+        $this->ccan('Create Cupon');
+
         return view('backend.coupon.create');
     }
 
@@ -35,6 +44,8 @@ class CouponController extends Controller
      */
     public function store(Request $request)
     {
+        $this->ccan('Create Cupon');
+
         // return $request->all();
         $this->validate($request,[
             'code'=>'string|required',
@@ -71,6 +82,8 @@ class CouponController extends Controller
      */
     public function edit($id)
     {
+        $this->ccan('Edit Cupon');
+
         $coupon=Coupon::find($id);
         if($coupon){
             return view('backend.coupon.edit')->with('coupon',$coupon);
@@ -89,6 +102,8 @@ class CouponController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->ccan('Edit Cupon');
+
         $coupon=Coupon::find($id);
         $this->validate($request,[
             'code'=>'string|required',
@@ -97,7 +112,7 @@ class CouponController extends Controller
             'status'=>'required|in:active,inactive'
         ]);
         $data=$request->all();
-        
+
         $status=$coupon->fill($data)->save();
         if($status){
             request()->session()->flash('success','Coupon Successfully updated');
@@ -106,7 +121,7 @@ class CouponController extends Controller
             request()->session()->flash('error','Please try again!!');
         }
         return redirect()->route('coupon.index');
-        
+
     }
 
     /**
@@ -117,6 +132,8 @@ class CouponController extends Controller
      */
     public function destroy($id)
     {
+        $this->ccan('Delete Cupon');
+
         $coupon=Coupon::find($id);
         if($coupon){
             $status=$coupon->delete();

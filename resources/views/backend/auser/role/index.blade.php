@@ -69,7 +69,7 @@
             @endforeach
           </tbody>
         </table>
-        <span style="float:right">{{$roles->links()}}</span>
+        <span style="float:right">{{$roles->links('vendor.pagination.bootstrap-4')}}</span>
       </div>
     </div>
 </div>

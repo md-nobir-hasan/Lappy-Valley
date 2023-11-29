@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Brand;
-
+use Illuminate\Contracts\Auth\Access\Authorizable;
 use Illuminate\Support\Str;
 
 class ProductController extends Controller
@@ -16,8 +16,15 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware(['can:Show Product']);
+    }
+
     public function index()
     {
+
         $products=Product::orderBy('id','desc')->paginate();
         // return $products;
         return view('backend.product.index')->with('products',$products);
@@ -30,6 +37,8 @@ class ProductController extends Controller
      */
     public function create()
     {
+      $this->ccan('Create Product');
+
         $brand=Brand::get();
         $category=Category::where('is_parent',1)->get();
         // return $category;
@@ -44,6 +53,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        $this->ccan('Create Product');
         // return $request->all();
         $this->validate($request,[
             'title'=>'string|required',
@@ -109,6 +119,8 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
+        $this->ccan('Edit Product');
+
         $brand=Brand::get();
         $product=Product::findOrFail($id);
         $category=Category::where('is_parent',1)->get();
@@ -128,6 +140,8 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->ccan('Edit Product');
+
         $product=Product::findOrFail($id);
         $this->validate($request,[
             'title'=>'string|required',
@@ -174,6 +188,7 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
+        $this->ccan('Delete Product');
         $product=Product::findOrFail($id);
         $status=$product->delete();
 

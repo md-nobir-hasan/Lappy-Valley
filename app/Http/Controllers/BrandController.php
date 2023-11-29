@@ -7,6 +7,12 @@ use App\Models\Brand;
 use Illuminate\Support\Str;
 class BrandController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware(['can:Show Brand']);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,6 +20,8 @@ class BrandController extends Controller
      */
     public function index()
     {
+        $this->ccan('Show Brand');
+
         $brand=Brand::orderBy('id','DESC')->paginate();
         return view('backend.brand.index')->with('brands',$brand);
     }
@@ -25,6 +33,8 @@ class BrandController extends Controller
      */
     public function create()
     {
+        $this->ccan('Create Brand');
+
         return view('backend.brand.create');
     }
 
@@ -36,6 +46,8 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
+        $this->ccan('Create Brand');
+
         $this->validate($request,[
             'title'=>'string|required',
         ]);
@@ -76,6 +88,8 @@ class BrandController extends Controller
      */
     public function edit($id)
     {
+        $this->ccan('Edit Brand');
+
         $brand=Brand::find($id);
         if(!$brand){
             request()->session()->flash('error','Brand not found');
@@ -93,12 +107,14 @@ class BrandController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->ccan('Edit Brand');
+
         $brand=Brand::find($id);
         $this->validate($request,[
             'title'=>'string|required',
         ]);
         $data=$request->all();
-       
+
         $status=$brand->fill($data)->save();
         if($status){
             request()->session()->flash('success','Brand successfully updated');
@@ -117,6 +133,8 @@ class BrandController extends Controller
      */
     public function destroy($id)
     {
+        $this->ccan('Delete Brand');
+
         $brand=Brand::find($id);
         if($brand){
             $status=$brand->delete();
