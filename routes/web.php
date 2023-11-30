@@ -22,6 +22,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostCategoryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostTagController;
+use App\Http\Controllers\ProcessorGenerationController;
+use App\Http\Controllers\ProcessorModelController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ShippingController;
@@ -180,6 +182,18 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'admin']], function
     Route::post('/profile/{id}', [AdminController::class, 'profileUpdate'])->name('profile-update');
     // Category
     Route::resource('/category', CategoryController::class);
+    //Product Attribute
+    Route::prefix('/product-attributes')->name('pa')->group(function(){
+        Route::resource('/processor-model',ProcessorModelController::class);
+        Route::resource('/processor-generation',ProcessorGenerationController::class);
+        Route::resource('/display-size',ProcessorModel::class);
+        Route::resource('/display-type',ProcessorModel::class);
+        Route::resource('/ram',ProcessorModel::class);
+        Route::resource('/hdd',ProcessorModel::class);
+        Route::resource('/ssd',ProcessorModel::class);
+        Route::resource('/graphic',ProcessorModel::class);
+        Route::resource('/special-feature',ProcessorModel::class);
+    });
     // Product
     Route::resource('/product', ProductController::class)->middleware(['can:Show Product']);
     // Ajax for sub category

@@ -24,6 +24,10 @@ class AdminSidebar extends Component
                 ['access' => 'Show Category','title' => 'Category', 'route' => 'category.index',],
                 ['access' => 'Create Category','title' => 'Add Category', 'route' => 'category.create']
             ]],
+            ['access' => 'Show Processor Model','title' => 'Processor Model', 'route' => 'Processor-model.*', 'child' => [
+                ['access' => 'Show Processor Model','title' => 'Processor Model', 'route' => 'Processor-model.index',],
+                ['access' => 'Create Processor Model','title' => 'Add Processor Model', 'route' => 'Processor-model.create']
+            ]],
             ['title' => 'Products', 'route' => 'product.*', 'access'=>'Show Product', 'child' => [
                 ['title' => 'Products', 'route' => 'product.index', 'access' => 'Show Product',],
                 ['title' => 'Add Products', 'route' => 'product.create','access'=>'Create Product',]
