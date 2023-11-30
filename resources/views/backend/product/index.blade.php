@@ -104,7 +104,7 @@
                                     </td>
 
                                     <td>
-                                         <a href="{{route('product.show',$product->id)}}" class="float-left mr-1 btn btn-warning btn-sm" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="view" data-placement="bottom"><i class="fas fa-eye"></i></a>
+                                         <a target="_blank" href="{{route('product.show',$product->id)}}" class="float-left mr-1 btn btn-warning btn-sm" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="view" data-placement="bottom"><i class="fas fa-eye"></i></a>
                                         @can('Edit Product')
                                             <a href="{{ route('product.edit', $product->id) }}"
                                                 class="float-left mr-1 btn btn-primary btn-sm"

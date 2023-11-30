@@ -56,8 +56,25 @@
 
                 <div class="form-group">
                     <label for="is_featured">Is Featured</label><br>
-                    <input type="checkbox" name='is_featured' @checked(old('is_featured')) id='is_featured' value='1'> Yes
+                    <input type="checkbox" name='is_featured' @checked(old('is_featured')) id='is_featured' value='1'>
+                    Yes
                 </div>
+
+                <div class="form-group">
+                    <label for="upcomming_toggler">Up Comming</label><br>
+                    <input type="checkbox" name='upcomming_toggler' @checked(old('upcomming_toggler')) id='upcomming_toggler' value='1'> Yes
+                    <div class="ml-3" id="div_lunch_date">
+                        <label for="upcomming" class="col-form-label">Product Lunch Date <span
+                                class="text-danger">*</span></label>
+                        <input id="upcomming" type="date" name="upcomming" placeholder="Enter Product Lunch Date"
+                            value="{{ old('upcomming') }}" class="form-control">
+                        @error('upcomming')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                </div>
+
+
                 {{-- {{$categories}} --}}
 
                 <div class="form-group">
@@ -209,7 +226,8 @@
                     <select name="special_feature[]" class="form-control selectpicker" id="speacial_feature" multiple>
                         <option value="" hidden>Choose....</option>
                         @foreach ($special_features as $sp)
-                            <option value="{{ $sp->name }}" @selected($sp->id == old('speacial_feature'))>{{ $sp->name }}</option>
+                            <option value="{{ $sp->name }}" @selected($sp->id == old('speacial_feature'))>{{ $sp->name }}
+                            </option>
                         @endforeach
                     </select>
                     @error('speacial_feature')
@@ -236,7 +254,8 @@
                     <select name="brand_id" class="form-control">
                         <option value="">--Select Brand--</option>
                         @foreach ($brands as $brand)
-                            <option value="{{ $brand->id }}" @selected($brand->id == old('brand_id'))>{{ $brand->title }}</option>
+                            <option value="{{ $brand->id }}" @selected($brand->id == old('brand_id'))>{{ $brand->title }}
+                            </option>
                         @endforeach
                     </select>
                 </div>
@@ -296,6 +315,11 @@
 @endsection
 
 @push('styles')
+<style>
+   #div_lunch_date{
+    display: none;
+    }
+</style>
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
     <link rel="stylesheet" href="{{ asset('backend/summernote/summernote-lite.css') }}">
@@ -314,15 +338,21 @@
                 tabsize: 2,
                 height: 150,
             });
-        });
-
-        $(document).ready(function() {
             $('#description').summernote({
                 placeholder: "Write detail description.....",
                 tabsize: 2,
                 height: 200
             });
+
+            let show = false;
+            $('#upcomming_toggler').on('click', function() {
+                $('#div_lunch_date').toggle();
+                //  show = true;
+
+            });
         });
+
+
         // $('select').selectpicker();
     </script>
 

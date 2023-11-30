@@ -10,8 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Product extends Model
 {
     use HasFactory;
-    protected $fillable=['title', 'model','slug','summary','description','cat_id','child_cat_id','price','brand_id','discount','status','photo','size','stock','is_featured','condition','processor_generation_id','processor_model_id','display_size_id','display_type_id','ram_id','ssd_id','hdd_id','graphic_id','special_feature'
-];
+    protected $fillable=['title', 'model','slug','summary','description','cat_id','child_cat_id','price','brand_id','discount','status','photo','size','stock','is_featured','condition','processor_generation_id','processor_model_id','display_size_id','display_type_id','ram_id','ssd_id','hdd_id','graphic_id','special_feature', 'upcomming'];
 
     public function cat_info(){
         return $this->hasOne('App\Models\Category','id','cat_id');

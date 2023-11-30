@@ -9,15 +9,21 @@
         <div class="card-header" style="display: flex !important ; justify-content: space-between; align-items: center">
             <h2>Product</h2>
             <h2>
-                @if ($product->stock >1)
-                    <span class="badge badge-success">IN STOCK</span>
+                @if ($product->upcomming)
+                <span class="badge badge-success">UP COMMING <span class="ml-4 badge badge-warning">{{date('d-m-y',strtotime($product->upcomming))}}</span> </span>
+                {{-- <span class="ml-5 badge badge-warning">{{$product->upcomming}}</span> --}}
                 @else
-                    <span class="badge badge-warning">OUT OF STOCK</span>
+                    @if ($product->stock > 0)
+                        <span class="badge badge-success">IN STOCK</span>
+                    @else
+                        <span class="badge badge-warning">OUT OF STOCK</span>
+                    @endif
                 @endif
+
             </h2>
 
-            <a href="{{ route('order.pdf', $product->id) }}" class="shadow-sm d btn btn-sm btn-primary" style="display: inline-block"><i
-                    class="fas fa-download fa-sm text-white-50"></i>
+            <a href="{{ route('order.pdf', $product->id) }}" class="shadow-sm d btn btn-sm btn-primary"
+                style="display: inline-block"><i class="fas fa-download fa-sm text-white-50"></i>
                 Generate PDF</a>
         </div>
         <div class="card-body">
