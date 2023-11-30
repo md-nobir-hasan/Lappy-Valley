@@ -74,11 +74,13 @@
             height: 100%;
             object-fit: cover;
         }
-        .bs{
-            color:#99999980;
+
+        .bs {
+            color: #99999980;
         }
-        .bs:hover{
-            color:#be13f880;
+
+        .bs:hover {
+            color: #be13f880;
         }
     </style>
 
@@ -385,10 +387,10 @@
                 {{-- <div class="swiper-pagination"></div> --}}
 
             </div>
-        <div class="relative">
-            <div class="swiper-button-next translate-x-[55px] translate-y-[-192px] bs"></div>
-            <div class="swiper-button-prev translate-x-[-40px] translate-y-[-192px] bs"></div>
-        </div>
+            <div class="relative">
+                <div class="swiper-button-next translate-x-[55px] translate-y-[-192px] bs"></div>
+                <div class="swiper-button-prev translate-x-[-40px] translate-y-[-192px] bs"></div>
+            </div>
 
             <!-- Swiper JS -->
             <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
@@ -564,12 +566,12 @@
         <h2 class="mb-12 text-center font-[500] font-[jost] text-[42px] text-[#353535]">What Our Clients Say About
             Us</h2>
         <div class="flex justify-around ">
-         <div class="rounded-[16px] py-4 px-4 bg-[#fff] w-[398px] shadow-[2px_2px_5px_2px_#0000001A]">
+            <div class="rounded-[16px] py-4 px-4 bg-[#fff] w-[398px] shadow-[2px_2px_5px_2px_#0000001A]">
                 <div class="flex justify-center">
                     <div class="flex items-center">
                         <div>
                             <img class="rounded-[100%] w-[72px] h-[72px]" src="/storage/product/client-photo.svg"
-                            alt="">
+                                alt="">
                         </div>
                         <div class="ml-2">
                             <h1 class="font-[Lato] text-[24px] font-[700]  text-center text-[#353535]">
@@ -624,20 +626,21 @@
                     <!-- </div> -->
 
                 </div>
-              <div>
-                <h1 class="my-[19px] font-[Lato] font-[700] text-[24px]  text-center text-[#353535] leading-[28.8px]">
-                    It was a very good experience</h1>
-              </div>
                 <div>
-                <p class="my-[17px] font-[jost] font-[400] text-[18px] leading-[23.13px] text-left text-[#353535]">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursusnibh mauris, nec turpis orci
-                    lectus maecenas.
-                    Suspendisse sed magnaeget nibh in turpis. Consequat duis diam lacus arcu. Faucibus venenatis
-                    felis id augue
-                    sit cursus pellentesqueenim arcu.Elementum felis magna pretium in tincidunt.
-                    Suspendisse sed magna eget nibh in turpis. Consequat duis diam lacUSArcu.</p>
+                    <h1
+                        class="my-[19px] font-[Lato] font-[700] text-[24px]  text-center text-[#353535] leading-[28.8px]">
+                        It was a very good experience</h1>
+                </div>
+                <div>
+                    <p class="my-[17px] font-[jost] font-[400] text-[18px] leading-[23.13px] text-left text-[#353535]">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursusnibh mauris, nec turpis orci
+                        lectus maecenas.
+                        Suspendisse sed magnaeget nibh in turpis. Consequat duis diam lacus arcu. Faucibus venenatis
+                        felis id augue
+                        sit cursus pellentesqueenim arcu.Elementum felis magna pretium in tincidunt.
+                        Suspendisse sed magna eget nibh in turpis. Consequat duis diam lacUSArcu.</p>
+                </div>
             </div>
-        </div>
     </section>
 
 
@@ -705,5 +708,107 @@
         </div>
     </section>
 
+    <style>
+        /* .container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background: #fafafa;
+} */
 
+        .dropdown {
+            position: relative;
+            top: 50px;
+            left: 45%;
+            margin-top: 15px;
+            width: 300px;
+            height: 50px;
+        }
+
+        .dropdown::before {
+            content: "";
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            z-index: 1000;
+            width: 8px;
+            height: 8px;
+            border: 2px solid #333;
+            border-top: 2px solid #fff;
+            border-right: 2px solid #fff;
+            transform: rotate(-45deg);
+            transition: 0.5s;
+            pointer-events: none;
+        }
+
+        .dropdown.active::before {
+            top: 22px;
+            transform: rotate(-225deg);
+        }
+
+        .dropdown input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            background: #fff;
+            font-size: 1.2em;
+            border: none;
+            outline: none;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            padding: 12px 20px;
+            border-radius: 10px;
+        }
+
+        .dropdown .options {
+            position: absolute;
+            top: 70px;
+            width: 100%;
+            background: #fff;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            display: none;
+        }
+
+        .dropdown.active .options {
+            display: block;
+        }
+
+        .dropdown .options div {
+            padding: 12px 20px;
+            cursor: pointer;
+        }
+
+        .dropdown .options div:hover {
+            background: #62baea;
+            color: #fff;
+        }
+    </style>
+    <div class="dropdown">
+        <input class="text-box" type="text" placeholder="Defaul sorting" readonly>
+        <div class="options">
+            <div onclick="show('Default sorting')">Default sorting</div>
+            <div onclick="show('CSS')">Sort by popularity</div>
+            <div onclick="show('HTML')">Sort by average rating</div>
+            <div onclick="show('CSS')">CSS</div>
+            <div onclick="show('HTML')">HTML</div>
+            <div onclick="show('CSS')">CSS</div>
+        </div>
+    </div>
+
+    <script>
+        function show(value) {
+            document.querySelector(".text-box").value = value;
+        }
+
+        let dropdown = document.querySelector(".dropdown")
+        dropdown.onclick = function() {
+            dropdown.classList.toggle("active")
+        }
+    </script>
 </div>
