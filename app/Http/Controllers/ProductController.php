@@ -6,6 +6,15 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Brand;
+use App\Models\DisplaySize;
+use App\Models\DisplayType;
+use App\Models\Graphic;
+use App\Models\hdd;
+use App\Models\ProcessorGeneration;
+use App\Models\ProcessorModel;
+use App\Models\Ram;
+use App\Models\SpecialFeature;
+use App\Models\ssd;
 use Illuminate\Contracts\Auth\Access\Authorizable;
 use Illuminate\Support\Str;
 
@@ -25,7 +34,8 @@ class ProductController extends Controller
     public function index()
     {
 
-        $products=Product::orderBy('id','desc')->paginate();
+        $products=Product::with('cat_info', 'sub_cat_info','brand','ProcessorGeneration','ProcessorModel','DisplayType','DisplaySize','Ram','ssd','hdd','Graphic','SpecialFeature')
+                            ->latest()->paginate(10);
         // return $products;
         return view('backend.product.index')->with('products',$products);
     }
@@ -39,10 +49,19 @@ class ProductController extends Controller
     {
       $this->ccan('Create Product');
 
-        $brand=Brand::get();
-        $category=Category::where('is_parent',1)->get();
+        $n['brands']=Brand::get();
+        $n['p_generations']=ProcessorGeneration::get();
+        $n['p_models']=ProcessorModel::get();
+        $n['d_sizes']=DisplaySize::get();
+        $n['d_types']=DisplayType::get();
+        $n['rams']=Ram::get();
+        $n['ssds']=ssd::get();
+        $n['hdds']=hdd::get();
+        $n['graphics']=Graphic::get();
+        $n['special_features']=SpecialFeature::get();
+        $n['categories']=Category::where('is_parent',1)->get();
         // return $category;
-        return view('backend.product.create')->with('categories',$category)->with('brands',$brand);
+        return view('backend.product.create',$n);
     }
 
     /**
@@ -67,12 +86,26 @@ class ProductController extends Controller
             'child_cat_id'=>'nullable|exists:categories,id',
             'is_featured'=>'sometimes|in:1',
             'status'=>'required|in:active,inactive',
-            'condition'=>'required|in:default,new,hot',
+            // 'condition'=> 'required|in:default,new,hot',
             'price'=>'required|numeric',
-            'discount'=>'nullable|numeric'
+            'discount'=>'nullable|numeric',
+            'processor_generation_id' =>'required|exists:processor_generations,id',
+            'processor_model_id' =>'required|exists:processor_models,id',
+            'display_size_id' =>'required|exists:display_sizes,id',
+            'display_type_id' =>'required|exists:display_types,id',
+            'ram_id' =>'required|exists:rams,id',
+            'ssd_id' =>'required|exists:ssds,id',
+            'hdd_id' =>'required|exists:hdds,id',
+            'graphic_id' =>'required|exists:graphics,id',
+            'special_feature' =>'required',
         ]);
-
         $data=$request->all();
+        // dd($data);
+        $special_feature = '';
+        foreach($request->special_feature as $sp){
+            $special_feature = $special_feature.', '.$sp;
+        }
+        $data['special_feature'] = $special_feature;
         $slug=Str::slug($request->title);
         $count=Product::where('slug',$slug)->count();
         if($count>0){
@@ -80,13 +113,13 @@ class ProductController extends Controller
         }
         $data['slug']=$slug;
         $data['is_featured']=$request->input('is_featured',0);
-        $size=$request->input('size');
-        if($size){
-            $data['size']=implode(',',$size);
-        }
-        else{
-            $data['size']='';
-        }
+        // $size=$request->input('size');
+        // if($size){
+        //     $data['size']=implode(',',$size);
+        // }
+        // else{
+        //     $data['size']='';
+        // }
         // return $size;
         // return $data;
         $status=Product::create($data);
@@ -108,7 +141,11 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        // dd($id);
+        $product = Product::with('cat_info', 'sub_cat_info', 'brand', 'ProcessorGeneration', 'ProcessorModel', 'DisplayType', 'DisplaySize', 'Ram', 'ssd', 'hdd', 'Graphic', 'SpecialFeature')
+                    ->find($id);
+        // return $products;
+        return view('backend.product.show')->with('product', $product);
     }
 
     /**
@@ -155,9 +192,18 @@ class ProductController extends Controller
             'is_featured'=>'sometimes|in:1',
             'brand_id'=>'nullable|exists:brands,id',
             'status'=>'required|in:active,inactive',
-            'condition'=>'required|in:default,new,hot',
+            // 'condition'=>'required|in:default,new,hot',
             'price'=>'required|numeric',
-            'discount'=>'nullable|numeric'
+            'discount'=>'nullable|numeric',
+            'processor_generation_id' => 'required|exists:processor_generations,id',
+            'processor_model_id' => 'required|exists:processor_models,id',
+            'display_size_id' => 'required|exists:display_sizes,id',
+            'display_type_id' => 'required|exists:display_types,id',
+            'ram_id' => 'required|exists:rams,id',
+            'ssd_id' => 'required|exists:ssds,id',
+            'hdd_id' => 'required|exists:hdds,id',
+            'graphic_id' => 'required|exists:graphics,id',
+            'special_feature_id' => 'required|exists:special_features,id',
         ]);
 
         $data=$request->all();

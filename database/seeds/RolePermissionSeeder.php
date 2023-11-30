@@ -109,10 +109,66 @@ class RolePermissionSeeder extends Seeder
             ['name' => 'Edit Product','guard_name'=>'web'],
             ['name' => 'Delete Product','guard_name'=>'web'],
 
+            //Processor Model
+            ['name' => 'Show Processor Model','guard_name'=>'web'],
+            ['name' => 'Create Processor Model','guard_name'=>'web'],
+            ['name' => 'Edit Processor Model','guard_name'=>'web'],
+            ['name' => 'Delete Processor Model','guard_name'=>'web'],
+
+
+            //Processor Generation
+            ['name' => 'Show Processor Generation', 'guard_name' => 'web'],
+            ['name' => 'Create Processor Generation', 'guard_name' => 'web'],
+            ['name' => 'Edit Processor Generation', 'guard_name' => 'web'],
+            ['name' => 'Delete Processor Generation', 'guard_name' => 'web'],
+
+            //Display Size
+            ['name' => 'Show Display Size', 'guard_name' => 'web'],
+            ['name' => 'Create Display Size', 'guard_name' => 'web'],
+            ['name' => 'Edit Display Size', 'guard_name' => 'web'],
+            ['name' => 'Delete Display Size', 'guard_name' => 'web'],
+
+            //Display Type
+            ['name' => 'Show Display Type', 'guard_name' => 'web'],
+            ['name' => 'Create Display Type', 'guard_name' => 'web'],
+            ['name' => 'Edit Display Type', 'guard_name' => 'web'],
+            ['name' => 'Delete Display Type', 'guard_name' => 'web'],
+
+            //RAM
+            ['name' => 'Show RAM', 'guard_name' => 'web'],
+            ['name' => 'Create RAM', 'guard_name' => 'web'],
+            ['name' => 'Edit RAM', 'guard_name' => 'web'],
+            ['name' => 'Delete RAM', 'guard_name' => 'web'],
+
+            //HDD
+            ['name' => 'Show HDD', 'guard_name' => 'web'],
+            ['name' => 'Create HDD', 'guard_name' => 'web'],
+            ['name' => 'Edit HDD', 'guard_name' => 'web'],
+            ['name' => 'Delete HDD', 'guard_name' => 'web'],
+
+            //SSD
+            ['name' => 'Show SSD', 'guard_name' => 'web'],
+            ['name' => 'Create SSD', 'guard_name' => 'web'],
+            ['name' => 'Edit SSD', 'guard_name' => 'web'],
+            ['name' => 'Delete SSD', 'guard_name' => 'web'],
+
+            //Graphic
+            ['name' => 'Show Graphic', 'guard_name' => 'web'],
+            ['name' => 'Create Graphic', 'guard_name' => 'web'],
+            ['name' => 'Edit Graphic', 'guard_name' => 'web'],
+            ['name' => 'Delete Graphic', 'guard_name' => 'web'],
+
+            //Special Feature
+            ['name' => 'Show Special Feature', 'guard_name' => 'web'],
+            ['name' => 'Create Special Feature', 'guard_name' => 'web'],
+            ['name' => 'Edit Special Feature', 'guard_name' => 'web'],
+            ['name' => 'Delete Special Feature', 'guard_name' => 'web'],
+
             //Gangam1
             ['name' => 'Dashboard', 'guard_name' => 'web'],
             ['name' => 'Media Manager', 'guard_name' => 'web'],
             ['name' => 'Setting', 'guard_name' => 'web'],
+            ['name' => 'Product Attributes', 'guard_name' => 'web'],
         ];
         $epermissions = [
             //Banner
