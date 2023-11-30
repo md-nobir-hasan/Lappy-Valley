@@ -1851,6 +1851,10 @@ input[type="range"]:active::-webkit-slider-thumb{
   height: 423px;
 }
 
+.h-\[9px\]{
+  height: 9px;
+}
+
 .max-h-\[530px\]{
   max-height: 530px;
 }
@@ -2221,6 +2225,10 @@ input[type="range"]:active::-webkit-slider-thumb{
 
 .w-\[100\%\]{
   width: 100%;
+}
+
+.w-\[18px\]{
+  width: 18px;
 }
 
 .min-w-0{
