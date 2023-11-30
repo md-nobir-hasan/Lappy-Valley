@@ -8,12 +8,17 @@ use App\Http\Requests\UpdatehddRequest;
 
 class hddController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['can:Show HDD']);
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $n['mdata'] = hdd::paginate(10);
+        return view('backend.product-attribute.hdd.index', $n);
     }
 
     /**
@@ -21,7 +26,8 @@ class hddController extends Controller
      */
     public function create()
     {
-        //
+        $this->ccan('Create HDD');
+        return view('backend.product-attribute.hdd.create');
     }
 
     /**
@@ -29,7 +35,10 @@ class hddController extends Controller
      */
     public function store(StorehddRequest $request)
     {
-        //
+        $this->ccan('Create HDD');
+
+        hdd::create($request->all());
+        return redirect()->route('pa.hdd.index')->with('success', "$request->name is created successfully");
     }
 
     /**
@@ -45,7 +54,10 @@ class hddController extends Controller
      */
     public function edit(hdd $hdd)
     {
-        //
+        $this->ccan('Edit HDD');
+
+        $n['datum'] = $hdd;
+        return view('backend.product-attribute.hdd.edit', $n);
     }
 
     /**
@@ -53,7 +65,10 @@ class hddController extends Controller
      */
     public function update(UpdatehddRequest $request, hdd $hdd)
     {
-        //
+        $this->ccan('Edit HDD');
+
+        $hdd->update($request->all());
+        return redirect()->route('pa.hdd.index')->with('success', "$request->name is Update successfully");
     }
 
     /**
@@ -61,6 +76,15 @@ class hddController extends Controller
      */
     public function destroy(hdd $hdd)
     {
-        //
+        $this->ccan('Delete HDD');
+
+        $status = $hdd->delete();
+
+        if ($status) {
+            request()->session()->flash('success', 'HDD successfully deleted');
+        } else {
+            request()->session()->flash('error', 'Error while deleting HDD');
+        }
+        return back();
     }
 }

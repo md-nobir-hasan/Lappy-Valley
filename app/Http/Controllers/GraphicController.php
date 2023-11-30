@@ -8,12 +8,17 @@ use App\Http\Requests\UpdateGraphicRequest;
 
 class GraphicController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['can:Show Graphic']);
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $n['mdata'] = Graphic::paginate(10);
+        return view('backend.product-attribute.graphic.index', $n);
     }
 
     /**
@@ -21,7 +26,8 @@ class GraphicController extends Controller
      */
     public function create()
     {
-        //
+        $this->ccan('Create Graphic');
+        return view('backend.product-attribute.graphic.create');
     }
 
     /**
@@ -29,7 +35,10 @@ class GraphicController extends Controller
      */
     public function store(StoreGraphicRequest $request)
     {
-        //
+        $this->ccan('Create Graphic');
+
+        Graphic::create($request->all());
+        return redirect()->route('pa.graphic.index')->with('success', "$request->name is created successfully");
     }
 
     /**
@@ -45,7 +54,10 @@ class GraphicController extends Controller
      */
     public function edit(Graphic $graphic)
     {
-        //
+        $this->ccan('Edit Graphic');
+
+        $n['datum'] = $graphic;
+        return view('backend.product-attribute.graphic.edit', $n);
     }
 
     /**
@@ -53,7 +65,10 @@ class GraphicController extends Controller
      */
     public function update(UpdateGraphicRequest $request, Graphic $graphic)
     {
-        //
+        $this->ccan('Edit Graphic');
+
+        $graphic->update($request->all());
+        return redirect()->route('pa.graphic.index')->with('success', "$request->name is Update successfully");
     }
 
     /**
@@ -61,6 +76,15 @@ class GraphicController extends Controller
      */
     public function destroy(Graphic $graphic)
     {
-        //
+        $this->ccan('Delete Graphic');
+
+        $status = $graphic->delete();
+
+        if ($status) {
+            request()->session()->flash('success', 'Graphic successfully deleted');
+        } else {
+            request()->session()->flash('error', 'Error while deleting Graphic');
+        }
+        return back();
     }
 }

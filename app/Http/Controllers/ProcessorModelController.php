@@ -8,12 +8,17 @@ use App\Http\Requests\UpdateProcessorModelRequest;
 
 class ProcessorModelController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['can:Show Processor Model']);
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $n['mdata'] = ProcessorModel::paginate(10);
+        return view('backend.product-attribute.pm.index', $n);
     }
 
     /**
@@ -21,7 +26,9 @@ class ProcessorModelController extends Controller
      */
     public function create()
     {
-        //
+        $this->ccan('Create Processor Model');
+
+        return view('backend.product-attribute.pm.create');
     }
 
     /**
@@ -29,7 +36,10 @@ class ProcessorModelController extends Controller
      */
     public function store(StoreProcessorModelRequest $request)
     {
-        //
+        $this->ccan('Create Processor Model');
+
+        ProcessorModel::create($request->all());
+        return redirect()->route('pa.processor-model.index')->with('success', "$request->name is created successfully");
     }
 
     /**
@@ -45,7 +55,10 @@ class ProcessorModelController extends Controller
      */
     public function edit(ProcessorModel $processorModel)
     {
-        //
+        $this->ccan('Edit Processor Model');
+
+        $n['datum'] = $processorModel;
+        return view('backend.product-attribute.pm.edit', $n);
     }
 
     /**
@@ -53,7 +66,10 @@ class ProcessorModelController extends Controller
      */
     public function update(UpdateProcessorModelRequest $request, ProcessorModel $processorModel)
     {
-        //
+        $this->ccan('Edit Processor Model');
+
+        $processorModel->update($request->all());
+        return redirect()->route('pa.processor-model.index')->with('success', "$request->name is Update successfully");
     }
 
     /**
@@ -61,6 +77,15 @@ class ProcessorModelController extends Controller
      */
     public function destroy(ProcessorModel $processorModel)
     {
-        //
+        $this->ccan('Delete Processor Model');
+
+        $status = $processorModel->delete();
+
+        if ($status) {
+            request()->session()->flash('success', 'Processor Model successfully deleted');
+        } else {
+            request()->session()->flash('error', 'Error while deleting Processor Model');
+        }
+        return back();
     }
 }
