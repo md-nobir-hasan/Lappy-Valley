@@ -278,7 +278,7 @@ Route::get('/search/{stext}/{cat?}', SearchingProduct::class)->name('searching_p
 Route::get('/product-details/{slug}', ProductDeatils::class)->name('product.details');
 Route::get('/checkout', Checkout::class)->name('checkout');
 Route::get('/view-cart', ViewCart::class)->name('vcart');
-Route::get('/search', Search::class)->name('search');
+// Route::get('/search', Search::class)->name('search');
 Route::get('/user/register', Signup::class)->name('user.register');
 Route::get('/user/login', Login::class)->name('user.login');
 Route::get('/user/forget-password', ForgetPassword::class)->name('user.fp');
