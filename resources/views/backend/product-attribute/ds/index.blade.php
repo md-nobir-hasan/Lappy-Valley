@@ -13,7 +13,7 @@
         <div class="py-3 card-header">
             <h6 class="float-left m-0 font-weight-bold text-primary">Display Size List</h6>
             @can('Create Display Size')
-                <a href="{{ route('pa.diaplay-size.create') }}" class="float-right btn btn-primary btn-sm" data-toggle="tooltip"
+                <a href="{{ route('pa.display-size.create') }}" class="float-right btn btn-primary btn-sm" data-toggle="tooltip"
                     data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add Display Size</a>
             @endcan
         </div>
@@ -24,7 +24,8 @@
                         <thead>
                             <tr>
                                 <th>S.N.</th>
-                                <th>Title</th>
+                                <th>From (inch)</th>
+                                <th>To (inch)</th>
                                 @canany(['Edit Display Size', 'Delete Display Size'])
                                     <th>Action</th>
                                 @endcanany
@@ -33,7 +34,8 @@
                         <tfoot>
                             <tr>
                                 <th>S.N.</th>
-                                <th>Title</th>
+                                <th>From</th>
+                                <th>To</th>
                                 @canany(['Edit Display Size', 'Delete Display Size'])
                                     <th>Action</th>
                                 @endcanany
@@ -43,16 +45,17 @@
                             @foreach ($mdata as $datum)
                                 <tr>
                                     <td>{{ $datum->id }}</td>
-                                    <td>{{ $datum->name }}</td>
+                                    <td>{{ $datum->from }}</td>
+                                    <td>{{ $datum->to }}</td>
                                     <td>
                                         @can('Edit Display Size')
-                                            <a href="{{ route('pa.diaplay-size.edit', $datum->id) }}"
+                                            <a href="{{ route('pa.display-size.edit', $datum->id) }}"
                                                 class="float-left mr-1 btn btn-primary btn-sm"
                                                 style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip"
                                                 title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
                                         @endcan
                                         @can('Delete Display Size')
-                                            <form method="POST" action="{{ route('pa.diaplay-size.destroy', [$datum->id]) }}">
+                                            <form method="POST" action="{{ route('pa.display-size.destroy', [$datum->id]) }}">
                                                 @csrf
                                                 @method('delete')
                                                 <button class="btn btn-danger btn-sm dltBtn" data-id={{ $datum->id }}

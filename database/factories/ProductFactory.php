@@ -30,6 +30,16 @@ class ProductFactory extends Factory
             'is_featured' => false,
             'price' => rand(12000,500000),
             'discount' => rand(0,60),
+            'processor_generation_id' => rand(1,14),
+            'processor_model_id' => rand(1,15),
+            'display_size_id' => rand(1,6),
+            'display_type_id' => rand(1,2),
+            'ram_id' => rand(1,5),
+            'ssd_id' => rand(1,4),
+            'hdd_id' => rand(1,2),
+            'graphic_id' => rand(1,5),
+            'special_feature_id' => rand(1,5),
+            'brand_id' => rand(1,6),
         ];
     }
 }

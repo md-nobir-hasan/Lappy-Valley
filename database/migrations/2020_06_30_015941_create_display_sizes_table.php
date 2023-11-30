@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('special_features', function (Blueprint $table) {
+        Schema::create('display_sizes', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->float('from')->nullable();
+            $table->float('to')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('special_features');
+        Schema::dropIfExists('display_sizes');
     }
 };

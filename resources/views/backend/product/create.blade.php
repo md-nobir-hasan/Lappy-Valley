@@ -17,8 +17,8 @@
           @enderror
         </div>
         <div class="form-group">
-          <label for="model" class="col-form-label">Title <span class="text-danger">*</span></label>
-          <input id="model" type="text" name="model" placeholder="Enter model"  value="{{old('model')}}" class="form-control">
+          <label for="model" class="col-form-label">Model <span class="text-danger">*</span></label>
+          <input id="model" type="text" name="model" placeholder="Enter Model"  value="{{old('model')}}" class="form-control">
           @error('model')
           <span class="text-danger">{{$message}}</span>
           @enderror
@@ -82,6 +82,18 @@
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
+
+        <div class="form-group">
+          <label for="size">Prosessor </label>
+          <select name="size[]" class="form-control selectpicker"  multiple data-live-search="true">
+              <option value="">--Select any size--</option>
+              <option value="S">Small (S)</option>
+              <option value="M">Medium (M)</option>
+              <option value="L">Large (L)</option>
+              <option value="XL">Extra Large (XL)</option>
+          </select>
+        </div>
+
         <div class="form-group">
           <label for="size">Size</label>
           <select name="size[]" class="form-control selectpicker"  multiple data-live-search="true">

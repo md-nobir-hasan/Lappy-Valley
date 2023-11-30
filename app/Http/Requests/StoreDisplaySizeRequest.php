@@ -22,7 +22,8 @@ class StoreDisplaySizeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:255'
+            'from' => 'required|numeric|max:255',
+            'to' => 'required|numeric|max:255'
         ];
     }
 }

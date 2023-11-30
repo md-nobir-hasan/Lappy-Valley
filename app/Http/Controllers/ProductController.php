@@ -6,6 +6,15 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Brand;
+use App\Models\DisplaySize;
+use App\Models\DisplayType;
+use App\Models\Graphic;
+use App\Models\hdd;
+use App\Models\ProcessorGeneration;
+use App\Models\ProcessorModel;
+use App\Models\Ram;
+use App\Models\SpecialFeature;
+use App\Models\ssd;
 use Illuminate\Contracts\Auth\Access\Authorizable;
 use Illuminate\Support\Str;
 
@@ -39,10 +48,19 @@ class ProductController extends Controller
     {
       $this->ccan('Create Product');
 
-        $brand=Brand::get();
-        $category=Category::where('is_parent',1)->get();
+        $n['brands']=Brand::get();
+        $n['p_generation']=ProcessorGeneration::get();
+        $n['p_model']=ProcessorModel::get();
+        $n['d_size']=DisplaySize::get();
+        $n['d_type']=DisplayType::get();
+        $n['ram']=Ram::get();
+        $n['ssd']=ssd::get();
+        $n['hdd']=hdd::get();
+        $n['grapic']=Graphic::get();
+        $n['special_features']=SpecialFeature::get();
+        $n['categories']=Category::where('is_parent',1)->get();
         // return $category;
-        return view('backend.product.create')->with('categories',$category)->with('brands',$brand);
+        return view('backend.product.create',$n);
     }
 
     /**

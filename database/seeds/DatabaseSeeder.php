@@ -2,8 +2,8 @@
 
 use App\Models\Category;
 use App\Models\Product;
-// use Database\Seeders\CategorySeeder;
 use Database\Seeders\RolePermissionSeeder;
+use Database\Seeders\ProductAttributeSeeder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Seeder;
 
@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
     {
 
         $this->call([
+            ProductAttributeSeeder::class,
             UsersTableSeeder::class,
             RolePermissionSeeder::class,
             SettingTableSeeder::class,

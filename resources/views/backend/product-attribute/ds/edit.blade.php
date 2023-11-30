@@ -7,14 +7,22 @@
     <div class="card">
         <h5 class="card-header">Update Display Size</h5>
         <div class="card-body">
-            <form method="post" action="{{ route('pa.diaplay-size.update',$datum->id) }}">
+            <form method="post" action="{{ route('pa.display-size.update',$datum->id) }}">
                 {{ csrf_field() }}
                 @method('PUT')
                 <div class="form-group">
-                    <label for="inputTitle" class="col-form-label">Name <span class="text-danger">*</span></label>
-                    <input id="inputTitle" type="text" name="name" placeholder="Enter title"
-                        value="{{$datum->name}}" class="form-control">
-                    @error('name')
+                    <label for="inputTitle" class="col-form-label">From (inch)<span class="text-danger">*</span></label>
+                    <input id="inputTitle" step=".1" type="number" name="from" placeholder="Enter display size"
+                        value="{{$datum->from}}" class="form-control">
+                    @error('from')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label for="inputTitle" class="col-form-label">To (inch)<span class="text-danger">*</span></label>
+                    <input id="inputTitle" step=".1" type="number" name="to" placeholder="Enter display size"
+                        value="{{$datum->to}}" class="form-control">
+                    @error('to')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
