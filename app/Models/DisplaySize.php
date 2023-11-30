@@ -9,4 +9,8 @@ class DisplaySize extends Model
 {
     use HasFactory;
     protected $fillable = ['from','to'];
+    public function Product()
+    {
+        return $this->hasMany(Product::class);
+    }
 }

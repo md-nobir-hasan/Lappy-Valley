@@ -30,7 +30,7 @@ class CreateProductsTable extends Migration
             $table->longText('description')->nullable();
             $table->text('photo');
             $table->string('model');
-            $table->integer('stock')->nullable();
+            $table->integer('stock')->nullable()->default(1);
             $table->unsignedBigInteger('views')->nullable();
             $table->string('size')->default('M')->nullable();
             $table->enum('condition',['default','new','hot'])->default('default');
@@ -52,7 +52,7 @@ class CreateProductsTable extends Migration
             $table->foreignIdFor(ssd::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignIdFor(hdd::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignIdFor(Graphic::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreignIdFor(SpecialFeature::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->longText('special_feature');
             $table->timestamps();
         });
     }

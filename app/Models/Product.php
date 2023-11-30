@@ -5,12 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Cart;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Product extends Model
 {
     use HasFactory;
-
-    protected $fillable=['title', 'model','slug','summary','description','cat_id','child_cat_id','price','brand_id','discount','status','photo','size','stock','is_featured','condition'];
+    protected $fillable=['title', 'model','slug','summary','description','cat_id','child_cat_id','price','brand_id','discount','status','photo','size','stock','is_featured','condition','processor_generation_id','processor_model_id','display_size_id','display_type_id','ram_id','ssd_id','hdd_id','graphic_id','special_feature'
+];
 
     public function cat_info(){
         return $this->hasOne('App\Models\Category','id','cat_id');
@@ -49,5 +50,42 @@ class Product extends Model
     public function brand(){
         return $this->hasOne(Brand::class,'id','brand_id');
     }
+
+    public function ProcessorGeneration(){
+        return $this->belongsTo(ProcessorGeneration::class);
+    }
+
+    public function ProcessorModel(){
+        return $this->belongsTo(ProcessorModel::class);
+    }
+
+    public function DisplayType(){
+        return $this->belongsTo(DisplayType::class);
+    }
+
+    public function DisplaySize(){
+        return $this->belongsTo(DisplaySize::class);
+    }
+
+    public function Ram(){
+        return $this->belongsTo(Ram::class);
+    }
+
+    public function ssd(){
+        return $this->belongsTo(ssd::class);
+    }
+
+    public function hdd(){
+        return $this->belongsTo(hdd::class);
+    }
+
+    public function Graphic(){
+        return $this->belongsTo(Graphic::class);
+    }
+
+    public function SpecialFeature(){
+        return $this->belongsTo(SpecialFeature::class);
+    }
+
 
 }

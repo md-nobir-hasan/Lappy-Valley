@@ -38,8 +38,9 @@ class ProductFactory extends Factory
             'ssd_id' => rand(1,4),
             'hdd_id' => rand(1,2),
             'graphic_id' => rand(1,5),
-            'special_feature_id' => rand(1,5),
+            'special_feature' => 'Backlit Keyboard',
             'brand_id' => rand(1,6),
+            'stock' => rand(1,20),
         ];
     }
 }
