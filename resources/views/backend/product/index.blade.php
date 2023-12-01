@@ -29,7 +29,7 @@
                                 <th>Is Featured</th>
                                 <th>Price</th>
                                 <th>Discount</th>
-                                <th>Size</th>
+                                {{-- <th>Size</th> --}}
                                 <th>Condition</th>
                                 <th>Brand</th>
                                 <th>Stock</th>
@@ -48,7 +48,6 @@
                                 <th>Is Featured</th>
                                 <th>Price</th>
                                 <th>Discount</th>
-                                <th>Size</th>
                                 <th>Condition</th>
                                 <th>Brand</th>
                                 <th>Stock</th>
@@ -62,19 +61,8 @@
                         <tbody>
 
                             @foreach ($products as $product)
-                                @php
-                                    $sub_cat_info = DB::table('categories')
-                                        ->select('title')
-                                        ->where('id', $product->child_cat_id)
-                                        ->get();
-                                    // dd($sub_cat_info);
-                                    $brands = DB::table('brands')
-                                        ->select('title')
-                                        ->where('id', $product->brand_id)
-                                        ->get();
-                                @endphp
                                 <tr>
-                                    <td>{{ $product->id }}</td>
+                                    <td>{{ $loop->index + 1 }}</td>
                                     <td>{{ $product->title }}</td>
                                     <td>{{ $product->cat_info['title'] }}
                                         <sub>
@@ -84,7 +72,6 @@
                                     <td>{{ $product->is_featured == 1 ? 'Yes' : 'No' }}</td>
                                     <td>BDT. {{ $product->price }} /-</td>
                                     <td> {{ $product->discount }}% OFF</td>
-                                    <td>{{ $product->size }}</td>
                                     <td>{{ $product->condition }}</td>
                                     <td> {{ ucfirst($product->brand?->title) }}</td>
                                     <td>
@@ -95,6 +82,7 @@
                                         @endif
                                     </td>
                                     <td>
+
                                         @if ($product->photo)
                                             @php
                                                 $photo = explode(',', $product->photo);
@@ -116,6 +104,7 @@
                                     </td>
 
                                     <td>
+                                         <a target="_blank" href="{{route('product.show',$product->id)}}" class="float-left mr-1 btn btn-warning btn-sm" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="view" data-placement="bottom"><i class="fas fa-eye"></i></a>
                                         @can('Edit Product')
                                             <a href="{{ route('product.edit', $product->id) }}"
                                                 class="float-left mr-1 btn btn-primary btn-sm"

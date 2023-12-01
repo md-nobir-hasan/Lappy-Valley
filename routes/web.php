@@ -16,15 +16,24 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductReviewController;
 use App\Http\Controllers\PostCommentController;
 use App\Http\Controllers\CouponController;
+use App\Http\Controllers\DisplaySizeController;
+use App\Http\Controllers\DisplayTypeController;
+use App\Http\Controllers\GraphicController;
+use App\Http\Controllers\hddController;
 use App\Http\Controllers\PayPalController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostCategoryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostTagController;
+use App\Http\Controllers\ProcessorGenerationController;
+use App\Http\Controllers\ProcessorModelController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\RamController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ShippingController;
+use App\Http\Controllers\SpecialFeatureController;
+use App\Http\Controllers\ssdController;
 use App\Http\Controllers\UsersController;
 use App\Livewire\AboutUs;
 use App\Livewire\Account;
@@ -180,6 +189,18 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'admin']], function
     Route::post('/profile/{id}', [AdminController::class, 'profileUpdate'])->name('profile-update');
     // Category
     Route::resource('/category', CategoryController::class);
+    //Product Attribute
+    Route::prefix('/product-attributes')->name('pa.')->group(function(){
+        Route::resource('/processor-model',ProcessorModelController::class);
+        Route::resource('/processor-generation',ProcessorGenerationController::class);
+        Route::resource('/display-size',DisplaySizeController::class);
+        Route::resource('/display-type',DisplayTypeController::class);
+        Route::resource('/ram',RamController::class);
+        Route::resource('/hdd',hddController::class);
+        Route::resource('/ssd',ssdController::class);
+        Route::resource('/graphic',GraphicController::class);
+        Route::resource('/special-feature',SpecialFeatureController::class);
+    });
     // Product
     Route::resource('/product', ProductController::class)->middleware(['can:Show Product']);
     // Ajax for sub category
@@ -257,7 +278,7 @@ Route::get('/search/{stext}/{cat?}', SearchingProduct::class)->name('searching_p
 Route::get('/product-details/{slug}', ProductDeatils::class)->name('product.details');
 Route::get('/checkout', Checkout::class)->name('checkout');
 Route::get('/view-cart', ViewCart::class)->name('vcart');
-Route::get('/search', Search::class)->name('search');
+// Route::get('/search', Search::class)->name('search');
 Route::get('/user/register', Signup::class)->name('user.register');
 Route::get('/user/login', Login::class)->name('user.login');
 Route::get('/user/forget-password', ForgetPassword::class)->name('user.fp');
