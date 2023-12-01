@@ -102,7 +102,6 @@
             Pre-Owned</h1>
         <div class='h-[2px] bg-[#764A8733]'></div>
     </div>
-
     <!-- Sidenav -->
     <div class="container mx-auto mt-4">
         <div class="flex gap-8" x-data="{
@@ -111,15 +110,16 @@
             pre_order: true,
             in_stock: true,
             upcomming: true,
-            productFetch() {
-                console.log(this.in_stock);
-                console.log(this.pre_order);
-                console.log(this.upcomming);
+            brands: '',
+            productFetch(){
+                console.log(4);
+                console.log(this.brands);
+                {{-- console.log(this.pre_order);
+                console.log(this.upcomming); --}}
             }
         }">
             <!-- ------------right---part--start--- -->
             <div class="w-[230px]">
-
 
                 <!-- ----price-range------ -->
                 <div class="wrapper flex flex-col shadow-[0_2px_4px_rgba(0,0,0,.1)] pb-[10px]">
@@ -149,14 +149,11 @@
                         {{-- <div class="separator">-</div> --}}
                         <div class="field">
                             {{-- <span>Max</span> --}}
-                            <input x-model='maxPrice' type="number" @change='productFetch' wire:model.live='maxPrice'
-                                class="input-max" step="1" :value="maxPrice">
+                            <input x-model='maxPrice' type="number" @change='productFetch' class="input-max"
+                                step="1" :value="maxPrice">
                         </div>
                     </div>
                 </div>
-
-
-
 
                 <!-- ---------------nav-1st--part (Availability)--------------- -->
                 <div x-data="{ open: true, toggle() { this.open = !this.open } }"
@@ -171,23 +168,25 @@
                     </div>
                     <div x-show="open" class='p-[12px]'>
                         <label class='block' for="#">
-                            <input id="in_stock" x-model='in_stock' @change='productFetch' class='border-[2px] border-[#764A87]'
-                                type="checkbox" name='status'>
-                            <label for="in_stock" class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>In Stock</label>
+                            <input id="in_stock" x-model='in_stock' @change='productFetch'
+                                class='border-[2px] border-[#764A87]' type="checkbox" name='status'>
+                            <label for="in_stock" class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>In
+                                Stock</label>
                         </label>
                         <label class='block' for="#">
-                            <input id="pre_order" x-model='pre_order' @change='productFetch' class='border-[2px] border-[#764A87]'
-                                type="checkbox" name='status' >
-                            <label for='pre_order' class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>Pre Order</label>
+                            <input id="pre_order" x-model='pre_order' @change='productFetch'
+                                class='border-[2px] border-[#764A87]' type="checkbox" name='status'>
+                            <label for='pre_order' class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>Pre
+                                Order</label>
                         </label>
                         <label class='block' for="#">
-                            <input id="upcomming" x-model='upcomming' @change='productFetch' class='border-[2px] border-[#764A87]'
-                                type="checkbox" name='status'>
-                            <label for="upcomming" class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>Up Coming</label>
+                            <input id="upcomming" x-model='upcomming' @change='productFetch'
+                                class='border-[2px] border-[#764A87]' type="checkbox" name='status'>
+                            <label for="upcomming" class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>Up
+                                Coming</label>
                         </label>
                     </div>
                 </div>
-
 
                 <!-- --------------------------nav----2nd---part (Brands)--------------- -->
                 <div x-data="{ open: true, toggle() { this.open = !this.open } }" class='bg-[#F2F2F2] shadow-[0_2px_4px_rgba(0,0,0,.1)] rounded-[10px] mt-3'>
@@ -200,36 +199,17 @@
                     <div class="h-[1px] bg-[#380D3733] w-full">
                     </div>
                     <div x-show="open" class='p-[12px]'>
-                        <label class='block' for="#">
-                            <input class='border-[2px] border-[#764A87]' type="checkbox" name='status'
-                                valu='7'>
-                            <span class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>Asus</span>
-                        </label>
-                        <label class='block' for="#">
-                            <input class='border-[2px] border-[#764A87]' class='' type="checkbox"
-                                name='status' valu='7'>
-                            <span class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>HP</span>
-                        </label>
-                        <label class='block' for="#">
-                            <input class='border-[2px] border-[#764A87]' type="checkbox" name='status'
-                                valu='7'>
-                            <span class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>DELL</span>
-                        </label>
-                        <label class='block' for="#">
-                            <input class='border-[2px] border-[#764A87]' type="checkbox" name='status'
-                                valu='7'>
-                            <span class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>Lenovo</span>
-                        </label>
-                        <label class='block' for="#">
-                            <input class='border-[2px] border-[#764A87]' type="checkbox" name='status'
-                                valu='7'>
-                            <span class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>Acer</span>
-                        </label>
-                        <label class='block' for="#">
-                            <input class='border-[2px] border-[#764A87]' type="checkbox" name='status'
-                                valu='7'>
-                            <span class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>Apple</span>
-                        </label>
+                        @foreach ($brands as $brand)
+                            <span class='block'>
+                                <input id="brand{{ $brand->id }}" value="{{ $brand->id }}"
+                                    class='border-[2px] border-[#764A87]' type="checkbox" x-model='brands'
+                                    @change='productFetch'>
+                                <label for="brand{{ $brand->id }}"
+                                    class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>{{ $brand->title }}
+
+                                </label>
+                            </span>
+                        @endforeach
                     </div>
                 </div>
                 <!-- ------------------nav-3rd--part-------------- -->

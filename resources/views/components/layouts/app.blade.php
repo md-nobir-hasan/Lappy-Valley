@@ -15,7 +15,6 @@
     {{ $styles ?? '' }}
     <link rel="stylesheet" href="/dist/output.css">
     <link rel="icon" href="/storage/product/Logo.svg" type="img/svg">
-
 </head>
 
 <body>
@@ -211,7 +210,6 @@
             //                         {{-- (new Intl.NumberFormat('BD',{style:'currency',currency:'BDT'})).format(245390) --}}
         }
     </script>
-    {{-- <script type="text/javascript" src="/dist/tailwind-umd.min.js"></script> --}}
     {{ $script ?? '' }}
 
 </body>
