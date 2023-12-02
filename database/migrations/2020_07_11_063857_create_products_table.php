@@ -30,6 +30,8 @@ class CreateProductsTable extends Migration
             $table->longText('description')->nullable();
             $table->text('photo');
             $table->string('model');
+            $table->unsignedBigInteger('real_price');
+            $table->integer('average_rating')->default(5);
             $table->timestamp('upcomming')->nullable();
             $table->integer('stock')->nullable()->default(1);
             $table->unsignedBigInteger('views')->nullable();

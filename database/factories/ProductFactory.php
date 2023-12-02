@@ -29,6 +29,8 @@ class ProductFactory extends Factory
             'status' => 'active',
             'is_featured' => false,
             'price' => rand(12000,500000),
+            'real_price' => rand(12000,400000),
+            'average_rating' => rand(1,5),
             'discount' => rand(0,60),
             'processor_generation_id' => rand(1,14),
             'processor_model_id' => rand(1,15),
