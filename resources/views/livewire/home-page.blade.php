@@ -271,10 +271,12 @@
     </section>
 
     <div>
+        <a href="{{route('shop')}}">
         <button
             class=" items-center justify-center flex my-[60px] mx-auto text-[16px] text-[#F2F4F8] w-[116px] h-[44px] rounded-[4px] bg-gradient-to-r from-[#380D37] to-[#DC275C]">
-            <a href="">See More</a>
+            See More
         </button>
+        </a>
         <div class="container h-[2px] bg-[#380D37]"></div>
     </div>
 
