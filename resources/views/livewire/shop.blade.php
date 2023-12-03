@@ -106,9 +106,9 @@
 
     <!-- Sidenav -->
     <div class="container mx-auto mt-4">
-
+        <span x-text="console.log($wire.products)"></span>
         <div class="flex gap-8" x-data="{
-            products: '$wire.productsd',
+            products: $wire.products,
             minPrice: 0,
             maxPrice: 500000,
             pre_order: '',
@@ -125,6 +125,7 @@
             graphics: [],
             s_features: [],
             sorting: '',
+            ajaxProduct: false ,
             productFetch() {
 
                 $.ajax({
@@ -151,6 +152,7 @@
                     success: (res) => {
                         console.log(res);
                         this.products = res.product;
+                        this.ajaxProduct = true;
                     }
                 })
             }
@@ -569,9 +571,9 @@
 
                 {{-- <livewire:menu-nav /> --}}
                 <!-- ------cart--group----1st--part--- -->
-                <div class='grid grid-cols-4 gap-8 mx-auto mt-4' id="product_pdiv" >
+                <div x-show="ajaxProduct" class='grid grid-cols-4 gap-8 mx-auto mt-4' id="product_pdiv" >
                     {{-- @foreach ($products as $product) --}}
-                    <template x-for="product in products" id="product">
+                    <template  x-for="product in products" id="product">
                         {{-- <li x-text="i"></li> --}}
                         <div
                             class="relative overflow-hidden border-[1px] border-[#380D37] rounded-[4px] box-border px-[5px] mt-2 flex flex-col bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] ">
@@ -586,7 +588,9 @@
                                 @endphp
                                 <img src="{{ $photo[0] }}" class="object-center" alt="{{ $product->photo }}">
                             @else --}}
-                            <img src="{{ asset('backend/img/thumbnail-default.jpg') }}"
+                            {{-- <script>console.log(product.photo)</script> --}}
+                        <span x-text="console.log(product.photo)"></span>
+                            <img src=""
                                 class="rounded-t-lg img-fluid " data-te-ripple-init data-te-ripple-color="dark"
                                 alt="avatar.png">
                             {{-- @endif --}}
