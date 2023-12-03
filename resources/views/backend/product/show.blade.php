@@ -35,6 +35,7 @@
                             <th>Quantity</th>
                             <th>Price</th>
                             <th>Discount</th>
+                            <th>Final Price</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
@@ -45,6 +46,7 @@
                             <td>{{ $product->stock }}</td>
                             <td>৳{{ number_format($product->price, 2) }}</td>
                             <td>{{ $product->discount }}%</td>
+                            <td>৳{{ $product->final_price }}</td>
                             <td>
                                 @if ($product->status == 'active')
                                     <span class="badge badge-success">{{ $product->status }}</span>

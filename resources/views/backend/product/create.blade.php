@@ -115,6 +115,15 @@
                     @enderror
                 </div>
 
+                <div class="form-group" id="final_price_div">
+                    <label for="final_price" class="col-form-label">Final Price(tk)</label>
+                    <input id="final_price" type="number" name="final_price" min="0" max="500000"
+                        placeholder="Enter Final Price" value="{{ old('final_price') }}" class="form-control">
+                    @error('final_price')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+
                 <div class="form-group">
                     <label for="processor_generation_id">Prosessor Generation </label>
                     <select name="processor_generation_id" class="form-control" id="processor_generation_id">
@@ -236,17 +245,6 @@
                 </div>
 
 
-                {{-- <div class="form-group">
-                    <label for="size">Size</label>
-                    <select name="size[]" class="form-control selectpicker" multiple data-live-search="true">
-                        <option value="">--Select any size--</option>
-                        <option value="S">Small (S)</option>
-                        <option value="M">Medium (M)</option>
-                        <option value="L">Large (L)</option>
-                        <option value="XL">Extra Large (XL)</option>
-                    </select>
-                </div> --}}
-
                 <div class="form-group">
                     <label for="brand_id">Brand</label>
                     {{-- {{$brands}} --}}
@@ -259,16 +257,6 @@
                         @endforeach
                     </select>
                 </div>
-
-                {{-- <div class="form-group">
-                    <label for="condition">Condition</label>
-                    <select name="condition" class="form-control">
-                        <option value="">--Select Condition--</option>
-                        <option value="default" >Default</option>
-                        <option value="new">New</option>
-                        <option value="hot">Hot</option>
-                    </select>
-                </div> --}}
 
                 <div class="form-group">
                     <label for="stock">Quantity <span class="text-danger">*</span></label>
@@ -350,6 +338,19 @@
                 //  show = true;
 
             });
+
+            $('#final_price_div').hide();
+            $('#price,#discount').on('keyup',function(){
+                // let price = Number(this.val);
+                let price = Number($('#price').val() ?? 0);
+                let discount = Number($('#discount').val() ?? 0);
+                let final_price = price-Math.round(price*discount/100);
+                console.log(price,discount,final_price);
+
+                $('#final_price').val(final_price);
+                $('#final_price_div').show();
+            });
+
         });
 
 

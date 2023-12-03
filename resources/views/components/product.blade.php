@@ -22,7 +22,7 @@
             <div class="py-[12px] flex justify-between px-2">
                 <a href="#" class="font-[jost] text-[14px] font-[600] leading-[20px] text-left text-[#DC275C]">
                     <span class="pprice"
-                        value='{{ $product->price }}'>{{ number_format($product->price - ($product->price * $product->discount) / 100) }}</span>
+                        value='{{ $product->final_price }}'>{{ number_format($product->final_price) }}</span>
                     TK</a>
                 {{-- @auth --}}
                 <livewire:add-to-cart :id="$product->id"

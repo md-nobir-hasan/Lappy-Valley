@@ -49,7 +49,7 @@ class AjaxController extends Controller
             }
             $cart->ip = request()->ip();
             $cart->product_id = $product->id;
-            $cart->price = ($product->price - (($product->price * $product->discount) / 100));
+            $cart->price = $product->final_price;
             $cart->quantity = 1;
             $cart->amount = $cart->price;
             if ($product->stock != null) {
@@ -127,10 +127,10 @@ class AjaxController extends Controller
                 $product = Product::whereBetween('price', [$req->minPrice, $req->maxPrice])->latest()->get();
                 break;
             case 'lth': //low to high price
-                $product = Product::whereBetween('price', [$req->minPrice, $req->maxPrice])->orderBy('real_price', 'asc')->get();
+                $product = Product::whereBetween('price', [$req->minPrice, $req->maxPrice])->orderBy('final_price', 'asc')->get();
                 break;
             case 'htl':// high to low price
-                $product = Product::whereBetween('price', [$req->minPrice, $req->maxPrice])->orderBy('real_price', 'desc')->get();
+                $product = Product::whereBetween('price', [$req->minPrice, $req->maxPrice])->orderBy('final_price', 'desc')->get();
                 break;
            }
         }else{
