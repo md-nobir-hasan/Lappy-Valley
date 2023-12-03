@@ -126,6 +126,7 @@
             s_features: [],
             sorting: '',
             productFetch() {
+
                 $.ajax({
                     type: 'get',
                     url: '{{ route('shop.shorting') }}',
@@ -148,6 +149,7 @@
                         sorting: this.sorting,
                     },
                     success: (res) => {
+                        console.log(res);
                         this.products = res.product;
                     }
                 })
@@ -662,15 +664,6 @@
             $('#product_pdiv').addClass('grid-cols-4 gap-8');
         })
 
-        $('#product').pagination({
-            dataSource: [1, 2, 3, 4, 5, 6, 7, ..., 195],
-            pageSize: 5,
-            showSizeChanger: true,
-            callback: function(data, pagination) {
-                // template method of yourself
-                var html = template(data);
-                dataContainer.html(html);
-            }
-        })
+
     </script>
 </div>
