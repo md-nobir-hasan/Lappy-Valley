@@ -21,10 +21,10 @@ use Livewire\Attributes\Title;
 #[Title('Shop')]
 class Shop extends Component
 {
-    public $products;
+    public $prds;
 
     public function mount(){
-        $this->products = Product::where('status', 'active')->get();
+        $this->prds = Product::where('status', 'active')->get();
     }
     public function render()
     {

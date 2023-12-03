@@ -106,9 +106,8 @@
 
     <!-- Sidenav -->
     <div class="container mx-auto mt-4">
-        <span x-text="console.log($wire.products)"></span>
         <div class="flex gap-8" x-data="{
-            products: $wire.products,
+            products: $wire.prds,
             minPrice: 0,
             maxPrice: 500000,
             pre_order: '',
@@ -125,7 +124,8 @@
             graphics: [],
             s_features: [],
             sorting: '',
-            ajaxProduct: false ,
+            ajaxProduct: false,
+            productShow: true,
             productFetch() {
 
                 $.ajax({
@@ -150,8 +150,8 @@
                         sorting: this.sorting,
                     },
                     success: (res) => {
-                        console.log(res);
                         this.products = res.product;
+                        this.productShow = false;
                         this.ajaxProduct = true;
                     }
                 })
@@ -569,40 +569,12 @@
                     </div>
                 </nav>
 
-                {{-- <livewire:menu-nav /> --}}
-                <!-- ------cart--group----1st--part--- -->
-                <div x-show="ajaxProduct" class='grid grid-cols-4 gap-8 mx-auto mt-4' id="product_pdiv" >
-                    {{-- @foreach ($products as $product) --}}
-                    <template  x-for="product in products" id="product">
-                        {{-- <li x-text="i"></li> --}}
-                        <div
-                            class="relative overflow-hidden border-[1px] border-[#380D37] rounded-[4px] box-border px-[5px] mt-2 flex flex-col bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] ">
-                            {{-- <a href="#"> --}}
-                            {{-- <img class="object-center"
-                                src="{{$product->photo}}"
-                                alt="{{$product->title}}"> --}}
-                            {{-- @if ($product->photo)
-                                @php
-                                    $photo = explode(',', $product->photo);
-                                    // dd($photo);
-                                @endphp
-                                <img src="{{ $photo[0] }}" class="object-center" alt="{{ $product->photo }}">
-                            @else --}}
-                            {{-- <script>console.log(product.photo)</script> --}}
-                        <span x-text="console.log(product.photo)"></span>
-                            <img src=""
-                                class="rounded-t-lg img-fluid " data-te-ripple-init data-te-ripple-color="dark"
-                                alt="avatar.png">
-                            {{-- @endif --}}
-                            {{-- </a> --}}
-                            <div class="p-6 border-t-[2px] border-b-[2px]  border-[#380D3733]">
-                                <div class=' border-[#380D3733] mb-2'>
-                                    <h1 class="font-[jost] text-[12px] font-[600] leading-[20px] text-left text-[#380D37]"
-                                        x-text='product.title'>
-
-                                    </h1>
-                                </div>
-                                <div class='mb-4'>
+                {{-- product show after reload  --}}
+                <div x-show='productShow'>
+                    <div class='grid grid-cols-4 gap-8 mt-4'>
+                        @foreach ($products as $product)
+                            <x-shop-product :product="$product">
+                                <div class='mt-2'>
                                     <ul class='text-[#353535] list-decimal px-4 text-[10px] leading-[20px]'>
                                         <li>Processor: AMD Ryzen 5 7520U (2.8 GHz up to 4.3 GHz)</li>
                                         <li>RAM: 8GB DDR5 5500MHz, Storage: 256GB SSD</li>
@@ -610,51 +582,83 @@
                                         <li>Features: Type-C</li>
                                     </ul>
                                 </div>
-                            </div>
+                            </x-shop-product>
+                        @endforeach
+                    </div>
+                    <div class="mt-8">
+                        {{ $products->links('vendor.pagination.tailwind') }}
+                    </div>
+                </div>
 
-                            <div class="px-6 py-6 mt-auto text-center">
-                                <div>
-                                    <a href="#"
-                                        class="font-[jost] text-[12px] font-[700] leading-[24px] text-[#DC275C] block">
-                                        <span x-text='product.price'></span>
-                                        <span class="ml-[5px] text-[12px] font-[jost] font-[700]">TAKA</span>
-                                    </a>
-                                </div>
-                                <div class="my-3 text-center">
+                {{-- Ajax product show  --}}
+                <template x-if="products">
+                    <div>
+                        <div x-show="ajaxProduct" class='grid grid-cols-4 gap-8 mx-auto mt-4' id="product_pdiv">
+                            {{-- x-if="Object.keys(products).length > 0" --}}
+                            <template x-for="product in products" id="product">
+                                <div
+                                    class="relative overflow-hidden border-[1px] border-[#380D37] rounded-[4px] box-border px-[5px] mt-2 flex flex-col bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] ">
 
-                                    <a href="{{ route('product.details', 'kdfj') }}" class="">
-                                        <button
-                                            class='bg-[#380D37] text-[#F2F2F2] text-[10px] font-[jost] font-[500] py-[8px] px-[60px] rounded-[5px]'>Buy
-                                            Now
-                                        </button></a>
+                                    <img :src="product.photo.split(',')[0]" class="rounded-t-lg img-fluid "
+                                        data-te-ripple-init data-te-ripple-color="dark" alt="avatar.png">
+
+                                    <div class="p-6 border-t-[2px] border-b-[2px]  border-[#380D3733]">
+                                        <div class=' border-[#380D3733] mb-2'>
+                                            <h1 class="font-[jost] text-[12px] font-[600] leading-[20px] text-left text-[#380D37]"
+                                                x-text='product.title'>
+
+                                            </h1>
+                                        </div>
+                                        <div class='mb-4'>
+                                            <ul class='text-[#353535] list-decimal px-4 text-[10px] leading-[20px]'>
+                                                <li>Processor: AMD Ryzen 5 7520U (2.8 GHz up to 4.3 GHz)</li>
+                                                <li>RAM: 8GB DDR5 5500MHz, Storage: 256GB SSD</li>
+                                                <li>Display: 15.6" FHD (1920X1080)</li>
+                                                <li>Features: Type-C</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="px-6 py-6 mt-auto text-center">
+                                        <div>
+                                            <a href="#"
+                                                class="font-[jost] text-[12px] font-[700] leading-[24px] text-[#DC275C] block">
+                                                <span x-text='product.price'></span>
+                                                <span class="ml-[5px] text-[12px] font-[jost] font-[700]">TAKA</span>
+                                            </a>
+                                        </div>
+                                        <div class="my-3 text-center">
+
+                                            <a href="{{ route('product.details', 'kdfj') }}" class="">
+                                                <button
+                                                    class='bg-[#380D37] text-[#F2F2F2] text-[10px] font-[jost] font-[500] py-[8px] px-[60px] rounded-[5px]'>Buy
+                                                    Now
+                                                </button></a>
+                                        </div>
+                                        <div>
+                                            <a href="">
+                                                <p
+                                                    class="font-[jost] text-[10px] text-[#380D37] font-[500] leading-[20px]">
+                                                    Add
+                                                    to Cart</p>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div>
-                                    <a href="">
-                                        <p class="font-[jost] text-[10px] text-[#380D37] font-[500] leading-[20px]">Add
-                                            to Cart</p>
-                                    </a>
-                                </div>
-                                {{-- <livewire:add-to-cart :id="$product->id"
-                            button=' <p class="font-[jost] text-[10px] font-[600] leading-[30px]">Add to Cart</p>' /> --}}
-                            </div>
+                            </template>
                         </div>
 
-                        {{-- <x-shop-product :product="product">
-                            <div class='mt-2'>
-                                <ul class='text-[#353535] list-decimal px-4 text-[10px] leading-[20px]'>
-                                    <li>Processor: AMD Ryzen 5 7520U (2.8 GHz up to 4.3 GHz)</li>
-                                    <li>RAM: 8GB DDR5 5500MHz, Storage: 256GB SSD</li>
-                                    <li>Display: 15.6" FHD (1920X1080)</li>
-                                    <li>Features: Type-C</li>
-                                </ul>
+                        <template x-if="Object.keys(products).length === 0">
+                            <div class="text-center ">
+                                <p class="font-[jost] text-[16px] text-[#380D37] font-[500] leading-[24px]">
+                                    No products available.
+                                </p>
                             </div>
-                        </x-shop-product> --}}
-                    </template>
-                    {{-- @endforeach --}}
-                </div>
-                <div class="mt-8">
-                    {{-- {{ $products->links('vendor.pagination.tailwind') }} --}}
-                </div>
+                        </template>
+                    </div>
+
+                </template>
+
             </div>
         </div>
     </div>
@@ -667,7 +671,5 @@
             $('#product_pdiv').removeClass('grid-cols-1  max-w-2xl');
             $('#product_pdiv').addClass('grid-cols-4 gap-8');
         })
-
-
     </script>
 </div>
