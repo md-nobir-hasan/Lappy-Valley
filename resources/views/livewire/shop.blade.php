@@ -571,7 +571,7 @@
 
                 {{-- product show after reload  --}}
                 <div x-show='productShow'>
-                    <div class='grid grid-cols-4 gap-8 mt-4'>
+                    <div class='product_pdiv grid grid-cols-4 gap-8 mt-4 mx-auto'>
                         @foreach ($products as $product)
                             <x-shop-product :product="$product">
                                 <div class='mt-2'>
@@ -593,7 +593,7 @@
                 {{-- Ajax product show  --}}
                 <template x-if="products">
                     <div>
-                        <div x-show="ajaxProduct" class='grid grid-cols-4 gap-8 mx-auto mt-4' id="product_pdiv">
+                        <div x-show="ajaxProduct" class='product_pdiv grid grid-cols-4 gap-8 mx-auto mt-4' id="product_pdiv">
                             {{-- x-if="Object.keys(products).length > 0" --}}
                             <template x-for="product in products" id="product">
                                 <div
@@ -664,12 +664,12 @@
     </div>
     <script>
         $('#column').on('click', function() {
-            $('#product_pdiv').removeClass('grid-cols-4 gap-8');
-            $('#product_pdiv').addClass('grid-cols-1  max-w-2xl');
+            $('.product_pdiv').removeClass('grid-cols-4 gap-8');
+            $('.product_pdiv').addClass('grid-cols-1  max-w-2xl');
         })
         $('#grid').on('click', function() {
-            $('#product_pdiv').removeClass('grid-cols-1  max-w-2xl');
-            $('#product_pdiv').addClass('grid-cols-4 gap-8');
+            $('.product_pdiv').removeClass('grid-cols-1  max-w-2xl');
+            $('.product_pdiv').addClass('grid-cols-4 gap-8');
         })
     </script>
 </div>
