@@ -1,19 +1,25 @@
  <div
      class="relative overflow-hidden border-[1px] border-[#380D37] rounded-[4px] box-border px-[5px] mt-2 flex flex-col bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] ">
      {{-- <a href="#"> --}}
-         {{-- <img class="object-center"
+     {{-- <img class="object-center"
          src="{{$product->photo}}"
          alt="{{$product->title}}"> --}}
-         @if ($product->photo)
-             @php
-                 $photo = explode(',', $product->photo);
-                 // dd($photo);
-             @endphp
-             <img src="{{ $photo[0] }}" class="object-center" alt="{{ $product->photo }}">
-         @else
+     @if ($product->photo)
+         @php
+             $photo = explode(',', $product->photo)[0];
+             // dd($photo);
+         @endphp
+     @else
+         @php
+             $photo = '/backend/img/thumbnail-default.jpg';
+             // dd($photo);
+         @endphp
+     @endif
+     <img src="{{ $photo }}" class="object-center" alt="{{ $product->title }}">
+     {{-- @else
              <img src="{{ asset('backend/img/thumbnail-default.jpg') }}" class="rounded-t-lg img-fluid "
                  data-te-ripple-init data-te-ripple-color="dark" alt="avatar.png">
-         @endif
+         @endif --}}
      {{-- </a> --}}
      <div class="p-6 border-t-[2px] border-b-[2px]  border-[#380D3733]">
          <div class=' border-[#380D3733] mb-2'>
@@ -34,19 +40,22 @@
      <div class="px-6 py-6 mt-auto text-center">
          <div>
              <a href="#" class="font-[jost] text-[12px] font-[700] leading-[24px] text-[#DC275C] block">
-                 {{ number_format($product->price) }}<span class="ml-[5px] text-[12px] font-[jost] font-[700]">TAKA</span>
+                 {{ number_format($product->final_price) }}<span
+                     class="ml-[5px] text-[12px] font-[jost] font-[700]">TAKA</span>
              </a>
          </div>
          <div class="my-3 text-center">
 
              <a href="{{ route('product.details', [$product->slug]) }}" class="">
-                 <button class='bg-[#380D37] text-[#F2F2F2] text-[10px] font-[jost] font-[500] py-[8px] px-[60px] rounded-[5px]'>Buy Now
+                 <button
+                     class='bg-[#380D37] text-[#F2F2F2] text-[10px] font-[jost] font-[500] py-[8px] px-[60px] rounded-[5px]'>Buy
+                     Now
                  </button></a>
          </div>
          <div>
-             <a href="">
-                 <p class="font-[jost] text-[10px] text-[#380D37] font-[500] leading-[20px]">Add to Cart</p>
-             </a>
+             <livewire:add-to-cart :id="$product->id"
+                 button='<p  class="font-[jost] text-[10px] text-[#380D37] font-[500] leading-[20px]">Add to Cart</p>' />
+
          </div>
          {{-- <livewire:add-to-cart :id="$product->id"
              button=' <p class="font-[jost] text-[10px] font-[600] leading-[30px]">Add to Cart</p>' /> --}}

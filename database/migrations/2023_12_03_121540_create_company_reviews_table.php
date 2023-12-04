@@ -1,5 +1,6 @@
 <?php
 
+use App\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -11,11 +12,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('display_sizes', function (Blueprint $table) {
+        Schema::create('company_reviews', function (Blueprint $table) {
             $table->id();
-            $table->float('size')->nullable();
-            // $table->float('to')->nullable();
-            $table->softDeletes();
+            $table->string('name');
+            $table->string('email');
+            $table->string('subject')->nullable();
+            $table->longText('msg');
+            $table->foreignIdFor(User::class)->nullable()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }
@@ -25,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('display_sizes');
+        Schema::dropIfExists('company_reviews');
     }
 };

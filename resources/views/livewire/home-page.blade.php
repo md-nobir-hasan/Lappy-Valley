@@ -84,8 +84,6 @@
         }
     </style>
 
-
-
     <form method="POST" action="{{ route('logout') }}" class="hidden">
         @csrf
         <button class="p4 bg-[red] rounded">Logout</button>
@@ -212,11 +210,7 @@
                 class="w-[241px] h-[48px] items-center text-center rounded-[4px] bg-[#F2F2F2] text-[#380D37] focus:bg-[#380D37] focus:text-white font-[500] text-[20px] font-[jost]">Asian</button>
             <div class="container h-[2px] bg-[#380D37]"></div>
         </div>
-
-
-
         <div class=" ">
-
             <div class="swiper-container overflow-hidden  mx-auto mySwiper relative">
                 <div class="swiper-wrapper gap-[5px] py-[20px]">
                     <div class="swiper-slide">
@@ -449,10 +443,12 @@
     </section>
 
     <div>
+        <a href="{{route('shop')}}">
         <button
             class=" items-center justify-center flex my-[60px] mx-auto text-[16px] text-[#F2F4F8] w-[116px] h-[44px] rounded-[4px] bg-gradient-to-r from-[#380D37] to-[#DC275C]">
-            <a href="">See More</a>
+            See More
         </button>
+        </a>
         <div class="container h-[2px] bg-[#380D37]"></div>
     </div>
 
@@ -1193,29 +1189,55 @@
                         experience with us.</br> Drop a comment and we will look into it.</p>
                 </div>
             </div>
-            <form>
+            <form wire:submit="post">
+
                 <div class="grid grid-cols-2 gap-2">
-                    <input
+                    <input wire:model="name"
                         class=" h-[64px] rounded-[4px] bg-[#F2F2F2] font-[jost] text-[16px] italic font-[500] leading-[23px] text-left shadow-[2px_2px_5px_2px_#0000001A] py-[8px] px-[16px]"
                         id="name" type="text" placeholder="Name*">
-                    <input
+                        @error('name')
+                        <span class="text-[red] text-[12px]">{{ $message }}</span>
+                    @enderror
+                    <input wire:model="email"
                         class=" h-[64px] rounded-[4px] bg-[#F2F2F2] font-[jost] text-[16px] italic font-[500] leading-[23px]  py-[8px] px-[16px]"
                         id="email" type="email" placeholder="Email*">
+                         @error('email')
+                            <span class="text-[red] text-[12px]">{{ $message }}</span>
+                        @enderror
                 </div>
                 <div>
-                    <input
+                    <input wire:model="subject"
                         class=" h-[64px] rounded-[4px] w-full py-2 px-3 bg-[#F2F2F2] font-[jost] text-[16px] mt-[20px] mb-[20px] italic font-[500] "
                         id="subject" type="text" placeholder="Subject(optional)">
+                         @error('subject')
+                            <span class="text-[red] text-[12px]">{{ $message }}</span>
+                        @enderror
                 </div>
                 <div>
-                    <textarea
+                    <textarea wire:model='msg'
                         class="h-[271px] rounded-[4px] w-full py-2 pb-32 px-3 bg-[#F2F2F2] font-[jost] text-[16px]  italic font-[500] "
                         id="message" rows="4" placeholder=" Message"></textarea>
+                         @error('msg')
+                            <span class="text-[red] text-[12px]">{{ $message }}</span>
+                        @enderror
                 </div>
                 <div class="items-center">
+                    @if ($post_success_msg)
+                        <span class="block text-[green]">{{$post_success_msg}}</span>
+                    @endif
+                    @if ($post_error_msg)
+                        <span class="block text-[red]">{{$post_error_msg}}</span>
+                    @endif
                     <button
-                        class="text-[#F2F2F2] text-[16px] h-[44px] w-[116px] rounded-[4px] font-[500] font-[jost] mt-[15px] pt-[5px] pr-[30px] pl-[30px] pb-[5px] bg-gradient-to-r from-[#380D37] to-[#DC275C] "
+                        class="text-[#F2F2F2] relative text-[16px] h-[44px] w-[116px] rounded-[4px] font-[500] font-[jost] mt-[15px] pt-[5px] pr-[30px] pl-[30px] pb-[5px] bg-gradient-to-r from-[#380D37] to-[#DC275C] "
                         type="submit">Post
+                        <div wire:loading
+                            class="absolute right-0 inline-block h-6 w-6 mr-2 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-success motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                            role="status">
+                            <span
+                                class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...
+                            </span>
+                        </div>
                     </button>
                 </div>
             </form>

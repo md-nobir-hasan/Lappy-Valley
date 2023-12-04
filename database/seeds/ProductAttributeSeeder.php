@@ -51,12 +51,12 @@ class ProductAttributeSeeder extends Seeder
         DB::table('processor_models')->insert($processer_model);
 
         $display_size = [
-            ['from' => 13,'to'=>null],
-            ['from' => 13,'to'=>13.9],
-            ['from' => 14,'to'=>14.9],
-            ['from' => 15,'to'=>15.9],
-            ['from' => 16,'to'=>16.9],
-            ['from' => 17,'to'=>17.9],
+            ['size' => 13],
+            ['size' => 13],
+            ['size' => 14],
+            ['size' => 15],
+            ['size' => 16],
+            ['size' => 17],
         ];
         DB::table('display_sizes')->insert($display_size);
 
@@ -67,11 +67,11 @@ class ProductAttributeSeeder extends Seeder
         DB::table('display_types')->insert($display_type);
 
         $ram = [
-            ['name' => '4 GB'],
-            ['name' => '8 GB'],
-            ['name' => '16 GB'],
-            ['name' => '32 GB'],
-            ['name' => '64 GB'],
+            ['ram' => '4','type'=>'DDR5','bus_speed'=>5500,],
+            ['ram' => '8','type'=>'DDR5','bus_speed'=>5500,],
+            ['ram' => '16','type'=>'DDR5','bus_speed'=>5500,],
+            ['ram' => '32','type'=>'DDR5','bus_speed'=>5500,],
+            ['ram' => '64','type'=>'DDR5','bus_speed'=>5500,],
         ];
         DB::table('rams')->insert($ram);
 

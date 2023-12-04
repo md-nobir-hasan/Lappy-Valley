@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('rams', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->integer('ram');
+            $table->string('type');
+            $table->integer('bus_speed');
             $table->softDeletes();
             $table->timestamps();
         });

@@ -6,6 +6,7 @@ use App\Models\Cart;
 use App\Models\Product;
 use App\Models\Wishlist;
 use Exception;
+use Hamcrest\Type\IsBoolean;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -48,7 +49,7 @@ class AjaxController extends Controller
             }
             $cart->ip = request()->ip();
             $cart->product_id = $product->id;
-            $cart->price = ($product->price - (($product->price * $product->discount) / 100));
+            $cart->price = $product->final_price;
             $cart->quantity = 1;
             $cart->amount = $cart->price;
             if ($product->stock != null) {
@@ -60,15 +61,16 @@ class AjaxController extends Controller
             $fetch_cart = Cart::with('product')->find($cart->id);
             if (auth()->user()) {
                 $wishlist = Wishlist::where('user_id', auth()->user()->id)->where('cart_id', null)->update(['cart_id' => $cart->id]);
-            }else{
+            } else {
                 $wishlist = Wishlist::where('ip', request()->ip())->where('cart_id', null)->update(['cart_id' => $cart->id]);
             }
             return response()->json($fetch_cart);
         }
     }
 
-    public function plus(Request $req){
-       $cart = Cart::with('product')->find($req->id);
+    public function plus(Request $req)
+    {
+        $cart = Cart::with('product')->find($req->id);
         $qty = $cart->quantity + 1;
         $amount = $cart->price * $qty;
         if ($cart->product->stock != null) {
@@ -81,8 +83,10 @@ class AjaxController extends Controller
         ]);
         return response()->json($cart);
     }
-    public function minus(Request $req){
-       $cart = Cart::with('product')->find($req->id);
+
+    public function minus(Request $req)
+    {
+        $cart = Cart::with('product')->find($req->id);
         $qty = $cart->quantity - 1;
         $amount = $cart->price * $qty;
         if ($qty < 1) {
@@ -96,16 +100,84 @@ class AjaxController extends Controller
         return response()->json($cart);
     }
 
-    public function delete(Request $req){
-        $model = "App\\Models\\".$req->mt;
+    public function delete(Request $req)
+    {
+        $model = "App\\Models\\" . $req->mt;
         $delete = $model::find($req->id);
-        if($delete){
+        if ($delete) {
             $delete->delete();
             return response()->json($delete);
+        } else {
+            return response()->json(['msg' => 'Product Not found']);
+        }
+    }
+
+    public function shopSorting(Request $req)
+    {
+
+        if($srt =$req->sorting){
+           switch($srt){
+            case 'sbp': //short by popularity
+                $product = Product::whereBetween('price', [$req->minPrice, $req->maxPrice])->orderBy('views', 'desc')->get();
+                break;
+            case 'sbar': //sort by average rating
+                $product = Product::whereBetween('price', [$req->minPrice, $req->maxPrice])->orderBy('average_rating', 'desc')->get();
+                break;
+            case 'sbl': //sort by latest
+                $product = Product::whereBetween('price', [$req->minPrice, $req->maxPrice])->latest()->get();
+                break;
+            case 'lth': //low to high price
+                $product = Product::whereBetween('price', [$req->minPrice, $req->maxPrice])->orderBy('final_price', 'asc')->get();
+                break;
+            case 'htl':// high to low price
+                $product = Product::whereBetween('price', [$req->minPrice, $req->maxPrice])->orderBy('final_price', 'desc')->get();
+                break;
+           }
         }else{
-            return response()->json(['msg'=> 'Product Not found']);
+            $product = Product::whereBetween('price',[$req->minPrice,$req->maxPrice])->get();
         }
 
+         if($req->in_stock){
+            $product = $product->where('stock','>',0);
 
+        }
+
+        if($req->upcomming){
+            $product = $product->where('upcomming','!=',null);
+        }
+
+        if($req->brands){
+            $product = $product->whereIn('brand_id', $req->brands);
+        }
+        if($req->d_sizes){
+            $product = $product->whereIn('display_size_id', $req->d_sizes);
+        }
+        if($req->d_types){
+            $product = $product->whereIn('display_type_id', $req->d_types);
+        }
+        if($req->graphics){
+            $product = $product->whereIn('graphic_id', $req->graphics);
+        }
+        if($req->hdds){
+            $product = $product->whereIn('hdd_id', $req->hdds);
+        }
+        if($req->pgenerations){
+            $product = $product->whereIn('processor_generation_id', $req->pgenerations);
+        }
+        if($req->pmodels){
+            $product = $product->whereIn('processor_model_id', $req->pmodels);
+        }
+        if($req->rams){
+            $product = $product->whereIn('ram_id', $req->rams);
+        }
+        if($req->s_features){
+            $product = $product->whereIn('special_feature', $req->s_features);
+        }
+        if($req->ssds){
+            $product = $product->whereIn('ssd_id', $req->ssds);
+        }
+$n['product'] = $product;
+
+        return response()->json($n);
     }
 }

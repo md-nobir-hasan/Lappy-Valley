@@ -65,20 +65,7 @@ class CouponSeeder extends Seeder
                 'status' => 'active',
                 'is_parent' => 1,
             ],
-            // [
-            //     'title' => 'Business Laptop',
-            //     'slug' => Str::slug('Business Laptop'),
-            //     'serial' => rand(1, 11),
-            //     'status' => 'active',
-            //     'is_parent' => 1,
-            // ],
-            // [
-            //     'title' => 'Work Station',
-            //     'slug' => Str::slug('Work Station'),
-            //     'serial' => rand(1, 11),
-            //     'status' => 'active',
-            //     'is_parent' => 1,
-            // ],
+           
             [
                 'title' => 'Asian Variant',
                 'slug' => Str::slug('Asian Variant'),

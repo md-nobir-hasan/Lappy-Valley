@@ -38,6 +38,15 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="mpn" class="col-form-label">MPN <span class="text-danger">*</span></label>
+                    <input id="mpn" type="text" name="mpn" placeholder="Enter mpn"
+                        value="{{ old('mpn') }}" class="form-control">
+                    @error('mpn')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                <div class="form-group">
                     <label for="summary" class="col-form-label">Summary <span class="text-danger">*</span></label>
                     <textarea class="form-control" id="summary" name="summary">{{ old('summary') }}</textarea>
                     @error('summary')
@@ -115,6 +124,15 @@
                     @enderror
                 </div>
 
+                <div class="form-group" id="final_price_div">
+                    <label for="final_price" class="col-form-label">Final Price(tk)</label>
+                    <input id="final_price" type="number" name="final_price" min="0" max="500000"
+                        placeholder="Enter Final Price" value="{{ old('final_price') }}" class="form-control">
+                    @error('final_price')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+
                 <div class="form-group">
                     <label for="processor_generation_id">Prosessor Generation </label>
                     <select name="processor_generation_id" class="form-control" id="processor_generation_id">
@@ -142,6 +160,16 @@
                 </div>
 
                 <div class="form-group">
+                   <label for="display_size" class="col-form-label">Display Size(Inch)</label>
+                    <input id="display_size" type="text" name="display_size"
+                        placeholder='15.6" FHD (1920*1080)' value="{{ old('display_size') }}" class="form-control">
+                    @error('display_size')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+
+
+                <div class="form-group">
                     <label for="display_size_id">Display Size </label>
                     <select name="display_size_id" class="form-control" id="display_size_id">
                         <option value="" hidden>Choose....</option>
@@ -151,6 +179,15 @@
                         @endforeach
                     </select>
                     @error('display_size_id')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                <div class="form-group">
+                   <label for="c_speed" class="col-form-label">Processor Speed</label>
+                    <input id="c_speed" type="text" name="c_speed"
+                        placeholder="2.8 GHz upto 4.3 GHz" value="{{ old('c_speed') }}" class="form-control">
+                    @error('c_speed')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
@@ -236,17 +273,6 @@
                 </div>
 
 
-                {{-- <div class="form-group">
-                    <label for="size">Size</label>
-                    <select name="size[]" class="form-control selectpicker" multiple data-live-search="true">
-                        <option value="">--Select any size--</option>
-                        <option value="S">Small (S)</option>
-                        <option value="M">Medium (M)</option>
-                        <option value="L">Large (L)</option>
-                        <option value="XL">Extra Large (XL)</option>
-                    </select>
-                </div> --}}
-
                 <div class="form-group">
                     <label for="brand_id">Brand</label>
                     {{-- {{$brands}} --}}
@@ -259,16 +285,6 @@
                         @endforeach
                     </select>
                 </div>
-
-                {{-- <div class="form-group">
-                    <label for="condition">Condition</label>
-                    <select name="condition" class="form-control">
-                        <option value="">--Select Condition--</option>
-                        <option value="default" >Default</option>
-                        <option value="new">New</option>
-                        <option value="hot">Hot</option>
-                    </select>
-                </div> --}}
 
                 <div class="form-group">
                     <label for="stock">Quantity <span class="text-danger">*</span></label>
@@ -350,6 +366,19 @@
                 //  show = true;
 
             });
+
+            $('#final_price_div').hide();
+            $('#price,#discount').on('keyup',function(){
+                // let price = Number(this.val);
+                let price = Number($('#price').val() ?? 0);
+                let discount = Number($('#discount').val() ?? 0);
+                let final_price = price-Math.round(price*discount/100);
+                console.log(price,discount,final_price);
+
+                $('#final_price').val(final_price);
+                $('#final_price_div').show();
+            });
+
         });
 
 
