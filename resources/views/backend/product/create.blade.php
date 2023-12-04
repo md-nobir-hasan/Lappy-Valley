@@ -38,6 +38,15 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="mpn" class="col-form-label">MPN <span class="text-danger">*</span></label>
+                    <input id="mpn" type="text" name="mpn" placeholder="Enter mpn"
+                        value="{{ old('mpn') }}" class="form-control">
+                    @error('mpn')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                <div class="form-group">
                     <label for="summary" class="col-form-label">Summary <span class="text-danger">*</span></label>
                     <textarea class="form-control" id="summary" name="summary">{{ old('summary') }}</textarea>
                     @error('summary')
@@ -151,6 +160,16 @@
                 </div>
 
                 <div class="form-group">
+                   <label for="display_size" class="col-form-label">Display Size(Inch)</label>
+                    <input id="display_size" type="text" name="display_size"
+                        placeholder='15.6" FHD (1920*1080)' value="{{ old('display_size') }}" class="form-control">
+                    @error('display_size')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+
+
+                <div class="form-group">
                     <label for="display_size_id">Display Size </label>
                     <select name="display_size_id" class="form-control" id="display_size_id">
                         <option value="" hidden>Choose....</option>
@@ -160,6 +179,15 @@
                         @endforeach
                     </select>
                     @error('display_size_id')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                <div class="form-group">
+                   <label for="c_speed" class="col-form-label">Processor Speed</label>
+                    <input id="c_speed" type="text" name="c_speed"
+                        placeholder="2.8 GHz upto 4.3 GHz" value="{{ old('c_speed') }}" class="form-control">
+                    @error('c_speed')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>

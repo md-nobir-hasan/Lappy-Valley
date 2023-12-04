@@ -10,7 +10,37 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Product extends Model
 {
     use HasFactory;
-    protected $fillable=['title', 'model','slug','summary','description','cat_id','child_cat_id','price','brand_id','discount','status','photo','size','stock','is_featured','condition','processor_generation_id','processor_model_id','display_size_id','display_type_id','ram_id','ssd_id','hdd_id','graphic_id','special_feature', 'upcomming', 'final_price'];
+    protected $fillable=['slug', 'title', 'model', 'mpn', 'price', 'discount', 'final_price', 'summary','description', 'photo', 'stock', 'brand_id',
+        'cat_id','child_cat_id','upcomming','is_featured','status','special_feature','average_rating','views',
+        //processor Attributes
+        'processor_model_id','processor_generation_id','p_brand','c_speed','l1_cache', 'l2_cache','l3_cache','p_core','p_thread',
+        //Display attributes
+        'display_size_id','display_type_id','d_resolution', 'd_other_features','touch_screen',
+        //Memory Attributes (Ram)
+        'ram_id','m_slot','m_removal',
+        //Storage Attributes (SSD/HDD)
+        'ssd_id','hdd_id', 's_extra_m2_slot', 's_support_type','s_upgrade', 's_slot',
+        //Graphics Attributes
+        'g_model','graphic_id',
+        //Keyboard & Touchpad Attributes
+        'k_type','touchpad',
+        //Camera & Audio Attributes
+        'webcam','microphone','speaker',
+        //Port & Slots Attributes
+        'optical_drive','card_reader','hdmi_p', 'usb2_p','usb3_p','type_c_tb_p','headphone_p','microphone_p',
+        //Network & Connectivity Attributes
+        'wifi','bluetooth',
+        //Security Attributes
+        'finger_print',
+        //Software Attributes
+        'operating_system',
+        //Power Attributes
+        'battery_type','battery_capacity','adapter_type',
+        //Physical Specification Attributes
+        'color', 'dimension','weight',
+        //Warranty Attributes
+        'w_details',
+    ];
 
     public function cat_info(){
         return $this->hasOne('App\Models\Category','id','cat_id');

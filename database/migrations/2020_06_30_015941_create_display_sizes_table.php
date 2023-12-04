@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('display_sizes', function (Blueprint $table) {
             $table->id();
-            $table->float('from')->nullable();
-            $table->float('to')->nullable();
+            $table->float('size')->nullable();
+            // $table->float('to')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

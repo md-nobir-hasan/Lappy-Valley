@@ -320,7 +320,7 @@
                                     class='border-[2px] border-[#764A87]' type="checkbox" x-model='d_sizes'
                                     @change='productFetch'>
                                 <label for="d_size{{ $d_size->id }}"
-                                    class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>{{ $d_size->from . ' to ' . $d_size->to }}
+                                    class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>{{ $d_size->size - .4 . ' to ' . $d_size->size +.4 }}
                                     inch
                                 </label>
                             </span>
@@ -372,7 +372,7 @@
                                     class='border-[2px] border-[#764A87]' type="checkbox" x-model='rams'
                                     @change='productFetch'>
                                 <label for="ram{{ $ram->id }}"
-                                    class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>{{ $ram->name }}
+                                    class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>{{ $ram->ram }} GB
                                 </label>
                             </span>
                         @endforeach

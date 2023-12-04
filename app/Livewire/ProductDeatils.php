@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Product;
+use App\Models\ProductReview;
 use Livewire\Component;
 use Livewire\Attributes\Title;
 
@@ -12,14 +13,15 @@ class ProductDeatils extends Component
 {
     public $slug;
     public $product;
-    public $maxPrice;
-    public $minPrice;
 
     public function mount(){
-        $this->product = Product::where('slug',$this->slug)->first();
+        $this->product = Product::with('cat_info', 'sub_cat_info', 'brand', 'ProcessorGeneration', 'ProcessorModel', 'DisplayType', 'DisplaySize', 'Ram', 'ssd', 'hdd', 'Graphic', 'SpecialFeature')
+                            ->where('slug',$this->slug)->first();
     }
     public function render()
     {
-        return view('livewire.product-deatils');
+
+        $n['product_reviews'] = ProductReview::where('status', 'active')->get();
+        return view('livewire.product-deatils',$n);
     }
 }
