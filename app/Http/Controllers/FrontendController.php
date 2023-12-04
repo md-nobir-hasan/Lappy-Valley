@@ -19,6 +19,9 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 class FrontendController extends Controller
 {
+    public function demo(){
+        return view('frontend.demo');
+    }
 
     public function index(Request $request){
         return redirect()->route($request->user()->role);

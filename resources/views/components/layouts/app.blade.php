@@ -7,15 +7,14 @@
     <title>{{ $title ? $title . ' || ' : '' }} {{ ENV('APP_NAME') }}</title>
     {{-- <link rel="stylesheet" href="/frontend/css/fonts/jost-font/Jost-VariableFont_wght.ttf"> --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-{{-- <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,500;1,100&family=Noto+Sans+Bengali:wght@900&display=swap" rel="stylesheet"> --}}
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    {{-- <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,500;1,100&family=Noto+Sans+Bengali:wght@900&display=swap" rel="stylesheet"> --}}
     <link rel="stylesheet" href="/dist/toastr/toastr.css">
     <script type="text/javascript" src="/dist/toastr/tastr-helper.js"></script>
     <script type="text/javascript" src="/dist/toastr/toastr.js"></script>
     {{ $styles ?? '' }}
     <link rel="stylesheet" href="/dist/output.css">
     <link rel="icon" href="/storage/product/Logo.svg" type="img/svg">
-
 </head>
 
 <body>
@@ -81,6 +80,7 @@
                             toastr.error(response.msg);
                         } else {
                             console.log(response);
+
                             const product = `
                                 <div x-data="{ qty: 1,price:'${response.price}', subtotal:'${response.amount}', cp_show:true,
                                     mplus() {
@@ -92,7 +92,7 @@
                                         total = total - this.subtotal + stotal; this.subtotal = stotal;
 
                                          $.ajax({
-                                                url:'{{route('plus')}}',
+                                                url:'{{ route('plus') }}',
                                                 method:'get',
                                                 data:{id:${response.id}},
                                                 success:function(res){
@@ -111,7 +111,7 @@
                                         const mq =  --this.qty; const stotal = mq*this.price;
                                         total = total - this.subtotal + stotal; this.subtotal = stotal;
                                          $.ajax({
-                                                url:'{{route('minus')}}',
+                                                url:'{{ route('minus') }}',
                                                 method:'get',
                                                 data:{id:${response.id}},
                                                 success:function(res){
@@ -129,7 +129,7 @@
                                     },removeProd(){
 
                                         $.ajax({
-                                                url:'{{route('delete')}}',
+                                                url:'{{ route('delete') }}',
                                                 method:'get',
                                                 data:{id:${response.id},mt:'Cart'},
                                                 success:(res)=>{
@@ -150,7 +150,7 @@
                                         value="${response.id}">
                                     <span x-init="addtototal" class='hidden'></span>
                                     <div class='flex items-center'>
-                                        <img class="w-[80px] h-[px]" src="${response.product.photo}"
+                                        <img class="w-[80px] h-[px]" src="${response.product.photo ? response.product.photo.split(',')[0] : '/backend/img/thumbnail-default.jpg' }"
                                             alt="${response.product.title}">
                                     </div>
 
@@ -210,8 +210,17 @@
             //  {{-- (Number(price)).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') --}}
             //                         {{-- (new Intl.NumberFormat('BD',{style:'currency',currency:'BDT'})).format(245390) --}}
         }
+
+        // admin panel redirection
+        document.addEventListener('keydown', function(event) {
+            // Check if Shift and 'L' keys are pressed simultaneously
+            if (event.shiftKey && event.key === 'L') {
+                // Redirect to the login page
+                window.location.href =
+                '{{ route('login') }}'; // Replace '/login' with the actual URL of your login page
+            }
+        });
     </script>
-    {{-- <script type="text/javascript" src="/dist/tailwind-umd.min.js"></script> --}}
     {{ $script ?? '' }}
 
 </body>

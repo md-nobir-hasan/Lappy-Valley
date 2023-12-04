@@ -266,13 +266,14 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
     Lfm::routes();
 });
 
-
+// Route::get('/demo',[FrontendController::class,'demo']);
 
 // ===========================================================================================================
 //=====================================       Frontend section          ======================================
 //=============================================================================================================
 Route::get('/', HomePage::class)->name('home');
 Route::get('/shop', Shop::class)->name('shop');
+Route::get('/shop/sorting', [AjaxController::class,'shopSorting'])->name('shop.shorting');
 Route::get('/category-wise/{slug}', CatWiseShop::class)->name('cate_wise.shop');
 Route::get('/search/{stext}/{cat?}', SearchingProduct::class)->name('searching_product');
 Route::get('/product-details/{slug}', ProductDeatils::class)->name('product.details');
