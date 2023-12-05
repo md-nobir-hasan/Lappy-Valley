@@ -210,14 +210,14 @@
                 class="w-[241px] h-[48px] items-center text-center rounded-[4px] bg-[#F2F2F2] text-[#380D37] focus:bg-[#380D37] focus:text-white font-[500] text-[20px] font-[jost]">Asian</button>
             <div class="container h-[2px] bg-[#380D37]"></div>
         </div>
-        <div class=" ">
+        <div>
             <div class="swiper-container overflow-hidden  mx-auto mySwiper relative">
                 <div class="swiper-wrapper gap-[5px] py-[20px]">
                     <div class="swiper-slide">
                         <div
                             class=" w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div>
-                                <img src="/storage/product/large-size-laptop.jpg" alt="">
+                                <a href=""><img src="/storage/product/large-size-laptop.jpg" alt="Product"></a>
                             </div>
                             <div>
                                 <p class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]">
@@ -235,7 +235,25 @@
                         <div
                             class=" w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div>
-                                <img src="/storage/product/large-size-laptop.jpg" alt="">
+                                <a href=""><img src="/storage/product/large-size-laptop.jpg" alt="Product"></a>
+                            </div>
+                            <div>
+                                <p class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]">
+                                    Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
+                                </p>
+                            </div>
+                            <div
+                                class="flex justify-between text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
+                                <a href="#"><span class="text-[#DC275C]">1,50,000 TK</span></a>
+                                <a href="#"><span class="text-[#380D37]">Add to Cart</span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div
+                            class="w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
+                            <div>
+                                <a href=""><img src="/storage/product/large-size-laptop.jpg" alt="Product"></a>
                             </div>
                             <div>
                                 <p class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]">
@@ -253,7 +271,7 @@
                         <div
                             class="w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div>
-                                <img src="/storage/product/large-size-laptop.jpg" alt="">
+                                <a href=""><img src="/storage/product/large-size-laptop.jpg" alt="Product"></a>
                             </div>
                             <div>
                                 <p class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]">
@@ -271,7 +289,7 @@
                         <div
                             class="w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div>
-                                <img src="/storage/product/large-size-laptop.jpg" alt="">
+                                <a href=""><img src="/storage/product/large-size-laptop.jpg" alt="Product"></a>
                             </div>
                             <div>
                                 <p class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]">
@@ -289,7 +307,7 @@
                         <div
                             class="w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div>
-                                <img src="/storage/product/large-size-laptop.jpg" alt="">
+                                <a href=""><img src="/storage/product/large-size-laptop.jpg" alt="Product"></a>
                             </div>
                             <div>
                                 <p class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]">
@@ -307,7 +325,7 @@
                         <div
                             class="w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div>
-                                <img src="/storage/product/large-size-laptop.jpg" alt="">
+                                <a href=""><img src="/storage/product/large-size-laptop.jpg" alt="Product"></a>
                             </div>
                             <div>
                                 <p class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]">
@@ -325,7 +343,7 @@
                         <div
                             class="w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div>
-                                <img src="/storage/product/large-size-laptop.jpg" alt="">
+                                <a href=""><img src="/storage/product/large-size-laptop.jpg" alt="Product"></a>
                             </div>
                             <div>
                                 <p class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]">
@@ -343,25 +361,7 @@
                         <div
                             class="w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div>
-                                <img src="/storage/product/large-size-laptop.jpg" alt="">
-                            </div>
-                            <div>
-                                <p class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]">
-                                    Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
-                                </p>
-                            </div>
-                            <div
-                                class="flex justify-between text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
-                                <span class="text-[#DC275C]">1,50,000 TK</span>
-                                <span class="text-[#380D37]">Add to Cart</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div
-                            class="w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div>
-                                <img src="/storage/product/large-size-laptop.jpg" alt="">
+                                <a href=""><img src="/storage/product/large-size-laptop.jpg" alt="Product"></a>
                             </div>
                             <div>
                                 <p class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]">
@@ -376,10 +376,6 @@
                         </div>
                     </div>
                 </div>
-                {{-- <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div> --}}
-                {{-- <div class="swiper-pagination"></div> --}}
-
             </div>
             <div class="relative">
                 <div class="swiper-button-next translate-x-[55px] translate-y-[-192px] bs"></div>
@@ -441,7 +437,6 @@
         <!-- See more button  -->
 
     </section>
-
     <div>
         <a href="{{ route('shop') }}">
             <button
@@ -472,7 +467,6 @@
                             <img class='w-[55.36px] h-[55.36px]' src="/storage/product/laptop-2.jpg" alt="Product">
                         </div>
                     </div>
-
                     <h2
                         class="px-1 py-4 text-[#DC275C] font-[jost] text-[24px] font-[500] leading-[35px] text-center ">
                         Wide Varieties</h2>
@@ -543,9 +537,6 @@
             </div>
     </section>
 
-    <!-- ----------------choose-secton--end-------- -->
-  
-
     <!-- What our client says  -->
     <section class="mt-16">
         <h2 class="mb-12 text-center font-[500] font-[jost] text-[42px] text-[#353535]">What Our Clients Say About
@@ -575,12 +566,6 @@
                 .slider .owl-item.active.center .slider-card {
                     transform: scale(1.15);
                     opacity: 1;
-                    /* background: #ff9966; */
-                    /* fallback for old browsers */
-                    /* background: -webkit-linear-gradient(to bottom, #ff5e62, #ff9966); */
-                    /* Chrome 10-25, Safari 5.1-6 */
-                    /* background: linear-gradient(to bottom, #ff5e62, #ff9966); */
-                    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
                     color: #fff;
                 }
 
@@ -711,8 +696,6 @@
                                                 </svg></a>
                                         </div>
                                         <!-- </div> -->
-                                        <!-- </div> -->
-
                                     </div>
                                     <div>
                                         <h1
@@ -796,8 +779,6 @@
                                                 </svg></a>
                                         </div>
                                         <!-- </div> -->
-                                        <!-- </div> -->
-
                                     </div>
                                     <div>
                                         <h1

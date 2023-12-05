@@ -1,5 +1,5 @@
-<div class="shadow-[2px_2px_5px_2px_#0000001A] p-2">
-    <div class="bg-white rounded-lg product_div">
+<div class="w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
+    <div class="product_div">
         <a href="{{ route('product.details') }}">
             @if ($product->photo)
                 @php
@@ -14,8 +14,8 @@
             {{-- <img class="object-center pimg" src="{{$product->photo}}" alt=""> --}}
         </a>
         <div>
-            <div class="shadow-[2px_2px_5px_2px_#0000001A] p-2 w-[221px] mx-auto">
-                <div class="bg-white rounded-lg product_div">
+            <div class="w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
+                <div class="product_div">
                     <a href="{{ route('product.details') }}">
                         @if ($product->photo)
                             @php
@@ -32,27 +32,29 @@
                     </a>
 
                     <div>
-                        <p class=" font-[jost] text-[16px] font-[500] leading-[23px] text-left text-[#380D37] ">
+                        <p class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]">
                             {{ $product->title }}
                         </p>
-                        <div class="py-[12px] flex justify-between text-left">
-                            <a href="#"
-                                class="font-[jost] text-[14px] font-[600] leading-[20px] text-left text-[#DC275C]">
-                                <span class="pprice"
-                                    value='{{ $product->final_price }}'>{{ number_format($product->final_price) }}</span>
-                                TK</a>
-                            @auth
-                                <livewire:add-to-cart :id="$product->id"
-                                    button='<p  class="font-[jost] text-[14px] text-[#380D37] font-[600] leading-[20px] text-left cursor-pointer ">Add to Cart</p>' />
-                            @else
-                                <a href="{{ route('user.login') }}">
-                                    <p
-                                        class="font-[jost] text-[14px] text-[#380D37] font-[600] leading-[20px] text-left cursor-pointer">
-                                        Add to Cart</p>
-                                </a>
-                            @endauth
-                        </div>
+                    </div>
+                    <div class="flex justify-between text-[14px] mt-auto font-[jost] font-[700] py-[10px] leading-[20.23px]">
+                        <a href="#">
+                            <span class="pprice text-[#DC275C]"
+                                value='{{ $product->final_price }}'>{{ number_format($product->final_price) }}
+                            </span>
+                            TK</a>
+                        @auth
+                            <livewire:add-to-cart :id="$product->id"
+                                button='<p  class="font-[jost] text-[14px] text-[#380D37] font-[600] leading-[20px] text-left cursor-pointer ">Add to Cart</p>' />
+                        @else
+                            <a href="{{ route('user.login') }}">
+                                <span class="text-[#380D37]">
+                                    Add to Cart
+                                </span>
+                            </a>
+                        @endauth
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
