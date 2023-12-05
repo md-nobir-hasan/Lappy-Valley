@@ -35,7 +35,7 @@
        </div>
 
        <div class='my-[25px]'>
-        <span  class='text-[16px] text-[#353535] font-[jost] font-[700] tracking-[.6px]'> Contact forms</span>
+        <span  class='text-[16px] text-[#353535] font-[jost] font-[700] italic tracking-[.6px]'> Contact forms</span>
        </div>
 
        <div class='my-[25px]'>

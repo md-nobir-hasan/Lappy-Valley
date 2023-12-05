@@ -6,7 +6,7 @@
        </div>
         <div class='h-[2px] bg-[#764A8733]'></div>
        <!-- --------------------user-name-------------------------------- -->
-       <div class='flex gap-[10px] items-center'>
+       <div class='flex gap-[10px] items-center mt-[30px]'>
         <div class='w-[74px] h-[74px]'><img src="/storage/product/iconoir_profile-circle1.svg" alt="Product"></div>
         <div>
             <p class='text-[16px] text-[#000000] font-[Inter] font-[400] leadint-[14.52px]'>Hello,</p>
@@ -47,15 +47,15 @@
         <div>
         <div class='my-[15px]'>
         <label for="address" class='text-[16px] text-[#353535] font-[jost] font-[500] leading-[23.12px] tracking-[3%] block my-[5px]'>Address:</label>
-            <input type="email" placeholder='Enter the address' class='w-[344px] h-[44px] bg-[#F2F2F2] block italic px-[10px] rounded-[4px]'>
+            <input type="email" placeholder='Enter the address' class='w-[344px] h-[44px] bg-[#F2F2F2] font-[jost] font-[500] text-[16px] text-[#353535] block italic px-[10px] rounded-[4px]'>
         </div>
         <div class='my-[15px]'>
         <label for="address" class='text-[16px] text-[#353535] font-[jost] font-[500] leading-[23.12px] tracking-[3%] block my-[5px]'>City:</label>
-            <input type="email" placeholder='Enter the city Name' class='w-[344px] h-[44px] bg-[#F2F2F2] blcok italic px-[10px] rounded-[4px]'>
+            <input type="email" placeholder='Enter the city Name' class='w-[344px] h-[44px] bg-[#F2F2F2] font-[jost] font-[500] text-[16px] text-[#353535]  blcok italic px-[10px] rounded-[4px]'>
             </div>
         <div class='my-[15px]'>
             <label for="address" class='text-[16px] text-[#353535] font-[jost] font-[500] leading-[23.12px] tracking-[3%] block my-[5px]'>Post code:</label>
-            <input type="email" placeholder='Enter the post code here' class='w-[344px] h-[44px] bg-[#F2F2F2] block italic px-[10px] rounded-[4px]'>
+            <input type="email" placeholder='Enter the post code here' class='w-[344px] h-[44px] bg-[#F2F2F2] font-[jost] font-[500] text-[16px] text-[#353535]  block italic px-[10px] rounded-[4px]'>
         </div>
         <div class='my-[30px]'>
             <button class='w-[133px] h-[41px] rounded-[4px] text-[#F2F2F2] text-[14px] font-[jost] font-[500] leading-[20.23px] bg-gradient-to-r from-[#380D37] to-[#DC275C]'>Save Changes</button>
@@ -66,12 +66,12 @@
            <div>
             <h1 class='text-[16px] text-[#353535] font-[jost] font-[500] leading-[23.12px] tracking-[3%] my-[5px]'>Is this the default address?</h1>
            </div>
-           <div>
-            <input type="radio" class='w-[10px] h-[10px] bg-[#380D37]'>
+           <div class="flex items-center gap-2">
+            <input type="radio" class='w-[18px] h-[18px] accent-[#380D37]'>
             <label for="text" class='text-[16px] text-[#353535] font-[jost] font-[500] leading-[23.12px] tracking-[3%] my-[5px]'>Yes.</label>
            </div>
-           <div>
-            <input type="radio" class='w-[10px] h-[10px] bg-[#380D37]'>
+           <div class="flex items-center gap-2">
+            <input type="radio" class='w-[18px] h-[18px] accent-[#380D37]'>
             <label for="text" class='text-[16px] text-[#353535] font-[jost] font-[500] leading-[23.12px] tracking-[3%] my-[5px]'>No.</label>
            </div>
        </div>

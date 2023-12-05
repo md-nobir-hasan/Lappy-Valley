@@ -67,7 +67,8 @@
                      </tbody>
                     </table>
                   </div>
-                   <div class='h-[1px] bg-[#380D37] mb-[100px]'></div>
+                   <div class='h-[1px] bg-[#380D37]'></div>
+                   <div class='h-[2px] bg-[#764A8733] mt-[200px]'></div>
                  </div>
                 
                 

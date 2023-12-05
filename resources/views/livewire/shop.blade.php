@@ -101,7 +101,7 @@
     <div class='container mx-auto'>
         <h1 class='font-[jost] text-[16px] font-[400] leading-[23.12px] tracking-[3%] text-[#353535]'>All Categories/
             Pre-Owned</h1>
-        <div class='h-[2px] bg-[#764A8733]'></div>
+        <div class='h-[1px] bg-[#764A8733]'></div>
     </div>
 
     <!-- Sidenav -->
@@ -127,7 +127,7 @@
             ajaxProduct: false,
             productShow: true,
             productFetch() {
-
+        
                 $.ajax({
                     type: 'get',
                     url: '{{ route('shop.shorting') }}',
@@ -158,36 +158,36 @@
             }
         }">
             <!-- ------------right---part--start--- -->
-            <div class="w-[230px]">
+            <div class="w-[206px]">
                 <!-- ----price-range------ -->
-                <div class="wrapper flex flex-col shadow-[0_2px_4px_rgba(0,0,0,.1)] pb-[10px]">
-                    <header class="px-2 py-4">
-                        <h2 class="font-[jost] font-[600] text-[14px] text-[#380D37]">Price Range</h2>
+                <div class=" w-full bg-[#F2F2F2] flex flex-col gap-2 shadow-[0_2px_4px_rgba(0,0,0,.1)] pb-[10px]">
+                    <header class="px-2 pb-2 pt-4 flex">
+                        <h2 class="font-[jost] font-[500] text-[12px] text-[#380D37]">Price Range</h2>
                         {{-- <p>Use slider or enter min and max price</p> --}}
                     </header>
                     <div class="h-[1px] bg-[#380D3733] w-full"></div>
-                    <div class="mb-[20px] mt-[30px] p-[10px]">
+                    <div class="mb-[10px] mt-[15px] p-[5px]">
                         <div class="slider">
                             <div class="progress"></div>
                         </div>
                         <div class="range-input">
                             <input x-model='minPrice' @change='productFetch' :value="minPrice" type="range"
-                                class="range-min w-[85px]" min="0" max="490000" step="100">
+                                class="range-min w-[85px] font-[jost] font-[500] text-[12px]" min="0" max="490000" step="100">
                             <input x-model='maxPrice' :value="maxPrice" @change='productFetch' type="range"
-                                class="range-max w-[85px]" min="10000" max="500000" step="100">
+                                class="range-max w-[85px] font-[jost] font-[500] text-[12px]" min="10000" max="500000" step="100">
                         </div>
                     </div>
 
                     <div class="price-input">
                         <div class="field">
                             {{-- <span>Min</span> --}}
-                            <input x-model='minPrice' type="number" @change='productFetch' class="input-min"
+                            <input x-model='minPrice' type="number" @change='productFetch' class="input-min font-[jost] font-[500] text-[12px]"
                                 step="1" :value="minPrice">
                         </div>
                         {{-- <div class="separator">-</div> --}}
                         <div class="field">
                             {{-- <span>Max</span> --}}
-                            <input x-model='maxPrice' type="number" @change='productFetch' class="input-max"
+                            <input x-model='maxPrice' type="number" @change='productFetch' class="input-max font-[jost] font-[500] text-[12px]"
                                 step="1" :value="maxPrice">
                         </div>
                     </div>
@@ -197,29 +197,29 @@
                 <div x-data="{ open: true, toggle() { this.open = !this.open } }"
                     class='bg-[#F2F2F2]  shadow-[0_2px_4px_rgba(0,0,0,.1)] rounded-[10px] mt-3'>
                     <div class="flex justify-between p-[12px]">
-                        <span class='text-[#380D37] font-[jost] font-[600] text-[14px] leading-[25.23px] '
+                        <span class='text-[#380D37] font-[jost] font-[500] text-[12px] leading-[25.23px] '
                             for="text">Availability</span>
                         <img src="/storage/product/down-arrow.svg" @click="toggle()" :class="{ 'rotate-180': !open }"
                             class="text-[#000000] text-[14px] cursor-pointer w-[20px]" aria-hidden="true">
                     </div>
                     <div class="h-[1.5px] bg-[#380D3733] w-full">
                     </div>
-                    <div x-show="open" class='p-[12px]'>
-                        <label class='block' for="#">
+                    <div x-show="open" class='p-[12px] flex flex-col gap-2'>
+                        <label class='flex items-center gap-[4px]' for="#">
                             <input id="in_stock" x-model='in_stock' @change='productFetch'
-                                class='border-[2px] border-[#764A87]' type="checkbox" name='status'>
+                                class='border-[1px] border-[#764A87] bg-[#f2f2f2] w-[11px] h-[12px]' type="checkbox" name='status'>
                             <label for="in_stock" class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>In
                                 Stock</label>
                         </label>
-                        <label class='block' for="#">
+                        <label class='flex items-center gap-[4px]' for="#">
                             <input id="pre_order" x-model='pre_order' @change='productFetch'
-                                class='border-[2px] border-[#764A87]' type="checkbox" name='status'>
-                            <label for='pre_order' class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>Pre
+                                class='border-[1px] border-[#764A87] bg-[#f2f2f2] w-[11px] h-[12px]' type="checkbox" name='status'>
+                            <label for='pre_order' class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37] text-center'>Pre
                                 Order</label>
                         </label>
-                        <label class='block' for="#">
+                        <label class='flex items-center gap-[4px]' for="#">
                             <input id="upcomming" x-model='upcomming' @change='productFetch'
-                                class='border-[2px] border-[#764A87]' type="checkbox" name='status'>
+                                class='border-[1px] border-[#764A87] bg-[#f2f2f2] w-[11px] h-[12px]' type="checkbox" name='status'>
                             <label for="upcomming" class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>Up
                                 Coming</label>
                         </label>
@@ -229,18 +229,18 @@
                 <!-- --------------------------nav----2nd---part (Brands)--------------- -->
                 <div x-data="{ open: true, toggle() { this.open = !this.open } }" class='bg-[#F2F2F2] shadow-[0_2px_4px_rgba(0,0,0,.1)] rounded-[10px] mt-3'>
                     <div class="flex justify-between p-[12px]">
-                        <span class='text-[#380D37] font-[jost] font-[600] text-[14px] leading-[25.23px] '
+                        <span class='text-[#380D37] font-[jost] font-[500] text-[12px] leading-[25.23px] '
                             for="text">Brands</span>
                         <img src="/storage/product/down-arrow.svg" @click="toggle()" :class="{ 'rotate-180': !open }"
                             class="text-[#000000] text-[14px] cursor-pointer w-[20px]" aria-hidden="true">
                     </div>
                     <div class="h-[1px] bg-[#380D3733] w-full">
                     </div>
-                    <div x-show="open" class='p-[12px]'>
+                    <div x-show="open" class='p-[12px] flex flex-col gap-2'>
                         @foreach ($brands as $brand)
-                            <span class='block'>
+                            <span class='flex items-center gap-[4px]'>
                                 <input id="brand{{ $brand->id }}" value="{{ $brand->id }}"
-                                    class='border-[2px] border-[#764A87]' type="checkbox" x-model='brands'
+                                    class='border-[1px] border-[#380D37] bg-[#f2f2f2] w-[11px] h-[12px]' type="checkbox" x-model='brands'
                                     @change='productFetch'>
                                 <label for="brand{{ $brand->id }}"
                                     class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>{{ $brand->title }}
@@ -255,7 +255,7 @@
                 <div x-data="{ open: true, toggle() { this.open = !this.open } }"
                     class='bg-[#F2F2F2] shadow-[0_2px_4px_rgba(0,0,0,.1)] rounded-[10px] mt-3'>
                     <div class="flex justify-between p-[12px]">
-                        <span class='text-[#380D37] font-[jost] font-[600] text-[14px] leading-[25.23px] '
+                        <span class='text-[#380D37] font-[jost] font-[500] text-[12px] leading-[25.23px] '
                             for="text">Processor
                             Models</span>
                         <img src="/storage/product/down-arrow.svg" @click="toggle()" :class="{ 'rotate-180': !open }"
@@ -263,11 +263,11 @@
                     </div>
                     <div class="h-[1px] bg-[#380D3733] w-full">
                     </div>
-                    <div x-show="open" class='p-[12px]'>
+                    <div x-show="open" class='p-[12px] flex flex-col gap-2'>
                         @foreach ($p_models as $pmodel)
-                            <span class='block'>
+                            <span class='flex items-center gap-[4px]'>
                                 <input id="pmodel{{ $pmodel->id }}" value="{{ $pmodel->id }}"
-                                    class='border-[2px] border-[#764A87]' type="checkbox" x-model='pmodels'
+                                    class='border-[1px] border-[#380D37] bg-[#f2f2f2] w-[11px] h-[12px]' type="checkbox" x-model='pmodels'
                                     @change='productFetch'>
                                 <label for="pmodel{{ $pmodel->id }}"
                                     class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>{{ $pmodel->name }}
@@ -281,17 +281,17 @@
                 <div x-data="{ open: true, toggle() { this.open = !this.open } }"
                     class='bg-[#F2F2F2] shadow-[0_2px_4px_rgba(0,0,0,.1)] rounded-[10px] mt-3'>
                     <div class="flex justify-between p-[12px]">
-                        <span class='text-[#380D37] font-[jost] font-[600] text-[14px] leading-[25.23px] '
+                        <span class='text-[#380D37] font-[jost] font-[500] text-[12px] leading-[25.23px] '
                             for="text">Processor Generations</span>
                         <img src="/storage/product/down-arrow.svg" @click="toggle()" :class="{ 'rotate-180': !open }"
                             class="text-[#000000] text-[14px] cursor-pointer w-[20px]" aria-hidden="true">
                     </div>
                     <div class="h-[1px] bg-[#380D3733] w-full"></div>
-                    <div x-show="open" class='p-[12px]'>
+                    <div x-show="open" class='p-[12px] flex flex-col gap-2'>
                         @foreach ($p_generations as $pgeneration)
-                            <span class='block'>
+                            <span class='flex items-center gap-[4px]'>
                                 <input id="pgeneration{{ $pgeneration->id }}" value="{{ $pgeneration->id }}"
-                                    class='border-[2px] border-[#764A87]' type="checkbox" x-model='pgenerations'
+                                    class='border-[1px] border-[#380D37] bg-[#f2f2f2] w-[11px] h-[12px]' type="checkbox" x-model='pgenerations'
                                     @change='productFetch'>
                                 <label for="pgeneration{{ $pgeneration->id }}"
                                     class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>{{ $pgeneration->name }}
@@ -305,7 +305,7 @@
                 <div x-data="{ open: true, toggle() { this.open = !this.open } }"
                     class='bg-[#F2F2F2] shadow-[0_2px_4px_rgba(0,0,0,.1)] rounded-[10px] mt-3'>
                     <div class="flex justify-between p-[12px]">
-                        <span class='text-[#380D37] font-[jost] font-[600] text-[14px] leading-[25.23px] '
+                        <span class='text-[#380D37] font-[jost] font-[500] text-[12px] leading-[25.23px] '
                             for="text">Display
                             Size</span>
                         <img src="/storage/product/down-arrow.svg" @click="toggle()" :class="{ 'rotate-180': !open }"
@@ -313,14 +313,14 @@
                     </div>
                     <div class="h-[1px] bg-[#380D3733] w-full">
                     </div>
-                    <div x-show="open" class='p-[12px]'>
+                    <div x-show="open" class='p-[12px] flex flex-col gap-2'>
                         @foreach ($d_sizes as $d_size)
-                            <span class='block'>
+                            <span class='flex items-center gap-[4px]'>
                                 <input id="d_size{{ $d_size->id }}" value="{{ $d_size->id }}"
-                                    class='border-[2px] border-[#764A87]' type="checkbox" x-model='d_sizes'
+                                    class='border-[1px] border-[#380D37] bg-[#f2f2f2] w-[11px] h-[12px]' type="checkbox" x-model='d_sizes'
                                     @change='productFetch'>
                                 <label for="d_size{{ $d_size->id }}"
-                                    class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>{{ $d_size->size - .4 . ' to ' . $d_size->size +.4 }}
+                                    class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>{{ $d_size->size - 0.4 . ' to ' . $d_size->size + 0.4 }}
                                     inch
                                 </label>
                             </span>
@@ -332,7 +332,7 @@
                 <div x-data="{ open: true, toggle() { this.open = !this.open } }"
                     class='bg-[#F2F2F2] shadow-[0_2px_4px_rgba(0,0,0,.1)] rounded-[10px] mt-3'>
                     <div class="flex justify-between p-[12px]">
-                        <span class='text-[#380D37] font-[jost] font-[600] text-[14px] leading-[25.23px] '
+                        <span class='text-[#380D37] font-[jost] font-[500] text-[12px] leading-[25.23px] '
                             for="text">Display
                             Type</span>
                         <img src="/storage/product/down-arrow.svg" @click="toggle()" :class="{ 'rotate-180': !open }"
@@ -340,11 +340,11 @@
                     </div>
                     <div class="h-[1px] bg-[#380D3733] w-full">
                     </div>
-                    <div x-show="open" class='p-[12px]'>
+                    <div x-show="open" class='p-[12px] flex flex-col gap-2'>
                         @foreach ($d_types as $d_type)
-                            <span class='block'>
+                            <span class='flex items-center gap-[4px]'>
                                 <input id="d_type{{ $d_type->id }}" value="{{ $d_type->id }}"
-                                    class='border-[2px] border-[#764A87]' type="checkbox" x-model='d_types'
+                                    class='border-[1px] border-[#380D37] bg-[#f2f2f2] w-[11px] h-[12px]' type="checkbox" x-model='d_types'
                                     @change='productFetch'>
                                 <label for="d_type{{ $d_type->id }}"
                                     class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>{{ $d_type->name }}
@@ -358,21 +358,22 @@
                 <div x-data="{ open: true, toggle() { this.open = !this.open } }"
                     class='bg-[#F2F2F2] shadow-[0_2px_4px_rgba(0,0,0,.1)] rounded-[10px] mt-3'>
                     <div class="flex justify-between p-[12px]">
-                        <span class='text-[#380D37] font-[jost] font-[600] text-[14px] leading-[25.23px] '
+                        <span class='text-[#380D37] font-[jost] font-[500] text-[12px] leading-[25.23px] '
                             for="text">RAM</span>
                         <img src="/storage/product/down-arrow.svg" @click="toggle()" :class="{ 'rotate-180': !open }"
                             class="text-[#000000] text-[14px] cursor-pointer w-[20px]" aria-hidden="true">
                     </div>
                     <div class="h-[1px] bg-[#380D3733] w-full">
                     </div>
-                    <div x-show="open" class='p-[12px]'>
+                    <div x-show="open" class='p-[12px] flex flex-col gap-2'>
                         @foreach ($rams as $ram)
-                            <span class='block'>
+                            <span class='flex items-center gap-[4px]'>
                                 <input id="ram{{ $ram->id }}" value="{{ $ram->id }}"
-                                    class='border-[2px] border-[#764A87]' type="checkbox" x-model='rams'
+                                    class='border-[1px] border-[#380D37] bg-[#f2f2f2] w-[11px] h-[12px]' type="checkbox" x-model='rams'
                                     @change='productFetch'>
                                 <label for="ram{{ $ram->id }}"
-                                    class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>{{ $ram->ram }} GB
+                                    class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>{{ $ram->ram }}
+                                    GB
                                 </label>
                             </span>
                         @endforeach
@@ -383,18 +384,18 @@
                 <div x-data="{ open: true, toggle() { this.open = !this.open } }"
                     class='bg-[#F2F2F2] shadow-[0_2px_4px_rgba(0,0,0,.1)] rounded-[10px] mt-3'>
                     <div class="flex justify-between p-[12px]">
-                        <span class='text-[#380D37] font-[jost] font-[600] text-[14px] leading-[25.23px] '
+                        <span class='text-[#380D37] font-[jost] font-[500] text-[12px] leading-[25.23px] '
                             for="text">HDD</span>
                         <img src="/storage/product/down-arrow.svg" @click="toggle()" :class="{ 'rotate-180': !open }"
                             class="text-[#000000] text-[14px] w-[20px] cursor-pointer">
                     </div>
                     <div class="h-[1px] bg-[#380D3733] w-full">
                     </div>
-                    <div x-show="open" class='p-[12px]'>
+                    <div x-show="open" class='p-[12px] flex flex-col gap-2'>
                         @foreach ($hdds as $hdd)
-                            <span class='block'>
+                            <span class='flex items-center gap-[4px]'>
                                 <input id="hdd{{ $hdd->id }}" value="{{ $hdd->id }}"
-                                    class='border-[2px] border-[#764A87]' type="checkbox" x-model='hdds'
+                                    class='border-[1px] border-[#380D37] bg-[#f2f2f2] w-[11px] h-[12px]' type="checkbox" x-model='hdds'
                                     @change='productFetch'>
                                 <label for="hdd{{ $hdd->id }}"
                                     class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>{{ $hdd->name }}
@@ -408,18 +409,18 @@
                 <div x-data="{ open: true, toggle() { this.open = !this.open } }"
                     class='bg-[#F2F2F2] shadow-[0_2px_4px_rgba(0,0,0,.1)] rounded-[10px] mt-3'>
                     <div class="flex justify-between p-[12px]">
-                        <span class='text-[#380D37] font-[jost] font-[600] text-[14px] leading-[25.23px] '
+                        <span class='text-[#380D37] font-[jost] font-[500] text-[12px] leading-[25.23px] '
                             for="text">SSD</span>
                         <img src="/storage/product/down-arrow.svg" @click="toggle()" :class="{ 'rotate-180': !open }"
                             class="text-[#000000] text-[14px] cursor-pointer w-[20px]" aria-hidden="true">
                     </div>
                     <div class="h-[1px] bg-[#380D3733] w-full">
                     </div>
-                    <div x-show="open" class='p-[12px]'>
+                    <div x-show="open" class='p-[12px] flex flex-col gap-2'>
                         @foreach ($ssds as $ssd)
-                            <span class='block'>
+                            <span class='flex items-center gap-[4px]'>
                                 <input id="ssd{{ $ssd->id }}" value="{{ $ssd->id }}"
-                                    class='border-[2px] border-[#764A87]' type="checkbox" x-model='ssds'
+                                    class='border-[1px] border-[#380D37] bg-[#f2f2f2] w-[11px] h-[12px]' type="checkbox" x-model='ssds'
                                     @change='productFetch'>
                                 <label for="ssd{{ $ssd->id }}"
                                     class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>{{ $ssd->name }}
@@ -433,18 +434,18 @@
                 <div x-data="{ open: true, toggle() { this.open = !this.open } }"
                     class='bg-[#F2F2F2] shadow-[0_2px_4px_rgba(0,0,0,.1)] rounded-[10px] mt-3'>
                     <div class="flex justify-between p-[12px]">
-                        <span class='text-[#380D37] font-[jost] font-[600] text-[14px] leading-[25.23px] '
+                        <span class='text-[#380D37] font-[jost] font-[500] text-[12px] leading-[25.23px] '
                             for="text">Graphics</span>
                         <img src="/storage/product/down-arrow.svg" @click="toggle()" :class="{ 'rotate-180': !open }"
                             class="text-[#000000] text-[14px] cursor-pointer w-[20px]" aria-hidden="true">
                     </div>
                     <div class="h-[1px] bg-[#380D3733] w-full">
                     </div>
-                    <div x-show="open" class='p-[12px]'>
+                    <div x-show="open" class='p-[12px] flex flex-col gap-2'>
                         @foreach ($graphics as $graphic)
-                            <span class='block'>
+                            <span class='flex items-center gap-[4px]'>
                                 <input id="graphic{{ $graphic->id }}" value="{{ $graphic->id }}"
-                                    class='border-[2px] border-[#764A87]' type="checkbox" x-model='graphics'
+                                    class='border-[1px] border-[#380D37] bg-[#f2f2f2] w-[11px] h-[12px]' type="checkbox" x-model='graphics'
                                     @change='productFetch'>
                                 <label for="graphic{{ $graphic->id }}"
                                     class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>{{ $graphic->name }}
@@ -458,7 +459,7 @@
                 <div x-data="{ open: true, toggle() { this.open = !this.open } }"
                     class='bg-[#F2F2F2] shadow-[0_2px_4px_rgba(0,0,0,.1)] rounded-[10px] mt-3'>
                     <div class="flex justify-between p-[12px]">
-                        <span class='text-[#380D37] font-[jost] font-[600] text-[14px] leading-[25.23px] '
+                        <span class='text-[#380D37] font-[jost] font-[500] text-[12px] leading-[25.23px] '
                             for="text">Special
                             Features</span>
                         <img src="/storage/product/down-arrow.svg" @click="toggle()" :class="{ 'rotate-180': !open }"
@@ -466,11 +467,11 @@
                     </div>
                     <div class="h-[1px] bg-[#380D3733] w-full">
                     </div>
-                    <div x-show="open" class='p-[12px]'>
+                    <div x-show="open" class='p-[12px] flex flex-col gap-2'>
                         @foreach ($s_features as $s_feature)
-                            <span class='block'>
+                            <span class='flex items-center gap-[4px]'>
                                 <input id="s_feature{{ $s_feature->id }}" value="{{ $s_feature->id }}"
-                                    class='border-[2px] border-[#764A87]' type="checkbox" x-model='s_features'
+                                    class='border-[1px] border-[#380D37] bg-[#f2f2f2] w-[11px] h-[12px]' type="checkbox" x-model='s_features'
                                     @change='productFetch'>
                                 <label for="s_feature{{ $s_feature->id }}"
                                     class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>{{ $s_feature->name }}
@@ -538,7 +539,7 @@
                             class=" bg-[#f2f2f2] text-[#380D37] text-[14px] font-[jost] font-[400] leading-[20.23px]">Stor
                             by:</label>
                         <select x-model='sorting' @change='productFetch'
-                            class="block w-[400px] px-[20px] py-[15px] mr-[80px] text-[#380D37] text-[14px] font-[jost] font-[400] leading-[20.23px]">
+                            class="flex items-center gap-[4px] w-[400px] px-[20px] py-[15px] mr-[80px] text-[#380D37] text-[14px] font-[jost] font-[400] leading-[20.23px]">
                             <option selected>Default sorting</option>
                             <option value="sbp">Sort by popularity</option>
                             <option value="sbar">Sort by average rating</option>
@@ -548,7 +549,7 @@
                         </select>
 
                         <div
-                            class="shop-view text-[#380D37] text-[14px] font-[jost] font-[400] leading-[20.23px]  mx-[20px] flex items-center justify-center transparent">
+                            class="shop-view text-[#380D37] text-[14px] font-[jost] font-[400] leading-[20.23px]  mx-[20px] flex items-center gap-[4px] justify-center transparent">
                             <span class='text-center'>View</span>
                             <span id="grid" class="grid-view mf-shop-view current mx-[20px]" data-view="grid">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="2em" fill='black'
@@ -575,7 +576,7 @@
                         @foreach ($products as $product)
                             <x-shop-product :product="$product">
                                 <div class='mt-2'>
-                                    <ul class='text-[#353535] list-decimal px-4 text-[10px] leading-[20px]'>
+                                    <ul class='text-[#353535] text-[10px] font-[jost] font-[400] list-decimal px-4 leading-[20px]'>
                                         <li>Processor: AMD Ryzen 5 7520U (2.8 GHz up to 4.3 GHz)</li>
                                         <li>RAM: 8GB DDR5 5500MHz, Storage: 256GB SSD</li>
                                         <li>Display: 15.6" FHD (1920X1080)</li>
@@ -593,18 +594,19 @@
                 {{-- Ajax product show  --}}
                 <template x-if="products">
                     <div>
-                        <div x-show="ajaxProduct" class='product_pdiv grid grid-cols-4 gap-8 mx-auto mt-4' id="product_pdiv">
+                        <div x-show="ajaxProduct" class='product_pdiv grid grid-cols-4 gap-8 mx-auto mt-4'
+                            id="product_pdiv">
                             {{-- x-if="Object.keys(products).length > 0" --}}
                             <template x-for="product in products" id="product">
                                 <div
-                                    class="relative overflow-hidden border-[1px] border-[#380D37] rounded-[4px] box-border px-[5px] mt-2 flex flex-col bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] ">
+                                    class="relative overflow-hidden border-[1px] border-[#380D37] bg-[#f2f2f2] rounded-[4px] box-border px-[5px] mt-2 flex flex-col gap-2 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] ">
 
                                     <img :src="product.photo.split(',')[0]" class="rounded-t-lg img-fluid "
                                         data-te-ripple-init data-te-ripple-color="dark" alt="avatar.png">
 
-                                    <div class="p-6 border-t-[2px] border-b-[2px]  border-[#380D3733]">
+                                    <div class="p-6 border-t-[1px] border-b-[1px]  border-[#380D3733]">
                                         <div class=' border-[#380D3733] mb-2'>
-                                            <h1 class="font-[jost] text-[12px] font-[600] leading-[20px] text-left text-[#380D37]"
+                                            <h1 class="font-[jost] text-[12px] font-[500] leading-[20px] text-left text-[#380D37]"
                                                 x-text='product.title'>
 
                                             </h1>
@@ -622,7 +624,7 @@
                                     <div class="px-6 py-6 mt-auto text-center">
                                         <div>
                                             <a href="#"
-                                                class="font-[jost] text-[12px] font-[700] leading-[24px] text-[#DC275C] block">
+                                                class="font-[jost] text-[12px] font-[700] leading-[24px] text-[#DC275C] flex items-center gap-[4px]">
                                                 <span x-text='product.price'></span>
                                                 <span class="ml-[5px] text-[12px] font-[jost] font-[700]">TAKA</span>
                                             </a>
