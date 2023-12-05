@@ -56,12 +56,13 @@
         <tbody class='items-center'>
            <td class="py-3 px-6"><img src="/storage/product/large-size-laptop.jpg" alt="Product" class='w-[48px] h-[48px]'></td>
            <td class="py-3 px-6"><span class='text-[20px] text-[#000000] font-[jost] font-[500] leading-[28.9px]'>Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U</span></td>
-           <td class="py-3 px-6"><span class='text-[20px] text-[#DC275C] font-[jost] font-[500] leading-[28.9px]'>1,50,000 ৳</span></td>
-           <td class="py-3 px-6"><button class='text-[14px] text-[#F2F2F2] font-[jost] font-[500] leading-[20.23px] bg-gradient-to-r from-[#380D37] to-[#DC275C] w-[133px] h-[41px]'>Buy Now</button></td>
-           <td class="py-3 px-6"><img src="/storage/product/cross-icon.svg" alt="product"></td>
+           <td class="py-3 px-6"><span class='text-[20px] text-[#DC275C] font-[jost] font-[700] leading-[28.9px]'>1,50,000 ৳</span></td>
+           <td class="py-3 px-6"><button class='text-[14px] text-[#F2F2F2] font-[jost] font-[500] rounded-[4px] leading-[20.23px] bg-gradient-to-r from-[#380D37] to-[#DC275C] w-[133px] h-[41px]'>Buy Now</button></td>
+           <td class="py-3 px-2"><img src="/storage/product/cross-icon.svg" class="w-[28px] h-[28px] text-[#000000]" alt="product"></td>
         </tbody>
     </table>
-       <div class='h-[1px] bg-[#380D37] mb-[100px]'></div>
+       <div class='h-[1px] bg-[#380D37]'></div>
+       <div class="h-[2px] bg-[#764A8733] mt-[200px] "></div>
     </div>
 
           

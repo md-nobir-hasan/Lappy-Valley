@@ -106,12 +106,12 @@
                      <div class="my-[10px]">
                          <h1 class="text-[#353535] text-[14px] font-[jost] font-[500]">Select Payment Method</h1>
                      </div>
-                     <div class="my-[10px] flex gap-[5px]">
+                     <div class="my-[10px] flex items-center gap-[5px]">
                          <input class="w-[14px] h-[14px] text-[#380D37]" type="radio" value="Cash on Delivery">
                          <label class="text-[#353535] text-[14px] font-[jost] font-[400]" for="#">Cash on
                              Delivery</label>
                      </div>
-                     <div class="my-[10px] flex gap-[5px]">
+                     <div class="my-[10px] flex items-center gap-[5px]">
                          <input class="w-[14px] h-[14px] text-[#380D37]" type="radio" value="">
                          <label class="text-[#353535] text-[14px] font-[jost] font-[400]" for="">Online
                              Payment</label>
@@ -145,15 +145,15 @@
                              </h1>
                          </div>
 
-                         <div class="my-[10px] flex gap-[5px]">
+                         <div class="my-[10px] flex items-center gap-[5px]">
                              <input class="w-[14px] h-[14px] text-[#380D37]" type="radio">
                              <label class="text-[#353535] text-[14px] font-[jost] font-[400]" for="">Store
                                  Pickup- 0 Taka</label>
                          </div>
-                         <div class="my-[10px] flex gap-[5px]">
+                         <div class="my-[10px] flex items-center gap-[5px]">
                              <input class="w-[14px] h-[14px] text-[#380D37]" type="radio" value="">
                              <label class="text-[#353535] text-[14px] font-[jost] font-[400]" for="">Request
-                                 Express delivery-120 Taka<br/><span>Through SA P.B</span></label>
+                                 Express delivery-120 Through SA P.B</label>
                          </div>
                      </div>
                  </div>
