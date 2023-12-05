@@ -3532,6 +3532,24 @@ input[type="range"]:active::-webkit-slider-thumb{
   background-color: rgb(63 63 70 / var(--tw-bg-opacity));
 }
 
+.bg-\[\]{
+  background-color: ;
+}
+
+.bg-\[\#FFFF\]{
+  background-color: #FFFF;
+}
+
+.bg-\[\#FFFFFF\]{
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#764A87\]{
+  --tw-bg-opacity: 1;
+  background-color: rgb(118 74 135 / var(--tw-bg-opacity));
+}
+
 .bg-gradient-to-r{
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }
@@ -4808,6 +4826,34 @@ input[type="range"]:active::-webkit-slider-thumb{
 .text-white{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-\[\#f2ff\]{
+  color: #f2ff;
+}
+
+.text-\[\#F2\]{
+  color: #F2;
+}
+
+.text-\[\#\]{
+  color: #;
+}
+
+.text-\[\]{
+  color: ;
+}
+
+.text-\[F\]{
+  color: F;
+}
+
+.text-\[F2F2F2\]{
+  color: F2F2F2;
+}
+
+.text-\[f2f2f2\]{
+  color: f2f2f2;
 }
 
 .underline{

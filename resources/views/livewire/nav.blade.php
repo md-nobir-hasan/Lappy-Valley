@@ -535,7 +535,7 @@
         <a class="flex items-center whitespace-nowrap rounded px-6 pb-2 pt-2.5 font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]"
             href="#" type="button" id="dropdownMenuButton2" data-te-dropdown-toggle-ref aria-expanded="false"
             data-te-ripple-init data-te-ripple-color="light">
-            Hotline:+8880171264420q
+            Hotline:+8880171264420
             <span class="ml-2 w-2">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5">
                     <path fill-rule="evenodd"

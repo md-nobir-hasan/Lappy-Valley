@@ -83,7 +83,6 @@
             color: #be13f880;
         }
     </style>
-
     <form method="POST" action="{{ route('logout') }}" class="hidden">
         @csrf
         <button class="p4 bg-[red] rounded">Logout</button>
@@ -94,7 +93,6 @@
             toastr.success("{{ $success }}")
         </script>
     @endif
-
     <!-- Hero Section  -->
     <section class=''>
         <div class="relative" x-data="{ active: true }">
@@ -102,16 +100,12 @@
                 <img class="container" src="/storage/product/Hero-Image.svg">
 
             </div>
-
-            <div class="relative hidden slide">
-                <img class="container" src="/storage/product/Hero-Image.svg">
-
-            </div>
-
             <div class="relative hidden slide">
                 <img class="container" src="/storage/product/Hero-Image.svg">
             </div>
-
+            <div class="relative hidden slide">
+                <img class="container" src="/storage/product/Hero-Image.svg">
+            </div>
             <!-- The previous button -->
             <a class="absolute left-0 top-1/2 p-4 -translate-y-1/2 -translate-x-[42px] text-[40px] text-blue-500 opacity-50 hover:opacity-100 cursor-pointer"
                 onclick="moveSlide(-1)">
@@ -120,8 +114,6 @@
                     <path d="M21 2L3 20L21 38" stroke="#999999" stroke-opacity="1" stroke-width="5" />
                 </svg>
             </a>
-
-
             <!-- The next button -->
             <a class="absolute right-0 top-1/2 p-4 -translate-y-1/2 translate-x-[42px] text-[40px] text-blue-500 opacity-50 hover:opacity-100 cursor-pointer"
                 onclick="moveSlide(1)"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="36"
@@ -129,7 +121,6 @@
                     <path :class="{ 'text-[black]': active }" d="M2 2L20 20L2 38" stroke="#999999" stroke-opacity="0.5"
                         stroke-width="5" />
                 </svg></i></a>
-
         </div>
     </section>
     <!-- --------hero--section --end ----  -->
@@ -141,25 +132,20 @@
             <p class="font-[jost] text-[16px] font-[500] text-[#353535]">The best we offer is here</p>
         </div>
         <div class="pt-[60px]">
+            <button 
+                class="usa_btn w-[241px] h-[48px] items-center text-center rounded-[4px] bg-[#380D37] text-[#F2F2F2] font-[500] text-[20px] font-[jost]">USA</button>
             <button
-                class=" w-[241px] h-[48px] items-center text-center rounded-[4px] bg-[#F2F2F2] focus:bg-[#380D37] text-[#380D37] focus:text-[#F2F2F2] font-[500] text-[20px] font-[jost]">USA</button>
-            <button
-                class="w-[241px] h-[48px] items-center text-center rounded-[4px] focus:bg-[#380D37] focus:text-[#F2F2F2] bg-[#F2F2F2] text-[#380D37] font-[500] text-[20px] font-[jost]">ASIAN</button>
+                class="asian_btn w-[241px] h-[48px] items-center text-center rounded-[4px] bg-[#F2F2F2] text-[#380D37] font-[500] text-[20px] font-[jost]">ASIAN</button>
             <div class="h-[2px] bg-[#380D37] rouned-[2px]"></div>
         </div>
-
         <!-- Product  -->
-
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-col-5 gap-2 mt-6 mb-[78px]">
             @foreach ($features->take(5) as $product)
                 <x-product :product="$product"></x-product>
                 {{-- <livewire:products :product="$product" /> --}}
             @endforeach
-
-
         </div>
     </section>
-
     <!-- New arrival  -->
     <section>
         <!-- heading -->
@@ -195,19 +181,21 @@
             @endforeach
         </div>
     </section>
-
     <!-- Feature Laptops Sliders -->
     <section>
-
         <div class="py-1 text-center">
             <h2 class="font-[jost] text-[40px] font-[500]  text-[#353535]">Featurds Laptops</h2>
             <p class="font-[jost] text-[16px] font-[500] text-[#380D37]">The best we offer is here</p>
         </div>
         <div class="pt-[60px]">
-            <button
-                class="w-[241px] h-[48px] items-center text-center rounded-[4px] bg-[#F2F2F2] text-[#380D37] focus:bg-[#380D37] focus:text-white font-[500] text-[20px] font-[jost]">USA</button>
-            <button
-                class="w-[241px] h-[48px] items-center text-center rounded-[4px] bg-[#F2F2F2] text-[#380D37] focus:bg-[#380D37] focus:text-white font-[500] text-[20px] font-[jost]">Asian</button>
+            <button 
+                class="usa_btn w-[241px] h-[48px] items-center text-center rounded-[4px] bg-[#380D37] text-[#F2F2F2] font-[500] text-[20px] font-[jost]">
+                USA
+            </button>
+            <button 
+                class="asian_btn w-[241px] h-[48px] items-center text-center rounded-[4px] bg-[#F2F2F2] text-[#380D37] font-[500] text-[20px] font-[jost]">
+                Asian
+            </button>
             <div class="container h-[2px] bg-[#380D37]"></div>
         </div>
         <div>
@@ -405,11 +393,9 @@
             </script>
 
     </section>
-
     <div class='mt-[40px] mb-[30px]'>
         <div class="container h-[2px] bg-[#380D37]"></div>
     </div>
-
     <!-- Differential Variants  -->
     <section class='mt-[70px]'>
         <div class="py-1 text-center">
@@ -418,9 +404,9 @@
         </div>
         <div class="pt-[60px]">
             <button
-                class="w-[241px] h-[48px] items-center text-center rounded-[4px] bg-[#F2F2F2] text-[#380D37] focus:bg-[#380D37] focus:text-white font-[500] text-[20px] font-[jost]">USA</button>
+                class="usa_btn w-[241px] h-[48px] items-center text-center rounded-[4px] bg-[#380D37] text-[#F2F2F2] font-[500] text-[20px] font-[jost]">USA</button>
             <button
-                class="w-[241px] h-[48px] items-center text-center rounded-[4px] bg-[#F2F2F2] text-[#380D37] focus:bg-[#380D37] focus:text-white font-[500] text-[20px] font-[jost]">Asian</button>
+                class="asian_btn w-[241px] h-[48px] items-center text-center rounded-[4px] bg-[#F2F2F2] text-[#380D37] font-[500] text-[20px] font-[jost]">Asian</button>
             <div class="container h-[2px] bg-[#380D37]"></div>
         </div>
 
@@ -446,7 +432,6 @@
         </a>
         <div class="container h-[2px] bg-[#380D37]"></div>
     </div>
-
     <!-- Currention code from this line upto footer  -->
     <section class="#about-us">
         <div>
@@ -536,12 +521,10 @@
                 </div>
             </div>
     </section>
-
     <!-- What our client says  -->
     <section class="mt-16">
         <h2 class="mb-12 text-center font-[500] font-[jost] text-[42px] text-[#353535]">What Our Clients Say About
             Us</h2>
-
         <div class="container mx-auto">
             <link rel="stylesheet"
                 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -1175,10 +1158,7 @@
                 });
             </script>
         </div>
-
     </section>
-
-
     <div class="mt-16 h-[2px] bg-[#380D37] container"></div>
     <!-- Drop/submit a review  -->
     <section class="mt-16 mb-5">
@@ -1250,6 +1230,20 @@
             </form>
         </div>
     </section>
-
-
+<script>
+        $(document).ready(function() {           
+            $('.usa_btn').on('click', function() {
+                $(this).addClass('bg-[#380D37] text-[#F2F2F2]');
+                $(this).removeClass('bg-[#F2F2F2] text-[#380D37]');
+                $('.asian_btn').removeClass('bg-[#380D37] text-[#F2F2F2]')
+                $('.asian_btn').addClass('bg-[#F2F2F2] text-[#380D37]');
+            });
+            $('.asian_btn').on('click', function() {
+                $(this).addClass('bg-[#380D37] text-[#F2F2F2]');
+                $(this).removeClass('bg-[#F2F2F2] text-[#380D37]');
+                $('.usa_btn').removeClass('bg-[#380D37] text-[#F2F2F2]');
+                $('.usa_btn').addClass('bg-[#F2F2F2] text-[#380D37]');
+            });
+        })
+</script>
 </div>
