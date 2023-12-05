@@ -17,7 +17,7 @@ class Product extends Model
         //Display attributes
         'display_size_id','display_type_id','d_resolution', 'd_other_features','touch_screen',
         //Memory Attributes (Ram)
-        'ram_id','m_slot','m_removal',
+        'ram_id','m_slot', 'm_removal',
         //Storage Attributes (SSD/HDD)
         'ssd_id','hdd_id', 's_extra_m2_slot', 's_support_type','s_upgrade', 's_slot',
         //Graphics Attributes
