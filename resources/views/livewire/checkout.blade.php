@@ -6,7 +6,7 @@
      </div>
      <!-- -------------check-out--section----------- -->
      <div>
-        <h1 class="text-[20px] text-[#353535] font-[jost] font-[500] mt-16 mb-4 mx-auto pl-[27px]">Checkout</h1>
+        <h1 class="text-[20px] text-[#353535] font-[jost] font-[500] mt-16 mb-4 mx-auto pl-[30px]">Checkout</h1>
      </div>
 
      <section class="grid grid-cols-2 gap-10 mx-auto container px-8">
@@ -108,18 +108,18 @@
                      </div>
                      <div class="my-[10px] flex gap-[5px]">
                          <input class="w-[14px] h-[14px] text-[#380D37]" type="radio" value="Cash on Delivery">
-                         <label class="text-[#353535] text-[14px] font-[jost] font-[500]" for="#">Cash on
+                         <label class="text-[#353535] text-[14px] font-[jost] font-[400]" for="#">Cash on
                              Delivery</label>
                      </div>
                      <div class="my-[10px] flex gap-[5px]">
-                         <input class="text-[#000] w-[14px] h-[14px] text-[#380D37]" type="radio" value="">
-                         <label class="text-[#353535] text-[14px] font-[jost] font-[500]" for="">Online
+                         <input class="w-[14px] h-[14px] text-[#380D37]" type="radio" value="">
+                         <label class="text-[#353535] text-[14px] font-[jost] font-[400]" for="">Online
                              Payment</label>
                      </div>
 
                      <div>
                          <div class="my-[9px]">
-                             <h1 class="text-[#353535] text-[14px] font-[jost] font-[500]">We Accept:</h1>
+                             <h1 class="text-[#353535] text-[14px] font-[jost] font-[400]">We Accept:</h1>
                          </div>
                          <div class="my-[8px]">
                              <img src="/storage/product/payment.svg" alt="">
@@ -147,13 +147,13 @@
 
                          <div class="my-[10px] flex gap-[5px]">
                              <input class="w-[14px] h-[14px] text-[#380D37]" type="radio">
-                             <label class="text-[#353535] text-[14px] font-[jost] font-[500]" for="">Store
+                             <label class="text-[#353535] text-[14px] font-[jost] font-[400]" for="">Store
                                  Pickup- 0 Taka</label>
                          </div>
                          <div class="my-[10px] flex gap-[5px]">
                              <input class="w-[14px] h-[14px] text-[#380D37]" type="radio" value="">
                              <label class="text-[#353535] text-[14px] font-[jost] font-[400]" for="">Request
-                                 Express delivery-120 Taka <br/><span>Through SA P.B</span></label>
+                                 Express delivery-120 Taka<br/><span>Through SA P.B</span></label>
                          </div>
                      </div>
                  </div>
@@ -172,33 +172,33 @@
                      </div>
                  </div>
                  <div>
-                     <table class="text-[#380D37] text-[14px] font-[jost] font-[400] w-full text-left">
+                     <table class="text-[#380D37] text-[12px] font-[jost] font-[700] w-full text-left">
                          <tr class="border-b-[rgba(0_0_0_0.20)] border-b-[1px] py-[20px]">
                              <th>Product Name</th>
-                             <th class="text-right py-[10px]">Price</th>
-                             <th class="text-right">Total</th>
+                             <th class="text-right py-[10px] text-[12px] font-[jost] font-[700]">Price</th>
+                             <th class="text-right text-[12px] font-[jost] font-[700]">Total</th>
                          </tr>
                          <tbody>
-                             <tr class="border-b-[rgba(0_0_0_0.20)] border-b-[1px] font-[jost] font-[400]">
-                                 <td class="text-[14px] py-[10px]">Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
+                             <tr class="border-b-[rgba(0_0_0_0.20)] border-b-[1px] font-[jost]">
+                                 <td class="text-[12px] font-[500] py-[10px]">Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
                                  </td>
-                                 <td class="text-right">1,50,000 Taka x 1</td>
-                                 <td class="text-right text-[#DC275C]">1,50,000 Taka</td>
+                                 <td class="text-right text-[12px] font-[700] text-[#353535]">1,50,000 Taka x 1</td>
+                                 <td class="text-right text-[#DC275C] text-[12px] font-[700]">1,50,000 Taka</td>
                              </tr>
-                             <tr class="border-b-[rgba(0_0_0_0.20)] border-b-[1px] font-[jost] font-[400]">
+                             <tr class="border-b-[rgba(0_0_0_0.20)] border-b-[1px] font-[jost]">
                                  <td></td>
-                                 <td class="text-right py-[10px]">Sub Total:</td>
-                                 <td class="text-right text-[#DC275C]">1,50,000 Taka</td>
+                                 <td class="text-right py-[10px] text-[12px] font-[700] text-[#353535]">Sub Total:</td>
+                                 <td class="text-right text-[#DC275C]  text-[12px] font-[700]">1,50,000 Taka</td>
                              </tr>
-                             <tr class="border-b-[rgba(0_0_0_0.20)] border-b-[1px] font-[jost] font-[400]">
+                             <tr class="border-b-[rgba(0_0_0_0.20)] border-b-[1px] font-[jost]">
                                  <td></td>
-                                 <td class="text-right py-[10px]">Delivery Charge:</td>
-                                 <td class="text-right text-[#DC275C]">60 Taka</td>
+                                 <td class="text-right py-[10px] text-[12px] font-[700] text-[#353535]">Delivery Charge:</td>
+                                 <td class="text-right text-[#DC275C] text-[12px] font-[700]">60 Taka</td>
                              </tr>
-                             <tr class="border-b-[rgba(0_0_0_0.20)] border-b-[1px] font-[jost] font-[400]">
+                             <tr class="border-b-[rgba(0_0_0_0.20)] border-b-[1px] font-[jost]">
                                  <td></td>
-                                 <td class="text-right py-[10px]">Total:</td>
-                                 <td class="text-right text-[#DC275C]">1,50,060 Taka</td>
+                                 <td class="text-right py-[10px] text-[12px] font-[700] text-[#353535]">Total:</td>
+                                 <td class="text-right text-[#DC275C] text-[12px] font-[700]">1,50,060 Taka</td>
                              </tr>
                          </tbody>
                      </table>
@@ -206,4 +206,9 @@
              </div>
          </div>
      </section>
+     
+        <div class="container flex justify-end items-center right-0 bottom-0">
+            <button class=" flexd justify-center items-center rounded-[4px] mr-8 mt-6 px-[20px] py-[10px] text-[16px] text-center text-[#f2f2f2] font-[jost] font-[500] bg-gradient-to-r from-[#380D37] to-[#DC275C]">Confirm Order</button>
+         </div>
+     
  </div>
