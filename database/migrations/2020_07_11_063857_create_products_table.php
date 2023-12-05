@@ -41,7 +41,7 @@ class CreateProductsTable extends Migration
             $table->unsignedBigInteger('brand_id')->nullable();
             $table->unsignedBigInteger('cat_id')->nullable();
             $table->unsignedBigInteger('child_cat_id')->nullable();
-            $table->timestamp('upcomming')->nullable();
+            $table->date('upcomming')->nullable();
             $table->boolean('is_featured')->deault(false);
             $table->enum('status', ['active', 'inactive'])->default('inactive');
             $table->longText('special_feature');
@@ -69,18 +69,18 @@ class CreateProductsTable extends Migration
             $table->foreignIdFor(DisplayType::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('d_resolution');
             $table->text('d_other_features')->nullable();
-            $table->boolean('touch_screen');
+            $table->boolean('touch_screen')->default(false);
 
             //Memory Attributes (RAM)
             $table->foreignIdFor(Ram::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->integer('m_slot');
-            $table->boolean('m_removal');
+            $table->boolean('m_removal')->default(false);
 
             //Storage Attributes (HDD/SSD)
             $table->foreignIdFor(ssd::class)->nullable()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignIdFor(hdd::class)->nullable()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->integer('s_slot')->nullable();
-            $table->boolean('s_extra_m2_slot');
+            $table->boolean('s_extra_m2_slot')->default(false);
             $table->string('s_support_type')->nullable();
             $table->string('s_upgrade');
 
@@ -90,7 +90,7 @@ class CreateProductsTable extends Migration
 
             //Keyboard & Touchpad
             $table->string('k_type');
-            $table->boolean('touchpad');
+            $table->boolean('touchpad')->default(false);
 
             //Camera & Audio
             $table->string('webcam');
