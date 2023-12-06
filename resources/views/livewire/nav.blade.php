@@ -1,4 +1,5 @@
-{{-- <section class="bg-[#F2F2F2] h-[51px]  py-4 px-[100px]">
+<div>
+    {{-- <section class="bg-[#F2F2F2] h-[51px]  py-4 px-[100px]">
     <nav class="font-[Jost] flex justify-between">
         <ul class="relative" x-data="{ open: false }">
             <li class='flex items-center gap-[5px] jost h-[23px]'>
@@ -86,9 +87,9 @@
 </section> --}}
 
 
-<div class="bg-[#F2F2F2] h-[51px]  py-4 px-[100px] flex justify-between text-center items-center">
+<div class="bg-[#F2F2F2] h-[51px]  py-4  2xl:px-[100px] xl:px-[50px] max-xl:hidden flex justify-between text-center items-center">
     <div class="relative" data-te-dropdown-ref>
-        <a class="flex items-center whitespace-nowrap rounded px-6 pb-2 pt-2.5 font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]"
+        <a class="flex items-center whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]"
             href="#" type="button" id="dropdownMenuButton2" data-te-dropdown-toggle-ref aria-expanded="false"
             data-te-ripple-init data-te-ripple-color="light">
             All Categories
@@ -147,7 +148,7 @@
         </ul>
     </div>
     <div class="relative" data-te-dropdown-ref>
-        <a class="flex items-center whitespace-nowrap rounded px-6 pb-2 pt-2.5 font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]"
+        <a class="flex items-center whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]"
             href="#" type="button" id="dropdownMenuButton2" data-te-dropdown-toggle-ref aria-expanded="false"
             data-te-ripple-init data-te-ripple-color="light">
             USA Variant
@@ -202,7 +203,7 @@
         </ul>
     </div>
     <div class="relative" data-te-dropdown-ref>
-        <a class="flex items-center whitespace-nowrap rounded px-6 pb-2 pt-2.5 font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]"
+        <a class="flex items-center whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]"
             href="#" type="button" id="dropdownMenuButton2" data-te-dropdown-toggle-ref aria-expanded="false"
             data-te-ripple-init data-te-ripple-color="light">
             Brand New
@@ -257,7 +258,7 @@
         </ul>
     </div>
     <div class="relative" data-te-dropdown-ref>
-        <a class="flex items-center whitespace-nowrap rounded px-6 pb-2 pt-2.5 font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]"
+        <a class="flex items-center whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]"
             href="#" type="button" id="dropdownMenuButton2" data-te-dropdown-toggle-ref aria-expanded="false"
             data-te-ripple-init data-te-ripple-color="light">
             MAC Book
@@ -312,7 +313,7 @@
         </ul>
     </div>
     <div class="relative" data-te-dropdown-ref>
-        <a class="flex items-center whitespace-nowrap rounded px-6 pb-2 pt-2.5 font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]"
+        <a class="flex items-center whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]"
             href="#" type="button" id="dropdownMenuButton2" data-te-dropdown-toggle-ref aria-expanded="false"
             data-te-ripple-init data-te-ripple-color="light">
             Pre-Owned
@@ -367,7 +368,7 @@
         </ul>
     </div>
     <div class="relative" data-te-dropdown-ref>
-        <a class="flex items-center whitespace-nowrap rounded px-6 pb-2 pt-2.5 font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]"
+        <a class="flex items-center whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]"
             href="#" type="button" id="dropdownMenuButton2" data-te-dropdown-toggle-ref aria-expanded="false"
             data-te-ripple-init data-te-ripple-color="light">
             Gaming Laptop
@@ -422,7 +423,7 @@
         </ul>
     </div>
     <div class="relative" data-te-dropdown-ref>
-        <a class="flex items-center whitespace-nowrap rounded px-6 pb-2 pt-2.5 font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]"
+        <a class="flex items-center whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]"
             href="#" type="button" id="dropdownMenuButton2" data-te-dropdown-toggle-ref aria-expanded="false"
             data-te-ripple-init data-te-ripple-color="light">
             Student Laptop
@@ -477,7 +478,7 @@
         </ul>
     </div>
     <div class="relative" data-te-dropdown-ref>
-        <a class="flex items-center whitespace-nowrap rounded px-6 pb-2 pt-2.5 font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]"
+        <a class="flex items-center whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]"
             href="#" type="button" id="dropdownMenuButton2" data-te-dropdown-toggle-ref aria-expanded="false"
             data-te-ripple-init data-te-ripple-color="light">
             Asian Variant
@@ -532,7 +533,7 @@
         </ul>
     </div>
     <div class="relative" data-te-dropdown-ref>
-        <a class="flex items-center whitespace-nowrap rounded px-6 pb-2 pt-2.5 font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]"
+        <a class="flex items-center whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]"
             href="#" type="button" id="dropdownMenuButton2" data-te-dropdown-toggle-ref aria-expanded="false"
             data-te-ripple-init data-te-ripple-color="light">
             Hotline:+8880171264420
@@ -586,4 +587,6 @@
 
         </ul>
     </div>
+</div>
+
 </div>

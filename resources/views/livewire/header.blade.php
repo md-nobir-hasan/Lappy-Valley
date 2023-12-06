@@ -1,13 +1,25 @@
-<div>
+<div class="relative">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Alkalami&family=Comme:wght@200;600;800&family=Jost&family=Lato:ital,wght@1,300&display=swap');
-      </style>
-    <header class="h-[78px] bg-gradient-to-r from-[#380D37] to-[#DC275C] text-[#f2f2f2] px-[72px]">
+
+    </style>
+    <header
+        class="h-[78px] max-xl:h-[68px] max-xl:fixed max-xl:top-0 max-xl:left-0 max-xl:right-0 max-xl:z-150 max-xl:flex max-xl:justify-between max-xl:items-center
+     bg-gradient-to-r from-[#380D37] to-[#DC275C] text-[#f2f2f2] px-[72px] max-xl:px-[40px]">
+        {{-- ------responsive---show----- --}}
+        <div class=" xl:hidden max-xl:block">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class=" menu w-6 h-6 xl-hidden max-xl:block">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+        </div>
+
+        {{-- responsive ---show -----end --}}
         <div class="flex items-center justify-evenly h-full  py-[10px] gap-[5px]">
             <!-- <!- Logo -->
             <div class=''>
                 <a href="{{ route('home') }}" wire:navigate>
-                    <img class="h-[60px] w-[232px]" src="/storage/product/Logo.svg" alt="Your Logo">
+                    <img class="h-[60px] max-xl:h-[40px] w-[232px] max-xl:w-[180px] max-xl:flex max-xl:items-center"
+                        src="/storage/product/Logo.svg" alt="Your Logo">
                 </a>
             </div>
             <div>
@@ -25,9 +37,10 @@
                             }">
 
 
-                                <form wire:submit='searchTo' class='h-[44px] w-[655px]'>
+                                <form wire:submit='searchTo' class='h-[44px] w-[655px] max-xl:hidden'>
                                     <div class="flex" @click.outside='open = false'>
-                                        <select name="cat_id" wire:model.live='cat' wire:change='prdouctFetch' @change='open=true'
+                                        <select name="cat_id" wire:model.live='cat' wire:change='prdouctFetch'
+                                            @change='open=true'
                                             class="block w-[80px] p-2.5 text-[#380D37] text-[14px] font-[jost] font-[400] leading-[20.23px] border-r-[2px] border-[#380D37]">
                                             <option value="" selected>All</option>
                                             @foreach ($cats as $ct)
@@ -40,9 +53,11 @@
                                         <div class="relative flex w-full">
                                             <div class="w-full">
                                                 <span class="">
-                                                     <input name="search_text" wire:model.live="search" wire:keyup="searchFuc" @click="open = true" type="search"
-                                                    id="search-dropdown" class=" z-20 block p-2.5 w-full text-[#380D37]"
-                                                    placeholder="I am shopping for..." required>
+                                                    <input name="search_text" wire:model.live="search"
+                                                        wire:keyup="searchFuc" @click="open = true" type="search"
+                                                        id="search-dropdown"
+                                                        class=" z-20 block p-2.5 w-full text-[#380D37]"
+                                                        placeholder="I am shopping for..." required>
                                                     <div wire:loading
                                                         class="absolute right-[6.5rem] top-2.5 inline-block h-6 w-6 mr-2 animate-spin rounded-full
                                                         border-4 border-solid border-current border-r-transparent align-[-0.125em]
@@ -53,26 +68,27 @@
                                                         </span>
                                                     </div>
                                                 </span>
-                                                @if (count($products)>0)
-                                                <ul  x-show='open'
-                                                    class="absolute z-50 bg-[white] text-[black] px-6 max-h-[530px] overflow-scroll w-full">
-                                                    @foreach ($products as $prd)
-                                                        <li>
-                                                            <a href="{{ route('product.details',[$prd->slug]) }}" wire:navigate class="flex">
-                                                                <img src="{{ $prd->photo }}" alt=""
-                                                                    width="40px" height="40px">
-                                                                <div>
-                                                                    <span>{{ $prd->title }}</span>
-                                                                    <p>
-                                                                        <span>{{ round($prd->price - ($prd->price * $prd->discount) / 100) }}</span>
-                                                                        <span
-                                                                            class="line-through">{{ $prd->price }}</span>
-                                                                    </p>
-                                                                </div>
-                                                            </a>
-                                                        </li>
-                                                    @endforeach
-                                                </ul>
+                                                @if (count($products) > 0)
+                                                    <ul x-show='open'
+                                                        class="absolute z-50 bg-[white] text-[black] px-6 max-h-[530px] overflow-scroll w-full">
+                                                        @foreach ($products as $prd)
+                                                            <li>
+                                                                <a href="{{ route('product.details', [$prd->slug]) }}"
+                                                                    wire:navigate class="flex">
+                                                                    <img src="{{ $prd->photo }}" alt=""
+                                                                        width="40px" height="40px">
+                                                                    <div>
+                                                                        <span>{{ $prd->title }}</span>
+                                                                        <p>
+                                                                            <span>{{ round($prd->price - ($prd->price * $prd->discount) / 100) }}</span>
+                                                                            <span
+                                                                                class="line-through">{{ $prd->price }}</span>
+                                                                        </p>
+                                                                    </div>
+                                                                </a>
+                                                            </li>
+                                                        @endforeach
+                                                    </ul>
                                                 @endif
                                                 {{-- <ul :class="{ 'hidden': hidden }"
                                                     class="fixed z-50 bg-[white] text-[black] px-6 h-[530px] overflow-scroll">
@@ -111,7 +127,7 @@
             </div>
 
             <!-- Right-Side Logos/Icons -->
-            <div class='flex items-center justify-center gap-[10px]'>
+            <div class='flex items-center justify-center gap-[10px] max-xl:hidden'>
                 <!-- <div class="flex item-center "> -->
                 <a href="{{ route('offer') }}"><img class='w-[119px] h-[44]' src="/storage/product/Offers.svg"
                         alt="Logo 1"></a>
@@ -136,4 +152,237 @@
             </div>
         </div>
     </header>
+
+    <div class="showMenu w-[250px] fixed left-[-280px] top-[68px] z-150">
+        <style>
+            ::-webkit-scrollbar (
+                width: 5px;
+            )
+            ::-webkit-scrollbar -thumb (
+                background : #fff ;
+            )
+        </style>
+        <nav class="bg-[#f2f2f2] sticky top-0 left-0">
+            <ul class="flex flex-col gap-4 scroll-auto">
+                <li
+                    class=" px-6 pt-2 font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
+                    <a href="#" class="flex justify-between items-center">
+                        <span>All Categories</span>
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                            </svg>
+                        </span>
+                    </a>
+                </li>
+                <div class="h-[1px] bg-[#764D8733]"></div>
+                <li
+                    class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
+                  <a href="#" class='flex justify-between items-center'>
+                    <span>USA ariant</span>
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                        </svg>
+                    </span>
+                  </a>
+                </li>
+                <div class="h-[1px] bg-[#764D8733]"></div>
+                <li
+                    class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
+                 <a href="#" class='flex justify-between items-center'>
+                    <span>Bran New</span>
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                        </svg>
+                    </span>
+                 </a>
+                </li>
+                <div class="h-[1px] bg-[#764D8733]"></div>
+                <li
+                    class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
+                 <a href="#" class='flex justify-between items-center'>
+                    <span>Mac Book</span>
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/>
+                        </svg>
+                    </span>
+                 </a>
+                </li>
+                <div class="h-[1px] bg-[#764D8733]"></div>
+                <li
+                    class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
+                  <a href="#" class='flex justify-between items-center'>
+                    <span>Gamig Laptop</span>
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                        </svg>
+                    </span>
+                  </a>
+                </li>
+                <div class="h-[1px] bg-[#764D8733]"></div>
+                <li
+                    class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
+                  <a href="#" class='flex justify-between items-center'>
+                    <span>Pre-wned</span>
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                        </svg>
+                    </span>
+                  </a>
+                </li>
+                <div class="h-[1px] bg-[#764D8733]"></div>
+                <li
+                    class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
+                  <a href="#" class='flex justify-between items-center'>
+                    <span>Studnt Laptop</span>
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                        </svg>
+                    </span>
+                  </a>
+                </li>
+                <div class="h-[1px] bg-[#764D8733]"></div>
+                <li
+                    class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
+                   <a href="#" class='flex justify-between items-center'>
+                    <span>Asia Variant</span>
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                        </svg>
+                    </span>
+                   </a>
+                </li>
+                <div class="h-[1px] bg-[#764D8733]"></div>
+
+                <li
+                class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
+               <a href="#" class='flex justify-between items-center'>
+                <span>Asia Variant</span>
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                    </svg>
+                </span>
+               </a>
+            </li>
+            <div class="h-[1px] bg-[#764D8733]"></div>
+            <li
+            class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
+           <a href="#" class='flex justify-between items-center'>
+            <span>Asia Variant</span>
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                </svg>
+            </span>
+           </a>
+        </li>
+        <div class="h-[1px] bg-[#764D8733]"></div>
+        <li
+        class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
+       <a href="#" class='flex justify-between items-center'>
+        <span>Asia Variant</span>
+        <span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+            </svg>
+        </span>
+       </a>
+    </li>
+    <div class="h-[1px] bg-[#764D8733]"></div>
+    <li
+    class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
+   <a href="#" class='flex justify-between items-center'>
+    <span>Asia Variant</span>
+    <span>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+            stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+        </svg>
+    </span>
+   </a>
+</li>
+<div class="h-[1px] bg-[#764D8733]"></div>
+<li
+class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
+<a href="#" class='flex justify-between items-center'>
+<span>Asia Variant</span>
+<span>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+    </svg>
+</span>
+</a>
+</li>
+<div class="h-[1px] bg-[#764D8733]"></div>
+<li
+class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
+<a href="#" class='flex justify-between items-center'>
+<span>Asia Variant</span>
+<span>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+    </svg>
+</span>
+</a>
+</li>
+<div class="h-[1px] bg-[#764D8733]"></div>
+<li
+class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
+<a href="#" class='flex justify-between items-center'>
+<span>Asia Variant</span>
+<span>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+    </svg>
+</span>
+</a>
+</li>
+<div class="h-[1px] bg-[#764D8733]"></div>
+<li
+class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
+<a href="#" class='flex justify-between items-center'>
+<span>Asia Variant</span>
+<span>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+    </svg>
+</span>
+</a>
+</li>
+<div class="h-[1px] bg-[#764D8733]"></div>
+            </ul>
+        </nav>
+    </div>
+    <script>
+        $(document).ready(function() {
+            $(".menu").click(function() {
+                $(".showMenu").slideToggle();
+                $(this).addClass('left-0');
+                $(".showMenu").removeClass('left-[-280px]');
+            });
+        });
+    </script>
 </div>
