@@ -168,4 +168,111 @@
                 });
             })
         </script>
+
+<div>
+    <style>
+
+  
+  .menu-toggle {
+    cursor: pointer;
+    padding: 15px;
+    position: absolute;;
+    top: 20px;
+    left: 20px;
+    z-index: 2;
+  }
+  
+  .bar {
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+  
+  .menu {
+    position: fixed;
+    top: 0;
+    left:-280px;
+    width: 300px;
+    background-color: black;
+    z-index: 1;
+    overflow: hidden;
+    transition: 0.5s;
+  }
+  .active.menu {
+    left: 0px;
+    top: 0px;
+    color:#fff;
+  }
+  
+  .menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 100px 0 0 0;
+    text-align: center;
+  }
+  
+  .menu li {
+    padding: 20px;
+  }
+  
+  .menu a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+  }
+  
+  .menu-toggle.active .bar:nth-child(1) {
+    transform: rotate(-45deg) translate(-7px, 5px);
+  }
+  
+  .menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .menu-toggle.active .bar:nth-child(3) {
+    transform: rotate(45deg) translate(-7px, -5px);
+  }
+  
+    </style>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <div class="menu">
+      <!-- Your menu content goes here -->
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <script>
+   
+    let menuToggle = document.querySelector('.menu-toggle');
+    let menu = document.querySelector('.menu');
+
+    menuToggle.onclick = function toggleMenu() {
+        menu.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+    
+  }
+
+  $(document).ready(function() {           
+            $('.menu-toggle').on('click', function() {
+                $('.menu').addClass('left-0');
+                $('.menu').removeClass('left-[-280px]');
+            });
+            // $('.asian_btn').on('click', function() {
+            //     $(this).addClass('bg-[#380D37] text-[#F2F2F2]');
+            //     $(this).removeClass('bg-[#F2F2F2] text-[#380D37]');
+            //     $('.usa_btn').removeClass('bg-[#380D37] text-[#F2F2F2]');
+            //     $('.usa_btn').addClass('bg-[#F2F2F2] text-[#380D37]');
+            // });
+        })
+    </script>
+  </div>
     </div>

@@ -44,7 +44,7 @@
     </script>
 </x-slot>
 
-<div class="container mx-auto lg:px-16">
+<div class="container mx-auto lg:px-16 blurH">
 
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <style>
@@ -96,14 +96,13 @@
     <!-- Hero Section  -->
     <section>
         <div class="relative" x-data="{ active: true }">
-            <div class="slide">
-                <img class="container" src="/storage/product/Hero-Image.svg">
-
-            </div>
-            <div class="hidden slide">
+            <div class="relative slide">
                 <img class="container" src="/storage/product/Hero-Image.svg">
             </div>
-            <div class="hidden slide">
+            <div class="relative hidden slide">
+                <img class="container" src="/storage/product/Hero-Image.svg">
+            </div>
+            <div class="relative hidden slide">
                 <img class="container" src="/storage/product/Hero-Image.svg">
             </div>
             <!-- The previous button -->

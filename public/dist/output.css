@@ -845,6 +845,10 @@ input[type="range"]:active::-webkit-slider-thumb{
   left: 0.75rem;
 }
 
+.left-\[-280px\]{
+  left: -280px;
+}
+
 .left-\[50\%\]{
   left: 50%;
 }
@@ -925,40 +929,12 @@ input[type="range"]:active::-webkit-slider-thumb{
   top: 50px;
 }
 
-.top-full{
-  top: 100%;
-}
-
-.top-6{
-  top: 1.5rem;
-}
-
-.top-4{
-  top: 1rem;
-}
-
-.top-8{
-  top: 2rem;
-}
-
-.top-16{
-  top: 4rem;
-}
-
-.top-\[\]{
-  top: ;
-}
-
-.top-\[70px\]{
-  top: 70px;
-}
-
-.left-\[-280px\]{
-  left: -280px;
-}
-
 .top-\[68px\]{
   top: 68px;
+}
+
+.top-full{
+  top: 100%;
 }
 
 .\!z-40{
@@ -1037,6 +1013,14 @@ input[type="range"]:active::-webkit-slider-thumb{
   z-index: 999;
 }
 
+.z-\[\]{
+  z-index: ;
+}
+
+.z-\[10000\]{
+  z-index: 10000;
+}
+
 .order-1{
   order: 1;
 }
@@ -1075,10 +1059,6 @@ input[type="range"]:active::-webkit-slider-thumb{
 
 .m-auto{
   margin: auto;
-}
-
-.m-\[-280px\]{
-  margin: -280px;
 }
 
 .\!my-0{
@@ -1314,10 +1294,6 @@ input[type="range"]:active::-webkit-slider-thumb{
   margin-bottom: auto;
 }
 
-.ml-0{
-  margin-left: 0px;
-}
-
 .ml-1{
   margin-left: 0.25rem;
 }
@@ -1340,10 +1316,6 @@ input[type="range"]:active::-webkit-slider-thumb{
 
 .ml-6{
   margin-left: 1.5rem;
-}
-
-.ml-\[-260px\]{
-  margin-left: -260px;
 }
 
 .ml-\[20px\]{
@@ -1520,14 +1492,6 @@ input[type="range"]:active::-webkit-slider-thumb{
 
 .mt-auto{
   margin-top: auto;
-}
-
-.ml-\[-280px\]{
-  margin-left: -280px;
-}
-
-.ml-\[\]{
-  margin-left: ;
 }
 
 .box-border{
@@ -1912,6 +1876,14 @@ input[type="range"]:active::-webkit-slider-thumb{
 
 .h-screen{
   height: 100vh;
+}
+
+.h-\[68px\]{
+  height: 68px;
+}
+
+.h-\[\]{
+  height: ;
 }
 
 .max-h-\[530px\]{
@@ -2980,10 +2952,6 @@ input[type="range"]:active::-webkit-slider-thumb{
 
 .scroll-auto{
   scroll-behavior: auto;
-}
-
-.scroll-smooth{
-  scroll-behavior: smooth;
 }
 
 .truncate{
@@ -5040,6 +5008,12 @@ input[type="range"]:active::-webkit-slider-thumb{
           filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
+.blur-sm{
+  --tw-blur: blur(4px);
+  -webkit-filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+          filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
 .filter{
   -webkit-filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
           filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
@@ -5115,12 +5089,12 @@ input[type="range"]:active::-webkit-slider-thumb{
   transition-duration: 150ms;
 }
 
-.delay-\[0ms\]{
-  transition-delay: 0ms;
-}
-
 .delay-150{
   transition-delay: 150ms;
+}
+
+.delay-\[0ms\]{
+  transition-delay: 0ms;
 }
 
 .duration-150{
@@ -6974,6 +6948,10 @@ input[type="range"]:active::-webkit-slider-thumb{
     display: flex;
   }
 
+  .max-xl\:grid{
+    display: grid;
+  }
+
   .max-xl\:hidden{
     display: none;
   }
@@ -6986,8 +6964,24 @@ input[type="range"]:active::-webkit-slider-thumb{
     height: 68px;
   }
 
+  .max-xl\:h-\[\]{
+    height: ;
+  }
+
+  .max-xl\:h-\[35px\]{
+    height: 35px;
+  }
+
   .max-xl\:w-\[180px\]{
     width: 180px;
+  }
+
+  .max-xl\:w-\[\]{
+    width: ;
+  }
+
+  .max-xl\:w-\[100px\]{
+    width: 100px;
   }
 
   .max-xl\:items-center{
@@ -6999,6 +6993,23 @@ input[type="range"]:active::-webkit-slider-thumb{
   }
 
   .max-xl\:px-\[40px\]{
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .max-xl\:px-\[60px\]{
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+}
+
+@media not all and (min-width: 768px){
+  .max-md\:px-\[\]{
+    padding-left: ;
+    padding-right: ;
+  }
+
+  .max-md\:px-\[40px\]{
     padding-left: 40px;
     padding-right: 40px;
   }
