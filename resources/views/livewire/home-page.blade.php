@@ -94,16 +94,16 @@
         </script>
     @endif
     <!-- Hero Section  -->
-    <section class=''>
+    <section>
         <div class="relative" x-data="{ active: true }">
-            <div class="relative slide">
+            <div class="slide">
                 <img class="container" src="/storage/product/Hero-Image.svg">
 
             </div>
-            <div class="relative hidden slide">
+            <div class="hidden slide">
                 <img class="container" src="/storage/product/Hero-Image.svg">
             </div>
-            <div class="relative hidden slide">
+            <div class="hidden slide">
                 <img class="container" src="/storage/product/Hero-Image.svg">
             </div>
             <!-- The previous button -->

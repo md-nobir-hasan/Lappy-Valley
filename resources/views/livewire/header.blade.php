@@ -116,16 +116,11 @@
                                         </div>
                                     </div>
                                 </form>
-
-
                             </div>
                         </div>
-
                     </div>
                 </div>
-
             </div>
-
             <!-- Right-Side Logos/Icons -->
             <div class='flex items-center justify-center gap-[10px] max-xl:hidden'>
                 <!-- <div class="flex item-center "> -->
@@ -153,6 +148,10 @@
         </div>
     </header>
 
+    <div>
+        
+    </div>
+     {{-- responsive side nav --}}
     <div class="showMenu w-[250px] fixed left-[-280px] top-[68px] z-150">
         <style>
             ::-webkit-scrollbar (
@@ -378,10 +377,21 @@ class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] tex
     </div>
     <script>
         $(document).ready(function() {
+            let mobile_nav_open = false;
+
             $(".menu").click(function() {
-                $(".showMenu").slideToggle();
-                $(this).addClass('left-0');
-                $(".showMenu").removeClass('left-[-280px]');
+                // $(".showMenu").slideToggle();
+                if(mobile_nav_open){
+                    // $(this).addClass('left-[-280px]');
+                    $(".showMenu").addClass('left-[-280px] transition ease-in-out delay-150');
+                    mobile_nav_open = false;
+                    console.log(mobile_nav_open)
+                }else{
+                    $(".showMenu").removeClass('left-[-280px] transition ease-in-out delay-150');
+                    mobile_nav_open = true;
+                    console.log(mobile_nav_open)
+                }
+                
             });
         });
     </script>

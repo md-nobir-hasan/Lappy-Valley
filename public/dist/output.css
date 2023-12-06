@@ -5119,6 +5119,10 @@ input[type="range"]:active::-webkit-slider-thumb{
   transition-delay: 0ms;
 }
 
+.delay-150{
+  transition-delay: 150ms;
+}
+
 .duration-150{
   transition-duration: 150ms;
 }
