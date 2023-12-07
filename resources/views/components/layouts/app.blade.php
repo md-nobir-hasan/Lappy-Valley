@@ -9,32 +9,32 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     {{-- <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,500;1,100&family=Noto+Sans+Bengali:wght@900&display=swap" rel="stylesheet"> --}}
-    <link rel="stylesheet" href="/dist/toastr/toastr.css">
-    <script type="text/javascript" src="/dist/toastr/tastr-helper.js"></script>
-    <script type="text/javascript" src="/dist/toastr/toastr.js"></script>
+    <link rel="stylesheet" href="{{asset('dist/toastr/toastr.css')}}">
+    <script type="text/javascript" src="{{asset('dist/toastr/tastr-helper.js')}}"></script>
+    {{-- <script type="text/javascript" src="{{asset('dist/toastr/toastr.js')}}"></script> --}}
     {{ $styles ?? '' }}
-    <link rel="stylesheet" href="/dist/output.css">
-    <link rel="icon" href="/storage/product/Logo.svg" type="img/svg">
+    <link rel="stylesheet" href="{{asset('dist/output.css')}}">
+    <link rel="icon" href="{{asset('storage/product/Logo.svg')}}" type="img/svg">
 </head>
 
 <body>
     <script>
-        toastr.options = {
-            "closeButton": true,
-            "debug": false,
-            "newestOnTop": true,
-            "progressBar": true,
-            "positionClass": "toast-top-right",
-            "preventDuplicates": false,
-            "showDuration": "300",
-            "hideDuration": "1000",
-            "timeOut": "5000",
-            "extendedTimeOut": "1000",
-            "showEasing": "swing",
-            "hideEasing": "linear",
-            "showMethod": "fadeIn",
-            "hideMethod": "fadeOut"
-        }
+        // toastr.options = {
+        //     "closeButton": true,
+        //     "debug": false,
+        //     "newestOnTop": true,
+        //     "progressBar": true,
+        //     "positionClass": "toast-top-right",
+        //     "preventDuplicates": false,
+        //     "showDuration": "300",
+        //     "hideDuration": "1000",
+        //     "timeOut": "5000",
+        //     "extendedTimeOut": "1000",
+        //     "showEasing": "swing",
+        //     "hideEasing": "linear",
+        //     "showMethod": "fadeIn",
+        //     "hideMethod": "fadeOut"
+        // }
         // Display an info toast with no title
         // toastr.info('Are you the 6 fingered man?')
         // toastr.success( 'Miracle Max Says')
@@ -51,6 +51,7 @@
     {{ $slot }}
 
     @livewire('footer')
+
 
     {{-- Jquery --}}
     <script>
@@ -222,7 +223,6 @@
         });
     </script>
     {{ $script ?? '' }}
-
 </body>
 
 </html>

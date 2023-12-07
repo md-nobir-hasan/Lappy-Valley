@@ -95,7 +95,7 @@
     @endif
     <!-- Hero Section  -->
     <section>
-        <div class="relative" x-data="{ active: true }">
+        <div class="relative max-xl:top-[68px]" x-data="{ active: true }">
             <div class="relative slide">
                 <img class="container" src="/storage/product/Hero-Image.svg">
             </div>
@@ -108,15 +108,15 @@
             <!-- The previous button -->
             <a class="absolute left-0 top-1/2 p-4 -translate-y-1/2 -translate-x-[42px] text-[40px] text-blue-500 opacity-50 hover:opacity-100 cursor-pointer"
                 onclick="moveSlide(-1)">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="36" viewBox="0 0 23 40"
-                    fill="none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-[18px] h-[36px] max-md:w-[25px] max-md:h-[20px]"
+                    viewBox="0 0 23 40" fill="none">
                     <path d="M21 2L3 20L21 38" stroke="#999999" stroke-opacity="1" stroke-width="5" />
                 </svg>
             </a>
             <!-- The next button -->
             <a class="absolute right-0 top-1/2 p-4 -translate-y-1/2 translate-x-[42px] text-[40px] text-blue-500 opacity-50 hover:opacity-100 cursor-pointer"
-                onclick="moveSlide(1)"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="36"
-                    viewBox="0 0 23 40" fill="none">
+                onclick="moveSlide(1)"><svg xmlns="http://www.w3.org/2000/svg"
+                    class="w-[18px] h-[36px] max-md:w-[25px] max-md:h-[20px]" viewBox="0 0 23 40" fill="none">
                     <path :class="{ 'text-[black]': active }" d="M2 2L20 20L2 38" stroke="#999999" stroke-opacity="0.5"
                         stroke-width="5" />
                 </svg></i></a>
@@ -125,20 +125,27 @@
     <!-- --------hero--section --end ----  -->
 
     <!-- Feature Laptops -->
-    <section class='mt-[50px]'>
+    <section class='mt-[50px] max-xl:mt-[100px]'>
         <div class="py-1 text-center">
-            <h2 class="font-[jost] text-[40px] font-[500]  text-[#353535]">Featurds Laptops </h2>
-            <p class="font-[jost] text-[16px] font-[500] text-[#353535]">The best we offer is here</p>
+            <h2
+                class="font-[jost] text-[40px] font-[500] max-lg:text-[30px] max-md:text-[25px] max-sm:text-[22px] text-[#353535]">
+                Featurds Laptops </h2>
+            <p
+                class="font-[jost] text-[16px] font-[500] max-lg:text-[14px] max-md:text-[12px] max-sm:text-[10px] text-[#380D37]">
+                The best we offer is here</p>
         </div>
         <div class="pt-[60px]">
-            <button 
-                class="usa_btn w-[241px] h-[48px] items-center text-center rounded-[4px] bg-[#380D37] text-[#F2F2F2] font-[500] text-[20px] font-[jost]">USA</button>
             <button
-                class="asian_btn w-[241px] h-[48px] items-center text-center rounded-[4px] bg-[#F2F2F2] text-[#380D37] font-[500] text-[20px] font-[jost]">ASIAN</button>
+                class="usa_btn w-[241px] max-xl:w-[200px] max-lg:w-[180px] max-md:w-[150px] max-sm:w-[100px] h-[48px] max-lg:h-[43px] max-md:h-[40px] max-sm:h-[35px] max-lg:text-[18px] max-md:text-[16px] max-sm:text-[14px]
+                items-center text-center rounded-[4px] bg-[#380D37] text-[#F2F2F2] font-[500] text-[20px] font-[jost]">USA</button>
+            <button
+                class="asian_btn w-[241px] max-xl:w-[200px] max-lg:w-[180px] max-md:w-[150px] max-sm:w-[100px]  h-[48px] max-lg:h-[43px] max-md:h-[40px] max-sm:h-[35px] max-lg:text-[18px] max-md:text-[16px] max-sm:text-[14px]
+                items-center text-center rounded-[4px] bg-[#F2F2F2] text-[#380D37] font-[500] text-[20px] font-[jost]">ASIAN</button>
             <div class="h-[2px] bg-[#380D37] rouned-[2px]"></div>
         </div>
         <!-- Product  -->
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-col-5 gap-2 mt-6 mb-[78px]">
+        <div
+            class="grid grid-cols-5 max-sm:grid-cols-1 max-sm:gap-[2px]  max-md:grid-cols-2 max-md:gap-[4px] max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 mt-6 mb-[78px] max-sm:mb-[50px]">
             @foreach ($features->take(5) as $product)
                 <x-product :product="$product"></x-product>
                 {{-- <livewire:products :product="$product" /> --}}
@@ -149,29 +156,40 @@
     <section>
         <!-- heading -->
         <div
-            class=" h-[130px] flex justify-center items-center text-white bg-gradient-to-r from-[#380D37] to-[#DC275C]">
-            <h1 class="text-[40px] text-[#f2f2f2] font-[jost] font-[500] text-center">New Arrival</h1>
+            class=" h-[130px] max-sm:h-[52px] max-md:h-[68px] max-lg:h-[85px] max-xl:h-[100px]  flex justify-center items-center text-white bg-gradient-to-r from-[#380D37] to-[#DC275C]">
+            <h1
+                class="text-[40px] max-sm:text-[18px] max-md:text-[22px] max-lg:text-[30px] max-xl:text-[35px] text-[#f2f2f2] font-[jost] font-[500] text-center">
+                New Arrival</h1>
         </div>
 
         <!-- banner  -->
-        <div class="flex mt-6 mb-5">
-            <div class=" pt-[22px]  font-[jost] text-[52px] font-[500] text-[#DC275C] ">
-                <p class="leading-[75.14px]"> Our newest</br>products are</br>here,just for you!</p>
+        <div class="grid grid-cols-3 mt-6 mb-5 max-sm:mt-[.5rem]">
+            <div class="">
+                <div
+                    class=" pt-[22px] max-sm:pt-[5px] max-md:pt-[10px] max-lg:pt-[12px] max-xl:pt-[15px] font-[jost] font-[500] 
+                text-[52px] max-sm:text-[14px] max-md:text-[24px] max-lg:text-[32px] max-xl:text-[38px]  text-[#DC275C] ">
+                    <p
+                        class="leading-[75.14px] max-sm:leading-[20px] max-md:leading-[35px] max-lg:leading-[42px] max-xl:leading-[50px]">
+                        Our newest</br>products are</br>here,just for you!</p>
+                </div>
                 <div class='text-center'>
                     <button
-                        class="mt-[60px] py-2 px-6 font-[jost] font-[500] text-[16px] text-[#F2F2F2] rounded-[4px] bg-gradient-to-r from-[#380D37] to-[#DC275C]">
+                        class="mt-[60px] max-sm:mt-[8px] max-md:mt-[14px] max-lg:mt-[10px] max-xl:mt-[10px] py-2 max-sm:py-[3px] px-6 max-sm:px-[10px] max-md:px-[16px] max-lg:px-[20px] max-xl:px-[24px] font-[jost] font-[500] 
+                        text-[16px] max-sm:text-[8px] max-md:text-[14px] max-lg:text-[16px] max-xl:text-[16px] text-[#F2F2F2] rounded-[4px] bg-gradient-to-r from-[#380D37] to-[#DC275C]">
                         Visit Now!
                     </button>
                 </div>
             </div>
-            <div>
-                <img src="/storage/product/Hero-Image.svg" alt="">
+
+            <div class="col-span-2">
+                <img class="" src="/storage/product/Hero-Image.svg" alt="">
             </div>
         </div>
 
         <!-- Products  -->
         <!-- Product  -->
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-col-5 gap-2 mt-6 mb-[78px]">
+        <div
+            class="grid grid-cols-5 max-sm:grid-cols-1 max-sm:gap-[2px] max-md:grid-cols-2 max-md:gap-[4px] max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 mt-6 mb-[78px] max-sm:mb-[50px]">
             {{-- @for ($i = 1; $i < 6; $i++)
                 <livewire:products />
             @endfor --}}
@@ -183,16 +201,22 @@
     <!-- Feature Laptops Sliders -->
     <section>
         <div class="py-1 text-center">
-            <h2 class="font-[jost] text-[40px] font-[500]  text-[#353535]">Featurds Laptops</h2>
-            <p class="font-[jost] text-[16px] font-[500] text-[#380D37]">The best we offer is here</p>
+            <h2
+                class="font-[jost] text-[40px] font-[500] max-lg:text-[30px] max-md:text-[25px] max-sm:text-[22px] text-[#353535]">
+                Featurds Laptops</h2>
+            <p
+                class="font-[jost] text-[16px] font-[500] max-lg:text-[14px] max-md:text-[12px] max-sm:text-[10px] text-[#380D37]">
+                The best we offer is here</p>
         </div>
-        <div class="pt-[60px]">
-            <button 
-                class="usa_btn w-[241px] h-[48px] items-center text-center rounded-[4px] bg-[#380D37] text-[#F2F2F2] font-[500] text-[20px] font-[jost]">
+        <div class="pt-[60px] max-sm:pt-[25px] max-md:pt-[30px] max-lg:pt-[40px] max-xl:pt-[50px]">
+            <button
+                class="usa_btn w-[241px] max-xl:w-[200px] max-lg:w-[180px] max-md:w-[150px] max-sm:w-[100px]  h-[48px] max-lg:h-[43px] max-md:h-[40px] max-sm:h-[35px] max-lg:text-[18px] max-md:text-[16px] max-sm:text-[14px]
+                items-center text-center rounded-[4px] bg-[#F2F2F2] text-[#380D37] font-[500] text-[20px] font-[jost]">
                 USA
             </button>
-            <button 
-                class="asian_btn w-[241px] h-[48px] items-center text-center rounded-[4px] bg-[#F2F2F2] text-[#380D37] font-[500] text-[20px] font-[jost]">
+            <button
+                class="asian_btn w-[241px] max-xl:w-[200px] max-lg:w-[180px] max-md:w-[150px] max-sm:w-[100px]  h-[48px] max-lg:h-[43px] max-md:h-[40px] max-sm:h-[35px] max-lg:text-[18px] max-md:text-[16px] max-sm:text-[14px]
+                items-center text-center rounded-[4px] bg-[#F2F2F2] text-[#380D37] font-[500] text-[20px] font-[jost]">
                 Asian
             </button>
             <div class="container h-[2px] bg-[#380D37]"></div>
@@ -258,7 +282,8 @@
                         <div
                             class="w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div>
-                                <a href=""><img src="/storage/product/large-size-laptop.jpg" alt="Product"></a>
+                                <a href=""><img src="/storage/product/large-size-laptop.jpg"
+                                        alt="Product"></a>
                             </div>
                             <div>
                                 <p class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]">
@@ -276,7 +301,8 @@
                         <div
                             class="w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div>
-                                <a href=""><img src="/storage/product/large-size-laptop.jpg" alt="Product"></a>
+                                <a href=""><img src="/storage/product/large-size-laptop.jpg"
+                                        alt="Product"></a>
                             </div>
                             <div>
                                 <p class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]">
@@ -294,7 +320,8 @@
                         <div
                             class="w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div>
-                                <a href=""><img src="/storage/product/large-size-laptop.jpg" alt="Product"></a>
+                                <a href=""><img src="/storage/product/large-size-laptop.jpg"
+                                        alt="Product"></a>
                             </div>
                             <div>
                                 <p class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]">
@@ -312,7 +339,8 @@
                         <div
                             class="w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div>
-                                <a href=""><img src="/storage/product/large-size-laptop.jpg" alt="Product"></a>
+                                <a href=""><img src="/storage/product/large-size-laptop.jpg"
+                                        alt="Product"></a>
                             </div>
                             <div>
                                 <p class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]">
@@ -330,7 +358,8 @@
                         <div
                             class="w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div>
-                                <a href=""><img src="/storage/product/large-size-laptop.jpg" alt="Product"></a>
+                                <a href=""><img src="/storage/product/large-size-laptop.jpg"
+                                        alt="Product"></a>
                             </div>
                             <div>
                                 <p class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]">
@@ -348,7 +377,8 @@
                         <div
                             class="w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div>
-                                <a href=""><img src="/storage/product/large-size-laptop.jpg" alt="Product"></a>
+                                <a href=""><img src="/storage/product/large-size-laptop.jpg"
+                                        alt="Product"></a>
                             </div>
                             <div>
                                 <p class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]">
@@ -389,6 +419,34 @@
                         prevEl: ".swiper-button-prev",
                     },
                 });
+                // Adjust slidesPerView dynamically
+                function adjustSlidesPerView() {
+                    var windowWidth = window.innerWidth;
+
+                    if (windowWidth < 640) {
+                        swiper.params.slidesPerView = 1;
+                    }
+                    else if (windowWidth< 768) {
+                        swiper.params.slidesPerView = 2;
+                    }
+                    else if (windowWidth< 1024) {
+                        swiper.params.slidesPerView = 3;
+                    }
+                    else if (windowWidth< 1280) {
+                        swiper.params.slidesPerView = 4;
+                    }
+                     else {
+                        swiper.params.slidesPerView = 5;
+                    }
+
+                    swiper.update(); // Update Swiper instance
+                }
+
+                // Call the function initially
+                adjustSlidesPerView();
+
+                // Listen to window resize events
+                window.addEventListener('resize', adjustSlidesPerView);
             </script>
 
     </section>
@@ -398,19 +456,21 @@
     <!-- Differential Variants  -->
     <section class='mt-[70px]'>
         <div class="py-1 text-center">
-            <h2 class="font-[jost] text-[40px] font-[500] text-[#353535]">Differential Variants </h2>
-            <p class="font-[jost] text-[16px] font-[500] text-[#380D37]">The best we offer is here</p>
+            <h2 class="font-[jost] text-[40px] font-[500] max-lg:text-[30px] max-md:text-[25px] max-sm:text-[22px] text-[#353535]">Differential Variants </h2>
+            <p class="font-[jost] text-[16px] font-[500] max-lg:text-[14px] max-md:text-[12px] max-sm:text-[10px] text-[#380D37]">The best we offer is here</p>
         </div>
         <div class="pt-[60px]">
             <button
-                class="usa_btn w-[241px] h-[48px] items-center text-center rounded-[4px] bg-[#380D37] text-[#F2F2F2] font-[500] text-[20px] font-[jost]">USA</button>
+                class="usa_btn w-[241px] max-xl:w-[200px] max-lg:w-[180px] max-md:w-[150px] max-sm:w-[100px]  h-[48px] max-lg:h-[43px] max-md:h-[40px] max-sm:h-[35px] max-lg:text-[18px] max-md:text-[16px] max-sm:text-[14px]
+                items-center text-center rounded-[4px] bg-[#F2F2F2] text-[#380D37] font-[500] text-[20px] font-[jost]">USA</button>
             <button
-                class="asian_btn w-[241px] h-[48px] items-center text-center rounded-[4px] bg-[#F2F2F2] text-[#380D37] font-[500] text-[20px] font-[jost]">Asian</button>
+                class="asian_btn w-[241px] max-xl:w-[200px] max-lg:w-[180px] max-md:w-[150px] max-sm:w-[100px]  h-[48px] max-lg:h-[43px] max-md:h-[40px] max-sm:h-[35px] max-lg:text-[18px] max-md:text-[16px] max-sm:text-[14px]
+                items-center text-center rounded-[4px] bg-[#F2F2F2] text-[#380D37] font-[500] text-[20px] font-[jost]">Asian</button>
             <div class="container h-[2px] bg-[#380D37]"></div>
         </div>
 
         <!-- Product  -->
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-col-5 gap-2 mt-6 mb-[78px]">
+        <div class="grid grid-cols-5 max-sm:grid-cols-1 max-sm:gap-[2px] max-md:grid-cols-2 max-md:gap-[4px] max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 mt-6 mb-[78px] max-sm:mb-[50px]">
             {{-- @for ($i = 1; $i < 11; $i++)
             <livewire:products />
         @endfor --}}
@@ -434,11 +494,11 @@
     <!-- Currention code from this line upto footer  -->
     <section class="#about-us">
         <div>
-            <h2 class="mt-8 text-center font-[jost] text-[40px] font-[500] leading-[58px]  text-[#353535]">
+            <h2 class="mt-8 font-[jost] font-[500] text-center text-[40px] max-lg:text-[30px] max-md:text-[25px] max-sm:text-[22px] text-[#353535]">
                 Why Choose Us?</h2>
         </div>
-        <div class="grid grid-cols-5 gap-2 my-[50px] ">
-            <div class=" rounded-[4px] shadow-[2px_2px_5px_2px_#0000001A]">
+        <div class="grid grid-cols-5 max-sm:grid-cols-1 max-sm:gap-[2px] max-md:grid-cols-2 max-md:gap-[4px] max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 my-[50px] ">
+            <div class="rounded-[4px] shadow-[2px_2px_5px_2px_#0000001A] max-sm:mb-[10px] max-md:mb-[10px] max-lg:mb-[10px]">
                 <div>
                     <div class='p-3 mx-auto w-[116px] h-[116px]'>
                         <div class='flex items-center mx-auto'>
@@ -462,7 +522,7 @@
                         collection.</p>
                 </div>
             </div>
-            <div class=" rounded-[4px] shadow-[2px_2px_5px_2px_#0000001A]">
+            <div class="rounded-[4px] shadow-[2px_2px_5px_2px_#0000001A] max-sm:mb-[10px] max-md:mb-[10px] max-lg:mb-[10px]">
                 <div>
                     <img class="p-3 mx-auto w-[116px] h-[116px]" src="/storage/product/trust-1.svg" alt="Product">
                     <h2
@@ -476,7 +536,7 @@
                 </div>
             </div>
 
-            <div class=" rounded-[4px] shadow-[2px_2px_5px_2px_#0000001A]">
+            <div class="rounded-[4px] shadow-[2px_2px_5px_2px_#0000001A] max-sm:mb-[10px] max-md:mb-[10px] max-lg:mb-[10px]">
                 <div>
                     <img class="p-3 mx-auto w-[116px] h-[116px]" src="/storage/product/best-service.svg"
                         alt="Product">
@@ -504,7 +564,7 @@
                         you the best and lowest possible price in market.</p>
                 </div>
             </div>
-            <div class=" rounded-[4px] shadow-[2px_2px_5px_2px_#0000001A]">
+            <div class="rounded-[4px] shadow-[2px_2px_5px_2px_#0000001A] max-sm:mb-[10px] max-md:mb-[10px] max-lg:mb-[10px]">
                 <div class="">
                     <img class="p-3 mx-auto w-[116px] h-[116px]" src="/storage/product/fast-delivery-1.svg"
                         alt="Product">
@@ -522,7 +582,7 @@
     </section>
     <!-- What our client says  -->
     <section class="mt-16">
-        <h2 class="mb-12 text-center font-[500] font-[jost] text-[42px] text-[#353535]">What Our Clients Say About
+        <h2 class="mb-12 font-[jost] font-[500] text-center text-[42px] max-lg:text-[30px] max-md:text-[25px] max-sm:text-[22px] text-[#353535]">What Our Clients Say About
             Us</h2>
         <div class="container mx-auto">
             <link rel="stylesheet"
@@ -1229,8 +1289,8 @@
             </form>
         </div>
     </section>
-<script>
-        $(document).ready(function() {           
+    <script>
+        $(document).ready(function() {
             $('.usa_btn').on('click', function() {
                 $(this).addClass('bg-[#380D37] text-[#F2F2F2]');
                 $(this).removeClass('bg-[#F2F2F2] text-[#380D37]');
@@ -1244,5 +1304,5 @@
                 $('.usa_btn').addClass('bg-[#F2F2F2] text-[#380D37]');
             });
         })
-</script>
+    </script>
 </div>

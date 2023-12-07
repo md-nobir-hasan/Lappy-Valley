@@ -1,18 +1,216 @@
 <div class="relative">
     <style>
+        .menu-toggle {
+            cursor: pointer;
+            padding: 15px;
+            position: absolute;
+            top: 5px;
+            left: 20px;
+            z-index: 2;
+        }
 
+        .bar {
+            width: 30px;
+            height: 3px;
+            background-color: #fff;
+            margin: 6px 0;
+            transition: 0.4s;
+        }
+
+        .menu {
+            position: fixed;
+            top: 66px;
+            left: -300px;
+            width: 300px;
+            background-color: #f2f2f2;
+            z-index: 1;
+            /* overflow: hidden; */
+            transition: 0.5s;
+        }
+
+
+        .menu ul {
+            list-style: none;
+            text-align: center;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #353535;
+            font-size: 16px;
+        }
+
+        .menu-toggle.active .bar:nth-child(1) {
+            transform: rotate(-45deg) translate(-7px, 5px);
+        }
+
+        .menu-toggle.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active .bar:nth-child(3) {
+            transform: rotate(45deg) translate(-7px, -5px);
+        }
+
+        .active.menu {
+            left: 0px !important;
+            color: #fff;
+        }
     </style>
+
     <header
         class="h-[78px] z-[10000] max-xl:h-[68px] max-xl:fixed max-xl:top-0 max-xl:left-0 max-xl:right-0 max-xl:z-150 max-xl:flex max-xl:justify-between max-xl:items-center
      bg-gradient-to-r from-[#380D37] to-[#DC275C] text-[#f2f2f2] px-[72px] max-xl:px-[40px]">
         {{-- ------responsive---show----- --}}
         <div class=" xl:hidden max-xl:block">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                stroke="currentColor" class=" menu w-6 h-6 xl-hidden max-xl:block">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
-        </div>
+            <div class="menu-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <div class="menu">
+                <nav class="bg-[#f2f2f2] ">
+                    <ul class="flex flex-col gap-4 scroll-auto">
+                        <li class=" px-6 pt-2 font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
+                            <a href="#" class="flex justify-between items-center">
+                                <span>All Categories</span>
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                                    </svg>
+                                </span>
+                            </a>
+                        </li>
+                        <div class="h-[1px] bg-[#764D8733]"></div>
+                        <li
+                            class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
+                            <a href="#" class='flex justify-between items-center'>
+                                <span>USA Variant</span>
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                                    </svg>
+                                </span>
+                            </a>
+                        </li>
+                        <div class="h-[1px] bg-[#764D8733]"></div>
+                        <li
+                            class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
+                            <a href="#" class='flex justify-between items-center'>
+                                <span>Brand New</span>
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                                    </svg>
+                                </span>
+                            </a>
+                        </li>
+                        <div class="h-[1px] bg-[#764D8733]"></div>
+                        <li
+                            class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
+                            <a href="#" class='flex justify-between items-center'>
+                                <span>Mac Book</span>
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                                    </svg>
+                                </span>
+                            </a>
+                        </li>
+                        <div class="h-[1px] bg-[#764D8733]"></div>
+                        <li
+                            class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
+                            <a href="#" class='flex justify-between items-center'>
+                                <span>Gamig Laptop</span>
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                                    </svg>
+                                </span>
+                            </a>
+                        </li>
+                        <div class="h-[1px] bg-[#764D8733]"></div>
+                        <li
+                            class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
+                            <a href="#" class='flex justify-between items-center'>
+                                <span>Pre-Owned</span>
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                                    </svg>
+                                </span>
+                            </a>
+                        </li>
+                        <div class="h-[1px] bg-[#764D8733]"></div>
+                        <li
+                            class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
+                            <a href="#" class='flex justify-between items-center'>
+                                <span>Studnt Laptop</span>
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                                    </svg>
+                                </span>
+                            </a>
+                        </li>
+                        <div class="h-[1px] bg-[#764D8733]"></div>
+                        <li
+                            class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
+                            <a href="#" class='flex justify-between items-center'>
+                                <span>Asia Variant</span>
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                                    </svg>
+                                </span>
+                            </a>
+                        </li>
+                        <div class="h-[1px] bg-[#764D8733]"></div>
+                    </ul>
+                </nav>
+            </div>
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    var menuToggle = document.querySelector('.menu-toggle');
+                    var menu = document.querySelector('.menu');
 
+                    menuToggle.addEventListener('click', function(event) {
+                        event.stopPropagation(); // Prevents the click event from propagating to the document
+                        menuToggle.classList.toggle('active');
+                        menu.classList.toggle('active');
+                        toggleBodyOverflow(); // Toggle body overflow based on menu state
+                    });
+
+                    document.addEventListener('click', function(event) {
+                        var isClickInsideMenu = menu.contains(event.target);
+                        var isClickOnMenuToggle = menuToggle.contains(event.target);
+
+                        if (!isClickInsideMenu && !isClickOnMenuToggle) {
+                            menu.classList.remove('active');
+                            menuToggle.classList.remove('active');
+                            toggleBodyOverflow(); // Reset body overflow
+                        }
+                    });
+
+                    function toggleBodyOverflow() {
+                        // Check if menu is active and adjust body overflow
+                        if (menu.classList.contains('active')) {
+                            document.body.style.overflow = 'hidden';
+                        } else {
+                            document.body.style.overflow = '';
+                        }
+                    }
+                });
+            </script>
+        </div>
         {{-- responsive ---show -----end --}}
         <div class="flex items-center justify-evenly h-full  py-[10px] gap-[5px]">
             <!-- <!- Logo -->
@@ -148,269 +346,35 @@
         </div>
     </header>
 
-    <div class='h-[68px] text-[#f2f2f2] px-[72px] max-xl:px-[60px] max-md:px-[40px] font-[jost] xl:hidden max-xl:block items-center z-[9999] fixed bottom-0 left-0 right-0  bg-gradient-to-r from-[#380D37] to-[#DC275C]'>
+    <div
+        class='h-[68px] text-[#f2f2f2] px-[72px] max-xl:px-[60px] max-md:px-[40px] font-[jost] xl:hidden max-xl:block items-center z-[9999] fixed bottom-0 left-0 right-0  bg-gradient-to-r from-[#380D37] to-[#DC275C]'>
         <div class="flex items-center justify-between my-[15px]">
             <!-- <div class="flex item-center "> -->
-            <a href="{{ route('offer') }}"><img class='w-[119px] h-[44] max-xl:w-[100px] max-xl:h-[35px]' src="/storage/product/Offers.svg"
-                    alt="Logo 1"></a>
-            <a href="{{ route('vcart') }}" class='relative'><img class='w-[118.76px] h-[43.72px] max-xl:w-[100px] max-xl:h-[35px]'
-                    src="/storage/product/Cart.svg" alt="Logo 2">
+            <a href="{{ route('offer') }}"><img class='w-[119px] h-[44] max-xl:w-[100px] max-xl:h-[35px]'
+                    src="/storage/product/Offers.svg" alt="Logo 1"></a>
+            <a href="{{ route('vcart') }}" class='relative'><img
+                    class='w-[118.76px] h-[43.72px] max-xl:w-[100px] max-xl:h-[35px]' src="/storage/product/Cart.svg"
+                    alt="Logo 2">
                 <div
                     class='rounded-[100%] w-[12px] h-[12px] bg-[#f2f2f2] text-center items-center flex justify-center absolute top-0 right-0 translate-x-[-60px] translate-y-[10px]'>
                     <p class='text-[#353535] text-[10px] items items-center' id="cart_count">{{ $cart_count }}
                     </p>
                 </div>
             </a>
-    
+
             @auth
                 <a href="{{ route('account') }}">
-                    <img class='w-[118.76px] h-[43.72px] max-xl:w-[100px] max-xl:h-[35px]' src="/storage/product/Account.svg" alt="Logo 3">
+                    <img class='w-[118.76px] h-[43.72px] max-xl:w-[100px] max-xl:h-[35px]'
+                        src="/storage/product/Account.svg" alt="Logo 3">
                 </a>
             @else
                 <a href="{{ route('user.login') }}">
-                    <img class='w-[118.76px] h-[43.72px] max-xl:w-[100px] max-xl:h-[35px]' src="/storage/product/Account.svg" alt="Logo 3">
+                    <img class='w-[118.76px] h-[43.72px] max-xl:w-[100px] max-xl:h-[35px]'
+                        src="/storage/product/Account.svg" alt="Logo 3">
                 </a>
             @endauth
         </div>
     </div>
     {{-- responsive side nav --}}
-    <div class="showMenu w-[250px] fixed left-[-280px] top-[68px] z-[10000]">
-        <style>
-            ::-webkit-scrollbar (width: 5px;
-            ) ::-webkit-scrollbar -thumb (background : #fff;
-            )
-        </style>
-        <nav class="bg-[#f2f2f2] sticky top-0 left-0">
-            <ul class="flex flex-col gap-4 scroll-auto">
-                <li class=" px-6 pt-2 font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
-                    <a href="#" class="flex justify-between items-center">
-                        <span>All Categories</span>
-                        <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
-                            </svg>
-                        </span>
-                    </a>
-                </li>
-                <div class="h-[1px] bg-[#764D8733]"></div>
-                <li
-                    class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
-                    <a href="#" class='flex justify-between items-center'>
-                        <span>USA ariant</span>
-                        <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
-                            </svg>
-                        </span>
-                    </a>
-                </li>
-                <div class="h-[1px] bg-[#764D8733]"></div>
-                <li
-                    class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
-                    <a href="#" class='flex justify-between items-center'>
-                        <span>Bran New</span>
-                        <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
-                            </svg>
-                        </span>
-                    </a>
-                </li>
-                <div class="h-[1px] bg-[#764D8733]"></div>
-                <li
-                    class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
-                    <a href="#" class='flex justify-between items-center'>
-                        <span>Mac Book</span>
-                        <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
-                            </svg>
-                        </span>
-                    </a>
-                </li>
-                <div class="h-[1px] bg-[#764D8733]"></div>
-                <li
-                    class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
-                    <a href="#" class='flex justify-between items-center'>
-                        <span>Gamig Laptop</span>
-                        <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
-                            </svg>
-                        </span>
-                    </a>
-                </li>
-                <div class="h-[1px] bg-[#764D8733]"></div>
-                <li
-                    class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
-                    <a href="#" class='flex justify-between items-center'>
-                        <span>Pre-wned</span>
-                        <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
-                            </svg>
-                        </span>
-                    </a>
-                </li>
-                <div class="h-[1px] bg-[#764D8733]"></div>
-                <li
-                    class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
-                    <a href="#" class='flex justify-between items-center'>
-                        <span>Studnt Laptop</span>
-                        <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
-                            </svg>
-                        </span>
-                    </a>
-                </li>
-                <div class="h-[1px] bg-[#764D8733]"></div>
-                <li
-                    class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
-                    <a href="#" class='flex justify-between items-center'>
-                        <span>Asia Variant</span>
-                        <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
-                            </svg>
-                        </span>
-                    </a>
-                </li>
-                <div class="h-[1px] bg-[#764D8733]"></div>
 
-                <li
-                    class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
-                    <a href="#" class='flex justify-between items-center'>
-                        <span>Asia Variant</span>
-                        <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
-                            </svg>
-                        </span>
-                    </a>
-                </li>
-                <div class="h-[1px] bg-[#764D8733]"></div>
-                <li
-                    class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
-                    <a href="#" class='flex justify-between items-center'>
-                        <span>Asia Variant</span>
-                        <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
-                            </svg>
-                        </span>
-                    </a>
-                </li>
-                <div class="h-[1px] bg-[#764D8733]"></div>
-                <li
-                    class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
-                    <a href="#" class='flex justify-between items-center'>
-                        <span>Asia Variant</span>
-                        <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
-                            </svg>
-                        </span>
-                    </a>
-                </li>
-                <div class="h-[1px] bg-[#764D8733]"></div>
-                <li
-                    class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
-                    <a href="#" class='flex justify-between items-center'>
-                        <span>Asia Variant</span>
-                        <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
-                            </svg>
-                        </span>
-                    </a>
-                </li>
-                <div class="h-[1px] bg-[#764D8733]"></div>
-                <li
-                    class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
-                    <a href="#" class='flex justify-between items-center'>
-                        <span>Asia Variant</span>
-                        <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
-                            </svg>
-                        </span>
-                    </a>
-                </li>
-                <div class="h-[1px] bg-[#764D8733]"></div>
-                <li
-                    class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
-                    <a href="#" class='flex justify-between items-center'>
-                        <span>Asia Variant</span>
-                        <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
-                            </svg>
-                        </span>
-                    </a>
-                </li>
-                <div class="h-[1px] bg-[#764D8733]"></div>
-                <li
-                    class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
-                    <a href="#" class='flex justify-between items-center'>
-                        <span>Asia Variant</span>
-                        <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
-                            </svg>
-                        </span>
-                    </a>
-                </li>
-                <div class="h-[1px] bg-[#764D8733]"></div>
-                <li
-                    class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
-                    <a href="#" class='flex justify-between items-center'>
-                        <span>Asia Variant</span>
-                        <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
-                            </svg>
-                        </span>
-                    </a>
-                </li>
-                <div class="h-[1px] bg-[#764D8733]"></div>
-            </ul>
-        </nav>
-    </div>
-    <script>
-        $(document).ready(function() {
-            let mobile_nav_open = false;
-
-            $(".menu").click(function() {
-                // $(".showMenu").slideToggle();
-                if (mobile_nav_open) {
-                    // $(this).addClass('left-[-280px]');
-                    $(".showMenu").addClass('left-[-280px] transition ease-in-out delay-150');
-                    $(".blurH").removeClass('blur-sm')
-                    mobile_nav_open = false;    
-                } else {
-                    $(".blurH").addClass('blur-sm')
-                    $(".showMenu").removeClass('left-[-280px] transition ease-in-out delay-150');
-                    mobile_nav_open = true;
-                }
-
-            });
-        });
-    </script>
 </div>

@@ -14,7 +14,7 @@
             {{-- <img class="object-center pimg" src="{{$product->photo}}" alt=""> --}}
         </a>
         <div>
-            <div class="w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
+            <div class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                 <div class="product_div">
                     <a href="{{ route('product.details') }}">
                         @if ($product->photo)

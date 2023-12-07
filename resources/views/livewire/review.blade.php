@@ -261,103 +261,31 @@ ul, li {
 </div> --}}
 
 
-<div>
+<div class="container">
   <style>
-    body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
-
-.menu-toggle {
-  cursor: pointer;
-  padding: 15px;
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 2;
-}
-
-.bar {
-  width: 30px;
-  height: 3px;
-  background-color: #fff;
-  margin: 6px 0;
-  transition: 0.4s;
-}
-
-.menu {
-  position: fixed;
-  top: 0;
-  left:0;
-  width: 100%;
-  height: 100%;
-  background-color: #fff;
-  z-index: 1;
-  overflow: hidden;
-  transition: 0.5s;
-}
-.menu.active {
-  left: 0;
-}
-
-.menu ul {
-  list-style: none;
-  padding: 0;
-  margin: 100px 0 0 0;
-  text-align: center;
-  display: none; /* Initially hide the ul */
-}
-
-.menu li {
-  padding: 20px;
-}
-
-.menu a {
-  text-decoration: none;
-  color: #fff;
-  font-size: 18px;
-}
-
-.menu-toggle.active .bar:nth-child(1) {
-  transform: rotate(-45deg) translate(-7px, 6px);
-}
-
-.menu-toggle.active .bar:nth-child(2) {
-  opacity: 0;
-}
-
-.menu-toggle.active .bar:nth-child(3) {
-  transform: rotate(45deg) translate(-7px, -6px);
-}
-
-
-
-.menu.active ul {
-  display: block; /* Show the ul when the menu is active */
-}
-
-  </style>
-  <div class="menu-toggle" onclick="toggleMenu()">
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-  </div>
-  <div class="menu">
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Services</a></li>
-      <li><a href="#">Contact</a></li>
-    </ul>
-  </div>
-  <script>
-      var menuToggle = document.querySelector('.menu-toggle');
-      var menued = document.querySelector('.menu');
-
-    function toggleMenu() {
-      menued.classList.toggle('active');
-      menuToggle.classList.toggle('active');
+    sumon {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* First column takes 1 fraction, second takes 2 fractions */
+      padding: 20px;
+       grid-template-rows: 1fr; /* Single row */
     }
 
-  </script>
+    .small {
+      grid-column: span 1; /* Takes one column */
+      background-color: lightblue;
+    }
+
+    .large {
+      grid-column: span 2; /* Takes two columns */
+      background-color: lightcoral;
+    }
+
+    /* Add more styling as needed */
+  </style>
+  <div class="sumon">
+    <div class="small">Small</div>
+    <div class="large">Large</div>
+  </div>
 </div>
