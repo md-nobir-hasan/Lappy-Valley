@@ -92,7 +92,7 @@
         <a class="flex items-center whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]"
             href="#" type="button" id="dropdownMenuButton2" data-te-dropdown-toggle-ref aria-expanded="false"
             data-te-ripple-init data-te-ripple-color="light">
-            All Categories
+           <span> All Categories</span>
             <span class="ml-2 w-2">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5">
                     <path fill-rule="evenodd"
@@ -101,7 +101,7 @@
                 </svg>
             </span>
         </a>
-        <ul class="absolute z-[1000] float-left p-2 hidden w-full list-none overflow-hidden border-none bg-[#f2f2f2] text-[#353535] text-left [&[data-te-dropdown-show]]:block"
+        <ul class="absolute z-[1000] float-left p-2 hidden w-[200px] list-none overflow-hidden border-none bg-[#f2f2f2] text-[#353535] text-left [&[data-te-dropdown-show]]:block"
             aria-labelledby="dropdownMenuButton2" data-te-dropdown-menu-ref>
             <li
                 class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
@@ -160,7 +160,7 @@
                 </svg>
             </span>
         </a>
-        <ul class="absolute z-[1000] float-left p-2  hidden w-full list-none overflow-hidden border-none bg-[#f2f2f2] text-[#353535] text-left [&[data-te-dropdown-show]]:block"
+        <ul class="absolute z-[1000] float-left p-2  hidden w-[200px] list-none overflow-hidden border-none bg-[#f2f2f2] text-[#353535] text-left [&[data-te-dropdown-show]]:block"
             aria-labelledby="dropdownMenuButton2" data-te-dropdown-menu-ref>
             <li
                 class="w-full border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
@@ -215,7 +215,7 @@
                 </svg>
             </span>
         </a>
-        <ul class="absolute z-[1000] float-left p-2  hidden w-full list-none overflow-hidden border-none bg-[#f2f2f2] text-[#353535] text-left [&[data-te-dropdown-show]]:block"
+        <ul class="absolute z-[1000] float-left p-2  hidden w-[200px] list-none overflow-hidden border-none bg-[#f2f2f2] text-[#353535] text-left [&[data-te-dropdown-show]]:block"
             aria-labelledby="dropdownMenuButton2" data-te-dropdown-menu-ref>
             <li
                 class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
@@ -270,7 +270,7 @@
                 </svg>
             </span>
         </a>
-        <ul class="absolute z-[1000] float-left p-2  hidden w-full list-none overflow-hidden border-none bg-[#f2f2f2] text-[#353535] text-left [&[data-te-dropdown-show]]:block"
+        <ul class="absolute z-[1000] float-left p-2  hidden w-[200px] list-none overflow-hidden border-none bg-[#f2f2f2] text-[#353535] text-left [&[data-te-dropdown-show]]:block"
             aria-labelledby="dropdownMenuButton2" data-te-dropdown-menu-ref>
             <li
                 class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
@@ -325,7 +325,7 @@
                 </svg>
             </span>
         </a>
-        <ul class="absolute z-[1000] float-left p-2  hidden w-full list-none overflow-hidden border-none bg-[#f2f2f2] text-[#353535] text-left [&[data-te-dropdown-show]]:block"
+        <ul class="absolute z-[1000] float-left p-2  hidden w-[200px] list-none overflow-hidden border-none bg-[#f2f2f2] text-[#353535] text-left [&[data-te-dropdown-show]]:block"
             aria-labelledby="dropdownMenuButton2" data-te-dropdown-menu-ref>
             <li
                 class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
@@ -380,7 +380,7 @@
                 </svg>
             </span>
         </a>
-        <ul class="absolute z-[1000] float-left p-2  hidden w-full list-none overflow-hidden border-none bg-[#f2f2f2] text-[#353535] text-left [&[data-te-dropdown-show]]:block"
+        <ul class="absolute z-[1000] float-left p-2  hidden w-[200px] list-none overflow-hidden border-none bg-[#f2f2f2] text-[#353535] text-left [&[data-te-dropdown-show]]:block"
             aria-labelledby="dropdownMenuButton2" data-te-dropdown-menu-ref>
             <li
                 class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
@@ -435,7 +435,7 @@
                 </svg>
             </span>
         </a>
-        <ul class="absolute z-[1000] float-left p-2  hidden w-full list-none overflow-hidden border-none bg-[#f2f2f2] text-[#353535] text-left [&[data-te-dropdown-show]]:block"
+        <ul class="absolute z-[1000] float-left p-2  hidden w-[200px] list-none overflow-hidden border-none bg-[#f2f2f2] text-[#353535] text-left [&[data-te-dropdown-show]]:block"
             aria-labelledby="dropdownMenuButton2" data-te-dropdown-menu-ref>
             <li
                 class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
@@ -490,7 +490,7 @@
                 </svg>
             </span>
         </a>
-        <ul class="absolute z-[1000] float-left p-2  hidden w-full list-none overflow-hidden border-none bg-[#f2f2f2] text-[#353535] text-left [&[data-te-dropdown-show]]:block"
+        <ul class="absolute z-[1000] float-left p-2  hidden w-[200px] list-none overflow-hidden border-none bg-[#f2f2f2] text-[#353535] text-left [&[data-te-dropdown-show]]:block"
             aria-labelledby="dropdownMenuButton2" data-te-dropdown-menu-ref>
             <li
                 class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
@@ -537,7 +537,7 @@
             href="#" type="button" id="dropdownMenuButton2" data-te-dropdown-toggle-ref aria-expanded="false"
             data-te-ripple-init data-te-ripple-color="light">
             Hotline:+8880171264420
-            <span class="ml-2 w-2">
+            <span class="ml-[4px] w-2">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5">
                     <path fill-rule="evenodd"
                         d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
@@ -545,7 +545,7 @@
                 </svg>
             </span>
         </a>
-        <ul class="absolute z-[1000] float-left p-2  hidden w-full list-none overflow-hidden border-none bg-[#f2f2f2] text-[#353535] text-left [&[data-te-dropdown-show]]:block"
+        <ul class="absolute z-[1000] float-left p-2  hidden w-[200px] list-none overflow-hidden border-none bg-[#f2f2f2] text-[#353535] text-left [&[data-te-dropdown-show]]:block"
             aria-labelledby="dropdownMenuButton2" data-te-dropdown-menu-ref>
             <li
                 class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
