@@ -162,7 +162,7 @@ class SslCommerzPaymentController extends Controller
 
     }
 
-    public function success(Request $request)
+     public function success(Request $request)
     {
         echo "Transaction is Successful";
 
