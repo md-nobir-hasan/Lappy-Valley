@@ -589,9 +589,9 @@
                 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
             <link rel="stylesheet" type="text/css" href="/frontend/owl-carousel-libraries/owl.carousel.min.css">
             <style>
-                html {
+                /* html {
                     scroll-behavior: smooth;
-                }
+                } */
 
                 .slider {
                     margin-bottom: 30px;
@@ -618,8 +618,8 @@
 
                 @media (max-width: 640px){
                     .slider-card {
-                     width:280px;
-                     height: 380px;
+                     width:280px; 
+                     /* margin: 50px auto;                   */
                     }
                     .leo-h{
                         font-size: 18px;
@@ -647,8 +647,8 @@
 
                 @media (max-width: 768px){
                     .slider-card {
-                     width:480px;
-                     height: 420px;
+                     width:380px;
+                  
                      margin: 50px auto;
                     }
                     .leo-h{
@@ -656,11 +656,11 @@
                     }
                     .leo-h1{
                         font-size: 24px;
-                        margin-top: 25px;
-                        margin-bottom: 25px;
+                        margin-top: 28px;
+                        margin-bottom: 28px;
                     }
                     .leo-p{
-                        font-size:10px;
+                        font-size:13px;
                     }
                     .leo-p1{
                         font-size: 18px;
@@ -671,7 +671,7 @@
                         height: 64px;
                     }
                     .star-div{
-                        margin-top: 34px;
+                        margin-top: 27px;
                     }
                     .star{
                         width: 30px;
@@ -680,9 +680,36 @@
                 }
 
                 @media (max-width: 1024px){
-                    /* .slider-card {
-                     width:280px;
-                    }  */
+                    .slider-card {
+                     width:450px;
+                     margin: 50px auto;
+                    }
+                    .leo-h{
+                        font-size: 18px;
+                    }
+                    .leo-h1{
+                        font-size: 24px;
+                        margin-top: 28px;
+                        margin-bottom: 28px;
+                    }
+                    .leo-p{
+                        font-size:13px;
+                    }
+                    .leo-p1{
+                        font-size: 18px;
+                        line-height: 26.13px;
+                    }
+                    .client-img{
+                        width: 64px;
+                        height: 64px;
+                    }
+                    .star-div{
+                        margin-top: 27px;
+                    }
+                    .star{
+                        width: 30px;
+                        height: 30px;
+                    }
                 }
 
                 @media (max-width: 1280px){
@@ -743,7 +770,7 @@
                     {{-- <h1 class="text-center"><b>Responsive Owl Carousel</b></h1> --}}
                     <div class="slider">
                         <div class="owl-carousel">
-                            <div class="slider-card rounded-[16px] py-4 px-4 bg-[#fff] shadow-[2px_2px_5px_2px_#0000001A]">
+                            <div class="slider-card max-sm:w-[280px] rounded-[16px] py-4 px-4 bg-[#fff] shadow-[2px_2px_5px_2px_#0000001A]">
                                 <div
                                     class="">
                                     <div class="flex justify-center">
@@ -1273,7 +1300,7 @@
                             0: {
                                 items: 1
                             },
-                            600: {
+                            640: {
                                 items: 1
                             },
                             1024: {

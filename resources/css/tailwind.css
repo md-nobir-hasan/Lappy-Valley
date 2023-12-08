@@ -7,6 +7,9 @@
 @tailwind utilities;
 
 
- media-6 {
-        @apply
+@layer base {
+  .leo-p {
+    @apply min-xl:text-[50px]
+}
+
 }
