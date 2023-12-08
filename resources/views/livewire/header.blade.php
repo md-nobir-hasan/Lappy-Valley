@@ -22,9 +22,10 @@
             top: 66px;
             left: -300px;
             width: 300px;
+            height: 100vh;
             background-color: #f2f2f2;
             z-index: 1;
-            /* overflow: hidden; */
+            overflow:scroll;
             transition: 0.5s;
         }
 
@@ -174,6 +175,71 @@
                             </a>
                         </li>
                         <div class="h-[1px] bg-[#764D8733]"></div>
+                        <li
+                        class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
+                        <a href="#" class='flex justify-between items-center'>
+                            <span>Asia Variant</span>
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                                </svg>
+                            </span>
+                        </a>
+                    </li>
+                    <div class="h-[1px] bg-[#764D8733]"></div>
+                    <li
+                    class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
+                    <a href="#" class='flex justify-between items-center'>
+                        <span>Asia Variant</span>
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                            </svg>
+                        </span>
+                    </a>
+                </li>
+                <div class="h-[1px] bg-[#764D8733]"></div>
+                <li
+                class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
+                <a href="#" class='flex justify-between items-center'>
+                    <span>Asia Variant</span>
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                        </svg>
+                    </span>
+                </a>
+            </li>
+            <div class="h-[1px] bg-[#764D8733]"></div>
+            <li
+            class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
+            <a href="#" class='flex justify-between items-center'>
+                <span>Asia Variant</span>
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                    </svg>
+                </span>
+            </a>
+        </li>
+        <div class="h-[1px] bg-[#764D8733]"></div>
+        <li
+        class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
+        <a href="#" class='flex justify-between items-center'>
+            <span>Asia Variant</span>
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                </svg>
+            </span>
+        </a>
+    </li>
+    <div class="h-[1px] bg-[#764D8733]"></div>
                     </ul>
                 </nav>
             </div>

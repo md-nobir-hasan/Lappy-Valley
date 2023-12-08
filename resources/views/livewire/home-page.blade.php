@@ -589,15 +589,8 @@
                 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
             <link rel="stylesheet" type="text/css" href="/frontend/owl-carousel-libraries/owl.carousel.min.css">
             <style>
-                @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+HK&display=swap');
-
                 html {
                     scroll-behavior: smooth;
-                }
-
-                body {
-                    font-family: 'Noto Sans HK', sans-serif;
-                    background: #fff;
                 }
 
                 .slider {
@@ -613,13 +606,87 @@
 
                 .slider-card {
                     background: #fff;
-                    padding: 0px 0px;
+                    /* padding: 0px 0px; */
                     margin: 50px 15px 90px 15px;
                     border-radius: 5px;
                     box-shadow: 0 15px 45px -20px rgb(0 0 0 / 73%);
                     transform: scale(0.9);
                     opacity: 0.5;
                     transition: all 0.3s;
+                    width: 398px
+                }
+
+                @media (max-width: 640px){
+                    .slider-card {
+                     width:280px;
+                     height: 380px;
+                    }
+                    .leo-h{
+                        font-size: 18px;
+                    }
+                    .leo-h1{
+                        font-size: 18px;
+                        margin-top: 25px;
+                        margin-bottom: 25px;
+                    }
+                    .leo-p{
+                        font-size:10px;
+                    }
+                    .leo-p1{
+                        font-size: 13px;
+                        line-height: 20.13px;
+                    }
+                    .client-img{
+                        width: 64px;
+                        height: 64px;
+                    }
+                    .star-div{
+                        margin-top: 34px;
+                    }
+                }
+
+                @media (max-width: 768px){
+                    .slider-card {
+                     width:480px;
+                     height: 420px;
+                     margin: 50px auto;
+                    }
+                    .leo-h{
+                        font-size: 18px;
+                    }
+                    .leo-h1{
+                        font-size: 24px;
+                        margin-top: 25px;
+                        margin-bottom: 25px;
+                    }
+                    .leo-p{
+                        font-size:10px;
+                    }
+                    .leo-p1{
+                        font-size: 18px;
+                        line-height: 26.13px;
+                    }
+                    .client-img{
+                        width: 64px;
+                        height: 64px;
+                    }
+                    .star-div{
+                        margin-top: 34px;
+                    }
+                    .star{
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
+
+                @media (max-width: 1024px){
+                    /* .slider-card {
+                     width:280px;
+                    }  */
+                }
+
+                @media (max-width: 1280px){
+                   
                 }
 
                 .slider-card img {
@@ -676,61 +743,61 @@
                     {{-- <h1 class="text-center"><b>Responsive Owl Carousel</b></h1> --}}
                     <div class="slider">
                         <div class="owl-carousel">
-                            <div class="slider-card max-sm:w-[275px] max-md:w-[440px] max-lg:w-[520px]">
+                            <div class="slider-card rounded-[16px] py-4 px-4 bg-[#fff] shadow-[2px_2px_5px_2px_#0000001A]">
                                 <div
-                                    class="rounded-[16px] py-4 px-4 bg-[#fff] max-sm:w-[275px] max-md:w-[440px] max-lg:w-[520px] h-[423px] max-sm:h-[320px] max-md:h-[440px] max-lg:h-[445px] max-xl:h-[]  shadow-[2px_2px_5px_2px_#0000001A]">
+                                    class="">
                                     <div class="flex justify-center">
                                         <div class="flex items-center">
                                             <div>
-                                                <img class="rounded-[100%] w-[72px] max-sm:w-[60px] max-md:w-[65px] max-lg:w-[65px] max-xl:w-[60px] h-[72px] max-sm:h-[60px] max-md:h-[60px] max-lg:h-[60px] max-xl:h-[60px]"
+                                                <img class="rounded-[100%] w-[72px] h-[72px] client-img"
                                                     src="/storage/product/client-photo.svg" alt="">
                                             </div>
                                             <div class="ml-2">
                                                 <h1
-                                                    class="font-[Lato] text-[24px] max-sm:text-[18px] max-md:text-[18px] max-lg:text-[18px] max-xl:text-[18px] font-[700]  text-center text-[#353535]">
+                                                    class="font-[Lato] font-[700] leo-h text-[24px] text-center text-[#353535]">
                                                     Leo</h1>
                                                 <p
-                                                    class="font-[Lato] text-[18px] max-sm:text-[10px] max-md:text-[12px] max-lg:text-[14px] max-xl:text-[10px] font-[500] text-center text-[#353535]">
+                                                    class="font-[Lato] font-[500] leo-p text-[18px] text-center text-[#353535]">
                                                     Lead Designer</p>
                                             </div>
                                         </div>
 
-                                        <div class="flex max-sm:ml-[14px] mt-[40px] max-sm:mt-[35px] max-md:mt-[30px] max-lg:mt-[30px] max-xl:mt-[30px] ml-auto">
+                                        <div class="flex star-div mt-[40px]  ml-auto">
 
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" class="max-sm:w-[18px] max-md:w-[35px] max-lg:w-[44px] max-xl:w-[60px] max-sm:h-[18px] max-md:h-[35px] max-lg:h-[60px] max-xl:h-[60px]"
-                                                    height="22" viewBox="0 0 22 22" fill="#FFA033">
+                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" class="star"
+                                                     viewBox="0 0 22 22" fill="#FFA033">
                                                     <path
                                                         d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
                                                         fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
                                                         stroke-linejoin="round" />
                                                 </svg></a>
 
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" class="max-sm:w-[18px] max-md:w-[35px] max-lg:w-[44px] max-xl:w-[60px] max-sm:h-[18px] max-md:h-[35px] max-lg:h-[60px] max-xl:h-[60px]"
-                                                    height="22" viewBox="0 0 22 22" fill="#FFA033">
+                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" class="star"
+                                                     viewBox="0 0 22 22" fill="#FFA033">
                                                     <path
                                                         d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
                                                         fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
                                                         stroke-linejoin="round" />
                                                 </svg></a>
 
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" class="max-sm:w-[18px] max-md:w-[35px] max-lg:w-[44px] max-xl:w-[60px] max-sm:h-[18px] max-md:h-[35px] max-lg:h-[60px] max-xl:h-[60px]"
-                                                    height="22" viewBox="0 0 22 22" fill="#FFA033">
+                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" class="star"
+                                                     viewBox="0 0 22 22" fill="#FFA033">
                                                     <path
                                                         d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
                                                         fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
                                                         stroke-linejoin="round" />
                                                 </svg></a>
 
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" class="max-sm:w-[18px] max-md:w-[35px] max-lg:w-[44px] max-xl:w-[60px] max-sm:h-[18px] max-md:h-[35px] max-lg:h-[60px] max-xl:h-[60px]"
-                                                    height="22" viewBox="0 0 22 22" fill="#FFA033">
+                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" class="star"
+                                                     viewBox="0 0 22 22" fill="#FFA033">
                                                     <path
                                                         d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
                                                         fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
                                                         stroke-linejoin="round" />
                                                 </svg></a>
 
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" class="max-sm:w-[18px] max-md:w-[35px] max-lg:w-[44px] max-xl:w-[60px] max-sm:h-[18px] max-md:h-[35px] max-lg:h-[60px] max-xl:h-[60px]"
-                                                    height="22" viewBox="0 0 15 15" fill="none">
+                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" class="star"
+                                                    viewBox="0 0 15 15" fill="none">
                                                     <path
                                                         d="M7.5 1.25L9.43125 5.1625L13.75 5.79375L10.625 8.8375L11.3625 13.1375L7.5 11.1062L3.6375 13.1375L4.375 8.8375L1.25 5.79375L5.56875 5.1625L7.5 1.25Z"
                                                         stroke="#FFA033" stroke-linecap="round"
@@ -741,12 +808,12 @@
                                     </div>
                                     <div>
                                         <h1
-                                            class="my-[19px] max-md:my-[] max-lg:my-[35px] font-[Lato] font-[700] text-[24px] max-sm:text-[18px] max-md:text-[20px] max-lg:text-[28px] max-xl:text-[] text-center text-[#353535] leading-[28.8px]">
+                                            class="my-[19px] leo-h1 leo-h1 font-[Lato] font-[700] text-[24px] text-center text-[#353535] leading-[28.8px]">
                                             It was a very good experience</h1>
                                     </div>
                                     <div>
                                         <p
-                                            class="my-[17px] font-[jost] font-[500] text-[18px] max-sm:text-[10px] max-md:text-[19px] max-lg:text-[19px] max-xl:text-[]  leading-[23.13px] max-sm:leading-[18px] max-md:leading-[27.13px] max-lg:leading-[30.13px] text-left text-[#353535]">
+                                            class="my-[17px] leo-p1 leo-p1 font-[jost] font-[500] text-[18px] leading-[23.13px] text-left text-[#353535]">
                                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursusnibh mauris,
                                             nec turpis orci
                                             lectus maecenas.
@@ -759,28 +826,28 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="slider-card">
+                            <div class="slider-card rounded-[16px] py-4 px-4 bg-[#fff] shadow-[2px_2px_5px_2px_#0000001A]">
                                 <div
-                                    class="rounded-[16px] py-4 px-4 bg-[#fff] h-[423px] shadow-[2px_2px_5px_2px_#0000001A]">
+                                    class="">
                                     <div class="flex justify-center">
                                         <div class="flex items-center">
                                             <div>
-                                                <img class="rounded-[100%] w-[72px] h-[72px]"
+                                                <img class="rounded-[100%] w-[72px] h-[72px] client-img"
                                                     src="/storage/product/client-photo.svg" alt="">
                                             </div>
                                             <div class="ml-2">
                                                 <h1
-                                                    class="font-[Lato] text-[24px] font-[700]  text-center text-[#353535]">
+                                                    class="font-[Lato] text-[24px] font-[700]  text-center text-[#353535] leo-h">
                                                     Leo</h1>
                                                 <p
-                                                    class="font-[Lato] text-[18px] font-[500] text-center text-[#353535]">
+                                                    class="font-[Lato] text-[18px] font-[500] text-center text-[#353535] leo-p">
                                                     Lead Designer</p>
                                             </div>
                                         </div>
 
-                                        <div class="flex mt-[40px] ml-auto">
+                                        <div class="flex mt-[40px] ml-auto star-div">
 
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
+                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" class="star"
                                                     height="22" viewBox="0 0 22 22" fill="#FFA033">
                                                     <path
                                                         d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
@@ -788,7 +855,7 @@
                                                         stroke-linejoin="round" />
                                                 </svg></a>
 
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
+                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" class="star"
                                                     height="22" viewBox="0 0 22 22" fill="#FFA033">
                                                     <path
                                                         d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
@@ -796,7 +863,7 @@
                                                         stroke-linejoin="round" />
                                                 </svg></a>
 
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
+                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" class="star"
                                                     height="22" viewBox="0 0 22 22" fill="#FFA033">
                                                     <path
                                                         d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
@@ -804,7 +871,7 @@
                                                         stroke-linejoin="round" />
                                                 </svg></a>
 
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
+                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" class="star"
                                                     height="22" viewBox="0 0 22 22" fill="#FFA033">
                                                     <path
                                                         d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
@@ -812,7 +879,7 @@
                                                         stroke-linejoin="round" />
                                                 </svg></a>
 
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
+                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" class="star"
                                                     height="22" viewBox="0 0 15 15" fill="none">
                                                     <path
                                                         d="M7.5 1.25L9.43125 5.1625L13.75 5.79375L10.625 8.8375L11.3625 13.1375L7.5 11.1062L3.6375 13.1375L4.375 8.8375L1.25 5.79375L5.56875 5.1625L7.5 1.25Z"
@@ -824,12 +891,12 @@
                                     </div>
                                     <div>
                                         <h1
-                                            class="my-[19px] font-[Lato] font-[700] text-[24px]  text-center text-[#353535] leading-[28.8px]">
+                                            class="my-[19px] leo-h1 font-[Lato] font-[700] text-[24px]  text-center text-[#353535] leading-[28.8px]">
                                             It was a very good experience</h1>
                                     </div>
                                     <div>
                                         <p
-                                            class="my-[17px] font-[jost] font-[500] text-[18px] leading-[23.13px] text-left text-[#353535]">
+                                            class="my-[17px] leo-p1 font-[jost] font-[500] text-[18px] leading-[23.13px] text-left text-[#353535]">
                                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursusnibh mauris,
                                             nec turpis orci
                                             lectus maecenas.
@@ -842,28 +909,28 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="slider-card">
+                            <div class="slider-card rounded-[16px] py-4 px-4 bg-[#fff] shadow-[2px_2px_5px_2px_#0000001A]">
                                 <div
-                                    class="rounded-[16px] py-4 px-4 bg-[#fff] h-[423px] shadow-[2px_2px_5px_2px_#0000001A]">
+                                    class="">
                                     <div class="flex justify-center">
                                         <div class="flex items-center">
                                             <div>
-                                                <img class="rounded-[100%] w-[72px] h-[72px]"
+                                                <img class="rounded-[100%] w-[72px] h-[72px] client-img"
                                                     src="/storage/product/client-photo.svg" alt="">
                                             </div>
                                             <div class="ml-2">
                                                 <h1
-                                                    class="font-[Lato] text-[24px] font-[700]  text-center text-[#353535]">
+                                                    class="font-[Lato] text-[24px] font-[700]  text-center text-[#353535] leo-h">
                                                     Leo</h1>
                                                 <p
-                                                    class="font-[Lato] text-[18px] font-[500] text-center text-[#353535]">
+                                                    class="font-[Lato] text-[18px] font-[500] text-center text-[#353535] leo-p">
                                                     Lead Designer</p>
                                             </div>
                                         </div>
 
-                                        <div class="flex mt-[40px] ml-auto">
+                                        <div class="flex mt-[40px] ml-auto star-div">
 
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
+                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" class="star"
                                                     height="22" viewBox="0 0 22 22" fill="#FFA033">
                                                     <path
                                                         d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
@@ -871,7 +938,7 @@
                                                         stroke-linejoin="round" />
                                                 </svg></a>
 
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
+                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" class="star"
                                                     height="22" viewBox="0 0 22 22" fill="#FFA033">
                                                     <path
                                                         d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
@@ -879,7 +946,7 @@
                                                         stroke-linejoin="round" />
                                                 </svg></a>
 
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
+                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" class="star"
                                                     height="22" viewBox="0 0 22 22" fill="#FFA033">
                                                     <path
                                                         d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
@@ -887,7 +954,7 @@
                                                         stroke-linejoin="round" />
                                                 </svg></a>
 
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
+                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" class="star"
                                                     height="22" viewBox="0 0 22 22" fill="#FFA033">
                                                     <path
                                                         d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
@@ -895,7 +962,7 @@
                                                         stroke-linejoin="round" />
                                                 </svg></a>
 
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
+                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" class="star"
                                                     height="22" viewBox="0 0 15 15" fill="none">
                                                     <path
                                                         d="M7.5 1.25L9.43125 5.1625L13.75 5.79375L10.625 8.8375L11.3625 13.1375L7.5 11.1062L3.6375 13.1375L4.375 8.8375L1.25 5.79375L5.56875 5.1625L7.5 1.25Z"
@@ -909,12 +976,12 @@
                                     </div>
                                     <div>
                                         <h1
-                                            class="my-[19px] font-[Lato] font-[700] text-[24px]  text-center text-[#353535] leading-[28.8px]">
+                                            class="my-[19px] leo-h1 font-[Lato] font-[700] text-[24px]  text-center text-[#353535] leading-[28.8px]">
                                             It was a very good experience</h1>
                                     </div>
                                     <div>
                                         <p
-                                            class="my-[17px] font-[jost] font-[500] text-[18px] leading-[23.13px] text-left text-[#353535]">
+                                            class="my-[17px] leo-p1 font-[jost] font-[500] text-[18px] leading-[23.13px] text-left text-[#353535]">
                                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursusnibh mauris,
                                             nec turpis orci
                                             lectus maecenas.
@@ -927,28 +994,28 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="slider-card">
+                            <div class="slider-card rounded-[16px] py-4 px-4 bg-[#fff] shadow-[2px_2px_5px_2px_#0000001A]">
                                 <div
-                                    class="rounded-[16px] py-4 px-4 bg-[#fff] h-[423px] shadow-[2px_2px_5px_2px_#0000001A]">
+                                    class="">
                                     <div class="flex justify-center">
                                         <div class="flex items-center">
                                             <div>
-                                                <img class="rounded-[100%] w-[72px] h-[72px]"
+                                                <img class="rounded-[100%] w-[72px] h-[72px] client-img"
                                                     src="/storage/product/client-photo.svg" alt="">
                                             </div>
                                             <div class="ml-2">
                                                 <h1
-                                                    class="font-[Lato] text-[24px] font-[700]  text-center text-[#353535]">
+                                                    class="font-[Lato] text-[24px] font-[700]  text-center text-[#353535] leo-h">
                                                     Leo</h1>
                                                 <p
-                                                    class="font-[Lato] text-[18px] font-[500] text-center text-[#353535]">
+                                                    class="font-[Lato] text-[18px] font-[500] text-center text-[#353535] leo-p">
                                                     Lead Designer</p>
                                             </div>
                                         </div>
 
-                                        <div class="flex mt-[40px] ml-auto">
+                                        <div class="flex mt-[40px] ml-auto star-div">
 
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
+                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" class="star"
                                                     height="22" viewBox="0 0 22 22" fill="#FFA033">
                                                     <path
                                                         d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
@@ -956,7 +1023,7 @@
                                                         stroke-linejoin="round" />
                                                 </svg></a>
 
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
+                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" class="star"
                                                     height="22" viewBox="0 0 22 22" fill="#FFA033">
                                                     <path
                                                         d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
@@ -964,7 +1031,7 @@
                                                         stroke-linejoin="round" />
                                                 </svg></a>
 
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
+                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" class="star"
                                                     height="22" viewBox="0 0 22 22" fill="#FFA033">
                                                     <path
                                                         d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
@@ -972,7 +1039,7 @@
                                                         stroke-linejoin="round" />
                                                 </svg></a>
 
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
+                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" class="star"
                                                     height="22" viewBox="0 0 22 22" fill="#FFA033">
                                                     <path
                                                         d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
@@ -980,7 +1047,7 @@
                                                         stroke-linejoin="round" />
                                                 </svg></a>
 
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
+                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" class="star"
                                                     height="22" viewBox="0 0 15 15" fill="none">
                                                     <path
                                                         d="M7.5 1.25L9.43125 5.1625L13.75 5.79375L10.625 8.8375L11.3625 13.1375L7.5 11.1062L3.6375 13.1375L4.375 8.8375L1.25 5.79375L5.56875 5.1625L7.5 1.25Z"
@@ -994,12 +1061,12 @@
                                     </div>
                                     <div>
                                         <h1
-                                            class="my-[19px] font-[Lato] font-[700] text-[24px]  text-center text-[#353535] leading-[28.8px]">
+                                            class="my-[19px] leo-h1 font-[Lato] font-[700] text-[24px]  text-center text-[#353535] leading-[28.8px]">
                                             It was a very good experience</h1>
                                     </div>
                                     <div>
                                         <p
-                                            class="my-[17px] font-[jost] font-[500] text-[18px] leading-[23.13px] text-left text-[#353535]">
+                                            class="my-[17px] leo-p1 font-[jost] font-[500] text-[18px] leading-[23.13px] text-left text-[#353535]">
                                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursusnibh mauris,
                                             nec turpis orci
                                             lectus maecenas.
@@ -1012,28 +1079,28 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="slider-card">
+                            <div class="slider-card rounded-[16px] py-4 px-4 bg-[#fff] shadow-[2px_2px_5px_2px_#0000001A]">
                                 <div
-                                    class="rounded-[16px] py-4 px-4 bg-[#fff] h-[423px] shadow-[2px_2px_5px_2px_#0000001A]">
+                                    class="">
                                     <div class="flex justify-center">
                                         <div class="flex items-center">
                                             <div>
-                                                <img class="rounded-[100%] w-[72px] h-[72px]"
+                                                <img class="rounded-[100%] w-[72px] h-[72px] client-img"
                                                     src="/storage/product/client-photo.svg" alt="">
                                             </div>
                                             <div class="ml-2">
                                                 <h1
-                                                    class="font-[Lato] text-[24px] font-[700]  text-center text-[#353535]">
+                                                    class="font-[Lato] text-[24px] font-[700]  text-center text-[#353535] leo-h">
                                                     Leo</h1>
                                                 <p
-                                                    class="font-[Lato] text-[18px] font-[500] text-center text-[#353535]">
+                                                    class="font-[Lato] text-[18px] font-[500] text-center text-[#353535] leo-p">
                                                     Lead Designer</p>
                                             </div>
                                         </div>
 
-                                        <div class="flex mt-[40px] ml-auto">
+                                        <div class="flex mt-[40px] ml-auto star-div">
 
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
+                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" class="star"
                                                     height="22" viewBox="0 0 22 22" fill="#FFA033">
                                                     <path
                                                         d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
@@ -1041,7 +1108,7 @@
                                                         stroke-linejoin="round" />
                                                 </svg></a>
 
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
+                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" class="star"
                                                     height="22" viewBox="0 0 22 22" fill="#FFA033">
                                                     <path
                                                         d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
@@ -1049,7 +1116,7 @@
                                                         stroke-linejoin="round" />
                                                 </svg></a>
 
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
+                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" class="star"
                                                     height="22" viewBox="0 0 22 22" fill="#FFA033">
                                                     <path
                                                         d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
@@ -1057,7 +1124,7 @@
                                                         stroke-linejoin="round" />
                                                 </svg></a>
 
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
+                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" class="star"
                                                     height="22" viewBox="0 0 22 22" fill="#FFA033">
                                                     <path
                                                         d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
@@ -1065,7 +1132,7 @@
                                                         stroke-linejoin="round" />
                                                 </svg></a>
 
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
+                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" class="star"
                                                     height="22" viewBox="0 0 15 15" fill="none">
                                                     <path
                                                         d="M7.5 1.25L9.43125 5.1625L13.75 5.79375L10.625 8.8375L11.3625 13.1375L7.5 11.1062L3.6375 13.1375L4.375 8.8375L1.25 5.79375L5.56875 5.1625L7.5 1.25Z"
@@ -1079,12 +1146,12 @@
                                     </div>
                                     <div>
                                         <h1
-                                            class="my-[19px] font-[Lato] font-[700] text-[24px]  text-center text-[#353535] leading-[28.8px]">
+                                            class="my-[19px] leo-h1 font-[Lato] font-[700] text-[24px]  text-center text-[#353535] leading-[28.8px]">
                                             It was a very good experience</h1>
                                     </div>
                                     <div>
                                         <p
-                                            class="my-[17px] font-[jost] font-[500] text-[18px] leading-[23.13px] text-left text-[#353535]">
+                                            class="my-[17px] leo-p1 font-[jost] font-[500] text-[18px] leading-[23.13px] text-left text-[#353535]">
                                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursusnibh mauris,
                                             nec turpis orci
                                             lectus maecenas.
@@ -1097,28 +1164,28 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="slider-card">
+                            <div class="slider-card rounded-[16px] py-4 px-4 bg-[#fff] shadow-[2px_2px_5px_2px_#0000001A]">
                                 <div
-                                    class="rounded-[16px] py-4 px-4 bg-[#fff] h-[423px] shadow-[2px_2px_5px_2px_#0000001A]">
+                                    class="">
                                     <div class="flex justify-center">
                                         <div class="flex items-center">
                                             <div>
-                                                <img class="rounded-[100%] w-[72px] h-[72px]"
+                                                <img class="rounded-[100%] w-[72px] h-[72px] client-img"
                                                     src="/storage/product/client-photo.svg" alt="">
                                             </div>
                                             <div class="ml-2">
                                                 <h1
-                                                    class="font-[Lato] text-[24px] font-[700]  text-center text-[#353535]">
+                                                    class="font-[Lato] text-[24px] font-[700]  text-center text-[#353535] leo-h">
                                                     Leo</h1>
                                                 <p
-                                                    class="font-[Lato] text-[18px] font-[500] text-center text-[#353535]">
+                                                    class="font-[Lato] text-[18px] font-[500] text-center text-[#353535] leo-p">
                                                     Lead Designer</p>
                                             </div>
                                         </div>
 
-                                        <div class="flex mt-[40px] ml-auto">
+                                        <div class="flex mt-[40px] ml-auto star-div">
 
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
+                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" class="star"
                                                     height="22" viewBox="0 0 22 22" fill="#FFA033">
                                                     <path
                                                         d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
@@ -1126,7 +1193,7 @@
                                                         stroke-linejoin="round" />
                                                 </svg></a>
 
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
+                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" class="star"
                                                     height="22" viewBox="0 0 22 22" fill="#FFA033">
                                                     <path
                                                         d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
@@ -1134,7 +1201,7 @@
                                                         stroke-linejoin="round" />
                                                 </svg></a>
 
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
+                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" class="star"
                                                     height="22" viewBox="0 0 22 22" fill="#FFA033">
                                                     <path
                                                         d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
@@ -1142,7 +1209,7 @@
                                                         stroke-linejoin="round" />
                                                 </svg></a>
 
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
+                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" class="star"
                                                     height="22" viewBox="0 0 22 22" fill="#FFA033">
                                                     <path
                                                         d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
@@ -1150,7 +1217,7 @@
                                                         stroke-linejoin="round" />
                                                 </svg></a>
 
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
+                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" class="star"
                                                     height="22" viewBox="0 0 15 15" fill="none">
                                                     <path
                                                         d="M7.5 1.25L9.43125 5.1625L13.75 5.79375L10.625 8.8375L11.3625 13.1375L7.5 11.1062L3.6375 13.1375L4.375 8.8375L1.25 5.79375L5.56875 5.1625L7.5 1.25Z"
@@ -1164,12 +1231,12 @@
                                     </div>
                                     <div>
                                         <h1
-                                            class="my-[19px] font-[Lato] font-[700] text-[24px]  text-center text-[#353535] leading-[28.8px]">
+                                            class="my-[19px] leo-h1 font-[Lato] font-[700] text-[24px]  text-center text-[#353535] leading-[28.8px]">
                                             It was a very good experience</h1>
                                     </div>
                                     <div>
                                         <p
-                                            class="my-[17px] font-[jost] font-[500] text-[18px] leading-[23.13px] text-left text-[#353535]">
+                                            class="my-[17px] leo-p1 font-[jost] font-[500] text-[18px] leading-[23.13px] text-left text-[#353535]">
                                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursusnibh mauris,
                                             nec turpis orci
                                             lectus maecenas.
