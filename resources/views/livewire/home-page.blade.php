@@ -73,6 +73,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            
         }
 
         .bs {
@@ -82,6 +83,7 @@
         .bs:hover {
             color: #be13f880;
         }
+        
     </style>
     <form method="POST" action="{{ route('logout') }}" class="hidden">
         @csrf
@@ -395,8 +397,8 @@
                 </div>
             </div>
             <div class="relative">
-                <div class="swiper-button-next translate-x-[55px] translate-y-[-192px] bs"></div>
-                <div class="swiper-button-prev translate-x-[-40px] translate-y-[-192px] bs"></div>
+                <div class="swiper-button-next translate-x-[55px] max-sm:translate-x-[20px] translate-y-[-192px] bs"></div>
+                <div class="swiper-button-prev translate-x-[-40px] max-sm:translate-x-[-20px] translate-y-[-192px] bs"></div>
             </div>
 
             <!-- Swiper JS -->
@@ -589,9 +591,9 @@
             </div>
     </section>
     <!-- What our client says  -->
-    <section class="mt-16">
+    <section class="mt-16 max-xl:mt-4">
         <h2
-            class="mb-12 font-[jost] font-[500] text-center text-[42px] max-lg:text-[30px] max-md:text-[25px] max-sm:text-[22px] text-[#353535]">
+            class="mb-12 max-lg:mb-4 font-[jost] font-[500] text-center text-[42px] max-lg:text-[30px] max-md:text-[25px] max-sm:text-[22px] text-[#353535]">
             What Our Clients Say About
             Us</h2>
         <div class="container mx-auto">
@@ -599,10 +601,6 @@
                 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
             <link rel="stylesheet" type="text/css" href="/frontend/owl-carousel-libraries/owl.carousel.min.css">
             <style>
-                /* html {
-                    scroll-behavior: smooth;
-                } */
-
                 .slider {
                     margin-bottom: 30px;
                     position: relative;
@@ -623,15 +621,50 @@
                     transform: scale(0.9);
                     opacity: 0.5;
                     transition: all 0.3s;
-                    width: 398px
+                    width: 365px
                 }
 
 
 
 
-                /* @media (max-width: 1280px){
-                   
-                } */
+                @media (max-width: 1280px){
+                    .slider-card {
+                           width: 280px;
+                       }
+   
+                       .leo-h {
+                           font-size: 18px;
+                       }
+   
+                       .leo-h1 {
+                           font-size: 18px;
+                           margin-top: 25px;
+                           margin-bottom: 25px;
+                       }
+   
+                       .leo-p {
+                           font-size: 10px;
+                       }
+   
+                       .leo-p1 {
+                           font-size: 13px;
+                           line-height: 20.13px;
+                       }
+   
+                       .client-img {
+                           width: 64px;
+                           height: 64px;
+                       }
+   
+                       .star-div {
+                           margin-top: 34px;
+                       }
+
+                       .star {
+                        width: 18px;
+                        height: 18px;
+                     }
+                }
 
 
                 @media (max-width: 1024px) {
@@ -651,17 +684,17 @@
                     }
 
                     .leo-p {
-                        font-size: 13px;
+                        font-size: 14px;
                     }
 
                     .leo-p1 {
                         font-size: 18px;
-                        line-height: 26.13px;
+                        line-height: 30.13px;
                     }
 
                     .client-img {
-                        width: 64px;
-                        height: 64px;
+                        width: 70px;
+                        height: 70px;
                     }
 
                     .star-div {
@@ -669,87 +702,122 @@
                     }
 
                     .star {
-                        width: 30px;
-                        height: 30px;
+                        width: 35px;
+                        height: 35px;
                     }
+                   }
+   
+                   @media (max-width: 768px) {
+                       .slider-card {
+                           width: 380px;
+                           margin: 50px auto;
+                       }
+   
+                       .leo-h {
+                           font-size: 18px;
+                       }
+   
+                       .leo-h1 {
+                           font-size: 24px;
+                           margin-top: 28px;
+                           margin-bottom: 28px;
+                       }
+   
+                       .leo-p {
+                           font-size: 13px;
+                       }
+   
+                       .leo-p1 {
+                           font-size: 18px;
+                           line-height: 26.13px;
+                       }
+   
+                       .client-img {
+                           width: 64px;
+                           height: 64px;
+                       }
+   
+                       .star-div {
+                           margin-top: 27px;
+                       }
+   
+                       .star {
+                           width:30px !important;
+                           height:30px !important;
+                       }
+
+                        /* .arrow{
+                        width:40px !important;
+                        height:40px !important;
+                        } */
+
+                        .owl-nav {
+                            gap: 190px;
+                            transform: translateY(36px);
+                        }
+                   }
+   
+   
+                   @media (max-width: 640px) {
+                       .slider-card {
+                           width: 280px;
+                       }
+   
+                       .leo-h {
+                           font-size: 18px;
+                       }
+   
+                       .leo-h1 {
+                           font-size: 18px;
+                           margin-top: 25px;
+                           margin-bottom: 25px;
+                       }
+   
+                       .leo-p {
+                           font-size: 10px;
+                       }
+   
+                       .leo-p1 {
+                           font-size: 13px;
+                           line-height: 20.13px;
+                       }
+   
+                       .client-img {
+                           width: 64px;
+                           height: 64px;
+                       }
+   
+                       .star-div {
+                           margin-top: 34px;
+                       }
+
+                       .star {
+                        width: 18px !important;
+                        height: 18px !important;
+                     }
+                        .owl-dots .owl-dot
+                         {
+                        height: 12px !important;
+                        width: 12px  !important;
+                        border-radius: 10px;
+                        background: #C5C5C5 !important;
+                        margin-left: 4px  !important;
+                        margin-right: 4px  !important;
+                        outline: none;
+                        }
+
+                        .arrow{
+                        width:30px;
+                        height:30px;
+                        }
+
+                        .owl-nav {
+                            gap: 130px !important;
+                            transform: translateY(32px) !important;
+                        }
+                    
                 }
 
-                @media (max-width: 768px) {
-                    .slider-card {
-                        width: 380px;
-
-                        margin: 50px auto;
-                    }
-
-                    .leo-h {
-                        font-size: 18px;
-                    }
-
-                    .leo-h1 {
-                        font-size: 24px;
-                        margin-top: 28px;
-                        margin-bottom: 28px;
-                    }
-
-                    .leo-p {
-                        font-size: 13px;
-                    }
-
-                    .leo-p1 {
-                        font-size: 18px;
-                        line-height: 26.13px;
-                    }
-
-                    .client-img {
-                        width: 64px;
-                        height: 64px;
-                    }
-
-                    .star-div {
-                        margin-top: 27px;
-                    }
-
-                    .star {
-                        width: 30px;
-                        height: 30px;
-                    }
-                }
-
-
-                @media (max-width: 640px) {
-                    .slider-card {
-                        width: 280px;
-                        /* margin: 50px auto;                   */
-                    }
-
-                    .leo-h {
-                        font-size: 18px;
-                    }
-
-                    .leo-h1 {
-                        font-size: 18px;
-                        margin-top: 25px;
-                        margin-bottom: 25px;
-                    }
-
-                    .leo-p {
-                        font-size: 10px;
-                    }
-
-                    .leo-p1 {
-                        font-size: 13px;
-                        line-height: 20.13px;
-                    }
-
-                    .client-img {
-                        width: 64px;
-                        height: 64px;
-                    }
-
-                    .star-div {
-                        margin-top: 34px;
-                    }
-                }
 
                 .slider-card img {
                     border-radius: 4px 4px 0px 0px;
@@ -806,7 +874,7 @@
                     <div class="slider">
                         <div class="owl-carousel">
                             <div
-                                class="slider-card max-sm:w-[280px] rounded-[16px] py-4 px-4 bg-[#fff] shadow-[2px_2px_5px_2px_#0000001A]">
+                                class="slider-card rounded-[16px] py-4 px-4 bg-[#fff] shadow-[2px_2px_5px_2px_#0000001A]">
                                 <div class="">
                                     <div class="flex justify-center">
                                         <div class="flex items-center">
@@ -1358,8 +1426,8 @@
                         autoplayHoverPause: true,
                         center: true,
                         navText: [
-                            '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-18 h-9"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>',
-                            '<svg xmlns="http:www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-18 h-9"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /> </svg>'
+                            '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-18 h-9 arrow"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>',
+                            '<svg xmlns="http:www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-18 h-9 arrow"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /> </svg>'
                         ],
                         responsive: {
                             0: {
@@ -1379,32 +1447,32 @@
     </section>
     <div class="mt-16 h-[2px] bg-[#380D37] container"></div>
     <!-- Drop/submit a review  -->
-    <section class="mt-16 mb-5">
-        <div class="text-center font-[jost] text-[42px] font-[500] leading-[61px] text-[#380D37]">
-            <h1> Please Drop a review!</h1>
+    <section class="mt-16 mb-5 max-md:mt-6">
+        <div class="text-center text-[#380D37] text-[42px] font-[jost] font-[500] max-md:my-[35px] leading-[61px] max-sm:leading-[5px]">
+            <h1 class="max-sm:text-[25px] max-md:text-[] max-lg:text-[] max-xl:text-[]"> Please Drop a review!</h1>
         </div>
-        <div class="grid grid-cols-2 mt-20">
+        <div class="grid grid-cols-2 max-sm:grid-cols-1 max-md:grid-cols-1 max-lg:grid-cols-2 mt-20 max-sm:mt-[15px]">
             <div>
                 <div>
-                    <h1 class="font-[jost] text-[52px] font-[500] leading-[55px] text-[#DC275C]">We Believe in the
+                    <h1 class="text-[52px] text-[#DC275C] max-sm:text-[30px] max-md:text-[] max-lg:text-[35px] max-xl:text-[45px] max-md:text-center font-[500] font-[jost] leading-[55px] max-sm:leading-[30px] max-lg:leading-[50px] max-xl:leading-[52px]">We Believe in the
                         </br> power of </br> Communication</h1>
                 </div>
                 <div>
-                    <p class="mt-8 font-[jost] text-[24px] font-[500] leading-[30px] text-[#353535]">Share your
+                    <p class="mt-8 text-[#353535] text-[24px] max-sm:text-[12px] max-md:text-[] max-lg:text-[20px] max-xl:text-[22px] max-md:text-center font-[jost] font-[500] leading-[30px] max-sm:leading-[20px]">Share your
                         experience with us.</br> Drop a comment and we will look into it.</p>
                 </div>
             </div>
-            <form wire:submit="post">
+            <form wire:submit="post" class="max-md:border-[1px] max-md:border-[#380D37] max-md:rounded-[4px] max-sm:p-[10px] max-md:p-[15px] max-sm:mt-[15px] max-md:my-[22px]">
 
                 <div class="grid grid-cols-2 gap-2">
                     <input wire:model="name"
-                        class=" h-[64px] rounded-[4px] bg-[#F2F2F2] font-[jost] text-[16px] italic font-[500] leading-[23px] text-left shadow-[2px_2px_5px_2px_#0000001A] py-[8px] px-[16px]"
+                        class=" h-[64px] max-sm:h-[40px] max-lg:h-[55px] rounded-[4px] bg-[#F2F2F2] font-[jost] text-[16px] max-sm:text-[12px] italic font-[500] leading-[23px] py-[8px] px-[16px] max-sm:pl-[12px]"
                         id="name" type="text" placeholder="Name*">
                     @error('name')
                         <span class="text-[red] text-[12px]">{{ $message }}</span>
                     @enderror
                     <input wire:model="email"
-                        class=" h-[64px] rounded-[4px] bg-[#F2F2F2] font-[jost] text-[16px] italic font-[500] leading-[23px]  py-[8px] px-[16px]"
+                        class=" h-[64px] max-sm:h-[40px] max-lg:h-[55px] rounded-[4px] bg-[#F2F2F2] font-[jost] text-[16px] max-sm:text-[12px] italic font-[500] leading-[23px]  py-[8px] px-[16px]"
                         id="email" type="email" placeholder="Email*">
                     @error('email')
                         <span class="text-[red] text-[12px]">{{ $message }}</span>
@@ -1412,7 +1480,7 @@
                 </div>
                 <div>
                     <input wire:model="subject"
-                        class=" h-[64px] rounded-[4px] w-full py-2 px-3 bg-[#F2F2F2] font-[jost] text-[16px] mt-[20px] mb-[20px] italic font-[500] "
+                        class=" h-[64px] max-sm:h-[40px] max-lg:h-[55px] rounded-[4px] w-full py-2 px-3 bg-[#F2F2F2] font-[jost] text-[16px] max-sm:text-[12px] mt-[20px] mb-[20px] italic font-[500] "
                         id="subject" type="text" placeholder="Subject(optional)">
                     @error('subject')
                         <span class="text-[red] text-[12px]">{{ $message }}</span>
@@ -1420,13 +1488,13 @@
                 </div>
                 <div>
                     <textarea wire:model='msg'
-                        class="h-[271px] rounded-[4px] w-full py-2 pb-32 px-3 bg-[#F2F2F2] font-[jost] text-[16px]  italic font-[500] "
+                        class="h-[271px] max-sm:h-[150px] max-lg:h-[220px] max-xl:h-[230px] rounded-[4px] w-full py-2 pb-32 px-3 bg-[#F2F2F2] font-[jost] text-[16px] max-sm:text-[12px]  italic font-[500] "
                         id="message" rows="4" placeholder=" Message"></textarea>
                     @error('msg')
                         <span class="text-[red] text-[12px]">{{ $message }}</span>
                     @enderror
                 </div>
-                <div class="items-center">
+                <div class="flex items-center max-md:justify-center">
                     @if ($post_success_msg)
                         <span class="block text-[green]">{{ $post_success_msg }}</span>
                     @endif
