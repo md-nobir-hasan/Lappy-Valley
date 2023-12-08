@@ -164,7 +164,6 @@
                         } else {
                             this.pagi_products = Object.fromEntries(Object.entries(res.product).slice(0, 20));
                         }
-                        console.log(res.product);
                         this.total_product = total_product
                         this.page_num = Math.ceil(total_product / 20);
                         this.productShow = false;
@@ -175,27 +174,19 @@
                 })
             },
             pageChange(pNum) {
-                if ( pNum == this.current_page || pNum > this.page_num || pNum < 1) {
+                if (pNum == this.current_page || pNum > this.page_num || pNum < 1) {
                     return false;
                 } else {
-                    if (pNum == 1) {
-                        this.pagi_products = Object.fromEntries(Object.entries(this.products).slice(0, 20));
-                        this.current_page = 1;
-                        this.show_from = 1;
-                        this.show_to = 20;
-                        this.current_page = 1;
-                    } else {
-                        let to = pNum * 20;
-                        let from = to - 20;
-                        if (to > this.total_product) {
-                            to = Number(this.total_product)
-                        }
-                        console.log(to)
-                        this.show_from = from + 1;
-                        this.show_to = to;
-                        this.pagi_products = Object.fromEntries(Object.entries(this.products).slice(from, to));
-                        this.current_page = pNum
+                    let to = pNum * 20;
+                    let from = to - 20;
+                    if (to > this.total_product) {
+                        to = Number(this.total_product)
                     }
+                    this.show_from = from + 1;
+                    this.show_to = to;
+                    this.pagi_products = Object.fromEntries(Object.entries(this.products).slice(from, to));
+                    this.current_page = pNum
+        
                 }
             }
         }">
@@ -731,7 +722,7 @@
                                                 <template x-for="npage in page_num" :key="npage">
                                                     <span x-text='npage' @click='pageChange(npage)'
                                                         class="relative inline-flex cursor-pointer  items-center px-4 py-2 -ml-px text-sm font-medium leading-5 transition duration-150 ease-in-out border border-gray-300 hover:text-gray-500 focus:z-10 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700"
-                                                        :class="current_page== npage ? 'bg-[#380D37] text-[#F2F2F2]' :
+                                                        :class="current_page == npage ? 'bg-[#380D37] text-[#F2F2F2]' :
                                                             'bg-[#F2F2F2] text-[#380D37]'"
                                                         aria-label="Go to page 2">
                                                     </span>
