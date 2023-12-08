@@ -127,9 +127,13 @@
             ajaxProduct: false,
             productShow: true,
             page_num: 0,
-            product_count: 0,
+            total_product: 0,
+            pagi_products: 1,
+            show_from: 1,
+            show_to: 20,
+            current_page: 1,
+            pagi_bg_color: 1,
             productFetch() {
-        
                 $.ajax({
                     type: 'get',
                     url: '{{ route('shop.shorting') }}',
@@ -154,13 +158,46 @@
         
                     success: (res) => {
                         this.products = res.product;
-                        product_count = Object.keys(res.product).length;
-                        this.product_count = product_count
-                        this.page_num = Math.ceil(product_count / 20);
+                        total_product = Object.keys(res.product).length;
+                        if (total_product < 21) {
+                            this.pagi_products = res.product;
+                            this.show_to = total_product;
+                        } else {
+                            this.pagi_products = Object.fromEntries(Object.entries(res.product).slice(0, 20));
+                        }
+                        console.log(res.product);
+                        this.total_product = total_product
+                        this.page_num = Math.ceil(total_product / 20);
                         this.productShow = false;
                         this.ajaxProduct = true;
+        
                     }
                 })
+            },
+            pageChange(pNum) {
+                if (this.current_page == pNum) {
+                    return false;
+                } else {
+                    if(pNum==1){
+                        this.pagi_products = Object.fromEntries(Object.entries(this.products).slice(0,20));
+                        this.current_page = 1;
+                         this.show_from = 1;
+                        this.show_to = 20;
+                        this.pagi_bg_color = 1;
+                    }else{
+                        let from = Number(pNum+'0');
+                        let to = from+20;
+                        if(to > this.total_product){
+                            to = Number(this.total_product)
+                        }
+                        console.log(to)
+                        this.show_from = from+1;
+                        this.show_to = to;
+                        this.pagi_products = Object.fromEntries(Object.entries(this.products).slice(from,to));
+                        this.current_page = pNum
+                        this.pagi_bg_color = pNum
+                    }
+                }
             }
         }">
             <!-- ------------right---part--start--- -->
@@ -612,7 +649,7 @@
                         <div x-show="ajaxProduct" id="product_pdiv">
                             <div class='product_pdiv grid grid-cols-4 gap-8 mx-auto mt-4'>
                                 {{-- x-if="Object.keys(products).length > 0" --}}
-                                <template x-for="product in products" id="product">
+                                <template x-for="product in pagi_products" id="product">
                                     <div
                                         class="product_div relative overflow-hidden border-[1px] border-[#380D37] bg-[#f2f2f2] rounded-[4px] box-border px-[5px] mt-2 flex flex-col gap-2 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] ">
 
@@ -698,10 +735,10 @@
                                                     </span>
                                                 </span> --}}
                                                 <template x-for="npage in page_num" :key="npage">
-                                                    <span x-text='npage'
-                                                        class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 hover:text-gray-500 focus:z-10 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700"
+                                                    <span x-text='npage' @click='pageChange(npage)'
+                                                        class="relative inline-flex  items-center px-4 py-2 -ml-px text-sm font-medium leading-5 transition duration-150 ease-in-out border border-gray-300 hover:text-gray-500 focus:z-10 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700"
+                                                        :class="pagi_bg_color == npage ? 'bg-[#380D37] text-[#F2F2F2]' : 'bg-[#F2F2F2] text-[#380D37]' "
                                                         aria-label="Go to page 2">
-                                                        
                                                     </span>
                                                 </template>
                                             </span>
@@ -710,11 +747,12 @@
                                         <div>
                                             <p class="text-sm leading-5 text-gray-700">
                                                 Showing
-                                                <span class="font-medium" id="showing_from">1</span>
+                                                <span x-text='show_from' class="font-medium"
+                                                    id="showing_from">1</span>
                                                 to
-                                                <span  class="font-medium" id="showing_to">20</span>
+                                                <span x-text='show_to' class="font-medium" id="showing_to">20</span>
                                                 of
-                                                <span x-text='product_count' class="font-medium"></span>
+                                                <span x-text='total_product' class="font-medium"></span>
                                                 results (<span x-text='page_num'></span> pages)
                                             </p>
                                         </div>

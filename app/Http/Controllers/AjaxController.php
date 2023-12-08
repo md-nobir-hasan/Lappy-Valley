@@ -64,6 +64,7 @@ class AjaxController extends Controller
             } else {
                 $wishlist = Wishlist::where('ip', request()->ip())->where('cart_id', null)->update(['cart_id' => $cart->id]);
             }
+
             return response()->json($fetch_cart);
         }
     }
