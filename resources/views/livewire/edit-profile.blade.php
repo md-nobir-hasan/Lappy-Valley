@@ -48,20 +48,20 @@
         <div class='my-[15px] flex gap-[20px]'>
         <div>
         <label for="address" class='text-[16px] text-[#353535] font-[jost] font-[500] leading-[23.12px] tracking-[3%] block my-[5px]'>First Name:</label>
-            <input type="text" placeholder='First name' class='w-[344px] h-[44px] bg-[#F2F2F2] block italic px-[10px] rounded-[4px]'>
+            <input type="text" placeholder='First name' class='w-[344px] h-[44px] bg-[#F2F2F2] font-[jost] font-[500] text-[16px] text-[#353535] block italic px-[10px] rounded-[4px]'>
         </div>
         <div>
         <label for="address" class='text-[16px] text-[#353535] font-[jost] font-[500] leading-[23.12px] tracking-[3%] block my-[5px]'>Last Name:</label>
-            <input type="text" placeholder='Last name' class='w-[344px] h-[44px] bg-[#F2F2F2] block italic px-[10px] rounded-[4px]'>
+            <input type="text" placeholder='Last name' class='w-[344px] h-[44px] bg-[#F2F2F2] font-[jost] font-[500] text-[16px] text-[#353535] block italic px-[10px] rounded-[4px]'>
         </div>
         </div>
         <div class='my-[15px]'>
         <label for="address" class='text-[16px] text-[#353535] font-[jost] font-[500] leading-[23.12px] tracking-[3%] block my-[5px]'>E-mail Address:</label>
-            <input type="email" placeholder='E-mail Address' class='w-[344px] h-[44px] bg-[#F2F2F2] blcok italic px-[10px] rounded-[4px]'>
+            <input type="email" placeholder='E-mail Address' class='w-[344px] h-[44px] bg-[#F2F2F2] font-[jost] font-[500] text-[16px] text-[#353535] blcok italic px-[10px] rounded-[4px]'>
             </div>
         <div class='my-[15px]'>
             <label for="address" class='text-[16px] text-[#353535] font-[jost] font-[500] leading-[23.12px] tracking-[3%] block my-[5px]'>Phone Number:</label>
-            <input type="number" placeholder='Phone Number' class='w-[344px] h-[44px] bg-[#F2F2F2] block italic px-[10px] rounded-[4px]'>
+            <input type="number" placeholder='Phone Number' class='w-[344px] h-[44px] bg-[#F2F2F2] font-[jost] font-[500] text-[16px] text-[#353535] block italic px-[10px] rounded-[4px]'>
         </div>
         <div class='my-[30px]'>
             <button class='w-[133px] h-[41px] rounded-[4px] text-[#F2F2F2] text-[14px] font-[jost] font-[500] leading-[20.23px] bg-gradient-to-r from-[#380D37] to-[#DC275C]'>Save Changes</button>

@@ -120,8 +120,8 @@
                         </div>
 
                         <div>
-                            <p class='text-[#353535] text-[16px] font-[jost] font-[500] text-center'>
-                                <span x-text="qty"></span> x <span class='text-[#DC275C]'
+                            <p class='text-[#353535] text-[14px] font-[jost] font-[400] text-left'>
+                                <span x-text="qty"></span> x <span class='text-[16px] font-[500] text-[#DC275C]'
                                     x-text="mFormat(Number(price))"></span>
 
                                 TAKA
@@ -158,7 +158,7 @@
         <div class='items-center flex justify-center w-[364px] my-[30px]'>
             <a href="{{ route('vcart') }}" wire:navigate>
                 <button type="button"
-                    class='w-[364px]  border-[1px] border-[#380D37] rounded-[4px] px-[50px] py-[10px] text-[#380D37] text-[20px] font-[jost] font-[500]'>View
+                    class='w-[364px]  border-[1px] border-[#380D37] rounded-[4px] px-[50px] py-[10px] text-[#380D37] text-[20px] font-[jost] font-[700]'>View
                     Cart
                 </button>
             </a>
@@ -166,7 +166,7 @@
         <div class='items-center flex justify-center w-[ 364px] my-[30px]'>
             <a href="{{ route('checkout') }}" wire:navigate>
                 <button
-                    class='w-[364px] rounded-[4px] items-center px-[50px] py-[10px] text-[#F2F2F2] bg-gradient-to-r from-[#380D37] to-[#DC275C] text-[20px] font-[jost] font-[500] mb-[54px]'>
+                    class='w-[364px] rounded-[4px] items-center px-[50px] py-[10px] text-[#F2F2F2] bg-gradient-to-r from-[#380D37] to-[#DC275C] text-[20px] font-[jost] font-[700] mb-[54px]'>
                     Checkout
                 </button>
             </a>

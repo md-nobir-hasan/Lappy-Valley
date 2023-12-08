@@ -23,6 +23,9 @@ class Login extends Component
     #[Rule("string")]
     public $password;
 
+    #[Rule("same:password", message: "Password confirmation doesn't match")]
+    public $confirmed;
+
     public $check_msg;
     public $success_msg;
 
