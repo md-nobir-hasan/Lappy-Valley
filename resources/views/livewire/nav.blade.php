@@ -1,4 +1,5 @@
-<section class="bg-[#F2F2F2] h-[51px]  py-4 px-[100px]">
+<div>
+    {{-- <section class="bg-[#F2F2F2] h-[51px]  py-4 px-[100px]">
     <nav class="font-[Jost] flex justify-between">
         <ul class="relative" x-data="{ open: false }">
             <li class='flex items-center gap-[5px] jost h-[23px]'>
@@ -27,7 +28,7 @@
                 @foreach ($menus as $menu)
                     <a href="{{ route('cate_wise.shop', [$menu->slug]) }}" wire:navigate >
                         <li 
-                            class='text-center w-full text-[16px] text-[#353535] font-[jost] font-[500] rounded-[2px] hover:bg-[#380D37] hover:text-[#f2f2f2] border-b-[1px] border-[#353535]'>
+                            class='text-center w-full text-[16px] text-[#353535] font-[jost] font-[500] rounded-[2px] hover:bg-[#380D37] hover:text-[#f2f2f2] border-b-[1px] border-[#380D37]'>
 
                             {{ $menu->title }}
                         </li>
@@ -65,7 +66,7 @@
                     @foreach ($menu->child_cat as $cc)
                         <a href="{{ route('cate_wise.shop', [$cc->slug]) }}" wire:navigate>
                             <li
-                                class='text-center w-full text-[16px] text-[#353535] font-[jost] font-[500] rounded-[2px] hover:bg-[#380D37] hover:text-[#f2f2f2] border-b-[1px] border-[#353535]'>
+                                class='text-center w-full text-[16px] text-[#353535] font-[jost] font-[500] rounded-[2px] hover:bg-[#380D37] hover:text-[#f2f2f2] border-b-[1px] border-[#380D37]'>
                                 {{ $cc->title }}
                             </li>
                         </a>
@@ -83,4 +84,509 @@
             </li>
         </ul>
     </nav>
-</section>
+</section> --}}
+
+
+<div class="bg-[#F2F2F2] h-[51px]  py-4  2xl:px-[100px] xl:px-[50px] max-xl:hidden flex justify-between text-center items-center">
+    <div class="relative" data-te-dropdown-ref>
+        <a class="flex items-center whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]"
+            href="#" type="button" id="dropdownMenuButton2" data-te-dropdown-toggle-ref aria-expanded="false"
+            data-te-ripple-init data-te-ripple-color="light">
+           <span> All Categories</span>
+            <span class="ml-2 w-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5">
+                    <path fill-rule="evenodd"
+                        d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                        clip-rule="evenodd" />
+                </svg>
+            </span>
+        </a>
+        <ul class="absolute z-[1000] float-left p-2 hidden w-[200px] list-none overflow-hidden border-none bg-[#f2f2f2] text-[#353535] text-left [&[data-te-dropdown-show]]:block"
+            aria-labelledby="dropdownMenuButton2" data-te-dropdown-menu-ref>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>USA Variant</a>
+            </li>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>Brand New</a>
+            </li>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>MAC Book</a>
+            </li>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>Pre-Owned</a>
+            </li>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>Gaming Laptop</a>
+            </li>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>Student Laptop</a>
+            </li>
+
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>Asian Variant</a>
+            </li>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>Hotline</a>
+            </li>
+
+        </ul>
+    </div>
+    <div class="relative" data-te-dropdown-ref>
+        <a class="flex items-center whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]"
+            href="#" type="button" id="dropdownMenuButton2" data-te-dropdown-toggle-ref aria-expanded="false"
+            data-te-ripple-init data-te-ripple-color="light">
+            USA Variant
+            <span class="ml-2 w-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5">
+                    <path fill-rule="evenodd"
+                        d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                        clip-rule="evenodd" />
+                </svg>
+            </span>
+        </a>
+        <ul class="absolute z-[1000] float-left p-2  hidden w-[200px] list-none overflow-hidden border-none bg-[#f2f2f2] text-[#353535] text-left [&[data-te-dropdown-show]]:block"
+            aria-labelledby="dropdownMenuButton2" data-te-dropdown-menu-ref>
+            <li
+                class="w-full border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>Asus</a>
+            </li>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>DELL</a>
+            </li>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>HP</a>
+            </li>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>Lenovo</a>
+            </li>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>Acer</a>
+            </li>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>Apple</a>
+            </li>
+
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>MSI</a>
+            </li>
+
+
+        </ul>
+    </div>
+    <div class="relative" data-te-dropdown-ref>
+        <a class="flex items-center whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]"
+            href="#" type="button" id="dropdownMenuButton2" data-te-dropdown-toggle-ref aria-expanded="false"
+            data-te-ripple-init data-te-ripple-color="light">
+            Brand New
+            <span class="ml-2 w-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5">
+                    <path fill-rule="evenodd"
+                        d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                        clip-rule="evenodd" />
+                </svg>
+            </span>
+        </a>
+        <ul class="absolute z-[1000] float-left p-2  hidden w-[200px] list-none overflow-hidden border-none bg-[#f2f2f2] text-[#353535] text-left [&[data-te-dropdown-show]]:block"
+            aria-labelledby="dropdownMenuButton2" data-te-dropdown-menu-ref>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>Asus</a>
+            </li>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>DELL</a>
+            </li>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>HP</a>
+            </li>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>Lenovo</a>
+            </li>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>Acer</a>
+            </li>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>Apple</a>
+            </li>
+
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>MSI</a>
+            </li>
+
+
+        </ul>
+    </div>
+    <div class="relative" data-te-dropdown-ref>
+        <a class="flex items-center whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]"
+            href="#" type="button" id="dropdownMenuButton2" data-te-dropdown-toggle-ref aria-expanded="false"
+            data-te-ripple-init data-te-ripple-color="light">
+            MAC Book
+            <span class="ml-2 w-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5">
+                    <path fill-rule="evenodd"
+                        d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                        clip-rule="evenodd" />
+                </svg>
+            </span>
+        </a>
+        <ul class="absolute z-[1000] float-left p-2  hidden w-[200px] list-none overflow-hidden border-none bg-[#f2f2f2] text-[#353535] text-left [&[data-te-dropdown-show]]:block"
+            aria-labelledby="dropdownMenuButton2" data-te-dropdown-menu-ref>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>Asus</a>
+            </li>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>DELL</a>
+            </li>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>HP</a>
+            </li>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>Lenovo</a>
+            </li>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>Acer</a>
+            </li>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>Apple</a>
+            </li>
+
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>MSI</a>
+            </li>
+
+
+        </ul>
+    </div>
+    <div class="relative" data-te-dropdown-ref>
+        <a class="flex items-center whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]"
+            href="#" type="button" id="dropdownMenuButton2" data-te-dropdown-toggle-ref aria-expanded="false"
+            data-te-ripple-init data-te-ripple-color="light">
+            Pre-Owned
+            <span class="ml-2 w-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5">
+                    <path fill-rule="evenodd"
+                        d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                        clip-rule="evenodd" />
+                </svg>
+            </span>
+        </a>
+        <ul class="absolute z-[1000] float-left p-2  hidden w-[200px] list-none overflow-hidden border-none bg-[#f2f2f2] text-[#353535] text-left [&[data-te-dropdown-show]]:block"
+            aria-labelledby="dropdownMenuButton2" data-te-dropdown-menu-ref>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>Asus</a>
+            </li>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>DELL</a>
+            </li>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>HP</a>
+            </li>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>Lenovo</a>
+            </li>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>Acer</a>
+            </li>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>Apple</a>
+            </li>
+
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>MSI</a>
+            </li>
+
+
+        </ul>
+    </div>
+    <div class="relative" data-te-dropdown-ref>
+        <a class="flex items-center whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]"
+            href="#" type="button" id="dropdownMenuButton2" data-te-dropdown-toggle-ref aria-expanded="false"
+            data-te-ripple-init data-te-ripple-color="light">
+            Gaming Laptop
+            <span class="ml-2 w-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5">
+                    <path fill-rule="evenodd"
+                        d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                        clip-rule="evenodd" />
+                </svg>
+            </span>
+        </a>
+        <ul class="absolute z-[1000] float-left p-2  hidden w-[200px] list-none overflow-hidden border-none bg-[#f2f2f2] text-[#353535] text-left [&[data-te-dropdown-show]]:block"
+            aria-labelledby="dropdownMenuButton2" data-te-dropdown-menu-ref>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>Asus</a>
+            </li>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>DELL</a>
+            </li>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>HP</a>
+            </li>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>Lenovo</a>
+            </li>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>Acer</a>
+            </li>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>Apple</a>
+            </li>
+
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>MSI</a>
+            </li>
+
+
+        </ul>
+    </div>
+    <div class="relative" data-te-dropdown-ref>
+        <a class="flex items-center whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]"
+            href="#" type="button" id="dropdownMenuButton2" data-te-dropdown-toggle-ref aria-expanded="false"
+            data-te-ripple-init data-te-ripple-color="light">
+            Student Laptop
+            <span class="ml-2 w-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5">
+                    <path fill-rule="evenodd"
+                        d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                        clip-rule="evenodd" />
+                </svg>
+            </span>
+        </a>
+        <ul class="absolute z-[1000] float-left p-2  hidden w-[200px] list-none overflow-hidden border-none bg-[#f2f2f2] text-[#353535] text-left [&[data-te-dropdown-show]]:block"
+            aria-labelledby="dropdownMenuButton2" data-te-dropdown-menu-ref>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>Asus</a>
+            </li>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>DELL</a>
+            </li>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>HP</a>
+            </li>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>Lenovo</a>
+            </li>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>Acer</a>
+            </li>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>Apple</a>
+            </li>
+
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>MSI</a>
+            </li>
+
+
+        </ul>
+    </div>
+    <div class="relative" data-te-dropdown-ref>
+        <a class="flex items-center whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]"
+            href="#" type="button" id="dropdownMenuButton2" data-te-dropdown-toggle-ref aria-expanded="false"
+            data-te-ripple-init data-te-ripple-color="light">
+            Asian Variant
+            <span class="ml-2 w-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5">
+                    <path fill-rule="evenodd"
+                        d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                        clip-rule="evenodd" />
+                </svg>
+            </span>
+        </a>
+        <ul class="absolute z-[1000] float-left p-2  hidden w-[200px] list-none overflow-hidden border-none bg-[#f2f2f2] text-[#353535] text-left [&[data-te-dropdown-show]]:block"
+            aria-labelledby="dropdownMenuButton2" data-te-dropdown-menu-ref>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>Asus</a>
+            </li>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>DELL</a>
+            </li>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>HP</a>
+            </li>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>Lenovo</a>
+            </li>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>Acer</a>
+            </li>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>Apple</a>
+            </li>
+
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>MSI</a>
+            </li>
+
+
+        </ul>
+    </div>
+    <div class="relative" data-te-dropdown-ref>
+        <a class="flex items-center whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]"
+            href="#" type="button" id="dropdownMenuButton2" data-te-dropdown-toggle-ref aria-expanded="false"
+            data-te-ripple-init data-te-ripple-color="light">
+            Hotline:+8880171264420
+            <span class="ml-[4px] w-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5">
+                    <path fill-rule="evenodd"
+                        d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                        clip-rule="evenodd" />
+                </svg>
+            </span>
+        </a>
+        <ul class="absolute z-[1000] float-left p-2  hidden w-[200px] list-none overflow-hidden border-none bg-[#f2f2f2] text-[#353535] text-left [&[data-te-dropdown-show]]:block"
+            aria-labelledby="dropdownMenuButton2" data-te-dropdown-menu-ref>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>Asus</a>
+            </li>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>DELL</a>
+            </li>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>HP</a>
+            </li>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>Lenovo</a>
+            </li>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>Acer</a>
+            </li>
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>Apple</a>
+            </li>
+
+            <li
+                class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
+                <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                    href="#" data-te-dropdown-item-ref>MSI</a>
+            </li>
+
+
+        </ul>
+    </div>
+</div>
+
+</div>

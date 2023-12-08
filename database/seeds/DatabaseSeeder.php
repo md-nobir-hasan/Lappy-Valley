@@ -30,7 +30,7 @@ class DatabaseSeeder extends Seeder
 
         Category::factory()->count(35)->create();
         Product::factory()->count(100)->create();
-        ProductReview::factory()->count(10)->create();
+        //ProductReview::factory()->count(10)->create();
 
     }
 }

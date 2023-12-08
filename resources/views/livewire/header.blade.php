@@ -1,13 +1,223 @@
-<div>
+<div class="relative">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Alkalami&family=Comme:wght@200;600;800&family=Jost&family=Lato:ital,wght@1,300&display=swap');
-      </style>
-    <header class="h-[78px] bg-gradient-to-r from-[#380D37] to-[#DC275C] text-[#f2f2f2] px-[72px]">
+        .menu-toggle {
+            cursor: pointer;
+            padding: 15px;
+            position: absolute;
+            top: 5px;
+            left: 20px;
+            z-index: 2;
+        }
+
+        .bar {
+            width: 30px;
+            height: 3px;
+            background-color: #fff;
+            margin: 6px 0;
+            transition: 0.4s;
+        }
+
+        .menu {
+            position: fixed;
+            top: 66px;
+            left: -300px;
+            width: 300px;
+            background-color: #f2f2f2;
+            z-index: 1;
+            /* overflow: hidden; */
+            transition: 0.5s;
+        }
+
+
+        .menu ul {
+            list-style: none;
+            text-align: center;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #353535;
+            font-size: 16px;
+        }
+
+        .menu-toggle.active .bar:nth-child(1) {
+            transform: rotate(-45deg) translate(-7px, 5px);
+        }
+
+        .menu-toggle.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active .bar:nth-child(3) {
+            transform: rotate(45deg) translate(-7px, -5px);
+        }
+
+        .active.menu {
+            left: 0px !important;
+            color: #fff;
+        }
+    </style>
+
+    <header
+        class="h-[78px] z-[10000] max-xl:h-[68px] max-xl:fixed max-xl:top-0 max-xl:left-0 max-xl:right-0 max-xl:z-150 max-xl:flex max-xl:justify-between max-xl:items-center
+     bg-gradient-to-r from-[#380D37] to-[#DC275C] text-[#f2f2f2] px-[72px] max-xl:px-[40px]">
+        {{-- ------responsive---show----- --}}
+        <div class=" xl:hidden max-xl:block">
+            <div class="menu-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <div class="menu">
+                <nav class="bg-[#f2f2f2] ">
+                    <ul class="flex flex-col gap-4 scroll-auto">
+                        <li class=" px-6 pt-2 font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
+                            <a href="#" class="flex justify-between items-center">
+                                <span>All Categories</span>
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                                    </svg>
+                                </span>
+                            </a>
+                        </li>
+                        <div class="h-[1px] bg-[#764D8733]"></div>
+                        <li
+                            class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
+                            <a href="#" class='flex justify-between items-center'>
+                                <span>USA Variant</span>
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                                    </svg>
+                                </span>
+                            </a>
+                        </li>
+                        <div class="h-[1px] bg-[#764D8733]"></div>
+                        <li
+                            class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
+                            <a href="#" class='flex justify-between items-center'>
+                                <span>Brand New</span>
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                                    </svg>
+                                </span>
+                            </a>
+                        </li>
+                        <div class="h-[1px] bg-[#764D8733]"></div>
+                        <li
+                            class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
+                            <a href="#" class='flex justify-between items-center'>
+                                <span>Mac Book</span>
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                                    </svg>
+                                </span>
+                            </a>
+                        </li>
+                        <div class="h-[1px] bg-[#764D8733]"></div>
+                        <li
+                            class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
+                            <a href="#" class='flex justify-between items-center'>
+                                <span>Gamig Laptop</span>
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                                    </svg>
+                                </span>
+                            </a>
+                        </li>
+                        <div class="h-[1px] bg-[#764D8733]"></div>
+                        <li
+                            class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
+                            <a href="#" class='flex justify-between items-center'>
+                                <span>Pre-Owned</span>
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                                    </svg>
+                                </span>
+                            </a>
+                        </li>
+                        <div class="h-[1px] bg-[#764D8733]"></div>
+                        <li
+                            class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
+                            <a href="#" class='flex justify-between items-center'>
+                                <span>Studnt Laptop</span>
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                                    </svg>
+                                </span>
+                            </a>
+                        </li>
+                        <div class="h-[1px] bg-[#764D8733]"></div>
+                        <li
+                            class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]">
+                            <a href="#" class='flex justify-between items-center'>
+                                <span>Asia Variant</span>
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                                    </svg>
+                                </span>
+                            </a>
+                        </li>
+                        <div class="h-[1px] bg-[#764D8733]"></div>
+                    </ul>
+                </nav>
+            </div>
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    var menuToggle = document.querySelector('.menu-toggle');
+                    var menu = document.querySelector('.menu');
+
+                    menuToggle.addEventListener('click', function(event) {
+                        event.stopPropagation(); // Prevents the click event from propagating to the document
+                        menuToggle.classList.toggle('active');
+                        menu.classList.toggle('active');
+                        toggleBodyOverflow(); // Toggle body overflow based on menu state
+                    });
+
+                    document.addEventListener('click', function(event) {
+                        var isClickInsideMenu = menu.contains(event.target);
+                        var isClickOnMenuToggle = menuToggle.contains(event.target);
+
+                        if (!isClickInsideMenu && !isClickOnMenuToggle) {
+                            menu.classList.remove('active');
+                            menuToggle.classList.remove('active');
+                            toggleBodyOverflow(); // Reset body overflow
+                        }
+                    });
+
+                    function toggleBodyOverflow() {
+                        // Check if menu is active and adjust body overflow
+                        if (menu.classList.contains('active')) {
+                            document.body.style.overflow = 'hidden';
+                        } else {
+                            document.body.style.overflow = '';
+                        }
+                    }
+                });
+            </script>
+        </div>
+        {{-- responsive ---show -----end --}}
         <div class="flex items-center justify-evenly h-full  py-[10px] gap-[5px]">
             <!-- <!- Logo -->
             <div class=''>
                 <a href="{{ route('home') }}" wire:navigate>
-                    <img class="h-[60px] w-[232px]" src="/storage/product/Logo.svg" alt="Your Logo">
+                    <img class="h-[60px] max-xl:h-[40px] w-[232px] max-xl:w-[180px] max-xl:flex max-xl:items-center"
+                        src="/storage/product/Logo.svg" alt="Your Logo">
                 </a>
             </div>
             <div>
@@ -25,9 +235,10 @@
                             }">
 
 
-                                <form wire:submit='searchTo' class='h-[44px] w-[655px]'>
+                                <form wire:submit='searchTo' class='h-[44px] w-[655px] max-xl:hidden'>
                                     <div class="flex" @click.outside='open = false'>
-                                        <select name="cat_id" wire:model.live='cat' wire:change='prdouctFetch' @change='open=true'
+                                        <select name="cat_id" wire:model.live='cat' wire:change='prdouctFetch'
+                                            @change='open=true'
                                             class="block w-[80px] p-2.5 text-[#380D37] text-[14px] font-[jost] font-[400] leading-[20.23px] border-r-[2px] border-[#380D37]">
                                             <option value="" selected>All</option>
                                             @foreach ($cats as $ct)
@@ -40,9 +251,11 @@
                                         <div class="relative flex w-full">
                                             <div class="w-full">
                                                 <span class="">
-                                                     <input name="search_text" wire:model.live="search" wire:keyup="searchFuc" @click="open = true" type="search"
-                                                    id="search-dropdown" class=" z-20 block p-2.5 w-full text-[#380D37]"
-                                                    placeholder="I am shopping for..." required>
+                                                    <input name="search_text" wire:model.live="search"
+                                                        wire:keyup="searchFuc" @click="open = true" type="search"
+                                                        id="search-dropdown"
+                                                        class=" z-20 block p-2.5 w-full text-[#380D37]"
+                                                        placeholder="I am shopping for..." required>
                                                     <div wire:loading
                                                         class="absolute right-[6.5rem] top-2.5 inline-block h-6 w-6 mr-2 animate-spin rounded-full
                                                         border-4 border-solid border-current border-r-transparent align-[-0.125em]
@@ -53,26 +266,27 @@
                                                         </span>
                                                     </div>
                                                 </span>
-                                                @if (count($products)>0)
-                                                <ul  x-show='open'
-                                                    class="absolute z-50 bg-[white] text-[black] px-6 max-h-[530px] overflow-scroll w-full">
-                                                    @foreach ($products as $prd)
-                                                        <li>
-                                                            <a href="{{ route('product.details',[$prd->slug]) }}" wire:navigate class="flex">
-                                                                <img src="{{ $prd->photo }}" alt=""
-                                                                    width="40px" height="40px">
-                                                                <div>
-                                                                    <span>{{ $prd->title }}</span>
-                                                                    <p>
-                                                                        <span>{{ round($prd->price - ($prd->price * $prd->discount) / 100) }}</span>
-                                                                        <span
-                                                                            class="line-through">{{ $prd->price }}</span>
-                                                                    </p>
-                                                                </div>
-                                                            </a>
-                                                        </li>
-                                                    @endforeach
-                                                </ul>
+                                                @if (count($products) > 0)
+                                                    <ul x-show='open'
+                                                        class="absolute z-50 bg-[white] text-[black] px-6 max-h-[530px] overflow-scroll w-full">
+                                                        @foreach ($products as $prd)
+                                                            <li>
+                                                                <a href="{{ route('product.details', [$prd->slug]) }}"
+                                                                    wire:navigate class="flex">
+                                                                    <img src="{{ $prd->photo }}" alt=""
+                                                                        width="40px" height="40px">
+                                                                    <div>
+                                                                        <span>{{ $prd->title }}</span>
+                                                                        <p>
+                                                                            <span>{{ round($prd->price - ($prd->price * $prd->discount) / 100) }}</span>
+                                                                            <span
+                                                                                class="line-through">{{ $prd->price }}</span>
+                                                                        </p>
+                                                                    </div>
+                                                                </a>
+                                                            </li>
+                                                        @endforeach
+                                                    </ul>
                                                 @endif
                                                 {{-- <ul :class="{ 'hidden': hidden }"
                                                     class="fixed z-50 bg-[white] text-[black] px-6 h-[530px] overflow-scroll">
@@ -100,18 +314,13 @@
                                         </div>
                                     </div>
                                 </form>
-
-
                             </div>
                         </div>
-
                     </div>
                 </div>
-
             </div>
-
             <!-- Right-Side Logos/Icons -->
-            <div class='flex items-center justify-center gap-[10px]'>
+            <div class='flex items-center justify-center gap-[10px] max-xl:hidden'>
                 <!-- <div class="flex item-center "> -->
                 <a href="{{ route('offer') }}"><img class='w-[119px] h-[44]' src="/storage/product/Offers.svg"
                         alt="Logo 1"></a>
@@ -136,4 +345,36 @@
             </div>
         </div>
     </header>
+
+    <div
+        class='h-[68px] text-[#f2f2f2] px-[72px] max-xl:px-[60px] max-md:px-[40px] font-[jost] xl:hidden max-xl:block items-center z-[9999] fixed bottom-0 left-0 right-0  bg-gradient-to-r from-[#380D37] to-[#DC275C]'>
+        <div class="flex items-center justify-between my-[15px]">
+            <!-- <div class="flex item-center "> -->
+            <a href="{{ route('offer') }}"><img class='w-[119px] h-[44] max-xl:w-[100px] max-xl:h-[35px]'
+                    src="/storage/product/Offers.svg" alt="Logo 1"></a>
+            <a href="{{ route('vcart') }}" class='relative'><img
+                    class='w-[118.76px] h-[43.72px] max-xl:w-[100px] max-xl:h-[35px]' src="/storage/product/Cart.svg"
+                    alt="Logo 2">
+                <div
+                    class='rounded-[100%] w-[12px] h-[12px] bg-[#f2f2f2] text-center items-center flex justify-center absolute top-0 right-0 translate-x-[-60px] translate-y-[10px]'>
+                    <p class='text-[#353535] text-[10px] items items-center' id="cart_count">{{ $cart_count }}
+                    </p>
+                </div>
+            </a>
+
+            @auth
+                <a href="{{ route('account') }}">
+                    <img class='w-[118.76px] h-[43.72px] max-xl:w-[100px] max-xl:h-[35px]'
+                        src="/storage/product/Account.svg" alt="Logo 3">
+                </a>
+            @else
+                <a href="{{ route('user.login') }}">
+                    <img class='w-[118.76px] h-[43.72px] max-xl:w-[100px] max-xl:h-[35px]'
+                        src="/storage/product/Account.svg" alt="Logo 3">
+                </a>
+            @endauth
+        </div>
+    </div>
+    {{-- responsive side nav --}}
+
 </div>
