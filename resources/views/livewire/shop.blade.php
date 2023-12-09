@@ -126,8 +126,13 @@
             sorting: '',
             ajaxProduct: false,
             productShow: true,
+            page_num: 0,
+            total_product: 0,
+            pagi_products: 1,
+            show_from: 1,
+            show_to: 20,
+            current_page: 1,
             productFetch() {
-        
                 $.ajax({
                     type: 'get',
                     url: '{{ route('shop.shorting') }}',
@@ -149,12 +154,40 @@
                         s_features: this.s_features,
                         sorting: this.sorting,
                     },
+        
                     success: (res) => {
                         this.products = res.product;
+                        total_product = Object.keys(res.product).length;
+                        if (total_product < 21) {
+                            this.pagi_products = res.product;
+                            this.show_to = total_product;
+                        } else {
+                            this.pagi_products = Object.fromEntries(Object.entries(res.product).slice(0, 20));
+                        }
+                        this.total_product = total_product
+                        this.page_num = Math.ceil(total_product / 20);
                         this.productShow = false;
                         this.ajaxProduct = true;
+                        this.pageChange(1);
+        
                     }
                 })
+            },
+            pageChange(pNum) {
+                if (pNum == this.current_page || pNum > this.page_num || pNum < 1) {
+                    return false;
+                } else {
+                    let to = pNum * 20;
+                    let from = to - 20;
+                    if (to > this.total_product) {
+                        to = Number(this.total_product)
+                    }
+                    this.show_from = from + 1;
+                    this.show_to = to;
+                    this.pagi_products = Object.fromEntries(Object.entries(this.products).slice(from, to));
+                    this.current_page = pNum
+        
+                }
             }
         }">
             <!-- ------------right---part--start--- -->
@@ -172,23 +205,27 @@
                         </div>
                         <div class="range-input">
                             <input x-model='minPrice' @change='productFetch' :value="minPrice" type="range"
-                                class="range-min w-[85px] font-[jost] font-[500] text-[12px]" min="0" max="490000" step="100">
+                                class="range-min w-[85px] font-[jost] font-[500] text-[12px]" min="0"
+                                max="490000" step="100">
                             <input x-model='maxPrice' :value="maxPrice" @change='productFetch' type="range"
-                                class="range-max w-[85px] font-[jost] font-[500] text-[12px]" min="10000" max="500000" step="100">
+                                class="range-max w-[85px] font-[jost] font-[500] text-[12px]" min="10000"
+                                max="500000" step="100">
                         </div>
                     </div>
 
                     <div class="price-input">
                         <div class="field">
                             {{-- <span>Min</span> --}}
-                            <input x-model='minPrice' type="number" @change='productFetch' class="input-min font-[jost] font-[500] text-[12px]"
-                                step="1" :value="minPrice">
+                            <input x-model='minPrice' type="number" @change='productFetch'
+                                class="input-min font-[jost] font-[500] text-[12px]" step="1"
+                                :value="minPrice">
                         </div>
                         {{-- <div class="separator">-</div> --}}
                         <div class="field">
                             {{-- <span>Max</span> --}}
-                            <input x-model='maxPrice' type="number" @change='productFetch' class="input-max font-[jost] font-[500] text-[12px]"
-                                step="1" :value="maxPrice">
+                            <input x-model='maxPrice' type="number" @change='productFetch'
+                                class="input-max font-[jost] font-[500] text-[12px]" step="1"
+                                :value="maxPrice">
                         </div>
                     </div>
                 </div>
@@ -207,19 +244,23 @@
                     <div x-show="open" class='p-[12px] flex flex-col gap-2'>
                         <label class='flex items-center gap-[4px]' for="#">
                             <input id="in_stock" x-model='in_stock' @change='productFetch'
-                                class='border-[1px] border-[#764A87] bg-[#f2f2f2] w-[11px] h-[12px]' type="checkbox" name='status'>
+                                class='border-[1px] border-[#764A87] bg-[#f2f2f2] w-[11px] h-[12px]' type="checkbox"
+                                name='status'>
                             <label for="in_stock" class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>In
                                 Stock</label>
                         </label>
                         <label class='flex items-center gap-[4px]' for="#">
                             <input id="pre_order" x-model='pre_order' @change='productFetch'
-                                class='border-[1px] border-[#764A87] bg-[#f2f2f2] w-[11px] h-[12px]' type="checkbox" name='status'>
-                            <label for='pre_order' class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37] text-center'>Pre
+                                class='border-[1px] border-[#764A87] bg-[#f2f2f2] w-[11px] h-[12px]' type="checkbox"
+                                name='status'>
+                            <label for='pre_order'
+                                class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37] text-center'>Pre
                                 Order</label>
                         </label>
                         <label class='flex items-center gap-[4px]' for="#">
                             <input id="upcomming" x-model='upcomming' @change='productFetch'
-                                class='border-[1px] border-[#764A87] bg-[#f2f2f2] w-[11px] h-[12px]' type="checkbox" name='status'>
+                                class='border-[1px] border-[#764A87] bg-[#f2f2f2] w-[11px] h-[12px]' type="checkbox"
+                                name='status'>
                             <label for="upcomming" class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>Up
                                 Coming</label>
                         </label>
@@ -240,8 +281,8 @@
                         @foreach ($brands as $brand)
                             <span class='flex items-center gap-[4px]'>
                                 <input id="brand{{ $brand->id }}" value="{{ $brand->id }}"
-                                    class='border-[1px] border-[#380D37] bg-[#f2f2f2] w-[11px] h-[12px]' type="checkbox" x-model='brands'
-                                    @change='productFetch'>
+                                    class='border-[1px] border-[#380D37] bg-[#f2f2f2] w-[11px] h-[12px]'
+                                    type="checkbox" x-model='brands' @change='productFetch'>
                                 <label for="brand{{ $brand->id }}"
                                     class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>{{ $brand->title }}
 
@@ -267,8 +308,8 @@
                         @foreach ($p_models as $pmodel)
                             <span class='flex items-center gap-[4px]'>
                                 <input id="pmodel{{ $pmodel->id }}" value="{{ $pmodel->id }}"
-                                    class='border-[1px] border-[#380D37] bg-[#f2f2f2] w-[11px] h-[12px]' type="checkbox" x-model='pmodels'
-                                    @change='productFetch'>
+                                    class='border-[1px] border-[#380D37] bg-[#f2f2f2] w-[11px] h-[12px]'
+                                    type="checkbox" x-model='pmodels' @change='productFetch'>
                                 <label for="pmodel{{ $pmodel->id }}"
                                     class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>{{ $pmodel->name }}
                                 </label>
@@ -291,8 +332,8 @@
                         @foreach ($p_generations as $pgeneration)
                             <span class='flex items-center gap-[4px]'>
                                 <input id="pgeneration{{ $pgeneration->id }}" value="{{ $pgeneration->id }}"
-                                    class='border-[1px] border-[#380D37] bg-[#f2f2f2] w-[11px] h-[12px]' type="checkbox" x-model='pgenerations'
-                                    @change='productFetch'>
+                                    class='border-[1px] border-[#380D37] bg-[#f2f2f2] w-[11px] h-[12px]'
+                                    type="checkbox" x-model='pgenerations' @change='productFetch'>
                                 <label for="pgeneration{{ $pgeneration->id }}"
                                     class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>{{ $pgeneration->name }}
                                 </label>
@@ -317,8 +358,8 @@
                         @foreach ($d_sizes as $d_size)
                             <span class='flex items-center gap-[4px]'>
                                 <input id="d_size{{ $d_size->id }}" value="{{ $d_size->id }}"
-                                    class='border-[1px] border-[#380D37] bg-[#f2f2f2] w-[11px] h-[12px]' type="checkbox" x-model='d_sizes'
-                                    @change='productFetch'>
+                                    class='border-[1px] border-[#380D37] bg-[#f2f2f2] w-[11px] h-[12px]'
+                                    type="checkbox" x-model='d_sizes' @change='productFetch'>
                                 <label for="d_size{{ $d_size->id }}"
                                     class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>{{ $d_size->size - 0.4 . ' to ' . $d_size->size + 0.4 }}
                                     inch
@@ -344,8 +385,8 @@
                         @foreach ($d_types as $d_type)
                             <span class='flex items-center gap-[4px]'>
                                 <input id="d_type{{ $d_type->id }}" value="{{ $d_type->id }}"
-                                    class='border-[1px] border-[#380D37] bg-[#f2f2f2] w-[11px] h-[12px]' type="checkbox" x-model='d_types'
-                                    @change='productFetch'>
+                                    class='border-[1px] border-[#380D37] bg-[#f2f2f2] w-[11px] h-[12px]'
+                                    type="checkbox" x-model='d_types' @change='productFetch'>
                                 <label for="d_type{{ $d_type->id }}"
                                     class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>{{ $d_type->name }}
                                 </label>
@@ -369,8 +410,8 @@
                         @foreach ($rams as $ram)
                             <span class='flex items-center gap-[4px]'>
                                 <input id="ram{{ $ram->id }}" value="{{ $ram->id }}"
-                                    class='border-[1px] border-[#380D37] bg-[#f2f2f2] w-[11px] h-[12px]' type="checkbox" x-model='rams'
-                                    @change='productFetch'>
+                                    class='border-[1px] border-[#380D37] bg-[#f2f2f2] w-[11px] h-[12px]'
+                                    type="checkbox" x-model='rams' @change='productFetch'>
                                 <label for="ram{{ $ram->id }}"
                                     class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>{{ $ram->ram }}
                                     GB
@@ -395,8 +436,8 @@
                         @foreach ($hdds as $hdd)
                             <span class='flex items-center gap-[4px]'>
                                 <input id="hdd{{ $hdd->id }}" value="{{ $hdd->id }}"
-                                    class='border-[1px] border-[#380D37] bg-[#f2f2f2] w-[11px] h-[12px]' type="checkbox" x-model='hdds'
-                                    @change='productFetch'>
+                                    class='border-[1px] border-[#380D37] bg-[#f2f2f2] w-[11px] h-[12px]'
+                                    type="checkbox" x-model='hdds' @change='productFetch'>
                                 <label for="hdd{{ $hdd->id }}"
                                     class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>{{ $hdd->name }}
                                 </label>
@@ -420,8 +461,8 @@
                         @foreach ($ssds as $ssd)
                             <span class='flex items-center gap-[4px]'>
                                 <input id="ssd{{ $ssd->id }}" value="{{ $ssd->id }}"
-                                    class='border-[1px] border-[#380D37] bg-[#f2f2f2] w-[11px] h-[12px]' type="checkbox" x-model='ssds'
-                                    @change='productFetch'>
+                                    class='border-[1px] border-[#380D37] bg-[#f2f2f2] w-[11px] h-[12px]'
+                                    type="checkbox" x-model='ssds' @change='productFetch'>
                                 <label for="ssd{{ $ssd->id }}"
                                     class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>{{ $ssd->name }}
                                 </label>
@@ -445,8 +486,8 @@
                         @foreach ($graphics as $graphic)
                             <span class='flex items-center gap-[4px]'>
                                 <input id="graphic{{ $graphic->id }}" value="{{ $graphic->id }}"
-                                    class='border-[1px] border-[#380D37] bg-[#f2f2f2] w-[11px] h-[12px]' type="checkbox" x-model='graphics'
-                                    @change='productFetch'>
+                                    class='border-[1px] border-[#380D37] bg-[#f2f2f2] w-[11px] h-[12px]'
+                                    type="checkbox" x-model='graphics' @change='productFetch'>
                                 <label for="graphic{{ $graphic->id }}"
                                     class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>{{ $graphic->name }}
                                 </label>
@@ -471,8 +512,8 @@
                         @foreach ($s_features as $s_feature)
                             <span class='flex items-center gap-[4px]'>
                                 <input id="s_feature{{ $s_feature->id }}" value="{{ $s_feature->id }}"
-                                    class='border-[1px] border-[#380D37] bg-[#f2f2f2] w-[11px] h-[12px]' type="checkbox" x-model='s_features'
-                                    @change='productFetch'>
+                                    class='border-[1px] border-[#380D37] bg-[#f2f2f2] w-[11px] h-[12px]'
+                                    type="checkbox" x-model='s_features' @change='productFetch'>
                                 <label for="s_feature{{ $s_feature->id }}"
                                     class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>{{ $s_feature->name }}
                                 </label>
@@ -576,7 +617,8 @@
                         @foreach ($products as $product)
                             <x-shop-product :product="$product">
                                 <div class='mt-2'>
-                                    <ul class='text-[#353535] text-[10px] font-[jost] font-[400] list-decimal px-4 leading-[20px]'>
+                                    <ul
+                                        class='text-[#353535] text-[10px] font-[jost] font-[400] list-decimal px-4 leading-[20px]'>
                                         <li>Processor: AMD Ryzen 5 7520U (2.8 GHz up to 4.3 GHz)</li>
                                         <li>RAM: 8GB DDR5 5500MHz, Storage: 256GB SSD</li>
                                         <li>Display: 15.6" FHD (1920X1080)</li>
@@ -591,63 +633,124 @@
                     </div>
                 </div>
 
-                {{-- Ajax product show  --}}
+                {{-- Ajax product show after search ( Ajax search) --}}
                 <template x-if="products">
                     <div>
-                        <div x-show="ajaxProduct" class='product_pdiv grid grid-cols-4 gap-8 mx-auto mt-4'
-                            id="product_pdiv">
-                            {{-- x-if="Object.keys(products).length > 0" --}}
-                            <template x-for="product in products" id="product">
-                                <div
-                                    class="relative overflow-hidden border-[1px] border-[#380D37] bg-[#f2f2f2] rounded-[4px] box-border px-[5px] mt-2 flex flex-col gap-2 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] ">
+                        <div x-show="ajaxProduct" id="product_pdiv">
+                            <div class='product_pdiv grid grid-cols-4 gap-8 mx-auto mt-4'>
+                                {{-- x-if="Object.keys(products).length > 0" --}}
+                                <template x-for="product in pagi_products" id="product">
+                                    <div
+                                        class="product_div relative overflow-hidden border-[1px] border-[#380D37] bg-[#f2f2f2] rounded-[4px] box-border px-[5px] mt-2 flex flex-col gap-2 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] ">
 
-                                    <img :src="product.photo.split(',')[0]" class="rounded-t-lg img-fluid "
-                                        data-te-ripple-init data-te-ripple-color="dark" alt="avatar.png">
+                                        <img :src="product.photo.split(',')[0]" class="rounded-t-lg img-fluid "
+                                            data-te-ripple-init data-te-ripple-color="dark" alt="avatar.png">
 
-                                    <div class="p-6 border-t-[1px] border-b-[1px]  border-[#380D3733]">
-                                        <div class=' border-[#380D3733] mb-2'>
-                                            <h1 class="font-[jost] text-[12px] font-[500] leading-[20px] text-left text-[#380D37]"
-                                                x-text='product.title'>
+                                        <div class="p-6 border-t-[1px] border-b-[1px]  border-[#380D3733]">
+                                            <div class=' border-[#380D3733] mb-2'>
+                                                <h1 class="font-[jost] text-[12px] font-[500] leading-[20px] text-left text-[#380D37]"
+                                                    x-text='product.title'>
 
-                                            </h1>
+                                                </h1>
+                                            </div>
+                                            <div class='mb-4'>
+                                                <ul
+                                                    class='text-[#353535] list-decimal px-4 text-[10px] leading-[20px]'>
+                                                    <li>Processor: AMD Ryzen 5 7520U (2.8 GHz up to 4.3 GHz)</li>
+                                                    <li>RAM: 8GB DDR5 5500MHz, Storage: 256GB SSD</li>
+                                                    <li>Display: 15.6" FHD (1920X1080)</li>
+                                                    <li>Features: Type-C</li>
+                                                </ul>
+                                            </div>
                                         </div>
-                                        <div class='mb-4'>
-                                            <ul class='text-[#353535] list-decimal px-4 text-[10px] leading-[20px]'>
-                                                <li>Processor: AMD Ryzen 5 7520U (2.8 GHz up to 4.3 GHz)</li>
-                                                <li>RAM: 8GB DDR5 5500MHz, Storage: 256GB SSD</li>
-                                                <li>Display: 15.6" FHD (1920X1080)</li>
-                                                <li>Features: Type-C</li>
-                                            </ul>
+
+                                        <div class="px-6 py-6 mt-auto text-center">
+                                            <div>
+                                                <a href="#"
+                                                    class="font-[jost] text-[12px] font-[700] leading-[24px] text-[#DC275C] flex items-center gap-[4px]">
+                                                    <span x-text='product.price'></span>
+                                                    <span
+                                                        class="ml-[5px] text-[12px] font-[jost] font-[700]">TAKA</span>
+                                                </a>
+                                            </div>
+                                            <div class="my-3 text-center">
+
+                                                <a href="{{ route('product.details', 'kdfj') }}" class="">
+                                                    <button
+                                                        class='bg-[#380D37] text-[#F2F2F2] text-[10px] font-[jost] font-[500] py-[8px] px-[60px] rounded-[5px]'>Buy
+                                                        Now
+                                                    </button></a>
+                                            </div>
+                                            <div>
+                                                <a href="">
+                                                    <p
+                                                        class="font-[jost] text-[10px] text-[#380D37] font-[500] leading-[20px]">
+                                                        Add
+                                                        to Cart</p>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
+                                </template>
+                            </div>
 
-                                    <div class="px-6 py-6 mt-auto text-center">
-                                        <div>
-                                            <a href="#"
-                                                class="font-[jost] text-[12px] font-[700] leading-[24px] text-[#DC275C] flex items-center gap-[4px]">
-                                                <span x-text='product.price'></span>
-                                                <span class="ml-[5px] text-[12px] font-[jost] font-[700]">TAKA</span>
-                                            </a>
-                                        </div>
-                                        <div class="my-3 text-center">
+                            <div class="mt-8">
+                                <nav role="navigation" aria-label="Pagination Navigation"
+                                    class="flex items-center justify-between">
+                                    <div class="flex justify-between flex-1 sm:hidden">
+                                        <span
+                                            class="relative inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-gray-500 bg-white border border-gray-300 rounded-md cursor-default">
+                                            « Previous
+                                        </span>
+                                        <a href=""
+                                            class="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md hover:text-gray-500 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700">
+                                            Next »
+                                        </a>
+                                    </div>
 
-                                            <a href="{{ route('product.details', 'kdfj') }}" class="">
-                                                <button
-                                                    class='bg-[#380D37] text-[#F2F2F2] text-[10px] font-[jost] font-[500] py-[8px] px-[60px] rounded-[5px]'>Buy
-                                                    Now
-                                                </button></a>
-                                        </div>
+                                    <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
                                         <div>
-                                            <a href="">
-                                                <p
-                                                    class="font-[jost] text-[10px] text-[#380D37] font-[500] leading-[20px]">
-                                                    Add
-                                                    to Cart</p>
-                                            </a>
+                                            <span class="relative z-0 inline-flex rounded-md shadow-sm">
+                                                <span aria-disabled="true" aria-label="&amp;laquo; Previous">
+                                                    <span @click='pageChange(current_page-1)'
+                                                        class="relative inline-flex items-center px-2 py-2 text-sm font-medium leading-5 text-gray-500 bg-white border border-gray-300 cursor-default rounded-l-md"
+                                                        aria-hidden="true">
+                                                        PREV
+                                                    </span>
+                                                </span>
+
+                                                <template x-for="npage in page_num" :key="npage">
+                                                    <span x-text='npage' @click='pageChange(npage)'
+                                                        class="relative inline-flex cursor-pointer  items-center px-4 py-2 -ml-px text-sm font-medium leading-5 transition duration-150 ease-in-out border border-gray-300 hover:text-gray-500 focus:z-10 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700"
+                                                        :class="current_page == npage ? 'bg-[#380D37] text-[#F2F2F2]' :
+                                                            'bg-[#F2F2F2] text-[#380D37]'"
+                                                        aria-label="Go to page 2">
+                                                    </span>
+                                                </template>
+                                                <span @click='pageChange(current_page+1)'
+                                                    class="relative inline-flex items-center px-2 py-2 -ml-px text-sm font-medium leading-5 text-gray-500 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-r-md hover:text-gray-400 focus:z-10 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-500"
+                                                    aria-label="Next &amp;raquo;">
+
+                                                    NEXT
+                                                </span>
+                                            </span>
+                                        </div>
+
+                                        <div>
+                                            <p class="text-sm leading-5 text-gray-700">
+                                                Showing
+                                                <span x-text='show_from' class="font-medium"
+                                                    id="showing_from">1</span>
+                                                to
+                                                <span x-text='show_to' class="font-medium" id="showing_to">20</span>
+                                                of
+                                                <span x-text='total_product' class="font-medium"></span>
+                                                results (<span x-text='page_num'></span> pages)
+                                            </p>
                                         </div>
                                     </div>
-                                </div>
-                            </template>
+                                </nav>
+                            </div>
                         </div>
 
                         <template x-if="Object.keys(products).length === 0">
@@ -665,13 +768,24 @@
         </div>
     </div>
     <script>
-        $('#column').on('click', function() {
-            $('.product_pdiv').removeClass('grid-cols-4 gap-8');
-            $('.product_pdiv').addClass('grid-cols-1  max-w-2xl');
-        })
-        $('#grid').on('click', function() {
-            $('.product_pdiv').removeClass('grid-cols-1  max-w-2xl');
-            $('.product_pdiv').addClass('grid-cols-4 gap-8');
-        })
+        $(document).ready(function() {
+            //Grid and colulm button
+            $('#column').on('click', function() {
+                $('.product_pdiv').removeClass('grid-cols-4 gap-8');
+                $('.product_pdiv').addClass('grid-cols-1  max-w-2xl');
+            })
+            $('#grid').on('click', function() {
+                $('.product_pdiv').removeClass('grid-cols-1  max-w-2xl');
+                $('.product_pdiv').addClass('grid-cols-4 gap-8');
+            })
+
+            //ajax searching products paginations
+            $('search-p-button').each(function(index) {
+                $(this).on('click', (e) => {
+                    e.preventDefault();
+
+                });
+            });
+        });
     </script>
 </div>

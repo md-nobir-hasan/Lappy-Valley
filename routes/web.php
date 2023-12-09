@@ -34,6 +34,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ShippingController;
 use App\Http\Controllers\SpecialFeatureController;
 use App\Http\Controllers\ssdController;
+use App\Http\Controllers\SslCommerzPaymentController;
 use App\Http\Controllers\UsersController;
 use App\Livewire\AboutUs;
 use App\Livewire\Account;
@@ -151,6 +152,7 @@ Route::post('/subscribe', [FrontendController::class, 'subscribe'])->name('subsc
 // Product Review
 Route::resource('/review', ProductReviewController::class);
 Route::post('product/{slug}/review', [ProductReviewController::class, 'store'])->name('review.store');
+Route::post('review-status/change',[ProductReviewController::class,'reviewStatusChange'])->name('review_status.change');
 
 // Post Comment
 Route::post('post/{slug}/comment', [PostCommentController::class, 'store'])->name('post-comment.store');
@@ -304,8 +306,25 @@ Route::get('/plus',[AjaxController::class,'plus'])->name('plus');
 Route::get('/minus',[AjaxController::class, 'minus'])->name('minus');
 Route::get('/delete',[AjaxController::class, 'delete'])->name('delete');
 Route::get('/add-to-cart',[AjaxController::class,'addToCart'])->name('add_to_cart');
+Route::post('/product-review',[AjaxController::class, 'productReview'])->name('product_review');
 
 Route::middleware('auth')->group(function(){
     Route::post('/cart-sotre',[AjaxController::class,'cartStore'])->name('cart.store');
     // Route::get('/billing',[AjaxController::class,'addToCart'])->name('add_to_cart');
 });
+
+
+// SSLCOMMERZ Start
+Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);
+Route::get('/example2', [SslCommerzPaymentController::class, 'exampleHostedCheckout']);
+
+Route::post('/pay', [SslCommerzPaymentController::class, 'index']);
+Route::post('/pay-via-ajax', [SslCommerzPaymentController::class, 'payViaAjax']);
+
+Route::post('/success', [SslCommerzPaymentController::class, 'success']);
+Route::post('/payment/ssl/success', [SslCommerzPaymentController::class, 'successPage'])->name('ssl.success');
+Route::post('/fail', [SslCommerzPaymentController::class, 'fail']);
+Route::post('/cancel', [SslCommerzPaymentController::class, 'cancel']);
+
+Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
+//SSLCOMMERZ END
