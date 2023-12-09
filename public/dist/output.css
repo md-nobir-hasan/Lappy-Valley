@@ -3488,6 +3488,11 @@ input[type="range"]:active::-webkit-slider-thumb{
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.bg-\[black\]{
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+
 .bg-\[red\]{
   --tw-bg-opacity: 1;
   background-color: rgb(255 0 0 / var(--tw-bg-opacity));
@@ -3588,6 +3593,10 @@ input[type="range"]:active::-webkit-slider-thumb{
 .bg-zinc-700{
   --tw-bg-opacity: 1;
   background-color: rgb(63 63 70 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#\]{
+  background-color: #;
 }
 
 .bg-gradient-to-r{
@@ -5670,6 +5679,19 @@ input[type="range"]:active::-webkit-slider-thumb{
 .focus\:bg-primary-accent-100:focus{
   --tw-bg-opacity: 1;
   background-color: rgb(217 228 243 / var(--tw-bg-opacity));
+}
+
+.focus\:bg-\[\#\]:focus{
+  background-color: #;
+}
+
+.focus\:bg-\[\#382\]:focus{
+  --tw-bg-opacity: 1;
+  background-color: rgb(51 136 34 / var(--tw-bg-opacity));
+}
+
+.focus\:bg-\[\#380D\]:focus{
+  background-color: #380D;
 }
 
 .focus\:text-\[\#3b71ca\]:focus{
