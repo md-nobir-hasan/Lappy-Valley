@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\Product;
+use App\Models\ProductReview;
 use App\Models\Wishlist;
 use Exception;
 use Hamcrest\Type\IsBoolean;
@@ -177,8 +178,23 @@ class AjaxController extends Controller
         if($req->ssds){
             $product = $product->whereIn('ssd_id', $req->ssds);
         }
-$n['product'] = $product;
+        $n['product'] = $product;
 
         return response()->json($n);
+    }
+
+    public function productReview(Request $req){
+        $data = $req->all();
+        $data['user_id'] = auth()->user() ? auth()->user()->id : $req->ip();
+        $data['rate'] = (collect($req->review_stars))->max();
+        $data['review'] = $req->msg;
+        return response()->json($req->file('img'));
+        $data['img'] = $req->file('img')->store('review','public');
+       $review =  ProductReview::create($data);
+       if($review){
+           return 1;
+       }else{
+           return 0;
+       }
     }
 }

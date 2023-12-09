@@ -703,7 +703,26 @@
                                             yellow_star: [1,2,3,4,5],
                                             white_star:[],
                                             submit() {
-                                                console.log(this.review_stars);
+                                                $.ajax({
+                                                    method:'get',
+                                                    url:'{{route('product_review')}}',
+                                                    data:{
+                                                        product_id:'{{$product->id}}',
+                                                        f_name:this.f_name,
+                                                        l_name:this.l_name,
+                                                        img:this.img,
+                                                        msg:this.msg,
+                                                        review_stars:this.review_stars,
+                                                    },
+                                                    success:(res)=>{
+                                                        console.log(res);
+                                                        if(res){
+                                                            toastr.success('Your review successfully received');
+                                                        }else{
+                                                            toastr.error('Your review cant recieve');
+                                                        }
+                                                    }
+                                                });
                                             },
                                             stared(star){
                                                 console.log(star);

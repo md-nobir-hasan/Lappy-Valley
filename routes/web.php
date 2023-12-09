@@ -305,6 +305,7 @@ Route::get('/plus',[AjaxController::class,'plus'])->name('plus');
 Route::get('/minus',[AjaxController::class, 'minus'])->name('minus');
 Route::get('/delete',[AjaxController::class, 'delete'])->name('delete');
 Route::get('/add-to-cart',[AjaxController::class,'addToCart'])->name('add_to_cart');
+Route::get('/product-review',[AjaxController::class, 'productReview'])->name('product_review');
 
 Route::middleware('auth')->group(function(){
     Route::post('/cart-sotre',[AjaxController::class,'cartStore'])->name('cart.store');
