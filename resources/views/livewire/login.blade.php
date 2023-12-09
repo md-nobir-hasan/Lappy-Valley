@@ -13,7 +13,7 @@
                 LogIn</button>
 
             <button type="button" id='reg_btn'
-                class="change bg-[#F2F2F2] text-[#380D37] text-[16px] max-sm:text-[14px] focus:text-[#fff]  font-[jost] font-[600] w-full py-[12px] max-sm:py-[6px] text- rounded-[5px]">
+                class="change bg-[#F2F2F2] text-[#380D37] text-[16px] max-sm:text-[14px] max-sm:w-[300px] focus:text-[#fff]  font-[jost] font-[600] w-full py-[12px] max-sm:py-[6px] text- rounded-[5px]">
                 Register
             </button>
 
