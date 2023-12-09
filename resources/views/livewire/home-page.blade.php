@@ -73,7 +73,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            
+
         }
 
         .bs {
@@ -83,7 +83,21 @@
         .bs:hover {
             color: #be13f880;
         }
-        
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            border: none;
+            /* background: linear-gradient(to right,#380D37, #DC275C ); */
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.5s ease-in-out;
+        }
+
+        .button:hover {
+            background: linear-gradient(to right, #DC275C, #380D37);
+        }
     </style>
     <form method="POST" action="{{ route('logout') }}" class="hidden">
         @csrf
@@ -175,11 +189,83 @@
                         Our newest</br>products are</br>here,just for you!</p>
                 </div>
                 <div class='text-center'>
+                    <style>
+                        .btn-12 {
+                            color: #000;
+
+                            position: relative;
+                            right: 20px;
+                            bottom: 20px;
+                            border: none;
+                            width: 130px;
+                            height: 40px;
+                            line-height: 40px;
+                            -webkit-perspective: 230px;
+                            perspective: 230px;
+                        }
+
+                        .btn-12 span {
+                            display: block;
+                            position: absolute;
+                            width: 130px;
+                            height: 40px;
+                            /* border: 1px solid #0bf4f3; */
+                            /* box-shadow: 0 0 5px #0bf4f3, 0 0 5px #0bf4f3 inset; */
+                            border-radius: 4px;
+                            margin: 0;
+                            text-align: center;
+                            -webkit-box-sizing: border-box;
+                            -moz-box-sizing: border-box;
+                            box-sizing: border-box;
+                            -webkit-transition: all .7s;
+                            transition: all .7s;
+                            background: linear-gradient(to right, #380D37, #DC275C);
+                            color: #fff;
+                        }
+
+                        .btn-12 span:nth-child(1) {
+                            /* box-shadow: 0 0 5px #0bf4f3, 0 0 5px #0bf4f3 inset; */
+                            -webkit-transform: rotateX(90deg);
+                            -moz-transform: rotateX(90deg);
+                            transform: rotateX(90deg);
+                            -webkit-transform-origin: 50% 50% -20px;
+                            -moz-transform-origin: 50% 50% -20px;
+                            transform-origin: 50% 50% -20px;
+                        }
+
+                        .btn-12 span:nth-child(2) {
+                            -webkit-transform: rotateX(0deg);
+                            -moz-transform: rotateX(0deg);
+                            transform: rotateX(0deg);
+                            -webkit-transform-origin: 50% 50% -20px;
+                            -moz-transform-origin: 50% 50% -20px;
+                            transform-origin: 50% 50% -20px;
+                        }
+
+                        .btn-12:hover span:nth-child(1) {
+                            -webkit-transform: rotateX(0deg);
+                            -moz-transform: rotateX(0deg);
+                            transform: rotateX(0deg);
+                            background: linear-gradient(to right, #380D37, #DC275C);
+                            box-shadow: 0 0 5px #0bf4f3, 0 0 5px #0bf4f3 inset;
+                            color: #f2f2f2;
+                            border: 1px solid #0bf4f3;
+                        }
+
+                        .btn-12:hover span:nth-child(2) {
+                            background: #380D37;
+                            color: #000;
+                            box-shadow: 0 0 5px #0bf4f3, 0 0 5px #0bf4f3 inset;
+                            -webkit-transform: rotateX(-90deg);
+                            -moz-transform: rotateX(-90deg);
+                            transform: rotateX(-90deg);
+                            border: 1px solid #0bf4f3;
+                        }
+                    </style>
                     <button
-                        class="mt-[60px] max-sm:mt-[8px] max-md:mt-[14px] max-lg:mt-[10px] max-xl:mt-[10px] py-2 max-sm:py-[3px] px-6 max-sm:px-[10px] max-md:px-[16px] max-lg:px-[20px] max-xl:px-[24px] font-[jost] font-[500] 
-                        text-[16px] max-sm:text-[8px] max-md:text-[14px] max-lg:text-[16px] max-xl:text-[16px] text-[#F2F2F2] rounded-[4px] bg-gradient-to-r from-[#380D37] to-[#DC275C]">
-                        Visit Now!
-                    </button>
+                        class="custom-btn btn-12 mt-[60px] max-sm:mt-[8px] max-md:mt-[14px] max-lg:mt-[10px] max-xl:mt-[10px] py-2 max-sm:py-[3px] px-6 max-sm:px-[10px] max-md:px-[16px] max-lg:px-[20px] max-xl:px-[24px] font-[jost] font-[500] 
+                        text-[16px] max-sm:text-[8px] max-md:text-[14px] max-lg:text-[16px] max-xl:text-[16px] text-[#F2F2F2] rounded-[4px]">
+                        <span>Click!</span><span>Visit Now</span></button>
                 </div>
             </div>
 
@@ -229,35 +315,49 @@
                     <div class="swiper-slide">
                         <div
                             class=" w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div>
+                            <div class="product_div relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
+                                data-te-ripple-init data-te-ripple-color="light">
                                 <a href=""><img src="/storage/product/large-size-laptop.jpg" alt="Product"></a>
+                                <a href="#!">
+                                    <div
+                                        class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsl(0,0%,98.4%,0.2)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-50">
+                                    </div>
+                                </a>
                             </div>
                             <div>
-                                <p class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]">
+                                <p
+                                    class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4 transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
                                     Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
                                 </p>
                             </div>
                             <div
                                 class="flex justify-between text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
                                 <span class="text-[#DC275C]">1,50,000 TK</span>
-                                <span class="text-[#380D37]">Add to Cart</span>
+                                <a class="text-[#380D37]">Add to Cart</a>
                             </div>
                         </div>
                     </div>
                     <div class="swiper-slide">
                         <div
                             class=" w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div>
+                            <div class="product_div relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
+                                data-te-ripple-init data-te-ripple-color="light">
                                 <a href=""><img src="/storage/product/large-size-laptop.jpg" alt="Product"></a>
+                                <a href="#!">
+                                    <div
+                                        class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsl(0,0%,98.4%,0.2)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-50">
+                                    </div>
+                                </a>
                             </div>
                             <div>
-                                <p class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]">
+                                <p
+                                    class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
                                     Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
                                 </p>
                             </div>
                             <div
                                 class="flex justify-between text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
-                                <a href="#"><span class="text-[#DC275C]">1,50,000 TK</span></a>
+                                <span href="#"><span class="text-[#DC275C]">1,50,000 TK</span></span>
                                 <a href="#"><span class="text-[#380D37]">Add to Cart</span></a>
                             </div>
                         </div>
@@ -265,140 +365,192 @@
                     <div class="swiper-slide">
                         <div
                             class="w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div>
-                                <a href=""><img src="/storage/product/large-size-laptop.jpg" alt="Product"></a>
+                            <div class="product_div relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
+                                data-te-ripple-init data-te-ripple-color="light">
+                                <a href=""><img src="/storage/product/large-size-laptop.jpg"
+                                        alt="Product"></a>
+                                <a href="#!">
+                                    <div
+                                        class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsl(0,0%,98.4%,0.2)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-50">
+                                    </div>
+                                </a>
                             </div>
                             <div>
-                                <p class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]">
+                                <p
+                                    class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
                                     Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
                                 </p>
                             </div>
                             <div
                                 class="flex justify-between text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
                                 <span class="text-[#DC275C]">1,50,000 TK</span>
-                                <span class="text-[#380D37]">Add to Cart</span>
+                                <a class="text-[#380D37]">Add to Cart</a>
                             </div>
                         </div>
                     </div>
                     <div class="swiper-slide">
                         <div
                             class="w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div>
+                            <div class="product_div relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
+                                data-te-ripple-init data-te-ripple-color="light">
                                 <a href=""><img src="/storage/product/large-size-laptop.jpg"
                                         alt="Product"></a>
+                                <a href="#!">
+                                    <div
+                                        class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsl(0,0%,98.4%,0.2)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-50">
+                                    </div>
+                                </a>
                             </div>
                             <div>
-                                <p class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]">
+                                <p
+                                    class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
                                     Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
                                 </p>
                             </div>
                             <div
                                 class="flex justify-between text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
                                 <span class="text-[#DC275C]">1,50,000 TK</span>
-                                <span class="text-[#380D37]">Add to Cart</span>
+                                <a class="text-[#380D37]">Add to Cart</a>
                             </div>
                         </div>
                     </div>
                     <div class="swiper-slide">
                         <div
                             class="w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div>
+                            <div class="product_div relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
+                                data-te-ripple-init data-te-ripple-color="light">
                                 <a href=""><img src="/storage/product/large-size-laptop.jpg"
                                         alt="Product"></a>
+                                <a href="#!">
+                                    <div
+                                        class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsl(0,0%,98.4%,0.2)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-50">
+                                    </div>
+                                </a>
                             </div>
                             <div>
-                                <p class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]">
+                                <p
+                                    class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
                                     Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
                                 </p>
                             </div>
                             <div
                                 class="flex justify-between text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
                                 <span class="text-[#DC275C]">1,50,000 TK</span>
-                                <span class="text-[#380D37]">Add to Cart</span>
+                                <a class="text-[#380D37]">Add to Cart</a>
                             </div>
                         </div>
                     </div>
                     <div class="swiper-slide">
                         <div
                             class="w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div>
+                            <div class="product_div relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
+                                data-te-ripple-init data-te-ripple-color="light">
                                 <a href=""><img src="/storage/product/large-size-laptop.jpg"
                                         alt="Product"></a>
+                                <a href="#!">
+                                    <div
+                                        class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsl(0,0%,98.4%,0.2)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-50">
+                                    </div>
+                                </a>
                             </div>
                             <div>
-                                <p class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]">
+                                <p
+                                    class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
                                     Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
                                 </p>
                             </div>
                             <div
                                 class="flex justify-between text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
                                 <span class="text-[#DC275C]">1,50,000 TK</span>
-                                <span class="text-[#380D37]">Add to Cart</span>
+                                <a class="text-[#380D37]">Add to Cart</a>
                             </div>
                         </div>
                     </div>
                     <div class="swiper-slide">
                         <div
                             class="w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div>
+                            <div class="product_div relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
+                                data-te-ripple-init data-te-ripple-color="light">
                                 <a href=""><img src="/storage/product/large-size-laptop.jpg"
                                         alt="Product"></a>
+                                <a href="#!">
+                                    <div
+                                        class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsl(0,0%,98.4%,0.2)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-50">
+                                    </div>
+                                </a>
                             </div>
                             <div>
-                                <p class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]">
+                                <p
+                                    class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
                                     Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
                                 </p>
                             </div>
                             <div
                                 class="flex justify-between text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
                                 <span class="text-[#DC275C]">1,50,000 TK</span>
-                                <span class="text-[#380D37]">Add to Cart</span>
+                                <a class="text-[#380D37]">Add to Cart</a>
                             </div>
                         </div>
                     </div>
                     <div class="swiper-slide">
                         <div
                             class="w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div>
+                            <div class="product_div relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
+                                data-te-ripple-init data-te-ripple-color="light">
                                 <a href=""><img src="/storage/product/large-size-laptop.jpg"
                                         alt="Product"></a>
+                                <a href="#!">
+                                    <div
+                                        class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsl(0,0%,98.4%,0.2)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-50">
+                                    </div>
+                                </a>
                             </div>
                             <div>
-                                <p class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]">
+                                <p
+                                    class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
                                     Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
                                 </p>
                             </div>
                             <div
                                 class="flex justify-between text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
                                 <span class="text-[#DC275C]">1,50,000 TK</span>
-                                <span class="text-[#380D37]">Add to Cart</span>
+                                <a class="text-[#380D37]">Add to Cart</a>
                             </div>
                         </div>
                     </div>
                     <div class="swiper-slide">
                         <div
                             class="w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div>
+                            <div class="product_div relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
+                                data-te-ripple-init data-te-ripple-color="light">
                                 <a href=""><img src="/storage/product/large-size-laptop.jpg"
                                         alt="Product"></a>
+                                <a href="#!">
+                                    <div
+                                        class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsl(0,0%,98.4%,0.2)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-50">
+                                    </div>
+                                </a>
                             </div>
                             <div>
-                                <p class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]">
+                                <p
+                                    class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
                                     Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
                                 </p>
                             </div>
                             <div
                                 class="flex justify-between text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
                                 <span class="text-[#DC275C]">1,50,000 TK</span>
-                                <span class="text-[#380D37]">Add to Cart</span>
+                                <a class="text-[#380D37]">Add to Cart</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="relative">
-                <div class="swiper-button-next translate-x-[55px] max-sm:translate-x-[20px] translate-y-[-192px] bs"></div>
-                <div class="swiper-button-prev translate-x-[-40px] max-sm:translate-x-[-20px] translate-y-[-192px] bs"></div>
+                <div class="swiper-button-next translate-x-[55px] max-sm:translate-x-[20px] translate-y-[-192px] bs">
+                </div>
+                <div class="swiper-button-prev translate-x-[-40px] max-sm:translate-x-[-20px] translate-y-[-192px] bs">
+                </div>
             </div>
 
             <!-- Swiper JS -->
@@ -486,10 +638,100 @@
 
     </section>
     <div>
+        <style>
+            .custom-btn {
+              color: #fff;
+              width: 130px;
+              height: 40px;
+              padding: 10px 25px;
+              /* font-family: 'Lato', sans-serif; */
+              font-weight: 500;
+              /* background: transparent; */
+              cursor: pointer;
+              transition: all 0.3s ease;
+              position: relative;
+              display: inline-block;
+              /* background:linear-gradient(#380D37,#DC275C); */
+            }
+            .btn-7 {
+             /* background: #8ce437; */
+              line-height: 40px;
+              padding: 0;
+              border: none;
+              box-shadow: 0 0 5px #8ce437;
+            }
+            .btn-7 span {
+              position: relative;
+              display: block;
+              width: 100%;
+              height: 100%;
+            }
+            .btn-7:hover{
+              background: #380D37;
+            }
+            .btn-7:before,
+            .btn-7:after {
+              position: absolute;
+              content: "";
+              height: 0%;
+              width: 2px;
+              background: #8ce437;
+             box-shadow: 0px 0px 5px #8ce437;
+            }
+            .btn-7:before {
+              right: 0;
+              top: 0;
+              transition: all 1000ms ease;
+            }
+            .btn-7:after {
+              left: 0;
+              bottom: 0;
+              transition: all 1000ms ease;
+            }
+            .btn-7:hover:before {
+              transition: all 1000ms ease;
+              height: 100%;
+              background:linear-gradient(#380D37,#DC275C);
+            }
+            .btn-7:hover:after {
+              transition: all 1000ms ease;
+              height: 100%;
+              background:linear-gradient(#380D37,#DC275C);
+            }
+            .btn-7 span:before,
+            .btn-7 span:after {
+              position: absolute;
+              content: "";
+              background: #8ce437;
+              box-shadow: 0 0 5px #8ce437;
+            }
+            .btn-7 span:before {
+              left: 0;
+              top: 0;
+              width: 0%;
+              height: 2px;
+              transition: all 1000ms ease;
+            }
+            .btn-7 span:after {
+              right: 0;
+              bottom: 0;
+              width: 0%;
+              height: 2px;
+              transition: all 1000ms ease;
+            }
+            .btn-7 span:hover:before {
+              width: 100%;
+              /* background:linear-gradient(#380D37,#DC275C); */
+            }
+            .btn-7 span:hover:after {
+              width: 100%;
+              /* background:linear-gradient(#380D37,#DC275C); */
+            }
+              </style>
         <a href="{{ route('shop') }}">
             <button
-                class=" items-center justify-center flex my-[60px] mx-auto text-[16px] text-[#F2F4F8] w-[116px] h-[44px] rounded-[4px] bg-gradient-to-r from-[#380D37] to-[#DC275C]">
-                See More
+                class="custom-btn7 btn-7 items-center justify-center flex my-[60px] mx-auto text-[16px] text-[#F2F4F8] w-[116px] h-[44px] rounded-[4px] bg-gradient-to-r from-[#380D37] to-[#DC275C]">
+               <span> See More</span>
             </button>
         </a>
         <div class="container h-[2px] bg-[#380D37]"></div>
@@ -627,43 +869,43 @@
 
 
 
-                @media (max-width: 1280px){
+                @media (max-width: 1280px) {
                     .slider-card {
-                           width: 280px;
-                       }
-   
-                       .leo-h {
-                           font-size: 18px;
-                       }
-   
-                       .leo-h1 {
-                           font-size: 18px;
-                           margin-top: 25px;
-                           margin-bottom: 25px;
-                       }
-   
-                       .leo-p {
-                           font-size: 10px;
-                       }
-   
-                       .leo-p1 {
-                           font-size: 13px;
-                           line-height: 20.13px;
-                       }
-   
-                       .client-img {
-                           width: 64px;
-                           height: 64px;
-                       }
-   
-                       .star-div {
-                           margin-top: 34px;
-                       }
+                        width: 280px;
+                    }
 
-                       .star {
+                    .leo-h {
+                        font-size: 18px;
+                    }
+
+                    .leo-h1 {
+                        font-size: 18px;
+                        margin-top: 25px;
+                        margin-bottom: 25px;
+                    }
+
+                    .leo-p {
+                        font-size: 10px;
+                    }
+
+                    .leo-p1 {
+                        font-size: 13px;
+                        line-height: 20.13px;
+                    }
+
+                    .client-img {
+                        width: 64px;
+                        height: 64px;
+                    }
+
+                    .star-div {
+                        margin-top: 34px;
+                    }
+
+                    .star {
                         width: 18px;
                         height: 18px;
-                     }
+                    }
                 }
 
 
@@ -705,117 +947,117 @@
                         width: 35px;
                         height: 35px;
                     }
-                   }
-   
-                   @media (max-width: 768px) {
-                       .slider-card {
-                           width: 380px;
-                           margin: 50px auto;
-                       }
-   
-                       .leo-h {
-                           font-size: 18px;
-                       }
-   
-                       .leo-h1 {
-                           font-size: 24px;
-                           margin-top: 28px;
-                           margin-bottom: 28px;
-                       }
-   
-                       .leo-p {
-                           font-size: 13px;
-                       }
-   
-                       .leo-p1 {
-                           font-size: 18px;
-                           line-height: 26.13px;
-                       }
-   
-                       .client-img {
-                           width: 64px;
-                           height: 64px;
-                       }
-   
-                       .star-div {
-                           margin-top: 27px;
-                       }
-   
-                       .star {
-                           width:30px !important;
-                           height:30px !important;
-                       }
+                }
 
-                        /* .arrow{
+                @media (max-width: 768px) {
+                    .slider-card {
+                        width: 380px;
+                        margin: 50px auto;
+                    }
+
+                    .leo-h {
+                        font-size: 18px;
+                    }
+
+                    .leo-h1 {
+                        font-size: 24px;
+                        margin-top: 28px;
+                        margin-bottom: 28px;
+                    }
+
+                    .leo-p {
+                        font-size: 13px;
+                    }
+
+                    .leo-p1 {
+                        font-size: 18px;
+                        line-height: 26.13px;
+                    }
+
+                    .client-img {
+                        width: 64px;
+                        height: 64px;
+                    }
+
+                    .star-div {
+                        margin-top: 27px;
+                    }
+
+                    .star {
+                        width: 30px !important;
+                        height: 30px !important;
+                    }
+
+                    /* .arrow{
                         width:40px !important;
                         height:40px !important;
                         } */
 
-                        .owl-nav {
-                            gap: 190px;
-                            transform: translateY(36px);
-                        }
-                   }
-   
-   
-                   @media (max-width: 640px) {
-                       .slider-card {
-                           width: 280px;
-                       }
-   
-                       .leo-h {
-                           font-size: 18px;
-                       }
-   
-                       .leo-h1 {
-                           font-size: 18px;
-                           margin-top: 25px;
-                           margin-bottom: 25px;
-                       }
-   
-                       .leo-p {
-                           font-size: 10px;
-                       }
-   
-                       .leo-p1 {
-                           font-size: 13px;
-                           line-height: 20.13px;
-                       }
-   
-                       .client-img {
-                           width: 64px;
-                           height: 64px;
-                       }
-   
-                       .star-div {
-                           margin-top: 34px;
-                       }
+                    .owl-nav {
+                        gap: 190px;
+                        transform: translateY(36px);
+                    }
+                }
 
-                       .star {
+
+                @media (max-width: 640px) {
+                    .slider-card {
+                        width: 280px;
+                    }
+
+                    .leo-h {
+                        font-size: 18px;
+                    }
+
+                    .leo-h1 {
+                        font-size: 18px;
+                        margin-top: 25px;
+                        margin-bottom: 25px;
+                    }
+
+                    .leo-p {
+                        font-size: 10px;
+                    }
+
+                    .leo-p1 {
+                        font-size: 13px;
+                        line-height: 20.13px;
+                    }
+
+                    .client-img {
+                        width: 64px;
+                        height: 64px;
+                    }
+
+                    .star-div {
+                        margin-top: 34px;
+                    }
+
+                    .star {
                         width: 18px !important;
                         height: 18px !important;
-                     }
-                        .owl-dots .owl-dot
-                         {
+                    }
+
+                    .owl-dots .owl-dot {
                         height: 12px !important;
-                        width: 12px  !important;
+                        width: 12px !important;
                         border-radius: 10px;
                         background: #C5C5C5 !important;
-                        margin-left: 4px  !important;
-                        margin-right: 4px  !important;
+                        margin-left: 4px !important;
+                        margin-right: 4px !important;
                         outline: none;
-                        }
+                    }
 
-                        .arrow{
-                        width:30px;
-                        height:30px;
-                        }
+                    .arrow {
+                        width: 30px;
+                        height: 30px;
+                    }
 
-                        .owl-nav {
-                            gap: 130px !important;
-                            transform: translateY(32px) !important;
-                        }
-                    
+                    .owl-nav {
+                        gap: 130px !important;
+                        transform: translateY(32px) !important;
+                    }
+
                 }
 
 
@@ -1448,21 +1690,27 @@
     <div class="mt-16 h-[2px] bg-[#380D37] container"></div>
     <!-- Drop/submit a review  -->
     <section class="mt-16 mb-5 max-md:mt-6">
-        <div class="text-center text-[#380D37] text-[42px] font-[jost] font-[500] max-md:my-[35px] leading-[61px] max-sm:leading-[5px]">
+        <div
+            class="text-center text-[#380D37] text-[42px] font-[jost] font-[500] max-md:my-[35px] leading-[61px] max-sm:leading-[5px]">
             <h1 class="max-sm:text-[25px] max-md:text-[] max-lg:text-[] max-xl:text-[]"> Please Drop a review!</h1>
         </div>
         <div class="grid grid-cols-2 max-sm:grid-cols-1 max-md:grid-cols-1 max-lg:grid-cols-2 mt-20 max-sm:mt-[15px]">
             <div>
                 <div>
-                    <h1 class="text-[52px] text-[#DC275C] max-sm:text-[30px] max-md:text-[] max-lg:text-[35px] max-xl:text-[45px] max-md:text-center font-[500] font-[jost] leading-[55px] max-sm:leading-[30px] max-lg:leading-[50px] max-xl:leading-[52px]">We Believe in the
+                    <h1
+                        class="text-[52px] text-[#DC275C] max-sm:text-[30px] max-md:text-[] max-lg:text-[35px] max-xl:text-[45px] max-md:text-center font-[500] font-[jost] leading-[55px] max-sm:leading-[30px] max-lg:leading-[50px] max-xl:leading-[52px]">
+                        We Believe in the
                         </br> power of </br> Communication</h1>
                 </div>
                 <div>
-                    <p class="mt-8 text-[#353535] text-[24px] max-sm:text-[12px] max-md:text-[] max-lg:text-[20px] max-xl:text-[22px] max-md:text-center font-[jost] font-[500] leading-[30px] max-sm:leading-[20px]">Share your
+                    <p
+                        class="mt-8 text-[#353535] text-[24px] max-sm:text-[12px] max-md:text-[] max-lg:text-[20px] max-xl:text-[22px] max-md:text-center font-[jost] font-[500] leading-[30px] max-sm:leading-[20px]">
+                        Share your
                         experience with us.</br> Drop a comment and we will look into it.</p>
                 </div>
             </div>
-            <form wire:submit="post" class="max-md:border-[1px] max-md:border-[#380D37] max-md:rounded-[4px] max-sm:p-[10px] max-md:p-[15px] max-sm:mt-[15px] max-md:my-[22px]">
+            <form wire:submit="post"
+                class="max-md:border-[1px] max-md:border-[#380D37] max-md:rounded-[4px] max-sm:p-[10px] max-md:p-[15px] max-sm:mt-[15px] max-md:my-[22px]">
 
                 <div class="grid grid-cols-2 gap-2">
                     <input wire:model="name"
@@ -1501,9 +1749,113 @@
                     @if ($post_error_msg)
                         <span class="block text-[red]">{{ $post_error_msg }}</span>
                     @endif
+                    <style>
+                        .custom-btn6 {
+                            color: #fff;
+                            width: 130px;
+                            height: 40px;
+                            padding: 10px 25px;
+                            /* font-family: 'Lato', sans-serif; */
+                            font-weight: 500;
+                            /* background: transparent; */
+                            cursor: pointer;
+                            transition: all 0.3s ease;
+                            position: relative;
+                            display: inline-block;
+                            /* background:linear-gradient(#380D37,#DC275C); */
+                        }
+
+                        .btn-6 {
+                            /* background: #8ce436; */
+                            line-height: 40px;
+                            padding: 0;
+                            border: none;
+                            box-shadow: 0 0 5px #8ce436;
+                        }
+
+                        .btn-6 span {
+                            position: relative;
+                            display: block;
+                            width: 100%;
+                            height: 100%;
+                        }
+
+                        .btn-6:hover {
+                            background: #380D37;
+                        }
+
+                        .btn-6:before,
+                        .btn-6:after {
+                            position: absolute;
+                            content: "";
+                            height: 0%;
+                            width: 2px;
+                            background: #8ce436;
+                            box-shadow: 0px 0px 5px #8ce436;
+                        }
+
+                        .btn-6:before {
+                            right: 0;
+                            top: 0;
+                            transition: all 1000ms ease;
+                        }
+
+                        .btn-6:after {
+                            left: 0;
+                            bottom: 0;
+                            transition: all 1000ms ease;
+                        }
+
+                        .btn-6:hover:before {
+                            transition: all 1000ms ease;
+                            height: 100%;
+                            background: linear-gradient(#380D37, #DC275C);
+                        }
+
+                        .btn-6:hover:after {
+                            transition: all 1000ms ease;
+                            height: 100%;
+                            background: linear-gradient(#380D37, #DC275C);
+                        }
+
+                        .btn-6 span:before,
+                        .btn-6 span:after {
+                            position: absolute;
+                            content: "";
+                            background: #8ce436;
+                            box-shadow: 0 0 5px #8ce436;
+                        }
+
+                        .btn-6 span:before {
+                            left: 0;
+                            top: 0;
+                            width: 0%;
+                            height: 2px;
+                            transition: all 1000ms ease;
+                        }
+
+                        .btn-6 span:after {
+                            right: 0;
+                            bottom: 0;
+                            width: 0%;
+                            height: 2px;
+                            transition: all 1000ms ease;
+                        }
+
+                        .btn-6 span:hover:before {
+                            width: 100%;
+                            /* background:linear-gradient(#380D37,#DC275C); */
+                        }
+
+                        .btn-6 span:hover:after {
+                            width: 100%;
+                            /* background:linear-gradient(#380D37,#DC275C); */
+                        }
+                    </style>
                     <button
-                        class="text-[#F2F2F2] relative text-[16px] h-[44px] w-[116px] rounded-[4px] font-[500] font-[jost] mt-[15px] pt-[5px] pr-[30px] pl-[30px] pb-[5px] bg-gradient-to-r from-[#380D37] to-[#DC275C] "
-                        type="submit">Post
+                        class="custom-btn6 btn-6 selection:text-[#F2F2F2] relative text-[16px] h-[44px] w-[116px] rounded-[4px] font-[500] font-[jost] mt-[15px] pt-[5px] pr-[30px] pl-[30px] pb-[5px] bg-gradient-to-r from-[#380D37] to-[#DC275C] "
+                        type="submit">
+                        <span>Post</span>
                         <div wire:loading
                             class="absolute right-0 inline-block h-6 w-6 mr-2 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-success motion-reduce:animate-[spin_1.5s_linear_infinite]"
                             role="status">
