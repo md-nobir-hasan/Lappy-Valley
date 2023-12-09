@@ -90,7 +90,20 @@
                 {{ $product->title }}
             </h1>
             <ul class="mt-6 mb-3 leading-[32px]">
-                <li class="text-[20px] text-[#353535] font-[jost] font-[500]">Status:<span class="text-[#DC275C] ml-2">In Stock</span></li>
+                <li class="text-[20px] text-[#353535] font-[jost] font-[500]">Status:<span class="text-[#DC275C] ml-2">
+                        @if ($product->upcomming)
+                            <span class="badge badge-success">UP COMMING (<span
+                                    class="badge badge-warning">{{ date('d-m-y', strtotime($product->upcomming)) }}</span>)
+                            </span>
+                            {{-- <span class="ml-5 badge badge-warning">{{$product->upcomming}}</span> --}}
+                        @else
+                            @if ($product->stock > 0)
+                                <span class="badge badge-success">IN STOCK</span>
+                            @else
+                                <span class="badge badge-warning">OUT OF STOCK</span>
+                            @endif
+                        @endif
+                    </span></li>
                 <li class="text-[20px] text-[#353535] font-[jost] font-[500]">Key Features:</li>
                 <li class="text-[16px] text-[#353535] font-[jost] font-[400]">
                     MPN: {{ $product->mpn }}
@@ -103,8 +116,9 @@
                 </li>
                 <li class=" text-[16px] text-[#353535] font-[jost] font-[400]">
 
-                    RAM: {{ $product->ram->name }}, Storage: {{ $product->ssd ? $product->ssd->name . ' SSD ' : '' }},
-                    {{ $product->hdd ? $product->hdd->name . ' HDD ' : '' }}
+                    RAM: {{ $product->ram->ram }} GB, Storage:
+                    {{ $product->ssd ? $product->ssd->name . ' SSD' : '' }}
+                    {{ $product->hdd ? ', ' . $product->hdd->name . ' HDD ' : '' }}
                 </li>
                 <li class=" text-[16px] text-[rgb(53,53,53)] font-[jost] font-[400]">
                     Display:
@@ -119,9 +133,9 @@
                     <span>{{ $product->final_price }}</span> TK
                 </li>
             </ul>
-            <button
-                class="text-[white] bg-gradient-to-r from-[#380D37] to-[#DC275C] text-[20px] py-[16px] px-[50px] font-[700] mt-auto rounded-[5px]">BUY
-                NOW</button>
+            <livewire:add-to-cart :id="$product->id"
+                button='<button class="text-[white] bg-gradient-to-r from-[#380D37] to-[#DC275C] text-[20px] py-[16px] px-[50px] font-[700] mt-auto rounded-[5px]">BUY NOW</button>' />
+
         </div>
     </div>
     <!-- -------------ideapad---section---end--- -->
@@ -143,11 +157,9 @@
     </div>
     <!-- -----table--section---start----- -->
     <div class="flex justify-between gap-[30px] ">
-        <div class="">
-
-
+        <div>
             <section class="border-[2px] border-[#380D37] p-[20px] rounded-[5px] leading-[50px]" id="specification">
-                <div class="text-[#353535] text-[20px] font-[jost] font-[500] ">
+                <div class="text-[#353535] text-[20px] font-[jost] font-[500]">
                     <h2>Specification</h2>
                 </div>
                 <table class="w-full">
@@ -155,14 +167,19 @@
                     <thead>
                         <tr>
                             <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] text-[20] font-[500]  pl-[14px] rounded-[5px]"
-                                colspan="3">Processor:</td>
+                                colspan="3">
+                                Processor:
+                            </td>
                         </tr>
                     </thead>
                     <tbody class="ml-[20px] mb-[30px]">
                         <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">Processor Brand:
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">
+                                Processor Brand:
                             </td>
-                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">{{ $product->p_brand }}</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">
+                                {{ $product->p_brand }}
+                            </td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">Processor Model:
@@ -244,23 +261,27 @@
                     <tbody class="ml-[20px]">
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">RAM:</td>
-                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">{{ $product->ram->ram }}GB
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">
+                                {{ $product->ram->ram }}GB
                             </td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">RAM Type:</td>
-                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">{{ $product->ram->type }}
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">
+                                {{ $product->ram->type }}
                             </td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">Removable:</td>
                             <td class="text-[#353535] text-[16px] font-[jost] font-[400]">
-                                {{ $product->m_removal ? 'Yes' : 'NO' }}</td>
+                                {{ $product->m_removal ? 'Yes' : 'NO' }}
+                            </td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">BUS Speed:</td>
                             <td class="text-[#353535] text-[16px] font-[jost] font-[400]">
-                                {{ $product->ram->bus_speed }}</td>
+                                {{ $product->ram->bus_speed }}
+                            </td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">Total RAM Slot:
@@ -268,63 +289,55 @@
                             <td class="text-[#353535] text-[16px] font-[jost] font-[400]">{{ $product->m_slot }}</td>
                         </tr>
                     </tbody>
+
                     <!-- --------------4th---part------------------ -->
                     <thead>
                         <tr>
                             <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] text-[20] font-[500] pl-[14px] rounded-[5px]"
-                                colspan="3">Storage:</td>
+                                colspan="3">
+                                Storage:
+                            </td>
                         </tr>
                     </thead>
                     <tbody class="ml-[20px]">
                         <tr class="border-[#764A8733] border-b-[2px]">
-                            @if ($product->ssd)
-                                {{ $product->ssd->name }}
-                                @php
-                                    $storage = $product->ssd;
-                                @endphp
-                                @php
-                                    $s_type_n = 'SSD';
 
-                                @endphp
-                            @endif
-                            @if ($product->hdd)
-                                {{ $product->hdd->name }}
-                                @php
-                                    $storage = $product->hdd;
-
-                                @endphp
-                                @php
-                                    $s_type_n = 'HDD';
-                                @endphp
-                            @endif
                             <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">Storage Type:</td>
                             <td class="text-[#353535] text-[16px] font-[jost] font-[400]">
-                                {{ $s_type_n }}
+                                {{-- {{ $s_type_n }} --}}
+                                {{ $product->ssd ? 'SSD' : '' }}{{ $product->hdd ? ', HDD ' : '' }}
                                 {{-- {{$product->ssd ? $cpt = $product->ssd->name : ''}} {{$product->hdd ? $cpt = $product->hdd->name : ''}} --}}
                             </td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">Storage Capacity:
                             </td>
-                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">{{ $storage->name }}</td>
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">
+                                {{-- {{ $storage->name }} --}}
+                                {{ $product->ssd ? $product->ssd->name : '' }}{{ $product->hdd ? ', ' . $product->hdd->name : '' }}
+                            </td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">Extra M.2 Slot:
                             </td>
                             <td class="text-[#353535] text-[16px] font-[jost] font-[400]">
-                                {{ $product->s_extra_m2_slot ? 'Yes' : 'N/A' }}</td>
+                                {{ $product->s_extra_m2_slot ? 'Yes' : 'N/A' }}
+                            </td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">Supported
-                                {{ $s_type_n }} Type:
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">
+                                Supported Storage Type:
                             </td>
                             <td class="text-[#353535] text-[16px] font-[jost] font-[400]">
-                                {{ $product->s_support_type }}</td>
+                                {{ $product->s_support_type }}
+                            </td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
-                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]  pl-[20px]">Storage Upgrade:
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]  pl-[20px]">
+                                Storage Upgrade:
                             </td>
-                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">{{ $product->s_upgrade }}
+                            <td class="text-[#353535] text-[16px] font-[jost] font-[400]">
+                                {{ $product->s_upgrade }}
                             </td>
                         </tr>
                     </tbody>
@@ -345,7 +358,8 @@
                             <td class="text-[#353535] text-[16px] font-[jost] font-[400] pl-[20px]">Graphics Memory:
                             </td>
                             <td class="text-[#353535] text-[16px] font-[jost] font-[400]">
-                                {{ $product->Graphic->name }}</td>
+                                {{ $product->Graphic->name }}
+                            </td>
                         </tr>
                     </tbody>
                     <!-- -------------------6th--part------------ -->
@@ -679,49 +693,121 @@
                                 </div>
                                 <!--Modal body-->
                                 <div class="relative p-4">
-                                    <div class="flex justify-between gap-[10px] my-[10px]">
-                                        <input type="text" placeholder="First Name"
-                                            class="relative p-[10px] m-0 -mr-0.5 block w-full flex-auto rounded-l bg-[#F2F2F2] font-[jost] font-[400] text-[12px] text-[#000000] italic" />
-                                        <input type="text" placeholder="Last Name"
-                                            class="relative p-[10px]  m-0 -mr-0.5 block w-full flex-auto rounded-l bg-[#F2F2F2] font-[jost] font-[400] text-[12px] text-[#000000] italic" />
-                                    </div>
-                                    <div class="mt-[20px]">
-                                        <textarea placeholder="Write your review here..."
-                                            class="relative pl-[10px] pt-[10px] pb-[100px] m-0 -mr-0.5 block w-full flex-auto rounded-l bg-[#F2F2F2] font-[jost] font-[jost] font-[400] text-[12px] text-[#000000] italic"
-                                            id="message-text"></textarea>
-                                    </div>
-                                    <br /><br />
-                                    <div class="mb-3">
-                                        <input
-                                            class="relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] font-[jost] text-[#380D37] transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-[#380D37] file:px-3 file:py-[0.32rem] file:text-[#f2f2f2] file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 hover:file:text-[#380D37] focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
-                                            type="file" id="formFileMultiple" multiple />
-                                    </div>
-                                    <div class='flex justify-between my-[50px] items-center'>
-                                        <div class='items-center'>
-                                            <div>
-                                                <h1
-                                                    class='text-[24px] text-[#380D37] font-[jost] font-[500] leading-[34.68px]'>
-                                                    Reviews</h1>
+                                    {{-- <form > --}}
+                                    <div x-data="{
+                                            f_name: '',
+                                            l_name: '',
+                                            img: '',
+                                            msg: '',
+                                            review_stars: [],
+                                            yellow_star: [1,2,3,4,5],
+                                            white_star:[],
+                                            submit() {
+                                                console.log(this.review_stars);
+                                            },
+                                            stared(star){
+                                                console.log(star);
+                                                if(star==1){
+                                                    this.yellow_star = [1];
+                                                    this.white_star = [2,3,4,5];
+                                                }
+                                                if(star==2){
+                                                    this.yellow_star = [1,2];
+                                                    this.white_star = [3,4,5];
+                                                }
+                                                if(star==3){
+                                                    this.yellow_star = [1,2,3];
+                                                    this.white_star = [4,5];
+                                                }
+                                                if(star==4){
+                                                    this.yellow_star = [1,2,3,4];
+                                                    this.white_star = [5];
+                                                }
+                                                if(star==5){
+                                                    this.yellow_star = [1,2,3,4,5];
+                                                    this.white_star = [];
+                                                }
+                                            }
+                                        }"
+                                    >
+                                        <div class="flex justify-between gap-[10px] my-[10px]">
+                                            <input x-model='f_name' type="text" placeholder="First Name"
+                                                class="relative p-[10px] m-0 -mr-0.5 block w-full flex-auto rounded-l bg-[#F2F2F2] font-[jost] font-[400] text-[12px] text-[#000000] italic" />
+                                            @error('f_name')
+                                                <span class="text-[red] text-[12px]">{{ $message }}</span>
+                                            @enderror
+                                            <input x-model='l_name' type="text" placeholder="Last Name"
+                                                class="relative p-[10px]  m-0 -mr-0.5 block w-full flex-auto rounded-l bg-[#F2F2F2] font-[jost] font-[400] text-[12px] text-[#000000] italic" />
+                                            @error('l_name')
+                                                <span class="text-[red] text-[12px]">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                        <div class="mt-[20px]">
+                                            <textarea x-model='msg' placeholder="Write your review here..."
+                                                class="relative pl-[10px] pt-[10px] pb-[100px] m-0 -mr-0.5 block w-full flex-auto rounded-l bg-[#F2F2F2] font-[jost] font-[jost] font-[400] text-[12px] text-[#000000] italic"
+                                                id="message-text"></textarea>
+                                            @error('msg')
+                                                <span class="text-[red] text-[12px]">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                        <br /><br />
+                                        <div class="mb-3">
+                                            <input x-model='img'
+                                                class="relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] font-[jost] text-[#380D37] transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-[#380D37] file:px-3 file:py-[0.32rem] file:text-[#f2f2f2] file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 hover:file:text-[#380D37] focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
+                                                type="file" id="formFileMultiple" multiple />
+                                            @error('img')
+                                                <span class="text-[red] text-[12px]">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                        <div class='flex justify-between my-[50px] items-center'>
+                                            <div class='items-center'>
+                                                <div>
+                                                    <h1
+                                                        class='text-[24px] text-[#380D37] font-[jost] font-[500] leading-[34.68px]'>
+                                                        Reviews</h1>
+                                                </div>
+                                                <div class='flex my-[10px] items-center'>
+
+                                                    <template x-for='yi in yellow_star' :key='yi'>
+                                                        <label :for="'star'+yi" @click='stared(yi)'>
+                                                            <img src="/storage/product/star2.svg" alt="Product"
+                                                                class='h-[37.45px]'>
+                                                            <input type="checkbox" class="hidden" :value='yi'
+                                                                :id="'star' + yi" x-model='review_stars'>
+                                                        </label>
+                                                    </template>
+
+                                                    <template x-for='i in white_star' :key='i'>
+                                                        <label :for="'star'+i" @click='stared(i)'>
+                                                            <img src="/storage/product/star-white.svg" alt="Product"
+                                                                class='h-[37.45px]'>
+                                                            <input type="checkbox" class="hidden" :value='i'
+                                                                :id="'star' + i" x-model='review_stars'>
+                                                        </label>
+                                                    </template>
+
+                                                     @error('review_stars')
+                                                            <span
+                                                                class="text-[red] text-[12px]">{{ $message }}</span>
+                                                        @enderror
+                                                </div>
                                             </div>
-                                            <div class='flex my-[10px] items-center'>
-                                                <img src="/storage/product/star2.svg" alt="Product"
-                                                    class='h-[37.45px]'>
-                                                <img src="/storage/product/star2.svg" alt="Product"
-                                                    class='h-[37.45px]'>
-                                                <img src="/storage/product/star2.svg" alt="Product"
-                                                    class='h-[37.45px]'>
-                                                <img src="/storage/product/star-white.svg" alt="Product"
-                                                    class='h-[37.45px]'>
-                                                <img src="/storage/product/star-white.svg" alt="Product"
-                                                    class='h-[37.45px]'>
+                                            <div class='mt-[20px]'>
+                                                <button @click='submit'
+                                                    class='relative px-[25px] py-[12px] rounded-[4px] items-center text-[16px] text-[#F2F2F2] font-[jost] font-[500] leading-[28.9px] bg-gradient-to-r from-[#380D37] to-[#DC275C]'>
+                                                    <span>Post your review</span>
+                                                    <div wire:loading
+                                                        class="absolute inline-block h-6 w-6 top-4 mr-2 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-success motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                                                        role="status">
+                                                        <span
+                                                            class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...
+                                                        </span>
+                                                    </div>
+                                                </button>
                                             </div>
                                         </div>
-                                        <div class='mt-[20px]'>
-                                            <button
-                                                class='px-[25px] py-[12px] rounded-[4px] items-center text-[16px] text-[#F2F2F2] font-[jost] font-[500] leading-[28.9px] bg-gradient-to-r from-[#380D37] to-[#DC275C]'>Post
-                                                your review</button>
-                                        </div>
                                     </div>
+                                    {{-- </form> --}}
                                 </div>
                             </div>
                         </div>
