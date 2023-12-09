@@ -22,9 +22,13 @@
 
             </h2>
 
-            <a href="{{ route('order.pdf', $product->id) }}" class="shadow-sm d btn btn-sm btn-primary"
+            {{-- <a href="{{ route('order.pdf', $product->id) }}" class="shadow-sm d btn btn-sm btn-primary"
                 style="display: inline-block"><i class="fas fa-download fa-sm text-white-50"></i>
-                Generate PDF</a>
+                Generate PDF</a> --}}
+            <a href="{{ url()->previous() }}" class="shadow-sm d btn btn-sm btn-primary"
+                style="display: inline-block">
+                {{-- <i class="fas fa-right-arrow fa-sm text-white-50"></i> --}}
+                Back</a>
         </div>
         <div class="card-body">
             @if ($product)

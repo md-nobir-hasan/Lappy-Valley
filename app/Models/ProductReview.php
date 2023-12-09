@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProductReview extends Model
 {
-    protected $fillable=['user_id','product_id','rate','review','status'];
+    protected $fillable=['user_id','product_id','rate','review','status','f_name','l_name','img','ip'];
 
     public function user_info(){
         return $this->hasOne('App\User','id','user_id');
@@ -21,6 +21,10 @@ class ProductReview extends Model
 
     public function product(){
         return $this->hasOne(Product::class,'id','product_id');
+    }
+
+    public function images(){
+        return $this->hasMany(ProductReviewImag::class);
     }
 
 }

@@ -66,12 +66,13 @@
                                     <td>{{ $review->created_at->format('M d D, Y g: i a') }}</td>
                                     <td>
                                         @if ($review->status == 'active')
-                                            <span class="badge badge-success">{{ $review->status }}</span>
+                                            <span class="badge badge-success status-update" style="cursor: pointer;" id="{{$review->id}}">{{ $review->status }}</span>
                                         @else
-                                            <span class="badge badge-warning">{{ $review->status }}</span>
+                                            <span class="badge badge-warning status-update" style="cursor: pointer;">{{ $review->status }}</span>
                                         @endif
                                     </td>
                                     <td>
+                                         <a target="_blank" href="{{route('review.show',$review->id)}}" class="float-left mr-1 btn btn-warning btn-sm" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="view" data-placement="bottom"><i class="fas fa-eye"></i></a>
                                         @can('Edit Review')
                                             <a href="{{ route('review.edit', $review->id) }}"
                                                 class="float-left mr-1 btn btn-primary btn-sm"
@@ -162,6 +163,35 @@
                         }
                     });
             })
+
+             $('.status-update').on('click', function(e) {
+            let This = this;
+            let rev_id = $(this).attr('id');
+            console.log(rev_id);
+            $.ajax({
+                'method': 'post',
+                url: "{{ route('review_status.change') }}",
+                data: {
+                    id: rev_id,
+                    _token: "{{ csrf_token() }}",
+                },
+                success: (res) => {
+                    console.log(res);
+                    if (res == 'inactive') {
+                        $(This).text('Inactive');
+                        $(This).removeClass('badge-success');
+                        $(This).addClass('badge-warning');
+                    } else if (res == 'active') {
+                        $(This).text('Active');
+                        $(This).addClass('badge-success');
+                        $(This).removeClass('badge-warning');
+                    } else {
+                        alert('Something went wrong');
+                    }
+                }
+
+            })
+        })
         })
     </script>
 @endpush

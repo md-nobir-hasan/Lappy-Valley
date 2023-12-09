@@ -19,7 +19,11 @@ class CreateProductReviewsTable extends Migration
             $table->unsignedBigInteger('product_id')->nullable();
             $table->tinyInteger('rate')->default(0);
             $table->text('review')->nullable();
-            $table->enum('status',['active','inactive'])->default('active');
+            $table->string('ip')->nullable();
+            $table->string('img')->nullable();
+            $table->string('f_name')->nullable();
+            $table->string('l_name')->nullable();
+            $table->enum('status',['active','inactive'])->default('inactive');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('SET NULL');
             $table->foreign('product_id')->references('id')->on('products')->onDelete('SET NULL');
             $table->timestamps();
