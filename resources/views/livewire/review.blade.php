@@ -1,291 +1,97 @@
-{{-- <div>
+<div class="container mx-auto">
   <style>
-    .dropdown {
-        position: relative;
-        /* top: 50px;
-        left: 45%; */
-        /* margin-top: 15px; */
-        width: 300px;
-        height: 50px;
-    }
-
-    .dropdown::before {
-        content: "";
-        position: absolute;
-        top: 15px;
-        right: 20px;
-        z-index: 1000;
-        width: 8px;
-        height: 8px;
-        border: 2px solid #333;
-        border-top: 2px solid #fff;
-        border-right: 2px solid #fff;
-        transform: rotate(-45deg);
-        transition: 0.5s;
-        pointer-events: none;
-    }
-
-    .dropdown.active::before {
-        top: 22px;
-        transform: rotate(-225deg);
-    }
-
-    .dropdown input {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        cursor: pointer;
-        background: #fff;
-        font-size: 1.2em;
-        border: none;
-        outline: none;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-        padding: 12px 20px;
-        /* border-radius: 10px; */
-        align-items: center;
-    }
-
-    .dropdown .options {
-        position: absolute;
-        top: 50px;
-        width: 100%;
-        background: #fff;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-        /* border-radius: 10px; */
-        overflow: hidden;
-        display: none;
-        z-index: 10000;
-    }
-
-    .dropdown.active .options {
-        display: block;
-    }
-
-    .dropdown .options div {
-        padding: 12px 20px;
-        cursor: pointer;
-    }
-
-    .dropdown .options div:hover {
-        background: #62baea;
-        color: #fff;
-    }
-</style>
-  <div class="dropdown font-[jost] font-[400] text-[14px] text-[#380D37] text-left">
-    <input class="text-box" type="text" placeholder="Defaul sorting" readonly>
-    <div class="options">
-        <div onclick="show('Default sorting')">Default sorting</div>
-        <div onclick="show('Sort by popularity')">Sort by popularity</div>
-        <div onclick="show('Sort by average rating')">Sort by average rating</div>
-        <div onclick="show('Sort by latest')">Sort by latest</div>
-        <div onclick="show('Sort by price:low to high')">Sort by price:low to high</div>
-        <div onclick="show('Sort by price: high to low')">Sort by price: high to low</div>
-    </div>
-</div>
-
-<script>
-  function show(value) {
-      document.querySelector(".text-box").value = value;
-  }
-
-  let dropdown = document.querySelector(".dropdown")
-  dropdown.onclick = function() {
-      dropdown.classList.toggle("active")
-  }
-</script>
-</div> --}}
-{{-- <div class="container mx-auto">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <style>
-    .container {
-	width:980px;
-	margin:100px auto 0 auto;
-	font-family:arial;
+.custom-btn {
+  color: #fff;
+  width: 130px;
+  height: 40px;
+  padding: 10px 25px;
+  /* font-family: 'Lato', sans-serif; */
+  font-weight: 500;
+  /* background: transparent; */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  /* background:linear-gradient(#380D37,#DC275C); */
 }
-
-ul, li {
-	margin:0;
-	padding:0;
+.btn-7 {
+ /* background: #8ce437; */
+  line-height: 40px;
+  padding: 0;
+  border: none;
+  box-shadow: 0 0 5px #8ce437;
 }
-
-.resmenu {
-	display:none;
+.btn-7 span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
 }
-
-.menu li {
-	display: inline-block;
-	position: relative;
+.btn-7:hover{
+  background: #380D37;
 }
-.menu li a {
-	font-size: 14px;
-	text-transform: uppercase;
-	color: #3b2612;
-	padding: 6px 17px;
-	letter-spacing: 1px;
-	display: block;
-	text-decoration: none;
+.btn-7:before,
+.btn-7:after {
+  position: absolute;
+  content: "";
+  height: 0%;
+  width: 2px;
+  background: #8ce437;
+ box-shadow: 0px 0px 5px #8ce437;
 }
-.menu li:hover a {
-	background: #444;
-	color: #fff !important;
+.btn-7:before {
+  right: 0;
+  top: 0;
+  transition: all 1000ms ease;
 }
-
-
-.menu li ul {
-	position: absolute;
-	width: 250px;
-	z-index: 5;
-	left: 0px;
-	top:28px;
-	display:none;
-	
+.btn-7:after {
+  left: 0;
+  bottom: 0;
+  transition: all 1000ms ease;
 }
-.menu li:hover ul {
-	display:block;
+.btn-7:hover:before {
+  transition: all 1000ms ease;
+  height: 100%;
+  background:linear-gradient(#380D37,#DC275C);
 }
-.menu li ul li {
-	display: block;
+.btn-7:hover:after {
+  transition: all 1000ms ease;
+  height: 100%;
+  background:linear-gradient(#380D37,#DC275C);
 }
-
-.menu li ul li a {
-	padding: 6px 17px;
-	transition: all 0.2s;
-	text-transform: capitalize;
+.btn-7 span:before,
+.btn-7 span:after {
+  position: absolute;
+  content: "";
+  background: #8ce437;
+  box-shadow: 0 0 5px #8ce437;
 }
-.menu li ul li a:hover {
-	background: #000;
+.btn-7 span:before {
+  left: 0;
+  top: 0;
+  width: 0%;
+  height: 2px;
+  transition: all 1000ms ease;
 }
-
-
-/*--- responsive ----*/
-@media screen and (max-width:768px) {
-
-.resmenu {
-	color: #fff !important;
-	display: block;
-	text-decoration: none !important;
-	background: #6ca2bd;
-	padding: 5px 10px;
+.btn-7 span:after {
+  right: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  transition: all 1000ms ease;
 }
-.menu {
-	display: none;
-	background: #444444;
+.btn-7 span:hover:before {
+  width: 100%;
+  /* background:linear-gradient(#380D37,#DC275C); */
 }
-.menu li {
-	position: relative;
-	display: block;
-}
-.menu li a {
-	color: #fff;
-	font-size:14px;
-	padding: 6px 17px;
-}
-.menu li a:hover {
-	background-color: #000;
-	color: #000;
-	transition: all 0.3s;
-}
-.active_submenu {
-	background-color: #ceb689 !important;
-	color: #fff !important;
-}
-
-.menu li ul {
-	display: none;
-	width: 100%;
-	position: relative;
-	top: 0px;
-	display:none;
-	
-}
-.menu li:hover ul {
-	display: none;
-	top: 0px;
-}
-	
-.menu li a.active {
-	color: #fff;
-	font-family: 'opensanssemibold';
-}
-	
-.menu li ul li a {
-	background:#333;
-}
-
-
+.btn-7 span:hover:after {
+  width: 100%;
+  /* background:linear-gradient(#380D37,#DC275C); */
 }
   </style>
-  <div class="container">
-     <div class="btm_header">
-               <a href="javascript:void();" class="resmenu">Menu</a>
-         
-          <ul class="menu">
-            <li><a href="#">Menu</a></li>
-            <li><a href="javascript:void(0);" class="submenu">Dropdown One  <span></span></a>
-              <ul class="dropdown">
-                <li><a href="#">Dropdown</a></li>
-                <li><a href="#">Dropdown</a></li>
-                <li><a href="#">Dropdown</a></li>
-                <li><a href="#">Dropdown</a></li>
-              </ul>
-            </li>
-            <li><a href="javascript:void(0);" class="submenu">Dropdown Two <span></span></a>
-          <ul class="dropdown">
-          <li><a href="#">Dropdown</a></li>
-                <li><a href="#">Dropdown</a></li>
-                <li><a href="#">Dropdown</a></li>
-                <li><a href="#">Dropdown</a></li>
-          </ul>
-            </li>
-            <li><a href="#">Menu</a></li>
-            <li><a href="#">Menu</a></li>
-          </ul>
-            </div>
-  </div>
+     <button
+     class="custom-btn btn-7 selection:text-[#F2F2F2] relative text-[17px] h-[44px] w-[11px] rounded-[4px] font-[500] font-[jost] mt-[15px] pt-[5px] pr-[30px] pl-[30px] pb-[5px] bg-gradient-to-r from-[#380D37] to-[#DC275C] "
+     type="submit">
+     <span>Post</span></button>
 
-  <script>
-    $(document).ready(function(){
-	 	$(".resmenu").click(function(){
-	 		$(".menu").slideToggle();
-	 	}); 
-
-	 	$(".submenu").click(function(){
-	 		$(this).toggleClass("active_submenu");
-	 		$(this).parent().find(".dropdown").slideToggle();
-	 	}); 
-
-	 });
-  </script>
-</div> --}}
-
-
-<div class="container">
-  <style>
-    sumon {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr); /* First column takes 1 fraction, second takes 2 fractions */
-      padding: 20px;
-       grid-template-rows: 1fr; /* Single row */
-    }
-
-    .small {
-      grid-column: span 1; /* Takes one column */
-      background-color: lightblue;
-    }
-
-    .large {
-      grid-column: span 2; /* Takes two columns */
-      background-color: lightcoral;
-    }
-
-    /* Add more styling as needed */
-  </style>
-  <div class="sumon">
-    <div class="small">Small</div>
-    <div class="large">Large</div>
-  </div>
 </div>
