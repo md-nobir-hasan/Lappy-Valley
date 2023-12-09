@@ -633,37 +633,6 @@
                         </button>
                     </div>
 
-                    <!--Vertically centered modal-->
-                    <div data-te-modal-init
-                        class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
-                        id="exampleModalCenter" tabindex="-1" aria-labelledby="exampleModalCenterTitle"
-                        aria-modal="true" role="dialog">
-                        <div data-te-modal-dialog-ref
-                            class="pointer-events-none relative flex min-h-[calc(100%-1rem)] w-auto translate-y-[-50px] items-center opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:min-h-[calc(100%-3.5rem)] min-[576px]:max-w-[500px]">
-                            <div
-                                class="pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600">
-                                <div
-                                    class="flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
-                                    <!--Modal title-->
-                                    <h5 class="text-xl font-medium leading-normal text-neutral-800 dark:text-neutral-200"
-                                        id="exampleModalCenterTitle">
-                                        Review
-                                    </h5>
-                                    <!--Close button-->
-                                    <button type="button"
-                                        class="box-content rounded-none border-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
-                                        data-te-modal-dismiss aria-label="Close">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                            stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="M6 18L18 6M6 6l12 12" />
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                     <!--Verically centered scrollable modal-->
                     <div data-te-modal-init
                         class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
@@ -680,8 +649,11 @@
                                         id="exampleModalCenteredScrollableLabel">
                                         Review
                                     </h5>
+                                    @php
+                                        $token = csrf_token();
+                                    @endphp
                                     <!--Close button-->
-                                    <button type="button"
+                                    <button type="button" id="modal_close"
                                         class="box-content rounded-none border-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
                                         data-te-modal-dismiss aria-label="Close">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -693,140 +665,190 @@
                                 </div>
                                 <!--Modal body-->
                                 <div class="relative p-4">
-                                    {{-- <form > --}}
+
                                     <div x-data="{
-                                            f_name: '',
-                                            l_name: '',
-                                            img: '',
-                                            msg: '',
-                                            review_stars: [],
-                                            yellow_star: [1,2,3,4,5],
-                                            white_star:[],
-                                            submit() {
-                                                $.ajax({
-                                                    method:'get',
-                                                    url:'{{route('product_review')}}',
-                                                    data:{
-                                                        product_id:'{{$product->id}}',
-                                                        f_name:this.f_name,
-                                                        l_name:this.l_name,
-                                                        img:this.img,
-                                                        msg:this.msg,
-                                                        review_stars:this.review_stars,
-                                                    },
-                                                    success:(res)=>{
-                                                        console.log(res);
-                                                        if(res){
-                                                            toastr.success('Your review successfully received');
-                                                        }else{
-                                                            toastr.error('Your review cant recieve');
-                                                        }
-                                                    }
-                                                });
-                                            },
-                                            stared(star){
-                                                console.log(star);
-                                                if(star==1){
-                                                    this.yellow_star = [1];
-                                                    this.white_star = [2,3,4,5];
-                                                }
-                                                if(star==2){
-                                                    this.yellow_star = [1,2];
-                                                    this.white_star = [3,4,5];
-                                                }
-                                                if(star==3){
-                                                    this.yellow_star = [1,2,3];
-                                                    this.white_star = [4,5];
-                                                }
-                                                if(star==4){
-                                                    this.yellow_star = [1,2,3,4];
-                                                    this.white_star = [5];
-                                                }
-                                                if(star==5){
-                                                    this.yellow_star = [1,2,3,4,5];
-                                                    this.white_star = [];
-                                                }
+                                        f_name: null,
+                                        l_name: null,
+                                        img: [],
+                                        msg: null,
+                                        previews: [],
+                                        loading: false,
+                                        review_stars: [],
+                                        yellow_star: [1, 2, 3, 4, 5],
+                                        white_star: [],
+                                        v_msg: '',
+                                        submit() {
+                                            this.loading = true
+                                            if (!this.f_name) {
+                                                this.v_msg = 'Please, give your first name';
+                                                this.loading = false
+                                                return false;
                                             }
-                                        }"
-                                    >
-                                        <div class="flex justify-between gap-[10px] my-[10px]">
-                                            <input x-model='f_name' type="text" placeholder="First Name"
-                                                class="relative p-[10px] m-0 -mr-0.5 block w-full flex-auto rounded-l bg-[#F2F2F2] font-[jost] font-[400] text-[12px] text-[#000000] italic" />
-                                            @error('f_name')
-                                                <span class="text-[red] text-[12px]">{{ $message }}</span>
-                                            @enderror
-                                            <input x-model='l_name' type="text" placeholder="Last Name"
-                                                class="relative p-[10px]  m-0 -mr-0.5 block w-full flex-auto rounded-l bg-[#F2F2F2] font-[jost] font-[400] text-[12px] text-[#000000] italic" />
-                                            @error('l_name')
-                                                <span class="text-[red] text-[12px]">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                        <div class="mt-[20px]">
-                                            <textarea x-model='msg' placeholder="Write your review here..."
-                                                class="relative pl-[10px] pt-[10px] pb-[100px] m-0 -mr-0.5 block w-full flex-auto rounded-l bg-[#F2F2F2] font-[jost] font-[jost] font-[400] text-[12px] text-[#000000] italic"
-                                                id="message-text"></textarea>
-                                            @error('msg')
-                                                <span class="text-[red] text-[12px]">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                        <br /><br />
-                                        <div class="mb-3">
-                                            <input x-model='img'
-                                                class="relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] font-[jost] text-[#380D37] transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-[#380D37] file:px-3 file:py-[0.32rem] file:text-[#f2f2f2] file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 hover:file:text-[#380D37] focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
-                                                type="file" id="formFileMultiple" multiple />
-                                            @error('img')
-                                                <span class="text-[red] text-[12px]">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                        <div class='flex justify-between my-[50px] items-center'>
-                                            <div class='items-center'>
-                                                <div>
-                                                    <h1
-                                                        class='text-[24px] text-[#380D37] font-[jost] font-[500] leading-[34.68px]'>
-                                                        Reviews</h1>
+                                            if (!this.msg) {
+                                                this.v_msg = 'Please, write something';
+                                                this.loading = false
+                                                return false;
+                                            }
+                                            if (this.review_stars.length < 1) {
+                                                this.review_stars.push(5);
+                                            }
+                                            console.log(this.review_stars)
+                                            const formData = new FormData();
+                                            formData.append('f_name', this.f_name);
+                                            formData.append('l_name', this.l_name);
+                                            formData.append('msg', this.msg);
+                                            for (const im of this.img) {
+                                                formData.append('imgs[]', im);
+                                            }
+                                            formData.append('review_stars', this.review_stars);
+                                            formData.append('product_id', '{{ $product->id }}');
+                                            formData.append('_token', '{{ csrf_token() }}');
+                                            fetch('{{ route('product_review') }}', {
+                                                method: 'POST',
+                                                body: formData
+                                            }).then(response => {
+                                                if (response.ok) {
+                                                    this.loading = false
+                                                    $('#modal_close').click();
+                                                    toastr.success('Review post request send successfully!')
+                                                    this.l_name = null
+                                                    this.f_name = null
+                                                    this.msg = null
+                                                    this.img = []
+                                                    this.review_stars.push(5);
+                                                } else {
+                                                    toastr.error('Error uploading file!')
+                                                }
+                                            }).catch(error => {
+                                                console.error(error)
+                                            })
+                                    
+                                        },
+                                        fileHandle(event) {
+                                            for (const file of event.target.files) {
+                                                const reader = new FileReader()
+                                                reader.onload = (e) => { this.previews.push(e.target.result) }
+                                                reader.readAsDataURL(file)
+                                                this.img.push(file)
+                                            }
+                                    
+                                        },
+                                        stared(star) {
+                                            console.log(star);
+                                            if (star == 1) {
+                                                this.yellow_star = [1];
+                                                this.white_star = [2, 3, 4, 5];
+                                            }
+                                            if (star == 2) {
+                                                this.yellow_star = [1, 2];
+                                                this.white_star = [3, 4, 5];
+                                            }
+                                            if (star == 3) {
+                                                this.yellow_star = [1, 2, 3];
+                                                this.white_star = [4, 5];
+                                            }
+                                            if (star == 4) {
+                                                this.yellow_star = [1, 2, 3, 4];
+                                                this.white_star = [5];
+                                            }
+                                            if (star == 5) {
+                                                this.yellow_star = [1, 2, 3, 4, 5];
+                                                this.white_star = [];
+                                            }
+                                        }
+                                    }">
+                                        <form enctype="multipart/form-data" id="file_upload">
+                                            @csrf
+                                            <div class="flex justify-between gap-[10px] my-[10px]">
+                                                <input x-model='f_name' type="text" placeholder="First Name"
+                                                    class="relative p-[10px] m-0 -mr-0.5 block w-full flex-auto rounded-l bg-[#F2F2F2] font-[jost] font-[400] text-[12px] text-[#000000] italic" />
+                                                @error('f_name')
+                                                    <span class="text-[red] text-[12px]">{{ $message }}</span>
+                                                @enderror
+                                                <input x-model='l_name' type="text" placeholder="Last Name"
+                                                    class="relative p-[10px]  m-0 -mr-0.5 block w-full flex-auto rounded-l bg-[#F2F2F2] font-[jost] font-[400] text-[12px] text-[#000000] italic" />
+                                                @error('l_name')
+                                                    <span class="text-[red] text-[12px]">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                            <div class="mt-[20px]">
+                                                <textarea x-model='msg' placeholder="Write your review here..."
+                                                    class="relative pl-[10px] pt-[10px] pb-[100px] m-0 -mr-0.5 block w-full flex-auto rounded-l bg-[#F2F2F2] font-[jost] font-[jost] font-[400] text-[12px] text-[#000000] italic"
+                                                    id="message-text"></textarea>
+                                                @error('msg')
+                                                    <span class="text-[red] text-[12px]">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                            <br /><br />
+                                            <div class="mb-3">
+                                                <input x-ref="fileInput" type="file" multiple
+                                                    class="relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] font-[jost] text-[#380D37] transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-[#380D37] file:px-3 file:py-[0.32rem] file:text-[#f2f2f2] file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 hover:file:text-[#380D37] focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
+                                                    @change="fileHandle($event)">
+                                                <div class="flex">
+                                                    <template x-for="preview in previews">
+                                                        <img :src="preview" alt="preview" class="max-h-20">
+                                                    </template>
                                                 </div>
-                                                <div class='flex my-[10px] items-center'>
+                                                @error('img')
+                                                    <span class="text-[red] text-[12px]">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                            <div class='flex justify-between my-[50px] items-center'>
+                                                <div class='items-center'>
+                                                    <div>
+                                                        <h1
+                                                            class='text-[24px] text-[#380D37] font-[jost] font-[500] leading-[34.68px]'>
+                                                            Reviews</h1>
+                                                    </div>
+                                                    <div class='flex my-[10px] items-center'>
 
-                                                    <template x-for='yi in yellow_star' :key='yi'>
-                                                        <label :for="'star'+yi" @click='stared(yi)'>
-                                                            <img src="/storage/product/star2.svg" alt="Product"
-                                                                class='h-[37.45px]'>
-                                                            <input type="checkbox" class="hidden" :value='yi'
-                                                                :id="'star' + yi" x-model='review_stars'>
-                                                        </label>
-                                                    </template>
+                                                        <template x-for='yi in yellow_star' :key='yi'>
+                                                            <label :for="'star' + yi" @click='stared(yi)'>
+                                                                <img src="/storage/product/star2.svg" alt="Product"
+                                                                    class='h-[37.45px]'>
+                                                                <input type="checkbox" class="hidden"
+                                                                    :value='yi' :id="'star' + yi"
+                                                                    x-model='review_stars'>
+                                                            </label>
+                                                        </template>
 
-                                                    <template x-for='i in white_star' :key='i'>
-                                                        <label :for="'star'+i" @click='stared(i)'>
-                                                            <img src="/storage/product/star-white.svg" alt="Product"
-                                                                class='h-[37.45px]'>
-                                                            <input type="checkbox" class="hidden" :value='i'
-                                                                :id="'star' + i" x-model='review_stars'>
-                                                        </label>
-                                                    </template>
+                                                        <template x-for='i in white_star' :key='i'>
+                                                            <label :for="'star' + i" @click='stared(i)'>
+                                                                <img src="/storage/product/star-white.svg"
+                                                                    alt="Product" class='h-[37.45px]'>
+                                                                <input type="checkbox" class="hidden"
+                                                                    :value='i' :id="'star' + i"
+                                                                    x-model='review_stars'>
+                                                            </label>
+                                                        </template>
 
-                                                     @error('review_stars')
+                                                        @error('review_stars')
                                                             <span
                                                                 class="text-[red] text-[12px]">{{ $message }}</span>
                                                         @enderror
+                                                    </div>
+                                                </div>
+                                                <div class='mt-[20px]'>
+                                                    <div class="">
+                                                        <template x-if='v_msg'>
+                                                            <span x-text='v_msg'></span>
+                                                        </template>
+                                                        <button type="button" @click='submit'
+                                                            class='relative px-[25px] py-[12px] rounded-[4px] items-center text-[16px] text-[#F2F2F2] font-[jost] font-[500] leading-[28.9px] bg-gradient-to-r from-[#380D37] to-[#DC275C]'>
+                                                            <span>Post your review</span>
+                                                            <div x-show='loading'
+                                                                class="absolute inline-block h-6 w-6 top-4 mr-2 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-success motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                                                                role="status">
+                                                                <span
+                                                                    class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...
+                                                                </span>
+                                                            </div>
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class='mt-[20px]'>
-                                                <button @click='submit'
-                                                    class='relative px-[25px] py-[12px] rounded-[4px] items-center text-[16px] text-[#F2F2F2] font-[jost] font-[500] leading-[28.9px] bg-gradient-to-r from-[#380D37] to-[#DC275C]'>
-                                                    <span>Post your review</span>
-                                                    <div wire:loading
-                                                        class="absolute inline-block h-6 w-6 top-4 mr-2 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-success motion-reduce:animate-[spin_1.5s_linear_infinite]"
-                                                        role="status">
-                                                        <span
-                                                            class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...
-                                                        </span>
-                                                    </div>
-                                                </button>
-                                            </div>
-                                        </div>
+                                        </form>
                                     </div>
-                                    {{-- </form> --}}
                                 </div>
                             </div>
                         </div>
@@ -846,85 +868,68 @@
                         out of 5</span>
                 </div>
                 <div class="h-[2px] bg-[#764A8733]"></div>
+                {{-- Product Review --}}
                 @foreach ($product_reviews as $pr)
                     <div class="mt-[10px]">
                         <div class="flex my-[10px]">
-                            <img src="/storage/product/star2.svg" alt="" class="h-[15px]">
-                            <img src="/storage/product/star2.svg" alt="" class="h-[15px]">
-                            <img src="/storage/product/star2.svg" alt="" class="h-[15px]">
-                            <img src="/storage/product/star2.svg" alt="" class="h-[15px]">
-                            <img src="/storage/product/star2.svg" alt="" class="h-[15px]">
+                            @for ($i = 1; $i < 6; $i++)
+                                @if ($i <= $pr->rate)
+                                    <img class="h-7" src="/storage/product/star2.svg" alt="">
+                                @else
+                                    <img class="h-7" src="/storage/product/star-white.svg" alt="">
+                                @endif
+                            @endfor
                         </div>
                         <div>
-                            <span class="font-[jost] font[600] mb-[15px]">{!! $product_reviews->review !!}</span>
+                            <span class="font-[jost] font[600] mb-[15px]">{{ $pr->review }}</span>
                         </div>
                         <div>
-                            <span class="font-[jost] font[600]">By {{ $product_reviews->user->name }} on
-                                {{ $product_reviews->created_at->toFormattedDateString }}</span>
+                            <span class="font-[jost] font[600]">By {{ $pr->f_name . ' ' . $pr->l_name }} on
+                                {{ $pr->created_at->format('d-m-Y') }}</span>
                         </div>
                     </div>
                 @endforeach
             </section>
         </div>
         <div>
-            <div class="p-[10px] border-[2px] border-[#380D37] rounded-[3px] w-[301px]">
+            @if ($related_products)
+                <div class="p-[10px] border-[2px] border-[#380D37] rounded-[3px] w-[301px]">
 
-
-                <div class="p-[10px]">
-                    <h1 class="text-[#380D37] text-[20px] font-[jost] font-[500] flex justify-center">Related
-                        Products</h1>
-                    <div class="h-[2px] bg-[#380D37]"></div>
-                </div>
-
-                <div class="flex gap-[15px] leading-[20.23px]">
-                    <div class="w-[72px]">
-                        <img class="object-center " src="/storage/product/large-size-laptop.jpg" alt="Product">
+                    <div class="p-[10px]">
+                        <h1 class="text-[#380D37] text-[20px] font-[jost] font-[500] flex justify-center">Related
+                            Products</h1>
+                        <div class="h-[2px] bg-[#380D37]"></div>
                     </div>
-                    <div>
-                        <p class="text-[#000000] text-[14px] font-[jost] font-[400]">Lenovo IdeaPad 1 15AMN7<br />
-                            AMD Ryzen 5 512GB SSD <br /> 15.6" FHD Laptop<br /> with DDR5 RAM</p>
-                        <p class="text-[#DC275C] text-[16px] font-[jost] font-[700] my-[10px]"><a>1,50,000 TK</a></p>
 
-                    </div>
+                    @foreach ($related_products as $rp)
+                        <div class="flex gap-[15px] leading-[20.23px]">
+                            <div class="w-[72px]">
+                                <img class="object-center " src="{{ $rp->img()[0] }}" alt="Product">
+                            </div>
+                            <div>
+                                <p class="text-[#000000] text-[14px] font-[jost] font-[400]">Lenovo IdeaPad 1
+                                    15AMN7<br />
+                                    AMD Ryzen 5 512GB SSD <br /> 15.6" FHD Laptop<br /> with DDR5 RAM</p>
+                                <p class="text-[#DC275C] text-[16px] font-[jost] font-[700] my-[10px]"><a>1,50,000
+                                        TK</a>
+                                </p>
+
+                            </div>
+                        </div>
+                        @if (!$loop->last)
+                            <div class="p-[10px]">
+
+                                <div class="h-[2px] bg-[#764A8733]"></div>
+                            </div>
+                        @endif
+                    @endforeach
+
+
+
                 </div>
-                <!-- </section> -->
-                <!-- <section> -->
-                <div class="p-[10px]">
-
-                    <div class="h-[2px] bg-[#764A8733]"></div>
-                </div>
-                <div class="flex gap-[15px] leading-[20.23px]">
-                    <div class="w-[72px]">
-                        <img class="object-center " src="/storage/product/large-size-laptop.jpg" alt="Product">
-                    </div>
-                    <div>
-                        <p class="text-[#000000] text-[14px] font-[jost] font-[400]">Lenovo IdeaPad 1 15AMN7<br />
-                            AMD Ryzen 5 512GB SSD <br /> 15.6" FHD Laptop<br /> with DDR5 RAM</p>
-                        <p class="text-[#DC275C] text-[16px] font-[jost] font-[700] my-[10px]"><a>1,50,000 TK</a></p>
-
-                    </div>
-                </div>
-                <!-- </section> -->
-                <!-- <section> -->
-                <div class="p-[10px]">
-
-                    <div class="h-[2px] bg-[#764A8733]"></div>
-                </div>
-                <div class="flex gap-[15px] leading-[20.23px]">
-                    <div class="w-[72px]">
-                        <img class="object-center " src="/storage/product/large-size-laptop.jpg" alt="Product">
-                    </div>
-                    <div>
-                        <p class="text-[#000000] text-[14px] font-[jost] font-[400]">Lenovo IdeaPad 1 15AMN7<br />
-                            AMD Ryzen 5 512GB SSD <br /> 15.6" FHD Laptop<br /> with DDR5 RAM</p>
-                        <p class="text-[#DC275C] text-[16px] font-[jost] font-[700] my-[10px]"><a>1,50,000 TK</a></p>
-
-                    </div>
-                </div>
-
-            </div>
-            <!-- ------------------2nd--part------------- -->
-            <div class="p-[10px] border-[2px] border-[#380D37] rounded-[3px] w-[301px] mt-[20px]">
+            @endif
+            <!-- ------------------2nd--part (Recent View)------------- -->
+            {{-- <div class="p-[10px] border-[2px] border-[#380D37] rounded-[3px] w-[301px] mt-[20px]">
                 <div class="p-[10px]">
                     <h1 class="text-[#380D37] text-[20px] font-[jost] font-[500] flex justify-center">Recently
                         Viewed</h1>
@@ -977,7 +982,7 @@
 
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
     <script>

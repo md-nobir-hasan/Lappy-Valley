@@ -152,6 +152,7 @@ Route::post('/subscribe', [FrontendController::class, 'subscribe'])->name('subsc
 // Product Review
 Route::resource('/review', ProductReviewController::class);
 Route::post('product/{slug}/review', [ProductReviewController::class, 'store'])->name('review.store');
+Route::post('review-status/change',[ProductReviewController::class,'reviewStatusChange'])->name('review_status.change');
 
 // Post Comment
 Route::post('post/{slug}/comment', [PostCommentController::class, 'store'])->name('post-comment.store');
@@ -305,7 +306,7 @@ Route::get('/plus',[AjaxController::class,'plus'])->name('plus');
 Route::get('/minus',[AjaxController::class, 'minus'])->name('minus');
 Route::get('/delete',[AjaxController::class, 'delete'])->name('delete');
 Route::get('/add-to-cart',[AjaxController::class,'addToCart'])->name('add_to_cart');
-Route::get('/product-review',[AjaxController::class, 'productReview'])->name('product_review');
+Route::post('/product-review',[AjaxController::class, 'productReview'])->name('product_review');
 
 Route::middleware('auth')->group(function(){
     Route::post('/cart-sotre',[AjaxController::class,'cartStore'])->name('cart.store');

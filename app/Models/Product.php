@@ -116,5 +116,7 @@ class Product extends Model
         return $this->belongsTo(SpecialFeature::class);
     }
 
-
+    public function img(){
+        return explode(',', $this->photo);
+    }
 }

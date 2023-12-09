@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Cart;
 use App\Models\Product;
 use App\Models\ProductReview;
+use App\Models\ProductReviewImag;
 use App\Models\Wishlist;
 use Exception;
 use Hamcrest\Type\IsBoolean;
@@ -117,65 +118,64 @@ class AjaxController extends Controller
     public function shopSorting(Request $req)
     {
 
-        if($srt =$req->sorting){
-           switch($srt){
-            case 'sbp': //short by popularity
-                $product = Product::whereBetween('price', [$req->minPrice, $req->maxPrice])->orderBy('views', 'desc')->get();
-                break;
-            case 'sbar': //sort by average rating
-                $product = Product::whereBetween('price', [$req->minPrice, $req->maxPrice])->orderBy('average_rating', 'desc')->get();
-                break;
-            case 'sbl': //sort by latest
-                $product = Product::whereBetween('price', [$req->minPrice, $req->maxPrice])->latest()->get();
-                break;
-            case 'lth': //low to high price
-                $product = Product::whereBetween('price', [$req->minPrice, $req->maxPrice])->orderBy('final_price', 'asc')->get();
-                break;
-            case 'htl':// high to low price
-                $product = Product::whereBetween('price', [$req->minPrice, $req->maxPrice])->orderBy('final_price', 'desc')->get();
-                break;
-           }
-        }else{
-            $product = Product::whereBetween('price',[$req->minPrice,$req->maxPrice])->get();
+        if ($srt = $req->sorting) {
+            switch ($srt) {
+                case 'sbp': //short by popularity
+                    $product = Product::whereBetween('price', [$req->minPrice, $req->maxPrice])->orderBy('views', 'desc')->get();
+                    break;
+                case 'sbar': //sort by average rating
+                    $product = Product::whereBetween('price', [$req->minPrice, $req->maxPrice])->orderBy('average_rating', 'desc')->get();
+                    break;
+                case 'sbl': //sort by latest
+                    $product = Product::whereBetween('price', [$req->minPrice, $req->maxPrice])->latest()->get();
+                    break;
+                case 'lth': //low to high price
+                    $product = Product::whereBetween('price', [$req->minPrice, $req->maxPrice])->orderBy('final_price', 'asc')->get();
+                    break;
+                case 'htl': // high to low price
+                    $product = Product::whereBetween('price', [$req->minPrice, $req->maxPrice])->orderBy('final_price', 'desc')->get();
+                    break;
+            }
+        } else {
+            $product = Product::whereBetween('price', [$req->minPrice, $req->maxPrice])->get();
         }
 
-         if($req->in_stock){
-            $product = $product->where('stock','>',0);
-
+        if ($req->in_stock) {
+            $product = $product->where('stock', '>', 0);
         }
 
-        if($req->upcomming){
-            $product = $product->where('upcomming','!=',null);
+        if ($req->upcomming) {
+            $product = $product->where('upcomming', '!=', null);
         }
 
-        if($req->brands){
+        if ($req->brands) {
             $product = $product->whereIn('brand_id', $req->brands);
         }
-        if($req->d_sizes){
+        if ($req->d_sizes) {
             $product = $product->whereIn('display_size_id', $req->d_sizes);
         }
-        if($req->d_types){
+        if ($req->d_types) {
             $product = $product->whereIn('display_type_id', $req->d_types);
         }
-        if($req->graphics){
+        if ($req->graphics) {
             $product = $product->whereIn('graphic_id', $req->graphics);
         }
-        if($req->hdds){
+        if ($req->hdds) {
             $product = $product->whereIn('hdd_id', $req->hdds);
         }
-        if($req->pgenerations){
+        if ($req->pgenerations) {
             $product = $product->whereIn('processor_generation_id', $req->pgenerations);
         }
-        if($req->pmodels){
+        if ($req->pmodels) {
             $product = $product->whereIn('processor_model_id', $req->pmodels);
         }
-        if($req->rams){
+        if ($req->rams) {
             $product = $product->whereIn('ram_id', $req->rams);
         }
-        if($req->s_features){
+        if ($req->s_features) {
             $product = $product->whereIn('special_feature', $req->s_features);
         }
-        if($req->ssds){
+        if ($req->ssds) {
             $product = $product->whereIn('ssd_id', $req->ssds);
         }
         $n['product'] = $product;
@@ -183,18 +183,35 @@ class AjaxController extends Controller
         return response()->json($n);
     }
 
-    public function productReview(Request $req){
-        $data = $req->all();
-        $data['user_id'] = auth()->user() ? auth()->user()->id : $req->ip();
-        $data['rate'] = (collect($req->review_stars))->max();
+    public function productReview(Request $req)
+    {
+        $data['f_name'] = $req->f_name;
+        $data['l_name'] = $req->l_name;
         $data['review'] = $req->msg;
-        return response()->json($req->file('img'));
-        $data['img'] = $req->file('img')->store('review','public');
-       $review =  ProductReview::create($data);
-       if($review){
-           return 1;
-       }else{
-           return 0;
-       }
+        $data['product_id'] = $req->product_id;
+        if(auth()->user()){
+            $data['user_id'] = auth()->user()->id;
+        }else{
+            $data['ip'] = $req->ip();
+        }
+        
+        $data['rate'] = (collect($req->review_stars))->max();
+        $save = ProductReview::create($data);
+        if ($save) {
+            if ($req->file('imgs')) {
+                // dd($req->file('imgs')->store('review', 'public'));
+                foreach ($req->file('imgs') as $img) {
+                    $path =  $img->store('review', 'public');
+                    ProductReviewImag::create([
+                        'img' => $path,
+                        'product_review_id' => $save->id,
+                    ]);
+                }
+            }
+            // $n['reviews'] = ProductReview::where('product_id', $req->product_id)->where('status', 'active')->orderBy('id', 'desc')->get();
+            return true;
+        } else {
+            return false;
+        }
     }
 }

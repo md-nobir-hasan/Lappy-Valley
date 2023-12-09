@@ -8,6 +8,7 @@ use Notification;
 use App\Notifications\StatusNotification;
 use App\User;
 use App\Models\ProductReview;
+
 class ProductReviewController extends Controller
 {
     public function __construct()
@@ -23,9 +24,9 @@ class ProductReviewController extends Controller
     {
         $this->ccan('Show Review');
 
-        $reviews=ProductReview::getAllReview();
+        $reviews = ProductReview::latest()->paginate(10);
 
-        return view('backend.review.index')->with('reviews',$reviews);
+        return view('backend.review.index')->with('reviews', $reviews);
     }
 
     /**
@@ -35,7 +36,6 @@ class ProductReviewController extends Controller
      */
     public function create()
     {
-
     }
 
     /**
@@ -48,31 +48,30 @@ class ProductReviewController extends Controller
     {
         $this->ccan('Create Review');
 
-        $this->validate($request,[
-            'rate'=>'required|numeric|min:1'
+        $this->validate($request, [
+            'rate' => 'required|numeric|min:1'
         ]);
-        $product_info=Product::getProductBySlug($request->slug);
+        $product_info = Product::getProductBySlug($request->slug);
         //  return $product_info;
         // return $request->all();
-        $data=$request->all();
-        $data['product_id']=$product_info->id;
-        $data['user_id']=$request->user()->id;
-        $data['status']='active';
+        $data = $request->all();
+        $data['product_id'] = $product_info->id;
+        $data['user_id'] = $request->user()->id;
+        $data['status'] = 'active';
         // dd($data);
-        $status=ProductReview::create($data);
+        $status = ProductReview::create($data);
 
-        $user=User::where('role','admin')->get();
-        $details=[
-            'title'=>'New Product Rating!',
-            'actionURL'=>route('product-detail',$product_info->slug),
-            'fas'=>'fa-star'
+        $user = User::where('role', 'admin')->get();
+        $details = [
+            'title' => 'New Product Rating!',
+            'actionURL' => route('product-detail', $product_info->slug),
+            'fas' => 'fa-star'
         ];
-        Notification::send($user,new StatusNotification($details));
-        if($status){
-            request()->session()->flash('success','Thank you for your feedback');
-        }
-        else{
-            request()->session()->flash('error','Something went wrong! Please try again!!');
+        Notification::send($user, new StatusNotification($details));
+        if ($status) {
+            request()->session()->flash('success', 'Thank you for your feedback');
+        } else {
+            request()->session()->flash('error', 'Something went wrong! Please try again!!');
         }
         return redirect()->back();
     }
@@ -85,7 +84,8 @@ class ProductReviewController extends Controller
      */
     public function show($id)
     {
-        //
+        $n['review'] = ProductReview::with('images', 'product')->find($id);
+        return view('backend.review.show', $n);
     }
 
     /**
@@ -98,9 +98,9 @@ class ProductReviewController extends Controller
     {
         $this->ccan('Edit Review');
 
-        $review=ProductReview::find($id);
+        $review = ProductReview::find($id);
         // return $review;
-        return view('backend.review.edit')->with('review',$review);
+        return view('backend.review.edit')->with('review', $review);
     }
 
     /**
@@ -114,13 +114,13 @@ class ProductReviewController extends Controller
     {
         $this->ccan('Edit Review');
 
-        $review=ProductReview::find($id);
-        if($review){
+        $review = ProductReview::find($id);
+        if ($review) {
             // $product_info=Product::getProductBySlug($request->slug);
             //  return $product_info;
             // return $request->all();
-            $data=$request->all();
-            $status=$review->fill($data)->update();
+            $data = $request->all();
+            $status = $review->fill($data)->update();
 
             // $user=User::where('role','admin')->get();
             // return $user;
@@ -130,15 +130,13 @@ class ProductReviewController extends Controller
             //     'fas'=>'fa-star'
             // ];
             // Notification::send($user,new StatusNotification($details));
-            if($status){
-                request()->session()->flash('success','Review Successfully updated');
+            if ($status) {
+                request()->session()->flash('success', 'Review Successfully updated');
+            } else {
+                request()->session()->flash('error', 'Something went wrong! Please try again!!');
             }
-            else{
-                request()->session()->flash('error','Something went wrong! Please try again!!');
-            }
-        }
-        else{
-            request()->session()->flash('error','Review not found!!');
+        } else {
+            request()->session()->flash('error', 'Review not found!!');
         }
 
         return redirect()->route('review.index');
@@ -152,14 +150,30 @@ class ProductReviewController extends Controller
      */
     public function destroy($id)
     {
-        $review=ProductReview::find($id);
-        $status=$review->delete();
-        if($status){
-            request()->session()->flash('success','Successfully deleted review');
-        }
-        else{
-            request()->session()->flash('error','Something went wrong! Try again');
+        $review = ProductReview::find($id);
+        $status = $review->delete();
+        if ($status) {
+            request()->session()->flash('success', 'Successfully deleted review');
+        } else {
+            request()->session()->flash('error', 'Something went wrong! Try again');
         }
         return redirect()->route('review.index');
+    }
+
+    public function reviewStatusChange(Request $req)
+    {
+        $review = ProductReview::find($req->id);
+        if($review){
+            if ($review->status == 'active') {
+                $review->update(['status' => 'inactive']);
+                return 'inactive';
+            } else {
+                $review->update(['status' => 'active']);
+                return 'active';
+            }
+        }else{
+            return false;
+        }
+
     }
 }

@@ -44,7 +44,8 @@ class ProductDeatils extends Component
     public function render()
     {
 
-        $n['product_reviews'] = ProductReview::where('status', 'active')->get();
+        $n['product_reviews'] = ProductReview::with('images')->where('status', 'active')->get();
+        $n['related_products'] = Product::where('status', 'active')->where('cat_id', $this->product->cat_id)->get();
         return view('livewire.product-deatils',$n);
     }
 }
