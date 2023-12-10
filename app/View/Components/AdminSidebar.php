@@ -34,6 +34,7 @@ class AdminSidebar extends Component
                 ['access' => 'Show SSD','title' => 'SSD', 'route' => 'pa.ssd.index'],
                 ['access' => 'Show Graphic','title' => 'Graphic', 'route' => 'pa.graphic.index'],
                 ['access' => 'Show Special Feature','title' => 'Special Feature', 'route' => 'pa.special-feature.index'],
+                ['access' => 'Show Product Offer','title' => 'Offer', 'route' => 'pa.product-offers.index'],
             ]],
             ['title' => 'Products', 'route' => 'product.*', 'access'=>'Show Product', 'child' => [
                 ['title' => 'Products', 'route' => 'product.index', 'access' => 'Show Product',],
@@ -66,6 +67,10 @@ class AdminSidebar extends Component
             ['access' => 'Show Comment','title' => 'Comments', 'route' => 'comment.index', 'child' => []],
         ]],
         ['access' => ['Show Cupon', 'Show User', 'Setting'],'title' => ' General Settings', 'child' => [
+            ['access' => 'Show SEO', 'title' => 'SEO', 'route' => 'seo.*', 'child' => [
+                ['access' => 'Show Google Tag', 'title' => 'Google Tag', 'route' => 'seo.gtag.index'],
+                ['access' => 'Show Pixel', 'title' => 'Pixel', 'route' => 'seo.pixel.index'],
+            ]],
             ['access' => 'Show Cupon','title' => 'Coupon', 'route' => 'coupon.index', 'child' => []],
             // ['access' => 'Show Product','title' => 'Users', 'route' => 'users.index', 'child' => []],
             ['access' => 'Show User','title' => 'User Management', 'route' => 'auser.*', 'child' => [
@@ -73,6 +78,7 @@ class AdminSidebar extends Component
                 ['access' => 'Show Role','title' => 'Roles', 'route' => 'auser.role.index'],
                 ['access' => 'Show Permission','title' => 'Permissions', 'route' => 'auser.permission'],
             ]],
+
             ['access' => 'Setting','title' => 'Settings', 'route' => 'settings', 'child' => []],
         ]],
     ];

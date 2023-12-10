@@ -22,6 +22,7 @@ class ProductFactory extends Factory
         // $ds = [13,13.6,14,15.6,17,11.6];
         $upcomming = [null,null,SupportCarbon::today()->toDateString(),null];
         $is_featured = [true,false];
+        $prodct_offer = [null,1];
         return [
             'slug' => fake()->unique()->uuid(),
             'title' => $brand[rand(0,5)]." IdeaPad 15AMN7 AMD Ryzen 57520U ".fake()->word(1),
@@ -42,6 +43,7 @@ class ProductFactory extends Factory
             'special_feature' => 'Backlit Keyboard',
             'average_rating' => rand(1,5),
             'views' => rand(0,20),
+            'product_offer_id' => $prodct_offer[rand(0,1)],
             //processor Attributes
             'processor_model_id' => rand(1,15),
             'processor_generation_id' => rand(1,14),

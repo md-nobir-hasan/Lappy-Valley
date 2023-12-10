@@ -6,6 +6,7 @@ use App\Models\Graphic;
 use App\Models\hdd;
 use App\Models\ProcessorGeneration;
 use App\Models\ProcessorModel;
+use App\Models\ProductOffer;
 use App\Models\Ram;
 use App\Models\SpecialFeature;
 use App\Models\ssd;
@@ -52,7 +53,7 @@ class CreateProductsTable extends Migration
             $table->foreign('brand_id')->references('id')->on('brands')->onDelete('SET NULL');
             $table->foreign('cat_id')->references('id')->on('categories')->onDelete('SET NULL');
             $table->foreign('child_cat_id')->references('id')->on('categories')->onDelete('SET NULL');
-
+            $table->foreignIdFor(ProductOffer::class)->nullable()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             //Processore Attributes
             $table->foreignIdFor(ProcessorModel::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignIdFor(ProcessorGeneration::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();

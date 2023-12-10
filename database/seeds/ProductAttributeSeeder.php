@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -116,6 +117,11 @@ class ProductAttributeSeeder extends Seeder
             ['title' => 'Apple','slug'=>'aplle'],
         ];
         DB::table('brands')->insert($brand);
+
+        $product_offer = [
+            ['title' => 'Bkash Durga Puja Cashback Offer','des'=> 'Pay with Bkash and Enjoy 10% instant Cashback!','dis'=>10,'from'=>Carbon::now(),'to'=>Carbon::now()->addDays(7), 'type' => 'Online'],
+        ];
+        DB::table('product_offers')->insert($product_offer);
 
 
     }
