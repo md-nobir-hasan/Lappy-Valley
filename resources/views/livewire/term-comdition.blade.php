@@ -8,7 +8,7 @@
         <h2 class='text-[#380D37] text-[36px] max-sm:text-[30px] font-[jost] font-[700]'>Terms & Conditions</h2>
     </div>
 
-    <div class='text-left flex flex-col'>
+    <div class='text-left flex flex-col pl-[100px] pr-[100px] max-sm:pl-[0px] max-md:pl-[40px] max-lg:pl-[50px] max-xl:pl-[80px] max-sm:pr-[0px] max-md:pr-[20px] max-lg:pr-[30px] max-xl:pr-[80px]'>
         <div class='my-[0px]'>
             <h1 class='text-[16px] max-sm:text-[14px] text-[#353535] font-[jost] font-[400] tracking-[.6px]'> Dear Customer,</h1>
             <p class='text-[16px] max-sm:text-[14px] text-[#353535] font-[jost] font-[400] tracking-[.48px] my-[10px]'> The Return and

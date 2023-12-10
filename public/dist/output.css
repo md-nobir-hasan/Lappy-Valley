@@ -7580,6 +7580,26 @@ input[type="range"]:active::-webkit-slider-thumb{
     margin-top: 70px;
   }
 
+  .max-sm\:mt-\[\]{
+    margin-top: ;
+  }
+
+  .max-sm\:mb-\[\]{
+    margin-bottom: ;
+  }
+
+  .max-sm\:mb-\[30\]{
+    margin-bottom: 30;
+  }
+
+  .max-sm\:mb-\[100px\]{
+    margin-bottom: 100px;
+  }
+
+  .max-sm\:mt-\[100px\]{
+    margin-top: 100px;
+  }
+
   .max-sm\:block{
     display: block;
   }
@@ -7870,6 +7890,10 @@ input[type="range"]:active::-webkit-slider-thumb{
     font-size: 8px;
   }
 
+  .max-sm\:text-\[20px\]{
+    font-size: 20px;
+  }
+
   .max-sm\:leading-\[20px\]{
     line-height: 20px;
   }
@@ -7892,6 +7916,10 @@ input[type="range"]:active::-webkit-slider-thumb{
 
   .max-sm\:text-\[14p\]{
     color: 14p;
+  }
+
+  .max-sm\:text-\[\]{
+    color: ;
   }
 }
 
