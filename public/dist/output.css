@@ -1159,6 +1159,11 @@ input[type="range"]:active::-webkit-slider-thumb{
   margin-bottom: auto;
 }
 
+.my-\[0px\]{
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
 .-ml-\[1\.5rem\]{
   margin-left: -1.5rem;
 }
@@ -7589,6 +7594,22 @@ input[type="range"]:active::-webkit-slider-thumb{
 
   .max-sm\:mt-\[22px\]{
     margin-top: 22px;
+  }
+
+  .max-sm\:mt-\[70px\]{
+    margin-top: 70px;
+  }
+
+  .max-sm\:mt-\[20px\]{
+    margin-top: 20px;
+  }
+
+  .max-sm\:mt-\[16px\]{
+    margin-top: 16px;
+  }
+
+  .max-sm\:mb-\[20px\]{
+    margin-bottom: 20px;
   }
 
   .max-sm\:block{
