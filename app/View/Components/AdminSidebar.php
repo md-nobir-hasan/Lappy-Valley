@@ -68,7 +68,7 @@ class AdminSidebar extends Component
         ]],
         ['access' => ['Show Cupon', 'Show User', 'Setting'],'title' => ' General Settings', 'child' => [
             ['access' => 'Show SEO', 'title' => 'SEO', 'route' => 'seo.*', 'child' => [
-                ['access' => 'Show Google Tag', 'title' => 'Google Tag', 'route' => 'seo.gtag.index'],
+                ['access' => 'Show Google Tag', 'title' => 'Google', 'route' => 'seo.gtag.index'],
                 ['access' => 'Show Pixel', 'title' => 'Pixel', 'route' => 'seo.pixel.index'],
             ]],
             ['access' => 'Show Cupon','title' => 'Coupon', 'route' => 'coupon.index', 'child' => []],

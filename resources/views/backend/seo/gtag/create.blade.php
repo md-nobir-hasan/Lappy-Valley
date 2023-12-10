@@ -1,19 +1,26 @@
 @extends('backend.layouts.master')
 @push('title')
-    Add RAM
+    Add Google Tag
 @endpush
-{{-- @section('title', 'E-SHOP || RAM Create') --}}
 @section('main-content')
     <div class="card">
-        <h5 class="card-header">Add RAM</h5>
+        <h5 class="card-header">Add Google Tag</h5>
         <div class="card-body">
-            <form method="post" action="{{ route('pa.ram.store') }}">
+            <form method="post" action="{{ route('seo.gtag.store') }}">
                 {{ csrf_field() }}
                 <div class="form-group">
-                    <label for="inputTitle" class="col-form-label">Name <span class="text-danger">*</span></label>
-                    <input id="inputTitle" type="text" name="name" placeholder="Enter Name of RAM"
-                        value="{{ old('name') }}" class="form-control">
-                    @error('name')
+                    <label for="header" class="col-form-label">Header Tag <span class="text-danger">*</span></label>
+                    <input id="header" type="text" name="header" placeholder="Enter header tag"
+                        value="{{ old('header') }}" class="form-control">
+                    @error('header')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label for="footer" class="col-form-label">Footer Tag <span class="text-danger">*</span></label>
+                    <input id="footer" type="text" name="footer" placeholder="Enter footer tag"
+                        value="{{ old('footer') }}" class="form-control">
+                    @error('footer')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>

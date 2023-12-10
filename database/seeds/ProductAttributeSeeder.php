@@ -118,8 +118,9 @@ class ProductAttributeSeeder extends Seeder
         ];
         DB::table('brands')->insert($brand);
 
+        $from = Carbon::now();
         $product_offer = [
-            ['title' => 'Bkash Durga Puja Cashback Offer','des'=> 'Pay with Bkash and Enjoy 10% instant Cashback!','dis'=>10,'from'=>Carbon::now(),'to'=>Carbon::now()->addDays(7), 'type' => 'Online'],
+            ['title' => 'Bkash Durga Puja Cashback Offer','des'=> 'Pay with Bkash and Enjoy 10% instant Cashback!','dis'=>10,'from'=> $from,'to'=> $from->addDays(7), 'type' => 'Online'],
         ];
         DB::table('product_offers')->insert($product_offer);
 

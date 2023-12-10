@@ -1,6 +1,6 @@
 @extends('backend.layouts.master')
 @push('title')
-    RAM
+    Pixel
 @endpush
 @section('main-content')
     <!-- DataTales Example -->
@@ -11,10 +11,10 @@
             </div>
         </div>
         <div class="py-3 card-header">
-            <h6 class="float-left m-0 font-weight-bold text-primary">RAM List</h6>
-            @can('Create RAM')
-                <a href="{{ route('pa.ram.create') }}" class="float-right btn btn-primary btn-sm" data-toggle="tooltip"
-                    data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add RAM</a>
+            <h6 class="float-left m-0 font-weight-bold text-primary">Pixel List</h6>
+            @can('Create Pixel')
+                <a href="{{ route('seo.pixel.create') }}" class="float-right btn btn-primary btn-sm" data-toggle="tooltip"
+                    data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add Pixel</a>
             @endcan
         </div>
         <div class="card-body">
@@ -24,8 +24,10 @@
                         <thead>
                             <tr>
                                 <th>S.N.</th>
-                                <th>Title</th>
-                                @canany(['Edit RAM', 'Delete RAM'])
+                                <th>Header Tag</th>
+                                <th>Footer Tag</th>
+                                <th>Status</th>
+                                @canany(['Edit Pixel', 'Delete Pixel'])
                                     <th>Action</th>
                                 @endcanany
                             </tr>
@@ -33,8 +35,10 @@
                         <tfoot>
                             <tr>
                                 <th>S.N.</th>
-                                <th>Title</th>
-                                @canany(['Edit RAM', 'Delete RAM'])
+                                <th>Header Tag</th>
+                                <th>Footer Tag</th>
+                                <th>Status</th>
+                                @canany(['Edit Pixel', 'Delete Pixel'])
                                     <th>Action</th>
                                 @endcanany
                             </tr>
@@ -43,16 +47,24 @@
                             @foreach ($mdata as $datum)
                                 <tr>
                                     <td>{{ $datum->id }}</td>
-                                    <td>{{ $datum->name }}</td>
+                                    <td>{{ $datum->header }}</td>
+                                    <td>{{ $datum->footer }}</td>
                                     <td>
-                                        @can('Edit RAM')
-                                            <a href="{{ route('pa.ram.edit', $datum->id) }}"
+                                        @if ($datum->status)
+                                            <span class="badge badge-success">Active</span>
+                                        @else
+                                            <span class="badge badge-warning">Inactive</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @can('Edit Pixel')
+                                            <a href="{{ route('seo.pixel.edit', $datum->id) }}"
                                                 class="float-left mr-1 btn btn-primary btn-sm"
                                                 style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip"
                                                 title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
                                         @endcan
-                                        @can('Delete RAM')
-                                            <form method="POST" action="{{ route('pa.ram.destroy', [$datum->id]) }}">
+                                        @can('Delete Pixel')
+                                            <form method="POST" action="{{ route('seo.pixel.destroy', [$datum->id]) }}">
                                                 @csrf
                                                 @method('delete')
                                                 <button class="btn btn-danger btn-sm dltBtn" data-id={{ $datum->id }}
