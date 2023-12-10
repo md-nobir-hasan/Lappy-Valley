@@ -103,6 +103,18 @@ class RolePermissionSeeder extends Seeder
             ['name' => 'Edit Permission','guard_name'=>'web'],
             ['name' => 'Delete Permission','guard_name'=>'web'],
 
+            //Google Tag
+            ['name' => 'Show Google Tag','guard_name'=>'web'],
+            ['name' => 'Create Google Tag','guard_name'=>'web'],
+            ['name' => 'Edit Google Tag','guard_name'=>'web'],
+            ['name' => 'Delete Google Tag','guard_name'=>'web'],
+
+            //Pixel
+            ['name' => 'Show Pixel','guard_name'=>'web'],
+            ['name' => 'Create Pixel','guard_name'=>'web'],
+            ['name' => 'Edit Pixel','guard_name'=>'web'],
+            ['name' => 'Delete Pixel','guard_name'=>'web'],
+
             //Product
             ['name' => 'Show Product','guard_name'=>'web'],
             ['name' => 'Create Product','guard_name'=>'web'],
@@ -164,11 +176,20 @@ class RolePermissionSeeder extends Seeder
             ['name' => 'Edit Special Feature', 'guard_name' => 'web'],
             ['name' => 'Delete Special Feature', 'guard_name' => 'web'],
 
-            //Gangam1
+            //Product Offer
+            ['name' => 'Show Product Offer', 'guard_name' => 'web'],
+            ['name' => 'Create Product Offer', 'guard_name' => 'web'],
+            ['name' => 'Edit Product Offer', 'guard_name' => 'web'],
+            ['name' => 'Delete Product Offer', 'guard_name' => 'web'],
+
+            //Ami single
             ['name' => 'Dashboard', 'guard_name' => 'web'],
             ['name' => 'Media Manager', 'guard_name' => 'web'],
             ['name' => 'Setting', 'guard_name' => 'web'],
             ['name' => 'Product Attributes', 'guard_name' => 'web'],
+
+            //Ami O single
+            ['name' => 'Show SEO', 'guard_name' => 'web'],
         ];
         $epermissions = [
             //Banner

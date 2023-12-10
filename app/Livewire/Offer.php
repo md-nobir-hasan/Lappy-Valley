@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Product;
 use Livewire\Component;
 use Livewire\Attributes\Title;
 
@@ -11,6 +12,7 @@ class Offer extends Component
 {
     public function render()
     {
-        return view('livewire.offer');
+        $n['offers'] = Product::with('ProductOffer')->where('product_offer_id','!=',null)->where('status','active')->paginate(12);
+        return view('livewire.offer',$n);
     }
 }
