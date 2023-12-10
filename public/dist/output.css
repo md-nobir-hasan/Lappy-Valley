@@ -2379,6 +2379,11 @@ input[type="range"]:active::-webkit-slider-thumb{
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.translate-y-\[20px\]{
+  --tw-translate-y: 20px;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
 .rotate-180{
   --tw-rotate: 180deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -2821,6 +2826,10 @@ input[type="range"]:active::-webkit-slider-thumb{
 
 .gap-\[80px\]{
   gap: 80px;
+}
+
+.gap-\[40px\]{
+  gap: 40px;
 }
 
 .space-x-2 > :not([hidden]) ~ :not([hidden]){
@@ -4063,6 +4072,10 @@ input[type="range"]:active::-webkit-slider-thumb{
 
 .pt-\[6px\]{
   padding-top: 6px;
+}
+
+.pt-\[40px\]{
+  padding-top: 40px;
 }
 
 .text-left{
@@ -7158,6 +7171,10 @@ input[type="range"]:active::-webkit-slider-thumb{
 
   .max-lg\:block{
     display: block;
+  }
+
+  .max-lg\:hidden{
+    display: none;
   }
 
   .max-lg\:h-\[18px\]{
