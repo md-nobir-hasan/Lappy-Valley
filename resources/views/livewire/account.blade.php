@@ -1,22 +1,20 @@
-<div>
-    <div class='container mx-auto'>
-        <div class='flex justify-between'>
+<div class="container mx-auto max-sm:mt-[70px] max-xl:mt-[100px]">
+    <div class='flex justify-between'>
+        <div>
             <h1 class='font-[jost] text-[16px] font-[400] leading-[25.3px] text-[#353535]'>Search / Account</h1>
-            <div class='flex gap-[5px] items-center'><img src="/storage/product/vector-1.svg" alt="Product"
-                    class='w-[16px] h-[14px]'>
-                <form action="{{route('logout')}}" method="POST">
-                    @csrf
-                    <button class='text-[16px] text-[#380D37] font-[jost] font-[400] leading-[23.12px]'>Log
-                        Out</button>
-                </form>
-            </div>
         </div>
-        <div class='h-[2px] bg-[#764A8733]'></div>
+        <div class='flex gap-[5px] items-center'><img src="/storage/product/vector-1.svg" alt="Product"
+                class='w-[16px] h-[14px]'>
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button class='text-[16px] text-[#380D37] font-[jost] font-[400] leading-[23.12px]'>Log
+                    Out</button>
+            </form>
+        </div>
     </div>
-
-
-    <div class="flex justify-center items-center flex-col">
-        <div class="grid grid-cols-4 ml-12">
+    <div class='h-[2px] bg-[#764A8733]'></div>
+    <div class="w-[800px] max-lg:w-[750px] max-md:w-[550px] max-sm:w-[340px] mx-auto">
+        <div class="flex">
             <div class='mt-[50px] mb-[30px] flex justify-center items-center gap-[5px]'>
                 <div>
                     <svg xmlns="http://www.w3.org/2000/svg" width="74" height="74" viewBox="0 0 74 74"
@@ -29,17 +27,17 @@
                             stroke="black" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                 </div>
-                <div>
+                <div class="leading-[18px]">
                     <p class='text-[#000] text-[12px] font-[Inter] font-[400]'>Hello,</p>
-                    <h1 class='text-[#000] text-[20px] font-[Inter] font-[500]'>Username Here</h1>
+                    <h1 class='text-[#000] text-[20px] max-sm:text-[18px] font-[Inter] font-[500]'>Username Here</h1>
                 </div>
-
+    
             </div>
         </div>
-
-        <div class="grid grid-cols-4 gap-[10px]">
+        <div class="grid grid-row-2 grid-cols-4 max-md:grid-cols-3 max-sm:grid-cols-2 gap-[10px]">
             {{-- -----------------cart-1------------------------ --> --}}
-            <div class='bg-[#f2f2f2] w-[182px] h-[118px] rounded-[4px] text-center py-[26px]'>
+            <div
+                class='bg-[#f2f2f2] w-[182px] h-[118px] max-sm:w-[150px] max-sm:h-[114px] rounded-[4px] text-center py-[26px]'>
                 <div class='items-center'>
                     <div class='flex justify-center items-center'>
                         <svg xmlns="http://www.w3.org/2000/svg" class='items-center' width="34" height="34"
@@ -70,9 +68,10 @@
                     <p class='text-[#380D37] text-[16px] font-[jost] font-[500] items-center'>Orders</p>
                 </div>
             </div>
-
+    
             <!-- -----------------cart-2------------------------ -->
-            <div class='bg-[#f2f2f2] w-[182px] h-[118px] rounded-[4px] text-center py-[26px]'>
+            <div
+                class='bg-[#f2f2f2] w-[182px] h-[118px] max-sm:w-[150px] max-sm:h-[114px] rounded-[4px] text-center py-[26px]'>
                 <div class='items-center'>
                     <div class='flex justify-center items-center'>
                         <svg xmlns="http://www.w3.org/2000/svg" class='items-center' width="34" height="34"
@@ -96,9 +95,10 @@
                     <p class='text-[#380D37] text-[16px] font-[jost] font-[500] items-center'>Edit Profile</p>
                 </div>
             </div>
-
+    
             <!-- -----------------cart-3------------------------ -->
-            <div class='bg-[#f2f2f2] w-[182px] h-[118px] rounded-[4px] text-center py-[26px]'>
+            <div
+                class='bg-[#f2f2f2] w-[182px] h-[118px] max-sm:w-[150px] max-sm:h-[114px] rounded-[4px] text-center py-[26px]'>
                 <div class='items-center'>
                     <div class='flex justify-center items-center'>
                         <svg xmlns="http://www.w3.org/2000/svg" class='items-center' width="34" height="34"
@@ -122,9 +122,10 @@
                     <p class='text-[#380D37] text-[16px] font-[jost] font-[500] items-center'>Change Password</p>
                 </div>
             </div>
-
+    
             <!-- -----------------cart-4------------------------ -->
-            <div class='bg-[#f2f2f2] w-[182px] h-[118px] rounded-[4px] text-center py-[26px]'>
+            <div
+                class='bg-[#f2f2f2] w-[182px] h-[118px] max-sm:w-[150px] max-sm:h-[114px] rounded-[4px] text-center py-[26px]'>
                 <div class='items-center'>
                     <div class='flex justify-center items-center'>
                         <svg xmlns="http://www.w3.org/2000/svg" class='items-center' width="34" height="34"
@@ -145,14 +146,9 @@
                     <p class='text-[#380D37] text-[16px] font-[jost] font-[500] items-center'>Address</p>
                 </div>
             </div>
-        </div>
-
-
-        <!-- -----------------------group-2------------------ -->
-
-        <div class='mt-[20px] grid grid-cols-4 gap-[10px]'>
-            <!-- -----------------cart-1------------------------ -->
-            <div class='bg-[#f2f2f2] w-[182px] h-[118px] rounded-[4px] text-center py-[26px]'>
+            <!-- -----------------cart-5------------------------ -->
+            <div
+                class='bg-[#f2f2f2] w-[182px] h-[118px] max-sm:w-[150px] max-sm:h-[114px] rounded-[4px] text-center py-[26px]'>
                 <div class='items-center'>
                     <div class='flex justify-center items-center'>
                         <svg xmlns="http://www.w3.org/2000/svg" class='items-center' width="34" height="34"
@@ -166,8 +162,7 @@
                             <g clip-path="url(#clip0_1033_2009)">
                                 <path
                                     d="M12 21.3432L2.53719 12.7718C-2.60567 7.62895 4.95433 -2.24533 12 5.74324C19.0458 -2.24533 26.5715 7.66324 21.4629 12.7718L12 21.3432Z"
-                                    stroke="#F2F2F2" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" />
+                                    stroke="#F2F2F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                             </g>
                             <defs>
                                 <clipPath id="clip0_1033_2009">
@@ -181,11 +176,8 @@
                     <p class='text-[#380D37] text-[16px] font-[jost] font-[500] items-center'>Wishlist</p>
                 </div>
             </div>
-
-
-
         </div>
     </div>
-    <div class='h-[2px] bg-[#764A8733] my-[100px]'></div>
+    <div class='h-[2px] bg-[#764A8733] my-[100px] max-sm:mt-[45px] max-sm:mb-[50px]'></div>
 
 </div>
