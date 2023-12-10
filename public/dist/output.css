@@ -4220,6 +4220,10 @@ input[type="range"]:active::-webkit-slider-thumb{
   line-height: 1rem;
 }
 
+.text-\[50px\]{
+  font-size: 50px;
+}
+
 .font-\[400\]{
   font-weight: 400;
 }
@@ -6849,6 +6853,18 @@ input[type="range"]:active::-webkit-slider-thumb{
   color: rgb(156 163 175 / var(--tw-text-opacity));
 }
 
+@media not all and (min-width: 1536px){
+  .max-2xl\:translate-x-\[-62px\]{
+    --tw-translate-x: -62px;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+
+  .max-2xl\:translate-y-\[-47px\]{
+    --tw-translate-y: -47px;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+}
+
 @media not all and (min-width: 1280px){
   .max-xl\:fixed{
     position: fixed;
@@ -6916,6 +6932,16 @@ input[type="range"]:active::-webkit-slider-thumb{
 
   .max-xl\:w-\[200px\]{
     width: 200px;
+  }
+
+  .max-xl\:translate-y-\[-47px\]{
+    --tw-translate-y: -47px;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+
+  .max-xl\:translate-x-\[-62px\]{
+    --tw-translate-x: -62px;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }
 
   .max-xl\:grid-cols-2{
@@ -7113,6 +7139,16 @@ input[type="range"]:active::-webkit-slider-thumb{
     width: 65px;
   }
 
+  .max-lg\:translate-y-\[-47px\]{
+    --tw-translate-y: -47px;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+
+  .max-lg\:translate-x-\[-62px\]{
+    --tw-translate-x: -62px;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+
   .max-lg\:grid-cols-2{
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -7236,6 +7272,10 @@ input[type="range"]:active::-webkit-slider-thumb{
 }
 
 @media not all and (min-width: 768px){
+  .max-md\:col-span-2{
+    grid-column: span 2 / span 2;
+  }
+
   .max-md\:my-\[22px\]{
     margin-top: 22px;
     margin-bottom: 22px;
@@ -7268,6 +7308,10 @@ input[type="range"]:active::-webkit-slider-thumb{
 
   .max-md\:mt-\[80px\]{
     margin-top: 80px;
+  }
+
+  .max-md\:mt-\[20px\]{
+    margin-top: 20px;
   }
 
   .max-md\:h-\[15px\]{
@@ -7328,6 +7372,21 @@ input[type="range"]:active::-webkit-slider-thumb{
 
   .max-md\:w-\[50px\]{
     width: 50px;
+  }
+
+  .max-md\:translate-y-\[-47px\]{
+    --tw-translate-y: -47px;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+
+  .max-md\:translate-x-\[-4px\]{
+    --tw-translate-x: -4px;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+
+  .max-md\:translate-x-\[-62px\]{
+    --tw-translate-x: -62px;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }
 
   .max-md\:grid-cols-1{
@@ -7440,6 +7499,10 @@ input[type="range"]:active::-webkit-slider-thumb{
     font-size: 8px;
   }
 
+  .max-md\:text-\[34px\]{
+    font-size: 34px;
+  }
+
   .max-md\:leading-\[12px\]{
     line-height: 12px;
   }
@@ -7452,8 +7515,16 @@ input[type="range"]:active::-webkit-slider-thumb{
     line-height: 35px;
   }
 
+  .max-md\:leading-\[54px\]{
+    line-height: 54px;
+  }
+
   .max-md\:text-\[\]{
     color: ;
+  }
+
+  .max-md\:text-\[px\]{
+    color: px;
   }
 }
 
