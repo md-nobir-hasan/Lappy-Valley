@@ -19,16 +19,19 @@ use App\Http\Controllers\CouponController;
 use App\Http\Controllers\DisplaySizeController;
 use App\Http\Controllers\DisplayTypeController;
 use App\Http\Controllers\GraphicController;
+use App\Http\Controllers\GtagController;
 use App\Http\Controllers\hddController;
 use App\Http\Controllers\PayPalController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PixelController;
 use App\Http\Controllers\PostCategoryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostTagController;
 use App\Http\Controllers\ProcessorGenerationController;
 use App\Http\Controllers\ProcessorModelController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductOfferController;
 use App\Http\Controllers\RamController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ShippingController;
@@ -50,7 +53,6 @@ use App\Livewire\Login;
 use App\Livewire\PrivacyPolicy;
 use App\Livewire\ProductDeatils;
 use App\Livewire\RefundServicePolicy;
-use App\Livewire\Search;
 use App\Livewire\Shop;
 use App\Livewire\Signup;
 use App\Livewire\TermComdition;
@@ -182,6 +184,12 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'admin']], function
         Route::resource('role', RoleController::class);
         Route::get('permission',[RoleController::class,'permission'])->name('permission');
     });
+
+    // SEO Management
+    Route::prefix('/seo')->name('seo.')->group(function(){
+        Route::resource('gtag', GtagController::class);
+        Route::resource('pixel', PixelController::class);
+    });
     // Banner
     Route::resource('banner', BannerController::class);
     // Brand
@@ -202,6 +210,7 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'admin']], function
         Route::resource('/ssd',ssdController::class);
         Route::resource('/graphic',GraphicController::class);
         Route::resource('/special-feature',SpecialFeatureController::class);
+        Route::resource('/product-offers',ProductOfferController::class);
     });
     // Product
     Route::resource('/product', ProductController::class)->middleware(['can:Show Product']);
