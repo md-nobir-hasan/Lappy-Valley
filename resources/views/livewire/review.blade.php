@@ -1,97 +1,45 @@
-<div class="container mx-auto">
-  <style>
-.custom-btn {
-  color: #fff;
-  width: 130px;
-  height: 40px;
-  padding: 10px 25px;
-  /* font-family: 'Lato', sans-serif; */
-  font-weight: 500;
-  /* background: transparent; */
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  display: inline-block;
-  /* background:linear-gradient(#380D37,#DC275C); */
-}
-.btn-7 {
- /* background: #8ce437; */
-  line-height: 40px;
-  padding: 0;
-  border: none;
-  box-shadow: 0 0 5px #8ce437;
-}
-.btn-7 span {
-  position: relative;
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-.btn-7:hover{
-  background: #380D37;
-}
-.btn-7:before,
-.btn-7:after {
-  position: absolute;
-  content: "";
-  height: 0%;
-  width: 2px;
-  background: #8ce437;
- box-shadow: 0px 0px 5px #8ce437;
-}
-.btn-7:before {
-  right: 0;
-  top: 0;
-  transition: all 1000ms ease;
-}
-.btn-7:after {
-  left: 0;
-  bottom: 0;
-  transition: all 1000ms ease;
-}
-.btn-7:hover:before {
-  transition: all 1000ms ease;
-  height: 100%;
-  background:linear-gradient(#380D37,#DC275C);
-}
-.btn-7:hover:after {
-  transition: all 1000ms ease;
-  height: 100%;
-  background:linear-gradient(#380D37,#DC275C);
-}
-.btn-7 span:before,
-.btn-7 span:after {
-  position: absolute;
-  content: "";
-  background: #8ce437;
-  box-shadow: 0 0 5px #8ce437;
-}
-.btn-7 span:before {
-  left: 0;
-  top: 0;
-  width: 0%;
-  height: 2px;
-  transition: all 1000ms ease;
-}
-.btn-7 span:after {
-  right: 0;
-  bottom: 0;
-  width: 0%;
-  height: 2px;
-  transition: all 1000ms ease;
-}
-.btn-7 span:hover:before {
-  width: 100%;
-  /* background:linear-gradient(#380D37,#DC275C); */
-}
-.btn-7 span:hover:after {
-  width: 100%;
-  /* background:linear-gradient(#380D37,#DC275C); */
-}
-  </style>
-     <button
-     class="custom-btn btn-7 selection:text-[#F2F2F2] relative text-[17px] h-[44px] w-[11px] rounded-[4px] font-[500] font-[jost] mt-[15px] pt-[5px] pr-[30px] pl-[30px] pb-[5px] bg-gradient-to-r from-[#380D37] to-[#DC275C] "
-     type="submit">
-     <span>Post</span></button>
-
+<div>
+    <style>
+      .image-container {
+        position: relative;
+        width: 500px; /* Adjust the width as needed */
+        height: 500px; /* Adjust the height as needed */
+        overflow: hidden;
+      }
+      .image-container:hover .hover-image {
+      transform:scale(10.2); /* Adjust the values as needed */
+      overflow: hidden;
+    }
+  
+      .hover-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: transform 0.3s ease-in-out;
+      }
+    </style>
+  <div class="image-container" id="imageContainer">
+    <img src="/storage/product/large-size-laptop.jpg" alt="Your Image" class=" hover:scale-100 hover-image" id="hoverImage">
+  </div>
+  
+  <script>
+    const imageContainer = document.getElementById('imageContainer');
+    const hoverImage = document.getElementById('hoverImage');
+  
+    imageContainer.addEventListener('mousemove', (e) => {
+      const { offsetX, offsetY } = e;
+      const { width, height } = imageContainer.getBoundingClientRect();
+      const xPercentage = (offsetX / width - 0.2) * 2; // Normalize to -1 to 1
+      const yPercentage = (offsetY / height - 0.2) * 2; // Normalize to -1 to 1
+  
+      const moveX = -xPercentage * 40; // Adjust the multiplier as needed
+      const moveY = -yPercentage * 40; // Adjust the multiplier as needed
+  
+      hoverImage.style.transform = `translate(${moveX}px, ${moveY}px)`;
+    });
+  
+    imageContainer.addEventListener('mouseleave', () => {
+      hoverImage.style.transform = 'scale';
+    });
+  </script>
 </div>

@@ -1,4 +1,4 @@
-<div>
+<div class="px-[100px]">
     <style>
         ::selection {
             color: #fff;
@@ -98,14 +98,14 @@
         }
     </style>
     <script src="/library/pagination/pagination.min.js"></script>
-    <div class='container mx-auto'>
+    <div class=''>
         <h1 class='font-[jost] text-[16px] font-[400] leading-[23.12px] tracking-[3%] text-[#353535]'>All Categories/
             Pre-Owned</h1>
         <div class='h-[1px] bg-[#764A8733]'></div>
     </div>
 
     <!-- Sidenav -->
-    <div class="container mx-auto mt-4">
+    <div class="mt-4">
         <div class="flex gap-8" x-data="{
             products: $wire.prds,
             minPrice: 0,

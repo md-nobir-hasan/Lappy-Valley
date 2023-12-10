@@ -65,12 +65,12 @@
                     // dd($photo);
                 @endphp
             @endif
-            <div class="[background:lightgray 50% / cover no-repeat] flex justify-center items-center mb-auto">
+            <div class="[background:lightgray 50% / cover no-repeat] flex justify-center items-center mb-auto data-role='imagemagnifier' data-magnifier-mode='glass'">
                 <img class="object-center" src="{{ $photo }}" alt="{{ $product->title }}">
             </div>
 
 
-            <div class="flex items-center justify-center mt-auto">
+            <div class="flex items-center justify-center mt-auto data-role='imagemagnifier' data-magnifier-mode='glass'">
                 @foreach ($photos as $pto)
                     <div class="w-[52px] border-b-[2px] border-t-[2px] border-r-[2px] border-[rgba(53_53_53_0.30)]">
                         <img class="object-center" src="{{ $pto }}" alt="{{ $product->title }}">
