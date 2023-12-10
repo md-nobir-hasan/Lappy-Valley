@@ -7156,6 +7156,10 @@ input[type="range"]:active::-webkit-slider-thumb{
     margin-left: 0px;
   }
 
+  .max-lg\:block{
+    display: block;
+  }
+
   .max-lg\:h-\[18px\]{
     height: 18px;
   }
@@ -8152,6 +8156,10 @@ input[type="range"]:active::-webkit-slider-thumb{
 }
 
 @media (min-width: 1280px){
+  .xl\:flex{
+    display: flex;
+  }
+
   .xl\:hidden{
     display: none;
   }
