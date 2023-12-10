@@ -2,15 +2,23 @@
     @csrf --}}
 <!-- ----------cart----- -->
 <div id="side_cart" x-data="{ total: '{{ $carts?->sum('amount') }}' }"
-    class="hidden w-[400px] h-[792px] gap-20 bg-[#F2F2F2] right-0 top-0 fixed z-[9999] overflow-y-scroll">
+    class="hidden w-[400px] bg-[#F2F2F2] right-0 top-0 fixed z-[9999] overflow-y-scroll">
     {{-- cart header (cart icon and close button) --}}
     <div class="w-[400px] h-[61px] bg-[#380D37] flex justify-between text-[20px] text-[#fff] items-center px-[20px]">
-        <img class='h-[50px]' src="/storage/product/Cart.svg" alt="">
-        <h2 id="side_cart_close" class='font-[jost] cursor-pointer font-[500] text-[20px] text-[#F2F2F2]'>Close</h2>
+        <div class="flex items-center gap-[5px]">
+            <img class='h-[24.84px] w-[25.6px]' src="/storage/product/cart(2).svg" alt="">
+            <span class='font-[jost] cursor-pointer font-[500] text-[20px] text-[#F2F2F2]'>
+                Cart
+            </span>
+        </div>
+        <div>
+            <h2 id="side_cart_close" class='font-[jost] cursor-pointer font-[500] text-[20px] text-[#F2F2F2]'>Close</h2>
+        </div>
     </div>
 
     {{-- Cart body (cart's products ) --}}
-    <div class='w-[364px] mx-auto px-[5px]' id="side_cart_body">
+   <div class="mt-auto px-[10px] flex flex-col gap-[50px]">
+    <div class='w-full' id="side_cart_body">
         @if ($carts)
             @foreach ($carts as $cart)
                 <div x-data="{
@@ -63,7 +71,7 @@
                         });
                     },
                     removeProd() {
-
+                
                         $.ajax({
                             url: '{{ route('delete') }}',
                             method: 'get',
@@ -97,8 +105,7 @@
                                 // dd($photo);
                             @endphp
                         @endif
-                        <img class="w-[80px] h-[px]" src="{{ $photo }}"
-                            alt="{{ $cart->product->title }}">
+                        <img class="w-[80px] h-[px]" src="{{ $photo }}" alt="{{ $cart->product->title }}">
                     </div>
 
                     <div>
@@ -119,7 +126,7 @@
                                 class='text-[#380D37] h-[19.231px] pr-[5px] flex items-center cursor-pointer text-center'>+</span>
                         </div>
 
-                        <div>
+                        <div class="flex text-left">
                             <p class='text-[#353535] text-[14px] font-[jost] font-[400] text-left'>
                                 <span x-text="qty"></span> x <span class='text-[16px] font-[500] text-[#DC275C]'
                                     x-text="mFormat(Number(price))"></span>
@@ -145,7 +152,7 @@
     </div>
 
     {{-- cart footer  --}}
-    <div class='items-center mx-auto w-[364px] translate-y-[360px]'>
+    <div class='items-center mx-auto w-full'>
         <div class=' mx-auto h-[1px] px-[20px] bg-[#353535]'></div>
         <div class='my-[30px]'>
             <ul class='flex justify-between mx-[5px]'>
@@ -155,23 +162,24 @@
                 </li>
             </ul>
         </div>
-        <div class='items-center flex justify-center w-[364px] my-[30px]'>
+        <div class='items-center flex justify-center w-full my-[30px]'>
             <a href="{{ route('vcart') }}" wire:navigate>
                 <button type="button"
-                    class='w-[364px]  border-[1px] border-[#380D37] rounded-[4px] px-[50px] py-[10px] text-[#380D37] text-[20px] font-[jost] font-[700]'>View
+                    class='w-[364px]  border-[1px] border-[#380D37] rounded-[4px] py-[10px] text-[#380D37] text-[20px] font-[jost] font-[700]'>View
                     Cart
                 </button>
             </a>
         </div>
-        <div class='items-center flex justify-center w-[ 364px] my-[30px]'>
-            <a href="{{ route('checkout') }}" wire:navigate>
+        <div class='items-center flex justify-center w-full mt-[30px]'>
+            <a href="{{ route('checkout') }}" wire:navigate class="w-full"> 
                 <button
-                    class='w-[364px] rounded-[4px] items-center px-[50px] py-[10px] text-[#F2F2F2] bg-gradient-to-r from-[#380D37] to-[#DC275C] text-[20px] font-[jost] font-[700] mb-[54px]'>
+                    class='w-full rounded-[4px] items-center py-[10px] text-[#F2F2F2] bg-gradient-to-r from-[#380D37] to-[#DC275C] text-[20px] font-[jost] font-[700]'>
                     Checkout
                 </button>
             </a>
         </div>
     </div>
+   </div>
 </div>
 <!-- -----------------cart----end---- -->
 {{-- </form> --}}
