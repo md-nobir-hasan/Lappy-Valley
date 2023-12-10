@@ -144,10 +144,10 @@
     <section class='mt-[50px] max-xl:mt-[100px]'>
         <div class="py-1 text-center">
             <h2
-                class="font-[jost] text-[40px] font-[500] max-lg:text-[30px] max-md:text-[25px] max-sm:text-[22px] text-[#353535]">
+                class="font-[jost] text-[40px] font-[500] max-lg:text-[30px] max-md:text-[25px] max-sm:text-[24px] text-[#353535]">
                 Featurds Laptops </h2>
             <p
-                class="font-[jost] text-[16px] font-[500] max-lg:text-[14px] max-md:text-[12px] max-sm:text-[10px] text-[#380D37]">
+                class="font-[jost] text-[16px] font-[500] max-lg:text-[14px] max-md:text-[12px] max-sm:text-[12px] text-[#380D37]">
                 The best we offer is here</p>
         </div>
         <div class="pt-[60px]">
@@ -179,36 +179,49 @@
         </div>
 
         <!-- banner  -->
-        <div class="grid grid-cols-3 mt-6 mb-5 max-sm:mt-[.5rem]">
+        <div class="grid grid-cols-3 max-sm:grid-cols-1 mt-6 mb-5 max-sm:mt-[.5rem]">
             <div class="">
                 <div
                     class=" pt-[22px] max-sm:pt-[5px] max-md:pt-[10px] max-lg:pt-[12px] max-xl:pt-[15px] font-[jost] font-[500] 
-                text-[52px] max-sm:text-[14px] max-md:text-[24px] max-lg:text-[32px] max-xl:text-[38px]  text-[#DC275C] ">
+                text-[52px] max-sm:text-[24px] max-md:text-[24px] max-lg:text-[32px] max-xl:text-[38px]  text-[#DC275C] ">
                     <p
-                        class="leading-[75.14px] max-sm:leading-[20px] max-md:leading-[35px] max-lg:leading-[42px] max-xl:leading-[50px]">
+                        class="max-sm:text-center leading-[75.14px] max-sm:leading-[30px] max-md:leading-[35px] max-lg:leading-[42px] max-xl:leading-[50px]">
                         Our newest</br>products are</br>here,just for you!</p>
                 </div>
                 <div class='text-center'>
                     <style>
-                        .btn-12 {
-                            color: #000;
-
+                        btn-12 {
+                            /* color: #000; */
                             position: relative;
                             right: 20px;
-                            bottom: 20px;
+                            top: 20px;
                             border: none;
-                            width: 130px;
-                            height: 40px;
-                            line-height: 40px;
+                            width: 116px;
+                            height: 44px;
+                            line-height: 23.12px;
                             -webkit-perspective: 230px;
                             perspective: 230px;
                         }
 
+                        @media (max-width: 640px) {
+                            .btn-12{
+                                width:100px;
+                                height: 36px;
+                            }
+                            .btn-12 span {
+                                width: 100px;
+                                height: 36px;
+                            }
+                        
+                        }
+
                         .btn-12 span {
-                            display: block;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
                             position: absolute;
-                            width: 130px;
-                            height: 40px;
+                            width: 116px;
+                            height: 44px;
                             /* border: 1px solid #0bf4f3; */
                             /* box-shadow: 0 0 5px #0bf4f3, 0 0 5px #0bf4f3 inset; */
                             border-radius: 4px;
@@ -221,6 +234,7 @@
                             transition: all .7s;
                             background: linear-gradient(to right, #380D37, #DC275C);
                             color: #fff;
+                            font-family: jost;
                         }
 
                         .btn-12 span:nth-child(1) {
@@ -263,9 +277,9 @@
                         }
                     </style>
                     <button
-                        class="custom-btn btn-12 mt-[60px] max-sm:mt-[8px] max-md:mt-[14px] max-lg:mt-[10px] max-xl:mt-[10px] py-2 max-sm:py-[3px] px-6 max-sm:px-[10px] max-md:px-[16px] max-lg:px-[20px] max-xl:px-[24px] font-[jost] font-[500] 
-                        text-[16px] max-sm:text-[8px] max-md:text-[14px] max-lg:text-[16px] max-xl:text-[16px] text-[#F2F2F2] rounded-[4px]">
-                        <span>Click!</span><span>Visit Now</span></button>
+                        class="btn-12 text-center mt-[60px] py-2 font-[jost] font-[500] max-sm:translate-x-[-4px] max-sm:translate-y-[-47px]
+                        text-[16px]  text-[#F2F2F2] rounded-[4px]">
+                        <span class="font-[jost] font-[500]">Click!</span><span class="font-[jost] font-[500]">Visit Now</span></button>
                 </div>
             </div>
 
@@ -290,10 +304,10 @@
     <section>
         <div class="py-1 text-center">
             <h2
-                class="font-[jost] text-[40px] font-[500] max-lg:text-[30px] max-md:text-[25px] max-sm:text-[22px] text-[#353535]">
+                class="font-[jost] text-[40px] font-[500] max-lg:text-[30px] max-md:text-[25px] max-sm:text-[24px] text-[#353535]">
                 Featurds Laptops</h2>
             <p
-                class="font-[jost] text-[16px] font-[500] max-lg:text-[14px] max-md:text-[12px] max-sm:text-[10px] text-[#380D37]">
+                class="font-[jost] text-[16px] font-[500] max-lg:text-[14px] max-md:text-[12px] max-sm:text-[12px] text-[#380D37]">
                 The best we offer is here</p>
         </div>
         <div class="pt-[60px] max-sm:pt-[25px] max-md:pt-[30px] max-lg:pt-[40px] max-xl:pt-[50px]">
@@ -604,13 +618,13 @@
         <div class="container h-[2px] bg-[#380D37]"></div>
     </div>
     <!-- Differential Variants  -->
-    <section class='mt-[70px]'>
+    <section class='mt-[70px] max-sm:mt-[22px]'>
         <div class="py-1 text-center">
             <h2
-                class="font-[jost] text-[40px] font-[500] max-lg:text-[30px] max-md:text-[25px] max-sm:text-[22px] text-[#353535]">
+                class="font-[jost] text-[40px] font-[500] max-lg:text-[30px] max-md:text-[25px] max-sm:text-[24px] text-[#353535]">
                 Differential Variants </h2>
             <p
-                class="font-[jost] text-[16px] font-[500] max-lg:text-[14px] max-md:text-[12px] max-sm:text-[10px] text-[#380D37]">
+                class="font-[jost] text-[16px] font-[500] max-lg:text-[14px] max-md:text-[12px] max-sm:text-[12px] text-[#380D37]">
                 The best we offer is here</p>
         </div>
         <div class="pt-[60px]">
@@ -740,7 +754,7 @@
     <section class="#about-us">
         <div>
             <h2
-                class="mt-8 font-[jost] font-[500] text-center text-[40px] max-lg:text-[30px] max-md:text-[25px] max-sm:text-[22px] text-[#353535]">
+                class="mt-8 font-[jost] font-[500] text-center text-[40px] max-lg:text-[30px] max-md:text-[25px] max-sm:text-[24px] text-[#353535]">
                 Why Choose Us?</h2>
         </div>
         <div
@@ -835,7 +849,7 @@
     <!-- What our client says  -->
     <section class="mt-16 max-xl:mt-4">
         <h2
-            class="mb-12 max-lg:mb-4 font-[jost] font-[500] text-center text-[42px] max-lg:text-[30px] max-md:text-[25px] max-sm:text-[22px] text-[#353535]">
+            class="mb-12 max-lg:mb-4 font-[jost] font-[500] text-center text-[42px] max-lg:text-[30px] max-md:text-[25px] max-sm:text-[24px] text-[#353535]">
             What Our Clients Say About
             Us</h2>
         <div class="container mx-auto">
