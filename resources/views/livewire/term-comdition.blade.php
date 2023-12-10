@@ -12,7 +12,10 @@
         <div class='my-[0px]'>
             <h1 class='text-[16px] max-sm:text-[14px] text-[#353535] font-[jost] font-[400] tracking-[.6px]'> Dear Customer,</h1>
             <p class='text-[16px] max-sm:text-[14px] text-[#353535] font-[jost] font-[400] tracking-[.48px] my-[10px]'> The Return and
-                Refund policy of Lappy Valley are given below –</br>ল্যাপী ভ্যালি এর রিটার্ন ও রিফান্ড পলিসি নিম্নরূপ –
+                Refund policy of Lappy Valley are given below –
+            </p>
+            <p class='text-[16px] max-sm:text-[14px] text-[#353535] font-[jost] font-[400] tracking-[.48px] my-[10px]'>
+               ল্যাপী ভ্যালি এর রিটার্ন ও রিফান্ড পলিসি নিম্নরূপ –
             </p>
         </div>
 
@@ -124,7 +127,7 @@
                 Items sent back to us without first requesting a return will not be accepted.
             </p>
             <p class='text-[16px] max-sm:text-[14px] text-[#353535] font-[jost] font-[400] tracking-[.48px] my-[10px]'>You can always
-                contact us for any return question at info@lappyvalley.com
+                contact us for any return question at <span class="transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">info@lappyvalley.com</span>
             </p>
         </div>
     </div>

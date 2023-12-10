@@ -4784,6 +4784,11 @@ input[type="range"]:active::-webkit-slider-thumb{
           text-decoration-color: #ef4a23;
 }
 
+.decoration-\[\#9029b8\]{
+  -webkit-text-decoration-color: #9029b8;
+          text-decoration-color: #9029b8;
+}
+
 .decoration-2{
   text-decoration-thickness: 2px;
 }
@@ -5482,6 +5487,11 @@ input[type="range"]:active::-webkit-slider-thumb{
 .hover\:text-white:hover{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.hover\:text-\[\#9029b8\]:hover{
+  --tw-text-opacity: 1;
+  color: rgb(144 41 184 / var(--tw-text-opacity));
 }
 
 .hover\:underline:hover{
