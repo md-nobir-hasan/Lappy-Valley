@@ -6,7 +6,7 @@
      </div>
      <!-- -------------check-out--section----------- -->
      <div>
-         <h1 class="text-[20px] text-[#353535] font-[jost] font-[500] mt-16 mb-4 mx-auto ">Checkout</h1>
+         <h1 class="text-[20px] text-[#353535] font-[jost] font-[500] mt-16 max-md:mt-8 mb-4 mx-auto ">Checkout</h1>
      </div>
 
      <section class="grid grid-cols-3 max-xl:grid-cols-1">
