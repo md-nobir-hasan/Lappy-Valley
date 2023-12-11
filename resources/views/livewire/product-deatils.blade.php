@@ -177,8 +177,8 @@
         </div>
     </div>
     <!-- -----table--section---start----- -->
-    <div class="grid grid-cols-3 gap-10">
-        <div class="col-span-2">
+    <div class="grid grid-cols-4 max-lg:grid-cols-1 max-lg:gap-0 gap-6">
+        <div class="col-span-3">
             <section class="border-[2px] border-[#380D37] p-[20px] rounded-[5px] leading-[50px]" id="specification">
                 <div class="text-[#353535] text-[20px] font-[jost] font-[500]">
                     <h2>Specification</h2>
@@ -912,7 +912,7 @@
                 @endforeach
             </section>
         </div>
-        <div> 
+        <div class="max-lg:mt-[15px]"> 
             @if ($related_products)
                 <div class=" p-[10px] border-[2px] border-[#380D37] rounded-[3px]">
 

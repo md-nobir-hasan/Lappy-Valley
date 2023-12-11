@@ -1029,6 +1029,10 @@ input[type="range"]:active::-webkit-slider-thumb{
   grid-column: span 2 / span 2;
 }
 
+.col-span-3{
+  grid-column: span 3 / span 3;
+}
+
 .float-right{
   float: right;
 }
@@ -2842,6 +2846,10 @@ input[type="range"]:active::-webkit-slider-thumb{
 
 .gap-\[80px\]{
   gap: 80px;
+}
+
+.gap-5{
+  gap: 1.25rem;
 }
 
 .space-x-2 > :not([hidden]) ~ :not([hidden]){
@@ -7098,6 +7106,14 @@ input[type="range"]:active::-webkit-slider-thumb{
     margin-top: 70px;
   }
 
+  .max-lg\:mt-\[\]{
+    margin-top: ;
+  }
+
+  .max-lg\:mt-\[15px\]{
+    margin-top: 15px;
+  }
+
   .max-lg\:block{
     display: block;
   }
@@ -7210,6 +7226,10 @@ input[type="range"]:active::-webkit-slider-thumb{
 
   .max-lg\:justify-center{
     justify-content: center;
+  }
+
+  .max-lg\:gap-0{
+    gap: 0px;
   }
 
   .max-lg\:rounded-\[4px\]{
