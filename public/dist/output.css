@@ -7586,6 +7586,11 @@ input[type="range"]:active::-webkit-slider-thumb{
     padding-right: 35px;
   }
 
+  .max-md\:px-\[3\]{
+    padding-left: 3;
+    padding-right: 3;
+  }
+
   .max-md\:pl-\[0px\]{
     padding-left: 0px;
   }
