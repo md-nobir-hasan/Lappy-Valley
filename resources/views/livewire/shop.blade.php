@@ -1,4 +1,4 @@
-<div class="px-[100px]">
+<div class="px-[100px] max-sm:px-[25px] max-md:px-[35px] max-lg:px-[45px] mx-auto max-sm:mt-[70px] max-xl:mt-[100px]">
     <style>
         ::selection {
             color: #fff;

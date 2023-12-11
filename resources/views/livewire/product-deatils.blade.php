@@ -44,7 +44,7 @@
         }
     </script>
 </x-slot>
-<div class="container mx-auto">
+<div class="px-[100px] max-sm:px-[25px] max-md:px-[35px] max-lg:px-[45px] mx-auto max-sm:mt-[70px] max-xl:mt-[100px]">
     {{-- @dd($product) --}}
     <div class=>
         <h1 class='font-[jost] text-[20px] font-[400] leading-[25.3px] text-[#353535]'>
@@ -65,16 +65,18 @@
                     // dd($photo);
                 @endphp
             @endif
-            <div class="flex items-center justify-center transition duration-50 ease-in-out hover:scale-125 overflow-hidden h-[100vh]" id="imageContainer">
+          <div class="overflow-hidden w-[400px] mx-auto">
+            <div class="flex items-center w-[432px] justify-center transition duration-50 ease-in-out hover:scale-125 overflow-hidden" id="imageContainer">
                 <img id="hoverImage"
-                    class="object-center  top-0 left-0 transition duration-50 ease-in-out hover:scale-125 overflow-hidden"
+                    class="object-center w-[432] transition duration-50 ease-in-out hover:scale-125 overflow-hidden"
                     src="{{ $photo }}" alt="{{ $product->title }}">
             </div>
+          </div>
 
 
             <div class="flex items-center justify-center mt-auto">
                 @foreach ($photos as $pto)
-                    <div class="w-[52px] border-b-[2px] border-t-[2px] border-r-[2px] border-[rgba(53_53_53_0.30)] z-150">
+                    <div class="w-[52px] border-[2px] border-[rgba(53_53_53_0.30)]">
                         <img class="object-center" src="{{ $pto }}" alt="{{ $product->title }}">
                     </div>
                 @endforeach
@@ -91,11 +93,11 @@
                             width,
                             height
                         } = imageContainer.getBoundingClientRect();
-                        const xPercentage = (offsetX / width - 0.2) * 2; // Normalize to -1 to 1
-                        const yPercentage = (offsetY / height - 0.2) * 2; // Normalize to -1 to 1
+                        const xPercentage = (offsetX / width - 0.2) * 3; // Normalize to -1 to 1
+                        const yPercentage = (offsetY / height - 0.2) * 3; // Normalize to -1 to 1
 
-                        const moveX = -xPercentage * 30; // Adjust the multiplier as needed
-                        const moveY = -yPercentage * 30; // Adjust the multiplier as needed
+                        const moveX = -xPercentage * 40; // Adjust the multiplier as needed
+                        const moveY = -yPercentage * 40; // Adjust the multiplier as needed
 
                         hoverImage.style.transform = `translate(${moveX}px, ${moveY}px)`;
                     });
@@ -175,8 +177,8 @@
         </div>
     </div>
     <!-- -----table--section---start----- -->
-    <div class="flex justify-between gap-[30px] ">
-        <div>
+    <div class="grid grid-cols-3 gap-10">
+        <div class="col-span-2">
             <section class="border-[2px] border-[#380D37] p-[20px] rounded-[5px] leading-[50px]" id="specification">
                 <div class="text-[#353535] text-[20px] font-[jost] font-[500]">
                     <h2>Specification</h2>
@@ -910,9 +912,9 @@
                 @endforeach
             </section>
         </div>
-        <div>
+        <div> 
             @if ($related_products)
-                <div class="p-[10px] border-[2px] border-[#380D37] rounded-[3px] w-[301px]">
+                <div class=" p-[10px] border-[2px] border-[#380D37] rounded-[3px]">
 
                     <div class="p-[10px]">
                         <h1 class="text-[#380D37] text-[20px] font-[jost] font-[500] flex justify-center">Related
