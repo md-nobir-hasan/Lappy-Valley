@@ -4,29 +4,29 @@
             <div class="">
                 <p class="text-[#F2F2F2] font-[jost] max-sm:text-center text-[40px] max-sm:text-[34px] max-md:text-[32px] max-lg:text-[34px] font-[500] text-left my-3">Address</p>
                 <ul class="text-[#F2F2F2] font-[jost] max-sm:text-center text-[16px] max-sm:text-[16px] max-md:text-[12px] max-lg:text-[14px] font-[500] leading-[23px] max-sm:leading-[28px] max-md:leading-[18px] max-lg:leading-[20px]  text-left">
-                    <li>
-                        <a href="#" class="hover:text-gray-300">Address: </a>
+                    <li class="hover:bg-blue-950">
+                        Address: 
                     </li>
-                    <li>
-                        <a href="#" class="hover:text-gray-300">Shop # 4A-009A, Block # A, Level #04,</a>
+                    <li class="hover:bg-blue-950">
+                        Shop # 4A-009A, Block # A, Level #04,
                     </li>
-                    <li class="mb-[15px]">
-                        <a href="#" class="hover:text-gray-300">Jamuna Future Park, Dhaka -1229</a>
+                    <li class="mb-[15px] hover:bg-blue-950">
+                        Jamuna Future Park, Dhaka -1229
                     </li>
-                    <li>
-                        <a href="#" class="hover:text-gray-300"> Shop # 607(5th Floor),</a>
+                    <li class="hover:bg-blue-950">
+                         Shop # 607(5th Floor),
                     </li>
-                    <li>
-                        <a href="#" class="hover:text-gray-300">Rajuk Commercial-Complex, </a>
+                    <li class="hover:bg-blue-950">
+                        Rajuk Commercial-Complex, 
                     </li>
-                    <li class="mb-[15px]">
-                        <a href="#" class="hover:text-gray-300">Azampur, Uttara, Dhaka-1230</a>
+                    <li class="mb-[15px] hover:bg-blue-950">
+                        Azampur, Uttara, Dhaka-1230
                     </li>
-                    <li>
-                        <a href="#" class="hover:text-gray-300">Trade license : 202984t</a>
+                    <li class="hover:bg-blue-950">
+                        Trade license : 202984t
                     </li>
-                    <li>
-                        <a href="#" class="hover:text-gray-300">Bin Number : 0049818790102</a>
+                    <li class="hover:bg-blue-950">
+                        Bin Number : 0049818790102
                     </li>
                 </ul>
             </div>
@@ -47,15 +47,33 @@
                 <p class="text-[#F2F2F2] font-[jost] max-sm:text-center text-[40px] max-sm:text-[34px] max-md:text-[32px] max-lg:text-[34px] font-[500] text-left my-3">
                     Contact</p>
                 <ul class="text-[#F2F2F2] font-[jost] max-sm:text-center text-[16px] max-sm:text-[16px] max-md:text-[12px] max-lg:text-[14px] font-[500] leading-[23px] max-sm:leading-[28px] max-md:leading-[18px] max-lg:leading-[20px]  text-left">
-                    <li class="mt-[15px]"><a href="#" class="hover:text-gray-300"> Phone:</a></li>
-                    <li><a href="#" class="hover:text-gray-300">+8801757773557, +8801712644209,</a></li>
-                    <li class="mb-[15px]"><a href="#" class="hover:text-gray-300">+8801736361123,
-                            +8801722288944</a>
+                    <li class="mt-[15px] hover:bg-blue-950">
+                        Phone
                     </li>
-                    <li><a href="#" class="hover:text-gray-300">Email:</a></li>
-                    <li class="mb-[15px]"><a href="#" class="hover:text-gray-300">info@lappyvalley.com</a></li>
-                    <li><a href="#" class="hover:text-gray-300">Trade license : 202984</a></li>
-                    <li><a href="#" class="hover:text-gray-300">Bin Number : 0049818790102</a></li>
+                    <li>
+                        <a href="tel:01757773557" class="hover:bg-blue-950">
+                            +8801757773557, +8801712644209,
+                        </a>
+                    </li>
+                    <li class="mb-[15px]">
+                        <a href="tel:01736361123" class="hover:bg-blue-950">
+                            +8801736361123,
+                        </a>
+                    </li>
+                    <li class="hover:bg-blue-950">
+                        Email:
+                    </li>
+                    <li class="mb-[15px]">
+                        <a href="mailto:info@lappyvalley.com" class="hover:bg-blue-950">
+                            info@lappyvalley.com
+                        </a>
+                    </li>
+                    <li class="hover:bg-blue-950">
+                        Trade license : 202984
+                    </li>
+                    <li class="hover:bg-blue-950">
+                        Bin Number : 0049818790102
+                    </li>
                 </ul>
 
                 <!-- -------social----------icon------------- -->

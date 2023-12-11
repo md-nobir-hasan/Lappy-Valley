@@ -1,4 +1,4 @@
- <div class="container mx-auto">
+ <div class="px-[100px] max-md:px-[45px] max-sm:px-[20px] mx-auto max-sm:mt-[70px] max-xl:mt-[100px]">
      <div class=>
          <h1 class='font-[jost] text-[16px] font-[400] leading-[25.3px] text-[#353535]'>Shopping Cart/ Checkout
          </h1>

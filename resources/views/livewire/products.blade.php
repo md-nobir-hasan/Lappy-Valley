@@ -38,9 +38,11 @@
                       </a>
                 </div>
                     <div>
+                       <a href="#">
                         <p class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 underline hover:underline-offset-4">
                             {{ $product->title }}
                         </p>
+                       </a>
                     </div>
                     <div class="flex justify-between text-[14px] mt-auto font-[jost] font-[700] py-[10px] leading-[20.23px]">
                         
