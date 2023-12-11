@@ -91,12 +91,10 @@
         <div class='my-[25px]'>
             <h1 class='text-[20px] text-[#000000] font-[Inter] font-[500] leading-[24.2px]'>Order History</h1>
         </div>
-        <div class="overflow-x-auto">
             <div class="overflow-x-auto">
                 <table class="w-full overflow-x-auto">
                     <thead>
                         <tr class=" py-[12px] bg-[#380D37] items-center">
-    
                             <td class=" py-3 px-6 text-[14px] text-[#FFFFFF] font-[jost] font-[500]">Date</td>
                             <td class=" py-3 px-6 text-[14px] text-[#FFFFFF] font-[jost] font-[500]">Product Name</td>
                             <td class="py-3 px-6 text-[14px] text-[#FFFFFF] font-[jost] font-[500]">Quantity</td>
@@ -119,7 +117,6 @@
                     </tbody>
                 </table>
             </div>
-        </div>
         <div class='h-[1px] bg-[#380D37]'></div>
         <div class='h-[2px] bg-[#764A8733] mt-[200px]'></div>
     </div>
