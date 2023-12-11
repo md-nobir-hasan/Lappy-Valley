@@ -87,11 +87,11 @@
     </div>
     <div class='h-[2px] bg-[#764A8733]'></div>
 
-    <div>
+    
         <div class='my-[25px]'>
             <h1 class='text-[20px] text-[#000000] font-[Inter] font-[500] leading-[24.2px]'>Order History</h1>
         </div>
-        <div class="overflow-auto">
+        <div class="overflow-x-auto">
             <div class="overflow-x-auto">
                 <table class="w-full overflow-x-auto">
                     <thead>
