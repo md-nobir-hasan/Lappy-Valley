@@ -2280,6 +2280,10 @@ input[type="range"]:active::-webkit-slider-thumb{
   max-width: 463px;
 }
 
+.max-w-\[344px\]{
+  max-width: 344px;
+}
+
 .flex-1{
   flex: 1 1 0%;
 }
@@ -6852,6 +6856,10 @@ input[type="range"]:active::-webkit-slider-thumb{
     width: 463px;
   }
 
+  .max-2xl\:w-\[344px\]{
+    width: 344px;
+  }
+
   .max-2xl\:translate-x-\[-70px\]{
     --tw-translate-x: -70px;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -7090,6 +7098,10 @@ input[type="range"]:active::-webkit-slider-thumb{
     display: block;
   }
 
+  .max-lg\:flex{
+    display: flex;
+  }
+
   .max-lg\:hidden{
     display: none;
   }
@@ -7174,6 +7186,14 @@ input[type="range"]:active::-webkit-slider-thumb{
     width: 750px;
   }
 
+  .max-lg\:w-full{
+    width: 100%;
+  }
+
+  .max-lg\:w-\[545px\]{
+    width: 545px;
+  }
+
   .max-lg\:translate-x-\[-62px\]{
     --tw-translate-x: -62px;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -7251,6 +7271,11 @@ input[type="range"]:active::-webkit-slider-thumb{
   .max-lg\:py-\[\]{
     padding-top: ;
     padding-bottom: ;
+  }
+
+  .max-lg\:px-\[40px\]{
+    padding-left: 40px;
+    padding-right: 40px;
   }
 
   .max-lg\:pl-\[0px\]{
@@ -7459,6 +7484,10 @@ input[type="range"]:active::-webkit-slider-thumb{
 
   .max-md\:w-\[80px\]{
     width: 80px;
+  }
+
+  .max-md\:w-full{
+    width: 100%;
   }
 
   .max-md\:translate-x-\[-62px\]{
@@ -7884,6 +7913,10 @@ input[type="range"]:active::-webkit-slider-thumb{
     padding: 20px;
   }
 
+  .max-sm\:p-\[30px\]{
+    padding: 30px;
+  }
+
   .max-sm\:px-\[0px\]{
     padding-left: 0px;
     padding-right: 0px;
@@ -7962,6 +7995,11 @@ input[type="range"]:active::-webkit-slider-thumb{
   .max-sm\:px-\[25px\]{
     padding-left: 25px;
     padding-right: 25px;
+  }
+
+  .max-sm\:px-\[30px\]{
+    padding-left: 30px;
+    padding-right: 30px;
   }
 
   .max-sm\:pb-\[0px\]{
@@ -8162,6 +8200,10 @@ input[type="range"]:active::-webkit-slider-thumb{
 }
 
 @media (min-width: 1024px){
+  .lg\:flex{
+    display: flex;
+  }
+
   .lg\:px-16{
     padding-left: 4rem;
     padding-right: 4rem;
