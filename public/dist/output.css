@@ -1452,6 +1452,18 @@ input[type="range"]:active::-webkit-slider-thumb{
   margin-top: auto;
 }
 
+.mt-\[0px\]{
+  margin-top: 0px;
+}
+
+.mt-\[32px\]{
+  margin-top: 32px;
+}
+
+.mt-\[35px\]{
+  margin-top: 35px;
+}
+
 .box-border{
   box-sizing: border-box;
 }
@@ -1826,6 +1838,10 @@ input[type="range"]:active::-webkit-slider-thumb{
 
 .h-screen{
   height: 100vh;
+}
+
+.h-\[268px\]{
+  height: 268px;
 }
 
 .max-h-20{
@@ -2206,6 +2222,22 @@ input[type="range"]:active::-webkit-slider-thumb{
 
 .w-screen{
   width: 100vw;
+}
+
+.w-\[\]{
+  width: ;
+}
+
+.w-\[374px\]{
+  width: 374px;
+}
+
+.w-\[370px\]{
+  width: 370px;
+}
+
+.w-\[769px\]{
+  width: 769px;
 }
 
 .min-w-0{
@@ -6961,6 +6993,10 @@ input[type="range"]:active::-webkit-slider-thumb{
 
   .max-xl\:grid-cols-4{
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .max-xl\:grid-cols-1{
+    grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 
   .max-xl\:items-center{
