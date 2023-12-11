@@ -4,7 +4,6 @@
 
 <x-slot name='script'>
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
-
     <script>
         // set the default active slide to the first one
         let slideIndex = 0;
@@ -182,7 +181,7 @@
         <div class="grid grid-cols-3 max-sm:grid-cols-1 max-md:grid-cols-1 mt-6 mb-5 max-sm:mt-[.5rem]">
             <div class="">
                 <div
-                    class="pt-[22px]  font-[jost] font-[500] 
+                    class="pt-[22px]  font-[jost] font-[500]
                 text-[50px] max-sm:text-[24px] max-md:text-[34px] max-lg:text-[32px] max-xl:text-[38px]  text-[#DC275C] ">
                     <p
                         class="max-sm:text-center max-md:text-center leading-[75.14px] max-sm:leading-[30px] max-md:leading-[54px] max-lg:leading-[42px] max-xl:leading-[50px]">
@@ -204,15 +203,16 @@
                         }
 
                         @media (max-width: 640px) {
-                            .btn-12{
-                                width:100px;
+                            .btn-12 {
+                                width: 100px;
                                 height: 36px;
                             }
+
                             .btn-12 span {
                                 width: 100px;
                                 height: 36px;
                             }
-                        
+
                         }
 
                         .btn-12 span {
@@ -279,7 +279,8 @@
                     <button
                         class="btn-12 text-center mt-[60px] py-2 font-[jost] font-[500] max-sm:translate-x-[-4px] max-sm:translate-y-[-47px] max-md:translate-x-[-62px] max-md:translate-y-[-47px] max-lg:translate-x-[-62px] max-lg:translate-y-[-47px] max-xl:translate-x-[-62px] max-xl:translate-y-[-47px] max-2xl:translate-x-[-62px] max-2xl:translate-y-[-47px]
                         text-[16px]  text-[#F2F2F2] rounded-[4px]">
-                        <span class="font-[jost] font-[500]">Click!</span><span class="font-[jost] font-[500]">Visit Now</span></button>
+                        <span class="font-[jost] font-[500]">Click!</span><span class="font-[jost] font-[500]">Visit
+                            Now</span></button>
                 </div>
             </div>
 
@@ -324,12 +325,12 @@
             <div class="container h-[2px] bg-[#380D37]"></div>
         </div>
         <div>
-            <div class="swiper-container overflow-hidden  mx-auto mySwiper relative">
+            <div class="relative mx-auto overflow-hidden swiper-container mySwiper">
                 <div class="swiper-wrapper gap-[5px] py-[20px]">
                     <div class="swiper-slide">
                         <div
                             class=" w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div class="product_div relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
+                            <div class="relative max-w-xs overflow-hidden bg-no-repeat bg-cover product_div"
                                 data-te-ripple-init data-te-ripple-color="light">
                                 <a href=""><img src="/storage/product/large-size-laptop.jpg" alt="Product"></a>
                                 <a href="#!">
@@ -354,7 +355,7 @@
                     <div class="swiper-slide">
                         <div
                             class=" w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div class="product_div relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
+                            <div class="relative max-w-xs overflow-hidden bg-no-repeat bg-cover product_div"
                                 data-te-ripple-init data-te-ripple-color="light">
                                 <a href=""><img src="/storage/product/large-size-laptop.jpg" alt="Product"></a>
                                 <a href="#!">
@@ -379,7 +380,7 @@
                     <div class="swiper-slide">
                         <div
                             class="w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div class="product_div relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
+                            <div class="relative max-w-xs overflow-hidden bg-no-repeat bg-cover product_div"
                                 data-te-ripple-init data-te-ripple-color="light">
                                 <a href=""><img src="/storage/product/large-size-laptop.jpg"
                                         alt="Product"></a>
@@ -405,7 +406,7 @@
                     <div class="swiper-slide">
                         <div
                             class="w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div class="product_div relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
+                            <div class="relative max-w-xs overflow-hidden bg-no-repeat bg-cover product_div"
                                 data-te-ripple-init data-te-ripple-color="light">
                                 <a href=""><img src="/storage/product/large-size-laptop.jpg"
                                         alt="Product"></a>
@@ -431,7 +432,7 @@
                     <div class="swiper-slide">
                         <div
                             class="w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div class="product_div relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
+                            <div class="relative max-w-xs overflow-hidden bg-no-repeat bg-cover product_div"
                                 data-te-ripple-init data-te-ripple-color="light">
                                 <a href=""><img src="/storage/product/large-size-laptop.jpg"
                                         alt="Product"></a>
@@ -457,7 +458,7 @@
                     <div class="swiper-slide">
                         <div
                             class="w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div class="product_div relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
+                            <div class="relative max-w-xs overflow-hidden bg-no-repeat bg-cover product_div"
                                 data-te-ripple-init data-te-ripple-color="light">
                                 <a href=""><img src="/storage/product/large-size-laptop.jpg"
                                         alt="Product"></a>
@@ -483,7 +484,7 @@
                     <div class="swiper-slide">
                         <div
                             class="w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div class="product_div relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
+                            <div class="relative max-w-xs overflow-hidden bg-no-repeat bg-cover product_div"
                                 data-te-ripple-init data-te-ripple-color="light">
                                 <a href=""><img src="/storage/product/large-size-laptop.jpg"
                                         alt="Product"></a>
@@ -509,7 +510,7 @@
                     <div class="swiper-slide">
                         <div
                             class="w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div class="product_div relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
+                            <div class="relative max-w-xs overflow-hidden bg-no-repeat bg-cover product_div"
                                 data-te-ripple-init data-te-ripple-color="light">
                                 <a href=""><img src="/storage/product/large-size-laptop.jpg"
                                         alt="Product"></a>
@@ -535,7 +536,7 @@
                     <div class="swiper-slide">
                         <div
                             class="w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div class="product_div relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
+                            <div class="relative max-w-xs overflow-hidden bg-no-repeat bg-cover product_div"
                                 data-te-ripple-init data-te-ripple-color="light">
                                 <a href=""><img src="/storage/product/large-size-laptop.jpg"
                                         alt="Product"></a>
@@ -654,98 +655,111 @@
     <div>
         <style>
             .custom-btn {
-              color: #fff;
-              width: 130px;
-              height: 40px;
-              padding: 10px 25px;
-              /* font-family: 'Lato', sans-serif; */
-              font-weight: 500;
-              /* background: transparent; */
-              cursor: pointer;
-              transition: all 0.3s ease;
-              position: relative;
-              display: inline-block;
-              /* background:linear-gradient(#380D37,#DC275C); */
+                color: #fff;
+                width: 130px;
+                height: 40px;
+                padding: 10px 25px;
+                /* font-family: 'Lato', sans-serif; */
+                font-weight: 500;
+                /* background: transparent; */
+                cursor: pointer;
+                transition: all 0.3s ease;
+                position: relative;
+                display: inline-block;
+                /* background:linear-gradient(#380D37,#DC275C); */
             }
+
             .btn-7 {
-             /* background: #8ce437; */
-              line-height: 40px;
-              padding: 0;
-              border: none;
-              box-shadow: 0 0 5px #8ce437;
+                /* background: #8ce437; */
+                line-height: 40px;
+                padding: 0;
+                border: none;
+                box-shadow: 0 0 5px #8ce437;
             }
+
             .btn-7 span {
-              position: relative;
-              display: block;
-              width: 100%;
-              height: 100%;
+                position: relative;
+                display: block;
+                width: 100%;
+                height: 100%;
             }
-            .btn-7:hover{
-              background: #380D37;
+
+            .btn-7:hover {
+                background: #380D37;
             }
+
             .btn-7:before,
             .btn-7:after {
-              position: absolute;
-              content: "";
-              height: 0%;
-              width: 2px;
-              background: #8ce437;
-             box-shadow: 0px 0px 5px #8ce437;
+                position: absolute;
+                content: "";
+                height: 0%;
+                width: 2px;
+                background: #8ce437;
+                box-shadow: 0px 0px 5px #8ce437;
             }
+
             .btn-7:before {
-              right: 0;
-              top: 0;
-              transition: all 1000ms ease;
+                right: 0;
+                top: 0;
+                transition: all 1000ms ease;
             }
+
             .btn-7:after {
-              left: 0;
-              bottom: 0;
-              transition: all 1000ms ease;
+                left: 0;
+                bottom: 0;
+                transition: all 1000ms ease;
             }
+
             .btn-7:hover:before {
-              transition: all 1000ms ease;
-              height: 100%;
-              background:linear-gradient(#380D37,#DC275C);
+                transition: all 1000ms ease;
+                height: 100%;
+                background: linear-gradient(#380D37, #DC275C);
             }
+
             .btn-7:hover:after {
-              transition: all 1000ms ease;
-              height: 100%;
-              background:linear-gradient(#380D37,#DC275C);
+                transition: all 1000ms ease;
+                height: 100%;
+                background: linear-gradient(#380D37, #DC275C);
             }
+
             .btn-7 span:before,
             .btn-7 span:after {
-              position: absolute;
-              content: "";
-              background: #8ce437;
-              box-shadow: 0 0 5px #8ce437;
+                position: absolute;
+                content: "";
+                background: #8ce437;
+                box-shadow: 0 0 5px #8ce437;
             }
+
             .btn-7 span:before {
-              left: 0;
-              top: 0;
-              width: 0%;
-              height: 2px;
-              transition: all 1000ms ease;
+                left: 0;
+                top: 0;
+                width: 0%;
+                height: 2px;
+                transition: all 1000ms ease;
             }
+
             .btn-7 span:after {
-              right: 0;
-              bottom: 0;
-              width: 0%;
-              height: 2px;
-              transition: all 1000ms ease;
+                right: 0;
+                bottom: 0;
+                width: 0%;
+                height: 2px;
+                transition: all 1000ms ease;
             }
+
             .btn-7 span:hover:before {
-              width: 100%;
-              /* background:linear-gradient(#380D37,#DC275C); */
+                width: 100%;
+                /* background:linear-gradient(#380D37,#DC275C); */
             }
+
             .btn-7 span:hover:after {
-              width: 100%;
-              /* background:linear-gradient(#380D37,#DC275C); */
+                width: 100%;
+                /* background:linear-gradient(#380D37,#DC275C); */
             }
-              </style>
+        </style>
         <a href="{{ route('shop') }}">
             <button
                 class="custom-btn7 btn-7 items-center justify-center flex my-[60px] mx-auto text-[16px] text-[#F2F4F8] w-[116px] h-[44px] rounded-[4px] bg-gradient-to-r from-[#380D37] to-[#DC275C]">
-               <span> See More</span>
+                <span> See More</span>
             </button>
         </a>
         <div class="container h-[2px] bg-[#380D37]"></div>
