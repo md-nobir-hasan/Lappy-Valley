@@ -65,23 +65,42 @@
                     // dd($photo);
                 @endphp
             @endif
-            <div class="[background:lightgray 50% / cover no-repeat] flex justify-center items-center mb-auto data-role='imagemagnifier' data-magnifier-mode='glass'">
-                <img class="object-center" src="{{ $photo }}" alt="{{ $product->title }}">
+            <div class="flex items-center justify-center transition duration-50 ease-in-out hover:scale-125 overflow-hidden h-[100vh]" id="imageContainer">
+                <img id="hoverImage"
+                    class="object-center  top-0 left-0 transition duration-50 ease-in-out hover:scale-125 overflow-hidden"
+                    src="{{ $photo }}" alt="{{ $product->title }}">
             </div>
 
 
-            <div class="flex items-center justify-center mt-auto data-role='imagemagnifier' data-magnifier-mode='glass'">
+            <div class="flex items-center justify-center mt-auto">
                 @foreach ($photos as $pto)
-                    <div class="w-[52px] border-b-[2px] border-t-[2px] border-r-[2px] border-[rgba(53_53_53_0.30)]">
+                    <div class="w-[52px] border-b-[2px] border-t-[2px] border-r-[2px] border-[rgba(53_53_53_0.30)] z-150">
                         <img class="object-center" src="{{ $pto }}" alt="{{ $product->title }}">
                     </div>
                 @endforeach
-                {{-- <div class="w-[60px] border-[2px] border-[#380D37] rounded-[3px] ">
-                    <img class="object-center" src="/storage/product/large-size-laptop.jpg" alt="Product">
-                </div>
-                <div class="w-[52px] border-b-[2px] border-t-[2px] border-r-[2px] border-[rgba(53_53_53_0.30)]">
-                    <img class="object-center" src="/storage/product/large-size-laptop.jpg" alt="Product">
-                </div> --}}
+                <script>
+                    const imageContainer = document.getElementById('imageContainer');
+                    const hoverImage = document.getElementById('hoverImage');
+
+                    imageContainer.addEventListener('mousemove', (e) => {
+                        const {
+                            offsetX,
+                            offsetY
+                        } = e;
+                        const {
+                            width,
+                            height
+                        } = imageContainer.getBoundingClientRect();
+                        const xPercentage = (offsetX / width - 0.2) * 2; // Normalize to -1 to 1
+                        const yPercentage = (offsetY / height - 0.2) * 2; // Normalize to -1 to 1
+
+                        const moveX = -xPercentage * 30; // Adjust the multiplier as needed
+                        const moveY = -yPercentage * 30; // Adjust the multiplier as needed
+
+                        hoverImage.style.transform = `translate(${moveX}px, ${moveY}px)`;
+                    });
+                  
+                </script>
 
             </div>
         </div>
