@@ -43,7 +43,7 @@
     </script>
 </x-slot>
 
-<div class="container mx-auto lg:px-16 blurH">
+<div class="px-[100px] lg:px-16 blurH">
 
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <style>
@@ -144,7 +144,7 @@
         <div class="py-1 text-center">
             <h2
                 class="font-[jost] text-[40px] font-[500] max-lg:text-[30px] max-md:text-[25px] max-sm:text-[24px] text-[#353535]">
-                Featurds Laptops </h2>
+                Featured Laptops </h2>
             <p
                 class="font-[jost] text-[16px] font-[500] max-lg:text-[14px] max-md:text-[12px] max-sm:text-[12px] text-[#380D37]">
                 The best we offer is here</p>
@@ -181,8 +181,8 @@
         <div class="grid grid-cols-3 max-sm:grid-cols-1 max-md:grid-cols-1 mt-6 mb-5 max-sm:mt-[.5rem]">
             <div class="">
                 <div
-                    class="pt-[22px]  font-[jost] font-[500]
-                text-[50px] max-sm:text-[24px] max-md:text-[34px] max-lg:text-[32px] max-xl:text-[38px]  text-[#DC275C] ">
+                    class="pt-[20px]  font-[jost] font-[500]
+                     text-[50px] max-sm:text-[24px] max-md:text-[34px] max-lg:text-[32px] max-xl:text-[38px]  text-[#DC275C] ">
                     <p
                         class="max-sm:text-center max-md:text-center leading-[75.14px] max-sm:leading-[30px] max-md:leading-[54px] max-lg:leading-[42px] max-xl:leading-[50px]">
                         Our newest</br>products are</br>here,just for you!</p>
@@ -277,10 +277,9 @@
                         }
                     </style>
                     <button
-                        class="btn-12 text-center mt-[60px] py-2 font-[jost] font-[500] max-sm:translate-x-[-4px] max-sm:translate-y-[-47px] max-md:translate-x-[-62px] max-md:translate-y-[-47px] max-lg:translate-x-[-62px] max-lg:translate-y-[-47px] max-xl:translate-x-[-62px] max-xl:translate-y-[-47px] max-2xl:translate-x-[-62px] max-2xl:translate-y-[-47px]
+                        class="btn-12 text-center mt-[60px] py-2 font-[jost] font-[500] max-sm:translate-x-[-4px] max-sm:translate-y-[-47px] max-md:translate-x-[-62px] max-md:translate-y-[-47px] max-lg:translate-x-[-62px] max-xl:translate-x-[-62px] max-2xl:translate-x-[-70px] max-lg:translate-y-[-47px] max-xl:translate-y-[-47px]  max-2xl:translate-y-[-47px]
                         text-[16px]  text-[#F2F2F2] rounded-[4px]">
-                        <span class="font-[jost] font-[500]">Click!</span><span class="font-[jost] font-[500]">Visit
-                            Now</span></button>
+                        <span class="font-[jost] font-[500]">Click!</span><span class="font-[jost] font-[500]">Visit Now!</span></button>
                 </div>
             </div>
 
@@ -306,19 +305,19 @@
         <div class="py-1 text-center">
             <h2
                 class="font-[jost] text-[40px] font-[500] max-lg:text-[30px] max-md:text-[25px] max-sm:text-[24px] text-[#353535]">
-                Featurds Laptops</h2>
+                Featured Laptops</h2>
             <p
                 class="font-[jost] text-[16px] font-[500] max-lg:text-[14px] max-md:text-[12px] max-sm:text-[12px] text-[#380D37]">
                 The best we offer is here</p>
         </div>
         <div class="pt-[60px] max-sm:pt-[25px] max-md:pt-[30px] max-lg:pt-[40px] max-xl:pt-[50px]">
             <button
-                class="usa_btn w-[241px] max-xl:w-[200px] max-lg:w-[180px] max-md:w-[150px] max-sm:w-[100px]  h-[48px] max-lg:h-[43px] max-md:h-[40px] max-sm:h-[35px] max-lg:text-[18px] max-md:text-[16px] max-sm:text-[14px]
-                items-center text-center rounded-[4px] bg-[#F2F2F2] text-[#380D37] font-[500] text-[20px] font-[jost]">
+                class="usa_btn2 w-[241px] max-xl:w-[200px] max-lg:w-[180px] max-md:w-[150px] max-sm:w-[100px]  h-[48px] max-lg:h-[43px] max-md:h-[40px] max-sm:h-[35px] max-lg:text-[18px] max-md:text-[16px] max-sm:text-[14px]
+                items-center text-center rounded-[4px] text-[#F2F2F2] bg-[#380D37] font-[500] text-[20px] font-[jost]">
                 USA
             </button>
             <button
-                class="asian_btn w-[241px] max-xl:w-[200px] max-lg:w-[180px] max-md:w-[150px] max-sm:w-[100px]  h-[48px] max-lg:h-[43px] max-md:h-[40px] max-sm:h-[35px] max-lg:text-[18px] max-md:text-[16px] max-sm:text-[14px]
+                class="asian_btn2 w-[241px] max-xl:w-[200px] max-lg:w-[180px] max-md:w-[150px] max-sm:w-[100px]  h-[48px] max-lg:h-[43px] max-md:h-[40px] max-sm:h-[35px] max-lg:text-[18px] max-md:text-[16px] max-sm:text-[14px]
                 items-center text-center rounded-[4px] bg-[#F2F2F2] text-[#380D37] font-[500] text-[20px] font-[jost]">
                 Asian
             </button>
@@ -340,10 +339,12 @@
                                 </a>
                             </div>
                             <div>
+                              <a href="#">
                                 <p
-                                    class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4 transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                    Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
-                                </p>
+                                class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4 transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
+                                Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
+                            </p>
+                              </a>
                             </div>
                             <div
                                 class="flex justify-between text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
@@ -365,10 +366,12 @@
                                 </a>
                             </div>
                             <div>
+                              <a href="#">
                                 <p
-                                    class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                    Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
-                                </p>
+                                class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
+                                Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
+                            </p>
+                              </a>
                             </div>
                             <div
                                 class="flex justify-between text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
@@ -391,10 +394,12 @@
                                 </a>
                             </div>
                             <div>
+                              <a href="#">
                                 <p
-                                    class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                    Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
-                                </p>
+                                class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
+                                Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
+                            </p>
+                              </a>
                             </div>
                             <div
                                 class="flex justify-between text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
@@ -417,10 +422,12 @@
                                 </a>
                             </div>
                             <div>
+                             <a href="#">
                                 <p
-                                    class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                    Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
-                                </p>
+                                class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
+                                Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
+                            </p>
+                             </a>
                             </div>
                             <div
                                 class="flex justify-between text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
@@ -443,10 +450,12 @@
                                 </a>
                             </div>
                             <div>
+                              <a href="#">
                                 <p
-                                    class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                    Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
-                                </p>
+                                class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
+                                Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
+                            </p>
+                              </a>
                             </div>
                             <div
                                 class="flex justify-between text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
@@ -469,10 +478,12 @@
                                 </a>
                             </div>
                             <div>
+                             <a href="#">
                                 <p
-                                    class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                    Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
-                                </p>
+                                class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
+                                Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
+                            </p>
+                             </a>
                             </div>
                             <div
                                 class="flex justify-between text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
@@ -495,10 +506,12 @@
                                 </a>
                             </div>
                             <div>
+                              <a href="#">
                                 <p
-                                    class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                    Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
-                                </p>
+                                class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
+                                Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
+                            </p>
+                              </a>
                             </div>
                             <div
                                 class="flex justify-between text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
@@ -521,10 +534,12 @@
                                 </a>
                             </div>
                             <div>
+                             <a href="#">
                                 <p
-                                    class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                    Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
-                                </p>
+                                class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
+                                Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
+                            </p>
+                             </a>
                             </div>
                             <div
                                 class="flex justify-between text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
@@ -547,10 +562,12 @@
                                 </a>
                             </div>
                             <div>
+                              <a href="#">
                                 <p
-                                    class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                    Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
-                                </p>
+                                class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
+                                Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
+                            </p>
+                              </a>
                             </div>
                             <div
                                 class="flex justify-between text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
@@ -630,10 +647,10 @@
         </div>
         <div class="pt-[60px]">
             <button
-                class="usa_btn w-[241px] max-xl:w-[200px] max-lg:w-[180px] max-md:w-[150px] max-sm:w-[100px]  h-[48px] max-lg:h-[43px] max-md:h-[40px] max-sm:h-[35px] max-lg:text-[18px] max-md:text-[16px] max-sm:text-[14px]
-                items-center text-center rounded-[4px] bg-[#F2F2F2] text-[#380D37] font-[500] text-[20px] font-[jost]">USA</button>
+                class="usa_btn3 w-[241px] max-xl:w-[200px] max-lg:w-[180px] max-md:w-[150px] max-sm:w-[100px]  h-[48px] max-lg:h-[43px] max-md:h-[40px] max-sm:h-[35px] max-lg:text-[18px] max-md:text-[16px] max-sm:text-[14px]
+                items-center text-center rounded-[4px] text-[#F2F2F2] bg-[#380D37] font-[500] text-[20px] font-[jost]">USA</button>
             <button
-                class="asian_btn w-[241px] max-xl:w-[200px] max-lg:w-[180px] max-md:w-[150px] max-sm:w-[100px]  h-[48px] max-lg:h-[43px] max-md:h-[40px] max-sm:h-[35px] max-lg:text-[18px] max-md:text-[16px] max-sm:text-[14px]
+                class="asian_btn3 w-[241px] max-xl:w-[200px] max-lg:w-[180px] max-md:w-[150px] max-sm:w-[100px]  h-[48px] max-lg:h-[43px] max-md:h-[40px] max-sm:h-[35px] max-lg:text-[18px] max-md:text-[16px] max-sm:text-[14px]
                 items-center text-center rounded-[4px] bg-[#F2F2F2] text-[#380D37] font-[500] text-[20px] font-[jost]">Asian</button>
             <div class="container h-[2px] bg-[#380D37]"></div>
         </div>
@@ -1720,15 +1737,15 @@
     <section class="mt-16 mb-5 max-md:mt-6">
         <div
             class="text-center text-[#380D37] text-[42px] font-[jost] font-[500] max-md:my-[35px] leading-[61px] max-sm:leading-[5px]">
-            <h1 class="max-sm:text-[25px] max-md:text-[] max-lg:text-[] max-xl:text-[]"> Please Drop a review!</h1>
+            <h1 class="max-sm:text-[25px] max-md:text-[] max-lg:text-[] max-xl:text-[]"> Please Drop a Review!</h1>
         </div>
         <div class="grid grid-cols-2 max-sm:grid-cols-1 max-md:grid-cols-1 max-lg:grid-cols-2 mt-20 max-sm:mt-[15px]">
             <div>
                 <div>
                     <h1
-                        class="text-[52px] text-[#DC275C] max-sm:text-[30px] max-md:text-[] max-lg:text-[35px] max-xl:text-[45px] max-md:text-center font-[500] font-[jost] leading-[55px] max-sm:leading-[30px] max-lg:leading-[50px] max-xl:leading-[52px]">
-                        We Believe in the
-                        </br> power of </br> Communication</h1>
+                        class="text-[52px] text-[#DC275C] max-sm:text-[30px] max-md:text-[] max-lg:text-[35px] max-xl:text-[45px] max-md:text-center font-[500] font-[jost] leading-[75.14px] max-sm:leading-[30px] max-lg:leading-[50px] max-xl:leading-[52px]">
+                        We Believe In The
+                        </br> Power Of </br> Communication</h1>
                 </div>
                 <div>
                     <p
@@ -1909,6 +1926,34 @@
                 $(this).removeClass('bg-[#F2F2F2] text-[#380D37]');
                 $('.usa_btn').removeClass('bg-[#380D37] text-[#F2F2F2]');
                 $('.usa_btn').addClass('bg-[#F2F2F2] text-[#380D37]');
+            });
+        })
+        $(document).ready(function() {
+            $('.usa_btn2').on('click', function() {
+                $(this).addClass('bg-[#380D37] text-[#F2F2F2]');
+                $(this).removeClass('bg-[#F2F2F2] text-[#380D37]');
+                $('.asian_btn2').removeClass('bg-[#380D37] text-[#F2F2F2]')
+                $('.asian_btn2').addClass('bg-[#F2F2F2] text-[#380D37]');
+            });
+            $('.asian_btn2').on('click', function() {
+                $(this).addClass('bg-[#380D37] text-[#F2F2F2]');
+                $(this).removeClass('bg-[#F2F2F2] text-[#380D37]');
+                $('.usa_btn2').removeClass('bg-[#380D37] text-[#F2F2F2]');
+                $('.usa_btn2').addClass('bg-[#F2F2F2] text-[#380D37]');
+            });
+        })
+        $(document).ready(function() {
+            $('.usa_btn3').on('click', function() {
+                $(this).addClass('bg-[#380D37] text-[#F2F2F2]');
+                $(this).removeClass('bg-[#F2F2F2] text-[#380D37]');
+                $('.asian_btn3').removeClass('bg-[#380D37] text-[#F2F2F2]')
+                $('.asian_btn3').addClass('bg-[#F2F2F2] text-[#380D37]');
+            });
+            $('.asian_btn3').on('click', function() {
+                $(this).addClass('bg-[#380D37] text-[#F2F2F2]');
+                $(this).removeClass('bg-[#F2F2F2] text-[#380D37]');
+                $('.usa_btn3').removeClass('bg-[#380D37] text-[#F2F2F2]');
+                $('.usa_btn3').addClass('bg-[#F2F2F2] text-[#380D37]');
             });
         })
     </script>
