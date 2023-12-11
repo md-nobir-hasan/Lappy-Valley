@@ -304,8 +304,8 @@
 
              <!-- ----------order-view--section-------- -->
              <div
-                 class="border-[#380D37] border-[3px] rounded-[5px] mt-[35px] pl-[20px] pt-[20px] pr-[20px]">
-                 <div class="flex gap-[15px] font-[jost] font-[500] text-center my-[10px]">
+                 class="overflow-x-auto border-[#380D37] border-[3px] rounded-[5px] mt-[35px] pl-[20px] pt-[20px] pr-[20px]">
+                 <div class="overflow-x-auto flex gap-[15px] font-[jost] font-[500] text-center my-[10px]">
                      <div class="w-[22px] h-[22px] bg-[#380D37] text-[#f2f2f2] rounded-[100%] text-center mt-[5px]">
                          <h1>4</h1>
                      </div>
@@ -314,38 +314,58 @@
                              Order Overview</h1>
                      </div>
                  </div>
-                 <div class="overflow-x-auto">
-                     <table class="text-[#380D37] text-[12px] font-[jost] font-[700] w-full text-left overflow-x-auto">
+                 <div class=" ">
+                     <table class="text-[#380D37] text-[12px] font-[jost] font-[700] min-w-full">
                         <thead>
-                            <tr class="border-b-[rgba(0_0_0_0.20)] border-b-[1px] py-[20px]">
+                            <tr class="border-b-[rgba(#00000033] border-b-[1px] py-[20px] text-left">
                                 <th>Product Name</th>
-                                <th class="text-right py-[10px] text-[12px] font-[jost] font-[700]">Price</th>
-                                <th class="text-right text-[12px] font-[jost] font-[700]">Total</th>
+                                <th class="text-right py-[10px] text-[12px] font-[jost] font-[700]">
+                                    Price
+                                </th>
+                                <th class="text-right text-[12px] font-[jost] font-[700]">
+                                    Total
+                                </th>
                             </tr>
                         </thead>
                          <tbody>
-                             <tr class="border-b-[rgba(0_0_0_0.20)] border-b-[1px] font-[jost]">
-                                 <td class="text-[12px] font-[500] py-[10px]">Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U
-                                     8-512 GB
+                             <tr class="border-b-[rgba(#00000033] border-b-[1px] font-[jost]">
+                                 <td class="max-sm:w-[130px] max-sm:text-[10px] text-[12px] font-[500] py-[10px]">
+                                    Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U8-512 GB
                                  </td>
-                                 <td class="text-right text-[12px] font-[700] text-[#353535]">1,50,000 Taka x 1</td>
-                                 <td class="text-right text-[#DC275C] text-[12px] font-[700]">1,50,000 Taka</td>
+                                 <td class="text-right text-[12px] max-sm:text-[10px] font-[700] text-[#353535]">
+                                    1,50,000 Taka x 1
+                                </td>
+                                 <td class="text-right text-[#DC275C] text-[12px] max-sm:text-[10px] font-[700]">
+                                    1,50,000 Taka
+                                </td>
                              </tr>
-                             <tr class="border-b-[rgba(0_0_0_0.20)] border-b-[1px] font-[jost]">
+                             <tr class="border-b-[rgba(#00000033] border-b-[1px] font-[jost]">
                                  <td></td>
-                                 <td class="text-right py-[10px] text-[12px] font-[700] text-[#353535]">Sub Total:</td>
-                                 <td class="text-right text-[#DC275C]  text-[12px] font-[700]">1,50,000 Taka</td>
+                                 <td class="text-right py-[10px] text-[12px] max-sm:text-[10px] font-[700] text-[#353535]">
+                                    Sub Total:
+                                </td>
+                                 <td class="text-right text-[#DC275C]  text-[12px] max-sm:text-[10px] font-[700]">
+                                    1,50,000 Taka
+                                </td>
                              </tr>
-                             <tr class="border-b-[rgba(0_0_0_0.20)] border-b-[1px] font-[jost]">
+                             <tr class="border-b-[rgba(#00000033] border-b-[1px] font-[jost]">
                                  <td></td>
-                                 <td class="text-right py-[10px] text-[12px] font-[700] text-[#353535]">Delivery
-                                     Charge:</td>
-                                 <td class="text-right text-[#DC275C] text-[12px] font-[700]">60 Taka</td>
+                                 <td class="text-right py-[10px] text-[12px] max-sm:text-[10px] font-[700] text-[#353535]">
+                                    Delivery
+                                     Charge:
+                                    </td>
+                                 <td class="text-right text-[#DC275C] text-[12px] max-sm:text-[10px] font-[700]">
+                                    60 Taka
+                                </td>
                              </tr>
-                             <tr class="border-b-[rgba(0_0_0_0.20)] border-b-[1px] font-[jost]">
+                             <tr class="border-b-[rgba(#00000033] border-b-[1px] font-[jost]">
                                  <td></td>
-                                 <td class="text-right py-[10px] text-[12px] font-[700] text-[#353535]">Total:</td>
-                                 <td class="text-right text-[#DC275C] text-[12px] font-[700]">1,50,060 Taka</td>
+                                 <td class="text-right py-[10px] text-[12px] max-sm:text-[10px] font-[700] text-[#353535]">
+                                    Total:
+                                </td>
+                                 <td class="text-right text-[#DC275C] text-[12px] max-sm:text-[10px] font-[700]">
+                                    1,50,060 Taka
+                                </td>
                              </tr>
                          </tbody>
                      </table>
@@ -356,7 +376,7 @@
 
      <div class="flex justify-end items-center right-0 bottom-0">
          <button
-             class=" flexd justify-center items-center rounded-[4px] mr-8 mt-6 px-[20px] py-[10px] text-[16px] text-center text-[#f2f2f2] font-[jost] font-[500] bg-gradient-to-r from-[#380D37] to-[#DC275C]">Confirm
+             class=" flexd justify-center items-center rounded-[4px] mt-6 px-[20px] py-[10px] text-[16px] text-center text-[#f2f2f2] font-[jost] font-[500] bg-gradient-to-r from-[#380D37] to-[#DC275C]">Confirm
              Order</button>
      </div>
 
