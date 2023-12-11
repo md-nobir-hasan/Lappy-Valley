@@ -47,15 +47,33 @@
                 <p class="text-[#F2F2F2] font-[jost] max-sm:text-center text-[40px] max-sm:text-[34px] max-md:text-[32px] max-lg:text-[34px] font-[500] text-left my-3">
                     Contact</p>
                 <ul class="text-[#F2F2F2] font-[jost] max-sm:text-center text-[16px] max-sm:text-[16px] max-md:text-[12px] max-lg:text-[14px] font-[500] leading-[23px] max-sm:leading-[28px] max-md:leading-[18px] max-lg:leading-[20px]  text-left">
-                    <li class="mt-[15px] hover:bg-blue-950">Phone</li>
-                    <li><a href="tel:01757773557" class="hover:bg-blue-950">+8801757773557, +8801712644209,</a></li>
-                    <li class="mb-[15px]"><a href="tel:01736361123" class="hover:bg-blue-950">+8801736361123,
-                            +8801722288944</a>
+                    <li class="mt-[15px] hover:bg-blue-950">
+                        Phone
                     </li>
-                    <li class="hover:bg-blue-950">Email:</li>
-                    <li class="mb-[15px]"><a href="mailto:info@lappyvalley.com" class="hover:bg-blue-950">info@lappyvalley.com</a></li>
-                    <li class="hover:bg-blue-950">Trade license : 202984</li>
-                    <li class="hover:bg-blue-950">Bin Number : 0049818790102</li>
+                    <li>
+                        <a href="tel:01757773557" class="hover:bg-blue-950">
+                            +8801757773557, +8801712644209,
+                        </a>
+                    </li>
+                    <li class="mb-[15px]">
+                        <a href="tel:01736361123" class="hover:bg-blue-950">
+                            +8801736361123,
+                        </a>
+                    </li>
+                    <li class="hover:bg-blue-950">
+                        Email:
+                    </li>
+                    <li class="mb-[15px]">
+                        <a href="mailto:info@lappyvalley.com" class="hover:bg-blue-950">
+                            info@lappyvalley.com
+                        </a>
+                    </li>
+                    <li class="hover:bg-blue-950">
+                        Trade license : 202984
+                    </li>
+                    <li class="hover:bg-blue-950">
+                        Bin Number : 0049818790102
+                    </li>
                 </ul>
 
                 <!-- -------social----------icon------------- -->
