@@ -2276,6 +2276,10 @@ input[type="range"]:active::-webkit-slider-thumb{
   max-width: 20rem;
 }
 
+.max-w-\[463px\]{
+  max-width: 463px;
+}
+
 .flex-1{
   flex: 1 1 0%;
 }
@@ -7630,6 +7634,16 @@ input[type="range"]:active::-webkit-slider-thumb{
     margin-bottom: 8px;
   }
 
+  .max-sm\:my-\[\]{
+    margin-top: ;
+    margin-bottom: ;
+  }
+
+  .max-sm\:my-\[30px\]{
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
   .max-sm\:mb-\[10px\]{
     margin-bottom: 10px;
   }
@@ -7943,6 +7957,11 @@ input[type="range"]:active::-webkit-slider-thumb{
   .max-sm\:py-\[\]{
     padding-top: ;
     padding-bottom: ;
+  }
+
+  .max-sm\:px-\[25px\]{
+    padding-left: 25px;
+    padding-right: 25px;
   }
 
   .max-sm\:pb-\[0px\]{
