@@ -1,4 +1,4 @@
-<div class='px-[100px] max-md:px-[45px] max-sm:px-[20px] mx-auto max-sm:mt-[70px] max-xl:mt-[100px]'>
+<div class='px-[100px] max-lg:px-[45px] max-md:px-[35px] max-sm:px-[20px] mx-auto max-sm:mt-[70px] max-xl:mt-[100px]'>
     <div class='flex justify-between'>
         <h1 class='font-[jost] xl:text-[20px] font-[400] leading-[25.3px] text-[#353535]'>Home / Account</h1>
         <div class='flex gap-[5px] items-center'><img src="/storage/product/vector-1.svg" alt="Product"
@@ -14,7 +14,7 @@
             <h1 class='text-[20px] text-[#000000] font-[Inter] font-[500] leadint-[24.2px]'>Username Here</h1>
         </div>
     </div>
-    <div class='grid grid-cols-5 gap-[20px] max-sm:grid-cols-2 max-lg:grid-cols-3 max-lg:w-[500px] w-[1000px] my-[30px]'>
+    <div class='grid grid-cols-5 gap-[20px] max-sm:grid-cols-2 max-lg:grid-cols-3 max-lg:w-full w-[1000px] my-[30px]'>
         <div class='flex gap-[5px] items-center'>
             <img src="/storage/product/icon-ad-product.svg"alt="Product" class='w-[23.36px] h-[26.21px]'>
             <span class='text-[#AAAAAA] text-[16px] font-[jost] font-[500] leading-[23.12px]'>Orders</span>
@@ -37,16 +37,16 @@
         </div>
     </div>
     <div class='h-[2px] bg-[#764A8733]'></div>
-    <div class='flex flex-col max-lg:border-[2px] max-lg:border-[#353535] max-lg:w-[400px] max-lg:mx-auto max-lg:py-[20px] max-lg:pl-[40px] max-sm:pl-[30px] max-lg:rounded-[4px] mt-[20px] gap-[20px]'>
+    <div class='flex flex-col max-lg:border-[2px] max-lg:border-[#353535] max-md:w-full max-lg:w-[545px] max-lg:mx-auto max-lg:py-[20px] max-md:px-[35px] max-lg:px-[40px] max-sm:pl-[30px] max-lg:rounded-[4px] mt-[20px] gap-[20px]'>
         <div class=''>
             <h1 class='text-[20px] text-[#000000] font-[Inter] font-[500] leading-[24.2px]'>Address:</h1>
         </div>
-      <div class="flex gap-[40px] items-center">
+      <div class="lg:flex gap-[40px] items-center">
         <div class=''>
             <label for="address"
                 class='text-[16px] text-[#353535] font-[jost] font-[500] leading-[23.12px] tracking-[3%] block my-[5px]'>Address:</label>
             <input type="email" placeholder='Enter the address'
-                class='w-[344px] h-[44px] bg-[#F2F2F2] font-[jost] font-[500] text-[16px] text-[#353535] block italic px-[10px] rounded-[4px]'>
+                class='w-[344px] max-lg:w-full h-[44px] bg-[#F2F2F2] font-[jost] font-[500] text-[16px] text-[#353535] block italic px-[10px] rounded-[4px]'>
         </div>
         <div class='max-lg:hidden translate-y-[20px]'>
             <div>
@@ -69,14 +69,14 @@
             <label for="address"
                 class='text-[16px] text-[#353535] font-[jost] font-[500] leading-[23.12px] tracking-[3%] block my-[5px]'>City:</label>
             <input type="email" placeholder='Enter the city Name'
-                class='w-[344px] h-[44px] bg-[#F2F2F2] font-[jost] font-[500] text-[16px] text-[#353535]  blcok italic px-[10px] rounded-[4px]'>
+                class='w-[344px] max-lg:w-full h-[44px] bg-[#F2F2F2] font-[jost] font-[500] text-[16px] text-[#353535]  blcok italic px-[10px] rounded-[4px]'>
         </div>
         <div class=''>
             <label for="address"
                 class='text-[16px] text-[#353535] font-[jost] font-[500] leading-[23.12px] tracking-[3%] block my-[5px]'>Post
                 code:</label>
             <input type="email" placeholder='Enter the post code here'
-                class='w-[344px] h-[44px] bg-[#F2F2F2] font-[jost] font-[500] text-[16px] text-[#353535]  block italic px-[10px] rounded-[4px]'>
+                class='w-[344px] max-lg:w-full h-[44px] bg-[#F2F2F2] font-[jost] font-[500] text-[16px] text-[#353535]  block italic px-[10px] rounded-[4px]'>
         </div>
         <div class=''>
             <button

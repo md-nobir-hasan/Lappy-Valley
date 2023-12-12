@@ -49,7 +49,7 @@
 
              <a href="{{ route('product.details', [$product->slug]) }}" class="">
                  <button
-                     class='bg-[#380D37] text-[#F2F2F2] text-[10px] font-[jost] font-[500] py-[8px] px-[60px] rounded-[5px]'>Buy
+                     class='bg-[#380D37] text-[#F2F2F2] text-[10px] font-[jost] font-[500] py-[8px] px-[50px] rounded-[5px]'>Buy
                      Now
                  </button></a>
          </div>
