@@ -1041,6 +1041,18 @@ input[type="range"]:active::-webkit-slider-thumb{
   grid-column: span 3 / span 3;
 }
 
+.col-span-4{
+  grid-column: span 4 / span 4;
+}
+
+.col-span-5{
+  grid-column: span 5 / span 5;
+}
+
+.col-span-6{
+  grid-column: span 6 / span 6;
+}
+
 .float-right{
   float: right;
 }
@@ -2761,6 +2773,10 @@ input[type="range"]:active::-webkit-slider-thumb{
 
 .grid-cols-5{
   grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.grid-cols-7{
+  grid-template-columns: repeat(7, minmax(0, 1fr));
 }
 
 .grid-rows-4{
@@ -7008,6 +7024,14 @@ input[type="range"]:active::-webkit-slider-thumb{
     top: 68px;
   }
 
+  .max-xl\:col-span-5{
+    grid-column: span 5 / span 5;
+  }
+
+  .max-xl\:col-span-full{
+    grid-column: 1 / -1;
+  }
+
   .max-xl\:mt-4{
     margin-top: 1rem;
   }
@@ -7072,6 +7096,10 @@ input[type="range"]:active::-webkit-slider-thumb{
 
   .max-xl\:grid-cols-4{
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .max-xl\:grid-cols-3{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .max-xl\:items-center{

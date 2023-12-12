@@ -105,7 +105,7 @@
 
     <!-- Sidenav -->
     <div class="mt-4">
-        <div class="flex gap-8" x-data="{
+        <div class="grid grid-cols-5 max-xl:grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 gap-8" x-data="{
             products: $wire.prds,
             minPrice: 0,
             maxPrice: 500000,
@@ -190,7 +190,7 @@
             }
         }">
             <!-- ------------right---part--start--- -->
-            <div class="w-[206px]">
+            <div class="col-span-1 max-xl:hidden">
                 <!-- ----price-range------ -->
                 <div class=" w-full bg-[#F2F2F2] flex flex-col gap-2 shadow-[0_2px_4px_rgba(0,0,0,.1)] pb-[10px]">
                     <header class="flex px-2 pt-4 pb-2">
@@ -523,7 +523,7 @@
 
             </div>
             {{-- <livewire:side-nav/> --}}
-            <div class="w-full mx-auto">
+            <div class="col-span-4 max-xl:col-span-full">
                 <nav
                     class=" px-3 flex justify-between items-center bg-[#F2F2F2] py-3 font-[jost] font-[600] text-[16px] rounded-[6px]">
                     <div class="">
@@ -569,8 +569,8 @@
                 </nav>
 
                 {{-- product show after reload  --}}
-                <div x-show='productShow'>
-                    <div class='grid grid-cols-4 gap-8 mx-auto mt-4 product_pdiv'>
+                <div x-show='productShow' class="">
+                    <div class='grid grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 gap-8 mx-auto mt-4 product_pdiv'>
                         @foreach ($products as $product)
                             <x-shop-product :product="$product">
                                 <div class='mt-2'>
@@ -634,7 +634,7 @@
 
                                                 <a href="{{ route('product.details', 'kdfj') }}" class="">
                                                     <button
-                                                        class='bg-[#380D37] text-[#F2F2F2] text-[10px] font-[jost] font-[500] py-[8px] px-[60px] rounded-[5px]'>Buy
+                                                        class='bg-[#380D37] text-[#F2F2F2] text-[10px] font-[jost] font-[500] py-[8px] px-[40px] rounded-[5px]'>Buy
                                                         Now
                                                     </button></a>
                                             </div>

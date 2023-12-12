@@ -1,11 +1,10 @@
   <nav
-      class=" px-3 py-3  flex justify-between items-center bg-[#F2F2F2] font-[jost] font-[500] text-[14px] text-[#380D37] rounded-[6px]">
+      class="px-3 py-3 flex justify-between items-center bg-[#F2F2F2] font-[jost] font-[500] text-[14px] text-[#380D37] rounded-[6px]">
       <div class="">
           <h1>Brand New</h1>
       </div>
 
       <div class="flex justify-between text-center items-center gap-[10px] font-[jost] font-[500] text-[17px]">
-
           <style>
               .dropdown {
                   position: relative;
@@ -91,10 +90,6 @@
                   <div onclick="show('Sort by price: high to low')">Sort by price: high to low</div>
               </div>
           </div>
-
-        
-
-
           <div
               class="shop-view text-[#380D37] text-[14px] font-[jost] font-[400] leading-[20.23px]  mx-[20px] flex items-center justify-center transparent">
               <span class='text-center'>View</span>
@@ -117,14 +112,14 @@
           </div>
       </div>
       <script>
-        function show(value) {
-            document.querySelector(".text-box").value = value;
-        }
+          function show(value) {
+              document.querySelector(".text-box").value = value;
+          }
 
-        let dropdown = document.querySelector(".dropdown")
-        dropdown.onclick = function() {
-            dropdown.classList.toggle("active")
-        }
-    </script>
+          let dropdown = document.querySelector(".dropdown")
+          dropdown.onclick = function() {
+              dropdown.classList.toggle("active")
+          }
+      </script>
 
   </nav>
