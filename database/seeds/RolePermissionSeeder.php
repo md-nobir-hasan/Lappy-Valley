@@ -182,6 +182,12 @@ class RolePermissionSeeder extends Seeder
             ['name' => 'Edit Product Offer', 'guard_name' => 'web'],
             ['name' => 'Delete Product Offer', 'guard_name' => 'web'],
 
+            //Site and Other Settings
+            ['name' => 'Show Site Setting', 'guard_name' => 'web'],
+            ['name' => 'Update Site Setting', 'guard_name' => 'web'],
+            ['name' => 'Show Others Setting', 'guard_name' => 'web'],
+            ['name' => 'Update Others Setting', 'guard_name' => 'web'],
+
             //Ami single
             ['name' => 'Dashboard', 'guard_name' => 'web'],
             ['name' => 'Media Manager', 'guard_name' => 'web'],

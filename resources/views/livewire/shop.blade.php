@@ -528,7 +528,7 @@
                 <nav
                     class=" px-3 grid grid-cols-4 items-center bg-[#F2F2F2] py-3 font-[jost] font-[600] text-[16px] rounded-[6px]">
                     <div class="">
-                        <h1 class="text-[14px] max-sm:text-[12px] text-[#380D37] font-[jost] font-[500]">Brand New</h1>
+                        <h1>Shop</h1>
                     </div>
 
                     <div

@@ -79,7 +79,11 @@ class AdminSidebar extends Component
                 ['access' => 'Show Permission','title' => 'Permissions', 'route' => 'auser.permission'],
             ]],
 
-            ['access' => 'Setting','title' => 'Settings', 'route' => 'settings', 'child' => []],
+            // ['access' => 'Setting','title' => 'Settings', 'route' => 'settings', 'child' => []],
+            ['access' => 'Setting', 'title' => 'Settings', 'route' => 'setting.*', 'child' => [
+                ['access' => 'Show Site Setting', 'title' => 'Site Setting', 'route' => 'setting.ss'],
+                ['access' => 'Show Others Setting', 'title' => 'Other Setting', 'route' => 'setting.os'],
+            ]],
         ]],
     ];
     public function __construct()

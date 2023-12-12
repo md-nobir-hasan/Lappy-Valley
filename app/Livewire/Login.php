@@ -35,6 +35,7 @@ class Login extends Component
             $this->redirect(url()->previous(),navigate:true);
         }
     }
+    
 
     public function login(){
         $user = User::where('email',$this->email)->first();

@@ -79,8 +79,15 @@
     $(document).ready(function(){
         $('.menue').each(function(index){
             $(this).on('click',function(){
-                $('.submenu').hide(200);
-                $('.submenu').eq(index).show(200);
+                if( $('.submenu').eq(index).is(':hidden')){
+                    console.log('i am hidden')
+                    $('.submenu').hide(200);
+                    $('.submenu').eq(index).show(200);
+                }else{
+                // $('.submenu').hide(200);
+                console.log('i am vissible');
+                $('.submenu').eq(index).hide(200);
+                }
             })
         })
     })

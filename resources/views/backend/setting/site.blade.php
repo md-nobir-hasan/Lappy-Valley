@@ -5,9 +5,9 @@
 @section('main-content')
 
 <div class="card">
-    <h5 class="card-header">Edit Post</h5>
+    <h5 class="card-header">Edit Settings</h5>
     <div class="card-body">
-    <form method="post" action="{{route('settings.update')}}">
+    <form method="post" action="{{route('setting.ss.update')}}">
         @csrf
         {{-- @method('PATCH') --}}
         {{-- {{dd($data)}} --}}
@@ -82,7 +82,7 @@
           @enderror
         </div>
 
-        <div class="form-group mb-3">
+        <div class="mb-3 form-group">
            <button class="btn btn-success" type="submit">Update</button>
         </div>
       </form>
