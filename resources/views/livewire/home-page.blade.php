@@ -1,4 +1,4 @@
-<div class="px-[100px] lg:px-16 blurH">
+<div class="px-[100px] max-md:px-[45px] max-lg:px-[70px] max-sm:px-[15px] mx-auto max-sm:mt-[70px] max-xl:mt-[100px]">
     <style>
         .swiper-slide {
             text-align: center;
@@ -266,6 +266,16 @@
                 transform: translateY(32px) !important;
             }
 
+            .btn-12 {
+                width: 100px;
+                height: 36px;
+            }
+
+            .btn-12 span {
+                width: 100px;
+                height: 36px;
+            }
+
         }
 
 
@@ -330,19 +340,6 @@
             line-height: 23.12px;
             -webkit-perspective: 230px;
             perspective: 230px;
-        }
-
-        @media (max-width: 640px) {
-            .btn-12 {
-                width: 100px;
-                height: 36px;
-            }
-
-            .btn-12 span {
-                width: 100px;
-                height: 36px;
-            }
-
         }
 
         .btn-12 span {
@@ -1012,53 +1009,6 @@
                 <div class="swiper-button-prev translate-x-[-40px] max-sm:translate-x-[-20px] translate-y-[-192px] bs">
                 </div>
             </div>
-
-            <!-- Swiper JS -->
-            {{-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> --}}
-
-            <!-- Initialize Swiper -->
-            {{-- <script>
-                var swiper = new Swiper(".mySwiper", {
-                    slidesPerView: 5,
-                    // spaceBetween: 5,
-                    slidesPerGroup: 1,
-                    loop: true,
-                    loopFillGroupWithBlank: true,
-                    // pagination: {
-                    //     el: ".swiper-pagination",
-                    //     clickable: true,
-                    // },
-                    navigation: {
-                        nextEl: ".swiper-button-next",
-                        prevEl: ".swiper-button-prev",
-                    },
-                });
-                // Adjust slidesPerView dynamically
-                function adjustSlidesPerView() {
-                    var windowWidth = window.innerWidth;
-
-                    if (windowWidth < 640) {
-                        swiper.params.slidesPerView = 1;
-                    } else if (windowWidth < 768) {
-                        swiper.params.slidesPerView = 2;
-                    } else if (windowWidth < 1024) {
-                        swiper.params.slidesPerView = 3;
-                    } else if (windowWidth < 1280) {
-                        swiper.params.slidesPerView = 4;
-                    } else {
-                        swiper.params.slidesPerView = 5;
-                    }
-
-                    swiper.update(); // Update Swiper instance
-                }
-
-                // Call the function initially
-                adjustSlidesPerView();
-
-                // Listen to window resize events
-                window.addEventListener('resize', adjustSlidesPerView);
-            </script> --}}
-
     </section>
     <div class='mt-[40px] mb-[30px]'>
         <div class="container h-[2px] bg-[#380D37]"></div>

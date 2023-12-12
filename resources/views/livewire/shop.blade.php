@@ -105,90 +105,91 @@
 
     <!-- Sidenav -->
     <div class="mt-4">
-        <div class="grid grid-cols-5 max-xl:grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 gap-8" x-data="{
-            products: $wire.prds,
-            minPrice: 0,
-            maxPrice: 500000,
-            pre_order: '',
-            in_stock: '',
-            upcomming: '',
-            brands: [],
-            pmodels: [],
-            pgenerations: [],
-            d_sizes: [],
-            d_types: [],
-            rams: [],
-            ssds: [],
-            hdds: [],
-            graphics: [],
-            s_features: [],
-            sorting: '',
-            ajaxProduct: false,
-            productShow: true,
-            page_num: 0,
-            total_product: 0,
-            pagi_products: 1,
-            show_from: 1,
-            show_to: 20,
-            current_page: 1,
-            productFetch() {
-                $.ajax({
-                    type: 'get',
-                    url: '{{ route('shop.shorting') }}',
-                    data: {
-                        minPrice: this.minPrice,
-                        maxPrice: this.maxPrice,
-                        pre_order: this.pre_order == true ? 1 : 0,
-                        in_stock: this.in_stock == true ? 1 : 0,
-                        upcomming: this.upcomming == true ? 1 : 0,
-                        brands: this.brands,
-                        pmodels: this.pmodels,
-                        pgenerations: this.pgenerations,
-                        d_sizes: this.d_sizes,
-                        d_types: this.d_types,
-                        rams: this.rams,
-                        ssds: this.ssds,
-                        hdds: this.hdds,
-                        graphics: this.graphics,
-                        s_features: this.s_features,
-                        sorting: this.sorting,
-                    },
-
-                    success: (res) => {
-                        this.products = res.product;
-                        total_product = Object.keys(res.product).length;
-                        if (total_product < 21) {
-                            this.pagi_products = res.product;
-                            this.show_to = total_product;
-                        } else {
-                            this.pagi_products = Object.fromEntries(Object.entries(res.product).slice(0, 20));
+        <div class="grid grid-cols-5 max-xl:grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 gap-8"
+            x-data="{
+                products: $wire.prds,
+                minPrice: 0,
+                maxPrice: 500000,
+                pre_order: '',
+                in_stock: '',
+                upcomming: '',
+                brands: [],
+                pmodels: [],
+                pgenerations: [],
+                d_sizes: [],
+                d_types: [],
+                rams: [],
+                ssds: [],
+                hdds: [],
+                graphics: [],
+                s_features: [],
+                sorting: '',
+                ajaxProduct: false,
+                productShow: true,
+                page_num: 0,
+                total_product: 0,
+                pagi_products: 1,
+                show_from: 1,
+                show_to: 20,
+                current_page: 1,
+                productFetch() {
+                    $.ajax({
+                        type: 'get',
+                        url: '{{ route('shop.shorting') }}',
+                        data: {
+                            minPrice: this.minPrice,
+                            maxPrice: this.maxPrice,
+                            pre_order: this.pre_order == true ? 1 : 0,
+                            in_stock: this.in_stock == true ? 1 : 0,
+                            upcomming: this.upcomming == true ? 1 : 0,
+                            brands: this.brands,
+                            pmodels: this.pmodels,
+                            pgenerations: this.pgenerations,
+                            d_sizes: this.d_sizes,
+                            d_types: this.d_types,
+                            rams: this.rams,
+                            ssds: this.ssds,
+                            hdds: this.hdds,
+                            graphics: this.graphics,
+                            s_features: this.s_features,
+                            sorting: this.sorting,
+                        },
+            
+                        success: (res) => {
+                            this.products = res.product;
+                            total_product = Object.keys(res.product).length;
+                            if (total_product < 21) {
+                                this.pagi_products = res.product;
+                                this.show_to = total_product;
+                            } else {
+                                this.pagi_products = Object.fromEntries(Object.entries(res.product).slice(0, 20));
+                            }
+                            this.total_product = total_product
+                            this.page_num = Math.ceil(total_product / 20);
+                            this.productShow = false;
+                            this.ajaxProduct = true;
+                            this.pageChange(1);
+            
                         }
-                        this.total_product = total_product
-                        this.page_num = Math.ceil(total_product / 20);
-                        this.productShow = false;
-                        this.ajaxProduct = true;
-                        this.pageChange(1);
-
+                    })
+                },
+                pageChange(pNum) {
+                    if (pNum == this.current_page || pNum > this.page_num || pNum < 1) {
+                        return false;
+                    } else {
+                        let to = pNum * 20;
+                        let from = to - 20;
+                        if (to > this.total_product) {
+                            to = Number(this.total_product)
+                        }
+                        this.show_from = from + 1;
+                        this.show_to = to;
+                        this.pagi_products = Object.fromEntries(Object.entries(this.products).slice(from, to));
+                        this.current_page = pNum
+            
                     }
-                })
-            },
-            pageChange(pNum) {
-                if (pNum == this.current_page || pNum > this.page_num || pNum < 1) {
-                    return false;
-                } else {
-                    let to = pNum * 20;
-                    let from = to - 20;
-                    if (to > this.total_product) {
-                        to = Number(this.total_product)
-                    }
-                    this.show_from = from + 1;
-                    this.show_to = to;
-                    this.pagi_products = Object.fromEntries(Object.entries(this.products).slice(from, to));
-                    this.current_page = pNum
-
                 }
-            }
-        }">
+            }">
             <!-- ------------right---part--start--- -->
             <div class="col-span-1 max-xl:hidden">
                 <!-- ----price-range------ -->
@@ -525,52 +526,53 @@
             {{-- <livewire:side-nav/> --}}
             <div class="col-span-4 max-xl:col-span-full">
                 <nav
-                    class=" px-3 flex justify-between items-center bg-[#F2F2F2] py-3 font-[jost] font-[600] text-[16px] rounded-[6px]">
+                    class=" px-3 grid grid-cols-4 items-center bg-[#F2F2F2] py-3 font-[jost] font-[600] text-[16px] rounded-[6px]">
                     <div class="">
-                        <h1>Brand New</h1>
+                        <h1 class="text-[14px] max-sm:text-[12px] text-[#380D37] font-[jost] font-[500]">Brand New</h1>
                     </div>
 
                     <div
-                        class="flex justify-between text-center items-center gap-[10px] font-[jost] font-[500] text-[17px]">
+                        class="col-span-2 flex justify-between text-center items-center font-[jost] font-[500] text-[17px]">
 
+                       <div class="grid grid-cols-3 gap-[5px] items-center">
                         <label
-                            class=" bg-[#f2f2f2] text-[#380D37] text-[14px] font-[jost] font-[400] leading-[20.23px]">Stor
-                            by:</label>
-                        <select x-model='sorting' @change='productFetch'
-                            class="flex items-center gap-[4px] w-[400px] px-[20px] py-[15px] mr-[80px] text-[#380D37] text-[14px] font-[jost] font-[400] leading-[20.23px]">
-                            <option selected>Default sorting</option>
-                            <option value="sbp">Sort by popularity</option>
-                            <option value="sbar">Sort by average rating</option>
-                            <option value="sbl">Sort by latest</option>
-                            <option value="lth">Short by price: low to high</option>
-                            <option value="htl">Short by price: high to low</option>
-                        </select>
-
-                        <div
-                            class="shop-view text-[#380D37] text-[14px] font-[jost] font-[400] leading-[20.23px]  mx-[20px] flex items-center gap-[4px] justify-center transparent">
-                            <span class='text-center'>View</span>
-                            <span id="grid" class="grid-view mf-shop-view current mx-[20px]" data-view="grid">
-                                <svg xmlns="http://www.w3.org/2000/svg" height="2em" fill='black'
-                                    viewBox="0 0 512 512">
-                                    <path
-                                        d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64
+                        class="col-span-1 text-right bg-[#f2f2f2] text-[#380D37] text-[14px] max-sm:text-[12px] font-[jost] font-[400] leading-[20.23px]">Stor
+                        by:</label>
+                    <select x-model='sorting' @change='productFetch'
+                        class="flex items-center gap-[4px] col-span-2 max-md:w-full py-[14px] max-sm:py-[8px] text-[#380D37] text-[14px] max-sm:text-[12px] font-[jost] font-[400] leading-[20.23px]">
+                        <option selected>Default sorting</option>
+                        <option value="sbp">Sort by popularity</option>
+                        <option value="sbar">Sort by average rating</option>
+                        <option value="sbl">Sort by latest</option>
+                        <option value="lth">Short by price: low to high</option>
+                        <option value="htl">Short by price: high to low</option>
+                    </select>
+                       </div>
+                    </div>
+                    <div
+                        class="shop-view text-[#380D37] text-[14px] max-sm:text-[12px] font-[jost] font-[400] leading-[20.23px] flex items-center gap-[4px] max-md:gap-[2px] justify-center transparent">
+                        <span class='text-center'>View</span>
+                        <span id="grid" class="grid-view mf-shop-view current mx-[20px] max-md:mx-[10px] max-sm:mx-[2px]" data-view="grid">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="2em" class="max-sm:h-[15px]" fill='black'
+                                viewBox="0 0 512 512">
+                                <path
+                                    d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64
                                         64H448c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm88 64v64H64V96h88zm56 0h88v64H208V96zm240 0v64H360V96h88zM64
                                         224h88v64H64V224zm232 0v64H208V224h88zm64 0h88v64H360V224zM152 352v64H64V352h88zm56 0h88v64H208V352zm240 0v64H360V352h88z" />
-                                </svg></span>
-                            <span id="column" class="list-view mf-shop-view mx-[20px]" data-view="list">
-                                <svg xmlns="http://www.w3.org/2000/svg" height="2em" fill='black'
-                                    viewBox="0 0 512 512">
-                                    <path
-                                        d="M64 144a48 48 0 1 0 0-96 48 48 0 1 0 0 96zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zM64 464a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm48-208a48 48 0 1 0 -96 0 48 48 0 1 0 96 0z" />
-                                </svg>
-                            </span>
-                        </div>
+                            </svg></span>
+                        <span id="column" class="list-view mf-shop-view mx-[20px] max-md:mx-[10px] max-sm:mx-[2px]" data-view="list">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="2em" class="max-sm:h-[15px]" fill='black'
+                                viewBox="0 0 512 512">
+                                <path
+                                    d="M64 144a48 48 0 1 0 0-96 48 48 0 1 0 0 96zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zM64 464a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm48-208a48 48 0 1 0 -96 0 48 48 0 1 0 96 0z" />
+                            </svg>
+                        </span>
                     </div>
                 </nav>
-
                 {{-- product show after reload  --}}
                 <div x-show='productShow' class="">
-                    <div class='grid grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 gap-8 mx-auto mt-4 product_pdiv'>
+                    <div
+                        class='grid grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 gap-8 mx-auto mt-4 product_pdiv'>
                         @foreach ($products as $product)
                             <x-shop-product :product="$product">
                                 <div class='mt-2'>
@@ -749,49 +751,46 @@
 
             // Input range script
             const rangeInput = document.querySelectorAll(".range-input input"),
-            priceInput = document.querySelectorAll(".price-input input"),
-            range = document.querySelector(".slider .progress");
-        let priceGap = 1000;
+                priceInput = document.querySelectorAll(".price-input input"),
+                range = document.querySelector(".slider .progress");
+            let priceGap = 1000;
 
-        priceInput.forEach(input => {
-            input.addEventListener("input", e => {
-                let minPrice = parseInt(priceInput[0].value),
-                    maxPrice = parseInt(priceInput[1].value);
+            priceInput.forEach(input => {
+                input.addEventListener("input", e => {
+                    let minPrice = parseInt(priceInput[0].value),
+                        maxPrice = parseInt(priceInput[1].value);
 
-                if ((maxPrice - minPrice >= priceGap) && maxPrice <= rangeInput[1].max) {
-                    if (e.target.className === "input-min") {
-                        rangeInput[0].value = minPrice;
-                        range.style.left = ((minPrice / rangeInput[0].max) * 100) + "%";
-                    } else {
-                        rangeInput[1].value = maxPrice;
-                        range.style.right = 100 - (maxPrice / rangeInput[1].max) * 100 + "%";
+                    if ((maxPrice - minPrice >= priceGap) && maxPrice <= rangeInput[1].max) {
+                        if (e.target.className === "input-min") {
+                            rangeInput[0].value = minPrice;
+                            range.style.left = ((minPrice / rangeInput[0].max) * 100) + "%";
+                        } else {
+                            rangeInput[1].value = maxPrice;
+                            range.style.right = 100 - (maxPrice / rangeInput[1].max) * 100 + "%";
+                        }
                     }
-                }
+                });
+            });
+
+            rangeInput.forEach(input => {
+                input.addEventListener("input", e => {
+                    let minVal = parseInt(rangeInput[0].value),
+                        maxVal = parseInt(rangeInput[1].value);
+
+                    if ((maxVal - minVal) < priceGap) {
+                        if (e.target.className === "range-min") {
+                            rangeInput[0].value = maxVal - priceGap
+                        } else {
+                            rangeInput[1].value = minVal + priceGap;
+                        }
+                    } else {
+                        priceInput[0].value = minVal;
+                        priceInput[1].value = maxVal;
+                        range.style.left = ((minVal / rangeInput[0].max) * 100) + "%";
+                        range.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
+                    }
+                });
             });
         });
-
-        rangeInput.forEach(input => {
-            input.addEventListener("input", e => {
-                let minVal = parseInt(rangeInput[0].value),
-                    maxVal = parseInt(rangeInput[1].value);
-
-                if ((maxVal - minVal) < priceGap) {
-                    if (e.target.className === "range-min") {
-                        rangeInput[0].value = maxVal - priceGap
-                    } else {
-                        rangeInput[1].value = minVal + priceGap;
-                    }
-                } else {
-                    priceInput[0].value = minVal;
-                    priceInput[1].value = maxVal;
-                    range.style.left = ((minVal / rangeInput[0].max) * 100) + "%";
-                    range.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
-                }
-            });
-        });
-        });
-
-
-
     </script>
 @endscript
