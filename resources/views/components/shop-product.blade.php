@@ -40,7 +40,8 @@
      <div class="px-6 py-6 mt-auto text-center">
          <div>
              <a href="#" class="font-[jost] text-[12px] font-[700] leading-[24px] text-[#DC275C] block">
-                 {{ number_format($product->final_price) }}<span
+                 {{ number_format($product->final_price) }}
+                 <span
                      class="ml-[5px] text-[12px] font-[jost] font-[700]">TAKA</span>
              </a>
          </div>

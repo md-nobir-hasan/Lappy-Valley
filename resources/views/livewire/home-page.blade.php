@@ -1,51 +1,4 @@
-<x-slot name='styles'>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
-</x-slot>
-
-<x-slot name='script'>
-    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
-    <script>
-        // set the default active slide to the first one
-        let slideIndex = 0;
-        // showSlide(slideIndex);
-
-
-        // change slide with the prev/next button
-        function moveSlide(moveStep) {
-            showSlide(slideIndex += moveStep);
-        }
-
-        // change slide with the dots
-        function currentSlide(n) {
-            showSlide(slideIndex = n);
-        }
-
-        function showSlide(n) {
-            let i;
-            const slides = document.getElementsByClassName("slide");
-
-            if (n > slides.length - 1) {
-                slideIndex = 0
-            }
-            if (n < 0) {
-                slideIndex = slides.length - 1
-            }
-
-            // const dots = document.getElementsByClassName('dot');
-            // hide all slides
-            for (i = 0; i < slides.length; i++) {
-                slides[i].classList.add('hidden');
-            }
-
-            // show the active slide
-            slides[slideIndex].classList.remove('hidden');
-        }
-    </script>
-</x-slot>
-
 <div class="px-[100px] lg:px-16 blurH">
-
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <style>
         .swiper-slide {
             text-align: center;
@@ -96,6 +49,567 @@
 
         .button:hover {
             background: linear-gradient(to right, #DC275C, #380D37);
+        }
+
+        .slider {
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .slider .owl-item.active.center .slider-card {
+            transform: scale(1.15);
+            opacity: 1;
+            color: #fff;
+        }
+
+        .slider-card {
+            background: #fff;
+            /* padding: 0px 0px; */
+            margin: 50px 15px 90px 15px;
+            border-radius: 5px;
+            box-shadow: 0 15px 45px -20px rgb(0 0 0 / 73%);
+            transform: scale(0.9);
+            opacity: 0.5;
+            transition: all 0.3s;
+            width: 365px
+        }
+
+
+
+
+        @media (max-width: 1280px) {
+            .slider-card {
+                width: 280px;
+            }
+
+            .leo-h {
+                font-size: 18px;
+            }
+
+            .leo-h1 {
+                font-size: 18px;
+                margin-top: 25px;
+                margin-bottom: 25px;
+            }
+
+            .leo-p {
+                font-size: 10px;
+            }
+
+            .leo-p1 {
+                font-size: 13px;
+                line-height: 20.13px;
+            }
+
+            .client-img {
+                width: 64px;
+                height: 64px;
+            }
+
+            .star-div {
+                margin-top: 34px;
+            }
+
+            .star {
+                width: 18px;
+                height: 18px;
+            }
+        }
+
+
+        @media (max-width: 1024px) {
+            .slider-card {
+                width: 450px;
+                margin: 50px auto;
+            }
+
+            .leo-h {
+                font-size: 18px;
+            }
+
+            .leo-h1 {
+                font-size: 24px;
+                margin-top: 28px;
+                margin-bottom: 28px;
+            }
+
+            .leo-p {
+                font-size: 14px;
+            }
+
+            .leo-p1 {
+                font-size: 18px;
+                line-height: 30.13px;
+            }
+
+            .client-img {
+                width: 70px;
+                height: 70px;
+            }
+
+            .star-div {
+                margin-top: 27px;
+            }
+
+            .star {
+                width: 35px;
+                height: 35px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .slider-card {
+                width: 380px;
+                margin: 50px auto;
+            }
+
+            .leo-h {
+                font-size: 18px;
+            }
+
+            .leo-h1 {
+                font-size: 24px;
+                margin-top: 28px;
+                margin-bottom: 28px;
+            }
+
+            .leo-p {
+                font-size: 13px;
+            }
+
+            .leo-p1 {
+                font-size: 18px;
+                line-height: 26.13px;
+            }
+
+            .client-img {
+                width: 64px;
+                height: 64px;
+            }
+
+            .star-div {
+                margin-top: 27px;
+            }
+
+            .star {
+                width: 30px !important;
+                height: 30px !important;
+            }
+
+            /* .arrow{
+                        width:40px !important;
+                        height:40px !important;
+                        } */
+
+            .owl-nav {
+                gap: 190px;
+                transform: translateY(36px);
+            }
+        }
+
+
+        @media (max-width: 640px) {
+            .slider-card {
+                width: 280px;
+            }
+
+            .leo-h {
+                font-size: 18px;
+            }
+
+            .leo-h1 {
+                font-size: 18px;
+                margin-top: 25px;
+                margin-bottom: 25px;
+            }
+
+            .leo-p {
+                font-size: 10px;
+            }
+
+            .leo-p1 {
+                font-size: 13px;
+                line-height: 20.13px;
+            }
+
+            .client-img {
+                width: 64px;
+                height: 64px;
+            }
+
+            .star-div {
+                margin-top: 34px;
+            }
+
+            .star {
+                width: 18px !important;
+                height: 18px !important;
+            }
+
+            .owl-dots .owl-dot {
+                height: 12px !important;
+                width: 12px !important;
+                border-radius: 10px;
+                background: #C5C5C5 !important;
+                margin-left: 4px !important;
+                margin-right: 4px !important;
+                outline: none;
+            }
+
+            .arrow {
+                width: 30px;
+                height: 30px;
+            }
+
+            .owl-nav {
+                gap: 130px !important;
+                transform: translateY(32px) !important;
+            }
+
+        }
+
+
+        .slider-card img {
+            border-radius: 4px 4px 0px 0px;
+        }
+
+        .owl-nav .owl-prev {
+            /* position: absolute; */
+            top: calc(50% - 25px);
+            left: 0;
+            opacity: 1;
+            font-size: 30px !important;
+            z-index: 1;
+        }
+
+        .owl-nav .owl-next {
+            /* position: absolute; */
+            top: calc(50% - 25px);
+            right: 0;
+            opacity: 1;
+            font-size: 30px !important;
+            z-index: 1;
+        }
+
+        .owl-nav {
+            display: flex;
+            /* justify-content: space-between; */
+            align-items: center;
+            justify-content: center;
+            gap: 190px;
+            transform: translateY(36px);
+        }
+
+        .owl-dots {
+            text-align: center;
+        }
+
+        .owl-dots .owl-dot {
+            height: 17px;
+            width: 17px;
+            border-radius: 10px;
+            background: #C5C5C5 !important;
+            margin-left: 8px;
+            margin-right: 8px;
+            outline: none;
+        }
+
+        .owl-dots .owl-dot.active {
+            background: #353535 !important;
+        }
+
+
+        btn-12 {
+            /* color: #000; */
+            position: relative;
+            right: 20px;
+            top: 20px;
+            border: none;
+            width: 116px;
+            height: 44px;
+            line-height: 23.12px;
+            -webkit-perspective: 230px;
+            perspective: 230px;
+        }
+
+        @media (max-width: 640px) {
+            .btn-12 {
+                width: 100px;
+                height: 36px;
+            }
+
+            .btn-12 span {
+                width: 100px;
+                height: 36px;
+            }
+
+        }
+
+        .btn-12 span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            width: 116px;
+            height: 44px;
+            /* border: 1px solid #0bf4f3; */
+            /* box-shadow: 0 0 5px #0bf4f3, 0 0 5px #0bf4f3 inset; */
+            border-radius: 4px;
+            margin: 0;
+            text-align: center;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            -webkit-transition: all .7s;
+            transition: all .7s;
+            background: linear-gradient(to right, #380D37, #DC275C);
+            color: #fff;
+            font-family: jost;
+        }
+
+        .btn-12 span:nth-child(1) {
+            /* box-shadow: 0 0 5px #0bf4f3, 0 0 5px #0bf4f3 inset; */
+            -webkit-transform: rotateX(90deg);
+            -moz-transform: rotateX(90deg);
+            transform: rotateX(90deg);
+            -webkit-transform-origin: 50% 50% -20px;
+            -moz-transform-origin: 50% 50% -20px;
+            transform-origin: 50% 50% -20px;
+        }
+
+        .btn-12 span:nth-child(2) {
+            -webkit-transform: rotateX(0deg);
+            -moz-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+            -webkit-transform-origin: 50% 50% -20px;
+            -moz-transform-origin: 50% 50% -20px;
+            transform-origin: 50% 50% -20px;
+        }
+
+        .btn-12:hover span:nth-child(1) {
+            -webkit-transform: rotateX(0deg);
+            -moz-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+            background: linear-gradient(to right, #380D37, #DC275C);
+            box-shadow: 0 0 5px #0bf4f3, 0 0 5px #0bf4f3 inset;
+            color: #f2f2f2;
+            border: 1px solid #0bf4f3;
+        }
+
+        .btn-12:hover span:nth-child(2) {
+            background: #380D37;
+            color: #000;
+            box-shadow: 0 0 5px #0bf4f3, 0 0 5px #0bf4f3 inset;
+            -webkit-transform: rotateX(-90deg);
+            -moz-transform: rotateX(-90deg);
+            transform: rotateX(-90deg);
+            border: 1px solid #0bf4f3;
+        }
+
+
+        .custom-btn {
+            color: #fff;
+            width: 130px;
+            height: 40px;
+            padding: 10px 25px;
+            /* font-family: 'Lato', sans-serif; */
+            font-weight: 500;
+            /* background: transparent; */
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            display: inline-block;
+            /* background:linear-gradient(#380D37,#DC275C); */
+        }
+
+        .btn-7 {
+            /* background: #8ce437; */
+            line-height: 40px;
+            padding: 0;
+            border: none;
+            box-shadow: 0 0 5px #8ce437;
+        }
+
+        .btn-7 span {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .btn-7:hover {
+            background: #380D37;
+        }
+
+        .btn-7:before,
+        .btn-7:after {
+            position: absolute;
+            content: "";
+            height: 0%;
+            width: 2px;
+            background: #8ce437;
+            box-shadow: 0px 0px 5px #8ce437;
+        }
+
+        .btn-7:before {
+            right: 0;
+            top: 0;
+            transition: all 1000ms ease;
+        }
+
+        .btn-7:after {
+            left: 0;
+            bottom: 0;
+            transition: all 1000ms ease;
+        }
+
+        .btn-7:hover:before {
+            transition: all 1000ms ease;
+            height: 100%;
+            background: linear-gradient(#380D37, #DC275C);
+        }
+
+        .btn-7:hover:after {
+            transition: all 1000ms ease;
+            height: 100%;
+            background: linear-gradient(#380D37, #DC275C);
+        }
+
+        .btn-7 span:before,
+        .btn-7 span:after {
+            position: absolute;
+            content: "";
+            background: #8ce437;
+            box-shadow: 0 0 5px #8ce437;
+        }
+
+        .btn-7 span:before {
+            left: 0;
+            top: 0;
+            width: 0%;
+            height: 2px;
+            transition: all 1000ms ease;
+        }
+
+        .btn-7 span:after {
+            right: 0;
+            bottom: 0;
+            width: 0%;
+            height: 2px;
+            transition: all 1000ms ease;
+        }
+
+        .btn-7 span:hover:before {
+            width: 100%;
+            /* background:linear-gradient(#380D37,#DC275C); */
+        }
+
+        .btn-7 span:hover:after {
+            width: 100%;
+            /* background:linear-gradient(#380D37,#DC275C); */
+        }
+
+
+        .custom-btn6 {
+            color: #fff;
+            width: 116px;
+            height: 44px;
+            padding: 10px 25px;
+            /* font-family: 'Lato', sans-serif; */
+            font-weight: 500;
+            /* background: transparent; */
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            display: inline-block;
+            /* background:linear-gradient(#380D37,#DC275C); */
+        }
+
+        .btn-6 {
+            /* background: #8ce436; */
+            line-height: 40px;
+            padding: 0;
+            border: none;
+            box-shadow: 0 0 5px #8ce436;
+        }
+
+        .btn-6 span {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .btn-6:hover {
+            background: #380D37;
+        }
+
+        .btn-6:before,
+        .btn-6:after {
+            position: absolute;
+            content: "";
+            height: 0%;
+            width: 2px;
+            background: #8ce436;
+            box-shadow: 0px 0px 5px #8ce436;
+        }
+
+        .btn-6:before {
+            right: 0;
+            top: 0;
+            transition: all 1000ms ease;
+        }
+
+        .btn-6:after {
+            left: 0;
+            bottom: 0;
+            transition: all 1000ms ease;
+        }
+
+        .btn-6:hover:before {
+            transition: all 1000ms ease;
+            height: 100%;
+            background: linear-gradient(#380D37, #DC275C);
+        }
+
+        .btn-6:hover:after {
+            transition: all 1000ms ease;
+            height: 100%;
+            background: linear-gradient(#380D37, #DC275C);
+        }
+
+        .btn-6 span:before,
+        .btn-6 span:after {
+            position: absolute;
+            content: "";
+            background: #8ce436;
+            box-shadow: 0 0 5px #8ce436;
+        }
+
+        .btn-6 span:before {
+            left: 0;
+            top: 0;
+            width: 0%;
+            height: 2px;
+            transition: all 1000ms ease;
+        }
+
+        .btn-6 span:after {
+            right: 0;
+            bottom: 0;
+            width: 0%;
+            height: 2px;
+            transition: all 1000ms ease;
+        }
+
+        .btn-6 span:hover:before {
+            width: 100%;
+            /* background:linear-gradient(#380D37,#DC275C); */
+        }
+
+        .btn-6 span:hover:after {
+            width: 100%;
+            /* background:linear-gradient(#380D37,#DC275C); */
         }
     </style>
     <form method="POST" action="{{ route('logout') }}" class="hidden">
@@ -188,98 +702,12 @@
                         Our newest</br>products are</br>here,just for you!</p>
                 </div>
                 <div class='text-center'>
-                    <style>
-                        btn-12 {
-                            /* color: #000; */
-                            position: relative;
-                            right: 20px;
-                            top: 20px;
-                            border: none;
-                            width: 116px;
-                            height: 44px;
-                            line-height: 23.12px;
-                            -webkit-perspective: 230px;
-                            perspective: 230px;
-                        }
 
-                        @media (max-width: 640px) {
-                            .btn-12 {
-                                width: 100px;
-                                height: 36px;
-                            }
-
-                            .btn-12 span {
-                                width: 100px;
-                                height: 36px;
-                            }
-
-                        }
-
-                        .btn-12 span {
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-                            position: absolute;
-                            width: 116px;
-                            height: 44px;
-                            /* border: 1px solid #0bf4f3; */
-                            /* box-shadow: 0 0 5px #0bf4f3, 0 0 5px #0bf4f3 inset; */
-                            border-radius: 4px;
-                            margin: 0;
-                            text-align: center;
-                            -webkit-box-sizing: border-box;
-                            -moz-box-sizing: border-box;
-                            box-sizing: border-box;
-                            -webkit-transition: all .7s;
-                            transition: all .7s;
-                            background: linear-gradient(to right, #380D37, #DC275C);
-                            color: #fff;
-                            font-family: jost;
-                        }
-
-                        .btn-12 span:nth-child(1) {
-                            /* box-shadow: 0 0 5px #0bf4f3, 0 0 5px #0bf4f3 inset; */
-                            -webkit-transform: rotateX(90deg);
-                            -moz-transform: rotateX(90deg);
-                            transform: rotateX(90deg);
-                            -webkit-transform-origin: 50% 50% -20px;
-                            -moz-transform-origin: 50% 50% -20px;
-                            transform-origin: 50% 50% -20px;
-                        }
-
-                        .btn-12 span:nth-child(2) {
-                            -webkit-transform: rotateX(0deg);
-                            -moz-transform: rotateX(0deg);
-                            transform: rotateX(0deg);
-                            -webkit-transform-origin: 50% 50% -20px;
-                            -moz-transform-origin: 50% 50% -20px;
-                            transform-origin: 50% 50% -20px;
-                        }
-
-                        .btn-12:hover span:nth-child(1) {
-                            -webkit-transform: rotateX(0deg);
-                            -moz-transform: rotateX(0deg);
-                            transform: rotateX(0deg);
-                            background: linear-gradient(to right, #380D37, #DC275C);
-                            box-shadow: 0 0 5px #0bf4f3, 0 0 5px #0bf4f3 inset;
-                            color: #f2f2f2;
-                            border: 1px solid #0bf4f3;
-                        }
-
-                        .btn-12:hover span:nth-child(2) {
-                            background: #380D37;
-                            color: #000;
-                            box-shadow: 0 0 5px #0bf4f3, 0 0 5px #0bf4f3 inset;
-                            -webkit-transform: rotateX(-90deg);
-                            -moz-transform: rotateX(-90deg);
-                            transform: rotateX(-90deg);
-                            border: 1px solid #0bf4f3;
-                        }
-                    </style>
                     <button
                         class="btn-12 text-center mt-[60px] py-2 font-[jost] font-[500] max-sm:translate-x-[-4px] max-sm:translate-y-[-47px] max-md:translate-x-[-62px] max-md:translate-y-[-47px] max-lg:translate-x-[-62px] max-xl:translate-x-[-62px] max-2xl:translate-x-[-70px] max-lg:translate-y-[-47px] max-xl:translate-y-[-47px]  max-2xl:translate-y-[-47px]
                         text-[16px]  text-[#F2F2F2] rounded-[4px]">
-                        <span class="font-[jost] font-[500]">Click!</span><span class="font-[jost] font-[500]">Visit Now!</span></button>
+                        <span class="font-[jost] font-[500]">Click!</span><span class="font-[jost] font-[500]">Visit
+                            Now!</span></button>
                 </div>
             </div>
 
@@ -339,12 +767,12 @@
                                 </a>
                             </div>
                             <div>
-                              <a href="#">
-                                <p
-                                class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4 transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
-                            </p>
-                              </a>
+                                <a href="#">
+                                    <p
+                                        class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4 transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
+                                        Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
+                                    </p>
+                                </a>
                             </div>
                             <div
                                 class="flex justify-between text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
@@ -366,12 +794,12 @@
                                 </a>
                             </div>
                             <div>
-                              <a href="#">
-                                <p
-                                class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
-                            </p>
-                              </a>
+                                <a href="#">
+                                    <p
+                                        class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
+                                        Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
+                                    </p>
+                                </a>
                             </div>
                             <div
                                 class="flex justify-between text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
@@ -394,12 +822,12 @@
                                 </a>
                             </div>
                             <div>
-                              <a href="#">
-                                <p
-                                class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
-                            </p>
-                              </a>
+                                <a href="#">
+                                    <p
+                                        class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
+                                        Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
+                                    </p>
+                                </a>
                             </div>
                             <div
                                 class="flex justify-between text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
@@ -422,12 +850,12 @@
                                 </a>
                             </div>
                             <div>
-                             <a href="#">
-                                <p
-                                class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
-                            </p>
-                             </a>
+                                <a href="#">
+                                    <p
+                                        class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
+                                        Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
+                                    </p>
+                                </a>
                             </div>
                             <div
                                 class="flex justify-between text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
@@ -450,12 +878,12 @@
                                 </a>
                             </div>
                             <div>
-                              <a href="#">
-                                <p
-                                class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
-                            </p>
-                              </a>
+                                <a href="#">
+                                    <p
+                                        class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
+                                        Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
+                                    </p>
+                                </a>
                             </div>
                             <div
                                 class="flex justify-between text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
@@ -478,12 +906,12 @@
                                 </a>
                             </div>
                             <div>
-                             <a href="#">
-                                <p
-                                class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
-                            </p>
-                             </a>
+                                <a href="#">
+                                    <p
+                                        class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
+                                        Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
+                                    </p>
+                                </a>
                             </div>
                             <div
                                 class="flex justify-between text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
@@ -506,12 +934,12 @@
                                 </a>
                             </div>
                             <div>
-                              <a href="#">
-                                <p
-                                class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
-                            </p>
-                              </a>
+                                <a href="#">
+                                    <p
+                                        class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
+                                        Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
+                                    </p>
+                                </a>
                             </div>
                             <div
                                 class="flex justify-between text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
@@ -534,12 +962,12 @@
                                 </a>
                             </div>
                             <div>
-                             <a href="#">
-                                <p
-                                class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
-                            </p>
-                             </a>
+                                <a href="#">
+                                    <p
+                                        class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
+                                        Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
+                                    </p>
+                                </a>
                             </div>
                             <div
                                 class="flex justify-between text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
@@ -562,12 +990,12 @@
                                 </a>
                             </div>
                             <div>
-                              <a href="#">
-                                <p
-                                class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
-                            </p>
-                              </a>
+                                <a href="#">
+                                    <p
+                                        class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
+                                        Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
+                                    </p>
+                                </a>
                             </div>
                             <div
                                 class="flex justify-between text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
@@ -586,10 +1014,10 @@
             </div>
 
             <!-- Swiper JS -->
-            <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+            {{-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> --}}
 
             <!-- Initialize Swiper -->
-            <script>
+            {{-- <script>
                 var swiper = new Swiper(".mySwiper", {
                     slidesPerView: 5,
                     // spaceBetween: 5,
@@ -629,7 +1057,7 @@
 
                 // Listen to window resize events
                 window.addEventListener('resize', adjustSlidesPerView);
-            </script>
+            </script> --}}
 
     </section>
     <div class='mt-[40px] mb-[30px]'>
@@ -670,109 +1098,7 @@
 
     </section>
     <div>
-        <style>
-            .custom-btn {
-                color: #fff;
-                width: 130px;
-                height: 40px;
-                padding: 10px 25px;
-                /* font-family: 'Lato', sans-serif; */
-                font-weight: 500;
-                /* background: transparent; */
-                cursor: pointer;
-                transition: all 0.3s ease;
-                position: relative;
-                display: inline-block;
-                /* background:linear-gradient(#380D37,#DC275C); */
-            }
 
-            .btn-7 {
-                /* background: #8ce437; */
-                line-height: 40px;
-                padding: 0;
-                border: none;
-                box-shadow: 0 0 5px #8ce437;
-            }
-
-            .btn-7 span {
-                position: relative;
-                display: block;
-                width: 100%;
-                height: 100%;
-            }
-
-            .btn-7:hover {
-                background: #380D37;
-            }
-
-            .btn-7:before,
-            .btn-7:after {
-                position: absolute;
-                content: "";
-                height: 0%;
-                width: 2px;
-                background: #8ce437;
-                box-shadow: 0px 0px 5px #8ce437;
-            }
-
-            .btn-7:before {
-                right: 0;
-                top: 0;
-                transition: all 1000ms ease;
-            }
-
-            .btn-7:after {
-                left: 0;
-                bottom: 0;
-                transition: all 1000ms ease;
-            }
-
-            .btn-7:hover:before {
-                transition: all 1000ms ease;
-                height: 100%;
-                background: linear-gradient(#380D37, #DC275C);
-            }
-
-            .btn-7:hover:after {
-                transition: all 1000ms ease;
-                height: 100%;
-                background: linear-gradient(#380D37, #DC275C);
-            }
-
-            .btn-7 span:before,
-            .btn-7 span:after {
-                position: absolute;
-                content: "";
-                background: #8ce437;
-                box-shadow: 0 0 5px #8ce437;
-            }
-
-            .btn-7 span:before {
-                left: 0;
-                top: 0;
-                width: 0%;
-                height: 2px;
-                transition: all 1000ms ease;
-            }
-
-            .btn-7 span:after {
-                right: 0;
-                bottom: 0;
-                width: 0%;
-                height: 2px;
-                transition: all 1000ms ease;
-            }
-
-            .btn-7 span:hover:before {
-                width: 100%;
-                /* background:linear-gradient(#380D37,#DC275C); */
-            }
-
-            .btn-7 span:hover:after {
-                width: 100%;
-                /* background:linear-gradient(#380D37,#DC275C); */
-            }
-        </style>
         <a href="{{ route('shop') }}">
             <button
                 class="custom-btn7 btn-7 items-center justify-center flex my-[60px] mx-auto text-[16px] text-[#F2F4F8] w-[116px] h-[44px] rounded-[4px] bg-gradient-to-r from-[#380D37] to-[#DC275C]">
@@ -884,277 +1210,7 @@
             What Our Clients Say About
             Us</h2>
         <div class="container mx-auto">
-            <link rel="stylesheet"
-                href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-            <link rel="stylesheet" type="text/css" href="/frontend/owl-carousel-libraries/owl.carousel.min.css">
-            <style>
-                .slider {
-                    margin-bottom: 30px;
-                    position: relative;
-                }
 
-                .slider .owl-item.active.center .slider-card {
-                    transform: scale(1.15);
-                    opacity: 1;
-                    color: #fff;
-                }
-
-                .slider-card {
-                    background: #fff;
-                    /* padding: 0px 0px; */
-                    margin: 50px 15px 90px 15px;
-                    border-radius: 5px;
-                    box-shadow: 0 15px 45px -20px rgb(0 0 0 / 73%);
-                    transform: scale(0.9);
-                    opacity: 0.5;
-                    transition: all 0.3s;
-                    width: 365px
-                }
-
-
-
-
-                @media (max-width: 1280px) {
-                    .slider-card {
-                        width: 280px;
-                    }
-
-                    .leo-h {
-                        font-size: 18px;
-                    }
-
-                    .leo-h1 {
-                        font-size: 18px;
-                        margin-top: 25px;
-                        margin-bottom: 25px;
-                    }
-
-                    .leo-p {
-                        font-size: 10px;
-                    }
-
-                    .leo-p1 {
-                        font-size: 13px;
-                        line-height: 20.13px;
-                    }
-
-                    .client-img {
-                        width: 64px;
-                        height: 64px;
-                    }
-
-                    .star-div {
-                        margin-top: 34px;
-                    }
-
-                    .star {
-                        width: 18px;
-                        height: 18px;
-                    }
-                }
-
-
-                @media (max-width: 1024px) {
-                    .slider-card {
-                        width: 450px;
-                        margin: 50px auto;
-                    }
-
-                    .leo-h {
-                        font-size: 18px;
-                    }
-
-                    .leo-h1 {
-                        font-size: 24px;
-                        margin-top: 28px;
-                        margin-bottom: 28px;
-                    }
-
-                    .leo-p {
-                        font-size: 14px;
-                    }
-
-                    .leo-p1 {
-                        font-size: 18px;
-                        line-height: 30.13px;
-                    }
-
-                    .client-img {
-                        width: 70px;
-                        height: 70px;
-                    }
-
-                    .star-div {
-                        margin-top: 27px;
-                    }
-
-                    .star {
-                        width: 35px;
-                        height: 35px;
-                    }
-                }
-
-                @media (max-width: 768px) {
-                    .slider-card {
-                        width: 380px;
-                        margin: 50px auto;
-                    }
-
-                    .leo-h {
-                        font-size: 18px;
-                    }
-
-                    .leo-h1 {
-                        font-size: 24px;
-                        margin-top: 28px;
-                        margin-bottom: 28px;
-                    }
-
-                    .leo-p {
-                        font-size: 13px;
-                    }
-
-                    .leo-p1 {
-                        font-size: 18px;
-                        line-height: 26.13px;
-                    }
-
-                    .client-img {
-                        width: 64px;
-                        height: 64px;
-                    }
-
-                    .star-div {
-                        margin-top: 27px;
-                    }
-
-                    .star {
-                        width: 30px !important;
-                        height: 30px !important;
-                    }
-
-                    /* .arrow{
-                        width:40px !important;
-                        height:40px !important;
-                        } */
-
-                    .owl-nav {
-                        gap: 190px;
-                        transform: translateY(36px);
-                    }
-                }
-
-
-                @media (max-width: 640px) {
-                    .slider-card {
-                        width: 280px;
-                    }
-
-                    .leo-h {
-                        font-size: 18px;
-                    }
-
-                    .leo-h1 {
-                        font-size: 18px;
-                        margin-top: 25px;
-                        margin-bottom: 25px;
-                    }
-
-                    .leo-p {
-                        font-size: 10px;
-                    }
-
-                    .leo-p1 {
-                        font-size: 13px;
-                        line-height: 20.13px;
-                    }
-
-                    .client-img {
-                        width: 64px;
-                        height: 64px;
-                    }
-
-                    .star-div {
-                        margin-top: 34px;
-                    }
-
-                    .star {
-                        width: 18px !important;
-                        height: 18px !important;
-                    }
-
-                    .owl-dots .owl-dot {
-                        height: 12px !important;
-                        width: 12px !important;
-                        border-radius: 10px;
-                        background: #C5C5C5 !important;
-                        margin-left: 4px !important;
-                        margin-right: 4px !important;
-                        outline: none;
-                    }
-
-                    .arrow {
-                        width: 30px;
-                        height: 30px;
-                    }
-
-                    .owl-nav {
-                        gap: 130px !important;
-                        transform: translateY(32px) !important;
-                    }
-
-                }
-
-
-                .slider-card img {
-                    border-radius: 4px 4px 0px 0px;
-                }
-
-                .owl-nav .owl-prev {
-                    /* position: absolute; */
-                    top: calc(50% - 25px);
-                    left: 0;
-                    opacity: 1;
-                    font-size: 30px !important;
-                    z-index: 1;
-                }
-
-                .owl-nav .owl-next {
-                    /* position: absolute; */
-                    top: calc(50% - 25px);
-                    right: 0;
-                    opacity: 1;
-                    font-size: 30px !important;
-                    z-index: 1;
-                }
-
-                .owl-nav {
-                    display: flex;
-                    /* justify-content: space-between; */
-                    align-items: center;
-                    justify-content: center;
-                    gap: 190px;
-                    transform: translateY(36px);
-                }
-
-                .owl-dots {
-                    text-align: center;
-                }
-
-                .owl-dots .owl-dot {
-                    height: 17px;
-                    width: 17px;
-                    border-radius: 10px;
-                    background: #C5C5C5 !important;
-                    margin-left: 8px;
-                    margin-right: 8px;
-                    outline: none;
-                }
-
-                .owl-dots .owl-dot.active {
-                    background: #353535 !important;
-                }
-            </style>
             <section id="slider" class="pt-5 mx-auto">
                 <div class="container mx-auto">
                     {{-- <h1 class="text-center"><b>Responsive Owl Carousel</b></h1> --}}
@@ -1700,8 +1756,8 @@
                     </div>
                 </div>
             </section>
-            <script src="/frontend/owl-carousel-libraries/owl.carousel.min.js"></script>
-            <script>
+            {{-- <script src="/frontend/owl-carousel-libraries/owl.carousel.min.js"></script> --}}
+            {{-- <script>
                 $(document).ready(function() {
                     $(".owl-carousel").owlCarousel({
                         loop: true,
@@ -1729,7 +1785,7 @@
                         }
                     });
                 });
-            </script>
+            </script> --}}
         </div>
     </section>
     <div class="mt-16 h-[2px] bg-[#380D37] container"></div>
@@ -1794,109 +1850,7 @@
                     @if ($post_error_msg)
                         <span class="block text-[red]">{{ $post_error_msg }}</span>
                     @endif
-                    <style>
-                        .custom-btn6 {
-                            color: #fff;
-                            width: 116px;
-                            height: 44px;
-                            padding: 10px 25px;
-                            /* font-family: 'Lato', sans-serif; */
-                            font-weight: 500;
-                            /* background: transparent; */
-                            cursor: pointer;
-                            transition: all 0.3s ease;
-                            position: relative;
-                            display: inline-block;
-                            /* background:linear-gradient(#380D37,#DC275C); */
-                        }
 
-                        .btn-6 {
-                            /* background: #8ce436; */
-                            line-height: 40px;
-                            padding: 0;
-                            border: none;
-                            box-shadow: 0 0 5px #8ce436;
-                        }
-
-                        .btn-6 span {
-                            position: relative;
-                            display: block;
-                            width: 100%;
-                            height: 100%;
-                        }
-
-                        .btn-6:hover {
-                            background: #380D37;
-                        }
-
-                        .btn-6:before,
-                        .btn-6:after {
-                            position: absolute;
-                            content: "";
-                            height: 0%;
-                            width: 2px;
-                            background: #8ce436;
-                            box-shadow: 0px 0px 5px #8ce436;
-                        }
-
-                        .btn-6:before {
-                            right: 0;
-                            top: 0;
-                            transition: all 1000ms ease;
-                        }
-
-                        .btn-6:after {
-                            left: 0;
-                            bottom: 0;
-                            transition: all 1000ms ease;
-                        }
-
-                        .btn-6:hover:before {
-                            transition: all 1000ms ease;
-                            height: 100%;
-                            background: linear-gradient(#380D37, #DC275C);
-                        }
-
-                        .btn-6:hover:after {
-                            transition: all 1000ms ease;
-                            height: 100%;
-                            background: linear-gradient(#380D37, #DC275C);
-                        }
-
-                        .btn-6 span:before,
-                        .btn-6 span:after {
-                            position: absolute;
-                            content: "";
-                            background: #8ce436;
-                            box-shadow: 0 0 5px #8ce436;
-                        }
-
-                        .btn-6 span:before {
-                            left: 0;
-                            top: 0;
-                            width: 0%;
-                            height: 2px;
-                            transition: all 1000ms ease;
-                        }
-
-                        .btn-6 span:after {
-                            right: 0;
-                            bottom: 0;
-                            width: 0%;
-                            height: 2px;
-                            transition: all 1000ms ease;
-                        }
-
-                        .btn-6 span:hover:before {
-                            width: 100%;
-                            /* background:linear-gradient(#380D37,#DC275C); */
-                        }
-
-                        .btn-6 span:hover:after {
-                            width: 100%;
-                            /* background:linear-gradient(#380D37,#DC275C); */
-                        }
-                    </style>
                     <button
                         class="custom-btn6 btn-6 selection:text-[#F2F2F2] relative text-[16px] h-[44px] w-[116px] rounded-[4px] font-[500] font-[jost] mt-[15px] pt-[5px] pr-[30px] pl-[30px] pb-[5px] bg-gradient-to-r from-[#380D37] to-[#DC275C] "
                         type="submit">
@@ -1913,7 +1867,7 @@
             </form>
         </div>
     </section>
-    <script>
+    {{-- <script>
         $(document).ready(function() {
             $('.usa_btn').on('click', function() {
                 $(this).addClass('bg-[#380D37] text-[#F2F2F2]');
@@ -1956,5 +1910,148 @@
                 $('.usa_btn3').addClass('bg-[#F2F2F2] text-[#380D37]');
             });
         })
-    </script>
+    </script> --}}
 </div>
+@script
+    <script>
+        $(document).ready(function() {
+            $('.usa_btn').on('click', function() {
+                $(this).addClass('bg-[#380D37] text-[#F2F2F2]');
+                $(this).removeClass('bg-[#F2F2F2] text-[#380D37]');
+                $('.asian_btn').removeClass('bg-[#380D37] text-[#F2F2F2]')
+                $('.asian_btn').addClass('bg-[#F2F2F2] text-[#380D37]');
+            });
+            $('.asian_btn').on('click', function() {
+                $(this).addClass('bg-[#380D37] text-[#F2F2F2]');
+                $(this).removeClass('bg-[#F2F2F2] text-[#380D37]');
+                $('.usa_btn').removeClass('bg-[#380D37] text-[#F2F2F2]');
+                $('.usa_btn').addClass('bg-[#F2F2F2] text-[#380D37]');
+            });
+
+            $('.usa_btn2').on('click', function() {
+                $(this).addClass('bg-[#380D37] text-[#F2F2F2]');
+                $(this).removeClass('bg-[#F2F2F2] text-[#380D37]');
+                $('.asian_btn2').removeClass('bg-[#380D37] text-[#F2F2F2]')
+                $('.asian_btn2').addClass('bg-[#F2F2F2] text-[#380D37]');
+            });
+            $('.asian_btn2').on('click', function() {
+                $(this).addClass('bg-[#380D37] text-[#F2F2F2]');
+                $(this).removeClass('bg-[#F2F2F2] text-[#380D37]');
+                $('.usa_btn2').removeClass('bg-[#380D37] text-[#F2F2F2]');
+                $('.usa_btn2').addClass('bg-[#F2F2F2] text-[#380D37]');
+            });
+            $('.usa_btn3').on('click', function() {
+                $(this).addClass('bg-[#380D37] text-[#F2F2F2]');
+                $(this).removeClass('bg-[#F2F2F2] text-[#380D37]');
+                $('.asian_btn3').removeClass('bg-[#380D37] text-[#F2F2F2]')
+                $('.asian_btn3').addClass('bg-[#F2F2F2] text-[#380D37]');
+            });
+            $('.asian_btn3').on('click', function() {
+                $(this).addClass('bg-[#380D37] text-[#F2F2F2]');
+                $(this).removeClass('bg-[#F2F2F2] text-[#380D37]');
+                $('.usa_btn3').removeClass('bg-[#380D37] text-[#F2F2F2]');
+                $('.usa_btn3').addClass('bg-[#F2F2F2] text-[#380D37]');
+            });
+
+            $(".owl-carousel").owlCarousel({
+                loop: true,
+                margin: 10,
+                nav: true,
+                dots: true,
+                autoplay: true,
+                autoplayTimeout: 3000,
+                autoplayHoverPause: true,
+                center: true,
+                navText: [
+                    '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-18 h-9 arrow"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>',
+                    '<svg xmlns="http:www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-18 h-9 arrow"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /> </svg>'
+                ],
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    640: {
+                        items: 1
+                    },
+                    1024: {
+                        items: 3
+                    }
+                }
+            });
+        });
+        // set the default active slide to the first one
+        let slideIndex = 0;
+        // showSlide(slideIndex);
+
+
+        // change slide with the prev/next button
+        function moveSlide(moveStep) {
+            showSlide(slideIndex += moveStep);
+        }
+
+        // change slide with the dots
+        function currentSlide(n) {
+            showSlide(slideIndex = n);
+        }
+
+        function showSlide(n) {
+            let i;
+            const slides = document.getElementsByClassName("slide");
+
+            if (n > slides.length - 1) {
+                slideIndex = 0
+            }
+            if (n < 0) {
+                slideIndex = slides.length - 1
+            }
+
+            // const dots = document.getElementsByClassName('dot');
+            // hide all slides
+            for (i = 0; i < slides.length; i++) {
+                slides[i].classList.add('hidden');
+            }
+
+            // show the active slide
+            slides[slideIndex].classList.remove('hidden');
+        }
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 5,
+            // spaceBetween: 5,
+            slidesPerGroup: 1,
+            loop: true,
+            loopFillGroupWithBlank: true,
+            // pagination: {
+            //     el: ".swiper-pagination",
+            //     clickable: true,
+            // },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+        // Adjust slidesPerView dynamically
+        function adjustSlidesPerView() {
+            var windowWidth = window.innerWidth;
+
+            if (windowWidth < 640) {
+                swiper.params.slidesPerView = 1;
+            } else if (windowWidth < 768) {
+                swiper.params.slidesPerView = 2;
+            } else if (windowWidth < 1024) {
+                swiper.params.slidesPerView = 3;
+            } else if (windowWidth < 1280) {
+                swiper.params.slidesPerView = 4;
+            } else {
+                swiper.params.slidesPerView = 5;
+            }
+
+            swiper.update(); // Update Swiper instance
+        }
+
+        // Call the function initially
+        adjustSlidesPerView();
+
+        // Listen to window resize events
+        window.addEventListener('resize', adjustSlidesPerView);
+    </script>
+@endscript

@@ -6,15 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $title ? $title . ' || ' : '' }} {{ ENV('APP_NAME') }}</title>
     {{-- <link rel="stylesheet" href="/frontend/css/fonts/jost-font/Jost-VariableFont_wght.ttf"> --}}
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    {{-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> --}}
     {{-- <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,500;1,100&family=Noto+Sans+Bengali:wght@900&display=swap" rel="stylesheet"> --}}
-    <link rel="stylesheet" href="{{asset('dist/toastr/toastr.css')}}">
-    <script type="text/javascript" src="{{asset('dist/toastr/tastr-helper.js')}}"></script>
-    <script type="text/javascript" src="{{asset('dist/toastr/toastr.js')}}"></script>
-    {{ $styles ?? '' }}
-    <link rel="stylesheet" href="{{asset('dist/output.css')}}">
-    <link rel="icon" href="{{asset('storage/product/Logo.svg')}}" type="img/svg">
+    <link rel="stylesheet" href="{{ asset('dist/toastr/toastr.css') }}">
+    <link rel="stylesheet" href="{{ asset('library/tailwind-eliment/te.min.css') }}">
+    <script type="text/javascript" src="{{ asset('dist/toastr/tastr-helper.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('dist/toastr/toastr.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('library/swiper/swiper.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{asset('frontend/owl-carousel-libraries/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('dist/output.css') }}">
+    <link rel="icon" href="{{ asset('storage/product/Logo.svg') }}" type="img/svg">
 </head>
 
 <body>
@@ -45,15 +47,18 @@
     <!-------header-section-end----->
 
     <!--------- Nav Section -->
-    @livewire('nav')
+    <div>
+        @livewire('nav')
+        
+    </div>
     <!----------nav-end---------->
 
     {{ $slot }}
 
     @livewire('footer')
 
-
     {{-- Jquery --}}
+
     <script>
         $(document).ready(function() {
             const sc = $('#side_cart');
@@ -218,11 +223,14 @@
             if (event.shiftKey && event.key === 'L') {
                 // Redirect to the login page
                 window.location.href =
-                '{{ route('login') }}'; // Replace '/login' with the actual URL of your login page
+                    '{{ route('login') }}'; // Replace '/login' with the actual URL of your login page
             }
         });
     </script>
-    {{ $script ?? '' }}
+    <script src="{{asset('frontend/owl-carousel-libraries/owl.carousel.min.js')}}"></script>
+    <script src="{{ asset('library/swiper/swiper.min.js') }}"></script>
+    <script src="{{ asset('library/tailwind-eliment/te.min.js') }}"></script>
+    <!-- Initialize Swiper -->
 </body>
 
 </html>
