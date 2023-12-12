@@ -50,6 +50,7 @@ use App\Livewire\EditProfile;
 use App\Livewire\ForgetPassword;
 use App\Livewire\HomePage;
 use App\Livewire\Login;
+use App\Livewire\NewProduct;
 use App\Livewire\PrivacyPolicy;
 use App\Livewire\ProductDeatils;
 use App\Livewire\RefundServicePolicy;
@@ -185,6 +186,17 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'admin']], function
         Route::get('permission',[RoleController::class,'permission'])->name('permission');
     });
 
+    // User Management
+    Route::prefix('/setting')->name('setting.')->group(function(){
+        // Site Settings
+        Route::get('/site-settings', [AdminController::class, 'siteSettings'])->name('ss');
+        Route::post('/site-setting/update', [AdminController::class, 'siteSettingsUpdate'])->name('ss.update');
+
+        // Other Settings
+        Route::get('/other-setting', [AdminController::class, 'otherSettings'])->name('os');
+        Route::post('/setting/update', [AdminController::class, 'otherSettingsUpdate'])->name('os.update');
+    });
+
     // SEO Management
     Route::prefix('/seo')->name('seo.')->group(function(){
         Route::resource('gtag', GtagController::class);
@@ -232,9 +244,7 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'admin']], function
     Route::resource('/shipping', ShippingController::class);
     // Coupon
     Route::resource('/coupon', CouponController::class);
-    // Settings
-    Route::get('settings', [AdminController::class, 'settings'])->name('settings');
-    Route::post('setting/update', [AdminController::class, 'settingsUpdate'])->name('settings.update');
+
 
     // Notification
     Route::get('/notification/{id}', [NotificationController::class, 'show'])->name('admin.notification');
@@ -284,6 +294,7 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
 //=============================================================================================================
 Route::get('/', HomePage::class)->name('home');
 Route::get('/shop', Shop::class)->name('shop');
+Route::get('/new-product/{product_type}', NewProduct::class)->name('new_product');
 Route::get('/shop/sorting', [AjaxController::class,'shopSorting'])->name('shop.shorting');
 Route::get('/category-wise/{slug}', CatWiseShop::class)->name('cate_wise.shop');
 Route::get('/search/{stext}/{cat?}', SearchingProduct::class)->name('searching_product');

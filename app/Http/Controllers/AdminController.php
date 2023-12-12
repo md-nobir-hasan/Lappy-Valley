@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\OtherSetting;
 use Illuminate\Http\Request;
 use App\Models\Settings;
 use App\User;
@@ -49,12 +50,12 @@ class AdminController extends Controller
         return redirect()->back();
     }
 
-    public function settings(){
+    public function siteSettings(){
         $data=Settings::first();
-        return view('backend.setting')->with('data',$data);
+        return view('backend.setting.site')->with('data',$data);
     }
 
-    public function settingsUpdate(Request $request){
+    public function siteSettingsUpdate(Request $request){
         // return $request->all();
         $this->validate($request,[
             'short_des'=>'required|string',
@@ -72,6 +73,31 @@ class AdminController extends Controller
         $status=$settings->fill($data)->save();
         if($status){
             request()->session()->flash('success','Setting successfully updated');
+        }
+        else{
+            request()->session()->flash('error','Please try again');
+        }
+        return redirect()->route('admin');
+    }
+    public function otherSettings(){
+        $data=OtherSetting::first();
+        return view('backend.setting.other')->with('data',$data);
+    }
+
+    public function otherSettingsUpdate(Request $request){
+        // return $request->all();
+        $this->validate($request,[
+            'new_product'=>'required|numeric',
+            'popular_product'=>'required|numeric',
+            'most_viewed_product'=>'required|numeric',
+        ]);
+        $data=$request->all();
+        // return $data;
+        $settings=OtherSetting::first();
+        // return $settings;
+        $status=$settings->fill($data)->save();
+        if($status){
+            request()->session()->flash('success','Others Setting successfully updated');
         }
         else{
             request()->session()->flash('error','Please try again');

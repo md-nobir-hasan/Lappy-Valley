@@ -527,7 +527,7 @@
                 <nav
                     class=" px-3 flex justify-between items-center bg-[#F2F2F2] py-3 font-[jost] font-[600] text-[16px] rounded-[6px]">
                     <div class="">
-                        <h1>Brand New</h1>
+                        <h1>Shop</h1>
                     </div>
 
                     <div

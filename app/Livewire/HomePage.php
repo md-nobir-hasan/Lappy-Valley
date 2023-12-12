@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Models\Banner;
 use App\Models\Category;
 use App\Models\CompanyReview;
+use App\Models\OtherSetting;
 use App\Models\Product;
 use Carbon\Carbon;
 use Livewire\Attributes\Rule;
@@ -67,10 +68,11 @@ class HomePage extends Component
     }
     public function render()
     {
+        $os =  OtherSetting::first();
         $pd = Product::orderBy('views')->get();
-        $n['new_arrival'] = $pd->whereBetween('created_at',[Carbon::now()->subDays(7),Carbon::now()]);
+        $n['new_arrival'] = $pd->whereBetween('created_at',[Carbon::now()->subDays($os->new_product),Carbon::now()]);
         $n['features'] = $pd;
-        $n['dpds'] = $pd->take(5);
+        $n['dpds'] = Product::where('status','active')->get();
         $n['menus'] = Category::with('child_cat')->where('status', 'active')->where('is_parent', 1)->orderBy('title', 'ASC')->get();
         $n['home_banner'] = Banner::where('status', 'active')->where('slug', 'home-page')->first();
 
