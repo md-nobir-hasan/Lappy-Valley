@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $title ? $title . ' || ' : '' }} {{ ENV('APP_NAME') }}</title>
+    <link rel="icon" href="{{ asset('storage/product/Logo.svg') }}" type="img/svg">
     {{-- <link rel="stylesheet" href="/frontend/css/fonts/jost-font/Jost-VariableFont_wght.ttf"> --}}
     {{-- <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> --}}
@@ -16,7 +17,7 @@
     <link rel="stylesheet" href="{{ asset('library/swiper/swiper.min.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{asset('frontend/owl-carousel-libraries/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{ asset('dist/output.css') }}">
-    <link rel="icon" href="{{ asset('storage/product/Logo.svg') }}" type="img/svg">
+    <link rel="stylesheet" href="{{ asset('frontend/css/cstyle.css') }}">
 </head>
 
 <body>
