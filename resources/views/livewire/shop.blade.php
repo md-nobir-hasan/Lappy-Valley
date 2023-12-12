@@ -97,7 +97,6 @@
             box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
         }
     </style>
-    <script src="/library/pagination/pagination.min.js"></script>
     <div class=''>
         <h1 class='font-[jost] text-[16px] font-[400] leading-[23.12px] tracking-[3%] text-[#353535]'>All Categories/
             Pre-Owned</h1>
@@ -154,7 +153,7 @@
                         s_features: this.s_features,
                         sorting: this.sorting,
                     },
-        
+
                     success: (res) => {
                         this.products = res.product;
                         total_product = Object.keys(res.product).length;
@@ -169,7 +168,7 @@
                         this.productShow = false;
                         this.ajaxProduct = true;
                         this.pageChange(1);
-        
+
                     }
                 })
             },
@@ -186,7 +185,7 @@
                     this.show_to = to;
                     this.pagi_products = Object.fromEntries(Object.entries(this.products).slice(from, to));
                     this.current_page = pNum
-        
+
                 }
             }
         }">
@@ -194,7 +193,7 @@
             <div class="w-[206px]">
                 <!-- ----price-range------ -->
                 <div class=" w-full bg-[#F2F2F2] flex flex-col gap-2 shadow-[0_2px_4px_rgba(0,0,0,.1)] pb-[10px]">
-                    <header class="px-2 pb-2 pt-4 flex">
+                    <header class="flex px-2 pt-4 pb-2">
                         <h2 class="font-[jost] font-[500] text-[12px] text-[#380D37]">Price Range</h2>
                         {{-- <p>Use slider or enter min and max price</p> --}}
                     </header>
@@ -521,49 +520,7 @@
                         @endforeach
                     </div>
                 </div>
-                <script>
-                    const rangeInput = document.querySelectorAll(".range-input input"),
-                        priceInput = document.querySelectorAll(".price-input input"),
-                        range = document.querySelector(".slider .progress");
-                    let priceGap = 1000;
 
-                    priceInput.forEach(input => {
-                        input.addEventListener("input", e => {
-                            let minPrice = parseInt(priceInput[0].value),
-                                maxPrice = parseInt(priceInput[1].value);
-
-                            if ((maxPrice - minPrice >= priceGap) && maxPrice <= rangeInput[1].max) {
-                                if (e.target.className === "input-min") {
-                                    rangeInput[0].value = minPrice;
-                                    range.style.left = ((minPrice / rangeInput[0].max) * 100) + "%";
-                                } else {
-                                    rangeInput[1].value = maxPrice;
-                                    range.style.right = 100 - (maxPrice / rangeInput[1].max) * 100 + "%";
-                                }
-                            }
-                        });
-                    });
-
-                    rangeInput.forEach(input => {
-                        input.addEventListener("input", e => {
-                            let minVal = parseInt(rangeInput[0].value),
-                                maxVal = parseInt(rangeInput[1].value);
-
-                            if ((maxVal - minVal) < priceGap) {
-                                if (e.target.className === "range-min") {
-                                    rangeInput[0].value = maxVal - priceGap
-                                } else {
-                                    rangeInput[1].value = minVal + priceGap;
-                                }
-                            } else {
-                                priceInput[0].value = minVal;
-                                priceInput[1].value = maxVal;
-                                range.style.left = ((minVal / rangeInput[0].max) * 100) + "%";
-                                range.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
-                            }
-                        });
-                    });
-                </script>
             </div>
             {{-- <livewire:side-nav/> --}}
             <div class="w-full mx-auto">
@@ -613,7 +570,7 @@
 
                 {{-- product show after reload  --}}
                 <div x-show='productShow'>
-                    <div class='product_pdiv grid grid-cols-4 gap-8 mt-4 mx-auto'>
+                    <div class='grid grid-cols-4 gap-8 mx-auto mt-4 product_pdiv'>
                         @foreach ($products as $product)
                             <x-shop-product :product="$product">
                                 <div class='mt-2'>
@@ -637,7 +594,7 @@
                 <template x-if="products">
                     <div>
                         <div x-show="ajaxProduct" id="product_pdiv">
-                            <div class='product_pdiv grid grid-cols-4 gap-8 mx-auto mt-4'>
+                            <div class='grid grid-cols-4 gap-8 mx-auto mt-4 product_pdiv'>
                                 {{-- x-if="Object.keys(products).length > 0" --}}
                                 <template x-for="product in pagi_products" id="product">
                                     <div
@@ -721,7 +678,7 @@
 
                                                 <template x-for="npage in page_num" :key="npage">
                                                     <span x-text='npage' @click='pageChange(npage)'
-                                                        class="relative inline-flex cursor-pointer  items-center px-4 py-2 -ml-px text-sm font-medium leading-5 transition duration-150 ease-in-out border border-gray-300 hover:text-gray-500 focus:z-10 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700"
+                                                        class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium leading-5 transition duration-150 ease-in-out border border-gray-300 cursor-pointer hover:text-gray-500 focus:z-10 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700"
                                                         :class="current_page == npage ? 'bg-[#380D37] text-[#F2F2F2]' :
                                                             'bg-[#F2F2F2] text-[#380D37]'"
                                                         aria-label="Go to page 2">
@@ -767,6 +724,9 @@
             </div>
         </div>
     </div>
+
+</div>
+@script
     <script>
         $(document).ready(function() {
             //Grid and colulm button
@@ -786,6 +746,52 @@
 
                 });
             });
+
+            // Input range script
+            const rangeInput = document.querySelectorAll(".range-input input"),
+            priceInput = document.querySelectorAll(".price-input input"),
+            range = document.querySelector(".slider .progress");
+        let priceGap = 1000;
+
+        priceInput.forEach(input => {
+            input.addEventListener("input", e => {
+                let minPrice = parseInt(priceInput[0].value),
+                    maxPrice = parseInt(priceInput[1].value);
+
+                if ((maxPrice - minPrice >= priceGap) && maxPrice <= rangeInput[1].max) {
+                    if (e.target.className === "input-min") {
+                        rangeInput[0].value = minPrice;
+                        range.style.left = ((minPrice / rangeInput[0].max) * 100) + "%";
+                    } else {
+                        rangeInput[1].value = maxPrice;
+                        range.style.right = 100 - (maxPrice / rangeInput[1].max) * 100 + "%";
+                    }
+                }
+            });
         });
+
+        rangeInput.forEach(input => {
+            input.addEventListener("input", e => {
+                let minVal = parseInt(rangeInput[0].value),
+                    maxVal = parseInt(rangeInput[1].value);
+
+                if ((maxVal - minVal) < priceGap) {
+                    if (e.target.className === "range-min") {
+                        rangeInput[0].value = maxVal - priceGap
+                    } else {
+                        rangeInput[1].value = minVal + priceGap;
+                    }
+                } else {
+                    priceInput[0].value = minVal;
+                    priceInput[1].value = maxVal;
+                    range.style.left = ((minVal / rangeInput[0].max) * 100) + "%";
+                    range.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
+                }
+            });
+        });
+        });
+
+
+
     </script>
-</div>
+@endscript

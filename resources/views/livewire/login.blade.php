@@ -67,7 +67,7 @@
                     <div class="my-[20px]">
                         <button
                             class="font-[jost] font-[500] text-[16px] max-sm:text-[14px] text-[#ffffff] bg-gradient-to-r from-[#380D37] to-[#DC275C] py-[12px] max-sm:py-[6px] w-full rounded-[5px] flex justify-center items-center">
-                            <div wire:loading
+                            <div wire:loading wire:target='login'
                                 class="inline-block h-6 w-6 mr-2 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-success motion-reduce:animate-[spin_1.5s_linear_infinite]"
                                 role="status">
                                 <span
@@ -80,9 +80,10 @@
                     {{-- </div> --}}
                 </form>
             </div>
+
             {{-- Registration form  --}}
             <div id="regForm" class="hidden">
-                <form wire:submit='save' class="w-full mt-[40px] max-sm:mt-[10px]">
+                <form wire:submit='register' class="w-full mt-[40px] max-sm:mt-[10px]">
                     <div class="mb-[10px]">
                         <input wire:model.blur='email'
                             class="italic rounded-[5px] bg-[#F2F2F2] py-[12px] max-sm:py-[6px] max-sm:text-[14px] w-full pl-[15px] text-[16px] text-[#353535] leading-[23.12px] font-[jost] font-[500]"
@@ -109,13 +110,13 @@
                         <div class="my-[10px]">
                             <button
                                 class="font-[jost] font-[500] text-[16px] max-sm:py-[6px] max-sm:text-[14px]  text-[#ffffff] bg-gradient-to-r from-[#380D37] to-[#DC275C] py-[12px] w-full rounded-[5px] flex justify-center items-center">
-                                <div wire:loading
-                                    class="inline-block h-6 w-6 mr-2 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-success motion-reduce:animate-[spin_1.5s_linear_infinite]"
-                                    role="status">
-                                    <span
-                                        class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...
-                                    </span>
-                                </div>
+                                <div wire:loading wire:target='register'
+                                class="inline-block h-6 w-6 mr-2 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-success motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                                role="status">
+                                <span
+                                    class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...
+                                </span>
+                            </div>
                                 Register
                             </button>
                         </div>
@@ -146,7 +147,10 @@
 
 
         <div class="h-[2px] bg-[#764A8733] my-[60px]"> </div>
-        <script>
+
+    </div>
+ @script
+      <script>
             $(document).ready(function() {
 
                 $('#login_btn').on('click', function() {
@@ -168,4 +172,4 @@
                 });
             })
         </script>
-    </div>
+@endscript
