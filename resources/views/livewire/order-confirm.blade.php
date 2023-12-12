@@ -91,32 +91,32 @@
         <div class='my-[25px]'>
             <h1 class='text-[20px] text-[#000000] font-[Inter] font-[500] leading-[24.2px]'>Order History</h1>
         </div>
-            <div class="overflow-x-auto">
-                <table class="w-full overflow-x-auto">
-                    <thead>
-                        <tr class=" py-[12px] bg-[#380D37] items-center">
-                            <td class=" py-3 px-6 text-[14px] text-[#FFFFFF] font-[jost] font-[500]">Date</td>
-                            <td class=" py-3 px-6 text-[14px] text-[#FFFFFF] font-[jost] font-[500]">Product Name</td>
-                            <td class="py-3 px-6 text-[14px] text-[#FFFFFF] font-[jost] font-[500]">Quantity</td>
-                            <td class=" py-3 px-6 text-[14px] text-[#FFFFFF] font-[jost] font-[500]">Unit Price</td>
-                            <td class="py-3 px-6 text-[14px] text-[#FFFFFF] font-[jost] font-[500]">Total</td>
-                            <td class="py-3 px-6 text-[14px] text-[#FFFFFF] font-[jost] font-[500]">Status</td>
+            <div class="overflow-auto rounded-lg shadow">
+                <table class="w-full">
+                    <thead class="bg-[#380D37]">
+                        <tr>
+                            <th class="w-20 p-3 tracking-wide text-left text-[14px] text-[#FFFFFF] font-[jost] font-[500]">Date</th>
+                            <th class=" w-20 p-3 tracking-wide text-left text-[14px] text-[#FFFFFF] font-[jost] font-[500]">Product Name</th>
+                            <th class="w-20 p-3 tracking-wide text-left text-[14px] text-[#FFFFFF] font-[jost] font-[500]">Quantity</th>
+                            <th class="w-20 p-3 tracking-wide text-left text-[14px] text-[#FFFFFF] font-[jost] font-[500]">Unit Price</th>
+                            <th class="w-20 p-3 tracking-wide text-left text-[14px] text-[#FFFFFF] font-[jost] font-[500]">Total</th>
+                            <th class="w-20 p-3 tracking-wide text-left text-[14px] text-[#FFFFFF] font-[jost] font-[500]">Status</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr class=" py-[20px]  px-[30px]  items-center">
-                            <td class=" py-3 px-6 text-[14px] text-[#000000] font-[jost] font-[500]">29 October 2023</td>
-                            <td class="py-3 px-6 text-[14px] text-[#000000] font-[jost] font-[500]">Lenovo IdeaPad 15AMN7
+                    <tbody class="border-b-[1px] border-[#380D37]">
+                        <tr>
+                            <td class="p-3 tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]">29 October 2023</td>
+                            <td class="p-3 tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]">Lenovo IdeaPad 15AMN7
                                 AMD Ryzen 5 7520U</td>
-                            <td class="py-3 px-6  text-[14px] text-[#000000] font-[jost] font-[500]"><span
+                            <td class="p-3 tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]"><span
                                     class="bg-[#F2F2F2] px-8 py-2">1</span></td>
-                            <td class=" py-3 px-6 text-[14px] text-[#000000] font-[jost] font-[500]">1,50,000৳</td>
-                            <td class="py-3 px-6 text-[14px] text-[#000000] font-[jost] font-[500]">1,50,000৳</td>
-                            <td class="py-3 px-6 text-[14px] text-[#000000] font-[jost] font-[500]">Deliverd</td>
+                            <td class="p-3 tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]">1,50,000৳</td>
+                            <td class="p-3 tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]">1,50,000৳</td>
+                            <td class="p-3 tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]">Deliverd</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-        <div class='h-[1px] bg-[#380D37]'></div>
+        {{-- <div class='h-[1px] bg-[#380D37]'></div> --}}
         <div class='h-[2px] bg-[#764A8733] mt-[200px]'></div>
     </div>
