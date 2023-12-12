@@ -17,31 +17,33 @@
             transition: 0.4s;
         }
 
-        @media (max-width:640px){
+        @media (max-width:640px) {
             .bar {
                 width: 20px;
                 height: 2px;
                 margin: 3px 0;
             }
+
             .menu-toggle {
-            top: 0px;
-        }
+                top: 0px;
+            }
+
             .menu {
-                top:50px !important;
+                top: 50px !important;
                 width: 200px !important;
             }
 
-        .menu-toggle.active .bar:nth-child(1) {
-            transform: rotate(-45deg) translate(-5px, 5px) !important;
-        }
+            .menu-toggle.active .bar:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 5px) !important;
+            }
 
-        .menu-toggle.active .bar:nth-child(2) {
-            opacity: 0;
-        }
+            .menu-toggle.active .bar:nth-child(2) {
+                opacity: 0;
+            }
 
-        .menu-toggle.active .bar:nth-child(3) {
-            transform: rotate(45deg) translate(-2px, -2px) !important;
-        }
+            .menu-toggle.active .bar:nth-child(3) {
+                transform: rotate(45deg) translate(-2px, -2px) !important;
+            }
         }
 
         .menu {
@@ -52,7 +54,7 @@
             height: 100vh;
             background-color: #f2f2f2;
             z-index: 1;
-            overflow:scroll;
+            overflow: scroll;
             transition: 0.5s;
         }
 
@@ -99,7 +101,8 @@
             <div class="menu">
                 <nav class="bg-[#f2f2f2] ">
                     <ul class="flex flex-col gap-4 scroll-auto">
-                        <li class=" px-6 pt-2 font-[jost] font-[500] text-[#353535] text-[16px] max-sm:text-[12px] max-sm:text-[12px] bg-[#f2f2f2]">
+                        <li
+                            class=" px-6 pt-2 font-[jost] font-[500] text-[#353535] text-[16px] max-sm:text-[12px] bg-[#f2f2f2]">
                             <a href="#" class="flex items-center justify-between">
                                 <span class="max-sm:text-[12px]">All Categories</span>
                                 <span>
@@ -203,70 +206,70 @@
                         </li>
                         <div class="h-[1px] bg-[#764D8733]"></div>
                         <li
-                        class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] max-sm:text-[12px] max-sm:text-[12px] bg-[#f2f2f2]">
-                        <a href="#" class='flex items-center justify-between'>
-                            <span class="max-sm:text-[12px]">Asia Variant</span>
-                            <span>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6 max-sm:w-[15px]">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
-                                </svg>
-                            </span>
-                        </a>
-                    </li>
-                    <div class="h-[1px] bg-[#764D8733]"></div>
-                    <li
-                    class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] max-sm:text-[12px] max-sm:text-[12px] bg-[#f2f2f2]">
-                    <a href="#" class='flex items-center justify-between'>
-                        <span class="max-sm:text-[12px]">Asia Variant</span>
-                        <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke-width="1.5" stroke="currentColor" class="w-6 h-6 max-sm:w-[15px]">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
-                            </svg>
-                        </span>
-                    </a>
-                </li>
-                <div class="h-[1px] bg-[#764D8733]"></div>
-                <li
-                class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] max-sm:text-[12px] max-sm:text-[12px] bg-[#f2f2f2]">
-                <a href="#" class='flex items-center justify-between'>
-                    <span class="max-sm:text-[12px]">Asia Variant</span>
-                    <span>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6 max-sm:w-[15px]">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
-                        </svg>
-                    </span>
-                </a>
-            </li>
-            <div class="h-[1px] bg-[#764D8733]"></div>
-            <li
-            class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] max-sm:text-[12px] max-sm:text-[12px] bg-[#f2f2f2]">
-            <a href="#" class='flex items-center justify-between'>
-                <span class="max-sm:text-[12px]">Asia Variant</span>
-                <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6 max-sm:w-[15px]">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
-                    </svg>
-                </span>
-            </a>
-        </li>
-        <div class="h-[1px] bg-[#764D8733]"></div>
-        <li
-        class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] max-sm:text-[12px] max-sm:text-[12px] bg-[#f2f2f2]">
-        <a href="#" class='flex items-center justify-between'>
-            <span class="max-sm:text-[12px]">Asia Variant</span>
-            <span>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6 max-sm:w-[15px]">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
-                </svg>
-            </span>
-        </a>
-    </li>
-    <div class="h-[1px] bg-[#764D8733]"></div>
+                            class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] max-sm:text-[12px] max-sm:text-[12px] bg-[#f2f2f2]">
+                            <a href="#" class='flex items-center justify-between'>
+                                <span class="max-sm:text-[12px]">Asia Variant</span>
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6 max-sm:w-[15px]">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                                    </svg>
+                                </span>
+                            </a>
+                        </li>
+                        <div class="h-[1px] bg-[#764D8733]"></div>
+                        <li
+                            class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] max-sm:text-[12px] max-sm:text-[12px] bg-[#f2f2f2]">
+                            <a href="#" class='flex items-center justify-between'>
+                                <span class="max-sm:text-[12px]">Asia Variant</span>
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6 max-sm:w-[15px]">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                                    </svg>
+                                </span>
+                            </a>
+                        </li>
+                        <div class="h-[1px] bg-[#764D8733]"></div>
+                        <li
+                            class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] max-sm:text-[12px] max-sm:text-[12px] bg-[#f2f2f2]">
+                            <a href="#" class='flex items-center justify-between'>
+                                <span class="max-sm:text-[12px]">Asia Variant</span>
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6 max-sm:w-[15px]">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                                    </svg>
+                                </span>
+                            </a>
+                        </li>
+                        <div class="h-[1px] bg-[#764D8733]"></div>
+                        <li
+                            class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] max-sm:text-[12px] max-sm:text-[12px] bg-[#f2f2f2]">
+                            <a href="#" class='flex items-center justify-between'>
+                                <span class="max-sm:text-[12px]">Asia Variant</span>
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6 max-sm:w-[15px]">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                                    </svg>
+                                </span>
+                            </a>
+                        </li>
+                        <div class="h-[1px] bg-[#764D8733]"></div>
+                        <li
+                            class=" px-6 whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] max-sm:text-[12px] max-sm:text-[12px] bg-[#f2f2f2]">
+                            <a href="#" class='flex items-center justify-between'>
+                                <span class="max-sm:text-[12px]">Asia Variant</span>
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6 max-sm:w-[15px]">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                                    </svg>
+                                </span>
+                            </a>
+                        </li>
+                        <div class="h-[1px] bg-[#764D8733]"></div>
                     </ul>
                 </nav>
             </div>
@@ -415,13 +418,15 @@
             <!-- Right-Side Logos/Icons -->
             <div class='flex items-center justify-between gap-[30px] max-xl:hidden'>
                 <!-- <div class="flex item-center "> -->
-                <a href="{{ route('offer') }}" wire:navigate class='flex justify-between items-center gap-[10px] text-[16px] max-sm:text-[12px] text-[#FFFFFF] font-[jost] font-[500]'><img class='w-[30px] h-[30px]' src="/storage/product/gift.svg"
-                        alt="Logo 1">
-                        <span class="">
-                            Offers
-                        </span></a>
-                <a href="{{ route('vcart') }}" wire:navigate class='relative flex justify-between items-center gap-[10px] text-[16px] max-sm:text-[12px] text-[#FFFFFF] font-[jost] font-[500]'><img class='w-[25.6px] h-[24.84px]'
-                        src="/storage/product/cart(2).svg" alt="Logo 2">
+                <a href="{{ route('offer') }}" wire:navigate
+                    class='flex justify-between items-center gap-[10px] text-[16px] max-sm:text-[12px] text-[#FFFFFF] font-[jost] font-[500]'><img
+                        class='w-[30px] h-[30px]' src="/storage/product/gift.svg" alt="Logo 1">
+                    <span class="">
+                        Offers
+                    </span></a>
+                <a href="{{ route('vcart') }}" wire:navigate
+                    class='relative flex justify-between items-center gap-[10px] text-[16px] max-sm:text-[12px] text-[#FFFFFF] font-[jost] font-[500]'><img
+                        class='w-[25.6px] h-[24.84px]' src="/storage/product/cart(2).svg" alt="Logo 2">
                     <div
                         class='rounded-[100%] w-[12px] h-[12px] bg-[#f2f2f2] text-center items-center flex justify-center absolute top-0 left-0 ml-[18px]'>
                         <p class='text-[#353535] text-[10px] items items-center' id="cart_count">{{ $cart_count }}
@@ -431,13 +436,15 @@
                 </a>
 
                 @auth
-                    <a href="{{ route('account') }}" wire:navigate class='flex justify-between items-center gap-[10px] text-[16px] max-sm:text-[12px] text-[#FFFFFF] font-[jost] font-[500]'>
+                    <a href="{{ route('account') }}" wire:navigate
+                        class='flex justify-between items-center gap-[10px] text-[16px] max-sm:text-[12px] text-[#FFFFFF] font-[jost] font-[500]'>
                         <img class='w-[30.72px] h-[29.81px]' src="/storage/product/account2.svg" alt="Logo 3">
 
-                    <span class="">Account</span>
+                        <span class="">Account</span>
                     </a>
                 @else
-                    <a href="{{ route('user.login') }}" wire:navigate class='flex justify-between items-center gap-[10px] text-[16px] max-sm:text-[12px] text-[#FFFFFF] font-[jost] font-[500]'>
+                    <a href="{{ route('user.login') }}" wire:navigate
+                        class='flex justify-between items-center gap-[10px] text-[16px] max-sm:text-[12px] text-[#FFFFFF] font-[jost] font-[500]'>
                         <img class='w-[30.72px] h-[29.81px]' src="/storage/product/account2.svg" alt="Logo 3">
                         <span class="">Account</span>
                     </a>
@@ -450,31 +457,40 @@
         class='h-[68px] max-sm:h-[50px] text-[#f2f2f2] px-[72px] max-xl:px-[60px] max-md:px-[40px] font-[jost] xl:hidden max-xl:block items-center z-[9999] fixed bottom-0 left-0 right-0  bg-gradient-to-r from-[#380D37] to-[#DC275C]'>
         <div class='flex items-center justify-between gap-[20px] my-[15px]'>
             <!-- <div class="flex item-center "> -->
-            <a href="{{ route('offer') }}" wire:navigate class='flex justify-between items-center gap-[10px] text-[16px] max-sm:text-[12px] text-[#FFFFFF] font-[jost] font-[500]'><img class='w-[30px] max-sm:w-[20px] max-sm:h-[20px] h-[30px]' src="/storage/product/gift.svg"
+            <a href="{{ route('offer') }}" wire:navigate
+                class='flex justify-between items-center gap-[10px] text-[16px] max-sm:text-[12px] text-[#FFFFFF] font-[jost] font-[500]'><img
+                    class='w-[30px] max-sm:w-[20px] max-sm:h-[20px] h-[30px]' src="/storage/product/gift.svg"
                     alt="Logo 1">
-                    <span class="">
-                        Offers
-                    </span></a>
-            <a href="{{ route('vcart') }}" wire:navigate class='relative flex justify-between items-center gap-[10px] text-[16px] max-sm:text-[12px] text-[#FFFFFF] font-[jost] font-[500]'><img class='w-[25.6px] max-sm:w-[20px] max-sm:h-[20px] h-[24.84px]'
-                    src="/storage/product/cart(2).svg" alt="Logo 2">
+                <span class="">
+                    Offers
+                </span></a>
+            <a href="{{ route('vcart') }}" wire:navigate
+                class='relative flex justify-between items-center gap-[10px] text-[16px] max-sm:text-[12px] text-[#FFFFFF] font-[jost] font-[500]'><img
+                    class='w-[25.6px] max-sm:w-[20px] max-sm:h-[20px] h-[24.84px]' src="/storage/product/cart(2).svg"
+                    alt="Logo 2">
                 <div
                     class='rounded-[100%] w-[12px] h-[12px] max-sm:w-[10px] max-sm:h-[10px] bg-[#f2f2f2] text-center items-center flex justify-center absolute top-0 left-0 ml-[18px] max-sm:ml-[15px]'>
-                    <p class='text-[#353535] text-[10px] max-sm:text-[8px] items items-center' id="cart_count">{{ $cart_count }}
+                    <p class='text-[#353535] text-[10px] max-sm:text-[8px] items items-center' id="cart_count">
+                        {{ $cart_count }}
                     </p>
                 </div>
                 <span class="">Cart</span>
             </a>
 
             @auth
-                <a href="{{ route('account') }}" wire:navigate class='flex justify-between items-center gap-[10px] text-[16px] max-sm:text-[12px] text-[#FFFFFF] font-[jost] font-[500]'>
-                    <img class='w-[30.72px] h-[29.81px] max-sm:w-[20px] max-sm:h-[20px]' src="/storage/product/account2.svg" alt="Logo 3">
+                <a href="{{ route('account') }}" wire:navigate
+                    class='flex justify-between items-center gap-[10px] text-[16px] max-sm:text-[12px] text-[#FFFFFF] font-[jost] font-[500]'>
+                    <img class='w-[30.72px] h-[29.81px] max-sm:w-[20px] max-sm:h-[20px]'
+                        src="/storage/product/account2.svg" alt="Logo 3">
                     <span>
                         Account
                     </span>
                 </a>
             @else
-                <a href="{{ route('user.login') }}" wire:navigate class='flex justify-between items-center gap-[10px] text-[16px] max-sm:text-[12px] text-[#FFFFFF] font-[jost] font-[500]'>
-                    <img class='w-[30.72px] h-[29.81px] max-sm:w-[20px] max-sm:h-[20px]' src="/storage/product/account2.svg" alt="Logo 3">
+                <a href="{{ route('user.login') }}" wire:navigate
+                    class='flex justify-between items-center gap-[10px] text-[16px] max-sm:text-[12px] text-[#FFFFFF] font-[jost] font-[500]'>
+                    <img class='w-[30.72px] h-[29.81px] max-sm:w-[20px] max-sm:h-[20px]'
+                        src="/storage/product/account2.svg" alt="Logo 3">
                     <span class="">Account</span>
                 </a>
             @endauth
