@@ -10,43 +10,6 @@
             background: #fff
         }
 
-        /* .bar {
-            width: 30px;
-            height: 3px;
-            background-color: #fff;
-            margin: 6px 0;
-            transition: 0.4s;
-        } */
-
-        /* @media (max-width:640px) {
-            .bar {
-                width: 20px;
-                height: 2px;
-                margin: 3px 0;
-            }
-
-            .menu-toggle {
-                top: 0px;
-            }
-
-            .menu {
-                top: 50px !important;
-                width: 200px !important;
-            }
-
-            .menu-toggle.active .bar:nth-child(1) {
-                transform: rotate(-45deg) translate(-5px, 5px) !important;
-            }
-
-            .menu-toggle.active .bar:nth-child(2) {
-                opacity: 0;
-            }
-
-            .menu-toggle.active .bar:nth-child(3) {
-                transform: rotate(45deg) translate(-2px, -2px) !important;
-            }
-        } */
-
         .menu1 {
             position: fixed;
             top: 66px;
@@ -55,7 +18,6 @@
             height: 100vh;
             background-color: white;
             z-index: 1;
-            overflow: scroll;
             transition: .5s;
         }
         .active.menu1 {
@@ -68,7 +30,7 @@
         <div class="w-[18px] h-[2px] bg-[#380D37] my-[2px]" ></div>
         <div class="w-[10px] h-[2px] bg-[#380D37] my-[2px]"></div>
     </div>
-     <div class="menu1   bg-slate-600">
+     <div class="menu1 fixed top-[66px] right-[-300px] w-[300px] h-[100vh] bg-[#f2f2f2]">
           <div>
             <h1 class="text-white">I am sumon</h1>
           </div>
