@@ -1,4 +1,4 @@
-<div class="container mx-auto">
+<div class="px-[100px] max-sm:px-[25px] max-lg:px-[45px] max-xl:px-[70px] max-sm:mt-[70px] max-xl:mt-[100px]">
     <div class=>
         <h1 class='font-[jost] text-[16px] font-[400] leading-[25.3px] text-[#353535]'>Home / Account</h1>
         <div class='h-[2px] bg-[#764A8733]'></div>
@@ -6,7 +6,7 @@
     <!-- --------------log-in--section----------- -->
     <form wire:submit='save'>
 
-        <div class=" w-[463px] mx-auto mt-[40px]">
+        <div class=" max-2xl:w-[463px] max-sm:w-full mx-auto mt-[40px]">
             <div class="border-[2px] border-[#380D37] rounded-[4px] left-[70px] py-[30px] px-[40px]">
                 <div>
                     <span class="font-[jost] font-[600] text-[#380D37] text-[20px] my-[15px]">Lost your Password?</span>
@@ -40,5 +40,5 @@
             </div>
         </div>
     </form>
-  <div class="h-[2px] bg-[#764A8733] my-[60px]"></div>
+  <div class="h-[2px] bg-[#764A8733] my-[60px] max-sm:my-[30px]"></div>
 </div>

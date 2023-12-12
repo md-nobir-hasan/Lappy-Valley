@@ -1,4 +1,4 @@
-<div class='px-[100px] max-md:px-[45px] max-sm:px-[20px] mx-auto max-sm:mt-[70px] max-xl:mt-[100px]'>
+<div class='px-[100px] max-sm:px-[25px] max-lg:px-[45px] max-xl:px-[70px] max-sm:mt-[70px] max-xl:mt-[100px]'>
     <div class='flex justify-between'>
         <h1 class='font-[jost] xl:text-[20px] font-[400] leading-[25.3px] text-[#353535]'>Home / Account</h1>
         <div class='flex gap-[5px] items-center'><img src="/storage/product/vector-1.svg" alt="Product"
@@ -15,7 +15,8 @@
         </div>
     </div>
 
-    <div class='grid grid-cols-5 gap-[20px] max-sm:grid-cols-2 max-lg:grid-cols-3 max-lg:w-[500px] w-[1000px] my-[30px]'>
+    <div
+        class='grid grid-cols-5 gap-[20px] max-sm:grid-cols-2 max-lg:grid-cols-3 max-lg:w-full w-[1000px] my-[30px]'>
         <div class='flex gap-[5px] items-center'>
             <img src="/storage/product/icon-ad-product.svg"alt="Product" class='w-[23.36px] h-[26.21px]'>
             <span class='text-[#AAAAAA] text-[16px] font-[jost] font-[500] leading-[23.12px]'>Orders</span>
@@ -39,24 +40,25 @@
     </div>
     <div class='h-[2px] bg-[#764A8733]'></div>
 
-    <div class='flex flex-col max-lg:border-[2px] max-lg:border-[#353535] max-lg:w-[400px] max-lg:mx-auto max-lg:py-[20px] max-lg:pl-[40px] max-sm:pl-[30px] max-lg:rounded-[4px] mt-[20px] gap-[20px]'>
+    <div
+        class='flex flex-col max-lg:border-[2px] max-lg:border-[#353535] max-md:w-full max-lg:w-[545px] max-lg:mx-auto max-lg:py-[20px] max-lg:px-[40px] max-sm:px-[30px] max-lg:rounded-[4px] mt-[20px] gap-[20px]'>
         <div class='mt-[20px]'>
             <h1 class='text-[20px] text-[#000000] font-[Inter] font-[500] leading-[24.2px]'>Edit Profile:</h1>
         </div>
-        <div class='xl:flex gap-[20px]'>
+        <div class='lg:flex gap-[20px]'>
             <div>
                 <label for="address"
                     class='text-[16px] text-[#353535] font-[jost] font-[500] leading-[23.12px] tracking-[3%] block my-[5px]'>
                     First Name:</label>
                 <input type="text" placeholder='First name'
-                    class='w-[344px] h-[44px] bg-[#F2F2F2] font-[jost] font-[500] text-[16px] text-[#353535] block italic px-[10px] rounded-[4px]'>
+                    class='max-2xl:w-[344px] max-lg:w-full h-[44px] bg-[#F2F2F2] font-[jost] font-[500] text-[16px] text-[#353535] block italic px-[10px] rounded-[4px]'>
             </div>
             <div>
                 <label for="address"
                     class='text-[16px] text-[#353535] font-[jost] font-[500] leading-[23.12px] tracking-[3%] block my-[5px]'>
                     Last Name:</label>
                 <input type="text" placeholder='Last name'
-                    class='w-[344px] h-[44px] bg-[#F2F2F2] font-[jost] font-[500] text-[16px] text-[#353535] block italic px-[10px] rounded-[4px]'>
+                    class='max-2xl:w-[344px] max-lg:w-full h-[44px] bg-[#F2F2F2] font-[jost] font-[500] text-[16px] text-[#353535] block italic px-[10px] rounded-[4px]'>
             </div>
         </div>
         <div class=''>
@@ -64,14 +66,14 @@
                 class='text-[16px] text-[#353535] font-[jost] font-[500] leading-[23.12px] tracking-[3%] block my-[5px]'>E-mail
                 Address:</label>
             <input type="email" placeholder='E-mail Address'
-                class='w-[344px] h-[44px] bg-[#F2F2F2] font-[jost] font-[500] text-[16px] text-[#353535] blcok italic px-[10px] rounded-[4px]'>
+                class='max-2xl:w-[344px] max-lg:w-full h-[44px] bg-[#F2F2F2] font-[jost] font-[500] text-[16px] text-[#353535] blcok italic px-[10px] rounded-[4px]'>
         </div>
         <div class=''>
             <label for="address"
                 class='text-[16px] text-[#353535] font-[jost] font-[500] leading-[23.12px] tracking-[3%] block my-[5px]'>Phone
                 Number:</label>
             <input type="number" placeholder='Phone Number'
-                class='w-[344px] h-[44px] bg-[#F2F2F2] font-[jost] font-[500] text-[16px] text-[#353535] block italic px-[10px] rounded-[4px]'>
+                class='max-2xl:w-[344px] max-lg:w-full h-[44px] bg-[#F2F2F2] font-[jost] font-[500] text-[16px] text-[#353535] block italic px-[10px] rounded-[4px]'>
         </div>
         <div class='my-[30px]'>
             <button

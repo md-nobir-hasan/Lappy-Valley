@@ -1,4 +1,4 @@
-<div class="container mx-auto max-sm:mt-[70px] max-xl:mt-[100px]">
+<div class="px-[100px] max-sm:px-[15px] max-lg:px-[45px] max-xl:px-[70px] max-sm:mt-[70px] max-xl:mt-[100px]">
     <div class='flex justify-between'>
         <div>
             <h1 class='font-[jost] text-[16px] font-[400] leading-[25.3px] text-[#353535]'>Search / Account</h1>
