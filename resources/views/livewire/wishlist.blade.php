@@ -114,72 +114,58 @@
             Wish List:
         </h1>
     </div>
+  <div class="overflow-auto rounded-lg shadow">
     <table class="w-full">
         <thead>
             <tr class="bg-[#380D37]">
-                <td
-                    class='head-td flex items-center py-3 px-6 max-sm:py-[10px] max-sm:pr-[0px] max-sm:pl-[4px] max-md:py-[] max-md:pl-[8px] max-md:pr-[0px]
-                 max-lg:py-[12px] max-lg:pl-[8px] max-lg:pr-[0px] max-xl:py-[] max-xl:px-[] text-[14px] max-sm:text-[14px] max-md:text-[] max-lg:text-[] text-[#FFFFFF] font-[jost] font-[500]'>
+                <th
+                    class='w-20 p-3 tracking-wide text-left text-[14px] text-[#FFFFFF] font-[jost] font-[500]'>
                     Image
-                </td>
-                <td
-                    class='head-td items-center py-3 px-6 max-sm:py-[10px] max-sm:pr-[0px] max-sm:pl-[0px] max-md:py-[0px] max-md:pl-[0px] max-md:pr-[0px] 
-                max-lg:py-[12px] max-lg:pl-[8px] max-lg:pr-[0px] max-xl:py-[] max-xl:px-[] text-[14px] max-sm:text-[14px] max-md:text-[14px] max-lg:text-[] text-[#FFFFFF] font-[jost] font-[500]'>
+                </th>
+                <th
+                    class='w-20 p-3 tracking-wide text-left text-[14px] text-[#FFFFFF] font-[jost] font-[500]'>
                     Product Name
-                </td>
-                <td
-                    class='head-td items-center py-3 px-6 max-sm:py-[10px] max-sm:px-[0px] max-md:py-[0px] max-md:pl-[0px] max-md:pr-[0px] 
-                max-lg:py-[12px] max-lg:pl-[8px] max-lg:pr-[0px] max-xl:py-[] max-xl:px-[] text-[14px] max-sm:text-[14px] max-md:text-[] max-lg:text-[] text-[#FFFFFF] font-[jost] font-[500]'>
+                </th>
+                <th
+                    class='w-20 p-3 tracking-wide text-left text-[14px] text-[#FFFFFF] font-[jost] font-[500]'>
                     Price
-                </td>
-                <td
-                    class='text-[14px] max-sm:text-[12px] max-md:text-[] max-lg:text-[] text-[#FFFFFF] font-[jost] font-[500]'>
-                </td>
-                <td
-                    class='text-[14px] max-sm:text-[12px] max-md:text-[] max-lg:text-[] text-[#FFFFFF] font-[jost] font-[500]'>
-                </td>
+                </th>
+                <th
+                    class='w-20 p-3 tracking-wide text-left text-[14px] text-[#FFFFFF] font-[jost] font-[500]'>
+                </th>
+                <th
+                    class='w-20 p-3 tracking-wide text-left text-[14px] text-[#FFFFFF] font-[jost] font-[500]'>
+                </th>
             </tr>
         </thead>
 
-        <tbody class='items-center'>
+        <tbody class='border-b-[1px] border-[#380D37]'>
             <td
-                class="py-3 px-6 max-sm:py-[0px] max-sm:px-[0px] max-md:py-[] max-md:pl-[8px] max-md:pr-[0px] max-lg:py-[12px] max-lg:pl-[8px] max-lg:pr-[0px] max-xl:py-[] max-xl:px-[]">
-                <img src="/storage/product/large-size-laptop.jpg" alt="Product" class='laptop-s w-[48px] h-[48px] max-sm:w-[40px] max-sm:h-[40px]'>
+                class="p-3 tracking-wide text-left whitespace-nowrap">
+                <img src="/storage/product/large-size-laptop.jpg" alt="Product" class='w-[48px] h-[48px]'>
             </td>
             <td
-                class="py-3 px-6 max-sm:py-[0px] max-sm:pr-[0px] max-sm:pl-[0px] max-md:py-[0px] max-md:pl-[0px] max-md:pr-[0px] max-lg:py-[12px] max-lg:pl-[8px] max-lg:pr-[0px] max-xl:py-[] max-xl:px-[]">
-                <span
-                    class='amd text-[20px] max-sm:text-[10px] max-md:text-[12px] max-lg:text-[14px] text-[#000000] font-[jost] font-[500] leading-[28.9px]'>
+                class="p-3 tracking-wide text-left text-[20px] whitespace-nowrap text-[#000000] font-[jost] font-[500] leading-[28.9px]">
                     Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U
-                </span>
             </td>
             <td
-                class="py-3 px-6 max-sm:py-[0px] max-sm:px-[0px] max-md:py-[0px] max-md:pl-[0px] max-md:pr-[0px] max-lg:py-[12px] max-lg:pl-[8px] max-lg:pr-[0px] max-xl:py-[] max-xl:px-[]">
-                <span
-                    class='pay text-[20px] max-sm:text-[10px] max-md:text-[14px] max-lg:text-[14px] text-[#DC275C] font-[jost] font-[700] leading-[28.9px]'>
+                class="p-3 tracking-wide text-left text-[20px] whitespace-nowrap text-[#DC275C] font-[jost] font-[700] leading-[28.9px]">
                     1,50,000 ৳
-                </span>
             </td>
             <td
-                class="py-3 px-6 max-sm:py-[0px] max-sm:px-[0px] max-md:py-[0px] max-md:pl-[0px] max-md:pr-[0px] max-lg:py-[12px] max-lg:pl-[8px] max-lg:pr-[0px] max-xl:py-[] max-xl:px-[]">
+                class="p-3 tracking-wide text-left text-[14px] whitespace-nowrap">
                 <button
-                    class='now text-[14px] max-sm:text-[10px] max-md:text-[12px] max-lg:text-[] text-[#F2F2F2] font-[jost] font-[500] rounded-[4px] leading-[20.23px] bg-gradient-to-r from-[#380D37] to-[#DC275C] 
-                    w-[133px] max-sm:w-[70px] max-sm:h-[25px] max-md:w-[80px] max-md:h-[30px] max-lg:w-[100px] max-lg:h-[35px] h-[41px]'>
+                    class='text-[14px] text-[#F2F2F2] font-[jost] font-[500] rounded-[4px] leading-[20.23px] bg-gradient-to-r from-[#380D37] to-[#DC275C] 
+                    w-[133px] h-[41px]'>
                     Buy Now
                 </button>
             </td>
             <td
-                class="py-3 px-2 max-sm:py-[0px] max-sm:px-[0px] max-md:py-[0px] max-md:pl-[0px] max-md:pr-[0px] max-lg:py-[12px] max-lg:pl-[8px] max-lg:pr-[0px] max-xl:py-[] max-xl:px-[]">
-                <img src="/storage/product/cross-icon.svg" class="cros w-[28px] h-[28px] max-sm:w-[25px] max-sm:h-[25px] text-[#000000]" alt="product">
+                class="p-3 tracking-wide text-left text-[14px] whitespace-nowrap">
+                <img src="/storage/product/cross-icon.svg" class="w-[28px] h-[28px] text-[#000000]" alt="product">
             </td>
         </tbody>
     </table>
-    <div class='h-[1px] bg-[#380D37]'></div>
-
-    <button
-    class='now-1 mt-[10px] text-[14px] max-sm:text-[10px] max-md:text-[12px] max-lg:text-[] text-[#F2F2F2] font-[jost] font-[500] rounded-[4px] leading-[20.23px] bg-gradient-to-r from-[#380D37] to-[#DC275C] 
-    w-[133px] max-sm:w-[70px] max-sm:h-[25px] max-md:w-[80px] max-md:h-[30px] max-lg:w-[100px] max-lg:h-[35px] h-[41px]'>
-    Buy Now
-</button>
+  </div>
     <div class="h-[2px] bg-[#764A8733] mt-[200px] max-sm:mt-[50px] "></div>
 </div>
