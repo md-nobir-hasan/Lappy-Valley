@@ -12,10 +12,14 @@
                 class="default text-[16px] max-sm:text-[14px] focus:outline-none bg-[#380D37] text-[#fff] py-[12px] max-sm:py-[6px] font-[jost] font-[600] w-full text-center rounded-[5px]">
                 LogIn</button>
 
-            <button type="button" id='reg_btn'
+           <a href="{{route('user.register')}}" wire:navigate type="button" id='reg_btn'
+                class="text-center change bg-[#F2F2F2] text-[#380D37] text-[16px] max-sm:text-[14px] max-sm:w-[300px] focus:text-[#fff]  font-[jost] font-[600] w-full py-[12px] max-sm:py-[6px] text- rounded-[5px]"
+                >Register
+         {{-- <button type="button" id='reg_btn'
                 class="change bg-[#F2F2F2] text-[#380D37] text-[16px] max-sm:text-[14px] max-sm:w-[300px] focus:text-[#fff]  font-[jost] font-[600] w-full py-[12px] max-sm:py-[6px] text- rounded-[5px]">
                 Register
-            </button>
+            </button> --}}
+        </a>
 
         </div>
 
@@ -81,95 +85,39 @@
                 </form>
             </div>
 
-            {{-- Registration form  --}}
-            <div id="regForm" class="hidden">
-                <form wire:submit='register' class="w-full mt-[40px] max-sm:mt-[10px]">
-                    <div class="mb-[10px]">
-                        <input wire:model.blur='email'
-                            class="italic rounded-[5px] bg-[#F2F2F2] py-[12px] max-sm:py-[6px] max-sm:text-[14px] w-full pl-[15px] text-[16px] text-[#353535] leading-[23.12px] font-[jost] font-[500]"
-                            type="email" placeholder="Enter Your Email Address">
-                        @error('email')
-                            <span class="text-[red] text-[12px]">{{ $message }}</span>
-                        @enderror
-
-                        <input name="password" wire:model.blur='password'
-                            class="italic my-[10px] rounded-[5px] bg-[#F2F2F2] py-[12px] max-sm:py-[6px] max-sm:text-[14px]  text-[16px] text-[#353535] leading-[23.12px] w-full pl-[15px] font-[jost] font-[500]"
-                            type="password" placeholder="Set Password">
-                        @error('password')
-                            <span class="text-[red] text-[12px]">{{ $message }}</span>
-                        @enderror
-
-                        <input name="confirmed" wire:model.blur='confirmed'
-                            class="italic my-[10px] rounded-[5px] bg-[#F2F2F2] py-[12px] max-sm:py-[6px] max-sm:text-[14px]  text-[16px] text-[#353535] leading-[23.12px] w-full pl-[15px] font-[jost] font-[500]"
-                            type="password" placeholder="Confirm The Password">
-
-                        @error('confirmed')
-                            <span class="text-[red] text-[12px]">{{ $message }}</span>
-                        @enderror
-
-                        <div class="my-[10px]">
-                            <button
-                                class="font-[jost] font-[500] text-[16px] max-sm:py-[6px] max-sm:text-[14px]  text-[#ffffff] bg-gradient-to-r from-[#380D37] to-[#DC275C] py-[12px] w-full rounded-[5px] flex justify-center items-center">
-                                <div wire:loading wire:target='register'
-                                class="inline-block h-6 w-6 mr-2 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-success motion-reduce:animate-[spin_1.5s_linear_infinite]"
-                                role="status">
-                                <span
-                                    class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...
-                                </span>
-                            </div>
-                                Register
-                            </button>
-                        </div>
-                        <div class='flex justify-evenly items-center gap-2 my-[25px]'>
-                            <div class='h-[1px] w-[155px] bg-[#000000]'></div>
-                            <div class='text-[14px] text-[#380D37] font-[jost] font-[400] leading-[20.23px]'>OR
-                            </div>
-                            <div class='h-[1px] w-[155px] bg-[#000000]'></div>
-                        </div>
-                        <div class='items-center my-[25px]'>
-                            <div
-                                class='my-[25px] border-[1px] border-[#380D37] rounded-[4px] flex items-center justify-center'>
-                                <a href="#"><button
-                                        class=' h-[44px] max-sm:h-[35px] flex gap-2 items-center justify-center text-[16px] max-sm:text-[14px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]'>Log
-                                        in with <img class="max-sm:w-[60px]" src="/storage/product/google.svg" alt="Product"></button></a>
-                            </div>
-                            <div
-                                class='my-[25px] border-[1px] border-[#380D37] rounded-[4px] flex items-center justify-center'>
-                                <a href="#"><button
-                                        class=' h-[44px] max-sm:h-[35px] flex gap-2 items-center justify-center text-[16px] max-sm:text-[14px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]'>Log
-                                        in with <img class="max-sm:w-[60px]" src="/storage/product/facebook.svg" alt="Product"></button></a>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
         </div>
-
-
-        <div class="h-[2px] bg-[#764A8733] my-[60px]"> </div>
-
+        {{-- <div class="h-[2px] bg-[#764A8733] my-[60px]"> </div> --}}
     </div>
- @script
-      <script>
-            $(document).ready(function() {
-
-                $('#login_btn').on('click', function() {
-                    $('#regForm').hide();
-                    $('#logInForm').show();
-                    $(this).addClass('bg-[#380D37] text-[#fff]');
-                    $(this).removeClass('bg-[#F2F2F2] text-[#380D37]');
-                    $('#reg_btn').removeClass('bg-[#380D37] text-[#fff]')
-                    $('#reg_btn').addClass('bg-[#F2F2F2] text-[#380D37]');
-                });
-
-                $('#reg_btn').on('click', function() {
-                    $('#logInForm').hide();
-                    $('#regForm').show();
-                    $(this).addClass('bg-[#380D37] text-[#fff]');
-                    $(this).removeClass('bg-[#F2F2F2] text-[#380D37]');
-                    $('#login_btn').removeClass('bg-[#380D37] text-[#fff]');
-                    $('#login_btn').addClass('bg-[#F2F2F2] text-[#380D37]');
-                });
+{{-- // Hero section slide
+            $('#move_back').on('click', function() {
+                let current_slide = Number($(this).val()) - 1;
+                let total_slide = $('.slide').lenght;
+                console.log(current_slide, total_slide, 'yes');
+                // if(current_slide>=total_slide){
+                //     current_slide == 1
+                // }
+                if (current_slide < 1) {
+                    current_slide == 1
+                }
+                $('.slide').hide();
+                $('.slide').eq(current_slide).show();
+                $('.slide_icon').val(current_slide);
+                $(this).addClass('slide-active');
+                $('#move_front').removeClass('slide-active')
             })
-        </script>
-@endscript
+            $('#move_front').on('click', function() {
+                let current_slide = Number($(this).val()) + 1;
+                let total_slide = $('.slide').lenght;
+
+                if (current_slide > total_slide) {
+                    current_slide == 1
+                }
+                // if(current_slide<1){
+                //     current_slide == 1
+                // }
+                $('.slide').hide();
+                $('.slide').eq(current_slide).show();
+                $('.slide_icon').val(current_slide);
+                $(this).addClass('slide-active');
+                $('#move_back').removeClass('slide-active')
+            }); --}}

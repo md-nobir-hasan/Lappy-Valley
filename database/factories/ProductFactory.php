@@ -33,7 +33,7 @@ class ProductFactory extends Factory
             'final_price' => rand(12000,400000),
             'summary' => fake()->paragraph(),
             'description' => fake()->paragraph(2),
-            'photo' => "/storage/product/large-size-laptop.jpg",
+            'photo' => "/storage/product/large-size-laptop.jpg,/storage/product/large-size-laptop.jpg,/storage/product/large-size-laptop.jpg",
             'stock' => rand(1,20),
             'brand_id' => rand(1,6),
             'cat_id' => rand(1,42),

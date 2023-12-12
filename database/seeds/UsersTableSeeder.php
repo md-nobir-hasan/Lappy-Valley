@@ -22,7 +22,7 @@ class UsersTableSeeder extends Seeder
             ),
             array(
                 'name'=>'Md Nobir Hasan',
-                'email'=>'nobir.sau@gmail.com',
+                'email'=>'nobir.wd@gmail.com',
                 'password'=>Hash::make('1111'),
                 'role'=>'admin',
                 'status'=>'active'

@@ -623,34 +623,79 @@
         </script>
     @endif
     <!-- Hero Section  -->
-    <section>
-        <div class="relative max-xl:top-[68px]" x-data="{ active: true }">
-            <div class="relative slide">
-                <img class="container" src="/storage/product/Hero-Image.svg">
+    @if ($home_banner)
+        <section>
+            <div class="relative max-xl:top-[68px]" x-data="{ active: true }">
+                @php
+                    $bnrs = explode(',', $home_banner->photo);
+                @endphp
+                @foreach ($bnrs as $banner)
+                    <div class="relative {{ $loop->first ? '' : ' hidden' }} slide ">
+                        <img class="container" src="{{ $banner }}">
+                    </div>
+                @endforeach
+                <!-- The previous button -->
+                <a id="move_back" value='0'
+                    class="slide_icon absolute left-0 top-1/2 p-4 -translate-y-1/2 -translate-x-[42px] text-[40px] text-blue-500 opacity-50 hover:opacity-100 cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-[18px] h-[36px] max-md:w-[25px] max-md:h-[20px]"
+                        viewBox="0 0 23 40" fill="none">
+                        <path d="M21 2L3 20L21 38" stroke="#999999" stroke-opacity="1" stroke-width="5" />
+                    </svg>
+                </a>
+                <!-- The next button -->
+                <a id="move_front" value='0'
+                    class="slide_icon absolute right-0 top-1/2 p-4 -translate-y-1/2 translate-x-[42px] text-[40px] text-blue-500 opacity-50 hover:opacity-100 cursor-pointer"><svg
+                        xmlns="http://www.w3.org/2000/svg" class="w-[18px] h-[36px] max-md:w-[25px] max-md:h-[20px]"
+                        viewBox="0 0 23 40" fill="none">
+                        <path :class="{ 'text-[black]': active }" d="M2 2L20 20L2 38" stroke="#999999"
+                            stroke-opacity="0.5" stroke-width="5" />
+                    </svg></i></a>
             </div>
-            <div class="relative hidden slide">
-                <img class="container" src="/storage/product/Hero-Image.svg">
-            </div>
-            <div class="relative hidden slide">
-                <img class="container" src="/storage/product/Hero-Image.svg">
-            </div>
-            <!-- The previous button -->
-            <a class="absolute left-0 top-1/2 p-4 -translate-y-1/2 -translate-x-[42px] text-[40px] text-blue-500 opacity-50 hover:opacity-100 cursor-pointer"
-                onclick="moveSlide(-1)">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-[18px] h-[36px] max-md:w-[25px] max-md:h-[20px]"
-                    viewBox="0 0 23 40" fill="none">
-                    <path d="M21 2L3 20L21 38" stroke="#999999" stroke-opacity="1" stroke-width="5" />
-                </svg>
-            </a>
-            <!-- The next button -->
-            <a class="absolute right-0 top-1/2 p-4 -translate-y-1/2 translate-x-[42px] text-[40px] text-blue-500 opacity-50 hover:opacity-100 cursor-pointer"
-                onclick="moveSlide(1)"><svg xmlns="http://www.w3.org/2000/svg"
-                    class="w-[18px] h-[36px] max-md:w-[25px] max-md:h-[20px]" viewBox="0 0 23 40" fill="none">
-                    <path :class="{ 'text-[black]': active }" d="M2 2L20 20L2 38" stroke="#999999" stroke-opacity="0.5"
-                        stroke-width="5" />
-                </svg></i></a>
-        </div>
-    </section>
+            @script
+                <script>
+                    // Hero section slide
+                    $('#move_back').on('click', function() {
+                        console.log($(this).attr('value'));
+                        let current_slide = Number($(this).attr('value')) - 1;
+                        let total_slide = $('.slide').length;
+                        console.log(current_slide, total_slide, 'yes');
+                        // if(current_slide>=total_slide){
+                        //     current_slide == 1
+                        // }
+                        if (current_slide < 0) {
+
+                            current_slide = 2;
+                            console.log(current_slide, total_slide, 'after if');
+                        }
+                        $('.slide').hide();
+                        $('.slide').eq(current_slide).show();
+                        $('.slide_icon').attr('value', current_slide);
+                        $(this).addClass('slide-active');
+                        $('#move_front').removeClass('slide-active')
+                    })
+                    $('#move_front').on('click', function() {
+                        console.log($(this).attr('value'));
+                        let current_slide = Number($(this).attr('value')) + 1;
+                        let total_slide = $('.slide').length;
+                        console.log(current_slide, total_slide, 'yes');
+                        // if(current_slide>=total_slide){
+                        //     current_slide == 1
+                        // }
+                        if (current_slide > 2) {
+
+                            current_slide = 0;
+                            console.log(current_slide, total_slide, 'after if');
+                        }
+                        $('.slide').hide();
+                        $('.slide').eq(current_slide).show();
+                        $('.slide_icon').attr('value', current_slide);
+                        $(this).addClass('slide-active');
+                        $('#move_back').removeClass('slide-active')
+                    });
+                </script>
+            @endscript
+        </section>
+    @endif
     <!-- --------hero--section --end ----  -->
 
     <!-- Feature Laptops -->
@@ -666,19 +711,35 @@
         <div class="pt-[60px]">
             <button
                 class="usa_btn w-[241px] max-xl:w-[200px] max-lg:w-[180px] max-md:w-[150px] max-sm:w-[100px] h-[48px] max-lg:h-[43px] max-md:h-[40px] max-sm:h-[35px] max-lg:text-[18px] max-md:text-[16px] max-sm:text-[14px]
-                items-center text-center rounded-[4px] bg-[#380D37] text-[#F2F2F2] font-[500] text-[20px] font-[jost]">USA</button>
+                items-center text-center rounded-[4px] bg-[#380D37] text-[#F2F2F2] font-[500] text-[20px] font-[jost]">
+                USA
+            </button>
             <button
                 class="asian_btn w-[241px] max-xl:w-[200px] max-lg:w-[180px] max-md:w-[150px] max-sm:w-[100px]  h-[48px] max-lg:h-[43px] max-md:h-[40px] max-sm:h-[35px] max-lg:text-[18px] max-md:text-[16px] max-sm:text-[14px]
-                items-center text-center rounded-[4px] bg-[#F2F2F2] text-[#380D37] font-[500] text-[20px] font-[jost]">ASIAN</button>
+                items-center text-center rounded-[4px] bg-[#F2F2F2] text-[#380D37] font-[500] text-[20px] font-[jost]">
+                ASIAN
+            </button>
             <div class="h-[2px] bg-[#380D37] rouned-[2px]"></div>
         </div>
         <!-- Product  -->
-        <div
-            class="grid grid-cols-5 max-sm:grid-cols-1 max-sm:gap-[2px]  max-md:grid-cols-2 max-md:gap-[4px] max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 mt-6 mb-[78px] max-sm:mb-[50px]">
-            @foreach ($features->take(5) as $product)
-                <x-product :product="$product"></x-product>
-                {{-- <livewire:products :product="$product" /> --}}
-            @endforeach
+        <div class="usa_prds">
+            <div
+                class="grid grid-cols-5 max-sm:grid-cols-1 max-sm:gap-[2px]  max-md:grid-cols-2 max-md:gap-[4px] max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 mt-6 mb-[78px] max-sm:mb-[50px]">
+                @foreach ($features->where('cat_id', 7) as $product)
+                    <x-product :product="$product"></x-product>
+                    {{-- <livewire:products :product="$product" /> --}}
+                @endforeach
+            </div>
+        </div>
+
+        <div class="hidden asian_prds">
+            <div
+                class="grid grid-cols-5  max-sm:grid-cols-1 max-sm:gap-[2px]  max-md:grid-cols-2 max-md:gap-[4px] max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 mt-6 mb-[78px] max-sm:mb-[50px]">
+                @foreach ($features->where('cat_id', 6) as $product)
+                    <x-product :product="$product"></x-product>
+                    {{-- <livewire:products :product="$product" /> --}}
+                @endforeach
+            </div>
         </div>
     </section>
     <!-- New arrival  -->
@@ -686,6 +747,7 @@
         <!-- heading -->
         <div
             class=" h-[130px] max-sm:h-[52px] max-md:h-[68px] max-lg:h-[85px] max-xl:h-[100px]  flex justify-center items-center text-white bg-gradient-to-r from-[#380D37] to-[#DC275C]">
+
             <h1
                 class="text-[40px] max-sm:text-[18px] max-md:text-[22px] max-lg:text-[30px] max-xl:text-[35px] text-[#f2f2f2] font-[jost] font-[500] text-center">
                 New Arrival</h1>
@@ -702,12 +764,13 @@
                         Our newest</br>products are</br>here,just for you!</p>
                 </div>
                 <div class='text-center'>
-
-                    <button
-                        class="btn-12 text-center mt-[60px] py-2 font-[jost] font-[500] max-sm:translate-x-[-4px] max-sm:translate-y-[-47px] max-md:translate-x-[-62px] max-md:translate-y-[-47px] max-lg:translate-x-[-62px] max-xl:translate-x-[-62px] max-2xl:translate-x-[-70px] max-lg:translate-y-[-47px] max-xl:translate-y-[-47px]  max-2xl:translate-y-[-47px]
+                    <a href="{{ route('new_product', 'new_product') }}" wire:navigate>
+                        <button
+                            class="btn-12 text-center mt-[60px] py-2 font-[jost] font-[500] max-sm:translate-x-[-4px] max-sm:translate-y-[-47px] max-md:translate-x-[-62px] max-md:translate-y-[-47px] max-lg:translate-x-[-62px] max-xl:translate-x-[-62px] max-2xl:translate-x-[-70px] max-lg:translate-y-[-47px] max-xl:translate-y-[-47px]  max-2xl:translate-y-[-47px]
                         text-[16px]  text-[#F2F2F2] rounded-[4px]">
-                        <span class="font-[jost] font-[500]">Click!</span><span class="font-[jost] font-[500]">Visit
-                            Now!</span></button>
+                            <span class="font-[jost] font-[500]">Click!</span><span class="font-[jost] font-[500]">
+                                Visit Now!</span></button>
+                    </a>
                 </div>
             </div>
 
@@ -728,6 +791,7 @@
             @endforeach
         </div>
     </section>
+
     <!-- Feature Laptops Sliders -->
     <section>
         <div class="py-1 text-center">
@@ -740,271 +804,57 @@
         </div>
         <div class="pt-[60px] max-sm:pt-[25px] max-md:pt-[30px] max-lg:pt-[40px] max-xl:pt-[50px]">
             <button
-                class="usa_btn2 w-[241px] max-xl:w-[200px] max-lg:w-[180px] max-md:w-[150px] max-sm:w-[100px]  h-[48px] max-lg:h-[43px] max-md:h-[40px] max-sm:h-[35px] max-lg:text-[18px] max-md:text-[16px] max-sm:text-[14px]
+                class="usa_btn w-[241px] max-xl:w-[200px] max-lg:w-[180px] max-md:w-[150px] max-sm:w-[100px]  h-[48px] max-lg:h-[43px] max-md:h-[40px] max-sm:h-[35px] max-lg:text-[18px] max-md:text-[16px] max-sm:text-[14px]
                 items-center text-center rounded-[4px] text-[#F2F2F2] bg-[#380D37] font-[500] text-[20px] font-[jost]">
                 USA
             </button>
             <button
-                class="asian_btn2 w-[241px] max-xl:w-[200px] max-lg:w-[180px] max-md:w-[150px] max-sm:w-[100px]  h-[48px] max-lg:h-[43px] max-md:h-[40px] max-sm:h-[35px] max-lg:text-[18px] max-md:text-[16px] max-sm:text-[14px]
+                class="asian_btn w-[241px] max-xl:w-[200px] max-lg:w-[180px] max-md:w-[150px] max-sm:w-[100px]  h-[48px] max-lg:h-[43px] max-md:h-[40px] max-sm:h-[35px] max-lg:text-[18px] max-md:text-[16px] max-sm:text-[14px]
                 items-center text-center rounded-[4px] bg-[#F2F2F2] text-[#380D37] font-[500] text-[20px] font-[jost]">
                 Asian
             </button>
             <div class="container h-[2px] bg-[#380D37]"></div>
         </div>
-        <div>
+
+        {{-- Swiper slide  --}}
+        <div class="usa_prds">
             <div class="relative mx-auto overflow-hidden swiper-container mySwiper">
+                {{-- <div class=""> --}}
                 <div class="swiper-wrapper gap-[5px] py-[20px]">
-                    <div class="swiper-slide">
-                        <div
-                            class=" w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div class="relative max-w-xs overflow-hidden bg-no-repeat bg-cover product_div"
-                                data-te-ripple-init data-te-ripple-color="light">
-                                <a href=""><img src="/storage/product/large-size-laptop.jpg" alt="Product"></a>
-                                <a href="#!">
-                                    <div
-                                        class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsl(0,0%,98.4%,0.2)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-50">
-                                    </div>
-                                </a>
-                            </div>
-                            <div>
-                                <a href="#">
-                                    <p
-                                        class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4 transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                        Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
-                                    </p>
-                                </a>
-                            </div>
+                    @foreach ($features->where('cat_id', 7) as $f_product)
+                        <div class="swiper-slide">
                             <div
-                                class="flex justify-between text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
-                                <span class="text-[#DC275C]">1,50,000 TK</span>
-                                <a class="text-[#380D37]">Add to Cart</a>
+                                class="w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
+                                <div class="relative max-w-xs overflow-hidden bg-no-repeat bg-cover product_div"
+                                    data-te-ripple-init data-te-ripple-color="light">
+                                    <a href="{{ route('product.details', [$f_product->slug]) }}" wire:navigate>
+                                        <img src="{{ $f_product->img()[0] }}" alt="Product"></a>
+                                    <a href="{{ route('product.details', [$f_product->slug]) }}" wire:navigate>
+                                        <div
+                                            class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsl(0,0%,98.4%,0.2)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-50">
+                                        </div>
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="{{ route('product.details', [$f_product->slug]) }}" wire:navigate>
+                                        <p
+                                            class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4 transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
+                                            {{ $f_product->title }}
+                                        </p>
+                                    </a>
+                                </div>
+                                <div
+                                    class="flex justify-between text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
+                                    <span class="text-[#DC275C]">{{ number_format($f_product->final_price) }} TK</span>
+                                    <livewire:add-to-cart :id="$f_product->id"
+                                        button='<a class="text-[#380D37]">Add to Cart</a>' />
+                                    {{-- <a class="text-[#380D37]">Add to Cart</a> --}}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div
-                            class=" w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div class="relative max-w-xs overflow-hidden bg-no-repeat bg-cover product_div"
-                                data-te-ripple-init data-te-ripple-color="light">
-                                <a href=""><img src="/storage/product/large-size-laptop.jpg" alt="Product"></a>
-                                <a href="#!">
-                                    <div
-                                        class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsl(0,0%,98.4%,0.2)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-50">
-                                    </div>
-                                </a>
-                            </div>
-                            <div>
-                                <a href="#">
-                                    <p
-                                        class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                        Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
-                                    </p>
-                                </a>
-                            </div>
-                            <div
-                                class="flex justify-between text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
-                                <span href="#"><span class="text-[#DC275C]">1,50,000 TK</span></span>
-                                <a href="#"><span class="text-[#380D37]">Add to Cart</span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div
-                            class="w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div class="relative max-w-xs overflow-hidden bg-no-repeat bg-cover product_div"
-                                data-te-ripple-init data-te-ripple-color="light">
-                                <a href=""><img src="/storage/product/large-size-laptop.jpg"
-                                        alt="Product"></a>
-                                <a href="#!">
-                                    <div
-                                        class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsl(0,0%,98.4%,0.2)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-50">
-                                    </div>
-                                </a>
-                            </div>
-                            <div>
-                                <a href="#">
-                                    <p
-                                        class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                        Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
-                                    </p>
-                                </a>
-                            </div>
-                            <div
-                                class="flex justify-between text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
-                                <span class="text-[#DC275C]">1,50,000 TK</span>
-                                <a class="text-[#380D37]">Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div
-                            class="w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div class="relative max-w-xs overflow-hidden bg-no-repeat bg-cover product_div"
-                                data-te-ripple-init data-te-ripple-color="light">
-                                <a href=""><img src="/storage/product/large-size-laptop.jpg"
-                                        alt="Product"></a>
-                                <a href="#!">
-                                    <div
-                                        class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsl(0,0%,98.4%,0.2)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-50">
-                                    </div>
-                                </a>
-                            </div>
-                            <div>
-                                <a href="#">
-                                    <p
-                                        class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                        Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
-                                    </p>
-                                </a>
-                            </div>
-                            <div
-                                class="flex justify-between text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
-                                <span class="text-[#DC275C]">1,50,000 TK</span>
-                                <a class="text-[#380D37]">Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div
-                            class="w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div class="relative max-w-xs overflow-hidden bg-no-repeat bg-cover product_div"
-                                data-te-ripple-init data-te-ripple-color="light">
-                                <a href=""><img src="/storage/product/large-size-laptop.jpg"
-                                        alt="Product"></a>
-                                <a href="#!">
-                                    <div
-                                        class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsl(0,0%,98.4%,0.2)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-50">
-                                    </div>
-                                </a>
-                            </div>
-                            <div>
-                                <a href="#">
-                                    <p
-                                        class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                        Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
-                                    </p>
-                                </a>
-                            </div>
-                            <div
-                                class="flex justify-between text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
-                                <span class="text-[#DC275C]">1,50,000 TK</span>
-                                <a class="text-[#380D37]">Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div
-                            class="w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div class="relative max-w-xs overflow-hidden bg-no-repeat bg-cover product_div"
-                                data-te-ripple-init data-te-ripple-color="light">
-                                <a href=""><img src="/storage/product/large-size-laptop.jpg"
-                                        alt="Product"></a>
-                                <a href="#!">
-                                    <div
-                                        class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsl(0,0%,98.4%,0.2)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-50">
-                                    </div>
-                                </a>
-                            </div>
-                            <div>
-                                <a href="#">
-                                    <p
-                                        class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                        Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
-                                    </p>
-                                </a>
-                            </div>
-                            <div
-                                class="flex justify-between text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
-                                <span class="text-[#DC275C]">1,50,000 TK</span>
-                                <a class="text-[#380D37]">Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div
-                            class="w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div class="relative max-w-xs overflow-hidden bg-no-repeat bg-cover product_div"
-                                data-te-ripple-init data-te-ripple-color="light">
-                                <a href=""><img src="/storage/product/large-size-laptop.jpg"
-                                        alt="Product"></a>
-                                <a href="#!">
-                                    <div
-                                        class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsl(0,0%,98.4%,0.2)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-50">
-                                    </div>
-                                </a>
-                            </div>
-                            <div>
-                                <a href="#">
-                                    <p
-                                        class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                        Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
-                                    </p>
-                                </a>
-                            </div>
-                            <div
-                                class="flex justify-between text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
-                                <span class="text-[#DC275C]">1,50,000 TK</span>
-                                <a class="text-[#380D37]">Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div
-                            class="w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div class="relative max-w-xs overflow-hidden bg-no-repeat bg-cover product_div"
-                                data-te-ripple-init data-te-ripple-color="light">
-                                <a href=""><img src="/storage/product/large-size-laptop.jpg"
-                                        alt="Product"></a>
-                                <a href="#!">
-                                    <div
-                                        class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsl(0,0%,98.4%,0.2)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-50">
-                                    </div>
-                                </a>
-                            </div>
-                            <div>
-                                <a href="#">
-                                    <p
-                                        class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                        Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
-                                    </p>
-                                </a>
-                            </div>
-                            <div
-                                class="flex justify-between text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
-                                <span class="text-[#DC275C]">1,50,000 TK</span>
-                                <a class="text-[#380D37]">Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div
-                            class="w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div class="relative max-w-xs overflow-hidden bg-no-repeat bg-cover product_div"
-                                data-te-ripple-init data-te-ripple-color="light">
-                                <a href=""><img src="/storage/product/large-size-laptop.jpg"
-                                        alt="Product"></a>
-                                <a href="#!">
-                                    <div
-                                        class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsl(0,0%,98.4%,0.2)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-50">
-                                    </div>
-                                </a>
-                            </div>
-                            <div>
-                                <a href="#">
-                                    <p
-                                        class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                        Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB
-                                    </p>
-                                </a>
-                            </div>
-                            <div
-                                class="flex justify-between text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
-                                <span class="text-[#DC275C]">1,50,000 TK</span>
-                                <a class="text-[#380D37]">Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
+                {{-- </div> --}}
             </div>
             <div class="relative">
                 <div class="swiper-button-next translate-x-[55px] max-sm:translate-x-[20px] translate-y-[-192px] bs">
@@ -1012,57 +862,60 @@
                 <div class="swiper-button-prev translate-x-[-40px] max-sm:translate-x-[-20px] translate-y-[-192px] bs">
                 </div>
             </div>
+        </div>
 
-            <!-- Swiper JS -->
-            {{-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> --}}
-
-            <!-- Initialize Swiper -->
-            {{-- <script>
-                var swiper = new Swiper(".mySwiper", {
-                    slidesPerView: 5,
-                    // spaceBetween: 5,
-                    slidesPerGroup: 1,
-                    loop: true,
-                    loopFillGroupWithBlank: true,
-                    // pagination: {
-                    //     el: ".swiper-pagination",
-                    //     clickable: true,
-                    // },
-                    navigation: {
-                        nextEl: ".swiper-button-next",
-                        prevEl: ".swiper-button-prev",
-                    },
-                });
-                // Adjust slidesPerView dynamically
-                function adjustSlidesPerView() {
-                    var windowWidth = window.innerWidth;
-
-                    if (windowWidth < 640) {
-                        swiper.params.slidesPerView = 1;
-                    } else if (windowWidth < 768) {
-                        swiper.params.slidesPerView = 2;
-                    } else if (windowWidth < 1024) {
-                        swiper.params.slidesPerView = 3;
-                    } else if (windowWidth < 1280) {
-                        swiper.params.slidesPerView = 4;
-                    } else {
-                        swiper.params.slidesPerView = 5;
-                    }
-
-                    swiper.update(); // Update Swiper instance
-                }
-
-                // Call the function initially
-                adjustSlidesPerView();
-
-                // Listen to window resize events
-                window.addEventListener('resize', adjustSlidesPerView);
-            </script> --}}
-
+        {{-- Swiper slide  --}}
+        <div class="hidden asian_prds">
+            <div class="relative mx-auto overflow-hidden swiper-container mySwiper">
+                {{-- <div class=""> --}}
+                <div class="swiper-wrapper gap-[5px] py-[20px]">
+                    @foreach ($features->where('cat_id', 6) as $f_product)
+                        <div class="swiper-slide">
+                            <div
+                                class="w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
+                                <div class="relative max-w-xs overflow-hidden bg-no-repeat bg-cover product_div"
+                                    data-te-ripple-init data-te-ripple-color="light">
+                                    <a href="{{ route('product.details', [$f_product->slug]) }}" wire:navigate>
+                                        <img src="{{ $f_product->img()[0] }}" alt="Product"></a>
+                                    <a href="{{ route('product.details', [$f_product->slug]) }}" wire:navigate>
+                                        <div
+                                            class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsl(0,0%,98.4%,0.2)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-50">
+                                        </div>
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="{{ route('product.details', [$f_product->slug]) }}" wire:navigate>
+                                        <p
+                                            class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4 transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
+                                            {{ $f_product->title }}
+                                        </p>
+                                    </a>
+                                </div>
+                                <div
+                                    class="flex justify-between text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
+                                    <span class="text-[#DC275C]">{{ number_format($f_product->final_price) }} TK</span>
+                                    <livewire:add-to-cart :id="$f_product->id"
+                                        button='<a class="text-[#380D37]">Add to Cart</a>' />
+                                    {{-- <a class="text-[#380D37]">Add to Cart</a> --}}
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+                {{-- </div> --}}
+            </div>
+            <div class="relative">
+                <div class="swiper-button-next translate-x-[55px] max-sm:translate-x-[20px] translate-y-[-192px] bs">
+                </div>
+                <div class="swiper-button-prev translate-x-[-40px] max-sm:translate-x-[-20px] translate-y-[-192px] bs">
+                </div>
+            </div>
+        </div>
     </section>
     <div class='mt-[40px] mb-[30px]'>
         <div class="container h-[2px] bg-[#380D37]"></div>
     </div>
+
     <!-- Differential Variants  -->
     <section class='mt-[70px] max-sm:mt-[22px]'>
         <div class="py-1 text-center">
@@ -1075,23 +928,35 @@
         </div>
         <div class="pt-[60px]">
             <button
-                class="usa_btn3 w-[241px] max-xl:w-[200px] max-lg:w-[180px] max-md:w-[150px] max-sm:w-[100px]  h-[48px] max-lg:h-[43px] max-md:h-[40px] max-sm:h-[35px] max-lg:text-[18px] max-md:text-[16px] max-sm:text-[14px]
-                items-center text-center rounded-[4px] text-[#F2F2F2] bg-[#380D37] font-[500] text-[20px] font-[jost]">USA</button>
+                class="usa_btn w-[241px] max-xl:w-[200px] max-lg:w-[180px] max-md:w-[150px] max-sm:w-[100px]  h-[48px] max-lg:h-[43px] max-md:h-[40px] max-sm:h-[35px] max-lg:text-[18px] max-md:text-[16px] max-sm:text-[14px]
+                items-center text-center rounded-[4px] text-[#F2F2F2] bg-[#380D37] font-[500] text-[20px] font-[jost]">
+                USA
+            </button>
             <button
-                class="asian_btn3 w-[241px] max-xl:w-[200px] max-lg:w-[180px] max-md:w-[150px] max-sm:w-[100px]  h-[48px] max-lg:h-[43px] max-md:h-[40px] max-sm:h-[35px] max-lg:text-[18px] max-md:text-[16px] max-sm:text-[14px]
-                items-center text-center rounded-[4px] bg-[#F2F2F2] text-[#380D37] font-[500] text-[20px] font-[jost]">Asian</button>
+                class="asian_btn w-[241px] max-xl:w-[200px] max-lg:w-[180px] max-md:w-[150px] max-sm:w-[100px]  h-[48px] max-lg:h-[43px] max-md:h-[40px] max-sm:h-[35px] max-lg:text-[18px] max-md:text-[16px] max-sm:text-[14px]
+                items-center text-center rounded-[4px] bg-[#F2F2F2] text-[#380D37] font-[500] text-[20px] font-[jost]">
+                Asian
+            </button>
             <div class="container h-[2px] bg-[#380D37]"></div>
         </div>
-
+        {{-- @dd($dpds) --}}
         <!-- Product  -->
-        <div
-            class="grid grid-cols-5 max-sm:grid-cols-1 max-sm:gap-[2px] max-md:grid-cols-2 max-md:gap-[4px] max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 mt-6 mb-[78px] max-sm:mb-[50px]">
-            {{-- @for ($i = 1; $i < 11; $i++)
-            <livewire:products />
-        @endfor --}}
-            @foreach ($dpds->take(5) as $product)
-                <x-product :product="$product"></x-product>
-            @endforeach
+        <div class="usa_prds">
+            <div
+                class="grid grid-cols-5 max-sm:grid-cols-1 max-sm:gap-[2px] max-md:grid-cols-2 max-md:gap-[4px] max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 mt-6 mb-[78px] max-sm:mb-[50px]">
+                @foreach ($dpds->where('cat_id', 6) as $d_product)
+                    <x-product :product="$d_product"></x-product>
+                @endforeach
+            </div>
+        </div>
+        {{-- @dd($dpds->where('cat_id', 7)) --}}
+        <div class="hidden asian_prds">
+            <div
+                class="grid grid-cols-5 max-sm:grid-cols-1 max-sm:gap-[2px] max-md:grid-cols-2 max-md:gap-[4px] max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 mt-6 mb-[78px] max-sm:mb-[50px]">
+                @foreach ($dpds->where('cat_id', 7) as $da_product)
+                    <x-product :product="$da_product"></x-product>
+                @endforeach
+            </div>
         </div>
 
         <!-- See more button  -->
@@ -1099,7 +964,7 @@
     </section>
     <div>
 
-        <a href="{{ route('shop') }}">
+        <a href="{{ route('shop') }}" wire:navigate>
             <button
                 class="custom-btn7 btn-7 items-center justify-center flex my-[60px] mx-auto text-[16px] text-[#F2F4F8] w-[116px] h-[44px] rounded-[4px] bg-gradient-to-r from-[#380D37] to-[#DC275C]">
                 <span> See More</span>
@@ -1756,36 +1621,6 @@
                     </div>
                 </div>
             </section>
-            {{-- <script src="/frontend/owl-carousel-libraries/owl.carousel.min.js"></script> --}}
-            {{-- <script>
-                $(document).ready(function() {
-                    $(".owl-carousel").owlCarousel({
-                        loop: true,
-                        margin: 10,
-                        nav: true,
-                        dots: true,
-                        autoplay: true,
-                        autoplayTimeout: 3000,
-                        autoplayHoverPause: true,
-                        center: true,
-                        navText: [
-                            '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-18 h-9 arrow"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>',
-                            '<svg xmlns="http:www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-18 h-9 arrow"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /> </svg>'
-                        ],
-                        responsive: {
-                            0: {
-                                items: 1
-                            },
-                            640: {
-                                items: 1
-                            },
-                            1024: {
-                                items: 3
-                            }
-                        }
-                    });
-                });
-            </script> --}}
         </div>
     </section>
     <div class="mt-16 h-[2px] bg-[#380D37] container"></div>
@@ -1867,90 +1702,32 @@
             </form>
         </div>
     </section>
-    {{-- <script>
-        $(document).ready(function() {
-            $('.usa_btn').on('click', function() {
-                $(this).addClass('bg-[#380D37] text-[#F2F2F2]');
-                $(this).removeClass('bg-[#F2F2F2] text-[#380D37]');
-                $('.asian_btn').removeClass('bg-[#380D37] text-[#F2F2F2]')
-                $('.asian_btn').addClass('bg-[#F2F2F2] text-[#380D37]');
-            });
-            $('.asian_btn').on('click', function() {
-                $(this).addClass('bg-[#380D37] text-[#F2F2F2]');
-                $(this).removeClass('bg-[#F2F2F2] text-[#380D37]');
-                $('.usa_btn').removeClass('bg-[#380D37] text-[#F2F2F2]');
-                $('.usa_btn').addClass('bg-[#F2F2F2] text-[#380D37]');
-            });
-        })
-        $(document).ready(function() {
-            $('.usa_btn2').on('click', function() {
-                $(this).addClass('bg-[#380D37] text-[#F2F2F2]');
-                $(this).removeClass('bg-[#F2F2F2] text-[#380D37]');
-                $('.asian_btn2').removeClass('bg-[#380D37] text-[#F2F2F2]')
-                $('.asian_btn2').addClass('bg-[#F2F2F2] text-[#380D37]');
-            });
-            $('.asian_btn2').on('click', function() {
-                $(this).addClass('bg-[#380D37] text-[#F2F2F2]');
-                $(this).removeClass('bg-[#F2F2F2] text-[#380D37]');
-                $('.usa_btn2').removeClass('bg-[#380D37] text-[#F2F2F2]');
-                $('.usa_btn2').addClass('bg-[#F2F2F2] text-[#380D37]');
-            });
-        })
-        $(document).ready(function() {
-            $('.usa_btn3').on('click', function() {
-                $(this).addClass('bg-[#380D37] text-[#F2F2F2]');
-                $(this).removeClass('bg-[#F2F2F2] text-[#380D37]');
-                $('.asian_btn3').removeClass('bg-[#380D37] text-[#F2F2F2]')
-                $('.asian_btn3').addClass('bg-[#F2F2F2] text-[#380D37]');
-            });
-            $('.asian_btn3').on('click', function() {
-                $(this).addClass('bg-[#380D37] text-[#F2F2F2]');
-                $(this).removeClass('bg-[#F2F2F2] text-[#380D37]');
-                $('.usa_btn3').removeClass('bg-[#380D37] text-[#F2F2F2]');
-                $('.usa_btn3').addClass('bg-[#F2F2F2] text-[#380D37]');
-            });
-        })
-    </script> --}}
+
 </div>
 @script
     <script>
         $(document).ready(function() {
-            $('.usa_btn').on('click', function() {
-                $(this).addClass('bg-[#380D37] text-[#F2F2F2]');
-                $(this).removeClass('bg-[#F2F2F2] text-[#380D37]');
-                $('.asian_btn').removeClass('bg-[#380D37] text-[#F2F2F2]')
-                $('.asian_btn').addClass('bg-[#F2F2F2] text-[#380D37]');
-            });
-            $('.asian_btn').on('click', function() {
-                $(this).addClass('bg-[#380D37] text-[#F2F2F2]');
-                $(this).removeClass('bg-[#F2F2F2] text-[#380D37]');
-                $('.usa_btn').removeClass('bg-[#380D37] text-[#F2F2F2]');
-                $('.usa_btn').addClass('bg-[#F2F2F2] text-[#380D37]');
-            });
+            $('.usa_btn').each(function(index) {
+                $(this).on('click', function() {
+                    $(this).addClass('bg-[#380D37] text-[#F2F2F2]');
+                    $(this).removeClass('bg-[#F2F2F2] text-[#380D37]');
+                    $('.asian_btn').eq(index).removeClass('bg-[#380D37] text-[#F2F2F2]')
+                    $('.asian_btn').eq(index).addClass('bg-[#F2F2F2] text-[#380D37]');
+                    $('.asian_prds').eq(index).hide();
+                    $('.usa_prds').eq(index).show();
 
-            $('.usa_btn2').on('click', function() {
-                $(this).addClass('bg-[#380D37] text-[#F2F2F2]');
-                $(this).removeClass('bg-[#F2F2F2] text-[#380D37]');
-                $('.asian_btn2').removeClass('bg-[#380D37] text-[#F2F2F2]')
-                $('.asian_btn2').addClass('bg-[#F2F2F2] text-[#380D37]');
+                });
             });
-            $('.asian_btn2').on('click', function() {
-                $(this).addClass('bg-[#380D37] text-[#F2F2F2]');
-                $(this).removeClass('bg-[#F2F2F2] text-[#380D37]');
-                $('.usa_btn2').removeClass('bg-[#380D37] text-[#F2F2F2]');
-                $('.usa_btn2').addClass('bg-[#F2F2F2] text-[#380D37]');
-            });
-            $('.usa_btn3').on('click', function() {
-                $(this).addClass('bg-[#380D37] text-[#F2F2F2]');
-                $(this).removeClass('bg-[#F2F2F2] text-[#380D37]');
-                $('.asian_btn3').removeClass('bg-[#380D37] text-[#F2F2F2]')
-                $('.asian_btn3').addClass('bg-[#F2F2F2] text-[#380D37]');
-            });
-            $('.asian_btn3').on('click', function() {
-                $(this).addClass('bg-[#380D37] text-[#F2F2F2]');
-                $(this).removeClass('bg-[#F2F2F2] text-[#380D37]');
-                $('.usa_btn3').removeClass('bg-[#380D37] text-[#F2F2F2]');
-                $('.usa_btn3').addClass('bg-[#F2F2F2] text-[#380D37]');
+            $('.asian_btn').each(function(index) {
+                $(this).on('click', function() {
+                    $(this).addClass('bg-[#380D37] text-[#F2F2F2]');
+                    $(this).removeClass('bg-[#F2F2F2] text-[#380D37]');
+                    $('.usa_btn').eq(index).removeClass('bg-[#380D37] text-[#F2F2F2]')
+                    $('.usa_btn').eq(index).addClass('bg-[#F2F2F2] text-[#380D37]');
+                    $('.usa_prds').eq(index).hide();
+                    $('.asian_prds').eq(index).show();
+
+                });
             });
 
             $(".owl-carousel").owlCarousel({
@@ -1979,41 +1756,7 @@
                 }
             });
         });
-        // set the default active slide to the first one
-        let slideIndex = 0;
-        // showSlide(slideIndex);
 
-
-        // change slide with the prev/next button
-        function moveSlide(moveStep) {
-            showSlide(slideIndex += moveStep);
-        }
-
-        // change slide with the dots
-        function currentSlide(n) {
-            showSlide(slideIndex = n);
-        }
-
-        function showSlide(n) {
-            let i;
-            const slides = document.getElementsByClassName("slide");
-
-            if (n > slides.length - 1) {
-                slideIndex = 0
-            }
-            if (n < 0) {
-                slideIndex = slides.length - 1
-            }
-
-            // const dots = document.getElementsByClassName('dot');
-            // hide all slides
-            for (i = 0; i < slides.length; i++) {
-                slides[i].classList.add('hidden');
-            }
-
-            // show the active slide
-            slides[slideIndex].classList.remove('hidden');
-        }
         var swiper = new Swiper(".mySwiper", {
             slidesPerView: 5,
             // spaceBetween: 5,

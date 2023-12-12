@@ -24,5 +24,12 @@ class SettingTableSeeder extends Seeder
             'phone'=>"01518460933",
         );
         DB::table('settings')->insert($data);
+
+        $other_setting=array(
+            'new_product'=>20,
+            'popular_product'=>25,
+            'most_viewed_product'=>30,
+        );
+        DB::table('other_settings')->insert($other_setting);
     }
 }

@@ -46,9 +46,7 @@ class Signup extends Component
     }
     public function render()
     {
-            $this->routeChange();
-            return view('livewire.signup');
-
-
+        $this->routeChange();
+        return view('livewire.signup');
     }
 }
