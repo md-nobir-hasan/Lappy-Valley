@@ -369,7 +369,7 @@
                                                             <li>
                                                                 <a href="{{ route('product.details', [$prd->slug]) }}"
                                                                     wire:navigate class="flex">
-                                                                    <img src="{{ $prd->photo }}" alt=""
+                                                                    <img src="{{ explode(',',$prd->photo)[0] }}" alt=""
                                                                         width="40px" height="40px">
                                                                     <div>
                                                                         <span>{{ $prd->title }}</span>

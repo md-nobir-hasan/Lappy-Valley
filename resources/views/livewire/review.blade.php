@@ -3,20 +3,20 @@
         .menu-toggle1 {
             cursor: pointer;
             padding: 15px;
-            position: absolute;
+            position:;
             top: 5px;
-            left: 20px;
+            right: 0px;
             z-index: 2;
             background: #fff
         }
 
-        .bar {
+        /* .bar {
             width: 30px;
             height: 3px;
             background-color: #fff;
             margin: 6px 0;
             transition: 0.4s;
-        }
+        } */
 
         /* @media (max-width:640px) {
             .bar {
@@ -50,41 +50,16 @@
         .menu1 {
             position: fixed;
             top: 66px;
-            left: 300px;
-            width: 300px;
+            right: -300px;
+            width:300px;
             height: 100vh;
             background-color: white;
             z-index: 1;
             overflow: scroll;
-            transition: 0.5s;
+            transition: .5s;
         }
-
-
-        /* .menu1 ul {
-            list-style: none;
-            text-align: center;
-        } */
-
-        /* .menu1 a {
-            text-decoration: none;
-            color: #353535;
-            font-size: 16px;
-        } */
-
-        /* .menu-toggle.active .bar:nth-child(1) {
-            transform: rotate(-45deg) translate(-7px, 5px);
-        }
-
-        .menu-toggle.active .bar:nth-child(2) {
-            opacity: 0;
-        }
-
-        .menu-toggle.active .bar:nth-child(3) {
-            transform: rotate(45deg) translate(-7px, -7px);
-        } */
-
         .active.menu1 {
-            left: 0px !important;
+            right: 0px !important;
             color: #fff;
         }
     </style>
@@ -93,7 +68,7 @@
         <div class="w-[18px] h-[2px] bg-[#380D37] my-[2px]" ></div>
         <div class="w-[10px] h-[2px] bg-[#380D37] my-[2px]"></div>
     </div>
-     <div class="menu1  w-40 h-40 bg-slate-600">
+     <div class="menu1   bg-slate-600">
           <div>
             <h1 class="text-white">I am sumon</h1>
           </div>
