@@ -299,7 +299,6 @@
                 </div>
             </div>
         </div>
-        
     </section>
     <div class='mt-[40px] mb-[30px]'>
         <div class="container h-[2px] bg-[#380D37]"></div>
