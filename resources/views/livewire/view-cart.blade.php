@@ -1,4 +1,8 @@
- <div class="px-[100px] max-md:px-[45px] max-lg:px-[70px] max-sm:px-[15px] mx-auto  max-sm:mt-[70px] max-xl:mt-[100px]">
+ <div x-data="{
+    total:'{{$carts->sum('amount')}}',
+    sub_total:'{{$carts->sum('amount')}}',
+ }"
+ class="px-[100px] max-md:px-[45px] max-lg:px-[70px] max-sm:px-[15px] mx-auto  max-sm:mt-[70px] max-xl:mt-[100px]">
      <div class="">
          <h1 class='font-[jost] xl:text-[20px] font-[400] leading-[25.3px] text-[#353535]'>
             Shopping Cart/View Cart
@@ -36,10 +40,28 @@
                  </thead>
                  <tbody class="divide-y divide-[#380D37]">
                      @forelse ($carts as $cart)
-                         <tr class="items-center bg-white">
+                         <tr class="items-center bg-white" x-data="{
+                            qty:'{{$cart->quantity}}',
+                            price:'{{$cart->price}}',
+                            amount:'{{$cart->amount}}',
+                            remove(id){
+                                $.ajax({
+                                    type:'get',
+                                    url: '{{route('delete')}}',
+                                data:{id:id,mt:'Cart'},
+                                response:(res)=>{
+                                    if(res){
+                                        toastr.success('Removed Successfully');
+                                    }else{
+                                         toastr.error('Something went wrong');
+                                    }
+                                }
+                                })
+                            }
+                         }">
                              <td
                                  class=" p-3 tracking-wide text-left text-[14px] whitespace-nowrap">
-                                 <img class="w-[48px] h-[48px]" src="{{ $cart->product->photo }}" alt="{{ $cart->product->title }}">
+                                 <img class="w-[48px] h-[48px]" src="{{ $cart->product->img()[0] }}" alt="{{ $cart->product->title }}">
                              </td>
                              <td class="p-3 tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]">
                                  {{ $cart->product->title }}
@@ -50,27 +72,27 @@
                              </td>
                              <td class="p-3 tracking-wide text-left text-[14px] whitespace-nowrap text-[#380D37]">
                                 <div class="text-[#380D37] flex items-center gap-[5px] w-[140px]">
-                                    <span class=" bg-[#F2F2F2] font-[jost] font-[500] px-[38px] py-[5px] rounded-sm">{{ $cart->quantity }} </span>
-                                    <span><img class="w-[20px] h-[20px] text-[#000000]" src="/storage/product/swap.svg" alt="Product"></span>
-                                    <span><img class="w-[20px] h-[20px] text-[#000000]" src="/storage/product/cross-icon.svg" alt="Product"></span>
+                                    <span class=" bg-[#F2F2F2] font-[jost] font-[500] px-[38px] py-[5px] rounded-sm" x-text='qty'>
+                                        {{-- {{ $cart->quantity }} --}}
+                                    </span>
+                                    <span @click='sync'><img class="w-[20px] h-[20px] text-[#000000]" src="/storage/product/swap.svg" alt="Product"></span>
+                                    <span @click='remove'><img class="w-[20px] h-[20px] text-[#000000]" src="/storage/product/cross-icon.svg" alt="Product"></span>
                                 </div>
                              </td>
 
-                             <td class="p-4 tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]">
-                                {{ number_format($cart->price) }}৳
+                             <td class="p-4 tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]" >
+                                {{-- {{ number_format($cart->amount) }} --}} <span x-text='price'></span>
+                                ৳
                              </td>
                              <td class=" tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]">
-
-                                {{ $cart->amount }}৳
+                                {{-- {{ $cart->amount }} --}}
+                                <span x-text='amount'></span>
+                                ৳
                              </td>
                          </tr>
                      @empty
-
                      @endforelse
                  </tbody>
-                 {{-- <tfoot>
-
-                 </tfoot> --}}
              </table>
          </div>
 
@@ -80,13 +102,16 @@
              <tr class="border-b-[2px] max-sm:border-b-[1px] border-b-[#380D37] gap-[80px] max-sm:gap-[50px] flex py-[12px] max-sm:pt-[12px] max-sm:pb-[7px] max-sm:pl-[25px] pl-[50px] justify-end">
                  <td class="text-[20px] max-sm:text-[16px] text-[#380D37] font-[jost] font-[500]">Sub-Total:</td>
                  <td class="text-[20px] max-sm:text-[16px] text-[#DC275C] font-[jost] font-[500] pr-4 ">
-                     {{ number_format($carts->sum('amount')) }}৳
+                     {{-- {{ number_format($carts->sum('amount')) }} --}}
+                     <span x-text='mFormat(sub_total)'></span>৳
                  </td>
              </tr>
              <tr class="border-b-[2px] max-sm:border-b-[1px] border-b-[#380D37] gap-[80px] max-sm:gap-[50px] flex py-[12px] max-sm:pt-[12px] max-sm:pb-[7px] max-sm:pl-[25px] pl-[50px] justify-end">
                  <td class="text-[20px] max-sm:text-[16px] text-[#380D37] font-[jost] font-[500]">Total:</td>
                  <td class="text-[20px] max-sm:text-[16px] text-[#DC275C] font-[jost] font-[500] pr-4 ">
-                     {{ number_format($carts->sum('amount')) }}৳</td>
+                     {{-- {{ number_format($carts->sum('amount')) }} --}}
+                     <span x-text='mFormat(total)'></span>
+                     ৳</td>
              </tr>
          </tbody>
 

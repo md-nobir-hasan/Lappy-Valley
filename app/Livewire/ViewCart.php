@@ -10,15 +10,14 @@ use Livewire\Attributes\Title;
 
 class ViewCart extends Component
 {
-    public $carts = [];
 
     public function render()
     {
         if($user = auth()->user()){
-            $this->carts = Cart::with('product')->where('user_id',$user->id)->get();
+            $n['carts'] = Cart::with('product')->where('user_id',$user->id)->get();
         }else{
-            $this->carts = Cart::with('product')->where('ip',request()->ip())->get();
+            $n['carts'] = Cart::with('product')->where('ip',request()->ip())->get();
         }
-        return view('livewire.view-cart');
+        return view('livewire.view-cart',$n);
     }
 }
