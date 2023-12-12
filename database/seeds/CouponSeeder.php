@@ -65,7 +65,7 @@ class CouponSeeder extends Seeder
                 'status' => 'active',
                 'is_parent' => 1,
             ],
-           
+
             [
                 'title' => 'Asian Variant',
                 'slug' => Str::slug('Asian Variant'),
@@ -82,5 +82,20 @@ class CouponSeeder extends Seeder
             ],
         ];
         DB::table('categories')->insert($cats);
+
+        // Banner seeder (Hero section )
+        $banner = [
+            [
+                'title' => 'Home Pag Banner',
+                'slug' => Str::slug('home_page'),
+                'serial' => 1,
+                'photo' => '/storage/product/Hero-Image.svg,/storage/product/heroimg2.png,/storage/product/heroimg3.png',
+                'description' => 'Our newest products are here,just for you!',
+                'status' => 'active',
+            ],
+        ];
+        DB::table('banners')->insert($banner);
     }
+
+
 }

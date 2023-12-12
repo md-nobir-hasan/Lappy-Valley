@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Banner;
 use App\Models\Category;
 use App\Models\CompanyReview;
 use App\Models\Product;
@@ -71,6 +72,7 @@ class HomePage extends Component
         $n['features'] = $pd;
         $n['dpds'] = $pd->take(5);
         $n['menus'] = Category::with('child_cat')->where('status', 'active')->where('is_parent', 1)->orderBy('title', 'ASC')->get();
+        $n['home_banner'] = Banner::where('status', 'active')->where('slug', 'home-page')->first();
 
         return view('livewire.home-page',$n);
     }

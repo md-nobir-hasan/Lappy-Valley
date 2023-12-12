@@ -623,34 +623,78 @@
         </script>
     @endif
     <!-- Hero Section  -->
+    @if($home_banner)
     <section>
         <div class="relative max-xl:top-[68px]" x-data="{ active: true }">
-            <div class="relative slide">
-                <img class="container" src="/storage/product/Hero-Image.svg">
-            </div>
-            <div class="relative hidden slide">
-                <img class="container" src="/storage/product/Hero-Image.svg">
-            </div>
-            <div class="relative hidden slide">
-                <img class="container" src="/storage/product/Hero-Image.svg">
-            </div>
+            @php
+            $bnrs = explode(',',$home_banner->photo);
+            @endphp
+            @foreach ($bnrs as $banner)
+                <div class="relative {{ $loop->first ? '' : ' hidden' }} slide ">
+                    <img class="container" src="{{ $banner }}">
+                </div>
+            @endforeach
             <!-- The previous button -->
-            <a class="absolute left-0 top-1/2 p-4 -translate-y-1/2 -translate-x-[42px] text-[40px] text-blue-500 opacity-50 hover:opacity-100 cursor-pointer"
-                onclick="moveSlide(-1)">
+            <a id="move_back" value='0' class="slide_icon absolute left-0 top-1/2 p-4 -translate-y-1/2 -translate-x-[42px] text-[40px] text-blue-500 opacity-50 hover:opacity-100 cursor-pointer"
+                >
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-[18px] h-[36px] max-md:w-[25px] max-md:h-[20px]"
                     viewBox="0 0 23 40" fill="none">
                     <path d="M21 2L3 20L21 38" stroke="#999999" stroke-opacity="1" stroke-width="5" />
                 </svg>
             </a>
             <!-- The next button -->
-            <a class="absolute right-0 top-1/2 p-4 -translate-y-1/2 translate-x-[42px] text-[40px] text-blue-500 opacity-50 hover:opacity-100 cursor-pointer"
-                onclick="moveSlide(1)"><svg xmlns="http://www.w3.org/2000/svg"
+            <a id="move_front" value='0' class="slide_icon absolute right-0 top-1/2 p-4 -translate-y-1/2 translate-x-[42px] text-[40px] text-blue-500 opacity-50 hover:opacity-100 cursor-pointer"
+                ><svg xmlns="http://www.w3.org/2000/svg"
                     class="w-[18px] h-[36px] max-md:w-[25px] max-md:h-[20px]" viewBox="0 0 23 40" fill="none">
                     <path :class="{ 'text-[black]': active }" d="M2 2L20 20L2 38" stroke="#999999" stroke-opacity="0.5"
                         stroke-width="5" />
                 </svg></i></a>
         </div>
+        @script
+        <script>
+      // Hero section slide
+            $('#move_back').on('click', function() {
+                console.log($(this).attr('value'));
+                let current_slide = Number($(this).attr('value')) - 1;
+                let total_slide = $('.slide').length;
+                console.log(current_slide, total_slide, 'yes');
+                // if(current_slide>=total_slide){
+                //     current_slide == 1
+                // }
+                if (current_slide < 0) {
+
+                    current_slide = 2;
+                    console.log(current_slide, total_slide, 'after if');
+                }
+                $('.slide').hide();
+                $('.slide').eq(current_slide).show();
+                $('.slide_icon').attr('value',current_slide);
+                $(this).addClass('slide-active');
+                $('#move_front').removeClass('slide-active')
+            })
+            $('#move_front').on('click', function() {
+                console.log($(this).attr('value'));
+                let current_slide = Number($(this).attr('value')) + 1;
+                let total_slide = $('.slide').length;
+                console.log(current_slide, total_slide, 'yes');
+                // if(current_slide>=total_slide){
+                //     current_slide == 1
+                // }
+                if (current_slide >2) {
+
+                    current_slide = 0;
+                    console.log(current_slide, total_slide, 'after if');
+                }
+                $('.slide').hide();
+                $('.slide').eq(current_slide).show();
+                $('.slide_icon').attr('value',current_slide);
+                $(this).addClass('slide-active');
+                $('#move_back').removeClass('slide-active')
+            });
+        </script>
+        @endscript
     </section>
+    @endif
     <!-- --------hero--section --end ----  -->
 
     <!-- Feature Laptops -->
@@ -813,8 +857,7 @@
                             class="w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div class="relative max-w-xs overflow-hidden bg-no-repeat bg-cover product_div"
                                 data-te-ripple-init data-te-ripple-color="light">
-                                <a href=""><img src="/storage/product/large-size-laptop.jpg"
-                                        alt="Product"></a>
+                                <a href=""><img src="/storage/product/large-size-laptop.jpg" alt="Product"></a>
                                 <a href="#!">
                                     <div
                                         class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsl(0,0%,98.4%,0.2)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-50">
@@ -1013,52 +1056,6 @@
                 </div>
             </div>
 
-            <!-- Swiper JS -->
-            {{-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> --}}
-
-            <!-- Initialize Swiper -->
-            {{-- <script>
-                var swiper = new Swiper(".mySwiper", {
-                    slidesPerView: 5,
-                    // spaceBetween: 5,
-                    slidesPerGroup: 1,
-                    loop: true,
-                    loopFillGroupWithBlank: true,
-                    // pagination: {
-                    //     el: ".swiper-pagination",
-                    //     clickable: true,
-                    // },
-                    navigation: {
-                        nextEl: ".swiper-button-next",
-                        prevEl: ".swiper-button-prev",
-                    },
-                });
-                // Adjust slidesPerView dynamically
-                function adjustSlidesPerView() {
-                    var windowWidth = window.innerWidth;
-
-                    if (windowWidth < 640) {
-                        swiper.params.slidesPerView = 1;
-                    } else if (windowWidth < 768) {
-                        swiper.params.slidesPerView = 2;
-                    } else if (windowWidth < 1024) {
-                        swiper.params.slidesPerView = 3;
-                    } else if (windowWidth < 1280) {
-                        swiper.params.slidesPerView = 4;
-                    } else {
-                        swiper.params.slidesPerView = 5;
-                    }
-
-                    swiper.update(); // Update Swiper instance
-                }
-
-                // Call the function initially
-                adjustSlidesPerView();
-
-                // Listen to window resize events
-                window.addEventListener('resize', adjustSlidesPerView);
-            </script> --}}
-
     </section>
     <div class='mt-[40px] mb-[30px]'>
         <div class="container h-[2px] bg-[#380D37]"></div>
@@ -1086,9 +1083,7 @@
         <!-- Product  -->
         <div
             class="grid grid-cols-5 max-sm:grid-cols-1 max-sm:gap-[2px] max-md:grid-cols-2 max-md:gap-[4px] max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 mt-6 mb-[78px] max-sm:mb-[50px]">
-            {{-- @for ($i = 1; $i < 11; $i++)
-            <livewire:products />
-        @endfor --}}
+
             @foreach ($dpds->take(5) as $product)
                 <x-product :product="$product"></x-product>
             @endforeach
@@ -1756,36 +1751,6 @@
                     </div>
                 </div>
             </section>
-            {{-- <script src="/frontend/owl-carousel-libraries/owl.carousel.min.js"></script> --}}
-            {{-- <script>
-                $(document).ready(function() {
-                    $(".owl-carousel").owlCarousel({
-                        loop: true,
-                        margin: 10,
-                        nav: true,
-                        dots: true,
-                        autoplay: true,
-                        autoplayTimeout: 3000,
-                        autoplayHoverPause: true,
-                        center: true,
-                        navText: [
-                            '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-18 h-9 arrow"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>',
-                            '<svg xmlns="http:www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-18 h-9 arrow"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /> </svg>'
-                        ],
-                        responsive: {
-                            0: {
-                                items: 1
-                            },
-                            640: {
-                                items: 1
-                            },
-                            1024: {
-                                items: 3
-                            }
-                        }
-                    });
-                });
-            </script> --}}
         </div>
     </section>
     <div class="mt-16 h-[2px] bg-[#380D37] container"></div>
@@ -1867,50 +1832,7 @@
             </form>
         </div>
     </section>
-    {{-- <script>
-        $(document).ready(function() {
-            $('.usa_btn').on('click', function() {
-                $(this).addClass('bg-[#380D37] text-[#F2F2F2]');
-                $(this).removeClass('bg-[#F2F2F2] text-[#380D37]');
-                $('.asian_btn').removeClass('bg-[#380D37] text-[#F2F2F2]')
-                $('.asian_btn').addClass('bg-[#F2F2F2] text-[#380D37]');
-            });
-            $('.asian_btn').on('click', function() {
-                $(this).addClass('bg-[#380D37] text-[#F2F2F2]');
-                $(this).removeClass('bg-[#F2F2F2] text-[#380D37]');
-                $('.usa_btn').removeClass('bg-[#380D37] text-[#F2F2F2]');
-                $('.usa_btn').addClass('bg-[#F2F2F2] text-[#380D37]');
-            });
-        })
-        $(document).ready(function() {
-            $('.usa_btn2').on('click', function() {
-                $(this).addClass('bg-[#380D37] text-[#F2F2F2]');
-                $(this).removeClass('bg-[#F2F2F2] text-[#380D37]');
-                $('.asian_btn2').removeClass('bg-[#380D37] text-[#F2F2F2]')
-                $('.asian_btn2').addClass('bg-[#F2F2F2] text-[#380D37]');
-            });
-            $('.asian_btn2').on('click', function() {
-                $(this).addClass('bg-[#380D37] text-[#F2F2F2]');
-                $(this).removeClass('bg-[#F2F2F2] text-[#380D37]');
-                $('.usa_btn2').removeClass('bg-[#380D37] text-[#F2F2F2]');
-                $('.usa_btn2').addClass('bg-[#F2F2F2] text-[#380D37]');
-            });
-        })
-        $(document).ready(function() {
-            $('.usa_btn3').on('click', function() {
-                $(this).addClass('bg-[#380D37] text-[#F2F2F2]');
-                $(this).removeClass('bg-[#F2F2F2] text-[#380D37]');
-                $('.asian_btn3').removeClass('bg-[#380D37] text-[#F2F2F2]')
-                $('.asian_btn3').addClass('bg-[#F2F2F2] text-[#380D37]');
-            });
-            $('.asian_btn3').on('click', function() {
-                $(this).addClass('bg-[#380D37] text-[#F2F2F2]');
-                $(this).removeClass('bg-[#F2F2F2] text-[#380D37]');
-                $('.usa_btn3').removeClass('bg-[#380D37] text-[#F2F2F2]');
-                $('.usa_btn3').addClass('bg-[#F2F2F2] text-[#380D37]');
-            });
-        })
-    </script> --}}
+
 </div>
 @script
     <script>
@@ -1979,41 +1901,7 @@
                 }
             });
         });
-        // set the default active slide to the first one
-        let slideIndex = 0;
-        // showSlide(slideIndex);
 
-
-        // change slide with the prev/next button
-        function moveSlide(moveStep) {
-            showSlide(slideIndex += moveStep);
-        }
-
-        // change slide with the dots
-        function currentSlide(n) {
-            showSlide(slideIndex = n);
-        }
-
-        function showSlide(n) {
-            let i;
-            const slides = document.getElementsByClassName("slide");
-
-            if (n > slides.length - 1) {
-                slideIndex = 0
-            }
-            if (n < 0) {
-                slideIndex = slides.length - 1
-            }
-
-            // const dots = document.getElementsByClassName('dot');
-            // hide all slides
-            for (i = 0; i < slides.length; i++) {
-                slides[i].classList.add('hidden');
-            }
-
-            // show the active slide
-            slides[slideIndex].classList.remove('hidden');
-        }
         var swiper = new Swiper(".mySwiper", {
             slidesPerView: 5,
             // spaceBetween: 5,

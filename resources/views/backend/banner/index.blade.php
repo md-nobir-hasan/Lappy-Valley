@@ -54,8 +54,10 @@
                                     <td>{{ $banner->slug }}</td>
                                     <td>
                                         @if ($banner->photo)
-                                            <img src="{{ $banner->photo }}" class="img-fluid zoom" style="max-width:80px"
-                                                alt="{{ $banner->photo }}">
+                                        @foreach ( $banner->img() as $photo)
+                                        <img src="{{ $photo }}" class="img-fluid zoom" style="max-width:80px"
+                                            alt="{{ $photo }}">
+                                        @endforeach
                                         @else
                                             <img src="{{ asset('backend/img/thumbnail-default.jpg') }}"
                                                 class="img-fluid zoom" style="max-width:100%" alt="avatar.png">
