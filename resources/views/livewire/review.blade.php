@@ -1,135 +1,43 @@
-<div class="px-[100px] mt-[150px]">
+<div>
     <style>
-        .menu-toggle1 {
-            cursor: pointer;
-            padding: 15px;
-            position: absolute;
-            top: 5px;
-            left: 20px;
-            z-index: 2;
-            background: #fff
-        }
-
-        .bar {
-            width: 30px;
-            height: 3px;
-            background-color: #fff;
-            margin: 6px 0;
-            transition: 0.4s;
-        }
-
-        /* @media (max-width:640px) {
-            .bar {
-                width: 20px;
-                height: 2px;
-                margin: 3px 0;
-            }
-
-            .menu-toggle {
-                top: 0px;
-            }
-
-            .menu {
-                top: 50px !important;
-                width: 200px !important;
-            }
-
-            .menu-toggle.active .bar:nth-child(1) {
-                transform: rotate(-45deg) translate(-5px, 5px) !important;
-            }
-
-            .menu-toggle.active .bar:nth-child(2) {
-                opacity: 0;
-            }
-
-            .menu-toggle.active .bar:nth-child(3) {
-                transform: rotate(45deg) translate(-2px, -2px) !important;
-            }
-        } */
-
-        .menu1 {
-            position: fixed;
-            top: 66px;
-            left: 300px;
-            width: 300px;
-            height: 100vh;
-            background-color: white;
-            z-index: 1;
-            overflow: scroll;
-            transition: 0.5s;
-        }
-
-
-        /* .menu1 ul {
-            list-style: none;
-            text-align: center;
-        } */
-
-        /* .menu1 a {
-            text-decoration: none;
-            color: #353535;
-            font-size: 16px;
-        } */
-
-        /* .menu-toggle.active .bar:nth-child(1) {
-            transform: rotate(-45deg) translate(-7px, 5px);
-        }
-
-        .menu-toggle.active .bar:nth-child(2) {
-            opacity: 0;
-        }
-
-        .menu-toggle.active .bar:nth-child(3) {
-            transform: rotate(45deg) translate(-7px, -7px);
-        } */
-
-        .active.menu1 {
-            left: 0px !important;
-            color: #fff;
-        }
+    .search-bar {
+    display: none;
+    width: 200px;
+    padding: 5px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    }
     </style>
-    <div class="menu-toggle1 flex flex-col items-center">
-        <div class="w-[25px] h-[2px] bg-[#380D37] my-[2px]"></div>
-        <div class="w-[18px] h-[2px] bg-[#380D37] my-[2px]" ></div>
-        <div class="w-[10px] h-[2px] bg-[#380D37] my-[2px]"></div>
+    {{-- </head>
+<body> --}}
+
+    <!-- Search Icon -->
+    <div id="search-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="6"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
     </div>
-     <div class="menu1  w-40 h-40 bg-slate-600">
-          <div>
-            <h1 class="text-white">I am sumon</h1>
-          </div>
-     </div>
 
+    <!-- Search Bar -->
+    <div id="search-bar" class="search-bar">
+        <input type="text" placeholder="Search...">
+    </div>
+
+    {{-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> --}}
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var menuToggle = document.querySelector('.menu-toggle1');
-            var menu = document.querySelector('.menu1');
-
-            menuToggle.addEventListener('click', function(event) {
-                event.stopPropagation(); //
-                menuToggle.classList.toggle('active');
-                menu.classList.toggle('active');
-                toggleBodyOverflow(); // 
+        $(document).ready(function() {
+            // Toggle search bar when clicking the search icon
+            $("#search-icon").click(function() {
+                $("#search-bar").slideToggle();
+                // Toggle the icon (replace with your own SVG code)
+                $(this).html(function(_, oldHtml) {
+                    return oldHtml.includes("circle") ?
+                        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>' :
+                        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>';
+                });
             });
-
-            document.addEventListener('click', function(event) {
-                var isClickInsideMenu = menu.contains(event.target);
-                var isClickOnMenuToggle = menuToggle.contains(event.target);
-
-                if (!isClickInsideMenu && !isClickOnMenuToggle) {
-                    menu.classList.remove('active');
-                    menuToggle.classList.remove('active');
-                    toggleBodyOverflow(); // Reset body overflow
-                }
-            });
-
-            function toggleBodyOverflow() {
-                // Check if menu is active and adjust body overflow
-                if (menu.classList.contains('active')) {
-                    document.body.style.overflow = 'hidden';
-                } else {
-                    document.body.style.overflow = '';
-                }
-            }
-        });
+        }); 
     </script>
-</div>
+        </div>

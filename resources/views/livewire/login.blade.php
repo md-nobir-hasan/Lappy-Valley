@@ -11,7 +11,6 @@
             <button type="button" id="login_btn"
                 class="default text-[16px] max-sm:text-[14px] focus:outline-none bg-[#380D37] text-[#fff] py-[12px] max-sm:py-[6px] font-[jost] font-[600] w-full text-center rounded-[5px]">
                 LogIn</button>
-
            <a href="{{route('user.register')}}" wire:navigate type="button" id='reg_btn'
                 class="text-center change bg-[#F2F2F2] text-[#380D37] text-[16px] max-sm:text-[14px] max-sm:w-[300px] focus:text-[#fff]  font-[jost] font-[600] w-full py-[12px] max-sm:py-[6px] text- rounded-[5px]"
                 >Register
@@ -20,9 +19,7 @@
                 Register
             </button> --}}
         </a>
-
         </div>
-
         <div
             class=" w-[463px] max-sm:w-[300px] mx-auto border-[2px] border-[#380D37] rounded-[4px] left-[70px] pt-[33px] max-sm:pt-[20px] pb-[20px] pl-[65px] max-sm:pb-[0px] pr-[50px] max-sm:px-[12px]">
             {{-- Login form  --}}
@@ -45,7 +42,6 @@
                             <span class="text-[red] text-[12px] max-sm:text-[10px]">{{ $message }}</span>
                         @enderror
                     </div>
-
                     <div class="flex justify-between my-[15px]">
                         <div class="flex gap-[10px]  text-[12px] max-sm:text-[10px] font-[jost] font-[600]">
                             <input type="checkbox" id="remember" class="w-[16px] h-[16px] text-[#380D37]">
@@ -55,7 +51,6 @@
                                 href="{{ route('user.fp') }}">Forgot
                                 Password?</a></div>
                     </div>
-
                     @if ($check_msg)
                         <span class="text-[red] text-[16px]">{{ $check_msg }}</span>
                     @endif

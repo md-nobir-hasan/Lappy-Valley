@@ -1,4 +1,4 @@
-<div class="relative">
+<div class="">
     <style>
         .menu-toggle {
             cursor: pointer;
@@ -86,13 +86,20 @@
             left: 0px !important;
             color: #fff;
         }
+
+        /* .search-bar {
+        display: none;
+        top: 120px;
+        left: 0px;
+        border: 1px solid #ccc;
+        } */
     </style>
 
     <header
-        class="h-[78px] z-[10000] max-sm:h-[50px] max-xl:h-[68px] max-xl:fixed max-xl:top-0 max-xl:left-0 max-xl:right-0 max-xl:z-150 max-xl:flex max-xl:justify-between max-xl:items-center
+        class="h-[78px] z-[10000] max-sm:h-[50px] max-xl:h-[68px] max-xl:fixed max-xl:top-0 max-xl:left-0 max-xl:right-0 max-xl:z-150 max-xl:flex max-xl:justify-around max-xl:items-center
      bg-gradient-to-r from-[#380D37] to-[#DC275C] text-[#f2f2f2] px-[72px] max-xl:px-[40px]">
         {{-- ------responsive---show----- --}}
-        <div class=" xl:hidden max-xl:block">
+        <div class="xl:hidden max-xl:block">
             <div class="menu-toggle">
                 <div class="bar"></div>
                 <div class="bar"></div>
@@ -273,48 +280,92 @@
                     </ul>
                 </nav>
             </div>
-            <script>
-                document.addEventListener("DOMContentLoaded", function() {
-                    var menuToggle = document.querySelector('.menu-toggle');
-                    var menu = document.querySelector('.menu');
-
-                    menuToggle.addEventListener('click', function(event) {
-                        event.stopPropagation(); // Prevents the click event from propagating to the document
-                        menuToggle.classList.toggle('active');
-                        menu.classList.toggle('active');
-                        toggleBodyOverflow(); // Toggle body overflow based on menu state
-                    });
-
-                    document.addEventListener('click', function(event) {
-                        var isClickInsideMenu = menu.contains(event.target);
-                        var isClickOnMenuToggle = menuToggle.contains(event.target);
-
-                        if (!isClickInsideMenu && !isClickOnMenuToggle) {
-                            menu.classList.remove('active');
-                            menuToggle.classList.remove('active');
-                            toggleBodyOverflow(); // Reset body overflow
-                        }
-                    });
-
-                    function toggleBodyOverflow() {
-                        // Check if menu is active and adjust body overflow
-                        if (menu.classList.contains('active')) {
-                            document.body.style.overflow = 'hidden';
-                        } else {
-                            document.body.style.overflow = '';
-                        }
-                    }
-                });
-            </script>
         </div>
         {{-- responsive ---show -----end --}}
         <div class="flex items-center justify-evenly h-full  py-[10px] gap-[5px]">
             <!-- <!- Logo -->
-            <div class=''>
+            <div class='items-center'>
                 <a href="{{ route('home') }}" wire:navigate>
                     <img class="h-[60px] max-xl:h-[40px] w-[232px] max-sm:w-[130px] max-xl:w-[180px] max-xl:flex max-xl:items-center"
                         src="/storage/product/Logo.svg" alt="Your Logo">
                 </a>
+            </div>
+            <div id="search-icon" class="xl:hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="6"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </div>    
+            <div class="fixed top-[70px] left-[210px] z-[9999] xl:hidden" x-data="{
+                search: '',
+                open: false,
+                items: $wire.products,
+                get filteredItems() {
+                    const searchLower = this.search.toLowerCase();
+                    return this.items.filter((i) => i.title.toLowerCase().startsWith(searchLower));
+                }
+            }">
+
+                <form wire:submit='searchTo' class='h-[44px] w-[655px]'>
+                    <div class="flex" @click.outside='open = false'>
+                        <select name="cat_id" wire:model.live='cat' wire:change='prdouctFetch'
+                            @change='open=true'
+                            class="block w-[80px] p-2.5 text-[#380D37] text-[14px] font-[jost] font-[400] leading-[20.23px] border-r-[2px] border-[#380D37]">
+                            <option value="" selected>All</option>
+                            @foreach ($cats as $ct)
+                                <option value="{{ $ct->id }}">{{ $ct->title }}</option>
+                            @endforeach
+                        </select>
+                        <div class="relative flex w-full">
+                            <div class="w-full">
+                                <span class="">
+                                    <input name="search_text" wire:model.live="search"
+                                        wire:keyup="searchFuc" @click="open = true" type="search"
+                                        id="search-dropdown"
+                                        class=" z-20 block p-2.5 w-full text-[#380D37]"
+                                        placeholder="I am shopping for..." required>
+                                    <div wire:loading wire:target='prdouctFetch,searchFuc'
+                                        class="absolute right-[6.5rem] top-2.5 inline-block h-6 w-6 mr-2 animate-spin rounded-full
+                                        border-4 border-solid border-current border-r-transparent align-[-0.125em]
+                                            text-success motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                                        role="status">
+                                        <span
+                                            class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...
+                                        </span>
+                                    </div>
+                                </span>
+                                @if (count($products) > 0)
+                                    <ul x-show='open'
+                                        class="absolute z-50 bg-[white] text-[black] px-6 max-h-[530px] overflow-scroll w-full">
+                                        @foreach ($products as $prd)
+                                            <li>
+                                                <a href="{{ route('product.details', [$prd->slug]) }}"
+                                                    wire:navigate class="flex">
+                                                    <img src="{{ explode(',', $prd->photo)[0] }}"
+                                                        alt="" width="40px" height="40px">
+                                                    <div>
+                                                        <span>{{ $prd->title }}</span>
+                                                        <p>
+                                                            <span>{{ round($prd->price - ($prd->price * $prd->discount) / 100) }}</span>
+                                                            <span
+                                                                class="line-through">{{ $prd->price }}</span>
+                                                        </p>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                @endif
+                            </div>
+                            <button type="submit"
+                                class=" top-0 end-0 py-2.5 px-[30px]   h-full bg-[#df146e] text-[#f2f2f2] rounded-r-[2px] overflow-hidden">
+                                <span class="">Search</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
             </div>
             <div>
                 <div>
@@ -369,8 +420,8 @@
                                                             <li>
                                                                 <a href="{{ route('product.details', [$prd->slug]) }}"
                                                                     wire:navigate class="flex">
-                                                                    <img src="{{ $prd->photo }}" alt=""
-                                                                        width="40px" height="40px">
+                                                                    <img src="{{ explode(',', $prd->photo)[0] }}"
+                                                                        alt="" width="40px" height="40px">
                                                                     <div>
                                                                         <span>{{ $prd->title }}</span>
                                                                         <p>
@@ -384,24 +435,6 @@
                                                         @endforeach
                                                     </ul>
                                                 @endif
-                                                {{-- <ul :class="{ 'hidden': hidden }"
-                                                    class="fixed z-50 bg-[white] text-[black] px-6 h-[530px] overflow-scroll">
-                                                    <template x-for="item in filteredItems" :key="item.id">
-                                                        <li>
-                                                            <a :href="'/product-details/' + item.slug" class="flex">
-                                                                <img :src="item.photo" alt=""
-                                                                    width="40px" height="40px">
-                                                                <div>
-                                                                    <span x-text="item.title"></span>
-                                                                    <p>
-                                                                        <span x-text='Math.round(Number(item.price) - (Number(item.price)*Number(item.discount)/100))'></span>
-                                                                        <span x-text='Math.round(item.price)'  class="line-through"></span>
-                                                                    </p>
-                                                                </div>
-                                                            </a>
-                                                        </li>
-                                                    </template>
-                                                </ul> --}}
                                             </div>
                                             <button type="submit"
                                                 class=" top-0 end-0 py-2.5 px-[30px]   h-full bg-[#df146e] text-[#f2f2f2] rounded-r-[2px] overflow-hidden">
@@ -415,6 +448,8 @@
                     </div>
                 </div>
             </div>
+
+            <script></script>
             <!-- Right-Side Logos/Icons -->
             <div class='flex items-center justify-between gap-[30px] max-xl:hidden'>
                 <!-- <div class="flex item-center "> -->
@@ -499,3 +534,51 @@
     {{-- responsive side nav --}}
 
 </div>
+@script
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var menuToggle = document.querySelector('.menu-toggle');
+            var menu = document.querySelector('.menu');
+
+            menuToggle.addEventListener('click', function(event) {
+                event.stopPropagation(); // Prevents the click event from propagating to the document
+                menuToggle.classList.toggle('active');
+                menu.classList.toggle('active');
+                toggleBodyOverflow(); // Toggle body overflow based on menu state
+            });
+
+            document.addEventListener('click', function(event) {
+                var isClickInsideMenu = menu.contains(event.target);
+                var isClickOnMenuToggle = menuToggle.contains(event.target);
+
+                if (!isClickInsideMenu && !isClickOnMenuToggle) {
+                    menu.classList.remove('active');
+                    menuToggle.classList.remove('active');
+                    toggleBodyOverflow(); // Reset body overflow
+                }
+            });
+
+            function toggleBodyOverflow() {
+                // Check if menu is active and adjust body overflow
+                if (menu.classList.contains('active')) {
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    document.body.style.overflow = '';
+                }
+            }
+        });
+
+        $(document).ready(function() {
+            // Toggle search bar when clicking the search icon
+            $("#search-icon").click(function() {
+                $("#search-bar").slideToggle();
+                Toggle the icon(replace with your own SVG code)
+                $(this).html(function(_, oldHtml) {
+                    return oldHtml.includes("circle") ?
+                        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>' :
+                        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>';
+                });
+            });
+        });
+    </script>
+@endscript

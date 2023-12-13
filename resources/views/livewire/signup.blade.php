@@ -1,35 +1,22 @@
-    <div class="container mx-auto">
+    <div
+        class="px-[100px] max-md:px-[45px] max-lg:px-[70px] max-sm:px-[15px] mx-auto max-sm:mt-[70px] max-xl:mt-[100px]">
         <div class=>
             <h1 class='font-[jost] text-[16px] font-[400] leading-[25.3px] text-[#353535]'>Home / Account</h1>
             <div class='h-[2px] bg-[#764A8733]'></div>
         </div>
-
         <!-- --------------log-in--section----------- -->
-
-
         <div class="flex gap-[10px] w-[463px] max-sm:w-[300px] mx-auto mt-16 ">
             <a href="{{ route('user.login') }}" wire:navigate type="button" id='reg_btn'
-                class="text-center change bg-[#F2F2F2] text-[#380D37] text-[16px] max-sm:text-[14px] max-sm:w-[300px] focus:text-[#fff]  font-[jost] font-[600] w-full py-[12px] max-sm:py-[6px] text- rounded-[5px]">LogIn
-                {{-- <button type="button" id='reg_btn'
-                    class="change bg-[#F2F2F2] text-[#380D37] text-[16px] max-sm:text-[14px] max-sm:w-[300px] focus:text-[#fff]  font-[jost] font-[600] w-full py-[12px] max-sm:py-[6px] text- rounded-[5px]">
-                    LogIn
-                </button> --}}
+                class="text-center change bg-[#F2F2F2] text-[#380D37] text-[16px] max-sm:text-[14px] max-sm:w-[300px] focus:text-[#fff]  font-[jost] font-[600] w-full py-[12px] max-sm:py-[6px] text- rounded-[5px]">
+                LogIn
             </a>
             <a href="javascript:void(0)" type="button" id="login_btn"
-                class="default  text-[16px] max-sm:text-[14px] focus:outline-none bg-[#380D37] text-[#fff] py-[12px] max-sm:py-[6px] font-[jost] font-[600] w-full text-center rounded-[5px]">Register
-                {{-- <button type="button" id="login_btn"
-                class="default text-[16px] max-sm:text-[14px] focus:outline-none bg-[#380D37] text-[#fff] py-[12px] max-sm:py-[6px] font-[jost] font-[600] w-full text-center rounded-[5px]">
+                class="default  text-[16px] max-sm:text-[14px] focus:outline-none bg-[#380D37] text-[#fff] py-[12px] max-sm:py-[6px] font-[jost] font-[600] w-full text-center rounded-[5px]">
                 Register
-            </button> --}}
             </a>
-
-
-
         </div>
-
         <div
             class=" w-[463px] max-sm:w-[300px] mx-auto border-[2px] border-[#380D37] rounded-[4px] left-[70px] pt-[33px] max-sm:pt-[20px] pb-[20px] pl-[65px] max-sm:pb-[0px] pr-[50px] max-sm:px-[12px]">
-            {{-- Login form  --}}
             {{-- Registration form  --}}
             <div id="regForm">
                 <div class="mb-[10px]">
@@ -82,22 +69,23 @@
                             <a href="#">
                                 <button
                                     class=' h-[44px] max-sm:h-[35px] flex gap-2 items-center justify-center text-[16px] max-sm:text-[14px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]'>
-                                    Log
-                                    in with <img class="max-sm:w-[60px]" src="/storage/product/google.svg"
-                                        alt="Product"></button></a>
+                                    Log in with
+                                    <img class="max-sm:w-[60px]" src="/storage/product/google.svg" alt="Product">
+                                </button>
+                            </a>
                         </div>
                         <div
                             class='my-[25px] border-[1px] border-[#380D37] rounded-[4px] flex items-center justify-center'>
-                            <a href="#"><button
-                                    class=' h-[44px] max-sm:h-[35px] flex gap-2 items-center justify-center text-[16px] max-sm:text-[14px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]'>Log
-                                    in with <img class="max-sm:w-[60px]" src="/storage/product/facebook.svg"
-                                        alt="Product"></button></a>
+                            <a href="#">
+                                <button
+                                    class=' h-[44px] max-sm:h-[35px] flex gap-2 items-center justify-center text-[16px] max-sm:text-[14px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]'>
+                                    Log in with
+                                    <img class="max-sm:w-[60px]" src="/storage/product/facebook.svg"alt="Product">
+                                </button>
+                            </a>
                         </div>
                     </div>
                 </div>
-
             </div>
-
         </div>
-        {{-- <div class="h-[2px] bg-[#764A8733] my-[60px]"> </div> --}}
     </div>
