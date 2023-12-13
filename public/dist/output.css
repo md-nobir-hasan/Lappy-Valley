@@ -2850,6 +2850,10 @@ input[type="range"]:active::-webkit-slider-thumb{
   gap: 80px;
 }
 
+.gap-\[3px\]{
+  gap: 3px;
+}
+
 .space-x-2 > :not([hidden]) ~ :not([hidden]){
   --tw-space-x-reverse: 0;
   margin-right: calc(0.5rem * var(--tw-space-x-reverse));
@@ -4762,6 +4766,10 @@ input[type="range"]:active::-webkit-slider-thumb{
 .text-white{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-\[\]{
+  color: ;
 }
 
 .underline{

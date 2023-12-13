@@ -97,6 +97,45 @@
             -moz-appearance: none;
             box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
         }
+
+        /* Menu Icon and Close Icon Styles */
+        #menu-icon,
+        #close-icon {
+            cursor: pointer;
+        }
+
+        /* Menu Styles */
+        #menu {
+            position: fixed;
+            top: 66px;
+            right: -206px;
+            /* Start off-screen */
+            width: 206px;
+            height: 100%;
+            z-index: 2;
+            transition: right 0.3s ease;
+            /* overflow-y: auto; */
+            /* background:#f2f2f2; */
+            /* Animation transition */
+        }
+
+        /* Overlay for body background blur */
+        #body-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backdrop-filter: blur(8px);
+            /* Apply blur effect to the body background */
+            z-index: 1;
+            display: none;
+            overflow-block:
+        }
+
+        .noscroll {
+            overflow: hidden;
+        }
     </style>
     <div class=''>
         <h1 class='font-[jost] text-[16px] font-[400] leading-[23.12px] tracking-[3%] text-[#353535]'>All Categories/
@@ -531,54 +570,19 @@
                     <div class="flex">
                         <h1 class="max-xl:hidden">Shop</h1>
                         <div class="hidden max-xl:block">
-                            <style>
-                                /* Menu Icon and Close Icon Styles */
-                                #menu-icon,
-                                #close-icon {
-                                    cursor: pointer;
-                                }
-
-                                /* Menu Styles */
-                                #menu {
-                                    position: fixed;
-                                    top: 66px;
-                                    right: -206px;
-                                    /* Start off-screen */
-                                    width: 206px;
-                                    height: 100%;
-                                    z-index: 2;
-                                    transition: right 0.3s ease;
-                                    /* overflow-y: auto; */
-                                    /* background:#f2f2f2; */
-                                    /* Animation transition */
-                                }
-
-                                /* Overlay for body background blur */
-                                #body-overlay {
-                                    position: fixed;
-                                    top: 0;
-                                    left: 0;
-                                    width: 100%;
-                                    height: 100%;
-                                    backdrop-filter: blur(8px);
-                                    /* Apply blur effect to the body background */
-                                    z-index: 1;
-                                    display: none;
-                                    overflow-block: 
-                                }
-                                .noscroll {
-                                    overflow: hidden;
-                                }
-                            </style>
-
-                             <div id="body-overlay"></div>
+                            <div id="body-overlay"></div>
                             <!-- Menu Icon -->
                             <div id="menu-icon">
 
-                                <div class="flex flex-col items-center">
-                                    <div class="w-[25px] h-[2px] bg-[#380d37] my-[2px]"></div>
-                                    <div class="w-[15px] h-[2px] bg-[#380d37] my-[2px]"></div>
-                                    <div class="w-[10px] h-[2px] bg-[#380d37] my-[2px]"></div>
+                                <div class="flex gap-[10px] items-center">
+                                    <div class="flex flex-col items-center">
+                                        <div class="w-[25px] h-[2px] bg-[#380d37] my-[2px]"></div>
+                                        <div class="w-[15px] h-[2px] bg-[#380d37] my-[2px]"></div>
+                                        <div class="w-[10px] h-[2px] bg-[#380d37] my-[2px]"></div>
+                                    </div>
+                                    <div>
+                                        <span class="text-[18px] text-[#380D37] font-[jost] font-[500]">filter</span>
+                                    </div>
                                 </div>
 
                             </div>
@@ -972,28 +976,6 @@
 
                                 </div>
                             </div>
-                            <script>
-                                $(document).ready(function() {
-                                    var menuWrapper = $("#menu");
-                                    var bodyOverlay = $("#body-overlay");
-                                    $("#menu-icon").click(function() {
-                                        $("body").addClass("noscroll");
-                                        menuWrapper.css("right", "0");
-                                        bodyOverlay.css("display", "block");
-                                    });
-                                    $("#close-icon").click(function() {
-                                        $("body").removeClass("noscroll");
-                                        menuWrapper.css("right", "-300px");
-                                        bodyOverlay.css("display", "none");
-                                    });
-                                    bodyOverlay.click(function() {
-                                        $("body").removeClass("noscroll");
-                                        menuWrapper.css("right", "-300px");
-                                        $(this).css("display", "none");
-                                    });
-                                });
-                            </script>
-
                         </div>
 
                     </div>
@@ -1260,6 +1242,26 @@
                         range.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
                     }
                 });
+            });
+        });
+
+        $(document).ready(function() {
+            var menuWrapper = $("#menu");
+            var bodyOverlay = $("#body-overlay");
+            $("#menu-icon").click(function() {
+                $("body").addClass("noscroll");
+                menuWrapper.css("right", "0");
+                bodyOverlay.css("display", "block");
+            });
+            $("#close-icon").click(function() {
+                $("body").removeClass("noscroll");
+                menuWrapper.css("right", "-300px");
+                bodyOverlay.css("display", "none");
+            });
+            bodyOverlay.click(function() {
+                $("body").removeClass("noscroll");
+                menuWrapper.css("right", "-300px");
+                $(this).css("display", "none");
             });
         });
     </script>
