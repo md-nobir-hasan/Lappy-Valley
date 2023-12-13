@@ -989,6 +989,7 @@ input[type="range"]:active::-webkit-slider-thumb{
   left: -300px;
 }
 
+
 .\!z-40{
   z-index: 40 !important;
 }
@@ -2888,6 +2889,7 @@ input[type="range"]:active::-webkit-slider-thumb{
 .gap-\[55px\]{
   gap: 55px;
 }
+
 
 .space-x-2 > :not([hidden]) ~ :not([hidden]){
   --tw-space-x-reverse: 0;
