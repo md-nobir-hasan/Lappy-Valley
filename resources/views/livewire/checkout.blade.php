@@ -1,4 +1,4 @@
- <div class="px-[100px] max-md:px-[45px] max-sm:px-[20px] mx-auto max-sm:mt-[70px] max-xl:mt-[100px]">
+ <div class="px-[100px] max-md:px-[45px] max-sm:px-[20px] max-sm:mt-[70px] max-xl:mt-[100px]">
      <div class=>
          <h1 class='font-[jost] text-[16px] font-[400] leading-[25.3px] text-[#353535]'>Shopping Cart/ Checkout
          </h1>
@@ -7,7 +7,7 @@
 
      <!-- -------------check-out--section----------- -->
      <div>
-         <h1 class="text-[20px] text-[#353535] font-[jost] font-[500] mt-16 max-md:mt-8 mb-4 mx-auto ">Checkout</h1>
+         <h1 class="text-[20px] text-[#353535] font-[jost] font-[500] mt-16 max-lg:mt-8 mb-4 mx-auto ">Checkout</h1>
      </div>
      <form>
          <section class="grid grid-cols-3 gap-6 max-lg:grid-cols-1">
