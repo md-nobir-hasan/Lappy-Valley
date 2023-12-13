@@ -1102,7 +1102,6 @@
                     $('.asian_btn').eq(index).addClass('bg-[#F2F2F2] text-[#380D37]');
                     $('.asian_prds').eq(index).hide();
                     $('.usa_prds').eq(index).show();
-
                 });
             });
             $('.asian_btn').each(function(index) {
@@ -1144,44 +1143,5 @@
             });
         });
 
-        var swiper = new Swiper(".mySwiper", {
-            slidesPerView: 5,
-            // spaceBetween: 5,
-            slidesPerGroup: 1,
-            loop: true,
-            loopFillGroupWithBlank: true,
-            // pagination: {
-            //     el: ".swiper-pagination",
-            //     clickable: true,
-            // },
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
-        });
-        // Adjust slidesPerView dynamically
-        function adjustSlidesPerView() {
-            var windowWidth = window.innerWidth;
-
-            if (windowWidth < 640) {
-                swiper.params.slidesPerView = 1;
-            } else if (windowWidth < 768) {
-                swiper.params.slidesPerView = 2;
-            } else if (windowWidth < 1024) {
-                swiper.params.slidesPerView = 3;
-            } else if (windowWidth < 1280) {
-                swiper.params.slidesPerView = 4;
-            } else {
-                swiper.params.slidesPerView = 5;
-            }
-
-            swiper.update(); // Update Swiper instance
-        }
-
-        // Call the function initially
-        adjustSlidesPerView();
-
-        // Listen to window resize events
-        window.addEventListener('resize', adjustSlidesPerView);
     </script>
 @endscript
