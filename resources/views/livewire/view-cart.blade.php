@@ -72,11 +72,38 @@
                              </td>
                              <td class="p-3 tracking-wide text-left text-[14px] whitespace-nowrap text-[#380D37]">
                                 <div class="text-[#380D37] flex items-center gap-[5px] w-[140px]">
-                                    <span class=" bg-[#F2F2F2] font-[jost] font-[500] px-[38px] py-[5px] rounded-sm" x-text='qty'>
+                                   <div class="flex items-center gap-[4px] px-[10px] py-[5px] rounded-sm bg-[#F2F2F2]">
+                                 
+                                      <span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M18 12H6" />
+                                          </svg>                                          
+                                      </span>
+                                    <span class="text-[16px] font-[jost] font-[500]" x-text='qty'>
                                         {{-- {{ $cart->quantity }} --}}
                                     </span>
-                                    <span @click='sync'><img class="w-[20px] h-[20px] text-[#000000]" src="/storage/product/swap.svg" alt="Product"></span>
-                                    <span @click='remove'><img class="w-[20px] h-[20px] text-[#000000]" src="/storage/product/cross-icon.svg" alt="Product"></span>
+                                    <span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                                          </svg>                      
+                                    </span>
+                                   </div>
+                                    <div class="grid grid-cols-2 gap-[4px] items-center">
+                                      <div>
+                                        <span @click='sync'>
+                                            <svg version="1.1" id="ios7_x5F_arrows_1_" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 128 128" class="w-[20px] h-[20px]" style="enable-background:new 0 0 128 128" xml:space="preserve"><g id="_x32_7_1_">
+                                                <path d="m126 15.2-5-1.3-9.4 35.2-35.2-9.5-1.3 5.1 40.1 10.7h.1z" id="_x33__28_"/>
+                                                <path d="M54.6 80.2 18.8 68.4l-5-1.6-13 40.1 5 1.7 11.3-35.1L53 85.2z" id="_x32__27_"/>
+                                                <path d="M65.2 18.3c21.8 0 40.1 15.3 44.7 35.7h5.2c-4.7-23.3-25.3-40.8-49.9-40.8-23.7 0-43.7 16.3-49.3 38.3h5.3c5.5-19.2 23.1-33.2 44-33.2zm0 91.9c-22.7 0-41.6-16.6-45.2-38.3h-5.2c3.7 24.6 24.8 43.4 50.4 43.4 22.8 0 42.1-15 48.6-35.7h-5.4c-6.2 17.8-23.2 30.6-43.2 30.6z" id="_x31__27_"/></g></svg>
+                                        </span>
+                                      </div>
+                                       <div>
+                                        <span @click='remove'><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                          </svg>
+                                          </span>
+                                       </div>
+                                    </div>
                                 </div>
                              </td>
 
@@ -97,18 +124,26 @@
          </div>
 
      </section>
-     <table class="flex justify-end">
+     <table class="flex justify-end ">
          <tbody>
-             <tr class="border-b-[2px] max-sm:border-b-[1px] border-b-[#380D37] gap-[80px] max-sm:gap-[50px] flex py-[12px] max-sm:pt-[12px] max-sm:pb-[7px] max-sm:pl-[25px] pl-[50px] justify-end">
+             <tr class="p-3 flex justify-between gap-16 border-b-[2px] max-sm:border-b-[1px] border-[#380D37]">
                  <td class="text-[20px] max-sm:text-[16px] text-[#380D37] font-[jost] font-[500]">Sub-Total:</td>
-                 <td class="text-[20px] max-sm:text-[16px] text-[#DC275C] font-[jost] font-[500] pr-4 ">
+                 <td class="text-[20px] max-sm:text-[16px] text-[#DC275C] font-[jost] font-[500]">
                      {{-- {{ number_format($carts->sum('amount')) }} --}}
                      <span x-text='mFormat(sub_total)'></span>৳
                  </td>
              </tr>
-             <tr class="border-b-[2px] max-sm:border-b-[1px] border-b-[#380D37] gap-[80px] max-sm:gap-[50px] flex py-[12px] max-sm:pt-[12px] max-sm:pb-[7px] max-sm:pl-[25px] pl-[50px] justify-end">
-                 <td class="text-[20px] max-sm:text-[16px] text-[#380D37] font-[jost] font-[500]">Total:</td>
-                 <td class="text-[20px] max-sm:text-[16px] text-[#DC275C] font-[jost] font-[500] pr-4 ">
+             <tr class="p-3 flex justify-between border-b-[2px] max-sm:border-b-[1px] border-[#380D37]">
+                <td class="text-[20px] max-sm:text-[16px] text-[#380D37] font-[jost] font-[500]">Discount:</td>
+                <td class="text-[20px] max-sm:text-[16px] text-[#DC275C] font-[jost] font-[500]">
+                    {{-- {{ number_format($carts->sum('amount')) }} --}}
+                    {{-- <span x-text='mFormat(total)'></span> --}}
+                    15%</td>
+            </tr>
+
+             <tr class="p-3 flex justify-between border-b-[2px] max-sm:border-b-[1px] border-[#380D37]">
+                 <td class="text-[20px] max-sm:text-[16px] text-[#380D37] font-[jost] font-[500] w-[80px] max-sm:w-[66px] flex justify-end">Total:</td>
+                 <td class="text-[20px] max-sm:text-[16px] text-[#DC275C] font-[jost] font-[500]">
                      {{-- {{ number_format($carts->sum('amount')) }} --}}
                      <span x-text='mFormat(total)'></span>
                      ৳</td>
