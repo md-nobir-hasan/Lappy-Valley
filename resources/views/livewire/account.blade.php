@@ -31,15 +31,17 @@
                     <p class='text-[#000] text-[12px] font-[Inter] font-[400]'>Hello,</p>
                     <h1 class='text-[#000] text-[20px] max-sm:text-[18px] font-[Inter] font-[500]'>Username Here</h1>
                 </div>
-    
+
             </div>
         </div>
         <div class="grid grid-row-2 grid-cols-4 max-md:grid-cols-3 max-sm:grid-cols-2 gap-[10px]">
-            {{-- -----------------cart-1------------------------ --> --}}
+
+            {{-- -----------------cart-1 (Order)------------------------ --> --}}
+            <a href="{{route('oc')}}" wire:navigate>
             <div
                 class='bg-[#f2f2f2] w-[182px] h-[118px] max-sm:w-[150px] max-sm:h-[114px] rounded-[4px] text-center py-[26px]'>
                 <div class='items-center'>
-                    <div class='flex justify-center items-center'>
+                    <div class='flex items-center justify-center'>
                         <svg xmlns="http://www.w3.org/2000/svg" class='items-center' width="34" height="34"
                             viewBox="0 0 34 34" fill="none">
                             <circle cx="17" cy="17" r="17" fill="#380D37" />
@@ -68,12 +70,13 @@
                     <p class='text-[#380D37] text-[16px] font-[jost] font-[500] items-center'>Orders</p>
                 </div>
             </div>
-    
-            <!-- -----------------cart-2------------------------ -->
+</a>
+            <!-- -----------------cart-2 (edit Profile) ------------------------ -->
+            <a href="{{route('ep')}}" wire:navigate>
             <div
                 class='bg-[#f2f2f2] w-[182px] h-[118px] max-sm:w-[150px] max-sm:h-[114px] rounded-[4px] text-center py-[26px]'>
                 <div class='items-center'>
-                    <div class='flex justify-center items-center'>
+                    <div class='flex items-center justify-center'>
                         <svg xmlns="http://www.w3.org/2000/svg" class='items-center' width="34" height="34"
                             viewBox="0 0 34 34" fill="none">
                             <circle cx="17" cy="17" r="17" fill="#380D37" />
@@ -95,12 +98,13 @@
                     <p class='text-[#380D37] text-[16px] font-[jost] font-[500] items-center'>Edit Profile</p>
                 </div>
             </div>
-    
-            <!-- -----------------cart-3------------------------ -->
+            </a>
+            <!-- -----------------cart-3 (chnage password)------------------------ -->
+            <a href="{{route('cp')}}" wire:navigate>
             <div
                 class='bg-[#f2f2f2] w-[182px] h-[118px] max-sm:w-[150px] max-sm:h-[114px] rounded-[4px] text-center py-[26px]'>
                 <div class='items-center'>
-                    <div class='flex justify-center items-center'>
+                    <div class='flex items-center justify-center'>
                         <svg xmlns="http://www.w3.org/2000/svg" class='items-center' width="34" height="34"
                             viewBox="0 0 34 34" fill="none">
                             <circle cx="17" cy="17" r="17" fill="#380D37" />
@@ -122,12 +126,13 @@
                     <p class='text-[#380D37] text-[16px] font-[jost] font-[500] items-center'>Change Password</p>
                 </div>
             </div>
-    
-            <!-- -----------------cart-4------------------------ -->
+            </a>
+            <!-- -----------------cart-4 (address)------------------------ -->
+            <a href="{{route('address')}}" wire:navigate>
             <div
                 class='bg-[#f2f2f2] w-[182px] h-[118px] max-sm:w-[150px] max-sm:h-[114px] rounded-[4px] text-center py-[26px]'>
                 <div class='items-center'>
-                    <div class='flex justify-center items-center'>
+                    <div class='flex items-center justify-center'>
                         <svg xmlns="http://www.w3.org/2000/svg" class='items-center' width="34" height="34"
                             viewBox="0 0 34 34" fill="none">
                             <circle cx="17" cy="17" r="17" fill="#380D37" />
@@ -146,11 +151,13 @@
                     <p class='text-[#380D37] text-[16px] font-[jost] font-[500] items-center'>Address</p>
                 </div>
             </div>
-            <!-- -----------------cart-5------------------------ -->
+            </a>
+            <!-- -----------------cart-5 (wishlist)------------------------ -->
+            <a href="{{route('wishlist')}}" wire:navigate>
             <div
                 class='bg-[#f2f2f2] w-[182px] h-[118px] max-sm:w-[150px] max-sm:h-[114px] rounded-[4px] text-center py-[26px]'>
                 <div class='items-center'>
-                    <div class='flex justify-center items-center'>
+                    <div class='flex items-center justify-center'>
                         <svg xmlns="http://www.w3.org/2000/svg" class='items-center' width="34" height="34"
                             viewBox="0 0 34 34" fill="none">
                             <circle cx="17" cy="17" r="17" fill="#380D37" />
@@ -176,6 +183,7 @@
                     <p class='text-[#380D37] text-[16px] font-[jost] font-[500] items-center'>Wishlist</p>
                 </div>
             </div>
+            </a>
         </div>
     </div>
     <div class='h-[2px] bg-[#764A8733] my-[100px] max-sm:mt-[45px] max-sm:mb-[50px]'></div>

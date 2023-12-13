@@ -23,7 +23,7 @@ class CreateOrdersTable extends Migration
             $table->float('amount')->nullable();
             // $table->float('a');
             $table->integer('quantity')->nullable();
-            $table->enum('payment_method',['cod','paypal'])->default('cod');
+            $table->enum('payment_method',['cod','online'])->default('cod');
             $table->enum('payment_status',['paid','unpaid'])->default('unpaid');
             // $table->enum('status',['new','process','delivered','cancel'])->default('new');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('SET NULL');
@@ -36,8 +36,8 @@ class CreateOrdersTable extends Migration
             $table->string('status')->nullable();
             $table->string('transaction_id')->nullable();
             $table->string('currency')->nullable();
-            $table->text('address')->nullable();
-            $table->text('address2')->nullable();
+            $table->text('city')->nullable();
+            $table->text('zone')->nullable();
             $table->timestamps();
         });
     }

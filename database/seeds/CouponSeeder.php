@@ -95,6 +95,18 @@ class CouponSeeder extends Seeder
             ],
         ];
         DB::table('banners')->insert($banner);
+
+        // Banner seeder (Hero section )
+        $divissio = [
+            ['name' => 'Dhaka'],
+            ['name' => 'Barisal'],
+            ['name' => 'Mymensingh'],
+            ['name' => 'Chittagong'],
+            ['name' => 'Sylhet'],
+            ['name' => 'Rangpur'],
+            ['name' => 'Rajshahi '],
+        ];
+        DB::table('divissions')->insert($divissio);
     }
 
 
