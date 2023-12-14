@@ -210,9 +210,8 @@
         </div>
 
         {{-- Swiper slide  --}}
-        <div class="usa_prds">
+        {{-- <div class="usa_prds">
             <div class="relative mx-auto overflow-hidden swiper-container mySwiper">
-                {{-- <div class=""> --}}
                 <div class="swiper-wrapper gap-[5px] py-[20px]">
                     @foreach ($features->where('cat_id', 7) as $f_product)
                         <div class="swiper-slide">
@@ -241,13 +240,13 @@
                                     <span class="text-[#DC275C]">{{ number_format($f_product->final_price) }} TK</span>
                                     <livewire:add-to-cart :id="$f_product->id"
                                         button='<a class="text-[#380D37]">Add to Cart</a>' />
-                                    {{-- <a class="text-[#380D37]">Add to Cart</a> --}}
+                              
                                 </div>
                             </div>
                         </div>
                     @endforeach
                 </div>
-                {{-- </div> --}}
+             
             </div>
             <div class="relative">
                 <div class="swiper-button-next translate-x-[55px] max-sm:translate-x-[20px] translate-y-[-192px] bs">
@@ -255,12 +254,12 @@
                 <div class="swiper-button-prev translate-x-[-40px] max-sm:translate-x-[-20px] translate-y-[-192px] bs">
                 </div>
             </div>
-        </div>
+        </div> --}}
 
-        {{-- Swiper slide  --}}
-        <div class="hidden asian_prds">
+      
+        {{-- <div class="hidden asian_prds">
             <div class="relative mx-auto overflow-hidden swiper-container mySwiper">
-                {{-- <div class=""> --}}
+
                 <div class="swiper-wrapper gap-[5px] py-[20px]">
                     @foreach ($features->where('cat_id', 6) as $f_product)
                         <div class="swiper-slide">
@@ -289,13 +288,13 @@
                                     <span class="text-[#DC275C]">{{ number_format($f_product->final_price) }} TK</span>
                                     <livewire:add-to-cart :id="$f_product->id"
                                         button='<a class="text-[#380D37]">Add to Cart</a>' />
-                                    {{-- <a class="text-[#380D37]">Add to Cart</a> --}}
+                                    
                                 </div>
                             </div>
                         </div>
                     @endforeach
                 </div>
-                {{-- </div> --}}
+          
             </div>
             <div class="relative">
                 <div class="swiper-button-next translate-x-[55px] max-sm:translate-x-[20px] translate-y-[-192px] bs">
@@ -303,7 +302,61 @@
                 <div class="swiper-button-prev translate-x-[-40px] max-sm:translate-x-[-20px] translate-y-[-192px] bs">
                 </div>
             </div>
-        </div>
+        </div> --}}
+
+          <!-- Swiper -->
+     <div>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">Slide 1</div>
+              <div class="swiper-slide">Slide 2</div>
+              <div class="swiper-slide">Slide 3</div>
+              <div class="swiper-slide">Slide 4</div>
+              <div class="swiper-slide">Slide 5</div>
+              <div class="swiper-slide">Slide 6</div>
+              <div class="swiper-slide">Slide 7</div>
+              <div class="swiper-slide">Slide 8</div>
+              <div class="swiper-slide">Slide 9</div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+          </div>
+
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+      breakpoints: {
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 4,
+          spaceBetween: 40,
+        },
+        1024: {
+          slidesPerView: 5,
+          spaceBetween: 50,
+        },
+      }
+    
+    </script>
+     </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+  </div>
     </section>
     <div class='mt-[40px] mb-[30px]'>
         <div class="container h-[2px] bg-[#380D37]"></div>
