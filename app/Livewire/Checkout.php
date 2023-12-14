@@ -159,6 +159,11 @@ class Checkout extends Component
 
     public function render()
     {
+        $this->name = auth()->user()->name;
+        $this->l_name = auth()->user()->l_name;
+        $this->email = auth()->user()->email;
+        $this->phone = auth()->user()->phone;
+
         if ($id = Auth()->user()) {
             $n['carts'] = Cart::with(['product'])->where('user_id', $id->id)->where('order_id', null)->get();
         } else {
