@@ -292,7 +292,7 @@
                     <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                 </svg>
             </div>
-            <div id="search-bar" class="fixed top-[70px] left-[210px] z-[9999] hidden" x-data="{
+            {{-- <div id="search-bar" class="fixed top-[70px] left-[210px] z-[9999] hidden" x-data="{
 
                 search: '',
                 open: false,
@@ -361,8 +361,8 @@
                         </div>
                     </div>
                 </form>
-            </div>
-            <div>
+            </div> --}}
+            <div id="search-bar" class=" search-bar max-xl:fixed max-xl:top-[70px] max-xl:left-[210px] z-[9999] max-xl:hidden">
                 <div>
                     <div class="md:flex">
                         <div class="w-full p-3">
@@ -566,6 +566,8 @@
             // Toggle search bar when clicking the search icon
             $("#search-icon").click(function() {
                 $("#search-bar").slideToggle();
+                $("#search-bar").removeClass("hidden");
+                $("#search-bar").addClass("block");
                 $(this).html(function(_, oldHtml) {
                     return oldHtml.includes("circle") ?
                         '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>' :

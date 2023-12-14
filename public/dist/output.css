@@ -6950,6 +6950,14 @@ input[type="range"]:active::-webkit-slider-thumb{
     top: 68px;
   }
 
+  .max-xl\:left-\[210px\]{
+    left: 210px;
+  }
+
+  .max-xl\:top-\[70px\]{
+    top: 70px;
+  }
+
   .max-xl\:col-span-full{
     grid-column: 1 / -1;
   }
