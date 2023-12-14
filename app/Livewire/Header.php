@@ -24,9 +24,9 @@ class Header extends Component
     {
         $user = Auth::user();
         if ($user) {
-            $this->cart_count = Cart::where('user_id', $user->id)->get()->count();
+            $this->cart_count = Cart::where('user_id', $user->id)->where('order_id', null)->get()->count();
         }else{
-            $this->cart_count = Cart::where('ip', request()->ip())->get()->count();
+            $this->cart_count = Cart::where('ip', request()->ip())->where('order_id', null)->get()->count();
         }
         // $this->products = DB::table('products')->select('id','photo','title', 'slug','price', 'discount')->get();
         $this->cats = DB::table('categories')->select('title','id')->orderBy('serial','asc')->get();

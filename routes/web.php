@@ -59,6 +59,7 @@ use App\Livewire\Signup;
 use App\Livewire\TermComdition;
 use App\Livewire\Offer;
 use App\Livewire\OrderConfirm;
+use App\Livewire\OrderReceived;
 use App\Livewire\OtpConfirm;
 use App\Livewire\ResetPassword;
 use App\Livewire\Review;
@@ -326,6 +327,7 @@ Route::get('/plus',[AjaxController::class,'plus'])->name('plus');
 Route::get('/minus',[AjaxController::class, 'minus'])->name('minus');
 Route::get('/delete',[AjaxController::class, 'delete'])->name('delete');
 Route::get('/add-to-cart',[AjaxController::class,'addToCart'])->name('add_to_cart');
+Route::get('/order-received/{id}',OrderReceived::class)->name('order.receive');
 Route::post('/product-review',[AjaxController::class, 'productReview'])->name('product_review');
 
 Route::middleware('auth')->group(function(){

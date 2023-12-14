@@ -107,7 +107,28 @@ class CouponSeeder extends Seeder
             ['name' => 'Rajshahi '],
         ];
         DB::table('divissions')->insert($divissio);
+
+
+        // Shipping seeder
+        $shipping = [
+            [
+                'type' => 'Store Pickup',
+                'price' => 0,
+                'through' => null,
+                'status' => 'active',
+            ],
+            [
+                'type' => 'Request Express delivery',
+                'price' => 120,
+                'through' => 'Through SA P.B',
+                'status' => 'active',
+            ],
+        ];
+        DB::table('shippings')->insert($shipping);
     }
+
+
+
 
 
 }

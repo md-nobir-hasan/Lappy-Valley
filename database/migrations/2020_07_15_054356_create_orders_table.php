@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Divission;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -36,8 +37,9 @@ class CreateOrdersTable extends Migration
             $table->string('status')->nullable();
             $table->string('transaction_id')->nullable();
             $table->string('currency')->nullable();
-            $table->text('city')->nullable();
-            $table->text('zone')->nullable();
+            $table->string('city')->nullable();
+            $table->text('comment')->nullable();
+            $table->foreignIdFor(Divission::class)->nullable()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }
