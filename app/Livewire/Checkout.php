@@ -64,10 +64,10 @@ class Checkout extends Component
         // dd($this->all());
         //Cart fetch
         if (auth()->user()) {
-            $carts = Cart::where('user_id', auth()->user()->id)->where('order_id', null)->get();
+            $carts = Cart::with('product')->where('user_id', auth()->user()->id)->where('order_id', null)->get();
             $user = auth()->user();
         } else {
-            $carts = Cart::where('ip', request()->ip())->where('order_id', null)->get();
+            $carts = Cart::with('product')->where('ip', request()->ip())->where('order_id', null)->get();
             $user = User::create([
                 'email' => $this->email,
                 'name' => $this->name,
@@ -144,6 +144,10 @@ class Checkout extends Component
         //     session()->forget('coupon');
         // }
         foreach ($carts as $cart) {
+            $product = $cart->product;
+            // return $product;
+            $product->stock -= $cart->quantity;
+            $product->save();
             $cart->update(['order_id' => $order->id]);
         }
 
