@@ -48,7 +48,10 @@ class AdminSidebar extends Component
                 ['access' => 'Show Shipping','title' => 'Shipping', 'route' => 'shipping.index',],
                 ['access' => 'Create Shipping','title' => 'Add Shipping', 'route' => 'shipping.create']
             ]],
-            ['access' => 'Show Order','title' => 'Orders', 'route' => 'order.index', 'child' => []],
+            ['access' => 'Show Order','title' => 'Orders', 'route' => 'order.*', 'child' => [
+                ['access' => 'Show Order', 'title' => 'Order', 'route' => 'order.index',],
+                ['access' => 'Show Order Status', 'title' => 'Order Status', 'route' => 'order-status.index']
+            ]],
             ['access' => 'Show Review','title' => 'Reviews', 'route' => 'review.index', 'child' => []],
         ]],
         ['access' => ['Show Post', 'Show pCategory', 'Show Tag', 'Show Comment'],'title' => 'Posts', 'child' => [

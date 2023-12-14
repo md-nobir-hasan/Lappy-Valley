@@ -63,31 +63,10 @@
         </div>
     </div>
 
-    <div class='product-4 grid grid-cols-5 gap-[20px] max-sm:grid-cols-2 max-lg:grid-cols-3 max-lg:w-[510px] w-[1000px] my-[30px]'>
-        <div class='flex gap-[5px] items-center'>
-            <img src="/storage/product/icon-ad-black.svg"alt="Product" class='w-[23.36px] h-[26.21px]'>
-            <span class='text-[#380D37] text-[16px] font-[jost] font-[500] leading-[23.12px]'>Orders</span>
-        </div>
-        <div class='flex gap-[5px] items-center'>
-            <img src="/storage/product/iconoir_profile-circle.svg" alt="Product" class='w-[24px] h-[24px]'>
-            <span class='text-[#AAAAAA] text-[16px] font-[jost] font-[500] leading-[23.12px]'>Edit Profile</span>
-        </div>
-        <div class='flex gap-[5px] items-center'>
-            <img src="/storage/product/carbon_password.svg" alt="Product" class='w-[24px] h-[24px]'>
-            <span class='text-[#AAAAAA] text-[16px] font-[jost] font-[500] leading-[23.12px]'>Change Password</span>
-        </div>
-        <div class='flex gap-[5px] items-center'>
-            <img src="/storage/product/mdi_address-marker-outline.svg" alt="Product" class='w-[24px] h-[24px]'>
-            <span class='text-[#AAAAAA] text-[16px] font-[jost] font-[500] leading-[23.12px]'>Address</span>
-        </div>
-        <div class='flex gap-[5px] items-center'>
-            <img src="/storage/product/Vector-light-opacity.svg" alt="Product" class='w-[22.3px] h-[20.88px]'>
-            <span class='text-[#AAAAAA] text-[16px] font-[jost] font-[500] leading-[23.12px]'>Wish List</span>
-        </div>
-    </div>
+    <livewire:user-account-menu/>
     <div class='h-[2px] bg-[#764A8733]'></div>
 
-    
+
         <div class='my-[25px]'>
             <h1 class='text-[20px] text-[#000000] font-[Inter] font-[500] leading-[24.2px]'>Order History</h1>
         </div>
@@ -104,16 +83,19 @@
                         </tr>
                     </thead>
                     <tbody class="border-b-[1px] border-[#380D37]">
-                        <tr>
-                            <td class="p-3 tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]">29 October 2023</td>
-                            <td class="p-3 tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]">Lenovo IdeaPad 15AMN7
-                                AMD Ryzen 5 7520U</td>
-                            <td class="p-3 tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]"><span
-                                    class="bg-[#F2F2F2] px-8 py-2">1</span></td>
-                            <td class="p-3 tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]">1,50,000৳</td>
-                            <td class="p-3 tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]">1,50,000৳</td>
-                            <td class="p-3 tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]">Deliverd</td>
-                        </tr>
+                        @foreach ($orders as $order)
+                            @foreach ($order->cart_info as $cart)
+                                <tr>
+                                    <td class="p-3 tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]">{{$order->created_at->format('d M Y')}}</td>
+                                    <td class="p-3 tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]">{{$cart->product->title}}</td>
+                                    <td class="p-3 tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]"><span
+                                            class="bg-[#F2F2F2] px-8 py-2">{{$cart->quantity}}</span></td>
+                                    <td class="p-3 tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]">{{number_format($cart->price)}}৳</td>
+                                    <td class="p-3 tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]">{{number_format($cart->amount)}}৳</td>
+                                    <td class="p-3 tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]">{{$order->payment_status}}</td>
+                                </tr>
+                         @endforeach
+                          @endforeach
                     </tbody>
                 </table>
             </div>

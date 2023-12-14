@@ -291,7 +291,7 @@
                     <circle cx="11" cy="11" r="6"></circle>
                     <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                 </svg>
-            </div>    
+            </div>
             <div id="search-bar" class="fixed top-[70px] left-[210px] z-[9999] hidden" x-data="{
 
                 search: '',
@@ -369,12 +369,12 @@
                             <div class="relative" x-data="{
                                 search: '',
                                 open: false,
-                                items: $wire.products,
+                                items: null,
                                 get filteredItems() {
                                     const searchLower = this.search.toLowerCase();
                                     return this.items.filter((i) => i.title.toLowerCase().startsWith(searchLower));
                                 }
-                                ">
+                                 }">
 
 
                                 <form wire:submit='searchTo' class='h-[44px] w-[655px] max-xl:hidden'>
@@ -526,18 +526,13 @@
             @endauth
         </div>
     </div>
-    {{-- responsive side nav --}}
-    <script>
-        $(document).ready(function(){
-          $('.menu-toggle').click();
-         $(this).addclass('left-0');
-         $('.menu').removeClass('left-[-300px]');
-        })
-  
-      </script>
 </div>
 @script
     <script>
+   $('.menu-toggle').click(function (e) {
+    $(this).addClass('left-0');
+         $('.menu').removeClass('left-[-300px]');
+     })
 
             var menuToggle = document.querySelector('.menu-toggle');
             var menu = document.querySelector('.menu');
@@ -571,7 +566,6 @@
             // Toggle search bar when clicking the search icon
             $("#search-icon").click(function() {
                 $("#search-bar").slideToggle();
-                Toggle the icon(replace with your own SVG code)
                 $(this).html(function(_, oldHtml) {
                     return oldHtml.includes("circle") ?
                         '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>' :

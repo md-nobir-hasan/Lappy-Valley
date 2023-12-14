@@ -178,7 +178,7 @@
         </div>
     </div>
     <!-- -----table--section---start----- -->
-    <div class="grid grid-cols-4 max-lg:grid-cols-1 max-lg:gap-0 gap-10">
+    <div class="grid grid-cols-4 gap-10 max-lg:grid-cols-1 max-lg:gap-0">
         <div class="col-span-3">
             <section class="border-[2px] max-sm:border-[1px] border-[#380D37] p-[20px] rounded-[5px] max-sm:leading:-[45px] leading-[50px]" id="specification">
                 <div class="text-[#353535] max-lg:text-[18px] text-[20px] font-[jost] font-[500]">
@@ -638,7 +638,7 @@
                             <div
                                 class="pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-[#FFFFFF] bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600">
                                 <div
-                                    class="flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
+                                    class="flex items-center justify-between flex-shrink-0 p-4 border-b-2 border-opacity-100 rounded-t-md border-neutral-100 dark:border-opacity-50">
                                     <!--Modal title-->
                                     <h5 class="text-xl font-medium font-[jost] leading-norma"
                                         id="exampleModalCenteredScrollableLabel">
@@ -649,10 +649,10 @@
                                     @endphp
                                     <!--Close button-->
                                     <button type="button" id="modal_close"
-                                        class="box-content rounded-none border-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
+                                        class="box-content border-none rounded-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
                                         data-te-modal-dismiss aria-label="Close">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                            stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
+                                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                             <path stroke-linecap="round" stroke-linejoin="round"
                                                 d="M6 18L18 6M6 6l12 12" />
                                         </svg>
@@ -717,7 +717,7 @@
                                             }).catch(error => {
                                                 console.error(error)
                                             })
-                                    
+
                                         },
                                         fileHandle(event) {
                                             for (const file of event.target.files) {
@@ -726,7 +726,7 @@
                                                 reader.readAsDataURL(file)
                                                 this.img.push(file)
                                             }
-                                    
+
                                         },
                                         stared(star) {
                                             console.log(star);
@@ -900,10 +900,8 @@
                                 <img class="object-center " src="{{ $rp->img()[0] }}" alt="Product">
                             </div>
                             <div class="col-span-3">
-                                <p class="text-[#000000] text-[14px] font-[jost] font-[400]">Lenovo IdeaPad 1
-                                    15AMN7
-                                    AMD Ryzen 5 512GB SSD 15.6" FHD Laptop with DDR5 RAM</p>
-                                <p class="text-[#DC275C] text-[16px] max-lg:text-[14px] font-[jost] font-[700] my-[10px]"><a>1,50,000
+                                <p class="text-[#000000] text-[14px] font-[jost] font-[400]">{{$rp->title}}</p>
+                                <p class="text-[#DC275C] text-[16px] max-lg:text-[14px] font-[jost] font-[700] my-[10px]"><a><span>{{number_format($rp->price)}}</span>
                                         TK</a>
                                 </p>
                             </div>

@@ -14,9 +14,8 @@
             <h1 class='text-[20px] text-[#000000] font-[Inter] font-[500] leadint-[24.2px]'>Username Here</h1>
         </div>
     </div>
-
-    <div
-        class='grid grid-cols-5 gap-[20px] max-sm:grid-cols-2 max-lg:grid-cols-3 max-lg:w-full w-[1000px] my-[30px]'>
+    <livewire:user-account-menu />
+    {{-- <div class='grid grid-cols-5 gap-[20px] max-sm:grid-cols-2 max-lg:grid-cols-3 max-lg:w-full w-[1000px] my-[30px]'>
         <div class='flex gap-[5px] items-center'>
             <img src="/storage/product/icon-ad-product.svg"alt="Product" class='w-[23.36px] h-[26.21px]'>
             <span class='text-[#AAAAAA] text-[16px] font-[jost] font-[500] leading-[23.12px]'>Orders</span>
@@ -37,7 +36,8 @@
             <img src="/storage/product/Vector-light-opacity.svg" alt="Product" class='w-[22.3px] h-[20.88px]'>
             <span class='text-[#AAAAAA] text-[16px] font-[jost] font-[500] leading-[23.12px]'>Wish List</span>
         </div>
-    </div>
+    </div> --}}
+
     <div class='h-[2px] bg-[#764A8733]'></div>
 
     <div
