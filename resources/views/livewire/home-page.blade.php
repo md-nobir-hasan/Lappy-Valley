@@ -5,7 +5,12 @@
         <button class="p4 bg-[red] rounded">Logout</button>
     </form>
     {{-- Alert message  --}}
-    @if ($success = session('success'))
+    @if ($error = session('error'))
+        <script>
+            toastr.success("{{ $error }}")
+        </script>
+    @endif
+     @if ($success = session('success'))
         <script>
             toastr.success("{{ $success }}")
         </script>

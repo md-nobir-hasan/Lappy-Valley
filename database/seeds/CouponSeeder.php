@@ -95,7 +95,61 @@ class CouponSeeder extends Seeder
             ],
         ];
         DB::table('banners')->insert($banner);
+
+        // Banner seeder (Hero section )
+        $divissio = [
+            ['name' => 'Dhaka'],
+            ['name' => 'Barisal'],
+            ['name' => 'Mymensingh'],
+            ['name' => 'Chittagong'],
+            ['name' => 'Sylhet'],
+            ['name' => 'Rangpur'],
+            ['name' => 'Rajshahi '],
+        ];
+        DB::table('divissions')->insert($divissio);
+
+
+        // Shipping seeder
+        $shipping = [
+            [
+                'type' => 'Store Pickup',
+                'price' => 0,
+                'through' => null,
+                'status' => 'active',
+            ],
+            [
+                'type' => 'Request Express delivery',
+                'price' => 120,
+                'through' => 'Through SA P.B',
+                'status' => 'active',
+            ],
+        ];
+        DB::table('shippings')->insert($shipping);
+
+        // order_status seeder
+        $order_status = [
+            [
+                'title' => 'New',
+                'slug' => 'New',
+                'status' => 'active',
+            ],
+            [
+                'title' => 'Processing',
+                'slug' => 'Processing',
+                'status' => 'active',
+            ],
+            [
+                'title' => 'Devivered',
+                'slug' => 'Devivered',
+                'status' => 'active',
+            ],
+
+        ];
+        DB::table('order_statuses')->insert($order_status);
     }
+
+
+
 
 
 }

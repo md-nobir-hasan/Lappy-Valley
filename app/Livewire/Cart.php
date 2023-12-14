@@ -13,9 +13,9 @@ class Cart extends Component
     public function mount(){
         $user = Auth::user();
         if($user){
-            $this->carts = ModelsCart::with(['product'])->where('user_id',$user->id)->get();
+            $this->carts = ModelsCart::with(['product'])->where('user_id',$user->id)->where('order_id', null)->get();
         }else{
-            $this->carts = ModelsCart::with(['product'])->where('ip',request()->ip())->get();
+            $this->carts = ModelsCart::with(['product'])->where('ip',request()->ip())->where('order_id', null)->get();
         }
     }
 

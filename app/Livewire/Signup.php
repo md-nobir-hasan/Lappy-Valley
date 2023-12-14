@@ -13,7 +13,7 @@ use Livewire\Component;
 #[Title('Signup')]
 class Signup extends Component
 {
-    #[Rule("required", message:"Please,Enter a email")]
+    #[Rule("required", message:"Please,Enter an email")]
     #[Rule("email", message:"Please,Enter a valid email")]
     #[Rule("unique:users,email", message:"You have an account. Please, login.")]
     public $email;

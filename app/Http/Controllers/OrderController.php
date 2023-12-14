@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Cart;
 use App\Models\Order;
+use App\Models\OrderStatus;
 use App\Models\Shipping;
 use App\User;
 use PDF;
@@ -27,8 +28,7 @@ class OrderController extends Controller
     public function index()
     {
         $this->ccan('Show Order');
-
-        $orders=Order::orderBy('id','DESC')->paginate(10);
+        $orders=Order::with(['order_status','shipping'])->orderBy('id','DESC')->paginate(10);
         return view('backend.order.index')->with('orders',$orders);
     }
 
@@ -169,7 +169,7 @@ class OrderController extends Controller
     {
         $this->ccan('Show Order');
 
-        $order=Order::find($id);
+        $order=Order::with(['order_status', 'divission'])->find($id);
         // return $order;
         return view('backend.order.show')->with('order',$order);
     }
@@ -184,8 +184,9 @@ class OrderController extends Controller
     {
         $this->ccan('Edit Order');
 
-        $order=Order::find($id);
-        return view('backend.order.edit')->with('order',$order);
+        $n['order']=Order::find($id);
+        $n['order_status'] = OrderStatus::where('status','active')->get();
+        return view('backend.order.edit',$n);
     }
 
     /**
@@ -201,18 +202,10 @@ class OrderController extends Controller
 
         $order=Order::find($id);
         $this->validate($request,[
-            'status'=>'required|in:new,process,delivered,cancel'
+            'order_satus_id'=>'exists:order_statuses'
         ]);
         $data=$request->all();
-        // return $request->status;
-        if($request->status=='delivered'){
-            foreach($order->cart as $cart){
-                $product=$cart->product;
-                // return $product;
-                $product->stock -=$cart->quantity;
-                $product->save();
-            }
-        }
+
         $status=$order->fill($data)->save();
         if($status){
             request()->session()->flash('success','Successfully updated order');
