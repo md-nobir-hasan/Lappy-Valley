@@ -39,50 +39,79 @@
     </div> --}}
 
     <div class='h-[2px] bg-[#764A8733]'></div>
-
-    <div
-        class='flex flex-col max-lg:border-[2px] max-lg:border-[#353535] max-md:w-full max-lg:w-[545px] max-lg:mx-auto max-lg:py-[20px] max-lg:px-[40px] max-sm:px-[30px] max-lg:rounded-[4px] mt-[20px] gap-[20px]'>
-        <div class='mt-[20px]'>
-            <h1 class='text-[20px] text-[#000000] font-[Inter] font-[500] leading-[24.2px]'>Edit Profile:</h1>
-        </div>
-        <div class='lg:flex gap-[20px]'>
-            <div>
-                <label for="address"
-                    class='text-[16px] text-[#353535] font-[jost] font-[500] leading-[23.12px] tracking-[3%] block my-[5px]'>
-                    First Name:</label>
-                <input type="text" placeholder='First name'
-                    class='max-2xl:w-[344px] max-lg:w-full h-[44px] bg-[#F2F2F2] font-[jost] font-[500] text-[16px] text-[#353535] block italic px-[10px] rounded-[4px]'>
+    <form wire:submit='save'>
+        <div
+            class='flex flex-col max-lg:border-[2px] max-lg:border-[#353535] max-md:w-full max-lg:w-[545px] max-lg:mx-auto max-lg:py-[20px] max-lg:px-[40px] max-sm:px-[30px] max-lg:rounded-[4px] mt-[20px] gap-[20px]'>
+            <div class='mt-[20px]'>
+                <h1 class='text-[20px] text-[#000000] font-[Inter] font-[500] leading-[24.2px]'>Edit Profile:</h1>
             </div>
-            <div>
-                <label for="address"
-                    class='text-[16px] text-[#353535] font-[jost] font-[500] leading-[23.12px] tracking-[3%] block my-[5px]'>
-                    Last Name:</label>
-                <input type="text" placeholder='Last name'
+            <div class='lg:flex gap-[20px]'>
+                <div>
+                    <label for="f_name"
+                        class='text-[16px] text-[#353535] font-[jost] font-[500] leading-[23.12px] tracking-[3%] block my-[5px]'>
+                        First Name:</label>
+                    <input type="text" id="f_name" value="{{ auth()->user()->name }}" placeholder='First name'
+                        wire:model='name'
+                        class='max-2xl:w-[344px] max-lg:w-full h-[44px] bg-[#F2F2F2] font-[jost] font-[500] text-[16px] text-[#353535] block italic px-[10px] rounded-[4px]'>
+                    @error('name')
+                        <span class="text-[red] text-[12px]">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div>
+                    <label for="l_name"
+                        class='text-[16px] text-[#353535] font-[jost] font-[500] leading-[23.12px] tracking-[3%] block my-[5px]'>
+                        Last Name:</label>
+                    <input type="text" id="l_name" value="{{ auth()->user()->l_name }}" placeholder='Last name'
+                        wire:model='l_name'
+                        class='max-2xl:w-[344px] max-lg:w-full h-[44px] bg-[#F2F2F2] font-[jost] font-[500] text-[16px] text-[#353535] block italic px-[10px] rounded-[4px]'>
+                    @error('l_name')
+                        <span class="text-[red] text-[12px]">{{ $message }}</span>
+                    @enderror
+                </div>
+            </div>
+            <div class=''>
+                <label for="email"
+                    class='text-[16px] text-[#353535] font-[jost] font-[500] leading-[23.12px] tracking-[3%] block my-[5px]'>E-mail
+                    Address:</label>
+                <input type="email" id="email" placeholder='E-mail Address' value="{{ auth()->user()->email }}"
+                    wire:model='email'
                     class='max-2xl:w-[344px] max-lg:w-full h-[44px] bg-[#F2F2F2] font-[jost] font-[500] text-[16px] text-[#353535] block italic px-[10px] rounded-[4px]'>
+                @error('email')
+                    <span class="text-[red] text-[12px]">{{ $message }}</span>
+                @enderror
+            </div>
+            <div class=''>
+                <label for="phone"
+                    class='text-[16px] text-[#353535] font-[jost] font-[500] leading-[23.12px] tracking-[3%] block my-[5px]'>Phone
+                    Number:</label>
+                <input type="number" id="phone" placeholder='Phone Number' value="{{ auth()->user()->phone }}"
+                    wire:model='phone'
+                    class='max-2xl:w-[344px] max-lg:w-full h-[44px] bg-[#F2F2F2] font-[jost] font-[500] text-[16px] text-[#353535] block italic px-[10px] rounded-[4px]'>
+                @error('phone')
+                    <span class="text-[red] text-[12px]">{{ $message }}</span>
+                @enderror
+            </div>
+            <div class='my-[30px]'>
+                @if ($msg)
+                    <span class="text-[green]">{{$msg}}</span>
+                @endif
+                @if ($err_msg)
+                    <span class="text-[red]">{{$err_msg}}</span>
+                @endif
+                <button
+                    class='flex items-center justify-center w-[133px] h-[41px] pl-2 rounded-[4px] text-[#F2F2F2] text-[14px] font-[jost] font-[500] leading-[20.23px] bg-gradient-to-r from-[#380D37] to-[#DC275C]'>
+                    <span class="">Save Changes</span>
+                    <div wire:loading wire:target='save'
+                        class="inline-block ml-2 h-6 w-6 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-success motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                        role="status">
+                        <span
+                            class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...
+                        </span>
+                    </div>
+                </button>
             </div>
         </div>
-        <div class=''>
-            <label for="address"
-                class='text-[16px] text-[#353535] font-[jost] font-[500] leading-[23.12px] tracking-[3%] block my-[5px]'>E-mail
-                Address:</label>
-            <input type="email" placeholder='E-mail Address'
-                class='max-2xl:w-[344px] max-lg:w-full h-[44px] bg-[#F2F2F2] font-[jost] font-[500] text-[16px] text-[#353535] blcok italic px-[10px] rounded-[4px]'>
-        </div>
-        <div class=''>
-            <label for="address"
-                class='text-[16px] text-[#353535] font-[jost] font-[500] leading-[23.12px] tracking-[3%] block my-[5px]'>Phone
-                Number:</label>
-            <input type="number" placeholder='Phone Number'
-                class='max-2xl:w-[344px] max-lg:w-full h-[44px] bg-[#F2F2F2] font-[jost] font-[500] text-[16px] text-[#353535] block italic px-[10px] rounded-[4px]'>
-        </div>
-        <div class='my-[30px]'>
-            <button
-                class='w-[133px] h-[41px] rounded-[4px] text-[#F2F2F2] text-[14px] font-[jost] font-[500] leading-[20.23px] bg-gradient-to-r from-[#380D37] to-[#DC275C]'>Save
-                Changes</button>
-        </div>
-    </div>
-
-
+    </form>
 
     <div class='h-[1px] bg-[#764A8733] my-[20px]'></div>
 
