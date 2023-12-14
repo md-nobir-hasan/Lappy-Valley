@@ -24,6 +24,7 @@ use App\Http\Controllers\hddController;
 use App\Http\Controllers\PayPalController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderStatusController;
 use App\Http\Controllers\PixelController;
 use App\Http\Controllers\PostCategoryController;
 use App\Http\Controllers\PostController;
@@ -241,8 +242,13 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'admin']], function
 
     // Order
     Route::resource('/order', OrderController::class);
+
+    // Order status
+    Route::resource('/order-status', OrderStatusController::class);
+
     // Shipping
     Route::resource('/shipping', ShippingController::class);
+
     // Coupon
     Route::resource('/coupon', CouponController::class);
 
@@ -312,17 +318,13 @@ Route::get('/terms-and-conditions', TermComdition::class)->name('tc');
 Route::get('/refund-and-service-policy', RefundServicePolicy::class)->name('rsp');
 Route::get('/privacy-policy', PrivacyPolicy::class)->name('pp');
 Route::get('/offers', Offer::class)->name('offer');
-Route::get('/account', Account::class)->name('account');
-Route::get('/order-confirm', OrderConfirm::class)->name('oc');
 Route::get('/otp-confirm', OtpConfirm::class)->name('otpc');
 Route::get('/product-review', Review::class)->name('preview');
 // Route::get('/edit-profile', EditProfile::class)->name('eprofile');
 Route::get('/change-password', ChangePassword::class)->name('cp');
 Route::get('/wishlist', Wishlist::class)->name('wishlist');
-Route::get('/address', Address::class)->name('address');
 Route::get('/your-review', Review::class)->name('freview');
 Route::get('/about-us', AboutUs::class)->name('about_us');
-Route::get('/edit-profile', EditProfile::class)->name('ep');
 Route::get('/plus',[AjaxController::class,'plus'])->name('plus');
 Route::get('/minus',[AjaxController::class, 'minus'])->name('minus');
 Route::get('/delete',[AjaxController::class, 'delete'])->name('delete');
@@ -333,6 +335,13 @@ Route::post('/product-review',[AjaxController::class, 'productReview'])->name('p
 Route::middleware('auth')->group(function(){
     Route::post('/cart-sotre',[AjaxController::class,'cartStore'])->name('cart.store');
     // Route::get('/billing',[AjaxController::class,'addToCart'])->name('add_to_cart');
+
+    // user account
+
+    Route::get('/account', Account::class)->name('account');
+    Route::get('/edit-profile', EditProfile::class)->name('ep');
+    Route::get('/order-confirm', OrderConfirm::class)->name('oc');
+    Route::get('/address', Address::class)->name('address');
 });
 
 

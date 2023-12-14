@@ -49,6 +49,12 @@ class RolePermissionSeeder extends Seeder
             ['name' => 'Edit Order','guard_name'=>'web'],
             ['name' => 'Delete Order','guard_name'=>'web'],
 
+            //Order Status
+            ['name' => 'Show Order Status','guard_name'=>'web'],
+            ['name' => 'Create Order Status','guard_name'=>'web'],
+            ['name' => 'Edit Order Status','guard_name'=>'web'],
+            ['name' => 'Delete Order Status','guard_name'=>'web'],
+
             //Review
             ['name' => 'Show Review','guard_name'=>'web'],
             ['name' => 'Create Review','guard_name'=>'web'],

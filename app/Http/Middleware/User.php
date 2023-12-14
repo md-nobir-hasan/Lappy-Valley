@@ -15,11 +15,11 @@ class User
      */
     public function handle($request, Closure $next)
     {
-        if(empty(session('user'))){
-            return redirect()->route('login.form');
-        }
-        else{
-            return $next($request);
-        }
+        // if(empty(session('user'))){
+        //     return redirect()->route('user.login');
+        // }
+        // else{
+        //     return $next($request);
+        // }
     }
 }

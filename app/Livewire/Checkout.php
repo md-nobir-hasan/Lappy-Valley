@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Models\Cart;
 use App\Models\Divission;
 use App\Models\Order;
+use App\Models\OrderStatus;
 use App\Models\Shipping;
 use App\Notifications\StatusNotification;
 use App\User;
@@ -60,23 +61,26 @@ class Checkout extends Component
     public function orderSubmit()
     {
         $this->validate();
-// dd($this->all());
+        // dd($this->all());
         //Cart fetch
-        if(auth()->user()){
+        if (auth()->user()) {
             $carts = Cart::where('user_id', auth()->user()->id)->where('order_id', null)->get();
             $user = auth()->user();
-        }else{
-            $carts = Cart::where('user_id', auth()->user()->id)->where('order_id', null)->get();
-           $user = User::create([
+        } else {
+            $carts = Cart::where('ip', request()->ip())->where('order_id', null)->get();
+            $user = User::create([
                 'email' => $this->email,
                 'name' => $this->name,
                 'l_name' => $this->l_name,
             ]);
             Auth::login($user);
+            foreach ($carts as $ct) {
+                $ct->update(['user_id', $user->id]);
+            }
         }
 
         //cart check
-        if(count($carts)<1){
+        if (count($carts) < 1) {
             request()->session()->flash('error', 'Cart is Empty !');
             $this->err_msg = 'Your cart is empty';
             return back();
@@ -86,11 +90,13 @@ class Checkout extends Component
         $order_data = $this->all();
         $order_data['order_number'] = 'ORD-' . strtoupper(Str::random(10));
         $order_data['user_id'] = $user->id;
+        $order_data['order_status_id'] = OrderStatus::first()->id;
 
 
         // $order_data['shipping_id'] = $request->shipping;
         // $shipping = Shipping::where('id', $order_data['shipping_id'])->pluck('price');
         $order_data['sub_total'] = $carts->sum('price');
+        $order_data['total_amount'] = $carts->sum('amount');
         $order_data['quantity'] = $carts->sum('quantity');
 
 
@@ -137,14 +143,14 @@ class Checkout extends Component
         //     session()->forget('cart');
         //     session()->forget('coupon');
         // }
-            foreach($carts as $cart){
-                $cart->update(['order_id' => $order->id]);
-            }
+        foreach ($carts as $cart) {
+            $cart->update(['order_id' => $order->id]);
+        }
 
         // dd($users);
         request()->session()->flash('success', 'Your Order successfully placed in order');
         // return $this->redirect(HomePage::class, navigate: true);
-        return $this->redirect(route('order.receive',[$order->id]),navigate:true);
+        return $this->redirect(route('order.receive', [$order->id]), navigate: true);
     }
 
     public function render()

@@ -27,8 +27,7 @@ class OrderController extends Controller
     public function index()
     {
         $this->ccan('Show Order');
-
-        $orders=Order::orderBy('id','DESC')->paginate(10);
+        $orders=Order::with(['order_status','shipping'])->orderBy('id','DESC')->paginate(10);
         return view('backend.order.index')->with('orders',$orders);
     }
 

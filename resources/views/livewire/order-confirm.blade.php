@@ -83,16 +83,19 @@
                         </tr>
                     </thead>
                     <tbody class="border-b-[1px] border-[#380D37]">
-                        <tr>
-                            <td class="p-3 tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]">29 October 2023</td>
-                            <td class="p-3 tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]">Lenovo IdeaPad 15AMN7
-                                AMD Ryzen 5 7520U</td>
-                            <td class="p-3 tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]"><span
-                                    class="bg-[#F2F2F2] px-8 py-2">1</span></td>
-                            <td class="p-3 tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]">1,50,000৳</td>
-                            <td class="p-3 tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]">1,50,000৳</td>
-                            <td class="p-3 tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]">Deliverd</td>
-                        </tr>
+                        @foreach ($orders as $order)
+                            @foreach ($order->cart_info as $cart)
+                                <tr>
+                                    <td class="p-3 tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]">{{$order->created_at->format('d M Y')}}</td>
+                                    <td class="p-3 tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]">{{$cart->product->title}}</td>
+                                    <td class="p-3 tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]"><span
+                                            class="bg-[#F2F2F2] px-8 py-2">{{$cart->quantity}}</span></td>
+                                    <td class="p-3 tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]">{{number_format($cart->price)}}৳</td>
+                                    <td class="p-3 tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]">{{number_format($cart->amount)}}৳</td>
+                                    <td class="p-3 tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]">{{$order->payment_status}}</td>
+                                </tr>
+                         @endforeach
+                          @endforeach
                     </tbody>
                 </table>
             </div>

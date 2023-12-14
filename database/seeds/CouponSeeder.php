@@ -125,6 +125,27 @@ class CouponSeeder extends Seeder
             ],
         ];
         DB::table('shippings')->insert($shipping);
+
+        // order_status seeder
+        $order_status = [
+            [
+                'title' => 'New',
+                'slug' => 'New',
+                'status' => 'active',
+            ],
+            [
+                'title' => 'Processing',
+                'slug' => 'Processing',
+                'status' => 'active',
+            ],
+            [
+                'title' => 'Devivered',
+                'slug' => 'Devivered',
+                'status' => 'active',
+            ],
+
+        ];
+        DB::table('order_statuses')->insert($order_status);
     }
 
 

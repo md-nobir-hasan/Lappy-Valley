@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Divission;
+use App\Models\OrderStatus;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -21,7 +22,7 @@ class CreateOrdersTable extends Migration
             $table->float('sub_total')->nullable();
             $table->unsignedBigInteger('shipping_id')->nullable();
             $table->float('coupon')->nullable();
-            $table->float('amount')->nullable();
+            $table->float('total_amount')->nullable();
             // $table->float('a');
             $table->integer('quantity')->nullable();
             $table->enum('payment_method',['cod','online'])->default('cod');
@@ -30,11 +31,11 @@ class CreateOrdersTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('SET NULL');
             $table->foreign('shipping_id')->references('id')->on('shippings')->onDelete('SET NULL');
             $table->string('name')->nullable();
-            $table->string('last_name')->nullable();
+            $table->string('l_name')->nullable();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
             $table->string('country')->nullable();
-            $table->string('status')->nullable();
+            $table->foreignIdFor(OrderStatus::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('transaction_id')->nullable();
             $table->string('currency')->nullable();
             $table->string('city')->nullable();

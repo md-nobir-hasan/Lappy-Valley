@@ -49,26 +49,24 @@
           </tfoot>
           <tbody>
             @foreach($orders as $order)
-            @php
-                $shipping_charge=DB::table('shippings')->where('id',$order->shipping_id)->pluck('price');
-            @endphp
+{{-- @dd($order) --}}
                 <tr>
                     <td>{{$order->id}}</td>
                     <td>{{$order->order_number}}</td>
-                    <td>{{$order->first_name}} {{$order->last_name}}</td>
+                    <td>{{$order->name}} {{$order->l_name}}</td>
                     <td>{{$order->email}}</td>
                     <td>{{$order->quantity}}</td>
-                    <td>@foreach($shipping_charge as $data) $ {{number_format($data,2)}} @endforeach</td>
+                    <td>{{$order->shipping->price}}</td>
                     <td>৳{{number_format($order->total_amount,2)}}</td>
                     <td>
-                        @if($order->status=='new')
-                          <span class="badge badge-primary">{{$order->status}}</span>
-                        @elseif($order->status=='process')
-                          <span class="badge badge-warning">{{$order->status}}</span>
-                        @elseif($order->status=='delivered')
-                          <span class="badge badge-success">{{$order->status}}</span>
+                        @if($order->order_status->title=='New')
+                          <span class="badge badge-primary">{{$order->order_status->title}}</span>
+                        @elseif($order->order_status->title=='Process')
+                          <span class="badge badge-warning">{{$order->order_status->title}}</span>
+                        @elseif($order->order_status->title=='Delivered')
+                          <span class="badge badge-success">{{$order->order_status->title}}</span>
                         @else
-                          <span class="badge badge-danger">{{$order->status}}</span>
+                          <span class="badge badge-danger">{{$order->order_status->title}}</span>
                         @endif
                     </td>
                     <td>

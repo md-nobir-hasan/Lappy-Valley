@@ -15,12 +15,18 @@ class Admin
      */
     public function handle($request, Closure $next)
     {
-        if($request->user()->role=='admin'){
+        if($request->user()->can('Dashboard')){
             return $next($request);
         }
         else{
             request()->session()->flash('error','You do not have any permission to access this page');
-            return redirect()->route($request->user()->role);
+            if(auth()->user()){
+                return redirect()->route('account');
+
+            }else{
+
+                return redirect()->route('user.login');
+            }
         }
     }
 }
