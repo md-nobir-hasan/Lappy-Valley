@@ -86,7 +86,6 @@
             left: 0px !important;
             color: #fff;
         }
-
     </style>
 
     <header
@@ -362,86 +361,87 @@
                     </div>
                 </form>
             </div> --}}
-            <div id="search-bar" class=" search-bar max-xl:fixed max-xl:top-[70px] max-xl:left-[210px] z-[9999] max-xl:hidden">
+            <div id="search-bar"
+                class="search-bar max-xl:fixed max-sm:top-[49px] max-xl:top-[55px] max-xl:left-0 max-xl:w-full z-[9999] max-xl:hidden">
+
                 <div>
-                    <div class="md:flex">
-                        <div class="w-full p-3">
-                            <div class="relative" x-data="{
-                                search: '',
-                                open: false,
-                                items: null,
-                                get filteredItems() {
-                                    const searchLower = this.search.toLowerCase();
-                                    return this.items.filter((i) => i.title.toLowerCase().startsWith(searchLower));
-                                }
-                                 }">
+                    <div class="">
+                        <div class="relative" x-data="{
+                            search: '',
+                            open: false,
+                            items: null,
+                            get filteredItems() {
+                                const searchLower = this.search.toLowerCase();
+                                return this.items.filter((i) => i.title.toLowerCase().startsWith(searchLower));
+                            }
+                        }">
 
 
-                                <form wire:submit='searchTo' class='h-[44px] w-[655px] max-xl:hidden'>
-                                    <div class="flex" @click.outside='open = false'>
-                                        <select name="cat_id" wire:model.live='cat' wire:change='prdouctFetch'
-                                            @change='open=true'
-                                            class="block w-[80px] p-2.5 text-[#380D37] text-[14px] font-[jost] font-[400] leading-[20.23px] border-r-[2px] border-[#380D37]">
-                                            <option value="" selected>All</option>
-                                            @foreach ($cats as $ct)
-                                                <option value="{{ $ct->id }}">{{ $ct->title }}</option>
-                                            @endforeach
-                                            {{-- <option value="CA">Canada</option>
+                            <form wire:submit='searchTo' class='h-[44px] max-xl:h-full w-[655px] max-xl:w-full'>
+                                <div class="flex" @click.outside='open = false'>
+                                    <select name="cat_id" wire:model.live='cat' wire:change='prdouctFetch'
+                                        @change='open=true'
+                                        class="block w-[80px] p-2.5 text-[#380D37] text-[14px] bg-[#f2f2f2] font-[jost] font-[400] leading-[20.23px] border-r-[2px] border-[#380D37]">
+                                        <option value="" selected>All</option>
+                                        @foreach ($cats as $ct)
+                                            <option value="{{ $ct->id }}">{{ $ct->title }}</option>
+                                        @endforeach
+                                        {{-- <option value="CA">Canada</option>
                                             <option value="FR">France</option>
                                             <option value="DE">Germany</option> --}}
-                                        </select>
-                                        <div class="relative flex w-full">
-                                            <div class="w-full">
-                                                <span class="">
-                                                    <input name="search_text" wire:model.live="search"
-                                                        wire:keyup="searchFuc" @click="open = true" type="search"
-                                                        id="search-dropdown"
-                                                        class=" z-20 block p-2.5 w-full text-[#380D37]"
-                                                        placeholder="I am shopping for..." required>
-                                                    <div wire:loading wire:target='prdouctFetch,searchFuc'
-                                                        class="absolute right-[6.5rem] top-2.5 inline-block h-6 w-6 mr-2 animate-spin rounded-full
+                                    </select>
+                                    <div class="relative flex w-full">
+                                        <div class="w-full">
+                                            <span class="">
+                                                <input name="search_text" wire:model.live="search"
+                                                    wire:keyup="searchFuc" @click="open = true" type="search"
+                                                    id="search-dropdown"
+                                                    class=" z-20 block p-2.5 w-full bg-[#f2f2f2] text-[#380D37]"
+                                                    placeholder="I am shopping for..." required>
+                                                <div wire:loading wire:target='prdouctFetch,searchFuc'
+                                                    class="absolute right-[6.5rem] top-2.5 inline-block h-6 w-6 mr-2 animate-spin rounded-full
                                                         border-4 border-solid border-current border-r-transparent align-[-0.125em]
                                                          text-success motion-reduce:animate-[spin_1.5s_linear_infinite]"
-                                                        role="status">
-                                                        <span
-                                                            class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...
-                                                        </span>
-                                                    </div>
-                                                </span>
-                                                @if (count($products) > 0)
-                                                    <ul x-show='open'
-                                                        class="absolute z-50 bg-[white] text-[black] px-6 max-h-[530px] overflow-scroll w-full">
-                                                        @foreach ($products as $prd)
-                                                            <li>
-                                                                <a href="{{ route('product.details', [$prd->slug]) }}"
-                                                                    wire:navigate class="flex">
-                                                                    <img src="{{ explode(',', $prd->photo)[0] }}"
-                                                                        alt="" width="40px" height="40px">
-                                                                    <div>
-                                                                        <span>{{ $prd->title }}</span>
-                                                                        <p>
-                                                                            <span>{{ round($prd->price - ($prd->price * $prd->discount) / 100) }}</span>
-                                                                            <span
-                                                                                class="line-through">{{ $prd->price }}</span>
-                                                                        </p>
-                                                                    </div>
-                                                                </a>
-                                                            </li>
-                                                        @endforeach
-                                                    </ul>
-                                                @endif
-                                            </div>
-                                            <button type="submit"
-                                                class=" top-0 end-0 py-2.5 px-[30px]   h-full bg-[#df146e] text-[#f2f2f2] rounded-r-[2px] overflow-hidden">
-                                                <span class="">Search</span>
-                                            </button>
+                                                    role="status">
+                                                    <span
+                                                        class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...
+                                                    </span>
+                                                </div>
+                                            </span>
+                                            @if (count($products) > 0)
+                                                <ul x-show='open'
+                                                    class="absolute z-50 bg-[white] text-[black] px-6 overflow-scroll w-full">
+                                                    @foreach ($products as $prd)
+                                                        <li>
+                                                            <a href="{{ route('product.details', [$prd->slug]) }}"
+                                                                wire:navigate class="flex">
+                                                                <img src="{{ explode(',', $prd->photo)[0] }}"
+                                                                    alt="" width="40px" height="40px">
+                                                                <div>
+                                                                    <span>{{ $prd->title }}</span>
+                                                                    <p>
+                                                                        <span>{{ round($prd->price - ($prd->price * $prd->discount) / 100) }}</span>
+                                                                        <span
+                                                                            class="line-through">{{ $prd->price }}</span>
+                                                                    </p>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+                                                    @endforeach
+                                                </ul>
+                                            @endif
                                         </div>
+                                        <button type="submit"
+                                            class=" top-0 end-0 py-2.5 px-[30px]   h-full bg-[#df146e] text-[#f2f2f2] rounded-r-[2px] overflow-hidden">
+                                            <span class="">Search</span>
+                                        </button>
                                     </div>
-                                </form>
-                            </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
+
             </div>
 
             <script></script>
@@ -529,51 +529,51 @@
 </div>
 @script
     <script>
-   $('.menu-toggle').click(function (e) {
-    $(this).addClass('left-0');
-         $('.menu').removeClass('left-[-300px]');
-     })
+        $('.menu-toggle').click(function(e) {
+            $(this).addClass('left-0');
+            $('.menu').removeClass('left-[-300px]');
+        })
 
-            var menuToggle = document.querySelector('.menu-toggle');
-            var menu = document.querySelector('.menu');
+        var menuToggle = document.querySelector('.menu-toggle');
+        var menu = document.querySelector('.menu');
 
-            menuToggle.addEventListener('click', function(event) {
-                event.stopPropagation(); // Prevents the click event from propagating to the document
-                menuToggle.classList.toggle('active');
-                menu.classList.toggle('active');
-                toggleBodyOverflow(); // Toggle body overflow based on menu state
-            });
+        menuToggle.addEventListener('click', function(event) {
+            event.stopPropagation(); // Prevents the click event from propagating to the document
+            menuToggle.classList.toggle('active');
+            menu.classList.toggle('active');
+            toggleBodyOverflow(); // Toggle body overflow based on menu state
+        });
 
-            document.addEventListener('click', function(event) {
-                var isClickInsideMenu = menu.contains(event.target);
-                var isClickOnMenuToggle = menuToggle.contains(event.target);
+        document.addEventListener('click', function(event) {
+            var isClickInsideMenu = menu.contains(event.target);
+            var isClickOnMenuToggle = menuToggle.contains(event.target);
 
-                if (!isClickInsideMenu && !isClickOnMenuToggle) {
-                    menu.classList.remove('active');
-                    menuToggle.classList.remove('active');
-                    toggleBodyOverflow(); // Reset body overflow
-                }
-            });
-
-            function toggleBodyOverflow() {
-                // Check if menu is active and adjust body overflow
-                if (menu.classList.contains('active')) {
-                    document.body.style.overflow = 'hidden';
-                } else {
-                    document.body.style.overflow = '';
-                }
+            if (!isClickInsideMenu && !isClickOnMenuToggle) {
+                menu.classList.remove('active');
+                menuToggle.classList.remove('active');
+                toggleBodyOverflow(); // Reset body overflow
             }
-            // Toggle search bar when clicking the search icon
-            $("#search-icon").click(function() {
-                $("#search-bar").slideToggle();
-                $("#search-bar").removeClass("hidden");
-                $("#search-bar").addClass("block");
-                $(this).html(function(_, oldHtml) {
-                    return oldHtml.includes("circle") ?
-                        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>' :
-                        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>';
-                });
-            });
-    </script>
+        });
 
+        function toggleBodyOverflow() {
+            // Check if menu is active and adjust body overflow
+            if (menu.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        }
+        // Toggle search bar when clicking the search icon
+        $("#search-icon").on('click', function() {
+            console.log('yes');
+            $(".search-bar").slideToggle();
+            $(".search-bar").removeClass("hidden");
+            $(".search-bar").addClass("block");
+            $(this).html(function(_, oldHtml) {
+                return oldHtml.includes("circle") ?
+                    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>' :
+                    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>';
+            });
+        });
+    </script>
 @endscript
