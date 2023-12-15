@@ -14,9 +14,9 @@ class ViewCart extends Component
     public function render()
     {
         if($user = auth()->user()){
-            $n['carts'] = Cart::with('product')->where('user_id',$user->id)->where('order_id', null)->get();
+            $n['carts'] = Cart::with('product')->where('user_id',$user->id)->where('order_id', null)->latest()->get();
         }else{
-            $n['carts'] = Cart::with('product')->where('ip',request()->ip())->where('order_id', null)->get();
+            $n['carts'] = Cart::with('product')->where('ip',request()->ip())->where('order_id', null)->latest()->get();
         }
         return view('livewire.view-cart',$n);
     }
