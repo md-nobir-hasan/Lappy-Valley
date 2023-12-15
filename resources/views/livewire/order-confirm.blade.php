@@ -1,4 +1,14 @@
 <div class='px-[100px] max-md:px-[45px] max-lg:px-[70px] max-sm:px-[15px] mx-auto max-sm:mt-[70px] max-xl:mt-[100px]'>
+     @if ($error = session('error'))
+        <script>
+            toastr.success("{{ $error }}")
+        </script>
+    @endif
+    @if ($success = session('success'))
+        <script>
+            toastr.success("{{ $success }}")
+        </script>
+    @endif
     <div class='flex justify-between'>
         <h1 class='font-[jost] xl:text-[20px] font-[400] leading-[25.3px] text-[#353535]'>Search / Lenovo</h1>
         <div class='flex gap-[5px] items-center'><img src="/storage/product/vector-1.svg" alt="Product"
@@ -92,7 +102,7 @@
                                             class="bg-[#F2F2F2] px-8 py-2">{{$cart->quantity}}</span></td>
                                     <td class="p-3 tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]">{{number_format($cart->price)}}৳</td>
                                     <td class="p-3 tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]">{{number_format($cart->amount)}}৳</td>
-                                    <td class="p-3 tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]">{{$order->payment_status}}</td>
+                                    <td class="p-3 tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]">{{$order->status}}</td>
                                 </tr>
                          @endforeach
                           @endforeach
