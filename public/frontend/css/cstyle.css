@@ -35,11 +35,11 @@
   }
 
 /* -----img---light--effect--- */
-.image-container img {
+.image-container1 img {
     transition: filter 0.3s ease-in-out;
   }
 
-  .image-container:hover img {
+  .image-container1:hover img {
     filter: brightness(1.2); 
   }
 /* ----------swiper-lider----------- */
