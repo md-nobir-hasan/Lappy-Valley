@@ -14,7 +14,6 @@
             <div>
                 <p class="font-[jost] font-[400] text-[18px] max-md:text-[18px] max-lg:text-[14px] text-[#f78da7]">Entrepreneur</p>
             </div>
-
         </div>
         <div class="items-center flex flex-col max-lg:gap-2 gap-4">
             <div><img src="/storage/product/Haque.jpg" alt=""></div>

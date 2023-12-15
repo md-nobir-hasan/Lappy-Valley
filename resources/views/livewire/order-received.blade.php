@@ -118,9 +118,22 @@
                     Like us on <span>Facebook</span> to keep you up to date with all our offers and announcements.
                 </p>
             </div>
-            <div class="w-[150px]">
-                <img src="/storage/product/find-us-on-facebook.png" alt="Product" class="w-[150px]">
-            </div>
+            <a class="flex justify-center itmes-center">
+               <div>
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" id="facebook" class="w-[40px] h-[40px]">
+                        <path fill="#1976D2" d="M14 0H2C.897 0 0 .897 0 2v12c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2V2c0-1.103-.897-2-2-2z">
+                            </path>
+                            <path fill="#FAFAFA" fill-rule="evenodd" d="M13.5 8H11V6c0-.552.448-.5 1-.5h1V3h-2a3 3 0 0 0-3 3v2H6v2.5h2V16h3v-5.5h1.5l1-2.5z" clip-rule="evenodd">
+                                </path>
+                            </svg>
+                </span>
+               </div>
+               <div class="bg-[#fff] leading-5 max-sm:flex max-sm:flex-col">
+                <span class="text-blue-900 text-[14px] font-[jost] font-[700]">Find us on</span>
+                <span class="text-blue-900 text-[18px] font-[jost] font-[700]">Facebook</span>
+               </div>
+            </a>
         </div>
         <div class='h-[2px] bg-[#764A8733]'></div>
         <div class="my-4">

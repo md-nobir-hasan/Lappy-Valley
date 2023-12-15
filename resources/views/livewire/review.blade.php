@@ -1,43 +1,47 @@
+<div class="px-[100px] mt-[100px]">
+<style>
+    /* body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0;
+} */
+
+.fill-up-btn {
+  position: relative;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background: linear-gradient(to right, #380D37, #DC275C);
+
+  color: #fff;
+  overflow: hidden;
+  z-index: 1;
+  border: 
+}
+
+.fill-up-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #380D37;
+  transform-origin: top;
+  transform: scaleY(0);
+  transition: transform 0.3s ease-in-out;
+  z-index: -1;
+}
+
+.fill-up-btn:hover::before {
+  transform: scaleY(1);
+}
+</style>
 <div>
-    <style>
-    .search-bar {
-    display: none;
-    width: 200px;
-    padding: 5px;
-    margin-top: 10px;
-    border: 1px solid #ccc;
-    }
-    </style>
-    {{-- </head>
-<body> --}}
-
-    <!-- Search Icon -->
-    <div id="search-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="11" cy="11" r="6"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-        </svg>
-    </div>
-
-    <!-- Search Bar -->
-    <div id="search-bar" class="search-bar">
-        <input type="text" placeholder="Search...">
-    </div>
-
-    {{-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> --}}
-    <script>
-        $(document).ready(function() {
-            // Toggle search bar when clicking the search icon
-            $("#search-icon").click(function() {
-                $("#search-bar").slideToggle();
-                // Toggle the icon (replace with your own SVG code)
-                $(this).html(function(_, oldHtml) {
-                    return oldHtml.includes("circle") ?
-                        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>' :
-                        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>';
-                });
-            });
-        }); 
-    </script>
-        </div>
+    <button class="fill-up-btn">Click me</button>
+</div>
+</div>
