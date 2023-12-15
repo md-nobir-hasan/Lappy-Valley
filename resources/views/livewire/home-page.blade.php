@@ -139,7 +139,7 @@
     <section>
         <!-- heading -->
         <div
-            class=" h-[130px] max-sm:h-[52px] max-md:h-[68px] max-lg:h-[85px] max-xl:h-[100px]  flex justify-center items-center text-white bg-gradient-to-r from-[#380D37] to-[#DC275C]">
+            class=" fill-up-btn h-[130px] max-sm:h-[52px] max-md:h-[68px] max-lg:h-[85px] max-xl:h-[100px]  flex justify-center items-center text-white bg-gradient-to-r from-[#380D37] to-[#DC275C]">
 
             <h1
                 class="text-[40px] max-sm:text-[18px] max-md:text-[22px] max-lg:text-[30px] max-xl:text-[35px] text-[#f2f2f2] font-[jost] font-[500] text-center">
@@ -157,7 +157,7 @@
                         Our newest</br>products are</br>here,just for you!</p>
                 </div>
                 <div class='flex justify-center items-center'>
-                    <a href="{{ route('new_product', 'new_product') }}" wire:navigate  class="fill-up-btn mt-[20px] font-[jost] font-[500] text-[16px] text-[#F2F2F2] rounded-[4px]">
+                    <a href="{{ route('new_product', 'new_product') }}" wire:navigate  class="fill-up-btn linear px-[20px] py-[10px] mt-[20px] font-[jost] font-[500] text-[16px] text-[#F2F2F2] rounded-[4px]">
                         Visit Now
                     </a>
                 </div>
@@ -226,13 +226,13 @@
                                 <div>
                                     <a href="{{ route('product.details', [$f_product->slug]) }}" wire:navigate>
                                         <p
-                                            class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4 transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
+                                            class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] hover:underline-offset-4 transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
                                             {{ $f_product->title }}
                                         </p>
                                     </a>
                                 </div>
                                 <div
-                                    class="flex flex justify-between gap-5 text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
+                                    class="flex justify-between gap-5 text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
                                     <span class="text-[#DC275C]">{{ number_format($f_product->final_price) }} TK</span>
                                     <livewire:add-to-cart :id="$f_product->id"
                                         button='<a class="text-[#380D37]">Add to Cart</a>' />
@@ -307,8 +307,7 @@
                         <div
                             class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div class="">
-                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat" data-te-ripple-init
-                                    data-te-ripple-color="light">
+                                <div class="image-container">
                                     <a href="#">
                                         <img src="/storage/product/large-size-laptop.jpg" alt="">
                                     </a>
@@ -336,8 +335,7 @@
                         <div
                             class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div class="">
-                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat" data-te-ripple-init
-                                    data-te-ripple-color="light">
+                                <div class="image-container">
                                     <a href="#">
                                         <img src="/storage/product/large-size-laptop.jpg" alt="">
                                     </a>
@@ -365,8 +363,7 @@
                         <div
                             class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div class="">
-                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
-                                    data-te-ripple-init data-te-ripple-color="light">
+                                <div class="image-container">
                                     <a href="#">
                                         <img src="/storage/product/large-size-laptop.jpg" alt="">
                                     </a>
@@ -394,8 +391,7 @@
                         <div
                             class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div class="">
-                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
-                                    data-te-ripple-init data-te-ripple-color="light">
+                                <div class="image-container">
                                     <a href="#">
                                         <img src="/storage/product/large-size-laptop.jpg" alt="">
                                     </a>
@@ -423,8 +419,7 @@
                         <div
                             class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div class="">
-                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
-                                    data-te-ripple-init data-te-ripple-color="light">
+                                <div class="image-container">
                                     <a href="#">
                                         <img src="/storage/product/large-size-laptop.jpg" alt="">
                                     </a>
@@ -452,8 +447,7 @@
                         <div
                             class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div class="">
-                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
-                                    data-te-ripple-init data-te-ripple-color="light">
+                                <div class="image-container">
                                     <a href="#">
                                         <img src="/storage/product/large-size-laptop.jpg" alt="">
                                     </a>
@@ -481,8 +475,7 @@
                         <div
                             class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div class="">
-                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
-                                    data-te-ripple-init data-te-ripple-color="light">
+                                <div class="image-container">
                                     <a href="#">
                                         <img src="/storage/product/large-size-laptop.jpg" alt="">
                                     </a>
@@ -510,8 +503,7 @@
                         <div
                             class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div class="">
-                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
-                                    data-te-ripple-init data-te-ripple-color="light">
+                                <div class="image-container">
                                     <a href="#">
                                         <img src="/storage/product/large-size-laptop.jpg" alt="">
                                     </a>
@@ -539,8 +531,7 @@
                         <div
                             class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div class="">
-                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
-                                    data-te-ripple-init data-te-ripple-color="light">
+                                <div class="image-container">
                                     <a href="#">
                                         <img src="/storage/product/large-size-laptop.jpg" alt="">
                                     </a>
@@ -583,8 +574,7 @@
                         <div
                             class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div class="">
-                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
-                                    data-te-ripple-init data-te-ripple-color="light">
+                                <div class="image-container">
                                     <a href="#">
                                         <img src="/storage/product/large-size-laptop.jpg" alt="">
                                     </a>
@@ -612,8 +602,7 @@
                         <div
                             class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div class="">
-                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
-                                    data-te-ripple-init data-te-ripple-color="light">
+                                <div class="image-container">
                                     <a href="#">
                                         <img src="/storage/product/large-size-laptop.jpg" alt="">
                                     </a>
@@ -641,8 +630,7 @@
                         <div
                             class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div class="">
-                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
-                                    data-te-ripple-init data-te-ripple-color="light">
+                                <div class="image-container">
                                     <a href="#">
                                         <img src="/storage/product/large-size-laptop.jpg" alt="">
                                     </a>
@@ -670,8 +658,7 @@
                         <div
                             class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div class="">
-                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
-                                    data-te-ripple-init data-te-ripple-color="light">
+                                <div class="image-container">
                                     <a href="#">
                                         <img src="/storage/product/large-size-laptop.jpg" alt="">
                                     </a>
@@ -699,8 +686,7 @@
                         <div
                             class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div class="">
-                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
-                                    data-te-ripple-init data-te-ripple-color="light">
+                                <div class="image-container">
                                     <a href="#">
                                         <img src="/storage/product/large-size-laptop.jpg" alt="">
                                     </a>
@@ -728,8 +714,7 @@
                         <div
                             class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div class="">
-                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
-                                    data-te-ripple-init data-te-ripple-color="light">
+                                <div class="image-container">
                                     <a href="#">
                                         <img src="/storage/product/large-size-laptop.jpg" alt="">
                                     </a>
@@ -757,8 +742,7 @@
                         <div
                             class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div class="">
-                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
-                                    data-te-ripple-init data-te-ripple-color="light">
+                                <div class="image-container">
                                     <a href="#">
                                         <img src="/storage/product/large-size-laptop.jpg" alt="">
                                     </a>
@@ -786,8 +770,7 @@
                         <div
                             class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div class="">
-                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
-                                    data-te-ripple-init data-te-ripple-color="light">
+                                <div class="image-container">
                                     <a href="#">
                                         <img src="/storage/product/large-size-laptop.jpg" alt="">
                                     </a>
@@ -815,8 +798,7 @@
                         <div
                             class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div class="">
-                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
-                                    data-te-ripple-init data-te-ripple-color="light">
+                                <div class="image-container">
                                     <a href="#">
                                         <img src="/storage/product/large-size-laptop.jpg" alt="">
                                     </a>
@@ -1623,7 +1605,7 @@
                     @endif
 
                     <a
-                        class="fill-up-btn text-center relative text-[16px] h-[44px] w-[116px] rounded-[4px] font-[500] font-[jost] mt-[15px] pt-[5px] pr-[30px] pl-[30px] pb-[5px] bg-gradient-to-r from-[#380D37] to-[#DC275C] "
+                        class="fill-up-btn text-[#f2f2f2] text-center text-[16px] h-[44px] px-[40px] py-[10px] rounded-[4px] font-[500] font-[jost] mt-[15px]  bg-gradient-to-r from-[#380D37] to-[#DC275C] "
                         type="submit">
                         Post
                         <div wire:loading

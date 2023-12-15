@@ -3932,6 +3932,11 @@ input[type="range"]:active::-webkit-slider-thumb{
   padding-bottom: 13px;
 }
 
+.px-\[\]{
+  padding-left: ;
+  padding-right: ;
+}
+
 .pb-0{
   padding-bottom: 0px;
 }
