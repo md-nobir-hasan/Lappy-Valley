@@ -2,6 +2,7 @@
 
 use App\Models\Divission;
 use App\Models\OrderStatus;
+use App\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -19,10 +20,10 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->string('order_number')->unique()->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->float('sub_total')->nullable();
             $table->unsignedBigInteger('shipping_id')->nullable();
             $table->float('coupon')->nullable();
-            $table->float('total_amount')->nullable();
+            $table->float('sub_total')->nullable();
+            $table->float('amount')->nullable();
             // $table->float('a');
             $table->integer('quantity')->nullable();
             $table->enum('payment_method',['cod','online'])->default('cod');
@@ -36,10 +37,12 @@ class CreateOrdersTable extends Migration
             $table->bigInteger('phone')->nullable();
             $table->text('address')->nullable();
             $table->string('country')->nullable();
+            $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignIdFor(OrderStatus::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('transaction_id')->nullable();
             $table->string('currency')->nullable();
             $table->string('city')->nullable();
+            $table->enum('status',['Pending','New','Processing','Delivered','Canceled'])->default('Pending');
             $table->text('comment')->nullable();
             $table->foreignIdFor(Divission::class)->nullable()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();

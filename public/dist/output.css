@@ -1113,6 +1113,11 @@ input[type="range"]:active::-webkit-slider-thumb{
   margin-bottom: 1rem;
 }
 
+.my-5{
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
 .my-\[0px\]{
   margin-top: 0px;
   margin-bottom: 0px;
@@ -1399,6 +1404,10 @@ input[type="range"]:active::-webkit-slider-thumb{
 
 .mt-4{
   margin-top: 1rem;
+}
+
+.mt-5{
+  margin-top: 1.25rem;
 }
 
 .mt-6{
@@ -3600,6 +3609,10 @@ input[type="range"]:active::-webkit-slider-thumb{
   padding: 1rem;
 }
 
+.p-5{
+  padding: 1.25rem;
+}
+
 .p-6{
   padding: 1.5rem;
 }
@@ -4689,6 +4702,11 @@ input[type="range"]:active::-webkit-slider-thumb{
 .text-gray-800{
   --tw-text-opacity: 1;
   color: rgb(31 41 55 / var(--tw-text-opacity));
+}
+
+.text-gray-900{
+  --tw-text-opacity: 1;
+  color: rgb(17 24 39 / var(--tw-text-opacity));
 }
 
 .text-green-600{
@@ -8006,6 +8024,10 @@ input[type="range"]:active::-webkit-slider-thumb{
 
   .md\:mb-0{
     margin-bottom: 0px;
+  }
+
+  .md\:flex{
+    display: flex;
   }
 
   .md\:w-\[168px\]{

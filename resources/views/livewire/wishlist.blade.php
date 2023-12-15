@@ -4,84 +4,16 @@
             class='font-[jost] xl:text-[20px] max-sm:text-[16px] max-md:text-[] max-lg:text-[] font-[400] leading-[25.3px] text-[#353535]'>
             Search / Lenovo</h1>
         <div class='flex gap-[5px] items-center'><img src="/storage/product/vector-1.svg" alt="Product"
-                class='w-[16px] h-[14px]'><span
-                class='text-[16px] text-[#380D37] font-[jost] font-[400] leading-[23.12px]'>Log Out</span></div>
+                class='w-[16px] h-[14px]'>   <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button class='text-[16px] text-[#380D37] font-[jost] font-[400] leading-[23.12px]'>Log
+                    Out</button>
+            </form></div>
     </div>
     <div class='h-[2px] bg-[#764A8733]'></div>
     <!-- --------------------user-name-------------------------------- -->
-    <div class='flex gap-[10px] items-center my-[20px]'>
-        <style>
-            @media (max-width:530px) {
-                .hello {
-                    width: 55px;
-                    height: 55px;
-                }
 
-                .hello-0 {
-                    font-size: 10px;
-                }
-
-                .hello-1 {
-                    font-size: 14px;
-                }
-
-                .now {
-                    width: 60px;
-                    height: 60px;
-                    display: none;
-                }
-
-                .amd {
-                    font-size: 10px;
-                }
-
-                .pay {
-                    font-size: 10px;
-                }
-
-                .product-4 {
-                    width: 370px;
-                }
-
-                .cros {
-                    width: 18px;
-                    height: 18px;
-                }
-
-                .laptop-s {
-                    width: 35px;
-                    height: 35px;
-                }
-
-                .amd {
-                    line-height: 0px;
-                }
-
-                .head-td {
-                    font-size: 10px
-                }
-
-            }
-
-            @media(min-width:530px) {
-                .now-1 {
-                    display: none;
-                }
-            }
-        </style>
-        <div class='hello w-[74px] h-[74px]'>
-            <img src="/storage/product/iconoir_profile-circle1.svg" alt="Product">
-        </div>
-        <div>
-            <p class='hello-0 text-[16px] max-sm:text-[14px] text-[#000000] font-[Inter] font-[400] leadint-[14.52px]'>
-                Hello,
-            </p>
-            <h1
-                class='username text-[20px] max-sm:text-[16px] max-md:text-[] max-lg:text-[] text-[#000000] font-[Inter] font-[500] leadint-[24.2px]'>
-                Username Here
-            </h1>
-        </div>
-    </div>
+    <livewire:user-pic/>
     <livewire:user-account-menu />
     <div class='h-[2px] bg-[#764A8733]'></div>
 
