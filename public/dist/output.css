@@ -1113,11 +1113,6 @@ input[type="range"]:active::-webkit-slider-thumb{
   margin-bottom: 1rem;
 }
 
-.my-5{
-  margin-top: 1.25rem;
-  margin-bottom: 1.25rem;
-}
-
 .my-\[0px\]{
   margin-top: 0px;
   margin-bottom: 0px;
@@ -1404,10 +1399,6 @@ input[type="range"]:active::-webkit-slider-thumb{
 
 .mt-4{
   margin-top: 1rem;
-}
-
-.mt-5{
-  margin-top: 1.25rem;
 }
 
 .mt-6{
@@ -3365,11 +3356,6 @@ input[type="range"]:active::-webkit-slider-thumb{
   background-color: rgb(56 13 55 / var(--tw-bg-opacity));
 }
 
-.bg-\[\#380E37\]{
-  --tw-bg-opacity: 1;
-  background-color: rgb(56 14 55 / var(--tw-bg-opacity));
-}
-
 .bg-\[\#380d37\]{
   --tw-bg-opacity: 1;
   background-color: rgb(56 13 55 / var(--tw-bg-opacity));
@@ -3534,14 +3520,6 @@ input[type="range"]:active::-webkit-slider-thumb{
   background-color: rgb(63 63 70 / var(--tw-bg-opacity));
 }
 
-.bg-\[\]{
-  background-color: ;
-}
-
-.bg-\[\#380d\]{
-  background-color: #380d;
-}
-
 .bg-gradient-to-r{
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }
@@ -3607,10 +3585,6 @@ input[type="range"]:active::-webkit-slider-thumb{
 
 .p-4{
   padding: 1rem;
-}
-
-.p-5{
-  padding: 1.25rem;
 }
 
 .p-6{
@@ -3773,11 +3747,6 @@ input[type="range"]:active::-webkit-slider-thumb{
 .px-\[46px\]{
   padding-left: 46px;
   padding-right: 46px;
-}
-
-.px-\[50px\]{
-  padding-left: 50px;
-  padding-right: 50px;
 }
 
 .px-\[5px\]{
@@ -4702,11 +4671,6 @@ input[type="range"]:active::-webkit-slider-thumb{
 .text-gray-800{
   --tw-text-opacity: 1;
   color: rgb(31 41 55 / var(--tw-text-opacity));
-}
-
-.text-gray-900{
-  --tw-text-opacity: 1;
-  color: rgb(17 24 39 / var(--tw-text-opacity));
 }
 
 .text-green-600{
@@ -7360,10 +7324,6 @@ input[type="range"]:active::-webkit-slider-thumb{
     gap: 1rem;
   }
 
-  .max-md\:gap-\[1px\]{
-    gap: 1px;
-  }
-
   .max-md\:gap-\[2px\]{
     gap: 2px;
   }
@@ -7374,10 +7334,6 @@ input[type="range"]:active::-webkit-slider-thumb{
 
   .max-md\:gap-\[8px\]{
     gap: 8px;
-  }
-
-  .max-md\:gap-\[0px\]{
-    gap: 0px;
   }
 
   .max-md\:rounded-\[4px\]{
@@ -8024,10 +7980,6 @@ input[type="range"]:active::-webkit-slider-thumb{
 
   .md\:mb-0{
     margin-bottom: 0px;
-  }
-
-  .md\:flex{
-    display: flex;
   }
 
   .md\:w-\[168px\]{
