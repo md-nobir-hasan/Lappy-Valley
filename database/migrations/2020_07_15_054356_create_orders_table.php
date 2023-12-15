@@ -33,7 +33,8 @@ class CreateOrdersTable extends Migration
             $table->string('name')->nullable();
             $table->string('l_name')->nullable();
             $table->string('email')->nullable();
-            $table->string('phone')->nullable();
+            $table->bigInteger('phone')->nullable();
+            $table->text('address')->nullable();
             $table->string('country')->nullable();
             $table->foreignIdFor(OrderStatus::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('transaction_id')->nullable();

@@ -66,7 +66,7 @@
                     <div class='items-center my-[25px]'>
                         <div
                             class='my-[25px] border-[1px] border-[#380D37] rounded-[4px] flex items-center justify-center'>
-                            <a href="#">
+                            <a href="{{route('login.redirect',['google'])}}">
                                 <button
                                     class=' h-[44px] max-sm:h-[35px] flex gap-2 items-center justify-center text-[16px] max-sm:text-[14px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]'>
                                     Log in with
@@ -76,7 +76,7 @@
                         </div>
                         <div
                             class='my-[25px] border-[1px] border-[#380D37] rounded-[4px] flex items-center justify-center'>
-                            <a href="#">
+                            <a href="{{route('login.redirect',['facebook'])}}">
                                 <button
                                     class=' h-[44px] max-sm:h-[35px] flex gap-2 items-center justify-center text-[16px] max-sm:text-[14px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]'>
                                     Log in with

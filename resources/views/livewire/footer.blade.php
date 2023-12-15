@@ -5,7 +5,7 @@
                 <p class="text-[#F2F2F2] font-[jost] max-sm:text-center text-[40px] max-sm:text-[34px] max-md:text-[32px] max-lg:text-[34px] font-[500] text-left my-3">Address</p>
                 <ul class="text-[#F2F2F2] font-[jost] max-sm:text-center text-[16px] max-sm:text-[16px] max-md:text-[12px] max-lg:text-[14px] font-[500] leading-[23px] max-sm:leading-[28px] max-md:leading-[18px] max-lg:leading-[20px]  text-left">
                     <li class="hover:bg-blue-950">
-                        Address: 
+                        Address:
                     </li>
                     <li class="hover:bg-blue-950">
                         Shop # 4A-009A, Block # A, Level #04,
@@ -17,7 +17,7 @@
                          Shop # 607(5th Floor),
                     </li>
                     <li class="hover:bg-blue-950">
-                        Rajuk Commercial-Complex, 
+                        Rajuk Commercial-Complex,
                     </li>
                     <li class="mb-[15px] hover:bg-blue-950">
                         Azampur, Uttara, Dhaka-1230
@@ -34,11 +34,11 @@
             <div class='text-left'>
                 <p class="text-[#F2F2F2] font-[jost] max-sm:text-center text-[40px] max-sm:text-[34px] max-md:text-[32px] max-lg:text-[34px] font-[500]  my-3">Company</p>
                 <ul class="text-[#F2F2F2] font-[jost] max-sm:text-center text-[16px] max-sm:text-[16px] max-md:text-[12px] max-lg:text-[14px] font-[500] leading-[23px] max-sm:leading-[22px] max-md:leading-[12px] max-lg:leading-[15px] max-sm:my-[21px]  ml-[30px]">
-                    <li class="mb-[25px] max-sm:mb-[18px] list-disc max-sm:list-none hover:bg-blue-950"><a href="#" id='about-us'>About Us</a></li>
-                    <li class="mb-[25px] max-sm:mb-[18px] list-disc max-sm:list-none hover:bg-blue-950"><a href="#">Terms& Conditions</a></li>
-                    <li class="mb-[25px] max-sm:mb-[18px] list-disc max-sm:list-none hover:bg-blue-950"><a href="#">Privay Policy</a></li>
-                    <li class="mb-[25px] max-sm:mb-[18px] list-disc max-sm:list-none hover:bg-blue-950"><a href="#">My account</a></li>
-                    <li class="mb-[25px] max-sm:mb-[18px] list-disc max-sm:list-none hover:bg-blue-950"><a href="#">Refund & Service Policy</a>
+                    <li class="mb-[25px] max-sm:mb-[18px] list-disc max-sm:list-none hover:bg-blue-950"><a href="{{route('about_us')}}" id='about-us'>About Us</a></li>
+                    <li class="mb-[25px] max-sm:mb-[18px] list-disc max-sm:list-none hover:bg-blue-950"><a href="{{route('tc')}}">Terms& Conditions</a></li>
+                    <li class="mb-[25px] max-sm:mb-[18px] list-disc max-sm:list-none hover:bg-blue-950"><a href="{{route('pp')}}">Privay Policy</a></li>
+                    <li class="mb-[25px] max-sm:mb-[18px] list-disc max-sm:list-none hover:bg-blue-950"><a href="{{route('account')}}">My account</a></li>
+                    <li class="mb-[25px] max-sm:mb-[18px] list-disc max-sm:list-none hover:bg-blue-950"><a href="{{route('rsp')}}">Refund & Service Policy</a>
                     </li>
                 </ul>
             </div>
@@ -78,7 +78,7 @@
 
                 <!-- -------social----------icon------------- -->
                 <div class="mt-[20px] grid grid-cols-5 gap-2 max-sm:ml-[80px] text-[24px] max-sm:pb-[100px] max-sm:pt-[20px]">
-                    <a href=""> 
+                    <a href="">
                     <svg xmlns="http://www.w3.org/2000/svg" width="25.08" height="24" class="max-sm:w-[25.08px] max-sm:h-[24px] max-md:w-[21px] max-lg:w-[23px] max-md:h-[20px] max-lg:h-[22px]" viewBox="0 0 26 24" fill="#F2F2F2">
                     <path d="M22.99 12C22.99 6.48 18.3084 2 12.54 2C6.7716 2 2.09 6.48 2.09 12C2.09 16.84 5.6848 20.87 10.45 21.8V15H8.36V12H10.45V9.5C10.45 7.57 12.0906 6 14.1075 6H16.72V9H14.63C14.0552 9 13.585 9.45 13.585 10V12H16.72V15H13.585V21.95C18.8622 21.45 22.99 17.19 22.99 12Z" fill="#F2F2F2"/>
                     </svg>
