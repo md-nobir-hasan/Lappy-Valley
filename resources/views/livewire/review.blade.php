@@ -20,7 +20,7 @@
   color: #fff;
   overflow: hidden;
   z-index: 1;
-  border: 
+  border-radius: 4px;
 }
 
 .fill-up-btn::before {
@@ -42,6 +42,6 @@
 }
 </style>
 <div>
-    <button class="fill-up-btn">Click me</button>
+    <a class="fill-up-btn font-[jost] font-[500]">Visit Now</a>
 </div>
 </div>

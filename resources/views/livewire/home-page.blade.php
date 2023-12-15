@@ -157,14 +157,8 @@
                         Our newest</br>products are</br>here,just for you!</p>
                 </div>
                 <div class='flex justify-center items-center'>
-                    <a href="{{ route('new_product', 'new_product') }}" wire:navigate  class="btn-12 text-center py-2 font-[jost] font-[500] text-[16px] text-[#F2F2F2] rounded-[4px]">
-                            <span class="font-[jost] font-[500]">
-                                Click!
-                            </span>
-                            <span class="font-[jost] font-[500]">
-                                Visit Now!
-                            </span>
-                     
+                    <a href="{{ route('new_product', 'new_product') }}" wire:navigate  class="fill-up-btn font-[jost] font-[500] text-[16px] text-[#F2F2F2] rounded-[4px]">
+                        Visit Now
                     </a>
                 </div>
             </div>
@@ -907,10 +901,10 @@
     <div>
 
         <a href="{{ route('shop') }}" wire:navigate>
-            <button
-                class="custom-btn7 btn-7 items-center justify-center flex my-[60px] mx-auto text-[16px] text-[#F2F4F8] w-[116px] h-[44px] rounded-[4px] bg-gradient-to-r from-[#380D37] to-[#DC275C]">
-                <span> See More</span>
-            </button>
+            <a
+                class="fill-up-btn items-center justify-center flex my-[60px] mx-auto text-[16px] text-[#F2F4F8] w-[116px] h-[44px] rounded-[4px] bg-gradient-to-r from-[#380D37] to-[#DC275C]">
+                 See More
+            </a>
         </a>
         <div class="container h-[2px] bg-[#380D37]"></div>
     </div>
@@ -1628,10 +1622,10 @@
                         <span class="block text-[red]">{{ $post_error_msg }}</span>
                     @endif
 
-                    <button
-                        class="custom-btn6 btn-6 selection:text-[#F2F2F2] relative text-[16px] h-[44px] w-[116px] rounded-[4px] font-[500] font-[jost] mt-[15px] pt-[5px] pr-[30px] pl-[30px] pb-[5px] bg-gradient-to-r from-[#380D37] to-[#DC275C] "
+                    <a
+                        class="fill-up-btn text-center relative text-[16px] h-[44px] w-[116px] rounded-[4px] font-[500] font-[jost] mt-[15px] pt-[5px] pr-[30px] pl-[30px] pb-[5px] bg-gradient-to-r from-[#380D37] to-[#DC275C] "
                         type="submit">
-                        <span>Post</span>
+                        Post
                         <div wire:loading
                             class="absolute right-0 inline-block h-6 w-6 mr-2 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-success motion-reduce:animate-[spin_1.5s_linear_infinite]"
                             role="status">
@@ -1639,7 +1633,7 @@
                                 class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...
                             </span>
                         </div>
-                    </button>
+                    </a>
                 </div>
             </form>
         </div>
