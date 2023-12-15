@@ -150,19 +150,21 @@
         <div class="grid grid-cols-3 max-sm:grid-cols-1 max-md:grid-cols-1 mt-6 mb-5 max-sm:mt-[.5rem]">
             <div class="">
                 <div
-                    class="pt-[20px]  font-[jost] font-[500]
-                     text-[50px] max-sm:text-[24px] max-md:text-[34px] max-lg:text-[32px] max-xl:text-[38px]  text-[#DC275C] ">
+                    class="pt-[20px] flex justify-center font-[jost] font-[500]
+                     text-[52px] max-sm:text-[24px] max-md:text-[34px] max-lg:text-[32px] max-xl:text-[38px]  text-[#DC275C] ">
                     <p
                         class="max-sm:text-center max-md:text-center leading-[75.14px] max-sm:leading-[30px] max-md:leading-[54px] max-lg:leading-[42px] max-xl:leading-[50px]">
                         Our newest</br>products are</br>here,just for you!</p>
                 </div>
-                <div class='text-center'>
-                    <a href="{{ route('new_product', 'new_product') }}" wire:navigate>
-                        <button
-                            class="btn-12 text-center mt-[60px] py-2 font-[jost] font-[500] max-sm:translate-x-[-4px] max-sm:translate-y-[-47px] max-md:translate-x-[-62px] max-md:translate-y-[-47px] max-lg:translate-x-[-62px] max-xl:translate-x-[-62px] max-2xl:translate-x-[-70px] max-lg:translate-y-[-47px] max-xl:translate-y-[-47px]  max-2xl:translate-y-[-47px]
-                        text-[16px]  text-[#F2F2F2] rounded-[4px]">
-                            <span class="font-[jost] font-[500]">Click!</span><span class="font-[jost] font-[500]">
-                                Visit Now!</span></button>
+                <div class='flex justify-center items-center'>
+                    <a href="{{ route('new_product', 'new_product') }}" wire:navigate  class="btn-12 text-center py-2 font-[jost] font-[500] text-[16px] text-[#F2F2F2] rounded-[4px]">
+                            <span class="font-[jost] font-[500]">
+                                Click!
+                            </span>
+                            <span class="font-[jost] font-[500]">
+                                Visit Now!
+                            </span>
+                     
                     </a>
                 </div>
             </div>
@@ -304,29 +306,6 @@
             </div>
         </div> --}}
         <div class="usa_prds">
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-            <style>
-                .swiper {
-                    width: 100%;
-                    height: 100%;
-                }
-
-                .swiper-slide {
-                    text-align: center;
-                    font-size: 18px;
-                    background: #fff;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                }
-
-                .swiper-slide img {
-                    display: block;
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                }
-            </style>
             <!-- Swiper -->
             <div class="swiper mySwiper mt-[20px] mb-[20px]">
                 <div class="swiper-wrapper">
@@ -598,68 +577,11 @@
             </div>
 
             <!-- Swiper JS -->
-            <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+          
 
             <!-- Initialize Swiper -->
-            <script>
-                var swiper = new Swiper(".mySwiper", {
-                    slidesPerView: 5,
-                    spaceBetween: 10,
-                    // freeMode: true,
-                    // cssMode: true,
-                    navigation: {
-                        nextEl: ".swiper-button-next",
-                        prevEl: ".swiper-button-prev",
-                    },
-                    // pagination: {
-                    //     el: ".swiper-pagination",
-                    // },
-                    mousewheel: true,
-                    keyboard: true,
-              
-                });
-                var swiper = new Swiper('.swiper-container', {
-                // ...
-                breakpoints: {
-                    // when window width is >= 320px
-                    320: {
-                    slidesPerView: 1,
-                    spaceBetween: 10
-                    },
-                    // when window width is >= 480px
-                    480: {
-                    slidesPerView: 2,
-                    spaceBetween: 20
-                    },
-                    // ...
-                }
-                });
-            </script>
         </div>
         <div class="hidden asian_prds">
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-            <style>
-                .swiper {
-                    width: 100%;
-                    height: 100%;
-                }
-
-                .swiper-slide {
-                    text-align: center;
-                    font-size: 18px;
-                    background: #fff;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                }
-
-                .swiper-slide img {
-                    display: block;
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                }
-            </style>
             <!-- Swiper -->
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
@@ -929,28 +851,7 @@
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-pagination"></div>
             </div>
-
-            <!-- Swiper JS -->
-            <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
             <!-- Initialize Swiper -->
-            <script>
-                var swiper = new Swiper(".mySwiper", {
-                    slidesPerView: 5,
-                    spaceBetween: 10,
-                    freeMode: true,
-                    // cssMode: true,
-                    navigation: {
-                        nextEl: ".swiper-button-next",
-                        prevEl: ".swiper-button-prev",
-                    },
-                    // pagination: {
-                    //     el: ".swiper-pagination",
-                    // },
-                    mousewheel: true,
-                    keyboard: true,
-                });
-            </script>
         </div>
     </section>
     <div class='mt-[40px] mb-[30px]'>
@@ -1795,5 +1696,38 @@
                 }
             });
         });
+
+        var swiper = new Swiper(".mySwiper", {
+                    slidesPerView: 5,
+                    spaceBetween: 10,
+                    // freeMode: true,
+                    // cssMode: true,
+                    navigation: {
+                        nextEl: ".swiper-button-next",
+                        prevEl: ".swiper-button-prev",
+                    },
+                    // pagination: {
+                    //     el: ".swiper-pagination",
+                    // },
+                    mousewheel: true,
+                    keyboard: true,
+              
+                });
+                var swiper = new Swiper('.swiper-container', {
+                // ...
+                breakpoints: {
+                    // when window width is >= 320px
+                    320: {
+                    slidesPerView: 1,
+                    spaceBetween: 10
+                    },
+                    // when window width is >= 480px
+                    480: {
+                    slidesPerView: 2,
+                    spaceBetween: 20
+                    },
+                    // ...
+                }
+                });
     </script>
 @endscript

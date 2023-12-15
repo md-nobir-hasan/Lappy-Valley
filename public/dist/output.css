@@ -3539,8 +3539,18 @@ input[type="range"]:active::-webkit-slider-thumb{
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
+.from-\[\#380D\]{
+  --tw-gradient-from: #380D var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(51 136 0 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
 .to-\[\#DC275C\]{
   --tw-gradient-to: #DC275C var(--tw-gradient-to-position);
+}
+
+.to-\[\#771207\]{
+  --tw-gradient-to: #771207 var(--tw-gradient-to-position);
 }
 
 .bg-cover{
