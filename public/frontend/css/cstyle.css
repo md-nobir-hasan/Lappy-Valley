@@ -1,7 +1,7 @@
 .fill-up-btn {
     position: relative;
-    padding: 10px 20px;
-    font-size: 16px;
+    /* padding: 10px 20px; */
+    /* font-size: 16px; */
     cursor: pointer;
     border: none;
     background: linear-gradient(to right, #380D37, #DC275C);

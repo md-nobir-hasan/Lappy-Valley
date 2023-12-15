@@ -157,7 +157,7 @@
                         Our newest</br>products are</br>here,just for you!</p>
                 </div>
                 <div class='flex justify-center items-center'>
-                    <a href="{{ route('new_product', 'new_product') }}" wire:navigate  class="fill-up-btn font-[jost] font-[500] text-[16px] text-[#F2F2F2] rounded-[4px]">
+                    <a href="{{ route('new_product', 'new_product') }}" wire:navigate  class="fill-up-btn mt-[20px] font-[jost] font-[500] text-[16px] text-[#F2F2F2] rounded-[4px]">
                         Visit Now
                     </a>
                 </div>

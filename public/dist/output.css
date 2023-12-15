@@ -1477,6 +1477,10 @@ input[type="range"]:active::-webkit-slider-thumb{
   margin-bottom: auto;
 }
 
+.mt-\[16px\]{
+  margin-top: 16px;
+}
+
 .box-border{
   box-sizing: border-box;
 }
@@ -3923,6 +3927,11 @@ input[type="range"]:active::-webkit-slider-thumb{
   padding-bottom: 8px;
 }
 
+.py-\[13px\]{
+  padding-top: 13px;
+  padding-bottom: 13px;
+}
+
 .pb-0{
   padding-bottom: 0px;
 }
@@ -4413,6 +4422,10 @@ input[type="range"]:active::-webkit-slider-thumb{
 
 .leading-normal{
   line-height: 1.5;
+}
+
+.leading-\[29px\]{
+  line-height: 29px;
 }
 
 .tracking-\[-0\.00833em\]{

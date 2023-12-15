@@ -110,7 +110,7 @@
             <h1 class="font-[jost] text-[#380D37] text-[28px] max-lg:text-[22px] font-[500]">
                 {{ $product->title }}
             </h1>
-            <ul class="mt-6 mb-3 leading-[32px] max-lg:leading-[26px]">
+            <ul class="mt-4 mb-3 leading-[29px] max-lg:leading-[26px]">
                 <li class="max-lg:text-[18px] text-[20px] text-[#353535] font-[jost] font-[500]">Status:<span class="text-[#DC275C] ml-2">
                         @if ($product->upcomming)
                             <span class="badge badge-success">UP COMMING (<span
@@ -148,15 +148,21 @@
                 <li class=" text-[16px] max-lg:text-[14px] text-[#353535] font-[jost] font-[400]">
                     Features: {{ $product->special_feature }}
                 </li>
-                <li class=" max-lg:text-[18px] text-[20px] text-[#353535] font-[jost] font-[500] mt-[20px]">
-                    Price:</li>
-                <li class=" max-lg:text-[18px] text-[20px] text-[#DC275C] font-[jost] font-[700]">
+                <li class=" max-lg:text-[18px] text-[20px] text-[#353535] font-[jost] font-[500] mt-[16px]">
+                    Regular Price:</li>
+                <li class=" max-lg:text-[18px] text-[20px] text-[#DC275C] font-[jost] font-[700] line-through">
                     <span>{{ $product->final_price }}</span> TK
+                </li>
+                <li class=" max-lg:text-[18px] text-[20px] text-[#353535] font-[jost] font-[500] mt-[16px]">
+                    Discounted Price:
+                </li>
+                <li class=" max-lg:text-[18px] text-[20px] text-[#DC275C] font-[jost] font-[700]">
+                    1,27,000 TK
                 </li>
             </ul>
             <livewire:add-to-cart :id="$product->id"
-                button='<button class="text-[white] bg-gradient-to-r from-[#380D37] to-[#DC275C] max-lg:text-[18px] max-sm:text-[16px] text-[20px] py-[16px] max-lg:py-[14px] max-sm:py-[12px] px-[50px] max-lg:px-[40px] max-sm:px-[30px] font-[700] mt-auto rounded-[5px]">
-                    BUY NOW</button>' />
+                button='<button class="fill-up-btn text-[white] bg-gradient-to-r from-[#380D37] to-[#DC275C] max-lg:text-[18px] max-sm:text-[16px] text-[20px] py-[12px] max-lg:py-[14px] px-[40px] max-lg:px-[40px] max-sm:px-[30px] font-[700] mt-auto rounded-[5px]">
+                    BUY NOW</button>'/>
 
         </div>
     </div>
@@ -621,7 +627,7 @@
 
                     <div class="col-span-1">
                         <button type="button"
-                            class="inline-block rounded bg-gradient-to-r from-[#380D37] to-[#DC275C] px-6 max-sm:px-[10px] pb-2 pt-2.5 text-[#f2f2f2] text-[16px] max-sm:text-[11px] max-lg:text-[14px] font-[500] font-[jost]"
+                            class="fill-up-btn inline-block rounded bg-gradient-to-r from-[#380D37] to-[#DC275C] px-6 max-sm:px-[10px] pb-2 pt-2.5 text-[#f2f2f2] text-[16px] max-sm:text-[11px] max-lg:text-[14px] font-[500] font-[jost]"
                             data-te-toggle="modal" data-te-target="#exampleModalCenteredScrollable"
                             data-te-ripple-init data-te-ripple-color="light">
                             Write a review
