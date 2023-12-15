@@ -303,16 +303,22 @@
                 </div>
             </div>
         </div> --}}
-
-        <!-- Swiper -->
-        <div class="relative">
+        <div class="usa_prds">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
             <style>
                 .swiper {
-    width: 43%;
-    height: 100%;
-  }
+                    width: 100%;
+                    height: 100%;
+                }
 
-
+                .swiper-slide {
+                    text-align: center;
+                    font-size: 18px;
+                    background: #fff;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
 
                 .swiper-slide img {
                     display: block;
@@ -320,13 +326,9 @@
                     height: 100%;
                     object-fit: cover;
                 }
-
-                .swiper {
-                    margin-left: auto;
-                    margin-right: auto;
-                }
             </style>
-            <div class="swiper mySwiper">
+            <!-- Swiper -->
+            <div class="swiper mySwiper mt-[20px] mb-[20px]">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <div
@@ -390,8 +392,8 @@
                         <div
                             class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div class="">
-                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat" data-te-ripple-init
-                                    data-te-ripple-color="light">
+                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
+                                    data-te-ripple-init data-te-ripple-color="light">
                                     <a href="#">
                                         <img src="/storage/product/large-size-laptop.jpg" alt="">
                                     </a>
@@ -419,8 +421,8 @@
                         <div
                             class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div class="">
-                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat" data-te-ripple-init
-                                    data-te-ripple-color="light">
+                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
+                                    data-te-ripple-init data-te-ripple-color="light">
                                     <a href="#">
                                         <img src="/storage/product/large-size-laptop.jpg" alt="">
                                     </a>
@@ -448,8 +450,8 @@
                         <div
                             class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div class="">
-                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat" data-te-ripple-init
-                                    data-te-ripple-color="light">
+                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
+                                    data-te-ripple-init data-te-ripple-color="light">
                                     <a href="#">
                                         <img src="/storage/product/large-size-laptop.jpg" alt="">
                                     </a>
@@ -477,8 +479,8 @@
                         <div
                             class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div class="">
-                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat" data-te-ripple-init
-                                    data-te-ripple-color="light">
+                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
+                                    data-te-ripple-init data-te-ripple-color="light">
                                     <a href="#">
                                         <img src="/storage/product/large-size-laptop.jpg" alt="">
                                     </a>
@@ -506,8 +508,8 @@
                         <div
                             class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div class="">
-                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat" data-te-ripple-init
-                                    data-te-ripple-color="light">
+                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
+                                    data-te-ripple-init data-te-ripple-color="light">
                                     <a href="#">
                                         <img src="/storage/product/large-size-laptop.jpg" alt="">
                                     </a>
@@ -535,8 +537,8 @@
                         <div
                             class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div class="">
-                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat" data-te-ripple-init
-                                    data-te-ripple-color="light">
+                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
+                                    data-te-ripple-init data-te-ripple-color="light">
                                     <a href="#">
                                         <img src="/storage/product/large-size-laptop.jpg" alt="">
                                     </a>
@@ -564,8 +566,341 @@
                         <div
                             class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div class="">
-                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat" data-te-ripple-init
-                                    data-te-ripple-color="light">
+                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
+                                    data-te-ripple-init data-te-ripple-color="light">
+                                    <a href="#">
+                                        <img src="/storage/product/large-size-laptop.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="mb-auto">
+                                    <a href="#"
+                                        class="mb-auto text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-300 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
+                                        Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB, Brand New Cloud grey
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div
+                                class=" flex justify-between gap-5 text-[14px] mt-auto font-[jost] font-[700] py-[10px] leading-[20.23px]">
+                                <span href="#" class=" text-[#DC275C]">
+                                    1,50,000 TK
+                                </span>
+                                <a class="text-[#380D37]">
+                                    Add to Cart
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                {{-- <div class="swiper-pagination"></div> --}}
+            </div>
+
+            <!-- Swiper JS -->
+            <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+            <!-- Initialize Swiper -->
+            <script>
+                var swiper = new Swiper(".mySwiper", {
+                    slidesPerView: 5,
+                    spaceBetween: 10,
+                    // freeMode: true,
+                    // cssMode: true,
+                    navigation: {
+                        nextEl: ".swiper-button-next",
+                        prevEl: ".swiper-button-prev",
+                    },
+                    // pagination: {
+                    //     el: ".swiper-pagination",
+                    // },
+                    mousewheel: true,
+                    keyboard: true,
+              
+                });
+                var swiper = new Swiper('.swiper-container', {
+                // ...
+                breakpoints: {
+                    // when window width is >= 320px
+                    320: {
+                    slidesPerView: 1,
+                    spaceBetween: 10
+                    },
+                    // when window width is >= 480px
+                    480: {
+                    slidesPerView: 2,
+                    spaceBetween: 20
+                    },
+                    // ...
+                }
+                });
+            </script>
+        </div>
+        <div class="hidden asian_prds">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+            <style>
+                .swiper {
+                    width: 100%;
+                    height: 100%;
+                }
+
+                .swiper-slide {
+                    text-align: center;
+                    font-size: 18px;
+                    background: #fff;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .swiper-slide img {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            </style>
+            <!-- Swiper -->
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div
+                            class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
+                            <div class="">
+                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
+                                    data-te-ripple-init data-te-ripple-color="light">
+                                    <a href="#">
+                                        <img src="/storage/product/large-size-laptop.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="mb-auto">
+                                    <a href="#"
+                                        class="mb-auto text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-300 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
+                                        Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB, Brand New Cloud grey
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div
+                                class=" flex justify-between gap-5 text-[14px] mt-auto font-[jost] font-[700] py-[10px] leading-[20.23px]">
+                                <span href="#" class=" text-[#DC275C]">
+                                    1,50,000 TK
+                                </span>
+                                <a class="text-[#380D37]">
+                                    Add to Cart
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div
+                            class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
+                            <div class="">
+                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
+                                    data-te-ripple-init data-te-ripple-color="light">
+                                    <a href="#">
+                                        <img src="/storage/product/large-size-laptop.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="mb-auto">
+                                    <a href="#"
+                                        class="mb-auto text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-300 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
+                                        Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB, Brand New Cloud grey
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div
+                                class=" flex justify-between gap-5 text-[14px] mt-auto font-[jost] font-[700] py-[10px] leading-[20.23px]">
+                                <span href="#" class=" text-[#DC275C]">
+                                    1,50,000 TK
+                                </span>
+                                <a class="text-[#380D37]">
+                                    Add to Cart
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div
+                            class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
+                            <div class="">
+                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
+                                    data-te-ripple-init data-te-ripple-color="light">
+                                    <a href="#">
+                                        <img src="/storage/product/large-size-laptop.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="mb-auto">
+                                    <a href="#"
+                                        class="mb-auto text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-300 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
+                                        Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB, Brand New Cloud grey
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div
+                                class=" flex justify-between gap-5 text-[14px] mt-auto font-[jost] font-[700] py-[10px] leading-[20.23px]">
+                                <span href="#" class=" text-[#DC275C]">
+                                    1,50,000 TK
+                                </span>
+                                <a class="text-[#380D37]">
+                                    Add to Cart
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div
+                            class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
+                            <div class="">
+                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
+                                    data-te-ripple-init data-te-ripple-color="light">
+                                    <a href="#">
+                                        <img src="/storage/product/large-size-laptop.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="mb-auto">
+                                    <a href="#"
+                                        class="mb-auto text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-300 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
+                                        Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB, Brand New Cloud grey
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div
+                                class=" flex justify-between gap-5 text-[14px] mt-auto font-[jost] font-[700] py-[10px] leading-[20.23px]">
+                                <span href="#" class=" text-[#DC275C]">
+                                    1,50,000 TK
+                                </span>
+                                <a class="text-[#380D37]">
+                                    Add to Cart
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div
+                            class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
+                            <div class="">
+                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
+                                    data-te-ripple-init data-te-ripple-color="light">
+                                    <a href="#">
+                                        <img src="/storage/product/large-size-laptop.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="mb-auto">
+                                    <a href="#"
+                                        class="mb-auto text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-300 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
+                                        Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB, Brand New Cloud grey
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div
+                                class=" flex justify-between gap-5 text-[14px] mt-auto font-[jost] font-[700] py-[10px] leading-[20.23px]">
+                                <span href="#" class=" text-[#DC275C]">
+                                    1,50,000 TK
+                                </span>
+                                <a class="text-[#380D37]">
+                                    Add to Cart
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div
+                            class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
+                            <div class="">
+                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
+                                    data-te-ripple-init data-te-ripple-color="light">
+                                    <a href="#">
+                                        <img src="/storage/product/large-size-laptop.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="mb-auto">
+                                    <a href="#"
+                                        class="mb-auto text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-300 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
+                                        Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB, Brand New Cloud grey
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div
+                                class=" flex justify-between gap-5 text-[14px] mt-auto font-[jost] font-[700] py-[10px] leading-[20.23px]">
+                                <span href="#" class=" text-[#DC275C]">
+                                    1,50,000 TK
+                                </span>
+                                <a class="text-[#380D37]">
+                                    Add to Cart
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div
+                            class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
+                            <div class="">
+                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
+                                    data-te-ripple-init data-te-ripple-color="light">
+                                    <a href="#">
+                                        <img src="/storage/product/large-size-laptop.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="mb-auto">
+                                    <a href="#"
+                                        class="mb-auto text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-300 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
+                                        Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB, Brand New Cloud grey
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div
+                                class=" flex justify-between gap-5 text-[14px] mt-auto font-[jost] font-[700] py-[10px] leading-[20.23px]">
+                                <span href="#" class=" text-[#DC275C]">
+                                    1,50,000 TK
+                                </span>
+                                <a class="text-[#380D37]">
+                                    Add to Cart
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div
+                            class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
+                            <div class="">
+                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
+                                    data-te-ripple-init data-te-ripple-color="light">
+                                    <a href="#">
+                                        <img src="/storage/product/large-size-laptop.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="mb-auto">
+                                    <a href="#"
+                                        class="mb-auto text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-300 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
+                                        Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB, Brand New Cloud grey
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div
+                                class=" flex justify-between gap-5 text-[14px] mt-auto font-[jost] font-[700] py-[10px] leading-[20.23px]">
+                                <span href="#" class=" text-[#DC275C]">
+                                    1,50,000 TK
+                                </span>
+                                <a class="text-[#380D37]">
+                                    Add to Cart
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div
+                            class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
+                            <div class="">
+                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
+                                    data-te-ripple-init data-te-ripple-color="light">
                                     <a href="#">
                                         <img src="/storage/product/large-size-laptop.jpg" alt="">
                                     </a>
@@ -594,40 +929,29 @@
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-pagination"></div>
             </div>
+
+            <!-- Swiper JS -->
+            <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+            <!-- Initialize Swiper -->
             <script>
                 var swiper = new Swiper(".mySwiper", {
                     slidesPerView: 5,
                     spaceBetween: 10,
-
-                    loop: true,
-                    pagination: {
-                        el: ".swiper-pagination",
-                        clickable: true,
-                    },
+                    freeMode: true,
+                    // cssMode: true,
                     navigation: {
                         nextEl: ".swiper-button-next",
                         prevEl: ".swiper-button-prev",
                     },
+                    // pagination: {
+                    //     el: ".swiper-pagination",
+                    // },
+                    mousewheel: true,
+                    keyboard: true,
                 });
-                breakpoints: {
-                    640: {
-                        slidesPerView: 2,
-                        spaceBetween: 20,
-                    },
-                    768: {
-                        slidesPerView: 4,
-                        spaceBetween: 40,
-                    },
-                    1024: {
-                        slidesPerView: 5,
-                        spaceBetween: 50,
-                    },
-                }
             </script>
         </div>
-        <!-- Add Pagination -->
-        <div class="swiper-pagination"></div>
-        {{-- </div> --}}
     </section>
     <div class='mt-[40px] mb-[30px]'>
         <div class="container h-[2px] bg-[#380D37]"></div>
