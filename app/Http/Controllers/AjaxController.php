@@ -109,10 +109,24 @@ class AjaxController extends Controller
         $delete = $model::find($req->id);
         if ($delete) {
             $delete->delete();
-            return response()->json($delete);
+            if ($user = auth()->user()) {
+                $n['carts'] = Cart::with('product')->where('user_id', $user->id)->where('order_id', null)->latest()->get();
+            } else {
+                $n['carts'] = Cart::with('product')->where('ip', request()->ip())->where('order_id', null)->latest()->get();
+            }
+            return response()->json($n);
         } else {
             return response()->json(['msg' => 'Product Not found']);
         }
+    }
+
+    public function sync(){
+        if ($user = auth()->user()) {
+            $n['carts'] = Cart::with('product')->where('user_id', $user->id)->where('order_id', null)->latest()->get();
+        } else {
+            $n['carts'] = Cart::with('product')->where('ip', request()->ip())->where('order_id', null)->latest()->get();
+        }
+        return response()->json($n);
     }
 
     public function shopSorting(Request $req)
@@ -194,7 +208,7 @@ class AjaxController extends Controller
         }else{
             $data['ip'] = $req->ip();
         }
-        
+
         $data['rate'] = (collect($req->review_stars))->max();
         $save = ProductReview::create($data);
         if ($save) {

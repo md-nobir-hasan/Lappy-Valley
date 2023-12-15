@@ -159,15 +159,16 @@ class Checkout extends Component
 
     public function render()
     {
-        $this->name = auth()->user()->name;
-        $this->l_name = auth()->user()->l_name;
-        $this->email = auth()->user()->email;
-        $this->phone = auth()->user()->phone;
 
-        if ($id = Auth()->user()) {
-            $n['carts'] = Cart::with(['product'])->where('user_id', $id->id)->where('order_id', null)->get();
+
+        if ($user = Auth()->user()) {
+            $n['carts'] = Cart::with(['product'])->where('user_id', $user->id)->where('order_id', null)->latest()->get();
+            $this->name = $user->name;
+            $this->l_name = $user->l_name;
+            $this->email = $user->email;
+            $this->phone = $user->phone;
         } else {
-            $n['carts'] = Cart::with(['product'])->where('ip', request()->ip())->where('order_id', null)->get();
+            $n['carts'] = Cart::with(['product'])->where('ip', request()->ip())->where('order_id', null)->latest()->get();
         }
         $n['divissions'] = Divission::get();
         $n['shippings'] = Shipping::where('status', 'active')->get();

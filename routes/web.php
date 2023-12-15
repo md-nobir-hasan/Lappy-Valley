@@ -101,9 +101,11 @@ Route::get('user/logout', [FrontendController::class, 'logout'])->name('user.log
 // Route::post('user/register', [FrontendController::class, 'registerSubmit'])->name('register.submit');
 // Reset password
 Route::post('password-reset', [FrontendController::class, 'showResetForm'])->name('password.reset');
+
 // Socialite
-Route::get('login/{provider}/', [LoginController::class, 'redirect'])->name('login.redirect');
-Route::get('login/{provider}/callback/', [LoginController::class, 'Callback'])->name('login.callback');
+Route::get('login/{provider}', [LoginController::class, 'redirect'])->name('login.redirect');
+Route::get('login/{provider}/callback', [LoginController::class, 'Callback'])->name('login.callback');
+// Route::get('login/google/callback', [LoginController::class, 'check'])->name('login.callback');
 
 
 // Frontend Routes
@@ -328,6 +330,7 @@ Route::get('/about-us', AboutUs::class)->name('about_us');
 Route::get('/plus',[AjaxController::class,'plus'])->name('plus');
 Route::get('/minus',[AjaxController::class, 'minus'])->name('minus');
 Route::get('/delete',[AjaxController::class, 'delete'])->name('delete');
+Route::get('/sync',[AjaxController::class, 'sync'])->name('sync');
 Route::get('/add-to-cart',[AjaxController::class,'addToCart'])->name('add_to_cart');
 Route::get('/order-received/{id}',OrderReceived::class)->name('order.receive');
 Route::post('/product-review',[AjaxController::class, 'productReview'])->name('product_review');
