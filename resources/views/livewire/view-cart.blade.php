@@ -248,7 +248,7 @@
      <div class="flex justify-end my-[60px] max-sm:my-[35px]">
          <a href="{{ route('checkout') }}" wire:navigate>
              <button
-                 class="bg-gradient-to-r from-[#380D37] to-[#DC275C] py-[10px] px-[40px] max-sm:px-[25px] text-[14px] max-sm:text-[12px] text-[#fff] font-[jost] font-[500] rounded-[5px]">Confirm
+                 class="fill-up-btn bg-gradient-to-r from-[#380D37] to-[#DC275C] py-[10px] px-[40px] max-sm:px-[25px] text-[14px] max-sm:text-[12px] text-[#fff] font-[jost] font-[500] rounded-[5px]">Confirm
                  Order</button>
          </a>
      </div>
