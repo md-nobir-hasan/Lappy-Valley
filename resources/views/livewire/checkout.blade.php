@@ -30,9 +30,9 @@
              <h1 class="text-[20px] text-[#353535] font-[jost] font-[500] mt-16 max-lg:mt-8 mb-4 mx-auto ">Checkout</h1>
          </div>
 
-         <section class="grid grid-cols-3 gap-6 max-lg:grid-cols-1">
+         <section class="grid grid-cols-3 gap-6 max-lg:gap-[0px] max-lg:grid-cols-1">
              {{-- Customer information  --}}
-             <div class="grid grid-cols-1 col-span-1 gap-6 max-lg:mx-auto">
+             <div class="grid grid-cols-1 col-span-1 max-lg:mb-[25px]">
                  <div class="border-[3px] border-[#380D37] rounded-[5px] p-[20px]">
                      <div class="flex gap-[15px] font-[jost] font-[500] text-center">
                          <div class="w-[22px] h-[22px] bg-[#380D37] text-[#F2F2F2] rounded-[100%] text-center mt-[5px]">
@@ -44,7 +44,7 @@
                          </div>
                      </div>
 
-                     <div class="flex gap-[15px] my-[10px] w-full">
+                     <div class="flex max-xl:flex-col gap-[15px] my-[10px] w-full">
                          <div class="w-full">
                              <label class="block font-[jost] font-[500] text-[#353535] text-[12px]" for="name">
                                  First Name*</label>
@@ -111,7 +111,7 @@
                          @enderror
                      </div>
 
-                     <div class="flex gap-[15px] my-[10px] w-full">
+                     <div class="flex max-xl:flex-col gap-[15px] my-[10px] w-full">
                          <div class="w-full">
                              <label class="block font-[jost] font-[500] text-[#353535] text-[12px]"
                                  for="city">City*</label>
@@ -177,14 +177,14 @@
                              <h1 class="text-[#353535] text-[14px] font-[jost] font-[500]">Select Payment Method</h1>
                          </div>
                          <div class="my-[10px] flex items-center gap-[5px]">
-                             <input name="payment_method" id="cod" class="w-[14px] h-[14px] text-[#380D37]"
+                             <input name="payment_method" id="cod" class="w-[14px] h-[14px] accent-[#380D37]"
                                   type="radio" value="cod"
                                  wire:model='payment_method'>
                              <label class="text-[#353535] text-[14px] font-[jost] font-[400]" for="cod">
                                  Cash on Delivery</label>
                          </div>
                          <div class="my-[10px] flex items-center gap-[5px]">
-                             <input id="online" name="payment_method" class="w-[14px] h-[14px] text-[#380D37]"
+                             <input id="online" name="payment_method" class="w-[14px] h-[14px] accent-[#380D37]"
                                  type="radio" value="online"
                                  wire:model='payment_method'>
                              <label class="text-[#353535] text-[14px] font-[jost] font-[400]" for="online">
@@ -212,7 +212,8 @@
                              <div>
                                  <h1
                                      class="text-[#380D37] text-[20px] font-[jost] font-[500] tracking-[.5px] text-center">
-                                     Delivery Method</h1>
+                                     Delivery Method
+                                </h1>
                              </div>
                          </div>
                          <div class="my-[10px]">
@@ -223,7 +224,7 @@
                              <div class="my-[10px] flex items-center gap-[5px]">
                                  <input @checked($loop->first) name="shipping_id"
                                      id="shipping{{ $shipping->id }}"
-                                     value="{{ $shipping->id }}" class="w-[14px] h-[14px] text-[#380D37]"
+                                     value="{{ $shipping->id }}" class="w-[14px] h-[14px] accent-[#380D37]"
                                      type="radio" wire:model='shipping_id' @change="shipChange({{ $shipping->price }})">
                                  <label class="text-[#353535] text-[14px] font-[jost] font-[400]"
                                      for="shipping{{ $shipping->id }}">
@@ -319,8 +320,8 @@
              <span class="text-[red] block text-right mb-1">{{$err_msg}}</span>
              @endif
              <button
-                 class="ml-auto flex justify-center items-center rounded-[4px] px-[20px] py-[10px] text-[16px] text-center text-[#f2f2f2] font-[jost] font-[500] bg-gradient-to-r from-[#380D37] to-[#DC275C]">Confirm
-                 <span>Order</span>
+                 class="fill-up-btn ml-auto flex justify-center items-center rounded-[4px] px-[20px] py-[10px] text-[16px] text-center text-[#f2f2f2] font-[jost] font-[500] bg-gradient-to-r from-[#380D37] to-[#DC275C]">
+                 Confirm Order
                  <div wire:loading wire:target='orderSubmit'
                      class="inline-block ml-2 h-6 w-6 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-success motion-reduce:animate-[spin_1.5s_linear_infinite]"
                      role="status">
