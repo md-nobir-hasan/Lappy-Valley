@@ -101,9 +101,11 @@ Route::get('user/logout', [FrontendController::class, 'logout'])->name('user.log
 // Route::post('user/register', [FrontendController::class, 'registerSubmit'])->name('register.submit');
 // Reset password
 Route::post('password-reset', [FrontendController::class, 'showResetForm'])->name('password.reset');
+
 // Socialite
-Route::get('login/{provider}/', [LoginController::class, 'redirect'])->name('login.redirect');
-Route::get('login/{provider}/callback/', [LoginController::class, 'Callback'])->name('login.callback');
+Route::get('login/{provider}', [LoginController::class, 'redirect'])->name('login.redirect');
+Route::get('login/{provider}/callback', [LoginController::class, 'Callback'])->name('login.callback');
+// Route::get('login/google/callback', [LoginController::class, 'check'])->name('login.callback');
 
 
 // Frontend Routes
