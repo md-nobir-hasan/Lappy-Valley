@@ -3762,6 +3762,11 @@ input[type="range"]:active::-webkit-slider-thumb{
   padding-right: 46px;
 }
 
+.px-\[50px\]{
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
 .px-\[5px\]{
   padding-left: 5px;
   padding-right: 5px;
