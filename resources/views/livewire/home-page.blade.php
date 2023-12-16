@@ -18,75 +18,36 @@
     <!-- Hero Section  -->
     @if ($home_banner)
         <section>
-            <div class="relative max-xl:top-[68px]" x-data="{ active: true }">
+            <div class=" relative max-xl:top-[68px]" x-data="{ active: true }">
                 @php
                     $bnrs = explode(',', $home_banner->photo);
                 @endphp
                 @foreach ($bnrs as $banner)
-                    <div class="relative {{ $loop->first ? '' : ' hidden' }} slide ">
-                        <img class="" src="{{ $banner }}">
+                    <div class="{{ $loop->first ? '' : ' hidden' }} slide ">
+                        <img src="{{ $banner }}">
                     </div>
                 @endforeach
                 <!-- The previous button -->
+             <div>
                 <a id="move_back" value='0'
-                    class="slide_icon absolute left-0 top-1/2 p-4 -translate-y-1/2 -translate-x-[42px] text-[40px] text-blue-500 opacity-50 hover:opacity-100 cursor-pointer">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-[18px] h-[36px] max-md:w-[25px] max-md:h-[20px]"
-                        viewBox="0 0 23 40" fill="none">
-                        <path d="M21 2L3 20L21 38" stroke="#999999" stroke-opacity="1" stroke-width="5" />
-                    </svg>
-                </a>
-                <!-- The next button -->
-                <a id="move_front" value='0'
-                    class="slide_icon absolute right-0 top-1/2 p-4 -translate-y-1/2 translate-x-[42px] text-[40px] text-blue-500 opacity-50 hover:opacity-100 cursor-pointer"><svg
-                        xmlns="http://www.w3.org/2000/svg" class="w-[18px] h-[36px] max-md:w-[25px] max-md:h-[20px]"
-                        viewBox="0 0 23 40" fill="none">
-                        <path :class="{ 'text-[black]': active }" d="M2 2L20 20L2 38" stroke="#999999"
-                            stroke-opacity="0.5" stroke-width="5" />
-                    </svg></i></a>
+                class="slide_icon absolute left-0 top-1/2 p-4 -translate-y-1/2 -translate-x-[42px] text-[40px] text-blue-500 opacity-50 hover:opacity-100 cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-[18px] h-[36px] max-md:w-[25px] max-md:h-[20px]"
+                    viewBox="0 0 23 40" fill="none">
+                    <path d="M21 2L3 20L21 38" stroke="#999999" stroke-opacity="1" stroke-width="5" />
+                </svg>
+            </a>
+            <!-- The next button -->
+            <a id="move_front" value='0'
+                class="slide_icon absolute right-0 top-1/2 p-4 -translate-y-1/2 translate-x-[42px] text-[40px] text-blue-500 opacity-50 hover:opacity-100 cursor-pointer"><svg
+                    xmlns="http://www.w3.org/2000/svg" class="w-[18px] h-[36px] max-md:w-[25px] max-md:h-[20px]"
+                    viewBox="0 0 23 40" fill="none">
+                    <path :class="{ 'text-[black]': active }" d="M2 2L20 20L2 38" stroke="#999999"
+                        stroke-opacity="0.5" stroke-width="5" />
+                </svg>
+            </a>
+             </div>
             </div>
-            @script
-                <script>
-                    // Hero section slide
-                    $('#move_back').on('click', function() {
-                        console.log($(this).attr('value'));
-                        let current_slide = Number($(this).attr('value')) - 1;
-                        let total_slide = $('.slide').length;
-                        console.log(current_slide, total_slide, 'yes');
-                        // if(current_slide>=total_slide){
-                        //     current_slide == 1
-                        // }
-                        if (current_slide < 0) {
-
-                            current_slide = 2;
-                            console.log(current_slide, total_slide, 'after if');
-                        }
-                        $('.slide').hide();
-                        $('.slide').eq(current_slide).show();
-                        $('.slide_icon').attr('value', current_slide);
-                        $(this).addClass('slide-active');
-                        $('#move_front').removeClass('slide-active')
-                    })
-                    $('#move_front').on('click', function() {
-                        console.log($(this).attr('value'));
-                        let current_slide = Number($(this).attr('value')) + 1;
-                        let total_slide = $('.slide').length;
-                        console.log(current_slide, total_slide, 'yes');
-                        // if(current_slide>=total_slide){
-                        //     current_slide == 1
-                        // }
-                        if (current_slide > 2) {
-
-                            current_slide = 0;
-                            console.log(current_slide, total_slide, 'after if');
-                        }
-                        $('.slide').hide();
-                        $('.slide').eq(current_slide).show();
-                        $('.slide_icon').attr('value', current_slide);
-                        $(this).addClass('slide-active');
-                        $('#move_back').removeClass('slide-active')
-                    });
-                </script>
-            @endscript
+        
         </section>
     @endif
     <!-- --------hero--section --end ----  -->
@@ -202,7 +163,7 @@
                 items-center text-center rounded-[4px] bg-[#F2F2F2] text-[#380D37] font-[500] text-[20px] font-[jost]">
                 Asian
             </button>
-            <div class="container h-[2px] bg-[#380D37]"></div>
+            <div class="h-[2px] bg-[#380D37]"></div>
         </div>
 
         {{-- Swiper slide  --}}
@@ -226,7 +187,7 @@
                                 <div>
                                     <a href="{{ route('product.details', [$f_product->slug]) }}" wire:navigate>
                                         <p
-                                            class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] hover:underline-offset-4 transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
+                                            class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
                                             {{ $f_product->title }}
                                         </p>
                                     </a>
@@ -308,8 +269,8 @@
                     <div class="swiper-slide">
                         <div
                             class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div class="">
-                                <div class="image-container1">
+                            <div>
+                                <div>
                                     <a href="{{ route('product.details', [$f_product->slug]) }}" wire:navigate>
                                         <img src="{{ $f_product->img()[0] }}" alt="">
                                     </a>
@@ -576,8 +537,8 @@
                     <div class="swiper-slide">
                         <div
                             class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div class="">
-                                <div class="image-container1">
+                            <div>
+                                <div>
                                     <a href="{{ route('product.details', [$a_product->slug]) }}" wire:navigate>
                                         <img src="{{ $a_product->img()[0] }}" alt="">
                                     </a>
@@ -591,7 +552,7 @@
                             </div>
 
                             <div
-                                class=" flex justify-between gap-5 text-[14px] mt-auto font-[jost] font-[700] py-[10px] leading-[20.23px]">
+                                class="flex justify-between gap-5 text-[14px] mt-auto font-[jost] font-[700] py-[10px] leading-[20.23px]">
                                 <span class=" text-[#DC275C]">
                                     {{ number_format($a_product->final_price) }} TK
                                 </span>
@@ -835,7 +796,7 @@
         </div>
     </section>
     <div class='mt-[40px] mb-[30px]'>
-        <div class="container h-[2px] bg-[#380D37]"></div>
+        <div class="h-[2px] bg-[#380D37]"></div>
     </div>
 
     <!-- Differential Variants  -->
@@ -892,7 +853,7 @@
                  See More
             </a>
         </a>
-        <div class="container h-[2px] bg-[#380D37]"></div>
+        <div class="h-[2px] bg-[#380D37]"></div>
     </div>
     <!-- Currention code from this line upto footer  -->
     <section class="#about-us">
@@ -1627,6 +1588,47 @@
 </div>
 @script
     <script>
+        // ----hero--section---
+                 // Hero section slide
+                 $('#move_back').on('click', function() {
+                        console.log($(this).attr('value'));
+                        let current_slide = Number($(this).attr('value')) - 1;
+                        let total_slide = $('.slide').length;
+                        console.log(current_slide, total_slide, 'yes');
+                        // if(current_slide>=total_slide){
+                        //     current_slide == 1
+                        // }
+                        if (current_slide < 0) {
+
+                            current_slide = 2;
+                            console.log(current_slide, total_slide, 'after if');
+                        }
+                        $('.slide').hide();
+                        $('.slide').eq(current_slide).show();
+                        $('.slide_icon').attr('value', current_slide);
+                        $(this).addClass('slide-active');
+                        $('#move_front').removeClass('slide-active')
+                    })
+                    $('#move_front').on('click', function() {
+                        console.log($(this).attr('value'));
+                        let current_slide = Number($(this).attr('value')) + 1;
+                        let total_slide = $('.slide').length;
+                        console.log(current_slide, total_slide, 'yes');
+                        // if(current_slide>=total_slide){
+                        //     current_slide == 1
+                        // }
+                        if (current_slide > 2) {
+
+                            current_slide = 0;
+                            console.log(current_slide, total_slide, 'after if');
+                        }
+                        $('.slide').hide();
+                        $('.slide').eq(current_slide).show();
+                        $('.slide_icon').attr('value', current_slide);
+                        $(this).addClass('slide-active');
+                        $('#move_back').removeClass('slide-active')
+                    });
+        // hero---section--end-----
         $(document).ready(function() {
             $('.usa_btn').each(function(index) {
                 $(this).on('click', function() {

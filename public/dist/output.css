@@ -5391,6 +5391,26 @@ input[type="range"]:active::-webkit-slider-thumb{
   background-color: rgb(217 228 243 / var(--tw-bg-opacity));
 }
 
+.hover\:bg-blue-100:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(219 234 254 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-blue-500:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-blue-400:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(96 165 250 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-blue-700:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(29 78 216 / var(--tw-bg-opacity));
+}
+
 .hover\:fill-\[\#8b8b8b\]:hover{
   fill: #8b8b8b;
 }
@@ -6833,6 +6853,18 @@ input[type="range"]:active::-webkit-slider-thumb{
 
   .max-xl\:top-\[68px\]{
     top: 68px;
+  }
+
+  .max-xl\:top-\[px\]{
+    top: px;
+  }
+
+  .max-xl\:top-\[40px\]{
+    top: 40px;
+  }
+
+  .max-xl\:top-\[20px\]{
+    top: 20px;
   }
 
   .max-xl\:col-span-full{

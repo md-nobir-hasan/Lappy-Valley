@@ -1,5 +1,5 @@
  <div
-     class="bg-[#F2F2F2] h-[51px]  py-4  2xl:px-[100px] xl:px-[50px] max-xl:hidden flex justify-between text-center items-center">
+     class="bg-[#F2F2F2] h-[51px] py-4 2xl:px-[100px] xl:px-[50px] max-xl:hidden flex justify-between text-center items-center">
      <div class="relative">
          <a class="flex menue items-center whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]"
              href="javascript:void(0)" type="button" id="dropdownMenuButton2"
@@ -61,7 +61,7 @@
 
      <div class="relative">
          <a class="flex items-center whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]"
-             href="#" type="button" id="dropdownMenuButton2"
+         href="tel:0171264420" type="button" id="dropdownMenuButton2"
              >
              Hotline: +8880171264420
              <span class="ml-[4px] w-2">
