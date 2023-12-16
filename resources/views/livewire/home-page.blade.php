@@ -310,6 +310,37 @@
                             class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div class="">
                                 <div class="image-container1">
+<<<<<<< HEAD
+=======
+                                    <a href="{{ route('product.details', [$f_product->slug]) }}" wire:navigate>
+                                        <img src="{{ $f_product->img()[0] }}" alt="">
+                                    </a>
+                                </div>
+                                <div class="mb-auto">
+                                    <a href="{{ route('product.details', [$f_product->slug]) }}" wire:navigate
+                                        class="mb-auto text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-300 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
+                                          {{ $f_product->title }}
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div
+                                class=" flex justify-between gap-5 text-[14px] mt-auto font-[jost] font-[700] py-[10px] leading-[20.23px]">
+                                <span class=" text-[#DC275C]">
+                                    {{ number_format($f_product->final_price) }} TK
+                                </span>
+                                <livewire:add-to-cart :id="$f_product->id"
+                                        button='<span class="text-[#380D37]">Add to Cart</span>' />
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                    {{-- <div class="swiper-slide">
+                        <div
+                            class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
+                            <div class="">
+                                <div class="image-container1">
+>>>>>>> Development
                                     <a href="#">
                                         <img src="/storage/product/large-size-laptop.jpg" alt="">
                                     </a>
