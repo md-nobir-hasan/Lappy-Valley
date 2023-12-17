@@ -5366,9 +5366,9 @@ input[type="range"]:active::-webkit-slider-thumb{
   background-color: unset;
 }
 
-.hover\:bg-blue-950:hover{
+.hover\:bg-blue-700:hover{
   --tw-bg-opacity: 1;
-  background-color: rgb(23 37 84 / var(--tw-bg-opacity));
+  background-color: rgb(29 78 216 / var(--tw-bg-opacity));
 }
 
 .hover\:bg-neutral-100:hover{
