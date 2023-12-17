@@ -1,9 +1,5 @@
 <div class="px-[100px] max-md:px-[45px] max-lg:px-[70px] max-sm:px-[15px] mx-auto max-sm:mt-[70px] max-xl:mt-[100px]">
 
-    <form method="POST" action="{{ route('logout') }}" class="hidden">
-        @csrf
-        <button class="p4 bg-[red] rounded">Logout</button>
-    </form>
     {{-- Alert message  --}}
     @if ($error = session('error'))
         <script>
@@ -18,13 +14,13 @@
     <!-- Hero Section  -->
     @if ($home_banner)
         <section>
-            <div class=" relative max-xl:top-[68px]" x-data="{ active: true }">
+            <div class="relative container max-xl:top-[68px]" x-data="{ active: true }">
                 @php
                     $bnrs = explode(',', $home_banner->photo);
                 @endphp
                 @foreach ($bnrs as $banner)
-                    <div class="{{ $loop->first ? '' : ' hidden' }} slide ">
-                        <img src="{{ $banner }}">
+                    <div class="{{ $loop->first ? '' : ' hidden' }} slide w-full object-fill bg-cover bg-center">
+                        <img class="w-full bg-cover bg-center" src="{{ $banner }}">
                     </div>
                 @endforeach
                 <!-- The previous button -->
@@ -269,7 +265,7 @@
                     <div class="swiper-slide">
                         <div
                             class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div>
+                            <div class="image-container">
                                 <div>
                                     <a href="{{ route('product.details', [$f_product->slug]) }}" wire:navigate>
                                         <img src="{{ $f_product->img()[0] }}" alt="">
@@ -278,7 +274,7 @@
                                 <div class="mb-auto">
                                     <a href="{{ route('product.details', [$f_product->slug]) }}" wire:navigate
                                         class="mb-auto text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-300 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                          {{ $f_product->title }}
+                                          {{ Str::of($f_product->title)->words(5) }}
                                     </a>
                                 </div>
                             </div>
@@ -823,7 +819,7 @@
             <div class="container h-[2px] bg-[#380D37]"></div>
         </div>
         {{-- @dd($dpds) --}}
-        <!-- Product  -->
+        {{-- <!-- Product  --> --}}
         <div class="usa_prds">
             <div
                 class="grid grid-cols-5 max-sm:grid-cols-1 max-sm:gap-[2px] max-md:grid-cols-2 max-md:gap-[4px] max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 mt-6 mb-[78px] max-sm:mb-[50px]">
@@ -1678,7 +1674,6 @@
                 }
             });
         });
-
         var swiper = new Swiper(".mySwiper", {
                     slidesPerView: 5,
                     spaceBetween: 10,

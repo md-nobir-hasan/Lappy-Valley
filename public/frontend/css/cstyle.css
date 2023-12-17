@@ -35,13 +35,13 @@
   }
 
 /* -----img---light--effect--- */
-/* .image-container1 img {
+.image-container img {
     transition: filter 0.3s ease-in-out;
   }
 
-  .image-container1:hover img {
+  .image-container:hover img {
     filter: brightness(1.2); 
-  } */
+  }
 /* ----------swiper-lider----------- */
 .swiper {
     width: 100%;
@@ -295,7 +295,7 @@
         background: #C5C5C5 !important;
         margin-left: 4px !important;
         margin-right: 4px !important;
-        outline: none;
+        /* outline: none; */
     }
 
     .arrow {
@@ -354,7 +354,7 @@
     background: #C5C5C5 !important;
     margin-left: 8px;
     margin-right: 8px;
-    outline: none;
+    /* outline: none; */
 }
 
 .owl-dots .owl-dot.active {
