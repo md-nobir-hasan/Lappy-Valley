@@ -1,6 +1,6 @@
 {{-- @foreach ($products as $product) --}}
 <div
-    class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
+    class="w-[221px] max-md:w-full mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
     <div class="image-container">
         <a href="{{ route('product.details', [$product->slug]) }}" wire:navigate>
             @if ($product->photo)

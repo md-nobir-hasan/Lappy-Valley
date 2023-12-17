@@ -2845,10 +2845,6 @@ input[type="range"]:active::-webkit-slider-thumb{
   gap: 50px;
 }
 
-.gap-\[55px\]{
-  gap: 55px;
-}
-
 .gap-\[5px\]{
   gap: 5px;
 }
@@ -3356,6 +3352,11 @@ input[type="range"]:active::-webkit-slider-thumb{
   background-color: rgb(56 13 55 / var(--tw-bg-opacity));
 }
 
+.bg-\[\#380E37\]{
+  --tw-bg-opacity: 1;
+  background-color: rgb(56 14 55 / var(--tw-bg-opacity));
+}
+
 .bg-\[\#380d37\]{
   --tw-bg-opacity: 1;
   background-color: rgb(56 13 55 / var(--tw-bg-opacity));
@@ -3421,11 +3422,6 @@ input[type="range"]:active::-webkit-slider-thumb{
 
 .bg-\[hsl\(0\2c 0\%\2c 98\.4\%\2c 0\.2\)\]{
   background-color: hsl(0,0%,98.4%,0.2);
-}
-
-.bg-\[red\]{
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 0 0 / var(--tw-bg-opacity));
 }
 
 .bg-\[rgba\(0\2c 0\2c 0\2c 0\.4\)\]{
@@ -3546,6 +3542,10 @@ input[type="range"]:active::-webkit-slider-thumb{
   background-clip: padding-box;
 }
 
+.bg-center{
+  background-position: center;
+}
+
 .bg-no-repeat{
   background-repeat: no-repeat;
 }
@@ -3556,6 +3556,11 @@ input[type="range"]:active::-webkit-slider-thumb{
 
 .fill-current{
   fill: currentColor;
+}
+
+.object-fill{
+  -o-object-fit: fill;
+     object-fit: fill;
 }
 
 .object-center{
@@ -3747,6 +3752,11 @@ input[type="range"]:active::-webkit-slider-thumb{
 .px-\[46px\]{
   padding-left: 46px;
   padding-right: 46px;
+}
+
+.px-\[50px\]{
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 .px-\[5px\]{
@@ -6907,8 +6917,8 @@ input[type="range"]:active::-webkit-slider-thumb{
     align-items: center;
   }
 
-  .max-xl\:justify-around{
-    justify-content: space-around;
+  .max-xl\:justify-between{
+    justify-content: space-between;
   }
 
   .max-xl\:gap-0{
@@ -7336,6 +7346,10 @@ input[type="range"]:active::-webkit-slider-thumb{
     gap: 8px;
   }
 
+  .max-md\:gap-\[10px\]{
+    gap: 10px;
+  }
+
   .max-md\:rounded-\[4px\]{
     border-radius: 4px;
   }
@@ -7714,6 +7728,10 @@ input[type="range"]:active::-webkit-slider-thumb{
 
   .max-sm\:gap-\[2px\]{
     gap: 2px;
+  }
+
+  .max-sm\:gap-\[5px\]{
+    gap: 5px;
   }
 
   .max-sm\:border-\[1px\]{

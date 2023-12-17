@@ -89,7 +89,7 @@
     </style>
 
     <header
-        class="h-[78px] z-[10000] max-sm:h-[50px] max-xl:h-[68px] max-xl:fixed max-xl:top-0 max-xl:left-0 max-xl:right-0 max-xl:z-150 max-xl:flex max-xl:justify-around max-xl:items-center
+        class="h-[78px] z-[10000] max-sm:h-[50px] max-xl:h-[68px] max-xl:fixed max-xl:top-0 max-xl:left-0 max-xl:right-0 max-xl:z-150 max-xl:flex max-xl:justify-between max-xl:items-center
      bg-gradient-to-r from-[#380D37] to-[#DC275C] text-[#f2f2f2] px-[72px] max-xl:px-[40px]">
         {{-- ------responsive---show----- --}}
         <div class="xl:hidden max-xl:block">
@@ -275,7 +275,7 @@
             </div>
         </div>
         {{-- responsive ---show -----end --}}
-        <div class="flex items-center justify-between h-full  py-[10px] gap-[55px]">
+        <div class="flex items-center justify-between h-full  py-[10px] gap-[30px]">
             <!-- <!- Logo -->
             <div class='items-center'>
                 <a href="{{ route('home') }}" wire:navigate>

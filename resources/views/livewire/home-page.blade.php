@@ -14,7 +14,7 @@
     <!-- Hero Section  -->
     @if ($home_banner)
         <section>
-            <div class="relative container max-xl:top-[68px]" x-data="{ active: true }">
+            <div class="relative container " x-data="{ active: true }">
                 @php
                     $bnrs = explode(',', $home_banner->photo);
                 @endphp
@@ -49,7 +49,7 @@
     <!-- --------hero--section --end ----  -->
 
     <!-- Feature Laptops -->
-    <section class='mt-[50px] max-xl:mt-[100px]'>
+    <section class='mt-[50px]'>
         <div class="py-1 text-center">
             <h2
                 class="font-[jost] text-[40px] font-[500] max-lg:text-[30px] max-md:text-[25px] max-sm:text-[24px] text-[#353535]">
@@ -74,7 +74,7 @@
         <!-- Product  -->
         <div class="usa_prds">
             <div
-                class="grid grid-cols-5 max-sm:grid-cols-1 max-sm:gap-[2px]  max-md:grid-cols-2 max-md:gap-[4px] max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 mt-6 mb-[78px] max-sm:mb-[50px]">
+                class="grid grid-cols-5 max-sm:grid-cols-2 max-md:grid-cols-2 max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 mt-6 mb-[78px] max-sm:mb-[50px]">
                 @foreach ($features->where('cat_id', 7) as $product)
                     <x-product :product="$product"></x-product>
                     {{-- <livewire:products :product="$product" /> --}}
@@ -84,7 +84,7 @@
 
         <div class="hidden asian_prds">
             <div
-                class="grid grid-cols-5  max-sm:grid-cols-1 max-sm:gap-[2px]  max-md:grid-cols-2 max-md:gap-[4px] max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 mt-6 mb-[78px] max-sm:mb-[50px]">
+                class="grid grid-cols-5 max-md:grid-cols-2  max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 mt-6 mb-[78px] max-sm:mb-[50px]">
                 @foreach ($features->where('cat_id', 6) as $product)
                     <x-product :product="$product"></x-product>
                     {{-- <livewire:products :product="$product" /> --}}
@@ -123,21 +123,21 @@
             <div class="col-span-2 max-md:mt-[20px]">
                 <img class="" src="/storage/product/Hero-Image.svg" alt="">
             </div>
-        </div>
-
-        <!-- Products  -->
-        <!-- Product  -->
-        <div
-            class="grid grid-cols-5 max-sm:grid-cols-1 max-sm:gap-[2px] max-md:grid-cols-2 max-md:gap-[4px] max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 mt-6 mb-[78px] max-sm:mb-[50px]">
-            {{-- @for ($i = 1; $i < 6; $i++)
-                <livewire:products />
-            @endfor --}}
-            @foreach ($new_arrival->take(5) as $product)
-                <x-product :product="$product"></x-product>
-            @endforeach
-        </div>
+        </div> 
     </section>
-
+ <!-- Product  -->
+    <section>
+        <div
+        class="grid grid-cols-5 max-md:grid-cols-2 max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 mt-6 mb-[78px] max-sm:mb-[50px]">
+        {{-- @for ($i = 1; $i < 6; $i++)
+            <livewire:products />
+        @endfor --}}
+        @foreach ($new_arrival->take(5) as $product)
+            <x-product :product="$product"></x-product>
+        @endforeach
+    </div>
+    </section>
+<!-- Product  -->
     <!-- Feature Laptops Sliders -->
     <section>
         <div class="py-1 text-center">
@@ -264,7 +264,7 @@
                     @foreach ($features->where('cat_id', 7) as $f_product)
                     <div class="swiper-slide">
                         <div
-                            class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
+                            class="w-[221px] max-xl:w-full mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div class="image-container">
                                 <div>
                                     <a href="{{ route('product.details', [$f_product->slug]) }}" wire:navigate>
@@ -532,7 +532,7 @@
                     @foreach ($features->where('cat_id', 6) as $a_product)
                     <div class="swiper-slide">
                         <div
-                            class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
+                            class="w-[221px]  mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div>
                                 <div>
                                     <a href="{{ route('product.details', [$a_product->slug]) }}" wire:navigate>
@@ -822,7 +822,7 @@
         {{-- <!-- Product  --> --}}
         <div class="usa_prds">
             <div
-                class="grid grid-cols-5 max-sm:grid-cols-1 max-sm:gap-[2px] max-md:grid-cols-2 max-md:gap-[4px] max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 mt-6 mb-[78px] max-sm:mb-[50px]">
+                class="grid grid-cols-5 max-md:grid-cols-2 max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 mt-6 mb-[78px] max-sm:mb-[50px]">
                 @foreach ($dpds->where('cat_id', 6) as $d_product)
                     <x-product :product="$d_product"></x-product>
                 @endforeach
@@ -831,7 +831,7 @@
         {{-- @dd($dpds->where('cat_id', 7)) --}}
         <div class="hidden asian_prds">
             <div
-                class="grid grid-cols-5 max-sm:grid-cols-1 max-sm:gap-[2px] max-md:grid-cols-2 max-md:gap-[4px] max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 mt-6 mb-[78px] max-sm:mb-[50px]">
+                class="grid grid-cols-5 max-md:grid-cols-2 max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 mt-6 mb-[78px] max-sm:mb-[50px]">
                 @foreach ($dpds->where('cat_id', 7) as $da_product)
                     <x-product :product="$da_product"></x-product>
                 @endforeach
@@ -1688,23 +1688,32 @@
                     // },
                     mousewheel: true,
                     keyboard: true,
-
-                });
-                var swiper = new Swiper('.swiper-container', {
-                // ...
-                breakpoints: {
+                    breakpoints: {
                     // when window width is >= 320px
-                    320: {
-                    slidesPerView: 1,
+                    375: {
+                    slidesPerView: 2,
                     spaceBetween: 10
                     },
                     // when window width is >= 480px
-                    480: {
-                    slidesPerView: 2,
+                    640: {
+                    slidesPerView: 3,
+                    spaceBetween: 20
+                    },
+                    768: {
+                    slidesPerView: 4,
+                    spaceBetween: 20
+                    },
+                    1024: {
+                    slidesPerView: 5,
+                    spaceBetween: 20
+                    },
+                    1280: {
+                    slidesPerView: 5,
                     spaceBetween: 20
                     },
                     // ...
                 }
+
                 });
     </script>
 @endscript

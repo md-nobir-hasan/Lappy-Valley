@@ -1,4 +1,4 @@
-<div class="w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
+<div class="w-[221px] max-md:w-full mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
     <div class="product_div imgae-container">
         <a href="{{ route('product.details') }}">
             @if ($product->photo)
