@@ -96,7 +96,7 @@ class Checkout extends Component
         // $order_data['shipping_id'] = $request->shipping;
         // $shipping = Shipping::where('id', $order_data['shipping_id'])->pluck('price');
         $order_data['sub_total'] = $carts->sum('price');
-        $order_data['total_amount'] = $carts->sum('amount');
+        $order_data['amount'] = $carts->sum('amount');
         $order_data['quantity'] = $carts->sum('quantity');
 
 
@@ -117,7 +117,7 @@ class Checkout extends Component
         //     }
         // }
         // return $order_data['total_amount'];
-        $order_data['status'] = "new";
+        $order_data['status'] = "Pending";
         $order_data['payment_status'] = 'Unpaid';
         // if (request('payment_method') == 'online') {
         //     $order_data['payment_method'] = 'online';
@@ -154,7 +154,7 @@ class Checkout extends Component
         // dd($users);
         request()->session()->flash('success', 'Your Order successfully placed in order');
         // return $this->redirect(HomePage::class, navigate: true);
-        return $this->redirect(route('order.receive', [$order->id]), navigate: true);
+        return $this->redirect(route('order.receive', [$order->id]));
     }
 
     public function render()

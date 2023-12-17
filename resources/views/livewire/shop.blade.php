@@ -194,7 +194,7 @@
                             s_features: this.s_features,
                             sorting: this.sorting,
                         },
-            
+
                         success: (res) => {
                             this.products = res.product;
                             total_product = Object.keys(res.product).length;
@@ -209,7 +209,7 @@
                             this.productShow = false;
                             this.ajaxProduct = true;
                             this.pageChange(1);
-            
+
                         }
                     })
                 },
@@ -226,7 +226,7 @@
                         this.show_to = to;
                         this.pagi_products = Object.fromEntries(Object.entries(this.products).slice(from, to));
                         this.current_page = pNum
-            
+
                     }
                 }
             }">
@@ -1076,17 +1076,17 @@
                                         </div>
 
                                         <div class="px-6 py-6 mt-auto text-center">
-                                            <div>
-                                                <a href="#"
+                                            <div class="flex justify-center">
+                                                <span
                                                     class="font-[jost] text-[12px] font-[700] leading-[24px] text-[#DC275C] flex items-center gap-[4px]">
                                                     <span x-text='product.price'></span>
                                                     <span
                                                         class="ml-[5px] text-[12px] font-[jost] font-[700]">TAKA</span>
-                                                </a>
+                                                </span>
                                             </div>
                                             <div class="my-3 text-center">
 
-                                                <a href="{{ route('product.details', 'kdfj') }}" class="">
+                                                <a :href="'/product-details/'+product.slug" class="">
                                                     <button
                                                         class='bg-[#380D37] text-[#F2F2F2] text-[10px] font-[jost] font-[500] py-[8px] px-[40px] rounded-[5px]'>Buy
                                                         Now

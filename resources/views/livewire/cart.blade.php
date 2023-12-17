@@ -165,15 +165,15 @@
         <div class='items-center flex justify-center w-full my-[30px]'>
             <a href="{{ route('vcart') }}" wire:navigate>
                 <button type="button"
-                    class='w-[364px]  border-[1px] border-[#380D37] rounded-[4px] py-[10px] text-[#380D37] text-[20px] font-[jost] font-[700]'>View
-                    Cart
+                    class='fill-up-btn w-[364px] hover:text-[#f2f2f2] border-[1px] border-[#380D37] rounded-[4px] py-[10px] text-[#380D37] text-[20px] font-[jost] font-[700]'>
+                      View Cart
                 </button>
             </a>
         </div>
         <div class='items-center flex justify-center w-full mt-[30px]'>
             <a href="{{ route('checkout') }}" wire:navigate class="w-full"> 
                 <button
-                    class='w-full rounded-[4px] items-center py-[10px] text-[#F2F2F2] bg-gradient-to-r from-[#380D37] to-[#DC275C] text-[20px] font-[jost] font-[700]'>
+                    class='fill-up-btn w-full rounded-[4px] items-center py-[10px] text-[#F2F2F2] bg-gradient-to-r from-[#380D37] to-[#DC275C] text-[20px] font-[jost] font-[700]'>
                     Checkout
                 </button>
             </a>

@@ -24,7 +24,7 @@
                 @endphp
                 @foreach ($bnrs as $banner)
                     <div class="relative {{ $loop->first ? '' : ' hidden' }} slide ">
-                        <img class="container" src="{{ $banner }}">
+                        <img class="" src="{{ $banner }}">
                     </div>
                 @endforeach
                 <!-- The previous button -->
@@ -139,7 +139,7 @@
     <section>
         <!-- heading -->
         <div
-            class=" h-[130px] max-sm:h-[52px] max-md:h-[68px] max-lg:h-[85px] max-xl:h-[100px]  flex justify-center items-center text-white bg-gradient-to-r from-[#380D37] to-[#DC275C]">
+            class=" fill-up-btn h-[130px] max-sm:h-[52px] max-md:h-[68px] max-lg:h-[85px] max-xl:h-[100px]  flex justify-center items-center text-white bg-gradient-to-r from-[#380D37] to-[#DC275C]">
 
             <h1
                 class="text-[40px] max-sm:text-[18px] max-md:text-[22px] max-lg:text-[30px] max-xl:text-[35px] text-[#f2f2f2] font-[jost] font-[500] text-center">
@@ -157,14 +157,8 @@
                         Our newest</br>products are</br>here,just for you!</p>
                 </div>
                 <div class='flex justify-center items-center'>
-                    <a href="{{ route('new_product', 'new_product') }}" wire:navigate  class="btn-12 text-center py-2 font-[jost] font-[500] text-[16px] text-[#F2F2F2] rounded-[4px]">
-                            <span class="font-[jost] font-[500]">
-                                Click!
-                            </span>
-                            <span class="font-[jost] font-[500]">
-                                Visit Now!
-                            </span>
-                     
+                    <a href="{{ route('new_product', 'new_product') }}" wire:navigate  class="fill-up-btn linear px-[20px] py-[10px] mt-[20px] font-[jost] font-[500] text-[16px] text-[#F2F2F2] rounded-[4px]">
+                        Visit Now
                     </a>
                 </div>
             </div>
@@ -219,7 +213,7 @@
                         <div class="swiper-slide">
                             <div
                                 class="w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                                <div class="relative max-w-xs overflow-hidden bg-no-repeat bg-cover 
+                                <div class="relative max-w-xs overflow-hidden bg-no-repeat bg-cover
                                     data-te-ripple-init data-te-ripple-color="light">
                                     <a href="{{ route('product.details', [$f_product->slug]) }}" wire:navigate>
                                         <img src="{{ $f_product->img()[0] }}" alt="Product"></a>
@@ -232,23 +226,23 @@
                                 <div>
                                     <a href="{{ route('product.details', [$f_product->slug]) }}" wire:navigate>
                                         <p
-                                            class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4 transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
+                                            class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] hover:underline-offset-4 transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
                                             {{ $f_product->title }}
                                         </p>
                                     </a>
                                 </div>
                                 <div
-                                    class="flex flex justify-between gap-5 text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
+                                    class="flex justify-between gap-5 text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
                                     <span class="text-[#DC275C]">{{ number_format($f_product->final_price) }} TK</span>
                                     <livewire:add-to-cart :id="$f_product->id"
                                         button='<a class="text-[#380D37]">Add to Cart</a>' />
-                              
+
                                 </div>
                             </div>
                         </div>
                     @endforeach
                 </div>
-             
+
             </div>
             <div class="relative">
                 <div class="swiper-button-next translate-x-[55px] max-sm:translate-x-[20px] translate-y-[-192px] bs">
@@ -257,46 +251,45 @@
                 </div>
             </div>
         </div> --}}
-
 
         {{-- <div class="hidden asian_prds">
             <div class="relative mx-auto overflow-hidden swiper-container mySwiper">
 
                 <div class="swiper-wrapper gap-[5px] py-[20px]">
-                    @foreach ($features->where('cat_id', 6) as $f_product)
+                    @foreach ($features->where('cat_id', 6) as $a_product)
                         <div class="swiper-slide">
                             <div
                                 class="w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                                <div class="relative max-w-xs overflow-hidden bg-no-repeat bg-cover 
+                                <div class="relative max-w-xs overflow-hidden bg-no-repeat bg-cover
                                     data-te-ripple-init data-te-ripple-color="light">
-                                    <a href="{{ route('product.details', [$f_product->slug]) }}" wire:navigate>
-                                        <img src="{{ $f_product->img()[0] }}" alt="Product"></a>
-                                    <a href="{{ route('product.details', [$f_product->slug]) }}" wire:navigate>
+                                    <a href="{{ route('product.details', [$a_product->slug]) }}" wire:navigate>
+                                        <img src="{{ $a_product->img()[0] }}" alt="Product"></a>
+                                    <a href="{{ route('product.details', [$a_product->slug]) }}" wire:navigate>
                                         <div
                                             class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsl(0,0%,98.4%,0.2)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-50">
                                         </div>
                                     </a>
                                 </div>
                                 <div>
-                                    <a href="{{ route('product.details', [$f_product->slug]) }}" wire:navigate>
+                                    <a href="{{ route('product.details', [$a_product->slug]) }}" wire:navigate>
                                         <p
                                             class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4 transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                            {{ $f_product->title }}
+                                            {{ $a_product->title }}
                                         </p>
                                     </a>
                                 </div>
                                 <div
                                     class="flex flex justify-between gap-5 text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
-                                    <span class="text-[#DC275C]">{{ number_format($f_product->final_price) }} TK</span>
-                                    <livewire:add-to-cart :id="$f_product->id"
+                                    <span class="text-[#DC275C]">{{ number_format($a_product->final_price) }} TK</span>
+                                    <livewire:add-to-cart :id="$a_product->id"
                                         button='<a class="text-[#380D37]">Add to Cart</a>' />
-                                    
+
                                 </div>
                             </div>
                         </div>
                     @endforeach
                 </div>
-          
+
             </div>
             <div class="relative">
                 <div class="swiper-button-next translate-x-[55px] max-sm:translate-x-[20px] translate-y-[-192px] bs">
@@ -305,16 +298,46 @@
                 </div>
             </div>
         </div> --}}
+
+        {{-- Swiper for usa  --}}
         <div class="usa_prds">
             <!-- Swiper -->
             <div class="swiper mySwiper mt-[20px] mb-[20px]">
                 <div class="swiper-wrapper">
+                    @foreach ($features->where('cat_id', 7) as $f_product)
                     <div class="swiper-slide">
                         <div
                             class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div class="">
-                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat" data-te-ripple-init
-                                    data-te-ripple-color="light">
+                                <div class="image-container1">
+                                    <a href="{{ route('product.details', [$f_product->slug]) }}" wire:navigate>
+                                        <img src="{{ $f_product->img()[0] }}" alt="">
+                                    </a>
+                                </div>
+                                <div class="mb-auto">
+                                    <a href="{{ route('product.details', [$f_product->slug]) }}" wire:navigate
+                                        class="mb-auto text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-300 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
+                                          {{ $f_product->title }}
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div
+                                class=" flex justify-between gap-5 text-[14px] mt-auto font-[jost] font-[700] py-[10px] leading-[20.23px]">
+                                <span class=" text-[#DC275C]">
+                                    {{ number_format($f_product->final_price) }} TK
+                                </span>
+                                <livewire:add-to-cart :id="$f_product->id"
+                                        button='<span class="text-[#380D37]">Add to Cart</span>' />
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                    {{-- <div class="swiper-slide">
+                        <div
+                            class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
+                            <div class="">
+                                <div class="image-container1">
                                     <a href="#">
                                         <img src="/storage/product/large-size-laptop.jpg" alt="">
                                     </a>
@@ -342,8 +365,7 @@
                         <div
                             class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div class="">
-                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat" data-te-ripple-init
-                                    data-te-ripple-color="light">
+                                <div class="image-container1">
                                     <a href="#">
                                         <img src="/storage/product/large-size-laptop.jpg" alt="">
                                     </a>
@@ -371,8 +393,7 @@
                         <div
                             class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div class="">
-                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
-                                    data-te-ripple-init data-te-ripple-color="light">
+                                <div class="image-container1">
                                     <a href="#">
                                         <img src="/storage/product/large-size-laptop.jpg" alt="">
                                     </a>
@@ -400,8 +421,7 @@
                         <div
                             class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div class="">
-                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
-                                    data-te-ripple-init data-te-ripple-color="light">
+                                <div class="image-container1">
                                     <a href="#">
                                         <img src="/storage/product/large-size-laptop.jpg" alt="">
                                     </a>
@@ -429,8 +449,7 @@
                         <div
                             class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div class="">
-                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
-                                    data-te-ripple-init data-te-ripple-color="light">
+                                <div class="image-container1">
                                     <a href="#">
                                         <img src="/storage/product/large-size-laptop.jpg" alt="">
                                     </a>
@@ -458,8 +477,7 @@
                         <div
                             class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div class="">
-                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
-                                    data-te-ripple-init data-te-ripple-color="light">
+                                <div class="image-container1">
                                     <a href="#">
                                         <img src="/storage/product/large-size-laptop.jpg" alt="">
                                     </a>
@@ -487,8 +505,7 @@
                         <div
                             class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div class="">
-                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
-                                    data-te-ripple-init data-te-ripple-color="light">
+                                <div class="image-container1">
                                     <a href="#">
                                         <img src="/storage/product/large-size-laptop.jpg" alt="">
                                     </a>
@@ -516,8 +533,7 @@
                         <div
                             class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div class="">
-                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
-                                    data-te-ripple-init data-te-ripple-color="light">
+                                <div class="image-container1">
                                     <a href="#">
                                         <img src="/storage/product/large-size-laptop.jpg" alt="">
                                     </a>
@@ -540,36 +556,7 @@
                                 </a>
                             </div>
                         </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div
-                            class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div class="">
-                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
-                                    data-te-ripple-init data-te-ripple-color="light">
-                                    <a href="#">
-                                        <img src="/storage/product/large-size-laptop.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="mb-auto">
-                                    <a href="#"
-                                        class="mb-auto text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-300 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                        Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB, Brand New Cloud grey
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div
-                                class=" flex justify-between gap-5 text-[14px] mt-auto font-[jost] font-[700] py-[10px] leading-[20.23px]">
-                                <span href="#" class=" text-[#DC275C]">
-                                    1,50,000 TK
-                                </span>
-                                <a class="text-[#380D37]">
-                                    Add to Cart
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
@@ -577,20 +564,49 @@
             </div>
 
             <!-- Swiper JS -->
-          
-
             <!-- Initialize Swiper -->
         </div>
+
+        {{-- swiper for asian laptop --}}
         <div class="hidden asian_prds">
             <!-- Swiper -->
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
+                    @foreach ($features->where('cat_id', 6) as $a_product)
                     <div class="swiper-slide">
                         <div
                             class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div class="">
-                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
-                                    data-te-ripple-init data-te-ripple-color="light">
+                                <div class="image-container1">
+                                    <a href="{{ route('product.details', [$a_product->slug]) }}" wire:navigate>
+                                        <img src="{{ $a_product->img()[0] }}" alt="">
+                                    </a>
+                                </div>
+                                <div class="mb-auto">
+                                    <a href="{{ route('product.details', [$a_product->slug]) }}" wire:navigate
+                                        class="mb-auto text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-300 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
+                                       {{ $a_product->title }}
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div
+                                class=" flex justify-between gap-5 text-[14px] mt-auto font-[jost] font-[700] py-[10px] leading-[20.23px]">
+                                <span class=" text-[#DC275C]">
+                                    {{ number_format($a_product->final_price) }} TK
+                                </span>
+                                <a class="text-[#380D37]">
+                                    Add to Cart
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                    {{-- <div class="swiper-slide">
+                        <div
+                            class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
+                            <div class="">
+                                <div class="image-container1">
                                     <a href="#">
                                         <img src="/storage/product/large-size-laptop.jpg" alt="">
                                     </a>
@@ -618,8 +634,7 @@
                         <div
                             class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div class="">
-                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
-                                    data-te-ripple-init data-te-ripple-color="light">
+                                <div class="image-container1">
                                     <a href="#">
                                         <img src="/storage/product/large-size-laptop.jpg" alt="">
                                     </a>
@@ -647,8 +662,7 @@
                         <div
                             class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div class="">
-                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
-                                    data-te-ripple-init data-te-ripple-color="light">
+                                <div class="image-container1">
                                     <a href="#">
                                         <img src="/storage/product/large-size-laptop.jpg" alt="">
                                     </a>
@@ -676,8 +690,7 @@
                         <div
                             class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div class="">
-                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
-                                    data-te-ripple-init data-te-ripple-color="light">
+                                <div class="image-container1">
                                     <a href="#">
                                         <img src="/storage/product/large-size-laptop.jpg" alt="">
                                     </a>
@@ -705,8 +718,7 @@
                         <div
                             class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div class="">
-                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
-                                    data-te-ripple-init data-te-ripple-color="light">
+                                <div class="image-container1">
                                     <a href="#">
                                         <img src="/storage/product/large-size-laptop.jpg" alt="">
                                     </a>
@@ -734,8 +746,7 @@
                         <div
                             class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div class="">
-                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
-                                    data-te-ripple-init data-te-ripple-color="light">
+                                <div class="image-container1">
                                     <a href="#">
                                         <img src="/storage/product/large-size-laptop.jpg" alt="">
                                     </a>
@@ -763,8 +774,7 @@
                         <div
                             class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div class="">
-                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
-                                    data-te-ripple-init data-te-ripple-color="light">
+                                <div class="image-container1">
                                     <a href="#">
                                         <img src="/storage/product/large-size-laptop.jpg" alt="">
                                     </a>
@@ -792,8 +802,7 @@
                         <div
                             class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
                             <div class="">
-                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
-                                    data-te-ripple-init data-te-ripple-color="light">
+                                <div class="image-container1">
                                     <a href="#">
                                         <img src="/storage/product/large-size-laptop.jpg" alt="">
                                     </a>
@@ -816,36 +825,7 @@
                                 </a>
                             </div>
                         </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div
-                            class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div class="">
-                                <div class="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
-                                    data-te-ripple-init data-te-ripple-color="light">
-                                    <a href="#">
-                                        <img src="/storage/product/large-size-laptop.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="mb-auto">
-                                    <a href="#"
-                                        class="mb-auto text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-300 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                        Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB, Brand New Cloud grey
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div
-                                class=" flex justify-between gap-5 text-[14px] mt-auto font-[jost] font-[700] py-[10px] leading-[20.23px]">
-                                <span href="#" class=" text-[#DC275C]">
-                                    1,50,000 TK
-                                </span>
-                                <a class="text-[#380D37]">
-                                    Add to Cart
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
@@ -907,10 +887,10 @@
     <div>
 
         <a href="{{ route('shop') }}" wire:navigate>
-            <button
-                class="custom-btn7 btn-7 items-center justify-center flex my-[60px] mx-auto text-[16px] text-[#F2F4F8] w-[116px] h-[44px] rounded-[4px] bg-gradient-to-r from-[#380D37] to-[#DC275C]">
-                <span> See More</span>
-            </button>
+            <a
+                class="fill-up-btn items-center justify-center flex my-[60px] mx-auto text-[16px] text-[#F2F4F8] w-[116px] h-[44px] rounded-[4px] bg-gradient-to-r from-[#380D37] to-[#DC275C]">
+                 See More
+            </a>
         </a>
         <div class="container h-[2px] bg-[#380D37]"></div>
     </div>
@@ -1628,10 +1608,10 @@
                         <span class="block text-[red]">{{ $post_error_msg }}</span>
                     @endif
 
-                    <button
-                        class="custom-btn6 btn-6 selection:text-[#F2F2F2] relative text-[16px] h-[44px] w-[116px] rounded-[4px] font-[500] font-[jost] mt-[15px] pt-[5px] pr-[30px] pl-[30px] pb-[5px] bg-gradient-to-r from-[#380D37] to-[#DC275C] "
+                    <a
+                        class="fill-up-btn text-[#f2f2f2] text-center text-[16px] h-[44px] px-[40px] py-[10px] rounded-[4px] font-[500] font-[jost] mt-[15px]  bg-gradient-to-r from-[#380D37] to-[#DC275C] "
                         type="submit">
-                        <span>Post</span>
+                        Post
                         <div wire:loading
                             class="absolute right-0 inline-block h-6 w-6 mr-2 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-success motion-reduce:animate-[spin_1.5s_linear_infinite]"
                             role="status">
@@ -1639,7 +1619,7 @@
                                 class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...
                             </span>
                         </div>
-                    </button>
+                    </a>
                 </div>
             </form>
         </div>
@@ -1711,7 +1691,7 @@
                     // },
                     mousewheel: true,
                     keyboard: true,
-              
+
                 });
                 var swiper = new Swiper('.swiper-container', {
                 // ...
