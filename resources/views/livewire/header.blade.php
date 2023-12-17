@@ -1,4 +1,4 @@
-<div class="">
+<div>
     <style>
         .menu-toggle {
             cursor: pointer;
@@ -441,9 +441,7 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-
             <script></script>
             <!-- Right-Side Logos/Icons -->
             <div class='flex items-center justify-between gap-[30px] max-xl:hidden'>
@@ -482,18 +480,19 @@
             </div>
         </div>
     </header>
-
     <div
         class='h-[68px] max-sm:h-[50px] text-[#f2f2f2] px-[72px] max-xl:px-[60px] max-md:px-[40px] font-[jost] xl:hidden max-xl:block items-center z-[9999] fixed bottom-0 left-0 right-0  bg-gradient-to-r from-[#380D37] to-[#DC275C]'>
         <div class='flex items-center justify-between gap-[20px] my-[15px]'>
             <!-- <div class="flex item-center "> -->
             <a href="{{ route('offer') }}" wire:navigate
-                class='flex justify-between items-center gap-[10px] text-[16px] max-sm:text-[12px] text-[#FFFFFF] font-[jost] font-[500]'><img
+                class='flex justify-between items-center gap-[10px] text-[16px] max-sm:text-[12px] text-[#FFFFFF] font-[jost] font-[500]'>
+                <img
                     class='w-[30px] max-sm:w-[20px] max-sm:h-[20px] h-[30px]' src="/storage/product/gift.svg"
                     alt="Logo 1">
                 <span class="">
                     Offers
-                </span></a>
+                </span>
+            </a>
             <a href="{{ route('vcart') }}" wire:navigate
                 class='relative flex justify-between items-center gap-[10px] text-[16px] max-sm:text-[12px] text-[#FFFFFF] font-[jost] font-[500]'><img
                     class='w-[25.6px] max-sm:w-[20px] max-sm:h-[20px] h-[24.84px]' src="/storage/product/cart(2).svg"
@@ -506,7 +505,6 @@
                 </div>
                 <span class="">Cart</span>
             </a>
-
             @auth
                 <a href="{{ route('account') }}" wire:navigate
                     class='flex justify-between items-center gap-[10px] text-[16px] max-sm:text-[12px] text-[#FFFFFF] font-[jost] font-[500]'>

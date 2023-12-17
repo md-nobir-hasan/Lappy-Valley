@@ -1,32 +1,48 @@
   <footer class="bg-gradient-to-r from-[#380D37] to-[#DC275C] pt-4 text-white mt-20 max-sm:mt-14 max-md:mt-16 max-lg:mt-18 h-[400px] max-sm:h-[100%] max-md:h-[380px] max-lg:h-[390px]">
         <div class="flex justify-evenly max-sm:block max-sm:px-[18px]">
 
-            <div class="">
+            <div>
                 <p class="text-[#F2F2F2] font-[jost] max-sm:text-center text-[40px] max-sm:text-[34px] max-md:text-[32px] max-lg:text-[34px] font-[500] text-left my-3">Address</p>
                 <ul class="text-[#F2F2F2] font-[jost] max-sm:text-center text-[16px] max-sm:text-[16px] max-md:text-[12px] max-lg:text-[14px] font-[500] leading-[23px] max-sm:leading-[28px] max-md:leading-[18px] max-lg:leading-[20px]  text-left">
-                    <li class="hover:bg-blue-950">
-                        Address:
+                    <li>
+                        <span class="hover:bg-blue-700">
+                            Address:
+                        </span>
                     </li>
-                    <li class="hover:bg-blue-950">
+                    <li>
+                       <span class="hover:bg-blue-700">
                         Shop # 4A-009A, Block # A, Level #04,
+                       </span>
                     </li>
-                    <li class="mb-[15px] hover:bg-blue-950">
+                    <li class="mb-[15px] ">
+                       <span class="hover:bg-blue-700">
                         Jamuna Future Park, Dhaka -1229
+                       </span>
                     </li>
-                    <li class="hover:bg-blue-950">
-                         Shop # 607(5th Floor),
+                    <li>
+                        <span class="hover:bg-blue-700">
+                            Shop # 607(5th Floor),                      
+                        </span>
                     </li>
-                    <li class="hover:bg-blue-950">
-                        Rajuk Commercial-Complex,
+                    <li>
+                        <span class="hover:bg-blue-700">
+                            Rajuk Commercial-Complex,
+                        </span>
                     </li>
-                    <li class="mb-[15px] hover:bg-blue-950">
+                    <li class="mb-[15px] ">
+                       <span class="hover:bg-blue-700">
                         Azampur, Uttara, Dhaka-1230
+                       </span>
                     </li>
-                    <li class="hover:bg-blue-950">
-                        Trade license : 202984t
+                    <li>
+                   <span class="hover:bg-blue-700">
+                    Trade license : 202984t
+                   </span>
                     </li>
-                    <li class="hover:bg-blue-950">
+                    <li>
+                       <span class="hover:bg-blue-700">
                         Bin Number : 0049818790102
+                       </span>
                     </li>
                 </ul>
             </div>
@@ -34,45 +50,59 @@
             <div class='text-left'>
                 <p class="text-[#F2F2F2] font-[jost] max-sm:text-center text-[40px] max-sm:text-[34px] max-md:text-[32px] max-lg:text-[34px] font-[500]  my-3">Company</p>
                 <ul class="text-[#F2F2F2] font-[jost] max-sm:text-center text-[16px] max-sm:text-[16px] max-md:text-[12px] max-lg:text-[14px] font-[500] leading-[23px] max-sm:leading-[22px] max-md:leading-[12px] max-lg:leading-[15px] max-sm:my-[21px]  ml-[30px]">
-                    <li class="mb-[25px] max-sm:mb-[18px] list-disc max-sm:list-none hover:bg-blue-950"><a href="{{route('about_us')}}" id='about-us'>About Us</a></li>
-                    <li class="mb-[25px] max-sm:mb-[18px] list-disc max-sm:list-none hover:bg-blue-950"><a href="{{route('tc')}}">Terms& Conditions</a></li>
-                    <li class="mb-[25px] max-sm:mb-[18px] list-disc max-sm:list-none hover:bg-blue-950"><a href="{{route('pp')}}">Privay Policy</a></li>
-                    <li class="mb-[25px] max-sm:mb-[18px] list-disc max-sm:list-none hover:bg-blue-950"><a href="{{route('account')}}">My account</a></li>
-                    <li class="mb-[25px] max-sm:mb-[18px] list-disc max-sm:list-none hover:bg-blue-950"><a href="{{route('rsp')}}">Refund & Service Policy</a>
+                    <li class="mb-[25px] max-sm:mb-[18px] list-disc max-sm:list-none "><a class="hover:bg-blue-700" href="{{route('about_us')}}" id='about-us'>About Us</a></li>
+                    <li class="mb-[25px] max-sm:mb-[18px] list-disc max-sm:list-none"><a class="hover:bg-blue-700" href="{{route('tc')}}">Terms& Conditions</a></li>
+                    <li class="mb-[25px] max-sm:mb-[18px] list-disc max-sm:list-none "><a class="hover:bg-blue-700" href="{{route('pp')}}">Privay Policy</a></li>
+                    <li class="mb-[25px] max-sm:mb-[18px] list-disc max-sm:list-none "><a class="hover:bg-blue-700" href="{{route('account')}}">My account</a></li>
+                    <li class="mb-[25px] max-sm:mb-[18px] list-disc max-sm:list-none "><a class="hover:bg-blue-700" href="{{route('rsp')}}">Refund & Service Policy</a>
                     </li>
                 </ul>
             </div>
 
-            <div class="">
+            <div>
                 <p class="text-[#F2F2F2] font-[jost] max-sm:text-center text-[40px] max-sm:text-[34px] max-md:text-[32px] max-lg:text-[34px] font-[500] text-left my-3">
                     Contact</p>
                 <ul class="text-[#F2F2F2] font-[jost] max-sm:text-center text-[16px] max-sm:text-[16px] max-md:text-[12px] max-lg:text-[14px] font-[500] leading-[23px] max-sm:leading-[28px] max-md:leading-[18px] max-lg:leading-[20px]  text-left">
-                    <li class="mt-[15px] hover:bg-blue-950">
-                        Phone
+                    <li class="mt-[15px] ">
+                       <span class="hover:bg-blue-700">
+                        Phone:
+                       </span>
                     </li>
                     <li>
-                        <a href="tel:01757773557" class="hover:bg-blue-950">
-                            +8801757773557, +8801712644209,
+                        <a href="tel:01757773557" class="hover:bg-blue-700">
+                            +8801757773557,
+                        </a>
+                        <a href="tel:01712644209" class="hover:bg-blue-700">
+                            +8801712644209,
                         </a>
                     </li>
                     <li class="mb-[15px]">
-                        <a href="tel:01736361123" class="hover:bg-blue-950">
+                        <a href="tel:01736361123" class="hover:bg-blue-700">
                             +8801736361123,
                         </a>
+                        <a href="tel:01757773557" class="hover:bg-blue-700">
+                            +8801757773557,
+                        </a>
                     </li>
-                    <li class="hover:bg-blue-950">
-                        Email:
+                    <li>
+                        <span class="hover:bg-blue-700">
+                            Email:
+                        </span>
                     </li>
                     <li class="mb-[15px]">
-                        <a href="mailto:info@lappyvalley.com" class="hover:bg-blue-950">
+                        <a href="mailto:info@lappyvalley.com" class="hover:bg-blue-700">
                             info@lappyvalley.com
                         </a>
                     </li>
-                    <li class="hover:bg-blue-950">
+                    <li>
+                       <span class="hover:bg-blue-700">
                         Trade license : 202984
+                       </span>
                     </li>
-                    <li class="hover:bg-blue-950">
+                    <li>
+                       <span class="hover:bg-blue-700">
                         Bin Number : 0049818790102
+                       </span>
                     </li>
                 </ul>
 
