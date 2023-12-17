@@ -118,6 +118,11 @@
             /* background:#f2f2f2; */
             /* Animation transition */
         }
+        @media(max-width:640px){
+            #menu {
+                top:50px;
+            }
+        }
 
         /* Overlay for body background blur */
         #body-overlay {
@@ -1022,9 +1027,9 @@
                     </div>
                 </nav>
                 {{-- product show after reload  --}}
-                <div x-show='productShow' class="">
+                <div x-show='productShow'>
                     <div
-                        class='grid grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 gap-8 mx-auto mt-4 product_pdiv'>
+                        class='grid grid-cols-4 max-lg:grid-cols-3 max-sm:grid-cols-2 gap-8 mx-auto mt-4 product_pdiv'>
                         @foreach ($products as $product)
                             <x-shop-product :product="$product">
                                 <div class='mt-2'>
@@ -1057,7 +1062,7 @@
                                         <img :src="product.photo.split(',')[0]" class="rounded-t-lg img-fluid "
                                             data-te-ripple-init data-te-ripple-color="dark" alt="avatar.png">
 
-                                        <div class="p-6 border-t-[1px] border-b-[1px]  border-[#380D3733]">
+                                        <div class="p-4 max-sm:p-[8px] border-t-[1px] border-b-[1px]  border-[#380D3733]">
                                             <div class=' border-[#380D3733] mb-2'>
                                                 <h1 class="font-[jost] text-[12px] font-[500] leading-[20px] text-left text-[#380D37]"
                                                     x-text='product.title'>
@@ -1088,16 +1093,15 @@
 
                                                 <a :href="'/product-details/'+product.slug" class="">
                                                     <button
-                                                        class='bg-[#380D37] text-[#F2F2F2] text-[10px] font-[jost] font-[500] py-[8px] px-[40px] rounded-[5px]'>Buy
-                                                        Now
+                                                        class='bg-[#380D37] text-[#F2F2F2] text-[10px] font-[jost] font-[500] py-[8px] px-[50px] max-lg:px-0 max-lg:w-[100px] rounded-[5px]'>
+                                                        Buy Now
                                                     </button></a>
                                             </div>
                                             <div>
                                                 <a href="">
                                                     <p
                                                         class="font-[jost] text-[10px] text-[#380D37] font-[500] leading-[20px]">
-                                                        Add
-                                                        to Cart</p>
+                                                        Add to Cart</p>
                                                 </a>
                                             </div>
                                         </div>

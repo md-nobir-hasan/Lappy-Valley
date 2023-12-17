@@ -102,16 +102,27 @@
                 <nav class="bg-[#f2f2f2] ">
                     <ul class="flex flex-col gap-4 scroll-auto">
                         <li
-                            class=" px-6 pt-2 font-[jost] font-[500] text-[#353535] text-[16px] max-sm:text-[12px] bg-[#f2f2f2]">
-                            <a href="#" class="flex items-center justify-between">
-                                <span class="max-sm:text-[12px]">All Categories</span>
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6 max-sm:w-[15px]">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
-                                    </svg>
-                                </span>
-                            </a>
+                            class="menu-container2 px-6 pt-2 font-[jost] font-[500] text-[#353535] text-[16px] max-sm:text-[12px] bg-[#f2f2f2]">
+                            <div href="#" class="toggleBtn2 flex items-center justify-between"> 
+                                <div class="max-sm:text-[12px]">All Categories</div>
+                                <div id="toggle-btn2">
+                                    <svg class="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
+                                <svg class="minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                    style="display: none;">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
+                                </div>
+                            </div>
+                            <ul class="menu2">
+                                <li>Item 1</li>
+                                <li>Item 2</li>
+                                <li>Item 3</li>
+                            </ul>
                         </li>
                         <div class="h-[1px] bg-[#764D8733]"></div>
                         <li
@@ -362,7 +373,7 @@
                 </form>
             </div> --}}
             <div id="search-bar"
-                class="search-bar max-xl:fixed max-sm:top-[49px] max-xl:top-[55px] max-xl:left-0 max-xl:w-full z-[9999] max-xl:hidden">
+                class="search-bar max-xl:fixed max-sm:top-[49px] max-md:top-[67px] max-xl:top-[67px] max-xl:left-0 max-xl:w-full z-[9999] max-xl:hidden">
 
                 <div>
                     <div class="">
@@ -382,7 +393,7 @@
                                     <select name="cat_id" wire:model.live='cat' wire:change='prdouctFetch'
                                         @change='open=true'
                                         class="block w-[80px] p-2.5 text-[#380D37] text-[14px] bg-[#f2f2f2] font-[jost] font-[400] leading-[20.23px] border-r-[2px] border-[#380D37]">
-                                        <option value="" selected>All</option>
+                                        <option value="" selected>All</option> 
                                         @foreach ($cats as $ct)
                                             <option value="{{ $ct->id }}">{{ $ct->title }}</option>
                                         @endforeach
@@ -573,5 +584,12 @@
                     '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>';
             });
         });
+
+        $(document).ready(function() {
+                $('.toggleBtn2').click(function() {
+                    $('.menu2').toggle();
+                    $('#toggle-btn2 .plus, #toggle-btn2 .minus').toggle();
+                });
+            });
     </script>
 @endscript

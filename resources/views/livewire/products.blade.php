@@ -15,7 +15,7 @@
         </a>
         <div>
             <div class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                <div class="">
+                <div class="image-container">
                     <a href="{{ route('product.details') }}">
                         @if ($product->photo)
                             @php
@@ -30,11 +30,11 @@
                         @endif
                         {{-- <img class="object-center pimg" src="{{$product->photo}}" alt=""> --}}
                     </a>
-                    <a href="#!">
+                    {{-- <a href="#!">
                         <div
                           class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsl(0,0%,98.4%,0.2)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-50">
                         </div>
-                      </a>
+                      </a> --}}
                 </div>
                     <div>
                        <a href="#">

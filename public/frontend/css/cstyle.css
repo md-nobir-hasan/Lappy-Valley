@@ -360,3 +360,46 @@
 .owl-dots .owl-dot.active {
     background: #353535 !important;
 }
+
+/* ------------sub-menu---- */
+.menu-container2 {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.menu2 {
+    display: none;
+    /* position: absolute; */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #380d;
+    border: 1px solid #ccc;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.menu2 li {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.toggle-btn2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    /* border: 1px solid #ccc;
+    border-radius: 50%; */
+    transition: background-color 0.3s ease;
+}
+
+.toggle-btn2 .minus {
+    display: none;
+}
+
+.toggle-btn2.active {
+    background-color: black;
+}
