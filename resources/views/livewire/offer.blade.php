@@ -1,4 +1,4 @@
-<div class='container mx-auto'>
+<div class='px-[100px] max-2xl:px-[70px] max-xl:px-[60px] max-lg:px-[38px] max-md:px-[35px] max-sm:px-[15px] max-sm:mt-[70px] max-xl:mt-[100px]'>
     <div class="max-md:mt-[80px] max-xl:mt-[100px]">
         <h1 class='font-[jost] text-[16px] font-[400] leading-[25.3px] text-[#353535]'>Home / Account</h1>
         <div class='h-[2px] bg-[#764A8733]'></div>
@@ -6,11 +6,11 @@
     {{-- Offers Produc  --}}
     <div>
         <div
-            class='grid grid-cols-3 max-md:grid-cols-1 max-xl:grid-cols-2 py-[15px] gap-[10px] ml-[100px] max-lg:ml-[0px] max-md:ml-[100px]'>
+            class='grid grid-cols-3 max-xl:grid-cols-2 max-sm:grid-cols-1 py-[15px] gap-6'>
             @foreach ($offers as $offer)
-                <div class='bg-[#f2f2f2] rounded-[4px] py-[15px] px-[20px] w-[400px] max-lg:w-[380px] h-[554px] mx-atuo'>
+                <div class='bg-[#f2f2f2] rounded-[4px] py-[15px] px-[20px] w-full'>
                     <div class='rounded-[4px]'>
-                        <img class='w-[359px] h-[357px]' src="{{ $offer->img()[0] }}" alt="Product">
+                        <img class='w-full' src="{{ $offer->img()[0] }}" alt="Product">
                     </div>
 
                     <div class='flex justify-between py-[10px] border-b-[1px] border-[#380D3733]'>
