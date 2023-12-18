@@ -66,7 +66,7 @@
                     // dd($photo);
                 @endphp
             @endif
-            <div class="overflow-hidden w-[400px] max-md:w-[400px] max-lg:w-[340px] mx-auto items-center">
+            <div class="overflow-hidden w-[400px] max-md:w-full max-lg:w-[340px] mx-auto items-center">
                 <div class="flex items-center w-[432px] max-lg:w-[350px] max-md:w-[432px] justify-center transition duration-50 ease-in-out hover:scale-125 overflow-hidden"
                     id="imageContainer">
                     <img id="hoverImage"
