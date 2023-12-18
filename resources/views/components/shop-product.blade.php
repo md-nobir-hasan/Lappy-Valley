@@ -21,7 +21,7 @@
                  data-te-ripple-init data-te-ripple-color="dark" alt="avatar.png">
          @endif --}}
      {{-- </a> --}}
-     <div class="p-6 border-t-[2px] border-b-[2px]  border-[#380D3733]">
+     <div class="p-4 max-sm:p-[8px] border-t-[2px] border-b-[2px] border-[#380D3733]">
          <div class=' border-[#380D3733] mb-2'>
              <h1 class="font-[jost] text-[12px] font-[500] leading-[20px] text-left text-[#380D37]">
                  {{ $product->title }}
@@ -49,7 +49,7 @@
 
              <a href="{{ route('product.details', [$product->slug]) }}" class="">
                  <button
-                     class='bg-[#380D37] text-[#F2F2F2] text-[10px] font-[jost] font-[500] py-[8px] px-[50px] rounded-[5px]'>Buy
+                     class='bg-[#380D37] text-[#F2F2F2] text-[10px] font-[jost] font-[500] py-[8px] max-lg:px-0 max-lg:w-[100px] px-[50px] rounded-[5px]'>Buy
                      Now
                  </button></a>
          </div>

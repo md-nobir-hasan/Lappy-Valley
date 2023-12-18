@@ -1,5 +1,4 @@
-<div class="px-[100px] max-md:px-[45px] max-lg:px-[70px] max-sm:px-[15px] mx-auto max-sm:mt-[70px] max-xl:mt-[100px]">
-
+<div class="px-[100px] max-2xl:px-[70px] max-xl:px-[60px] max-lg:px-[38px] max-md:px-[35px] max-sm:px-[15px] max-sm:mt-[70px] max-xl:mt-[100px]">
     {{-- Alert message  --}}
     @if ($error = session('error'))
         <script>
@@ -14,13 +13,13 @@
     <!-- Hero Section  -->
     @if ($home_banner)
         <section>
-            <div class="relative container max-xl:top-[68px]" x-data="{ active: true }">
+            <div class="relative container mx-auto" x-data="{ active: true }">
                 @php
                     $bnrs = explode(',', $home_banner->photo);
                 @endphp
                 @foreach ($bnrs as $banner)
-                    <div class="{{ $loop->first ? '' : ' hidden' }} slide w-full object-fill bg-cover bg-center">
-                        <img class="w-full bg-cover bg-center" src="{{ $banner }}">
+                    <div class="{{ $loop->first ? '' : ' hidden' }} slide w-full object-cover">
+                        <img class="w-full" src="{{ $banner }}">
                     </div>
                 @endforeach
                 <!-- The previous button -->
@@ -49,7 +48,7 @@
     <!-- --------hero--section --end ----  -->
 
     <!-- Feature Laptops -->
-    <section class='mt-[50px] max-xl:mt-[100px]'>
+    <section class='mt-[50px]'>
         <div class="py-1 text-center">
             <h2
                 class="font-[jost] text-[40px] font-[500] max-lg:text-[30px] max-md:text-[25px] max-sm:text-[24px] text-[#353535]">
@@ -74,7 +73,7 @@
         <!-- Product  -->
         <div class="usa_prds">
             <div
-                class="grid grid-cols-5 max-sm:grid-cols-1 max-sm:gap-[2px]  max-md:grid-cols-2 max-md:gap-[4px] max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 mt-6 mb-[78px] max-sm:mb-[50px]">
+                class="grid grid-cols-5 max-sm:grid-cols-2 max-md:grid-cols-2 max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 mt-6 mb-[78px] max-sm:mb-[50px]">
                 @foreach ($features->where('cat_id', 7) as $product)
                     <x-product :product="$product"></x-product>
                     {{-- <livewire:products :product="$product" /> --}}
@@ -84,7 +83,7 @@
 
         <div class="hidden asian_prds">
             <div
-                class="grid grid-cols-5  max-sm:grid-cols-1 max-sm:gap-[2px]  max-md:grid-cols-2 max-md:gap-[4px] max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 mt-6 mb-[78px] max-sm:mb-[50px]">
+                class="grid grid-cols-5 max-md:grid-cols-2  max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 mt-6 mb-[78px] max-sm:mb-[50px]">
                 @foreach ($features->where('cat_id', 6) as $product)
                     <x-product :product="$product"></x-product>
                     {{-- <livewire:products :product="$product" /> --}}
@@ -107,10 +106,10 @@
         <div class="grid grid-cols-3 max-sm:grid-cols-1 max-md:grid-cols-1 mt-6 mb-5 max-sm:mt-[.5rem]">
             <div class="">
                 <div
-                    class="pt-[20px] flex justify-center font-[jost] font-[500]
-                     text-[52px] max-sm:text-[24px] max-md:text-[34px] max-lg:text-[32px] max-xl:text-[38px]  text-[#DC275C] ">
+                    class="pt-[20px] max-lg:pt-[2px] flex justify-center font-[jost] font-[500]
+                     text-[52px] max-sm:text-[40px] max-md:text-[52px] max-lg:text-[31px] max-xl:text-[38px] xl:text-[48px] text-[#DC275C] ">
                     <p
-                        class="max-sm:text-center max-md:text-center leading-[75.14px] max-sm:leading-[30px] max-md:leading-[54px] max-lg:leading-[42px] max-xl:leading-[50px]">
+                        class="max-sm:text-center max-md:text-center leading-[75.14px] max-xl:leading-[64.14px] max-lg:leading-[48px] max-sm:leading-[50px]">
                         Our newest</br>products are</br>here,just for you!</p>
                 </div>
                 <div class='flex justify-center items-center'>
@@ -123,21 +122,21 @@
             <div class="col-span-2 max-md:mt-[20px]">
                 <img class="" src="/storage/product/Hero-Image.svg" alt="">
             </div>
-        </div>
-
-        <!-- Products  -->
-        <!-- Product  -->
-        <div
-            class="grid grid-cols-5 max-sm:grid-cols-1 max-sm:gap-[2px] max-md:grid-cols-2 max-md:gap-[4px] max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 mt-6 mb-[78px] max-sm:mb-[50px]">
-            {{-- @for ($i = 1; $i < 6; $i++)
-                <livewire:products />
-            @endfor --}}
-            @foreach ($new_arrival->take(5) as $product)
-                <x-product :product="$product"></x-product>
-            @endforeach
-        </div>
+        </div> 
     </section>
-
+ <!-- Product  -->
+    <section>
+        <div
+        class="grid grid-cols-5 max-md:grid-cols-2 max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 mt-6 mb-[78px] max-sm:mb-[50px]">
+        {{-- @for ($i = 1; $i < 6; $i++)
+            <livewire:products />
+        @endfor --}}
+        @foreach ($new_arrival->take(5) as $product)
+            <x-product :product="$product"></x-product>
+        @endforeach
+    </div>
+    </section>
+<!-- Product  -->
     <!-- Feature Laptops Sliders -->
     <section>
         <div class="py-1 text-center">
@@ -264,23 +263,23 @@
                     @foreach ($features->where('cat_id', 7) as $f_product)
                     <div class="swiper-slide">
                         <div
-                            class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div class="image-container">
-                                <div>
+                            class="w-[221px] max-xl:w-full mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
+                            
+                                <div class="image-container">
                                     <a href="{{ route('product.details', [$f_product->slug]) }}" wire:navigate>
                                         <img src="{{ $f_product->img()[0] }}" alt="">
                                     </a>
                                 </div>
-                                <div class="mb-auto">
+                                <div>
                                     <a href="{{ route('product.details', [$f_product->slug]) }}" wire:navigate
-                                        class="mb-auto text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-300 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
+                                        class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-300 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
                                           {{ Str::of($f_product->title)->words(5) }}
                                     </a>
                                 </div>
-                            </div>
+                         
 
                             <div
-                                class=" flex justify-between gap-5 text-[14px] mt-auto font-[jost] font-[700] py-[10px] leading-[20.23px]">
+                                class="flex justify-between text-[14px] mt-auto font-[jost] font-[700] py-[10px] leading-[20.23px]">
                                 <span class=" text-[#DC275C]">
                                     {{ number_format($f_product->final_price) }} TK
                                 </span>
@@ -527,28 +526,28 @@
         {{-- swiper for asian laptop --}}
         <div class="hidden asian_prds">
             <!-- Swiper -->
-            <div class="swiper mySwiper">
+            <div class="swiper mySwiper mt-[20px]">
                 <div class="swiper-wrapper">
                     @foreach ($features->where('cat_id', 6) as $a_product)
                     <div class="swiper-slide">
                         <div
                             class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div>
-                                <div>
+                           
+                                <div class="image-container">
                                     <a href="{{ route('product.details', [$a_product->slug]) }}" wire:navigate>
                                         <img src="{{ $a_product->img()[0] }}" alt="">
                                     </a>
                                 </div>
-                                <div class="mb-auto">
+                                <div class="">
                                     <a href="{{ route('product.details', [$a_product->slug]) }}" wire:navigate
-                                        class="mb-auto text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-300 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
+                                        class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-300 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
                                        {{ $a_product->title }}
                                     </a>
                                 </div>
-                            </div>
+                            
 
                             <div
-                                class="flex justify-between gap-5 text-[14px] mt-auto font-[jost] font-[700] py-[10px] leading-[20.23px]">
+                                class="flex justify-between text-[14px] mt-auto font-[jost] font-[700] py-[10px] leading-[20.23px]">
                                 <span class=" text-[#DC275C]">
                                     {{ number_format($a_product->final_price) }} TK
                                 </span>
@@ -816,13 +815,13 @@
                 items-center text-center rounded-[4px] bg-[#F2F2F2] text-[#380D37] font-[500] text-[20px] font-[jost]">
                 Asian
             </button>
-            <div class="container h-[2px] bg-[#380D37]"></div>
+            <div class="h-[2px] bg-[#380D37]"></div>
         </div>
         {{-- @dd($dpds) --}}
         {{-- <!-- Product  --> --}}
         <div class="usa_prds">
             <div
-                class="grid grid-cols-5 max-sm:grid-cols-1 max-sm:gap-[2px] max-md:grid-cols-2 max-md:gap-[4px] max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 mt-6 mb-[78px] max-sm:mb-[50px]">
+                class="grid grid-cols-5 max-md:grid-cols-2 max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 mt-6 mb-[78px] max-sm:mb-[50px]">
                 @foreach ($dpds->where('cat_id', 6) as $d_product)
                     <x-product :product="$d_product"></x-product>
                 @endforeach
@@ -831,7 +830,7 @@
         {{-- @dd($dpds->where('cat_id', 7)) --}}
         <div class="hidden asian_prds">
             <div
-                class="grid grid-cols-5 max-sm:grid-cols-1 max-sm:gap-[2px] max-md:grid-cols-2 max-md:gap-[4px] max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 mt-6 mb-[78px] max-sm:mb-[50px]">
+                class="grid grid-cols-5 max-md:grid-cols-2 max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 mt-6 mb-[78px] max-sm:mb-[50px]">
                 @foreach ($dpds->where('cat_id', 7) as $da_product)
                     <x-product :product="$da_product"></x-product>
                 @endforeach
@@ -859,7 +858,7 @@
                 Why Choose Us?</h2>
         </div>
         <div
-            class="grid grid-cols-5 max-sm:grid-cols-1 max-sm:gap-[2px] max-md:grid-cols-2 max-md:gap-[4px] max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 my-[50px] ">
+            class="grid grid-cols-5 max-md:grid-cols-2 max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 my-[50px] ">
             <div
                 class="rounded-[4px] shadow-[2px_2px_5px_2px_#0000001A] max-sm:mb-[10px] max-md:mb-[10px] max-lg:mb-[10px]">
                 <div>
@@ -1502,24 +1501,24 @@
             </section>
         </div>
     </section>
-    <div class="mt-16 h-[2px] bg-[#380D37] container"></div>
+    <div class="mt-16 h-[2px] bg-[#380D37]"></div>
     <!-- Drop/submit a review  -->
     <section class="mt-16 mb-5 max-md:mt-6">
         <div
             class="text-center text-[#380D37] text-[42px] font-[jost] font-[500] max-md:my-[35px] leading-[61px] max-sm:leading-[5px]">
-            <h1 class="max-sm:text-[25px] max-md:text-[] max-lg:text-[] max-xl:text-[]"> Please Drop a Review!</h1>
+            <h1 class="max-sm:text-[35px] max-md:text-[45] max-lg:text-[] max-xl:text-[]"> Please Drop a Review!</h1>
         </div>
-        <div class="grid grid-cols-2 max-sm:grid-cols-1 max-md:grid-cols-1 max-lg:grid-cols-2 mt-20 max-sm:mt-[15px]">
+        <div class="grid grid-cols-2 max-sm:grid-cols-1 max-md:grid-cols-1 max-lg:grid-cols-2 mt-20 max-md:mt-12 max-sm:mt-[15px]">
             <div>
                 <div>
                     <h1
-                        class="text-[52px] text-[#DC275C] max-sm:text-[30px] max-md:text-[] max-lg:text-[35px] max-xl:text-[45px] max-md:text-center font-[500] font-[jost] leading-[75.14px] max-sm:leading-[30px] max-lg:leading-[50px] max-xl:leading-[52px]">
+                        class="text-[52px] text-[#DC275C] max-sm:text-[34px] max-md:text-[44] max-lg:text-[35px] max-xl:text-[45px] max-md:text-center font-[500] font-[jost] leading-[75.14px] max-sm:leading-[40px] max-md:leading-[60px] max-xl:leading-[52px]">
                         We Believe In The
                         </br> Power Of </br> Communication</h1>
                 </div>
                 <div>
                     <p
-                        class="mt-8 text-[#353535] text-[24px] max-sm:text-[12px] max-md:text-[] max-lg:text-[20px] max-xl:text-[22px] max-md:text-center font-[jost] font-[500] leading-[30px] max-sm:leading-[20px]">
+                        class="mt-8 text-[#353535] text-[24px] max-sm:text-[14px] max-md:text-[] max-lg:text-[20px] max-xl:text-[22px] max-md:text-center font-[jost] font-[500] leading-[30px] max-sm:leading-[20px]">
                         Share your
                         experience with us.</br> Drop a comment and we will look into it.</p>
                 </div>
@@ -1581,6 +1580,87 @@
             </form>
         </div>
     </section>
+
+    {{-- <div class="px-30 mt-20">
+        <style>
+            .menu-container2 {
+                position: relative;
+                display: inline-block;
+                cursor: pointer;
+            }
+    
+            .menu2 {
+                display: none;
+                position: absolute;
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                background-color: #380d;
+                border: 1px solid #ccc;
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+                z-index: 1;
+            }
+    
+            .menu2 li {
+                padding: 8px;
+                cursor: pointer;
+            }
+    
+            .toggle-btn2 {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 30px;
+                height: 30px;
+                /* border: 1px solid #ccc;
+                border-radius: 50%; */
+                transition: background-color 0.3s ease;
+            }
+    
+            .toggle-btn2 .minus {
+                display: none;
+            }
+    
+            .toggle-btn2.active {
+                background-color: black;
+            }
+        </style>
+        <div class="menu-container2">
+            <div class="toggleBtn2 flex">
+                <div>
+                    <span>
+                        sumon
+                    </span>
+                </div>
+              <div id="toggle-btn2">
+                <svg class="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+            <svg class="minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                style="display: none;">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+              </div>
+            </div>
+            <ul class="menu2">
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+            </ul>
+        </div>
+        <script>
+            $(document).ready(function() {
+                $('.toggleBtn2').click(function() {
+                    $('.menu2').toggle();
+                    $('#toggle-btn2 .plus, #toggle-btn2 .minus').toggle();
+                });
+            });
+        </script>
+    
+    </div> --}}
 </div>
 @script
     <script>
@@ -1688,23 +1768,32 @@
                     // },
                     mousewheel: true,
                     keyboard: true,
-
-                });
-                var swiper = new Swiper('.swiper-container', {
-                // ...
-                breakpoints: {
+                    breakpoints: {
                     // when window width is >= 320px
-                    320: {
-                    slidesPerView: 1,
+                    375: {
+                    slidesPerView: 2,
                     spaceBetween: 10
                     },
                     // when window width is >= 480px
-                    480: {
-                    slidesPerView: 2,
+                    // 640: {
+                    // slidesPerView: 2,
+                    // spaceBetween: 20
+                    // },
+                    768: {
+                    slidesPerView: 3,
+                    spaceBetween: 20
+                    },
+                    1024: {
+                    slidesPerView: 4,
+                    spaceBetween: 20
+                    },
+                    1280: {
+                    slidesPerView: 5,
                     spaceBetween: 20
                     },
                     // ...
                 }
+
                 });
     </script>
 @endscript
