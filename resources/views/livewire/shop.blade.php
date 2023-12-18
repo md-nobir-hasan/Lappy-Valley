@@ -1114,11 +1114,11 @@
                                     class="flex items-center justify-between">
                                     <div class="flex justify-between flex-1 sm:hidden">
                                         <span
-                                            class="relative inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-gray-500 bg-white border border-gray-300 rounded-md cursor-default">
+                                            class="relative inline-flex items-center px-4 py-2 text-[12px] text-[#353535] font-[jost] font-[500] leading-[17.34px] bg-[#f2f2f2] border border-gray-300 rounded-md cursor-default">
                                             « Previous
                                         </span>
                                         <a href=""
-                                            class="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md hover:text-gray-500 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700">
+                                            class="relative inline-flex items-center px-4 py-2 ml-3 text-[12px] text-[#353535] font-[jost] font-[500] leading-[17.34px] bg-[#f2f2f2] transition duration-150 ease-in-out border border-gray-300 rounded-md hover:text-gray-500 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700">
                                             Next »
                                         </a>
                                     </div>
@@ -1128,7 +1128,7 @@
                                             <span class="relative z-0 inline-flex rounded-md shadow-sm">
                                                 <span aria-disabled="true" aria-label="&amp;laquo; Previous">
                                                     <span @click='pageChange(current_page-1)'
-                                                        class="relative inline-flex items-center px-2 py-2 text-sm font-medium leading-5 text-gray-500 bg-white border border-gray-300 cursor-default rounded-l-md"
+                                                        class="relative inline-flex items-center px-2 py-2 text-[12px] text-[#353535] font-[jost] font-[500] leading-[17.34px] bg-[#f2f2f2] border-gray-300 cursor-default rounded-l-md"
                                                         aria-hidden="true">
                                                         PREV
                                                     </span>
@@ -1136,14 +1136,14 @@
 
                                                 <template x-for="npage in page_num" :key="npage">
                                                     <span x-text='npage' @click='pageChange(npage)'
-                                                        class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium leading-5 transition duration-150 ease-in-out border border-gray-300 cursor-pointer hover:text-gray-500 focus:z-10 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700"
+                                                        class="relative inline-flex items-center px-4 py-2 -ml-px text-[12px] text-[#353535] font-[jost] font-[500] leading-[17.34px] bg-[#f2f2f2] transition duration-150 ease-in-out border border-gray-300 cursor-pointer hover:text-gray-500 focus:z-10 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700"
                                                         :class="current_page == npage ? 'bg-[#380D37] text-[#F2F2F2]' :
                                                             'bg-[#F2F2F2] text-[#380D37]'"
                                                         aria-label="Go to page 2">
                                                     </span>
                                                 </template>
                                                 <span @click='pageChange(current_page+1)'
-                                                    class="relative inline-flex items-center px-2 py-2 -ml-px text-sm font-medium leading-5 text-gray-500 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-r-md hover:text-gray-400 focus:z-10 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-500"
+                                                    class="relative inline-flex items-center px-2 py-2 -ml-px text-[12px] text-[#353535] font-[jost] font-[500] leading-[17.34px] bg-[#f2f2f2] transition duration-150 ease-in-out border border-gray-300 rounded-r-md hover:text-gray-400 focus:z-10 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-500"
                                                     aria-label="Next &amp;raquo;">
 
                                                     NEXT
@@ -1152,14 +1152,14 @@
                                         </div>
 
                                         <div>
-                                            <p class="text-sm leading-5 text-gray-700">
+                                            <p class="text-[12px] text-[#353535] font-[jost] font-[500] leading-[17.34px] bg-[#f2f2f2]">
                                                 Showing
-                                                <span x-text='show_from' class="font-medium"
+                                                <span x-text='show_from' class="font-[jost] font-[500] text-[12px] text-[#353535]"
                                                     id="showing_from">1</span>
                                                 to
-                                                <span x-text='show_to' class="font-medium" id="showing_to">20</span>
+                                                <span x-text='show_to' class="font-[jost] font-[500] text-[12px] text-[#353535]" id="showing_to">20</span>
                                                 of
-                                                <span x-text='total_product' class="font-medium"></span>
+                                                <span x-text='total_product' class="text-[12px] text-[#353535] font-[jost] font-[500]"></span>
                                                 results (<span x-text='page_num'></span> pages)
                                             </p>
                                         </div>
@@ -1182,7 +1182,7 @@
             </div>
         </div>
     </div>
-
+    <div class='h-[2px] bg-[#764A8733] mt-[60px]'></div>
 </div>
 @script
     <script>
