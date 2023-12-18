@@ -1,5 +1,4 @@
-<div class="px-[100px] max-md:px-[45px] max-lg:px-[70px] max-sm:px-[15px] mx-auto max-sm:mt-[70px] max-xl:mt-[100px]">
-
+<div class="px-[100px] max-2xl:px-[70px] max-xl:px-[60px] max-lg:px-[38px] max-md:px-[35px] max-sm:px-[15px] max-sm:mt-[70px] max-xl:mt-[100px]">
     {{-- Alert message  --}}
     @if ($error = session('error'))
         <script>
@@ -19,8 +18,8 @@
                     $bnrs = explode(',', $home_banner->photo);
                 @endphp
                 @foreach ($bnrs as $banner)
-                    <div class="{{ $loop->first ? '' : ' hidden' }} slide">
-                        <img src="{{ $banner }}">
+                    <div class="{{ $loop->first ? '' : ' hidden' }} slide w-full object-cover">
+                        <img class="w-full" src="{{ $banner }}">
                     </div>
                 @endforeach
                 <!-- The previous button -->
@@ -107,10 +106,10 @@
         <div class="grid grid-cols-3 max-sm:grid-cols-1 max-md:grid-cols-1 mt-6 mb-5 max-sm:mt-[.5rem]">
             <div class="">
                 <div
-                    class="pt-[20px] flex justify-center font-[jost] font-[500]
-                     text-[52px] max-sm:text-[40px] max-md:text-[52px] max-lg:text-[32px] max-xl:text-[38px]  text-[#DC275C] ">
+                    class="pt-[20px] max-lg:pt-[2px] flex justify-center font-[jost] font-[500]
+                     text-[52px] max-sm:text-[40px] max-md:text-[52px] max-lg:text-[31px] max-xl:text-[38px] xl:text-[48px] text-[#DC275C] ">
                     <p
-                        class="max-sm:text-center max-md:text-center leading-[75.14px]  max-sm:leading-[50px]">
+                        class="max-sm:text-center max-md:text-center leading-[75.14px] max-xl:leading-[64.14px] max-lg:leading-[48px] max-sm:leading-[50px]">
                         Our newest</br>products are</br>here,just for you!</p>
                 </div>
                 <div class='flex justify-center items-center'>
@@ -1507,13 +1506,13 @@
     <section class="mt-16 mb-5 max-md:mt-6">
         <div
             class="text-center text-[#380D37] text-[42px] font-[jost] font-[500] max-md:my-[35px] leading-[61px] max-sm:leading-[5px]">
-            <h1 class="max-sm:text-[35px] max-md:text-[] max-lg:text-[] max-xl:text-[]"> Please Drop a Review!</h1>
+            <h1 class="max-sm:text-[35px] max-md:text-[45] max-lg:text-[] max-xl:text-[]"> Please Drop a Review!</h1>
         </div>
-        <div class="grid grid-cols-2 max-sm:grid-cols-1 max-md:grid-cols-1 max-lg:grid-cols-2 mt-20 max-sm:mt-[15px]">
+        <div class="grid grid-cols-2 max-sm:grid-cols-1 max-md:grid-cols-1 max-lg:grid-cols-2 mt-20 max-md:mt-12 max-sm:mt-[15px]">
             <div>
                 <div>
                     <h1
-                        class="text-[52px] text-[#DC275C] max-sm:text-[34px] max-md:text-[] max-lg:text-[35px] max-xl:text-[45px] max-md:text-center font-[500] font-[jost] leading-[75.14px] max-sm:leading-[40px] max-lg:leading-[50px] max-xl:leading-[52px]">
+                        class="text-[52px] text-[#DC275C] max-sm:text-[34px] max-md:text-[44] max-lg:text-[35px] max-xl:text-[45px] max-md:text-center font-[500] font-[jost] leading-[75.14px] max-sm:leading-[40px] max-md:leading-[60px] max-xl:leading-[52px]">
                         We Believe In The
                         </br> Power Of </br> Communication</h1>
                 </div>
@@ -1776,16 +1775,16 @@
                     spaceBetween: 10
                     },
                     // when window width is >= 480px
-                    640: {
+                    // 640: {
+                    // slidesPerView: 2,
+                    // spaceBetween: 20
+                    // },
+                    768: {
                     slidesPerView: 3,
                     spaceBetween: 20
                     },
-                    768: {
-                    slidesPerView: 4,
-                    spaceBetween: 20
-                    },
                     1024: {
-                    slidesPerView: 5,
+                    slidesPerView: 4,
                     spaceBetween: 20
                     },
                     1280: {
