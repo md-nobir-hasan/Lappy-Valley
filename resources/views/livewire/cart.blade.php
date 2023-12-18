@@ -2,9 +2,9 @@
     @csrf --}}
 <!-- ----------cart----- -->
 <div id="side_cart" x-data="{ total: '{{ $carts?->sum('amount') }}' }"
-    class="hidden w-[400px] bg-[#F2F2F2] right-0 top-0 fixed z-[9999] overflow-y-scroll">
+    class="hidden w-[400px] max-sm:w-full max-sm:mt-[50px] bg-[#F2F2F2] right-0 top-0 fixed z-[9999] overflow-y-scroll">
     {{-- cart header (cart icon and close button) --}}
-    <div class="w-[400px] h-[61px] bg-[#380D37] flex justify-between text-[20px] text-[#fff] items-center px-[20px]">
+    <div class="w-[400px] max-sm:w-full h-[61px] bg-[#380D37] flex justify-between text-[20px] text-[#fff] items-center px-[20px]">
         <div class="flex items-center gap-[5px]">
             <img class='h-[24.84px] w-[25.6px]' src="/storage/product/cart(2).svg" alt="">
             <span class='font-[jost] cursor-pointer font-[500] text-[20px] text-[#F2F2F2]'>
