@@ -172,7 +172,7 @@
                         Payment Options
                     </h1>
                 </div>
-                <div class="grid grid-cols-2 gap-6 w-full my-[15px]">                 
+                <div class="grid grid-cols-2 max-xl:grid-cols-1 gap-6 w-full my-[15px]">                 
                         <label class="flex border-[2px] hover:border-[#380D37] border-[#380D37] w-full gap-4" id="cash-payment">
                             <div class="px-3 flex justify-center bg-[#f2f2f2]">
                                 <input type="radio" name="cash" checked class="w-[20px] accent-[#380D37]">
