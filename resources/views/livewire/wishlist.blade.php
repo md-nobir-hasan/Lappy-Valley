@@ -10,6 +10,7 @@
                     Out</button>
             </form></div>
     </div>
+     @dd(auth()->user())
     <div class='h-[2px] bg-[#764A8733]'></div>
     <!-- --------------------user-name-------------------------------- -->
 
