@@ -1,4 +1,4 @@
- <div class="px-[100px] max-md:px-[45px] max-sm:px-[20px] max-sm:mt-[70px] max-xl:mt-[100px]">
+ <div class="px-[100px] max-2xl:px-[70px] max-xl:px-[60px] max-lg:px-[38px] max-md:px-[35px] max-sm:px-[15px] max-sm:mt-[70px] max-xl:mt-[100px]">
     @if ($success = session('success'))
         <script>
             toastr.success("{{ $success }}")
@@ -49,7 +49,7 @@
                              <label class="block font-[jost] font-[500] text-[#353535] text-[12px]" for="name">
                                  First Name*</label>
                              <input name="name" id="name"
-                                 class=" w-full py-[10px] pl-[10px] border-[1px] border-[#380D37] italic rounded-[4px] font-[jost] font-[500] text-[12px] text-[#C4C4C4]"
+                                 class=" w-full py-[10px] pl-[10px] border-[1px] border-[#380D37] italic rounded-[4px] font-[jost] font-[500] text-[12px] text-[#380D37] placeholder-[#C4C4C4]"
                                  type="text" placeholder="First Name*"
                                  @if (auth()->user()) value='{{ auth()->user()->name ?? old('name') }}' @else value='{{ old('name') }}' @endif
                                  wire:model='name'>
@@ -61,7 +61,7 @@
                              <label class="block font-[jost] font-[500] text-[#353535] text-[12px]" for="f_name">
                                  Last Name*</label>
                              <input name="l_name" id="l_name"
-                                 class=" w-full py-[10px] pl-[10px] border-[1px] border-[#380D37] italic rounded-[4px] font-[jost] font-[500] text-[12px] text-[#C4C4C4]"
+                                 class=" w-full py-[10px] pl-[10px] border-[1px] border-[#380D37] italic rounded-[4px] font-[jost] font-[500] text-[12px] text-[#380D37] placeholder-[#C4C4C4]"
                                  type="text"
                                  @if (auth()->user()) value='{{ auth()->user()->l_name ?? old('l_name') }}' @else value='{{ old('l_name') }}' @endif
                                  placeholder="Last Name*"
@@ -76,7 +76,7 @@
                          <label class="block font-[jost] font-[500] text-[#353535] text-[12px]"
                              for="address">Address*</label>
                          <input name="address" id="address"
-                             class="w-full py-[10px] pl-[10px] border-[1px] border-[#380D37] italic rounded-[4px] font-[jost] font-[500] text-[12px] text-[#C4C4C4]"
+                             class="w-full py-[10px] pl-[10px] border-[1px] border-[#380D37] italic rounded-[4px] font-[jost] font-[500] text-[12px] text-[#380D37] placeholder-[#C4C4C4]"
                              type="text" placeholder="Address*"
                              @if (auth()->user()) value='{{ auth()->user()->name ?? old('address') }}' @else value='{{ old('address') }}' @endif
                              wire:model='address'>
@@ -89,7 +89,7 @@
                          <label class="block font-[jost] font-[500] text-[#353535] text-[12px]"
                              for="phone">Mobile*</label>
                          <input name="phone" id="phone"
-                             class=" w-full py-[10px] pl-[10px] border-[1px] border-[#380D37] italic rounded-[4px] font-[jost] font-[500] text-[12px] text-[#C4C4C4]"
+                             class=" w-full py-[10px] pl-[10px] border-[1px] border-[#380D37] italic rounded-[4px] font-[jost] font-[500] text-[12px] text-[#380D37] placeholder-[#C4C4C4]"
                              type="number" placeholder="Mobile Number*"
                              @if (auth()->user()) value='{{ auth()->user()->phone ?? old('phone') }}' @else value='{{ old('phone') }}' @endif
                              wire:model='phone'>
@@ -102,7 +102,7 @@
                          <label class="block font-[jost] font-[500] text-[#353535] text-[12px]"
                              for="email">Email:</label>
                          <input name="email" id="email"
-                             class=" w-full py-[10px] pl-[10px] border-[1px] border-[#380D37] italic rounded-[4px] font-[jost] font-[500] text-[12px] text-[#C4C4C4]"
+                             class=" w-full py-[10px] pl-[10px] border-[1px] border-[#380D37] italic rounded-[4px] font-[jost] font-[500] text-[12px] text-[#380D37] placeholder-[#C4C4C4]"
                              type="email" placeholder="Email:"
                              @if (auth()->user()) value='{{ auth()->user()->email ?? old('email') }}' @else value='{{ old('email') }}' @endif
                              wire:model='email'>
@@ -116,7 +116,7 @@
                              <label class="block font-[jost] font-[500] text-[#353535] text-[12px]"
                                  for="city">City*</label>
                              <input name="city" id="city"
-                                 class=" w-full py-[10px] pl-[10px] border-[1px] border-[#380D37] italic rounded-[4px] font-[jost] font-[500] text-[12px] text-[#C4C4C4]"
+                                 class=" w-full py-[10px] pl-[10px] border-[1px] border-[#380D37] italic rounded-[4px] font-[jost] font-[500] text-[12px] text-[#380D37] placeholder-[#C4C4C4]"
                                  type="text" placeholder="City*"
                                  @if (auth()->user()) value='{{ auth()->user()->city ?? old('city') }}' @else value='{{ old('city') }}' @endif
                                  wire:model='city'>
@@ -128,7 +128,7 @@
                              <label class="block font-[jost] font-[500] text-[#353535] text-[12px]"
                                  for="divission_id">Zone*</label>
                              <select name="divission_id" id="divission_id"
-                                 class="w-full py-[10px] pl-[10px] border-[1px] rounded-[4px] italic border-[#380D37] font-[jost] font-[500] text-[12px] text-[#C4C4C4]"
+                                 class="w-full py-[10px] pl-[10px] border-[1px] rounded-[4px] italic border-[#380D37] font-[jost] font-[500] text-[12px] text-[#380D37] placeholder-[#C4C4C4]"
                                  wire:model='divission_id'>
                                  @foreach ($divissions as $division)
                                      <option value="{{ $division->id }}" @selected($division->id == old('divission_id'))>
@@ -145,7 +145,7 @@
                          <label class="block font-[jost] font-[500] text-[#353535] text-[12px]"
                              for="comment">Comment:</label>
                          <input id="comment"
-                             class="w-full pt-[10px] pb-[80px] pl-[10px] border-[1px] border-[#380D37] italic rounded-[4px] font-[jost] font-[500] text-[12px] text-[#C4C4C4]"
+                             class="w-full pt-[10px] pb-[80px] pl-[10px] border-[1px] border-[#380D37] italic rounded-[4px] font-[jost] font-[500] text-[12px] text-[#380D37] placeholder-[#C4C4C4]"
                              type="text" placeholder="comment"
                              wire:model='comment'>
                          @error('comment')

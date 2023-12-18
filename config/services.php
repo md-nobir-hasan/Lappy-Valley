@@ -35,14 +35,14 @@ return [
         'redirect' => 'http://127.0.0.1:8000/login/github/callback',
      ],
      'google' => [
-        'client_id' => '352580574665-g3af5bv9brdmj8gb044c88f92r5gsrim.apps.googleusercontent.com', //Google API
-        'client_secret' => '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', //Google Secret
-        'redirect' => 'http://127.0.0.1:8000/login/google/callback',
+        'client_id' => env('g_client_id'), //Google API
+        'client_secret' => env('g_client_secret'), //Google Secret
+        'redirect' => env('g_redirect'),
      ],
      'facebook' => [
-        'client_id' => '3568111496794157', //Facebook API
-        'client_secret' => 'd22d6d7b8cbbb227b32ae1991e65bfd2', //Facebook Secret
-        'redirect' => 'http://127.0.0.1:8000/login/facebook/callback',
+        'client_id' => env('f_client_id'), //Facebook API
+        'client_secret' => env('f_client_secret'), //Facebook Secret
+        'redirect' => env('f_redirect'),
      ],
 
 ];

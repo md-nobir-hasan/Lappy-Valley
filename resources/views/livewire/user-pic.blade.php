@@ -59,6 +59,7 @@
            }
        </style>
        <div class='hello w-[74px] h-[74px]'>
+       
         @if(auth()->user()->photo)
             <img src="{{auth()->user()->photo}}" alt="Product">
         @else
