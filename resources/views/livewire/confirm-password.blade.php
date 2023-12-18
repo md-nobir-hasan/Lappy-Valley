@@ -1,4 +1,4 @@
-<div class='px-[100px] max-sm:px-[15px] max-lg:px-[45px] max-xl:px-[70px] max-sm:mt-[70px] max-xl:mt-[100px]'>
+<div class='px-[100px] max-2xl:px-[70px] max-xl:px-[60px] max-lg:px-[38px] max-md:px-[35px] max-sm:px-[15px] max-sm:mt-[70px] max-xl:mt-[100px]'>
     <div>
         <h1 class='font-[jost] text-[16px] max-sm:text-[14px] font-[400] leading-[25.3px] text-[#353535]'>Home / Account</h1>
         <div class='h-[2px] bg-[#764A8733]'></div>
