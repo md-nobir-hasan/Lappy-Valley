@@ -912,7 +912,7 @@
                                                         @enderror
                                                     </div>
                                                 </div>
-                                                <div class='mt-[20px]'>
+                                                <div class='mt-[20px] text-right'>
                                                     <div class="">
                                                         <template x-if='v_msg'>
                                                             <span x-text='v_msg'></span>
