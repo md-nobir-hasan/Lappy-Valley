@@ -12,16 +12,17 @@
     @endif
     <!-- Hero Section  -->
     @if ($home_banner)
-        <section>
-            <div class="relative container mx-auto" x-data="{ active: true }">
+        <section class="w-full mx-auto">
+            <div class="px-auto mx-auto relative items-center" x-data="{ active: true }">
                 @php
                     $bnrs = explode(',', $home_banner->photo);
                 @endphp
                 @foreach ($bnrs as $banner)
                     <div class="{{ $loop->first ? '' : ' hidden' }} slide w-full object-cover">
-                        <img class="w-full" src="{{ $banner }}">
+                        <img class="w-full mx-auto" src="{{ $banner }}">
                     </div>
                 @endforeach
+           
                 <!-- The previous button -->
              <div>
                 <a id="move_back" value='0'
