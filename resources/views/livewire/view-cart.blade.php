@@ -3,7 +3,7 @@
     all_total: {{ $carts->sum('amount') }},
     carts: {{$carts}},
 }"
-     class="px-[100px] max-md:px-[45px] max-lg:px-[70px] max-sm:px-[15px] mx-auto  max-sm:mt-[70px] max-xl:mt-[100px]">
+     class="px-[100px] max-2xl:px-[70px] max-xl:px-[60px] max-lg:px-[38px] max-md:px-[35px] max-sm:px-[15px] max-sm:mt-[70px] max-xl:mt-[100px]">
      <div class="">
          <h1 class='font-[jost] xl:text-[20px] font-[400] leading-[25.3px] text-[#353535]'>
              Shopping Cart/View Cart
