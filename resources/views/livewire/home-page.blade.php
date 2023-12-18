@@ -258,8 +258,8 @@
         {{-- Swiper for usa  --}}
         <div class="usa_prds">
             <!-- Swiper -->
-            <div class="swiper mySwiper mt-[20px] mb-[20px]">
-                <div class="swiper-wrapper">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper mt-[20px] mb-[10px]">
                     @foreach ($features->where('cat_id', 7) as $f_product)
                     <div class="swiper-slide">
                         <div
