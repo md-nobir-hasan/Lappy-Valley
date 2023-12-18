@@ -2229,6 +2229,10 @@ input[type="range"]:active::-webkit-slider-thumb{
   width: 359px;
 }
 
+.w-\[545px\]{
+  width: 545px;
+}
+
 .min-w-0{
   min-width: 0px;
 }
