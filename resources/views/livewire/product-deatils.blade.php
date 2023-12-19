@@ -76,36 +76,23 @@
             </div>
 
 
-            <div class="flex items-center justify-center mt-auto">
+            <div class="flex items-center justify-center mt-[40px]">
                 @foreach ($photos as $pto)
                     <div class="w-[52px] border-[2px] max-sm:border-[1px] border-[rgba(53_53_53_0.30)]">
-                        <img class="object-center" src="{{ $pto }}" alt="{{ $product->title }}">
+                        <img class="img-mini object-center" src="{{ $pto }}" alt="{{ $product->title }}">
                     </div>
                 @endforeach
                 <script>
-                    const imageContainer = document.getElementById('imageContainer');
-                    const hoverImage = document.getElementById('hoverImage');
+                    $('.img-mini').each(function(index){
+                        $(this).on('click',function(){
+                            $('.img-mini').removeClass('border-2 border-[#380D37]');
+                            $(this).addClass('border-2 border-[#380D37]');
+                            let src = $(this).attr('src');
+                            console.log(src);
+                            // alert(src);
+                            $('#hoverImage').attr('src',src);
 
-                    imageContainer.addEventListener('mousemove', (e) => {
-                        const {
-                            offsetX,
-                            offsetY
-                        } = e;
-                        const {
-                            width,
-                            height
-                        } = imageContainer.getBoundingClientRect();
-                        const xPercentage = (offsetX / width - 0.5) * 5; // Normalize to -1 to 1
-                        const yPercentage = (offsetY / height - 0.5) * 5; // Normalize to -1 to 1
-
-                        const moveX = -xPercentage * 50; // Adjust the multiplier as needed
-                        const moveY = -yPercentage * 50; // Adjust the multiplier as needed
-
-                        hoverImage.style.transform = `translate(${moveX}px, ${moveY}px)`;
-                        imageContainer.addEventListener('mouseleave', () => {
-                            hoverImage.style.transform = 'translate(0, 0)';
                         });
-
                     });
                 </script>
 
@@ -201,19 +188,6 @@
                         BUY NOW</button>
             </div>
         </div>
-        <script>
-            $("#cash-payment").click( function(){
-                $(this).addClass("border-[#380D37]");
-                $(this).removeClass("border-[#764A8733]");
-                $("#monthly-paymetn").removeClass("border-[#380D37]");
-            })
-            $("#monthly-payment").click( function(){
-                $(this).addClass("border-[#380D37]");
-                $("#cash-payment").removeClass("border-[#380D37]");
-                $("#cash-payment").addClass("border-[#764A8733]");
-            })
-
-        </script>
     </div>
     <!-- -------------ideapad---section---end--- -->
     <div class="h-[2px] max-sm:h-[1px] max-sm:my-[30px] bg-[#380D37] my-[50px]"></div>
@@ -1080,5 +1054,45 @@
                 $('.dst_btn').addClass('bg-[#F2F2F2] text-[#380D37]');
             });
         })
+// --------------------large--size--img--cursor --effect--------------
+const imageContainer = document.getElementById('imageContainer');
+                    const hoverImage = document.getElementById('hoverImage');
+
+                    imageContainer.addEventListener('mousemove', (e) => {
+                        const {
+                            offsetX,
+                            offsetY
+                        } = e;
+                        const {
+                            width,
+                            height
+                        } = imageContainer.getBoundingClientRect();
+                        const xPercentage = (offsetX / width - 0.5) * 5; // Normalize to -1 to 1
+                        const yPercentage = (offsetY / height - 0.5) * 5; // Normalize to -1 to 1
+
+                        const moveX = -xPercentage * 50; // Adjust the multiplier as needed
+                        const moveY = -yPercentage * 50; // Adjust the multiplier as needed
+
+                        hoverImage.style.transform = `translate(${moveX}px, ${moveY}px)`;
+                        imageContainer.addEventListener('mouseleave', () => {
+                            hoverImage.style.transform = 'translate(0, 0)';
+                        });
+
+                    });
+
+
+
+
+        // --------------------instalment-------------------
+        $("#cash-payment").click( function(){
+                $(this).addClass("border-[#380D37]");
+                $(this).removeClass("border-[#764A8733]");
+                $("#monthly-paymetn").removeClass("border-[#380D37]");
+            })
+            $("#monthly-payment").click( function(){
+                $(this).addClass("border-[#380D37]");
+                $("#cash-payment").removeClass("border-[#380D37]");
+                $("#cash-payment").addClass("border-[#764A8733]");
+            })
     </script>
 </div>
