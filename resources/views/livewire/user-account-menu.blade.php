@@ -1,5 +1,5 @@
     <div
-        class='product-4 grid grid-cols-5 gap-[20px] max-sm:grid-cols-2 max-lg:grid-cols-3 max-lg:w-[510px] w-[1000px] my-[30px]'>
+        class='product-4 grid grid-cols-5 gap-[20px] max-sm:grid-cols-2 max-lg:grid-cols-3 max-md:w-full max-lg:w-[510px] w-[1000px] my-[30px]'>
         <a href="{{ route('oc') }}" wire:navigate>
             <div class='flex gap-[5px] items-center'>
                 @if (request()->routeIs('oc'))
