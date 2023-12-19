@@ -66,7 +66,7 @@
                     // dd($photo);
                 @endphp
             @endif
-            <div class="overflow-hidden w-[400px] max-md:w-[400px] max-lg:w-[340px] mx-auto items-center">
+            <div class="overflow-hidden w-[400px] max-md:w-full max-lg:w-[340px] mx-auto items-center">
                 <div class="flex items-center w-[432px] max-lg:w-[350px] max-md:w-[432px] justify-center transition duration-50 ease-in-out hover:scale-125 overflow-hidden"
                     id="imageContainer">
                     <img id="hoverImage"
@@ -159,18 +159,60 @@
                 <li class=" max-lg:text-[18px] text-[20px] text-[#DC275C] font-[jost] font-[700] line-through">
                     <span>{{ $product->final_price }}</span> TK
                 </li>
-                <li class=" max-lg:text-[18px] text-[20px] text-[#353535] font-[jost] font-[500] mt-[16px]">
+                <li class="max-lg:text-[18px] text-[20px] text-[#353535] font-[jost] font-[500] mt-[16px]">
                     Discounted Price:
                 </li>
-                <li class=" max-lg:text-[18px] text-[20px] text-[#DC275C] font-[jost] font-[700]">
+                <li class="max-lg:text-[18px] text-[20px] text-[#DC275C] font-[jost] font-[700]">
                     1,27,000 TK
                 </li>
             </ul>
-            <livewire:add-to-cart :id="$product->id"
-                button='<button class="fill-up-btn text-[#f2f2f2] bg-gradient-to-r from-[#380D37] to-[#DC275C] max-lg:text-[18px] max-sm:text-[16px] text-[20px] py-[12px] max-lg:py-[14px] px-[40px] max-lg:px-[40px] max-sm:px-[30px] font-[jost] font-[700] mt-auto rounded-[5px]">
-                    BUY NOW</button>' />
+            <div>
+                <div>
+                    <h1 class="max-lg:text-[18px] text-[20px] text-[#353535] font-[jost] font-[500] ">
+                        Payment Options
+                    </h1>
+                </div>
+                <div class="grid grid-cols-2 max-xl:grid-cols-1 gap-6 w-full my-[15px]">                 
+                        <label class="flex border-[2px] hover:border-[#380D37] border-[#380D37] w-full gap-4" id="cash-payment">
+                            <div class="px-3 flex justify-center bg-[#f2f2f2]">
+                                <input type="radio" name="cash" checked class="w-[20px] accent-[#380D37]">
+                            </div>
+                            <div class="flex flex-col py-3">
+                                <span class="max-lg:text-[18px] text-[20px] text-[#353535] font-[jost] font-[700]">25,900৳</span>
+                                <span class="text-[16px] max-lg:text-[14px] text-[#353535] font-[jost] font-[400]">Cash Discount Price</span>
+                                <span class="text-[16px] max-lg:text-[14px] text-[#353535] font-[jost] font-[400]">Online / Cash Payment</span>
+                            </div>
+                        </label>
 
+                        <label class="flex border-[2px] hover:border-[#380D37] border-[#764A8733] w-full gap-4" id='monthly-payment'>
+                           <div class="px-3 flex justify-center bg-[#f2f2f2]">
+                            <input type="radio" name="cash" class="w-[20px] accent-[#380D37]">
+                           </div>
+                            <div class="flex flex-col py-3">
+                                <span class="max-lg:text-[18px] text-[20px] text-[#353535] font-[jost] font-[700]">2,292৳/month</span>
+                                <span class="text-[16px] max-lg:text-[14px] text-[#353535] font-[jost] font-[400]">Regular Price: 27,500৳ </span>
+                                <span class="text-[16px] max-lg:text-[14px] text-[#353535] font-[jost] font-[400]">0% EMI for up to 12 Months***</span>
+                            </div>
+                        </label>
+                </div>
+                <livewire:add-to-cart :id="$product->id"
+                    button='<button class="fill-up-btn text-[#f2f2f2] bg-gradient-to-r from-[#380D37] to-[#DC275C] max-lg:text-[18px] max-sm:text-[16px] text-[20px] py-[12px] max-lg:py-[14px] px-[40px] max-lg:px-[40px] max-sm:px-[30px] font-[jost] font-[700] mt-auto rounded-[5px]">
+                        BUY NOW</button>' />
+            </div>        
         </div>
+        <script>
+            $("#cash-payment").click( function(){
+                $(this).addClass("border-[#380D37]");
+                $(this).removeClass("border-[#764A8733]");
+                $("#monthly-paymetn").removeClass("border-[#380D37]");
+            })
+            $("#monthly-payment").click( function(){
+                $(this).addClass("border-[#380D37]");
+                $("#cash-payment").removeClass("border-[#380D37]");
+                $("#cash-payment").addClass("border-[#764A8733]");
+            })
+           
+        </script>
     </div>
     <!-- -------------ideapad---section---end--- -->
     <div class="h-[2px] max-sm:h-[1px] max-sm:my-[30px] bg-[#380D37] my-[50px]"></div>
@@ -707,7 +749,6 @@
                                 customers who own it.</p>
                         </div>
                     </div>
-
                     <div class="col-span-1">
                         <button type="button"
                             class="fill-up-btn inline-block rounded bg-gradient-to-r from-[#380D37] to-[#DC275C] px-6 max-sm:px-[10px] pb-2 pt-2.5 text-[#f2f2f2] text-[16px] max-sm:text-[11px] max-lg:text-[14px] font-[500] font-[jost]"
@@ -715,7 +756,7 @@
                             data-te-ripple-init data-te-ripple-color="light">
                             Write a review
                         </button>
-                    </div>
+                   
 
                     <!--Verically centered scrollable modal-->
                     <div data-te-modal-init
@@ -912,7 +953,7 @@
                                                         @enderror
                                                     </div>
                                                 </div>
-                                                <div class='mt-[20px]'>
+                                                <div class='mt-[20px] text-right'>
                                                     <div class="">
                                                         <template x-if='v_msg'>
                                                             <span x-text='v_msg'></span>
