@@ -168,7 +168,7 @@
             </ul>
             <div>
                 <div>
-                    <h1 class="max-lg:text-[18px] text-[20px] text-[#353535] font-[jost] font-[500] ">
+                    <h1 class="max-lg:text-[18px] text-[20px] text-[#353535] font-[jost] font-[500]">
                         Payment Options
                     </h1>
                 </div>
