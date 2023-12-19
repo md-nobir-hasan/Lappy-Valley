@@ -122,4 +122,9 @@ class Product extends Model
     public function img(){
         return explode(',', $this->photo);
     }
+
+    public function installments()
+    {
+        return $this->hasMany(Installment::class);
+    }
 }

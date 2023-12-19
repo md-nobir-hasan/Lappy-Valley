@@ -1,6 +1,6 @@
 @extends('backend.layouts.master')
 @push('title')
-    Brand
+    Duration
 @endpush
 @section('main-content')
     <!-- DataTales Example -->
@@ -11,10 +11,10 @@
             </div>
         </div>
         <div class="py-3 card-header">
-            <h6 class="float-left m-0 font-weight-bold text-primary">Brand List</h6>
-            @can('Create Brand')
-                <a href="{{ route('brand.create') }}" class="float-right btn btn-primary btn-sm" data-toggle="tooltip"
-                    data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add Brand</a>
+            <h6 class="float-left m-0 font-weight-bold text-primary">Duration List</h6>
+            @can('Create Duration')
+                <a href="{{ route('duration.create') }}" class="float-right btn btn-primary btn-sm" data-toggle="tooltip"
+                    data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add Duration</a>
             @endcan
         </div>
         <div class="card-body">
@@ -24,10 +24,10 @@
                         <thead>
                             <tr>
                                 <th>S.N.</th>
-                                <th>Title</th>
-                                <th>Slug</th>
+                                <th>Years</th>
+                                <th>Months</th>
                                 <th>Status</th>
-                                @canany(['Edit Brand', 'Delete Brand'])
+                                @canany(['Edit Duration', 'Delete Duration'])
                                     <th>Action</th>
                                 @endcanany
                             </tr>
@@ -35,10 +35,10 @@
                         <tfoot>
                             <tr>
                                 <th>S.N.</th>
-                                <th>Title</th>
-                                <th>Slug</th>
+                                <th>Years</th>
+                                <th>Months</th>
                                 <th>Status</th>
-                                @canany(['Edit Brand', 'Delete Brand'])
+                                @canany(['Edit Duration', 'Delete Duration'])
                                     <th>Action</th>
                                 @endcanany
                             </tr>
@@ -47,24 +47,24 @@
                             @foreach ($data as $datum)
                                 <tr>
                                     <td>{{ $datum->id }}</td>
-                                    <td>{{ $datum->title }}</td>
-                                    <td>{{ $datum->slug }}</td>
+                                    <td>{{ $datum->year }}</td>
+                                    <td>{{ $datum->month }}</td>
                                     <td>
-                                        @if ($datum->status == 'active')
-                                            <span class="badge badge-success">{{ $datum->status }}</span>
+                                        @if ($datum->status)
+                                            <span class="badge badge-success">Active</span>
                                         @else
-                                            <span class="badge badge-warning">{{ $datum->status }}</span>
+                                            <span class="badge badge-warning">Inactive</span>
                                         @endif
                                     </td>
                                     <td>
-                                        @can('Edit Brand')
-                                            <a href="{{ route('brand.edit', $datum->id) }}"
+                                        @can('Edit Duration')
+                                            <a href="{{ route('duration.edit', $datum->id) }}"
                                                 class="float-left mr-1 btn btn-primary btn-sm"
                                                 style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip"
                                                 title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
                                         @endcan
-                                        @can('Delete Brand')
-                                            <form method="POST" action="{{ route('brand.destroy', [$datum->id]) }}">
+                                        @can('Delete Duration')
+                                            <form method="POST" action="{{ route('duration.destroy', [$datum->id]) }}">
                                                 @csrf
                                                 @method('delete')
                                                 <button class="btn btn-danger btn-sm dltBtn" data-id={{ $datum->id }}
@@ -74,14 +74,13 @@
                                             </form>
                                         @endcan
                                     </td>
-
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
                     <span style="float:right">{{ $data->links('vendor.pagination.bootstrap-4') }}</span>
                 @else
-                    <h6 class="text-center">No brands found!!! Please create brand</h6>
+                    <h6 class="text-center">No Durations found!!! Please create Duration</h6>
                 @endif
             </div>
         </div>

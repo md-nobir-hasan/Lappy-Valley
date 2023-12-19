@@ -44,6 +44,10 @@ class AdminSidebar extends Component
                 ['access' => 'Show Brand','title' => 'Brands', 'route' => 'brand.index',],
                 ['access' => 'Create Brand','title' => 'Add Brands', 'route' => 'brand.create']
             ]],
+            ['access' => 'Show Duration','title' => 'Duration', 'route' => 'duration.*', 'child' => [
+                ['access' => 'Show Duration','title' => 'Duration', 'route' => 'duration.index',],
+                ['access' => 'Create Duration','title' => 'Add Duration', 'route' => 'duration.create']
+            ]],
             ['access' => 'Show Shipping','title' => 'Shipping', 'route' => 'shipping.*', 'child' => [
                 ['access' => 'Show Shipping','title' => 'Shipping', 'route' => 'shipping.index',],
                 ['access' => 'Create Shipping','title' => 'Add Shipping', 'route' => 'shipping.create']

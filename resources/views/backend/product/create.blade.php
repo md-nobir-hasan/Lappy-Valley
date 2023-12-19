@@ -835,6 +835,28 @@
                     </div>
                 </div>
 
+                {{-- Installment process --}}
+                <div class="mt-4">
+                    <h4>Installment</h4>
+                    <div class="ml-3">
+                        {{-- installment duration  --}}
+                        <div class="form-group">
+                        <label for="durations">Special Features </label>
+                        <select name="durations[]" class="form-control selectpicker" id="durations"
+                            multiple>
+                            @foreach ($durations as $duration)
+                                <option value="{{ $duration->id }}" @selected($duration->id == old('durations'))>
+                                    {{ $duration->year ? ($duration->year.' years') : ' ' }}{{ $duration->month ? ($duration->month.' month') : ' ' }}
+                                </option>
+                            @endforeach
+                        </select>
+                        @error('durations')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    </div>
+                </div>
+
                 <div class="form-group">
                     <label for="inputPhoto" class="col-form-label">Photo <span class="text-danger">*</span></label>
                     <div class="input-group">

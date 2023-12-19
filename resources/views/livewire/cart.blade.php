@@ -71,7 +71,7 @@
                         });
                     },
                     removeProd() {
-                
+
                         $.ajax({
                             url: '{{ route('delete') }}',
                             method: 'get',
@@ -152,7 +152,7 @@
     </div>
 
     {{-- cart footer  --}}
-    <div class='items-center mx-auto w-full'>
+    <div class='items-center w-full mx-auto'>
         <div class=' mx-auto h-[1px] px-[20px] bg-[#353535]'></div>
         <div class='my-[30px]'>
             <ul class='flex justify-between mx-[5px]'>
@@ -171,7 +171,7 @@
             </a>
         </div>
         <div class='items-center flex justify-center w-full mt-[30px]'>
-            <a href="{{ route('checkout') }}" wire:navigate class="w-full"> 
+            <a href="{{ route('checkout',['one_time']) }}" wire:navigate class="w-full">
                 <button
                     class='fill-up-btn w-full rounded-[4px] items-center py-[10px] text-[#F2F2F2] bg-gradient-to-r from-[#380D37] to-[#DC275C] text-[20px] font-[jost] font-[700]'>
                     Checkout
