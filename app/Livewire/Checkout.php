@@ -57,6 +57,7 @@ class Checkout extends Component
     public $shipping_id = 1;
 
     public $err_msg;
+    public $payment_possess;
 
     public function orderSubmit()
     {

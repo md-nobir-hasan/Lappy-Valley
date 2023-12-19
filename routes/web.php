@@ -312,7 +312,7 @@ Route::get('/shop/sorting', [AjaxController::class,'shopSorting'])->name('shop.s
 Route::get('/category-wise/{slug}', CatWiseShop::class)->name('cate_wise.shop');
 Route::get('/search/{stext}/{cat?}', SearchingProduct::class)->name('searching_product');
 Route::get('/product-details/{slug}', ProductDeatils::class)->name('product.details');
-Route::get('/checkout', Checkout::class)->name('checkout');
+Route::get('/checkout/{payment_possess}', Checkout::class)->name('checkout');
 Route::get('/view-cart', ViewCart::class)->name('vcart');
 // Route::get('/search', Search::class)->name('search');
 Route::get('/user/register', Signup::class)->name('user.register');
