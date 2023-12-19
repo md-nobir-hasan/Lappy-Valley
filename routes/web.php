@@ -18,6 +18,7 @@ use App\Http\Controllers\PostCommentController;
 use App\Http\Controllers\CouponController;
 use App\Http\Controllers\DisplaySizeController;
 use App\Http\Controllers\DisplayTypeController;
+use App\Http\Controllers\DurationController;
 use App\Http\Controllers\GraphicController;
 use App\Http\Controllers\GtagController;
 use App\Http\Controllers\hddController;
@@ -234,6 +235,9 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'admin']], function
     Route::post('/category/{id}/child', [CategoryController::class, 'getChildByParent']);
     // POST category
     Route::resource('/post-category', PostCategoryController::class);
+
+    // Duration
+    Route::resource('/duration', DurationController::class);
     // Post tag
     Route::resource('/post-tag', PostTagController::class);
     // Post
