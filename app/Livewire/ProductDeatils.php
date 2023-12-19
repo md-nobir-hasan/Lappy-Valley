@@ -15,6 +15,8 @@ class ProductDeatils extends Component
     public $slug;
     public $product;
 
+    public $payment_process= 'one_time';
+
     // #[Rule("required", message: "Please, enter a name")]
     // #[Rule("string", message: "Please, enter a valid name")]
     // public $f_name;
@@ -32,11 +34,16 @@ class ProductDeatils extends Component
 
     // #[Rule("required", message: "Please, give review")]
     // public $review_star;
-    
+
     // public function review(){
     //     $this->validate();
     //     // dd($this);
     // }
+    public function checkout(){
+        // dd($this->payment_process);
+        return $this->redirect(route('checkout', [$this->payment_process]), navigate: true);
+
+    }
     public function mount(){
         $this->product = Product::with('cat_info', 'sub_cat_info', 'brand', 'ProcessorGeneration', 'ProcessorModel', 'DisplayType', 'DisplaySize', 'Ram', 'ssd', 'hdd', 'Graphic', 'SpecialFeature')
                             ->where('slug',$this->slug)->first();

@@ -8,8 +8,10 @@ use App\Models\Category;
 use App\Models\Brand;
 use App\Models\DisplaySize;
 use App\Models\DisplayType;
+use App\Models\Duration;
 use App\Models\Graphic;
 use App\Models\hdd;
+use App\Models\Installment;
 use App\Models\ProcessorGeneration;
 use App\Models\ProcessorModel;
 use App\Models\Ram;
@@ -50,6 +52,7 @@ class ProductController extends Controller
 
         $n['brands']=Brand::get();
         $n['p_generations']=ProcessorGeneration::get();
+        $n['durations']=Duration::where('status',true)->get();
         $n['p_models']=ProcessorModel::get();
         $n['d_sizes']=DisplaySize::get();
         $n['d_types']=DisplayType::get();
@@ -72,7 +75,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $this->ccan('Create Product');
-        // dd($request->all());
+
         // return $request->all();
         $this->validate($request,[
             'title'=>'string|required|max:255',
@@ -170,9 +173,12 @@ class ProductController extends Controller
             //Warranty Attributes
             'w_details' => 'nullable|string|max:255',
 
+            //installment
+            'durations.*' => 'nullable|exists:durations,id',
+
         ]);
         $data=$request->all();
-        // dd($data);
+        // dd($request->durations);
         $special_feature = '';
         foreach($request->special_feature as $sp){
             $special_feature = $special_feature.', '.$sp;
@@ -188,6 +194,14 @@ class ProductController extends Controller
 
         $status=Product::create($data);
         if($status){
+            if($drs = $request->durations){
+                foreach($drs as $dr){
+                    Installment::create([
+                        'duration_id' => $dr,
+                        'product_id' => $status->id,
+                    ]);
+                }
+            }
             request()->session()->flash('success','Product Successfully added');
         }
         else{
