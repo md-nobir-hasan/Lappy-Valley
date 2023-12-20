@@ -88,7 +88,7 @@
                             $('.img-mini').removeClass('border-2 border-[#380D37]');
                             $(this).addClass('border-2 border-[#380D37]');
                             let src = $(this).attr('src');
-                            console.log(src);
+                            // console.log(src);
                             // alert(src);
                             $('#hoverImage').attr('src',src);
 
