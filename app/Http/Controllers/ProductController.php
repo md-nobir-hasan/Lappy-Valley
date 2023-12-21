@@ -180,8 +180,10 @@ class ProductController extends Controller
         $data=$request->all();
         // dd($request->durations);
         $special_feature = '';
+        if($request->special_feature){
         foreach($request->special_feature as $sp){
             $special_feature = $special_feature.', '.$sp;
+        }
         }
         $data['special_feature'] = $special_feature;
         $slug=Str::slug($request->title);
