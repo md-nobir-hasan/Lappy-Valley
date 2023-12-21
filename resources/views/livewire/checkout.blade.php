@@ -110,7 +110,6 @@
                              <span class="text-[red] text-[12px]">{{ $message }}</span>
                          @enderror
                      </div>
-
                      <div class="flex max-xl:flex-col gap-[15px] my-[10px] w-full">
                          <div class="w-full">
                              <label class="block font-[jost] font-[500] text-[#353535] text-[12px]"

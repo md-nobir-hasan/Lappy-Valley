@@ -124,6 +124,13 @@ class ProductAttributeSeeder extends Seeder
         ];
         DB::table('product_offers')->insert($product_offer);
 
-
+        $duration = [
+            ['year' => 1, 'month' => 6,'status'=>true],
+            ['year' => 2, 'month' => 6,'status'=>true],
+            ['year' => null, 'month' => 6,'status'=>true],
+            ['year' => null, 'month' => 3,'status'=>true],
+            ['year' => 1, 'month' => 3,'status'=>true],
+        ];
+        DB::table('durations')->insert($duration);
     }
 }

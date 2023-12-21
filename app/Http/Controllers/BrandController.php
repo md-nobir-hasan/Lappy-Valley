@@ -23,7 +23,7 @@ class BrandController extends Controller
         $this->ccan('Show Brand');
 
         $brand=Brand::orderBy('id','DESC')->paginate();
-        return view('backend.brand.index')->with('brands',$brand);
+        return view('backend.brand.index')->with('data',$brand);
     }
 
     /**
@@ -94,7 +94,7 @@ class BrandController extends Controller
         if(!$brand){
             request()->session()->flash('error','Brand not found');
         }
-        return view('backend.brand.edit')->with('brand',$brand);
+        return view('backend.brand.edit')->with('datum',$brand);
     }
 
 

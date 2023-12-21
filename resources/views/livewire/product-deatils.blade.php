@@ -76,36 +76,23 @@
             </div>
 
 
-            <div class="flex items-center justify-center mt-auto">
+            <div class="flex items-center justify-center mt-[40px]">
                 @foreach ($photos as $pto)
                     <div class="w-[52px] border-[2px] max-sm:border-[1px] border-[rgba(53_53_53_0.30)]">
-                        <img class="object-center" src="{{ $pto }}" alt="{{ $product->title }}">
+                        <img class="img-mini object-center" src="{{ $pto }}" alt="{{ $product->title }}">
                     </div>
                 @endforeach
                 <script>
-                    const imageContainer = document.getElementById('imageContainer');
-                    const hoverImage = document.getElementById('hoverImage');
+                    $('.img-mini').each(function(index){
+                        $(this).on('click',function(){
+                            $('.img-mini').removeClass('border-2 border-[#380D37]');
+                            $(this).addClass('border-2 border-[#380D37]');
+                            let src = $(this).attr('src');
+                            // console.log(src);
+                            // alert(src);
+                            $('#hoverImage').attr('src',src);
 
-                    imageContainer.addEventListener('mousemove', (e) => {
-                        const {
-                            offsetX,
-                            offsetY
-                        } = e;
-                        const {
-                            width,
-                            height
-                        } = imageContainer.getBoundingClientRect();
-                        const xPercentage = (offsetX / width - 0.5) * 5; // Normalize to -1 to 1
-                        const yPercentage = (offsetY / height - 0.5) * 5; // Normalize to -1 to 1
-
-                        const moveX = -xPercentage * 50; // Adjust the multiplier as needed
-                        const moveY = -yPercentage * 50; // Adjust the multiplier as needed
-
-                        hoverImage.style.transform = `translate(${moveX}px, ${moveY}px)`;
-                        imageContainer.addEventListener('mouseleave', () => {
-                            hoverImage.style.transform = 'translate(0, 0)';
                         });
-
                     });
                 </script>
 
@@ -157,28 +144,29 @@
                 <li class=" max-lg:text-[18px] text-[20px] text-[#353535] font-[jost] font-[500] mt-[16px]">
                     Regular Price:</li>
                 <li class=" max-lg:text-[18px] text-[20px] text-[#DC275C] font-[jost] font-[700] line-through">
-                    <span>{{ $product->final_price }}</span> TK
+                    <span>{{ $product->price }}</span> TK
                 </li>
                 <li class="max-lg:text-[18px] text-[20px] text-[#353535] font-[jost] font-[500] mt-[16px]">
                     Discounted Price:
                 </li>
                 <li class="max-lg:text-[18px] text-[20px] text-[#DC275C] font-[jost] font-[700]">
-                    1,27,000 TK
+                   {{ $product->final_price }} TK
                 </li>
             </ul>
             <div>
                 <div>
-                    <h1 class="max-lg:text-[18px] text-[20px] text-[#353535] font-[jost] font-[500] ">
+                    <h1 class="max-lg:text-[18px] text-[20px] text-[#353535] font-[jost] font-[500]">
                         Payment Options
                     </h1>
                 </div>
-                <div class="grid grid-cols-2 max-xl:grid-cols-1 gap-6 w-full my-[15px]">                 
+                <div class="grid grid-cols-2 max-xl:grid-cols-1 gap-6 w-full my-[15px]">
                         <label class="flex border-[2px] hover:border-[#380D37] border-[#380D37] w-full gap-4" id="cash-payment">
                             <div class="px-3 flex justify-center bg-[#f2f2f2]">
-                                <input type="radio" name="cash" checked class="w-[20px] accent-[#380D37]">
+                                <input type="radio" name="payment_process" checked value="one_time" wire:model="payment_process"
+                                class="w-[20px] accent-[#380D37]">
                             </div>
                             <div class="flex flex-col py-3">
-                                <span class="max-lg:text-[18px] text-[20px] text-[#353535] font-[jost] font-[700]">25,900৳</span>
+                                <span class="max-lg:text-[18px] text-[20px] text-[#353535] font-[jost] font-[700]">{{ $product->final_price }}৳</span>
                                 <span class="text-[16px] max-lg:text-[14px] text-[#353535] font-[jost] font-[400]">Cash Discount Price</span>
                                 <span class="text-[16px] max-lg:text-[14px] text-[#353535] font-[jost] font-[400]">Online / Cash Payment</span>
                             </div>
@@ -186,33 +174,20 @@
 
                         <label class="flex border-[2px] hover:border-[#380D37] border-[#764A8733] w-full gap-4" id='monthly-payment'>
                            <div class="px-3 flex justify-center bg-[#f2f2f2]">
-                            <input type="radio" name="cash" class="w-[20px] accent-[#380D37]">
+                            <input type="radio" name="payment_process" value="installment" wire:model="payment_process"
+                            class="w-[20px] accent-[#380D37]">
                            </div>
                             <div class="flex flex-col py-3">
-                                <span class="max-lg:text-[18px] text-[20px] text-[#353535] font-[jost] font-[700]">2,292৳/month</span>
-                                <span class="text-[16px] max-lg:text-[14px] text-[#353535] font-[jost] font-[400]">Regular Price: 27,500৳ </span>
-                                <span class="text-[16px] max-lg:text-[14px] text-[#353535] font-[jost] font-[400]">0% EMI for up to 12 Months***</span>
+                                <span class="max-lg:text-[18px] text-[20px] text-[#353535] font-[jost] font-[700]">{{ round($product->price/6) }}৳/month</span>
+                                <span class="text-[16px] max-lg:text-[14px] text-[#353535] font-[jost] font-[400]">Regular Price: {{ $product->price }}৳ </span>
+                                <span class="text-[16px] max-lg:text-[14px] text-[#353535] font-[jost] font-[400]">0% EMI for up to 6 Months***</span>
                             </div>
                         </label>
                 </div>
-                <livewire:add-to-cart :id="$product->id"
-                    button='<button class="fill-up-btn text-[#f2f2f2] bg-gradient-to-r from-[#380D37] to-[#DC275C] max-lg:text-[18px] max-sm:text-[16px] text-[20px] py-[12px] max-lg:py-[14px] px-[40px] max-lg:px-[40px] max-sm:px-[30px] font-[jost] font-[700] mt-auto rounded-[5px]">
-                        BUY NOW</button>' />
-            </div>        
+                <button wire:click='checkout' class="fill-up-btn text-[#f2f2f2] bg-gradient-to-r from-[#380D37] to-[#DC275C] max-lg:text-[18px] max-sm:text-[16px] text-[20px] py-[12px] max-lg:py-[14px] px-[40px] max-lg:px-[40px] max-sm:px-[30px] font-[jost] font-[700] mt-auto rounded-[5px]">
+                        BUY NOW</button>
+            </div>
         </div>
-        <script>
-            $("#cash-payment").click( function(){
-                $(this).addClass("border-[#380D37]");
-                $(this).removeClass("border-[#764A8733]");
-                $("#monthly-paymetn").removeClass("border-[#380D37]");
-            })
-            $("#monthly-payment").click( function(){
-                $(this).addClass("border-[#380D37]");
-                $("#cash-payment").removeClass("border-[#380D37]");
-                $("#cash-payment").addClass("border-[#764A8733]");
-            })
-           
-        </script>
     </div>
     <!-- -------------ideapad---section---end--- -->
     <div class="h-[2px] max-sm:h-[1px] max-sm:my-[30px] bg-[#380D37] my-[50px]"></div>
@@ -756,7 +731,7 @@
                             data-te-ripple-init data-te-ripple-color="light">
                             Write a review
                         </button>
-                   
+
 
                     <!--Verically centered scrollable modal-->
                     <div data-te-modal-init
@@ -847,7 +822,7 @@
                                             }).catch(error => {
                                                 console.error(error)
                                             })
-                                    
+
                                         },
                                         fileHandle(event) {
                                             for (const file of event.target.files) {
@@ -856,7 +831,7 @@
                                                 reader.readAsDataURL(file)
                                                 this.img.push(file)
                                             }
-                                    
+
                                         },
                                         stared(star) {
                                             console.log(star);
@@ -1079,5 +1054,45 @@
                 $('.dst_btn').addClass('bg-[#F2F2F2] text-[#380D37]');
             });
         })
+// --------------------large--size--img--cursor --effect--------------
+const imageContainer = document.getElementById('imageContainer');
+                    const hoverImage = document.getElementById('hoverImage');
+
+                    imageContainer.addEventListener('mousemove', (e) => {
+                        const {
+                            offsetX,
+                            offsetY
+                        } = e;
+                        const {
+                            width,
+                            height
+                        } = imageContainer.getBoundingClientRect();
+                        const xPercentage = (offsetX / width - 0.5) * 5; // Normalize to -1 to 1
+                        const yPercentage = (offsetY / height - 0.5) * 5; // Normalize to -1 to 1
+
+                        const moveX = -xPercentage * 50; // Adjust the multiplier as needed
+                        const moveY = -yPercentage * 50; // Adjust the multiplier as needed
+
+                        hoverImage.style.transform = `translate(${moveX}px, ${moveY}px)`;
+                        imageContainer.addEventListener('mouseleave', () => {
+                            hoverImage.style.transform = 'translate(0, 0)';
+                        });
+
+                    });
+
+
+
+
+        // --------------------instalment-------------------
+        $("#cash-payment").click( function(){
+                $(this).addClass("border-[#380D37]");
+                $(this).removeClass("border-[#764A8733]");
+                $("#monthly-paymetn").removeClass("border-[#380D37]");
+            })
+            $("#monthly-payment").click( function(){
+                $(this).addClass("border-[#380D37]");
+                $("#cash-payment").removeClass("border-[#380D37]");
+                $("#cash-payment").addClass("border-[#764A8733]");
+            })
     </script>
 </div>
