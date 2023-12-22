@@ -197,18 +197,6 @@
                     BUY NOW</button>
             </div>
         </div>
-        <script>
-            $("#cash-payment").click(function() {
-                $(this).addClass("border-[#380D37]");
-                $(this).removeClass("border-[#764A8733]");
-                $("#monthly-paymetn").removeClass("border-[#380D37]");
-            })
-            $("#monthly-payment").click(function() {
-                $(this).addClass("border-[#380D37]");
-                $("#cash-payment").removeClass("border-[#380D37]");
-                $("#cash-payment").addClass("border-[#764A8733]");
-            })
-        </script>
     </div>
     <!-- -------------ideapad---section---end--- -->
     <div class="h-[2px] max-sm:h-[1px] max-sm:my-[30px] bg-[#380D37] my-[50px]"></div>
@@ -294,7 +282,7 @@
                                 <li class="list-none">L3 Cache: {{ $product->l3_cache }}</li>
                             </td>
                         </tr>
-                         <tr class="border-[#764A8733] border-b-[2px]">
+                        <tr class="border-[#764A8733] border-b-[2px]">
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[400] pl-[20px]">
                                 Other Features:
                             </td>
@@ -393,7 +381,7 @@
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
                                 {{ $product->m_slot }}</td>
                         </tr>
-                         <tr class="border-[#764A8733] border-b-[2px]">
+                        <tr class="border-[#764A8733] border-b-[2px]">
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[400] pl-[20px]">
                                 Other Features:
                             </td>
@@ -457,7 +445,7 @@
                                 {{ $product->s_upgrade }}
                             </td>
                         </tr>
-                         <tr class="border-[#764A8733] border-b-[2px]">
+                        <tr class="border-[#764A8733] border-b-[2px]">
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[400] pl-[20px]">
                                 Other Features:
                             </td>
@@ -488,7 +476,7 @@
                                 {{ $product->Graphic?->name }}
                             </td>
                         </tr>
-                         <tr class="border-[#764A8733] border-b-[2px]">
+                        <tr class="border-[#764A8733] border-b-[2px]">
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[400] pl-[20px]">
                                 Other Features:
                             </td>
@@ -516,7 +504,7 @@
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
                                 {{ $product->touchpad ? 'Yes' : 'NO' }}</td>
                         </tr>
-                         <tr class="border-[#764A8733] border-b-[2px]">
+                        <tr class="border-[#764A8733] border-b-[2px]">
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[400] pl-[20px]">
                                 Other Features:
                             </td>
@@ -550,7 +538,7 @@
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
                                 {{ $product->speaker ? 'Yes' : 'NO' }}</td>
                         </tr>
-                         <tr class="border-[#764A8733] border-b-[2px]">
+                        <tr class="border-[#764A8733] border-b-[2px]">
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[400] pl-[20px]">
                                 Other Features:
                             </td>
@@ -616,7 +604,7 @@
                                 {{ $product->headphone_p }}/
                                 {{ $product->microphone_p }}</td>
                         </tr>
-                         <tr class="border-[#764A8733] border-b-[2px]">
+                        <tr class="border-[#764A8733] border-b-[2px]">
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[400] pl-[20px]">
                                 Other Features:
                             </td>
@@ -645,7 +633,7 @@
                                 {{ $product->bluetooth }}
                             </td>
                         </tr>
-                         <tr class="border-[#764A8733] border-b-[2px]">
+                        <tr class="border-[#764A8733] border-b-[2px]">
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[400] pl-[20px]">
                                 Other Features:
                             </td>
@@ -673,9 +661,9 @@
                                 Facelock:
                             </td>
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
-                                {{ $product->facelock  }}</td>
+                                {{ $product->facelock }}</td>
                         </tr>
-                         <tr class="border-[#764A8733] border-b-[2px]">
+                        <tr class="border-[#764A8733] border-b-[2px]">
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[400] pl-[20px]">
                                 Other Features:
                             </td>
@@ -698,7 +686,7 @@
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
                                 {{ $product->operating_system }}</td>
                         </tr>
-                         <tr class="border-[#764A8733] border-b-[2px]">
+                        <tr class="border-[#764A8733] border-b-[2px]">
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[400] pl-[20px]">
                                 Other Features:
                             </td>
@@ -735,7 +723,7 @@
                                 {{ $product->adapter_type }}
                             </td>
                         </tr>
-                         <tr class="border-[#764A8733] border-b-[2px]">
+                        <tr class="border-[#764A8733] border-b-[2px]">
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[400] pl-[20px]">
                                 Other Features:
                             </td>
@@ -770,7 +758,7 @@
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
                                 {{ $product->weight }}</td>
                         </tr>
-                         <tr class="border-[#764A8733] border-b-[2px]">
+                        <tr class="border-[#764A8733] border-b-[2px]">
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[400] pl-[20px]">
                                 Other Features:
                             </td>
@@ -796,7 +784,7 @@
                                 {{ $product->w_details }}
                             </td>
                         </tr>
-                        
+
                     </tbody>
                 </table>
             </section>
