@@ -126,6 +126,7 @@ class CreateProductsTable extends Migration
 
             //Security => (2)
             $table->string('finger_print')->nullable();
+            $table->string('facelock')->nullable();
             $table->text('s_other')->nullable();
 
             //Software => (2)

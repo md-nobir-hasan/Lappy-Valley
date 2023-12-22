@@ -774,6 +774,15 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
+                        {{-- facelock  --}}
+                        <div class="form-group">
+                            <label for="facelock" class="col-form-label">Finger Print</label>
+                            <input id="facelock" type="text" name="facelock" placeholder="Exp:- Yes/No"
+                                value="{{ $product->facelock }}" class="form-control">
+                            @error('facelock')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
 
                         {{-- Other's information --}}
                         <div class="form-group">

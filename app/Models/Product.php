@@ -31,7 +31,7 @@ class Product extends Model
         //Network & Connectivity Attributes
         'wifi','bluetooth','nc_other',
         //Security Attributes
-        'finger_print','s_other',
+        'finger_print', 'facelock','s_other',
         //Software Attributes
         'operating_system', 'soft_other',
         //Power Attributes
