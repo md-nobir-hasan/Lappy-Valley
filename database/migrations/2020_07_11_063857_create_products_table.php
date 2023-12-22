@@ -71,7 +71,7 @@ class CreateProductsTable extends Migration
             $table->foreignIdFor(DisplaySize::class)->nullable()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignIdFor(DisplayType::class)->nullable()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('d_resolution')->nullable();
-            $table->text('d_other_features')->nullable();
+            // $table->text('d_other_features')->nullable();
             $table->boolean('touch_screen')->default(false);
             $table->text('d_other')->nullable();
 

@@ -126,7 +126,7 @@
                     Model: {{ $product->model }}
                 </li>
                 <li class=" text-[16px] max-lg:text-[14px] text-[#353535] font-[jost] font-[400]">
-                    Processor: {{ $product->ProcessorModel->name }} ({{ $product->c_speed }})
+                    Processor: {{ $product->ProcessorModel?->name }} ({{ $product->c_speed }})
                 </li>
                 <li class=" text-[16px] max-lg:text-[14px] text-[#353535] font-[jost] font-[400]">
 
@@ -294,6 +294,13 @@
                                 <li class="list-none">L3 Cache: {{ $product->l3_cache }}</li>
                             </td>
                         </tr>
+                         <tr class="border-[#764A8733] border-b-[2px]">
+                            <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[400] pl-[20px]">
+                                Other Features:
+                            </td>
+                            <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
+                                {{ $product->p_other }}</td>
+                        </tr>
                     </tbody>
 
                     <!-- ----------2nd --part (Display attributes)----- -->
@@ -337,8 +344,9 @@
                             </td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500] max-sm:leading-[30px]">
-                                {{ $product->d_other_features }}</td>
+                                {{ $product->d_other }}</td>
                         </tr>
+
                     </tbody>
 
 
