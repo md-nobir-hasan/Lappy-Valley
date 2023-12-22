@@ -793,6 +793,15 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
+                        {{-- facelock  --}}
+                        <div class="form-group">
+                            <label for="facelock" class="col-form-label">Facelock</label>
+                            <input id="facelock" type="text" name="facelock" placeholder="Exp:- Yes/No"
+                                value="{{ old('facelock') }}" class="form-control">
+                            @error('facelock')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
                     </div>
 
                     {{-- Other's information --}}

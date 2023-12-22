@@ -135,7 +135,7 @@
                                     </table>
                                 </div>
 
-                                {{-- Product's main attributes  --}}
+                                {{-- Memory attributes  --}}
                                 <div class="order-info">
                                     <h4 class="pb-4 text-center">Memory Attributes</h4>
                                     <table class="table">
@@ -167,17 +167,19 @@
                                     </table>
                                 </div>
 
-                                {{-- Product's main attributes  --}}
+                                {{-- Storage attributes  --}}
                                 <div class="order-info">
                                     <h4 class="pb-4 text-center">Memory Attributes</h4>
                                     <table class="table">
                                         <tr>
                                             <td>Storage</td>
-                                            <td> : {{ $product->ssd?->name .' '. $product->hdd ? .', '.$product->hdd->name : '' }}</td>
+                                            <td> :
+                                                {{ $product->ssd?->name . ' ' . ($product->hdd ? ', ' . $product->hdd->name : '') }}
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>Memory Type</td>
-                                            <td> : {{ $product->ssd ? .'SSD' : ''   }}{{ $product->hdd ? .', HDD' : ''  }}</td>
+                                            <td> : {{ $product->ssd ? 'SSD' : '' }}{{ $product->hdd ? ', HDD' : '' }}</td>
                                         </tr>
                                         <tr>
                                             <td>Bus Speed</td>
@@ -189,7 +191,7 @@
                                         </tr>
                                         <tr>
                                             <td>Extra Slot</td>
-                                            <td> : {{ $product->s_extra_m2_slot ? 'Yes':'No' }}</td>
+                                            <td> : {{ $product->s_extra_m2_slot ? 'Yes' : 'No' }}</td>
                                         </tr>
                                         <tr>
                                             <td>Storage Support Type</td>
@@ -202,6 +204,101 @@
                                         <tr>
                                             <td>Other Features</td>
                                             <td> : {{ $product->stor_other }}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                                {{-- Graphics attributes  --}}
+                                <div class="order-info">
+                                    <h4 class="pb-4 text-center">Graphic Attributes</h4>
+                                    <table class="table">
+                                        <tr>
+                                            <td>Graphic Model</td>
+                                            <td> : {{ $product->g_model }}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Graphic Card</td>
+                                            <td> : {{ $product->Graphic?->name }}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Other Features</td>
+                                            <td> : {{ $product->g_other }}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                                {{-- Software attributes  --}}
+                                <div class="order-info">
+                                    <h4 class="pb-4 text-center">Software Attributes</h4>
+                                    <table class="table">
+                                        <tr>
+                                            <td>Operating System</td>
+                                            <td> : {{ $product->operating_system }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Other Features</td>
+                                            <td> : {{ $product->g_other }}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                                {{-- Power attributes  --}}
+                                <div class="order-info">
+                                    <h4 class="pb-4 text-center">Power Attributes</h4>
+                                    <table class="table">
+                                        <tr>
+                                            <td>Battery Type</td>
+                                            <td> : {{ $product->battery_type }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Battery Capacity</td>
+                                            <td> : {{ $product->battery_capacity }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Adapter Type</td>
+                                            <td> : {{ $product->adapter_type }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Other Features</td>
+                                            <td> : {{ $product->power_other }}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+
+                                {{-- Physical Specification  --}}
+                                <div class="order-info">
+                                    <h4 class="pb-4 text-center">Physical Specification</h4>
+                                    <table class="table">
+                                        <tr>
+                                            <td>Color</td>
+                                            <td> : {{ $product->color }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Color</td>
+                                            <td> : {{ $product->dimension }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Color</td>
+                                            <td> : {{ $product->weight }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Other Features</td>
+                                            <td> : {{ $product->physi_other }}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+
+                                {{-- Warranty attributes  --}}
+                                <div class="order-info">
+                                    <h4 class="pb-4 text-center">Warranty Attributes</h4>
+                                    <table class="table">
+                                        <tr>
+                                            <td>Warranty Details</td>
+                                            <td> : {{ $product->w_details }}</td>
                                         </tr>
                                     </table>
                                 </div>
@@ -308,32 +405,134 @@
                                     {{-- Keyboar & Touchpad Attributes  --}}
                                     <div class="">
                                         <div class="shipping-info">
-                                            <h4 class="pb-4 text-center">Display Attributes</h4>
+                                            <h4 class="pb-4 text-center">Keyboar & Touchpad Attributes</h4>
                                             <table class="table">
                                                 <tr>
-                                                    <td>Display Type</td>
-                                                    <td> : {{ $product->DisplayType?->name }}</td>
+                                                    <td>Keyboard Type</td>
+                                                    <td> : {{ $product->k_type }}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Display Size</td>
-                                                    <td> : {{ $product->DisplaySize?->size }}
-                                                        inch</td>
+                                                    <td>Touchpad</td>
+                                                    <td> : {{ $product->touchpad ? 'Yes' : 'No' }}</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>Other Features</td>
+                                                    <td> : {{ $product->k_other }}</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    {{-- Camera & Audio Attributes  --}}
+                                    <div class="">
+                                        <div class="shipping-info">
+                                            <h4 class="pb-4 text-center">Camera & Audio Attributes</h4>
+                                            <table class="table">
+                                                <tr>
+                                                    <td>Webcam</td>
+                                                    <td> : {{ $product->webcam }}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Display Resolutioin</td>
-                                                    <td> : {{ $product->d_resolution }}</td>
+                                                    <td>Microphone</td>
+                                                    <td> : {{ $product->microphone }}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Display</td>
-                                                    <td> : {{ $product->d_resolution }}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Display Touch</td>
-                                                    <td> : {{ $product->touch_screen ? 'Yes' : 'No' }}</td>
+                                                    <td>Speaker</td>
+                                                    <td> : {{ $product->speaker }}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Other Features</td>
-                                                    <td> : {{ $product->d_other }}</td>
+                                                    <td> : {{ $product->ca_other }}</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    {{-- Ports & Slots Attributes  --}}
+                                    <div class="">
+                                        <div class="shipping-info">
+                                            <h4 class="pb-4 text-center">Ports & Slots Attributes</h4>
+                                            <table class="table">
+                                                <tr>
+                                                    <td>Optical Driver</td>
+                                                    <td> : {{ $product->optical_drive }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Card Reader</td>
+                                                    <td> : {{ $product->card_reader }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>HDMI Port</td>
+                                                    <td> : {{ $product->hdmi_p }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>USB2 Port</td>
+                                                    <td> : {{ $product->usb2_p }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>USB3 Port</td>
+                                                    <td> : {{ $product->usb3_p }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Type C Therderbold Port</td>
+                                                    <td> : {{ $product->type_c_tb_p }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Headphone Port</td>
+                                                    <td> : {{ $product->headphone_p }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Microphone Port</td>
+                                                    <td> : {{ $product->microphone_p }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Other Features</td>
+                                                    <td> : {{ $product->ps_other }}</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    {{-- Network & Connectivity Attributes  --}}
+                                    <div class="">
+                                        <div class="shipping-info">
+                                            <h4 class="pb-4 text-center">Network and Connectivity Attributes</h4>
+                                            <table class="table">
+                                                <tr>
+                                                    <td>WIFI</td>
+                                                    <td> : {{ $product->wifi }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Bluetooth</td>
+                                                    <td> : {{ $product->bluetooth }}</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>Other Features</td>
+                                                    <td> : {{ $product->k_other }}</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+
+
+                                    {{-- Security Attributes  --}}
+                                    <div class="">
+                                        <div class="shipping-info">
+                                            <h4 class="pb-4 text-center">Security Attributes</h4>
+                                            <table class="table">
+                                                <tr>
+                                                    <td>Finger Print</td>
+                                                    <td> : {{ $product->finger_print }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Face Lock</td>
+                                                    <td> : {{ $product->facelock }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Other Features</td>
+                                                    <td> : {{ $product->s_other }}</td>
                                                 </tr>
                                             </table>
                                         </div>
@@ -341,6 +540,37 @@
                                 </div>
                             </div>
                         </div>
+                        {{-- Product Summery  --}}
+                        <div class="mt-4 row">
+                            <div class="col-12">
+                                {{-- Product's main attributes  --}}
+                                <div class="shipping-info">
+                                    <h4 class="pb-4 text-center">Product Summery</h4>
+                                    <P>
+                                        {!! $product->summary !!}
+                                    </P>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="mt-4 row">
+                            <div class="col-12">
+                                {{-- Product's main attributes  --}}
+                                <div class="order-info">
+                                    <h4 class="pb-4 text-center">Product Description</h4>
+                                    {{-- <h5 class="pb-4 text-center">Main Attributes</h5> --}}
+
+                                    <P>
+                                        {!! $product->description !!}
+                                    </P>
+                                </div>
+
+                            </div>
+
+                        </div>
+
                 </section>
 
                 <section class="mt-5">
@@ -350,7 +580,8 @@
                             $photo = explode(',', $product->photo);
                         @endphp
                         @foreach ($photo as $pto)
-                            <img src="{{ $pto }}" class="mx-auto rounded img-fluid img-thumbnail" alt="...">
+                            <img src="{{ $pto }}" class="mx-auto rounded img-fluid img-thumbnail"
+                                alt="...">
                         @endforeach
                     </div>
                 </section>
