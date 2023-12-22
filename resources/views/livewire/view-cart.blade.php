@@ -107,8 +107,10 @@
                                          } else {
                                              total = total - this.amount;
                                              this.cp_show = false;
-                                             
+
                                          }
+                                        let count =  Number($('#cart_count').text());
+                                        $('#cart_count').text(count-1);
                                      }
                                  });
                              },

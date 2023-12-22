@@ -866,9 +866,9 @@
                                             </svg>
                                         </button>
                                     </div>
+                                    
                                     <!--Modal body-->
                                     <div class="relative p-4">
-
                                         <div x-data="{
                                             f_name: null,
                                             l_name: null,
