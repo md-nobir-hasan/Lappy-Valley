@@ -269,96 +269,96 @@ class ProductController extends Controller
         $product=Product::findOrFail($id);
         $this->validate($request,[
              'title'=>'string|required|max:255',
-            'model'=>'string|required|max:255',
-            'mpn'=>'string|required|max:255',
-            'price'=>'required|numeric',
+             'price'=>'required|numeric',
+             'final_price'=>'nullable|numeric',
+             'photo'=>'string|required',
+             'stock'=>"required|numeric",
+            'model'=>'string|nullable|max:255',
+            'mpn'=>'string|nullable|max:255',
             'discount'=>'nullable|numeric',
-            'final_price'=>'nullable|numeric',
-            'summary'=>'string|required',
+            'summary'=>'string|nullable',
             'description'=>'string|nullable',
-            'photo'=>'string|required',
-            'stock'=>"required|numeric",
             'brand_id'=>'nullable|exists:brands,id',
-            'cat_id'=>'required|exists:categories,id',
+            'cat_id'=>'nullable|exists:categories,id',
             'child_cat_id'=>'nullable|exists:categories,id',
             // 'upcomming'=> "sometimes|in:1",
             'is_featured'=>'sometimes|in:1',
-            'status'=>'required|in:active,inactive',
-            // 'condition'=> 'required|in:default,new,hot',
+            'status'=>'nullable|in:active,inactive',
+            // 'condition'=> 'nullable|in:default,new,hot',
             'special_feature' => 'nullable',
 
             //Processore Attributes
-            'processor_generation_id' =>'required|exists:processor_generations,id',
-            'processor_model_id' =>'required|exists:processor_models,id',
-            'p_brand' => 'required|string|max:255',
-            'c_speed' => 'required|string|max:255',
-            'l1_cache' => 'required|string|max:255',
-            'l2_cache' => 'required|string|max:255',
-            'l3_cache' => 'required|string|max:255',
+            'processor_generation_id' =>'nullable|exists:processor_generations,id',
+            'processor_model_id' =>'nullable|exists:processor_models,id',
+            'p_brand' => 'nullable|string|max:255',
+            'c_speed' => 'nullable|string|max:255',
+            'l1_cache' => 'nullable|string|max:255',
+            'l2_cache' => 'nullable|string|max:255',
+            'l3_cache' => 'nullable|string|max:255',
             'p_core' => 'nullable|numeric',
             'p_thread' => 'nullable|numeric',
 
             //display Attributes
-            'display_size_id' =>'required|exists:display_sizes,id',
-            'display_type_id' =>'required|exists:display_types,id',
-            'd_resolution' => 'required|string|max:255',
-            'd_other_features' => 'required|string',
+            'display_size_id' =>'nullable|exists:display_sizes,id',
+            'display_type_id' =>'nullable|exists:display_types,id',
+            'd_resolution' => 'nullable|string|max:255',
+            'd_other_features' => 'nullable|string',
 
             //Memory Attributes
-            'ram_id' =>'required|exists:rams,id',
-            'm_slot' => 'required|numeric',
+            'ram_id' =>'nullable|exists:rams,id',
+            'm_slot' => 'nullable|numeric',
             'm_removal' => 'sometimes|in:1',
 
             //Storage Attributes
-            'ssd_id' =>'required|exists:ssds,id',
-            'hdd_id' =>'required|exists:hdds,id',
+            'ssd_id' =>'nullable|exists:ssds,id',
+            'hdd_id' =>'nullable|exists:hdds,id',
             's_slot' => 'nullable|numeric',
             's_extra_m2_slot' => 'sometimes|in:1',
             's_support_type' => 'nullable|string|max:255',
-            's_upgrade' => 'required|string|max:255',
+            's_upgrade' => 'nullable|string|max:255',
 
             //Graphic Attributes
-            'graphic_id' =>'required|exists:graphics,id',
+            'graphic_id' =>'nullable|exists:graphics,id',
             'g_model' => 'nullable|string|max:255',
 
             //Keyboar & Touchpad Attributes
-            'k_type' => 'required|string|max:255',
+            'k_type' => 'nullable|string|max:255',
             'touchpad' => 'sometimes|in:1',
 
             //Camera & Audio Attributes
-            'webcam' => 'required|string|max:255',
-            'microphone' => 'required|string|max:255',
-            'speaker' => 'required|string|max:255',
+            'webcam' => 'nullable|string|max:255',
+            'microphone' => 'nullable|string|max:255',
+            'speaker' => 'nullable|string|max:255',
 
             //Ports & Slots Attributes
             'optical_drive' => 'nullable|string|max:255',
             'card_reader' => 'nullable|string|max:255',
-            'hdmi_p' => 'required|string|max:255',
-            'usb2_p' => 'required|string|max:255',
-            'usb3_p' => 'required|string|max:255',
-            'type_c_tb_p' => 'required|string|max:255',
-            'headphone_p' => 'required|string|max:255',
-            'microphone_p' => 'required|string|max:255',
+            'hdmi_p' => 'nullable|string|max:255',
+            'usb2_p' => 'nullable|string|max:255',
+            'usb3_p' => 'nullable|string|max:255',
+            'type_c_tb_p' => 'nullable|string|max:255',
+            'headphone_p' => 'nullable|string|max:255',
+            'microphone_p' => 'nullable|string|max:255',
 
             //Network & Connectivity Attributes
-            'wifi' => 'required|string|max:255',
-            'bluetooth' => 'required|string|max:255',
+            'wifi' => 'nullable|string|max:255',
+            'bluetooth' => 'nullable|string|max:255',
 
             //Security Attributes
             'finger_print' => 'nullable|string|max:255',
 
             //Software Attributes
-            'operating_system' => 'required|string|max:255',
+            'operating_system' => 'nullable|string|max:255',
 
             //Power Attributes
-            'battery_type' => 'required|string|max:255',
-            'battery_capacity' => 'required|string|max:255',
-            'adapter_type' => 'required|string|max:255',
+            'battery_type' => 'nullable|string|max:255',
+            'battery_capacity' => 'nullable|string|max:255',
+            'adapter_type' => 'nullable|string|max:255',
 
             //Physical Specification Attributes
-            'color' => 'required|string|max:255',
-            'dimension' => 'required|string|max:255',
-            'weight' => 'required|string|max:255',
+            'color' => 'nullable|string|max:255',
+            'dimension' => 'nullable|string|max:255',
+            'weight' => 'nullable|string|max:255',
 
             //Warranty Attributes
             'w_details' => 'nullable|string|max:255',
@@ -367,8 +367,11 @@ class ProductController extends Controller
         $data=$request->all();
 
         $special_feature = '';
-        foreach ($request->special_feature as $sp) {
-            $special_feature = $special_feature . ', ' . $sp;
+        if
+        ($request->special_feature){
+            foreach ($request->special_feature as $sp) {
+                $special_feature = $special_feature . ', ' . $sp;
+            }
         }
 
         $data['special_feature'] = $special_feature;
@@ -377,6 +380,14 @@ class ProductController extends Controller
         // return $data;
         $status=$product->fill($data)->save();
         if($status){
+            if ($drs = $request->durations) {
+                foreach ($drs as $dr) {
+                    Installment::updateOrCreate([
+                        'duration_id' => $dr,
+                        'product_id' => $status->id,
+                    ]);
+                }
+            }
             request()->session()->flash('success','Product Successfully updated');
         }
         else{

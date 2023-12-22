@@ -25,7 +25,7 @@ class Product extends Model
         //Keyboard & Touchpad Attributes
         'k_type','touchpad','k_other',
         //Camera & Audio Attributes
-        'webcam','microphone','speaker','ca_other',
+        'webcam','microphone','speaker', 'ca_other',
         //Port & Slots Attributes
         'optical_drive','card_reader','hdmi_p', 'usb2_p','usb3_p','type_c_tb_p','headphone_p','microphone_p','ps_other',
         //Network & Connectivity Attributes

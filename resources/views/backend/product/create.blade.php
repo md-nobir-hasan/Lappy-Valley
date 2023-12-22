@@ -164,7 +164,7 @@
 
                     <div class="form-group">
                         <label for="stock">Stock<span class="text-danger">*</span></label>
-                        <input id="quantity" type="number" name="stock" min="0"
+                        <input id="quantity" type="number" name="stock" min="0" step=""
                             placeholder="Exp:- Enter quantity" value="{{ old('stock') ?? 1 }}" class="form-control">
                         @error('stock')
                             <span class="text-danger">{{ $message }}</span>
@@ -636,9 +636,9 @@
 
                         {{-- Other's information --}}
                         <div class="form-group">
-                            <label for="k_other" class="col-form-label">Others</label>
-                            <textarea class="form-control" id="k_other" name="k_other">{{ old('k_other') }}</textarea>
-                            @error('k_other')
+                            <label for="ca_other" class="col-form-label">Others</label>
+                            <textarea class="form-control" id="ca_other" name="ca_other">{{ old('ca_other') }}</textarea>
+                            @error('ca_other')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
