@@ -64,9 +64,9 @@
                                 <tr>
                                     <td>{{ $loop->index + 1 }}</td>
                                     <td>{{ $product->title }}</td>
-                                    <td>{{ $product->cat_info['title'] }}
+                                    <td>{{ $product->cat_info?->title }}
                                         <sub>
-                                            {{ $product->sub_cat_info->title ?? '' }}
+                                            {{ $product->sub_cat_info?->title ?? '' }}
                                         </sub>
                                     </td>
                                     <td>{{ $product->is_featured == 1 ? 'Yes' : 'No' }}</td>

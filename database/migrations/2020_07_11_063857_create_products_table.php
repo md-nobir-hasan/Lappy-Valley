@@ -33,7 +33,7 @@ class CreateProductsTable extends Migration
             $table->unsignedBigInteger('price');
             $table->text('photo');
             $table->unsignedBigInteger('final_price');
-            $table->float('discount')->nullabale();
+            $table->float('discount')->nullable();
             $table->text('model')->nullable();
             $table->string('mpn')->nullable();
             $table->text('summary')->nullable();
@@ -45,7 +45,7 @@ class CreateProductsTable extends Migration
             $table->date('upcomming')->nullable();
             $table->boolean('is_featured')->deault(false);
             $table->enum('status', ['active', 'inactive'])->default('active');
-            $table->longText('special_feature')->nullabale();
+            $table->longText('special_feature')->nullable();
             $table->integer('average_rating')->default(5);
             $table->unsignedBigInteger('views')->nullable();
             // $table->string('size')->default('M')->nullable();
@@ -55,26 +55,26 @@ class CreateProductsTable extends Migration
             $table->foreign('child_cat_id')->references('id')->on('categories')->onDelete('SET NULL');
             $table->foreignIdFor(ProductOffer::class)->nullable()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             //Processore Attributes
-            $table->foreignIdFor(ProcessorModel::class)->nullabale()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreignIdFor(ProcessorGeneration::class)->nullabale()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->string('p_brand')->nullabale();
-            $table->string('c_speed')->nullabale(); //Processore frequency
-            $table->string('l1_cache')->nullabale();
-            $table->string('l2_cache')->nullabale();
-            $table->string('l3_cache')->nullabale();
+            $table->foreignIdFor(ProcessorModel::class)->nullable()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignIdFor(ProcessorGeneration::class)->nullable()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->string('p_brand')->nullable();
+            $table->string('c_speed')->nullable(); //Processore frequency
+            $table->string('l1_cache')->nullable();
+            $table->string('l2_cache')->nullable();
+            $table->string('l3_cache')->nullable();
             $table->integer('p_core')->nullable();
             $table->integer('p_thread')->nullable();
 
             //Display Attributes
-            $table->foreignIdFor(DisplaySize::class)->nullabale()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreignIdFor(DisplayType::class)->nullabale()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->string('d_resolution')->nullabale();
+            $table->foreignIdFor(DisplaySize::class)->nullable()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignIdFor(DisplayType::class)->nullable()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->string('d_resolution')->nullable();
             $table->text('d_other_features')->nullable();
             $table->boolean('touch_screen')->default(false);
 
             //Memory Attributes (RAM)
-            $table->foreignIdFor(Ram::class)->nullabale()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->integer('m_slot')->nullabale();
+            $table->foreignIdFor(Ram::class)->nullable()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->integer('m_slot')->nullable();
             $table->boolean('m_removal')->default(false);
 
             //Storage Attributes (HDD/SSD)
@@ -83,50 +83,50 @@ class CreateProductsTable extends Migration
             $table->integer('s_slot')->nullable();
             $table->boolean('s_extra_m2_slot')->default(false);
             $table->string('s_support_type')->nullable();
-            $table->string('s_upgrade')->nullabale();
+            $table->string('s_upgrade')->nullable();
 
             //Graphics Attributes
             $table->string('g_model')->nullable();
             $table->foreignIdFor(Graphic::class)->nullable()->constrained()->cascadeOnDelete()->cascadeOnUpdate(); //graphics memory
 
             //Keyboard & Touchpad
-            $table->string('k_type')->nullabale();
+            $table->string('k_type')->nullable();
             $table->boolean('touchpad')->default(false);
 
             //Camera & Audio
-            $table->string('webcam')->nullabale();
-            $table->string('microphone')->nullabale();
-            $table->string('speaker')->nullabale();
+            $table->string('webcam')->nullable();
+            $table->string('microphone')->nullable();
+            $table->string('speaker')->nullable();
 
             //Ports & slots
             $table->string('optical_drive')->nullable();
             $table->string('card_reader')->nullable();
-            $table->string('hdmi_p')->nullabale(); //p = Port
-            $table->string('usb2_p')->nullabale();
-            $table->string('usb3_p')->nullabale();
-            $table->string('type_c_tb_p')->nullabale();//USB type c/ tb = thunderbolt Port
-            $table->string('headphone_p')->nullabale();
-            $table->string('microphone_p')->nullabale();
+            $table->string('hdmi_p')->nullable(); //p = Port
+            $table->string('usb2_p')->nullable();
+            $table->string('usb3_p')->nullable();
+            $table->string('type_c_tb_p')->nullable();//USB type c/ tb = thunderbolt Port
+            $table->string('headphone_p')->nullable();
+            $table->string('microphone_p')->nullable();
 
             //Network & connectivity
-            $table->string('wifi')->nullabale();
-            $table->string('bluetooth')->nullabale();
+            $table->string('wifi')->nullable();
+            $table->string('bluetooth')->nullable();
 
             //Security
             $table->string('finger_print')->nullable();
 
             //Software
-            $table->string('operating_system')->nullabale();
+            $table->string('operating_system')->nullable();
 
             //Power
-            $table->string('battery_type')->nullabale();
-            $table->string('battery_capacity')->nullabale();
-            $table->string('adapter_type')->nullabale();
+            $table->string('battery_type')->nullable();
+            $table->string('battery_capacity')->nullable();
+            $table->string('adapter_type')->nullable();
 
             //Physical Specification
-            $table->string('color')->nullabale();
-            $table->string('dimension')->nullabale();
-            $table->string('weight')->nullabale();
+            $table->string('color')->nullable();
+            $table->string('dimension')->nullable();
+            $table->string('weight')->nullable();
 
             //Warranty
             $table->string('w_details')->nullable(); //wrranty details

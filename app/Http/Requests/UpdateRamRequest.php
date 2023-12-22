@@ -22,7 +22,9 @@ class UpdateRamRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:255'
+            'ram' => 'required|numeric|max:255',
+            'type' => 'nullable|string|max:255',
+            'bus_speed' => 'nullable|numeric|max:999999',
         ];
     }
 }
