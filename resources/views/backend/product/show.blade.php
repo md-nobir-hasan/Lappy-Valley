@@ -10,8 +10,10 @@
             <h2>Product</h2>
             <h2>
                 @if ($product->upcomming)
-                <span class="badge badge-success">UP COMMING <span class="ml-4 badge badge-warning">{{date('d-m-y',strtotime($product->upcomming))}}</span> </span>
-                {{-- <span class="ml-5 badge badge-warning">{{$product->upcomming}}</span> --}}
+                    <span class="badge badge-success">UP COMMING <span
+                            class="ml-4 badge badge-warning">{{ date('d-m-y', strtotime($product->upcomming)) }}</span>
+                    </span>
+                    {{-- <span class="ml-5 badge badge-warning">{{$product->upcomming}}</span> --}}
                 @else
                     @if ($product->stock > 0)
                         <span class="badge badge-success">IN STOCK</span>
@@ -25,8 +27,7 @@
             {{-- <a href="{{ route('order.pdf', $product->id) }}" class="shadow-sm d btn btn-sm btn-primary"
                 style="display: inline-block"><i class="fas fa-download fa-sm text-white-50"></i>
                 Generate PDF</a> --}}
-            <a href="{{ url()->previous() }}" class="shadow-sm d btn btn-sm btn-primary"
-                style="display: inline-block">
+            <a href="{{ url()->previous() }}" class="shadow-sm d btn btn-sm btn-primary" style="display: inline-block">
                 {{-- <i class="fas fa-right-arrow fa-sm text-white-50"></i> --}}
                 Back</a>
         </div>
@@ -79,9 +80,10 @@
                     <div class="order_boxes">
                         <div class="row">
                             <div class="col-lg-6 col-lx-4">
+                                {{-- Product's main attributes  --}}
                                 <div class="order-info">
                                     <h4 class="pb-4 text-center">Product Attributes</h4>
-                                    <h5 class="pb-4 text-center">Main Attributes</h5>
+                                    {{-- <h5 class="pb-4 text-center">Main Attributes</h5> --}}
 
                                     <table class="table">
                                         <tr class="">
@@ -118,128 +120,143 @@
                                         </tr>
                                         <tr>
                                             <td>Product Offer</td>
-                                            <td> : {{ $product->ProductOffer?->title.' ('.$product->ProductOffer?->title. 'to'.$product->ProductOffer?->to }})</td>
+                                            <td> :
+                                                {{ $product->ProductOffer?->title . ' (' . $product->ProductOffer?->title . 'to' . $product->ProductOffer?->to }})
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>Is Featured</td>
                                             <td> : {{ $product->is_featured == 1 ? 'Yes' : 'No' }}</td>
                                         </tr>
                                         <tr>
-                                            <td>Processor Model</td>
-                                            <td> : {{ $product->ProcessorModel?->name }}</td>
+                                            <td>Special features</td>
+                                            <td> : {{ $product->special_feature }}</td>
                                         </tr>
-                                        <tr>
-                                            <td>Processor Generation</td>
-                                            <td> : {{ $product->ProcessorGeneration?->name }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Display Type</td>
-                                            <td> : {{ $product->DisplayType?->name }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Display Size</td>
-                                            <td> : {{ $product->DisplaySize?->from . ' to ' . $product->DisplaySize?->to }}
-                                                inch</td>
-                                        </tr>
+                                    </table>
+                                </div>
 
+                                {{-- Product's main attributes  --}}
+                                <div class="order-info">
+                                    <h4 class="pb-4 text-center">Memory Attributes</h4>
+                                    <table class="table">
                                         <tr>
                                             <td>RAM</td>
                                             <td> : {{ $product->Ram?->name }}</td>
                                         </tr>
                                         <tr>
-                                            <td>SSD</td>
-                                            <td> : {{ $product->ssd?->name }}</td>
+                                            <td>Memory Type</td>
+                                            <td> : {{ $product->m_type }}</td>
                                         </tr>
                                         <tr>
-                                            <td>HDD</td>
-                                            <td> : {{ $product->hdd?->name }}</td>
+                                            <td>Bus Speed</td>
+                                            <td> : {{ $product->bus_speed }}</td>
                                         </tr>
                                         <tr>
-                                            <td>Graphic</td>
-                                            <td> : {{ $product->Graphic?->name }}</td>
+                                            <td>Memory Slot</td>
+                                            <td> : {{ $product->m_slot }}</td>
                                         </tr>
                                         <tr>
-                                            <td>Special Features</td>
-                                            <td> : {{ $product->special_feature }}</td>
+                                            <td>Memory Removal</td>
+                                            <td> : {{ $product->m_removal ? 'Yes' : 'No' }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Other Features</td>
+                                            <td> : {{ $product->m_other }}</td>
                                         </tr>
 
                                     </table>
+                                </div>
 
+                                {{-- Product's main attributes  --}}
+                                <div class="order-info">
                                     <h4 class="pb-4 text-center">Memory Attributes</h4>
                                     <table class="table">
-                                        <tr class="">
-                                            <td>Model</td>
-                                            <td> : {{ $product->model }}</td>
-                                        </tr>
-                                        <tr class="">
-                                            <td>Category</td>
-                                            <td> : {{ $product->cat_info?->title }}</td>
+                                        <tr>
+                                            <td>Storage</td>
+                                            <td> : {{ $product->ssd?->name .' '. $product->hdd ? .', '.$product->hdd->name : '' }}</td>
                                         </tr>
                                         <tr>
-                                            <td>Sub-category</td>
-                                            <td> : {{ $product->sub_cat_info?->title }} </td>
+                                            <td>Memory Type</td>
+                                            <td> : {{ $product->ssd ? .'SSD' : ''   }}{{ $product->hdd ? .', HDD' : ''  }}</td>
                                         </tr>
                                         <tr>
-                                            <td>Brand</td>
-                                            <td> : {{ $product->brand?->title }}</td>
+                                            <td>Bus Speed</td>
+                                            <td> : {{ $product->bus_speed }}</td>
                                         </tr>
                                         <tr>
-                                            <td>Is Featured</td>
-                                            <td> : {{ $product->is_featured == 1 ? 'Yes' : 'No' }}</td>
+                                            <td>Memory Slot</td>
+                                            <td> : {{ $product->m_slot }}</td>
                                         </tr>
                                         <tr>
-                                            <td>Processor Model</td>
-                                            <td> : {{ $product->ProcessorModel?->name }}</td>
+                                            <td>Extra Slot</td>
+                                            <td> : {{ $product->s_extra_m2_slot ? 'Yes':'No' }}</td>
                                         </tr>
                                         <tr>
-                                            <td>Processor Generation</td>
-                                            <td> : {{ $product->ProcessorGeneration?->name }}</td>
+                                            <td>Storage Support Type</td>
+                                            <td> : {{ $product->s_support_type }}</td>
                                         </tr>
                                         <tr>
-                                            <td>Display Type</td>
-                                            <td> : {{ $product->DisplayType?->name }}</td>
+                                            <td>Sotrage Upgrate Note</td>
+                                            <td> : {{ $product->s_upgrade }}</td>
                                         </tr>
                                         <tr>
-                                            <td>Display Size</td>
-                                            <td> : {{ $product->DisplaySize?->from . ' to ' . $product->DisplaySize?->to }}
-                                                inch</td>
+                                            <td>Other Features</td>
+                                            <td> : {{ $product->stor_other }}</td>
                                         </tr>
-
-                                        <tr>
-                                            <td>RAM</td>
-                                            <td> : {{ $product->Ram?->name }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>SSD</td>
-                                            <td> : {{ $product->ssd?->name }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>HDD</td>
-                                            <td> : {{ $product->hdd?->name }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Graphic</td>
-                                            <td> : {{ $product->Graphic?->name }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Special Features</td>
-                                            <td> : {{ $product->special_feature }}</td>
-                                        </tr>
-
                                     </table>
                                 </div>
                             </div>
 
                             <div class="col-lg-6 col-lx-4">
                                 <div>
+                                    {{-- Processore Attributes  --}}
                                     <div class="shipping-info">
-                                        <h4 class="pb-4 text-center">SHOR DESCRIPTION</h4>
-                                        <P>
+                                        <h4 class="pb-4 text-center">Processor Attributes</h4>
+                                        {{-- <P>
                                             {!! $product->summary !!}
-                                        </P>
-                                        {{-- <table class="table">
-
-                                        <tr>
+                                        </P> --}}
+                                        <table class="table">
+                                            <tr>
+                                                <td>Processor Model</td>
+                                                <td> : {{ $product->ProcessorModel?->name }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Processor Generation</td>
+                                                <td> : {{ $product->ProcessorGeneration?->name }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Processor Brand</td>
+                                                <td> : {{ $product->p_brand }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Processor Speed</td>
+                                                <td> : {{ $product->c_speed }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>L1 Cache</td>
+                                                <td> : {{ $product->l1_cache }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>L2 Cache</td>
+                                                <td> : {{ $product->l2_cache }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>L3 Cache</td>
+                                                <td> : {{ $product->l3_cache }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Processor Core</td>
+                                                <td> : {{ $product->p_core }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Processor Core</td>
+                                                <td> : {{ $product->p_thread }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Others Info</td>
+                                                <td> : {{ $product->p_other }}</td>
+                                            </tr>
+                                            {{-- <tr>
                                             <td>HDD</td>
                                             <td> : {{ $product->hdd->name }}</td>
                                         </tr>
@@ -250,30 +267,75 @@
                                         <tr>
                                             <td>Special Features</td>
                                             <td> : {{ $product->SpecialFeature->name }}</td>
-                                        </tr>
-                                    </table> --}}
+                                        </tr> --}}
+                                        </table>
                                     </div>
+
+                                    {{-- Display Attributes  --}}
                                     <div class="">
                                         <div class="shipping-info">
-                                            <h4 class="pb-4 text-center">DESCRIPTION</h4>
-                                            <P>
-                                                {!! $product->description !!}
-                                            </P>
-                                            {{-- <table class="table">
+                                            <h4 class="pb-4 text-center">Display Attributes</h4>
+                                            <table class="table">
+                                                <tr>
+                                                    <td>Display Type</td>
+                                                    <td> : {{ $product->DisplayType?->name }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Display Size</td>
+                                                    <td> : {{ $product->DisplaySize?->size }}
+                                                        inch</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Display Resolutioin</td>
+                                                    <td> : {{ $product->d_resolution }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Display</td>
+                                                    <td> : {{ $product->d_resolution }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Display Touch</td>
+                                                    <td> : {{ $product->touch_screen ? 'Yes' : 'No' }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Other Features</td>
+                                                    <td> : {{ $product->d_other }}</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
 
-                                        <tr>
-                                            <td>HDD</td>
-                                            <td> : {{ $product->hdd->name }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Graphic</td>
-                                            <td> : {{ $product->Graphic->name }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Special Features</td>
-                                            <td> : {{ $product->SpecialFeature->name }}</td>
-                                        </tr>
-                                    </table> --}}
+                                    {{-- Keyboar & Touchpad Attributes  --}}
+                                    <div class="">
+                                        <div class="shipping-info">
+                                            <h4 class="pb-4 text-center">Display Attributes</h4>
+                                            <table class="table">
+                                                <tr>
+                                                    <td>Display Type</td>
+                                                    <td> : {{ $product->DisplayType?->name }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Display Size</td>
+                                                    <td> : {{ $product->DisplaySize?->size }}
+                                                        inch</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Display Resolutioin</td>
+                                                    <td> : {{ $product->d_resolution }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Display</td>
+                                                    <td> : {{ $product->d_resolution }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Display Touch</td>
+                                                    <td> : {{ $product->touch_screen ? 'Yes' : 'No' }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Other Features</td>
+                                                    <td> : {{ $product->d_other }}</td>
+                                                </tr>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>
