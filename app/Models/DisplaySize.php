@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class DisplaySize extends Model
 {
     use HasFactory;
-    protected $fillable = ['from','to'];
+    protected $fillable = ['size'];
     public function Product()
     {
         return $this->hasMany(Product::class);
