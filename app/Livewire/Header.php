@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Cart;
+use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Livewire\Attributes\Rule;
@@ -81,6 +82,7 @@ class Header extends Component
 
     public function render()
     {
-        return view('livewire.header');
+        $n['menus'] = Category::with('child_cat')->where('status', 'active')->where('is_parent', 1)->orderBy('serial', 'ASC')->get();
+        return view('livewire.header',$n);
     }
 }

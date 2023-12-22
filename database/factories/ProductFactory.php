@@ -60,7 +60,7 @@ class ProductFactory extends Factory
             'display_size_id' => rand(1,6),
             'display_type_id' => rand(1,2),
             'd_resolution' => '1920*1080',
-            'd_other_features' => '220 nits, anti-glare, 171* Viewing Angle',
+            'd_other' => '220 nits, anti-glare, 171* Viewing Angle',
             'touch_screen'=>false,
 
             //Memory Attributes (Ram)
