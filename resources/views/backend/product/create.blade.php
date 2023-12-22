@@ -164,7 +164,7 @@
 
                     <div class="form-group">
                         <label for="stock">Stock<span class="text-danger">*</span></label>
-                        <input id="quantity" type="number" name="stock" min="1"
+                        <input id="quantity" type="number" name="stock" min="0"
                             placeholder="Exp:- Enter quantity" value="{{ old('stock') ?? 1 }}" class="form-control">
                         @error('stock')
                             <span class="text-danger">{{ $message }}</span>
