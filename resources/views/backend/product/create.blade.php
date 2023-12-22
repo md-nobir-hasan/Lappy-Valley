@@ -331,13 +331,13 @@
                             @enderror
                         </div>
 
-                        {{-- d_other_features  --}}
+                        {{-- d_other  --}}
                         <div class="form-group">
-                            <label for="d_other_features" class="col-form-label">Other Features</label>
-                            <input id="d_other_features" type="text" name="d_other_features"
+                            <label for="d_other" class="col-form-label">Other Features</label>
+                            <input id="d_other" type="text" name="d_other"
                                 placeholder="Exp:- 220 nits, anti-glare, 171* Viewing Angle"
-                                value="{{ old('d_other_features') }}" class="form-control">
-                            @error('d_other_features')
+                                value="{{ old('d_other') }}" class="form-control">
+                            @error('d_other')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
@@ -349,15 +349,6 @@
                                 value="1">
                             Yes
                             @error('touch_screen')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-
-                        {{-- Other's information --}}
-                        <div class="form-group">
-                            <label for="d_other" class="col-form-label">Others</label>
-                            <textarea class="form-control" id="d_other" name="d_other">{{ old('d_other') }}</textarea>
-                            @error('d_other')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>

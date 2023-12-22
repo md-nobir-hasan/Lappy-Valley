@@ -15,7 +15,7 @@ class Product extends Model
         //processor Attributes
         'processor_model_id','processor_generation_id','p_brand','c_speed','l1_cache', 'l2_cache','l3_cache','p_core','p_thread','p_other',
         //Display attributes
-        'display_size_id','display_type_id','d_resolution', 'd_other_features','touch_screen','d_other',
+        'display_size_id','display_type_id','d_resolution','touch_screen','d_other',
         //Memory Attributes (Ram)
         'ram_id', 'm_type', 'bus_speed','m_slot', 'm_removal', 'm_other',
         //Storage Attributes (SSD/HDD)
