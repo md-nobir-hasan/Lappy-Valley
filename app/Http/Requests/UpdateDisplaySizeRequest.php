@@ -22,8 +22,7 @@ class UpdateDisplaySizeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'from' => 'required|numeric|max:255',
-            'to' => 'required|numeric|max:255'
+            'size' => 'required|numeric|max:255',
         ];
     }
 }

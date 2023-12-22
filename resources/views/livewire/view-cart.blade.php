@@ -107,6 +107,7 @@
                                          } else {
                                              total = total - this.amount;
                                              this.cp_show = false;
+                                             
                                          }
                                      }
                                  });

@@ -29,8 +29,6 @@
                                 <th>Is Featured</th>
                                 <th>Price</th>
                                 <th>Discount</th>
-                                {{-- <th>Size</th> --}}
-                                <th>Condition</th>
                                 <th>Brand</th>
                                 <th>Stock</th>
                                 <th>Photo</th>
@@ -48,7 +46,6 @@
                                 <th>Is Featured</th>
                                 <th>Price</th>
                                 <th>Discount</th>
-                                <th>Condition</th>
                                 <th>Brand</th>
                                 <th>Stock</th>
                                 <th>Photo</th>
@@ -64,9 +61,9 @@
                                 <tr>
                                     <td>{{ $loop->index + 1 }}</td>
                                     <td>{{ $product->title }}</td>
-                                    <td>{{ $product->cat_info['title'] }}
+                                    <td>{{ $product->cat_info?->title }}
                                         <sub>
-                                            {{ $product->sub_cat_info->title ?? '' }}
+                                            {{ $product->sub_cat_info?->title ?? '' }}
                                         </sub>
                                     </td>
                                     <td>{{ $product->is_featured == 1 ? 'Yes' : 'No' }}</td>

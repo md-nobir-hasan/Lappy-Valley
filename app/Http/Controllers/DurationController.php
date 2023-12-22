@@ -20,7 +20,6 @@ class DurationController extends Controller
         $this->ccan('Show Duration');
 
         $duration = Duration::
-                    where('status',true)->
                     orderBy('id', 'DESC')->paginate();
         return view('backend.duration.index')->with('data', $duration);
     }

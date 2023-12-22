@@ -24,7 +24,9 @@
                         <thead>
                             <tr>
                                 <th>S.N.</th>
-                                <th>Title</th>
+                                <th>Ram</th>
+                                <th>Type</th>
+                                <th>Bus Speed</th>
                                 @canany(['Edit RAM', 'Delete RAM'])
                                     <th>Action</th>
                                 @endcanany
@@ -33,7 +35,9 @@
                         <tfoot>
                             <tr>
                                 <th>S.N.</th>
-                                <th>Title</th>
+                                <th>Ram</th>
+                                <th>Type</th>
+                                <th>Bus Speed</th>
                                 @canany(['Edit RAM', 'Delete RAM'])
                                     <th>Action</th>
                                 @endcanany
@@ -43,7 +47,9 @@
                             @foreach ($mdata as $datum)
                                 <tr>
                                     <td>{{ $datum->id }}</td>
-                                    <td>{{ $datum->name }}</td>
+                                    <td>{{ $datum->ram }}</td>
+                                    <td>{{ $datum->type }}</td>
+                                    <td>{{ $datum->bus_speed }}</td>
                                     <td>
                                         @can('Edit RAM')
                                             <a href="{{ route('pa.ram.edit', $datum->id) }}"
