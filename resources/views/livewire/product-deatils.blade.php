@@ -49,7 +49,7 @@
     {{-- @dd($product) --}}
     <div class=>
         <h1 class='font-[jost] max-lg:text-[18px] text-[20px] font-[400] leading-[25.3px] text-[#353535]'>
-            Home/{{ $product->cat_info->title }}/{{ $product->brand->title }}/{{ $product->title }}</h1>
+            Home/{{ $product->cat_info?->title }}/{{ $product->brand?->title }}/{{ $product->title }}</h1>
         <div class='h-1 bg-[#764A8733]'></div>
     </div>
     <!-- -----------key-Feature -section----- -->
@@ -79,7 +79,7 @@
             <div class="flex items-center justify-center mt-[40px]">
                 @foreach ($photos as $pto)
                     <div class="w-[52px] border-[2px] max-sm:border-[1px] border-[rgba(53_53_53_0.30)]">
-                        <img class="img-mini object-center" src="{{ $pto }}" alt="{{ $product->title }}">
+                        <img class="object-center img-mini" src="{{ $pto }}" alt="{{ $product->title }}">
                     </div>
                 @endforeach
                 <script>
@@ -118,7 +118,7 @@
                             @endif
                         @endif
                     </span></li>
-                <li class=max-lg:text-[18px] text-[20px] text-[#353535] font-[jost] font-[500]">Key Features:</li>
+                <li class="max-lg:text-[18px] text-[20px] text-[#353535] font-[jost] font-[500]">Key Features:</li>
                 <li class="text-[16px] max-lg:text-[14px] text-[#353535] font-[jost] font-[400]">
                     MPN: {{ $product->mpn }}
                 </li>
@@ -136,7 +136,7 @@
                 </li>
                 <li class=" text-[16px] max-lg:text-[14px] text-[rgb(53,53,53)] font-[jost] font-[400]">
                     Display:
-                    {{ $product->DisplaySize->size . '" ' . $product->DisplayType->name . ' (' . $product->d_resolution }})
+                    {{ $product->DisplaySize?->size . '" ' . $product->DisplayType?->name . ' (' . $product->d_resolution }})
                 </li>
                 <li class=" text-[16px] max-lg:text-[14px] text-[#353535] font-[jost] font-[400]">
                     Features: {{ $product->special_feature }}
@@ -260,7 +260,7 @@
                                 Processor Model:
                             </td>
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
-                                {{ $product->ProcessorModel->name }}</td>
+                                {{ $product->ProcessorModel?->name }}</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td
@@ -308,13 +308,13 @@
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[400] pl-[20px]">
                                 Display Size:</td>
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
-                                {{ $product->DisplaySize->size }}"</td>
+                                {{ $product->DisplaySize?->size }}"</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[400] pl-[20px]">
                                 Display Type:</td>
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
-                                {{ $product->DisplayType->name }}</td>
+                                {{ $product->DisplayType?->name }}</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[400] pl-[20px]">
@@ -361,7 +361,7 @@
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[400] pl-[20px]">
                                 RAM Type:</td>
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
-                                {{ $product->ram->type }}
+                                {{ $product->ram?->type }}
                             </td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
@@ -375,7 +375,7 @@
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[400] pl-[20px]">
                                 BUS Speed:</td>
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
-                                {{ $product->ram->bus_speed }}
+                                {{ $product->ram?->bus_speed }}
                             </td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
@@ -463,7 +463,7 @@
                                 Graphics Memory:
                             </td>
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
-                                {{ $product->Graphic->name }}
+                                {{ $product->Graphic?->name }}
                             </td>
                         </tr>
                     </tbody>
@@ -609,7 +609,14 @@
                                 Fingerprint Sensor:
                             </td>
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
-                                {{ $product->final_price ? 'Yes' : 'NO' }}</td>
+                                {{ $product->finger_print }}</td>
+                        </tr>
+                        <tr class="border-[#764A8733] border-b-[2px]">
+                            <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[400] pl-[20px]">
+                                Facelock:
+                            </td>
+                            <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
+                                {{ $product->facelock  }}</td>
                         </tr>
                     </tbody>
                     <!-- ---------------11th---part---------- -->
