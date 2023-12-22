@@ -81,6 +81,91 @@
                             <div class="col-lg-6 col-lx-4">
                                 <div class="order-info">
                                     <h4 class="pb-4 text-center">Product Attributes</h4>
+                                    <h5 class="pb-4 text-center">Main Attributes</h5>
+
+                                    <table class="table">
+                                        <tr class="">
+                                            <td>Model</td>
+                                            <td> : {{ $product->model }}</td>
+                                        </tr>
+                                        <tr class="">
+                                            <td>MPN</td>
+                                            <td> : {{ $product->mpn }}</td>
+                                        </tr>
+                                        <tr class="">
+                                            <td>Category</td>
+                                            <td> : {{ $product->cat_info?->title }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sub-category</td>
+                                            <td> : {{ $product->sub_cat_info?->title }} </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Brand</td>
+                                            <td> : {{ $product->brand?->title }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Stock</td>
+                                            <td> : {{ $product->stock }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Average Rating</td>
+                                            <td> : {{ $product->average_rating }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Views</td>
+                                            <td> : {{ $product->views }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Product Offer</td>
+                                            <td> : {{ $product->ProductOffer?->title.' ('.$product->ProductOffer?->title. 'to'.$product->ProductOffer?->to }})</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Is Featured</td>
+                                            <td> : {{ $product->is_featured == 1 ? 'Yes' : 'No' }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Processor Model</td>
+                                            <td> : {{ $product->ProcessorModel?->name }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Processor Generation</td>
+                                            <td> : {{ $product->ProcessorGeneration?->name }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Display Type</td>
+                                            <td> : {{ $product->DisplayType?->name }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Display Size</td>
+                                            <td> : {{ $product->DisplaySize?->from . ' to ' . $product->DisplaySize?->to }}
+                                                inch</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>RAM</td>
+                                            <td> : {{ $product->Ram?->name }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>SSD</td>
+                                            <td> : {{ $product->ssd?->name }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>HDD</td>
+                                            <td> : {{ $product->hdd?->name }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Graphic</td>
+                                            <td> : {{ $product->Graphic?->name }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Special Features</td>
+                                            <td> : {{ $product->special_feature }}</td>
+                                        </tr>
+
+                                    </table>
+
+                                    <h4 class="pb-4 text-center">Memory Attributes</h4>
                                     <table class="table">
                                         <tr class="">
                                             <td>Model</td>
