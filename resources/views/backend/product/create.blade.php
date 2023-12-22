@@ -66,7 +66,8 @@
                     </div>
 
                     <div class="form-group" id="final_price_div">
-                        <label for="final_price" class="col-form-label">Final Price(tk)<span class="text-danger">*</span></label>
+                        <label for="final_price" class="col-form-label">Final Price(tk)<span
+                                class="text-danger">*</span></label>
                         <input id="final_price" type="number" name="final_price" min="0" max="500000"
                             placeholder="Exp:- Enter Final Price" value="{{ old('final_price') }}" class="form-control">
                         @error('final_price')
@@ -203,8 +204,7 @@
                         {{-- Processore Generation --}}
                         <div class="form-group">
                             <label for="processor_generation_id">Prosessor Generation </label>
-                            <select name="processor_generation_id" class="form-control" id="processor_generation_id"
-                            >
+                            <select name="processor_generation_id" class="form-control" id="processor_generation_id">
                                 <option value="" hidden>Choose....</option>
                                 @foreach ($p_generations as $pg)
                                     <option value="{{ $pg->id }}" @selected($pg->id == old('processor_generation_id'))>{{ $pg->name }}
@@ -276,6 +276,14 @@
                             @enderror
                         </div>
 
+                        {{-- Other's information --}}
+                        <div class="form-group">
+                            <label for="p_other" class="col-form-label">Others</label>
+                            <textarea class="form-control" id="p_other" name="p_other">{{ old('p_other') }}</textarea>
+                            @error('p_other')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
                     </div>
                 </div>
 
@@ -344,6 +352,15 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
+
+                        {{-- Other's information --}}
+                        <div class="form-group">
+                            <label for="d_other" class="col-form-label">Others</label>
+                            <textarea class="form-control" id="d_other" name="d_other">{{ old('d_other') }}</textarea>
+                            @error('d_other')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
                     </div>
                 </div>
 
@@ -351,17 +368,37 @@
                 <div class="mt-4">
                     <h4 class="font-weight-bold">Memory Attributes</h4>
                     <div class="ml-3">
-
                         <div class="form-group">
                             <label for="ram_id">RAM (GB)</label>
                             <select name="ram_id" class="form-control" id="ram_id">
                                 <option value="" hidden>Choose....</option>
                                 @foreach ($rams as $ram)
-                                    <option value="{{ $ram->id }}" @selected($ram->id == old('ram_id'))>{{ $ram->ram }}
+                                    <option value="{{ $ram->id }}" @selected($ram->id == old('ram_id'))>
+                                        {{ $ram->ram }}GB
                                     </option>
                                 @endforeach
                             </select>
                             @error('ram_id')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        {{-- m_type  --}}
+                        <div class="form-group">
+                            <label for="m_type" class="col-form-label">Memory Type</label>
+                            <input id="m_type" type="text" name="m_type" placeholder="Exp:- DDR4"
+                                value="{{ old('m_type') }}" class="form-control">
+                            @error('m_type')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        {{-- bus_speed  --}}
+                        <div class="form-group">
+                            <label for="bus_speed" class="col-form-label">Bus Speed</label>
+                            <input id="bus_speed" type="number" name="bus_speed" placeholder="Exp:- 5100"
+                                value="{{ old('bus_speed') }}" class="form-control">
+                            @error('bus_speed')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
@@ -383,6 +420,25 @@
                             <input id="m_slot" type="number" name="m_slot" placeholder="Exp:- 2"
                                 value="{{ old('m_slot') }}" class="form-control">
                             @error('m_slot')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        {{-- m_other  --}}
+                        <div class="form-group">
+                            <label for="m_other" class="col-form-label">Other details</label>
+                            <input id="m_other" type="text" name="m_other" placeholder="Exp:- Slots Use 1 Of 2"
+                                value="{{ old('m_other') }}" class="form-control">
+                            @error('m_other')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        {{-- Other's information --}}
+                        <div class="form-group">
+                            <label for="m_other" class="col-form-label">Others</label>
+                            <textarea class="form-control" id="m_other" name="m_other">{{ old('m_other') }}</textarea>
+                            @error('m_other')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
@@ -455,7 +511,14 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
-
+                        {{-- Other's information --}}
+                        <div class="form-group">
+                            <label for="stor_other" class="col-form-label">Others</label>
+                            <textarea class="form-control" id="stor_other" name="stor_other">{{ old('stor_other') }}</textarea>
+                            @error('stor_other')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
                     </div>
                 </div>
 
@@ -489,7 +552,14 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
-
+                        {{-- Other's information --}}
+                        <div class="form-group">
+                            <label for="g_other" class="col-form-label">Others</label>
+                            <textarea class="form-control" id="g_other" name="g_other">{{ old('g_other') }}</textarea>
+                            @error('g_other')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
                     </div>
                 </div>
 
@@ -514,6 +584,15 @@
                                 value='1'>
                             <label for="touchpad">Yes</label>
                             @error('touchpad')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        {{-- Other's information --}}
+                        <div class="form-group">
+                            <label for="k_other" class="col-form-label">Others</label>
+                            <textarea class="form-control" id="k_other" name="k_other">{{ old('k_other') }}</textarea>
+                            @error('k_other')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
@@ -555,6 +634,14 @@
                             @enderror
                         </div>
 
+                        {{-- Other's information --}}
+                        <div class="form-group">
+                            <label for="k_other" class="col-form-label">Others</label>
+                            <textarea class="form-control" id="k_other" name="k_other">{{ old('k_other') }}</textarea>
+                            @error('k_other')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
                     </div>
                 </div>
 
@@ -589,7 +676,7 @@
                         <div class="form-group">
                             <label for="hdmi_p" class="col-form-label">HDMI Port </label>
                             <input id="hdmi_p" type="text" name="hdmi_p" placeholder="Exp:- 1x HDMI 1.4b"
-                             value="{{ old('hdmi_p') }}" class="form-control">
+                                value="{{ old('hdmi_p') }}" class="form-control">
                             @error('hdmi_p')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -599,7 +686,7 @@
                         <div class="form-group">
                             <label for="usb2_p" class="col-form-label">USB 2 Port </label>
                             <input id="usb2_p" type="text" name="usb2_p" placeholder="Exp:- 1x USB 2.0 Type-A"
-                             value="{{ old('usb2_p') }}" class="form-control">
+                                value="{{ old('usb2_p') }}" class="form-control">
                             @error('usb2_p')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -631,7 +718,7 @@
                         <div class="form-group">
                             <label for="headphone_p" class="col-form-label">Headphone </label>
                             <input id="headphone_p" type="text" name="headphone_p" placeholder="Exp:- 1x Headphone"
-                             value="{{ old('headphone_p') }}" class="form-control">
+                                value="{{ old('headphone_p') }}" class="form-control">
                             @error('headphone_p')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -647,7 +734,14 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
-
+                        {{-- Other's information --}}
+                        <div class="form-group">
+                            <label for="ps_other" class="col-form-label">Others</label>
+                            <textarea class="form-control" id="ps_other" name="ps_other">{{ old('ps_other') }}</textarea>
+                            @error('ps_other')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
                     </div>
                 </div>
 
@@ -670,12 +764,19 @@
                         <div class="form-group">
                             <label for="bluetooth" class="col-form-label">Bluetooth </label>
                             <input id="bluetooth" type="text" name="bluetooth" placeholder="Exp:- Bluetooth 5.0"
-                             value="{{ old('bluetooth') }}" class="form-control">
+                                value="{{ old('bluetooth') }}" class="form-control">
                             @error('bluetooth')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
-
+                        {{-- Other's information --}}
+                        <div class="form-group">
+                            <label for="nc_other" class="col-form-label">Others</label>
+                            <textarea class="form-control" id="nc_other" name="nc_other">{{ old('nc_other') }}</textarea>
+                            @error('nc_other')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
                     </div>
                 </div>
 
@@ -693,6 +794,15 @@
                             @enderror
                         </div>
                     </div>
+
+                    {{-- Other's information --}}
+                        <div class="form-group">
+                            <label for="s_other" class="col-form-label">Others</label>
+                            <textarea class="form-control" id="s_other" name="s_other">{{ old('s_other') }}</textarea>
+                            @error('s_other')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
                 </div>
 
                 {{-- Software Attributes --}}
@@ -705,6 +815,15 @@
                             <input id="operating_system" type="text" name="operating_system"
                                 placeholder="Exp:- Windows" value="{{ old('operating_system') }}" class="form-control">
                             @error('operating_system')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        {{-- Other's information --}}
+                        <div class="form-group">
+                            <label for="soft_other" class="col-form-label">Others</label>
+                            <textarea class="form-control" id="soft_other" name="soft_other">{{ old('soft_other') }}</textarea>
+                            @error('soft_other')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
@@ -731,8 +850,7 @@
                         <div class="form-group">
                             <label for="battery_capacity" class="col-form-label">Battery Capacity </label>
                             <input id="battery_capacity" type="text" name="battery_capacity"
-                                placeholder="Exp:- 42Whr" value="{{ old('battery_capacity') }}" class="form-control"
-                            >
+                                placeholder="Exp:- 42Whr" value="{{ old('battery_capacity') }}" class="form-control">
                             @error('battery_capacity')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -745,6 +863,15 @@
                                 placeholder="Exp:- 65W Round Tip(3-pin)" value="{{ old('adapter_type') }}"
                                 class="form-control">
                             @error('adapter_type')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        {{-- Other's information --}}
+                        <div class="form-group">
+                            <label for="power_other" class="col-form-label">Others</label>
+                            <textarea class="form-control" id="power_other" name="power_other">{{ old('power_other') }}</textarea>
+                            @error('power_other')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
@@ -788,6 +915,14 @@
                             @enderror
                         </div>
 
+                        {{-- Other's information --}}
+                        <div class="form-group">
+                            <label for="physi_other" class="col-form-label">Others</label>
+                            <textarea class="form-control" id="physi_other" name="physi_other">{{ old('physi_other') }}</textarea>
+                            @error('physi_other')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
                     </div>
                 </div>
 
@@ -814,19 +949,18 @@
                     <div class="ml-3">
                         {{-- installment duration  --}}
                         <div class="form-group">
-                        <label for="durations">Special Features </label>
-                        <select name="durations[]" class="form-control selectpicker" id="durations"
-                            multiple>
-                            @foreach ($durations as $duration)
-                                <option value="{{ $duration->id }}" @selected($duration->id == old('durations'))>
-                                    {{ $duration->year ? ($duration->year.' years') : ' ' }}{{ $duration->month ? ($duration->month.' month') : ' ' }}
-                                </option>
-                            @endforeach
-                        </select>
-                        @error('durations')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                    </div>
+                            <label for="durations">Special Features </label>
+                            <select name="durations[]" class="form-control selectpicker" id="durations" multiple>
+                                @foreach ($durations as $duration)
+                                    <option value="{{ $duration->id }}" @selected($duration->id == old('durations'))>
+                                        {{ $duration->year ? $duration->year . ' years' : ' ' }}{{ $duration->month ? $duration->month . ' month' : ' ' }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('durations')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
                     </div>
                 </div>
 
