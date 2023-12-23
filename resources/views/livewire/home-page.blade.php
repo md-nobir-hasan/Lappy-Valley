@@ -1,4 +1,5 @@
-<div class="px-[100px] max-2xl:px-[70px] max-xl:px-[60px] max-lg:px-[38px] max-md:px-[35px] max-sm:pr-[15px] max-sm:mt-[70px] max-xl:mt-[100px]">
+<div
+    class="px-[100px] max-2xl:px-[70px] max-xl:px-[60px] max-lg:px-[38px] max-md:px-[35px] max-sm:pr-[15px] max-sm:mt-[70px] max-xl:mt-[100px]">
     {{-- Alert message  --}}
     @if ($error = session('error'))
         <script>
@@ -22,28 +23,29 @@
                         <img class="w-full mx-auto" src="{{ $banner }}">
                     </div>
                 @endforeach
-           
+
                 <!-- The previous button -->
-             <div>
-                <a id="move_back" value='0'
-                class="slide_icon absolute left-0 top-1/2 p-4 -translate-y-1/2 -translate-x-[42px] text-[40px] text-blue-500 opacity-50 hover:opacity-100 cursor-pointer">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-[18px] h-[36px] max-md:w-[25px] max-md:h-[20px]"
-                    viewBox="0 0 23 40" fill="none">
-                    <path d="M21 2L3 20L21 38" stroke="#999999" stroke-opacity="1" stroke-width="5" />
-                </svg>
-            </a>
-            <!-- The next button -->
-            <a id="move_front" value='0'
-                class="slide_icon absolute right-0 top-1/2 p-4 -translate-y-1/2 translate-x-[42px] text-[40px] text-blue-500 opacity-50 hover:opacity-100 cursor-pointer"><svg
-                    xmlns="http://www.w3.org/2000/svg" class="w-[18px] h-[36px] max-md:w-[25px] max-md:h-[20px]"
-                    viewBox="0 0 23 40" fill="none">
-                    <path :class="{ 'text-[black]': active }" d="M2 2L20 20L2 38" stroke="#999999"
-                        stroke-opacity="0.5" stroke-width="5" />
-                </svg>
-            </a>
-             </div>
+                <div>
+                    <a id="move_back" value='0'
+                        class="slide_icon absolute left-0 top-1/2 p-4 -translate-y-1/2 -translate-x-[42px] text-[40px] text-blue-500 opacity-50 hover:opacity-100 cursor-pointer">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            class="w-[18px] h-[36px] max-md:w-[25px] max-md:h-[20px]" viewBox="0 0 23 40"
+                            fill="none">
+                            <path d="M21 2L3 20L21 38" stroke="#999999" stroke-opacity="1" stroke-width="5" />
+                        </svg>
+                    </a>
+                    <!-- The next button -->
+                    <a id="move_front" value='0'
+                        class="slide_icon absolute right-0 top-1/2 p-4 -translate-y-1/2 translate-x-[42px] text-[40px] text-blue-500 opacity-50 hover:opacity-100 cursor-pointer"><svg
+                            xmlns="http://www.w3.org/2000/svg" class="w-[18px] h-[36px] max-md:w-[25px] max-md:h-[20px]"
+                            viewBox="0 0 23 40" fill="none">
+                            <path :class="{ 'text-[black]': active }" d="M2 2L20 20L2 38" stroke="#999999"
+                                stroke-opacity="0.5" stroke-width="5" />
+                        </svg>
+                    </a>
+                </div>
             </div>
-        
+
         </section>
     @endif
     <!-- --------hero--section --end ----  -->
@@ -114,7 +116,8 @@
                         Our newest</br>products are</br>here,just for you!</p>
                 </div>
                 <div class='flex justify-center items-center'>
-                    <a href="{{ route('new_product', 'new_product') }}" wire:navigate  class="fill-up-btn linear px-[20px] py-[10px] mt-[20px] font-[jost] font-[500] text-[16px] text-[#F2F2F2] rounded-[4px]">
+                    <a href="{{ route('new_product', 'new_product') }}" wire:navigate
+                        class="fill-up-btn linear px-[20px] py-[10px] mt-[20px] font-[jost] font-[500] text-[16px] text-[#F2F2F2] rounded-[4px]">
                         Visit Now
                     </a>
                 </div>
@@ -123,21 +126,21 @@
             <div class="col-span-2 max-md:mt-[20px]">
                 <img class="" src="/storage/product/Hero-Image.svg" alt="">
             </div>
-        </div> 
+        </div>
     </section>
- <!-- Product  -->
+    <!-- Product  -->
     <section>
         <div
-        class="grid grid-cols-5 max-md:grid-cols-2 max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 mt-6 mb-[78px] max-sm:mb-[50px]">
-        {{-- @for ($i = 1; $i < 6; $i++)
+            class="grid grid-cols-5 max-md:grid-cols-2 max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 mt-6 mb-[78px] max-sm:mb-[50px]">
+            {{-- @for ($i = 1; $i < 6; $i++)
             <livewire:products />
         @endfor --}}
-        @foreach ($new_arrival->take(5) as $product)
-            <x-product :product="$product"></x-product>
-        @endforeach
-    </div>
+            @foreach ($new_arrival->take(5) as $product)
+                <x-product :product="$product"></x-product>
+            @endforeach
+        </div>
     </section>
-<!-- Product  -->
+    <!-- Product  -->
     <!-- Feature Laptops Sliders -->
     <section>
         <div class="py-1 text-center">
@@ -262,10 +265,10 @@
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper mt-[20px] mb-[10px]">
                     @foreach ($features->where('cat_id', 7) as $f_product)
-                    <div class="swiper-slide">
-                        <div
-                            class="w-[221px] max-xl:w-full mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            
+                        <div class="swiper-slide">
+                            <div
+                                class="w-[221px] max-xl:w-full mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
+
                                 <div class="image-container">
                                     <a href="{{ route('product.details', [$f_product->slug]) }}" wire:navigate>
                                         <img src="{{ $f_product->img()[0] }}" alt="">
@@ -274,21 +277,21 @@
                                 <div>
                                     <a href="{{ route('product.details', [$f_product->slug]) }}" wire:navigate
                                         class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-300 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                          {{ Str::of($f_product->title)->words(5) }}
+                                        {{ Str::of($f_product->title)->words(5) }}
                                     </a>
                                 </div>
-                         
 
-                            <div
-                                class="flex justify-between text-[14px] mt-auto font-[jost] font-[700] py-[10px] leading-[20.23px]">
-                                <span class=" text-[#DC275C]">
-                                    {{ number_format($f_product->final_price) }} TK
-                                </span>
-                                <livewire:add-to-cart :id="$f_product->id"
+
+                                <div
+                                    class="flex justify-between text-[14px] mt-auto font-[jost] font-[700] py-[10px] leading-[20.23px]">
+                                    <span class=" text-[#DC275C]">
+                                        {{ number_format($f_product->final_price) }} TK
+                                    </span>
+                                    <livewire:add-to-cart :id="$f_product->id"
                                         button='<span class="text-[#380D37]">Add to Cart</span>' />
+                                </div>
                             </div>
                         </div>
-                    </div>
                     @endforeach
                     {{-- <div class="swiper-slide">
                         <div
@@ -530,10 +533,10 @@
             <div class="swiper mySwiper mt-[20px]">
                 <div class="swiper-wrapper">
                     @foreach ($features->where('cat_id', 6) as $a_product)
-                    <div class="swiper-slide">
-                        <div
-                            class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                           
+                        <div class="swiper-slide">
+                            <div
+                                class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
+
                                 <div class="image-container">
                                     <a href="{{ route('product.details', [$a_product->slug]) }}" wire:navigate>
                                         <img src="{{ $a_product->img()[0] }}" alt="">
@@ -542,22 +545,22 @@
                                 <div class="">
                                     <a href="{{ route('product.details', [$a_product->slug]) }}" wire:navigate
                                         class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-300 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                       {{ $a_product->title }}
+                                        {{ $a_product->title }}
                                     </a>
                                 </div>
-                            
 
-                            <div
-                                class="flex justify-between text-[14px] mt-auto font-[jost] font-[700] py-[10px] leading-[20.23px]">
-                                <span class=" text-[#DC275C]">
-                                    {{ number_format($a_product->final_price) }} TK
-                                </span>
-                                <a class="text-[#380D37]">
-                                    Add to Cart
-                                </a>
+
+                                <div
+                                    class="flex justify-between text-[14px] mt-auto font-[jost] font-[700] py-[10px] leading-[20.23px]">
+                                    <span class=" text-[#DC275C]">
+                                        {{ number_format($a_product->final_price) }} TK
+                                    </span>
+                                    <a class="text-[#380D37]">
+                                        Add to Cart
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     @endforeach
                     {{-- <div class="swiper-slide">
                         <div
@@ -842,13 +845,10 @@
 
     </section>
     <div>
+        <a href="{{ route('shop') }}" wire:navigate
+            class="fill-up-btn items-center justify-center flex my-[60px] mx-auto text-[16px] text-[#F2F4F8] w-[116px] h-[44px] rounded-[4px] bg-gradient-to-r from-[#380D37] to-[#DC275C]">See
+            More</a>
 
-        <a href="{{ route('shop') }}" wire:navigate>
-            <a
-                class="fill-up-btn items-center justify-center flex my-[60px] mx-auto text-[16px] text-[#F2F4F8] w-[116px] h-[44px] rounded-[4px] bg-gradient-to-r from-[#380D37] to-[#DC275C]">
-                 See More
-            </a>
-        </a>
         <div class="h-[2px] bg-[#380D37]"></div>
     </div>
     <!-- Currention code from this line upto footer  -->
@@ -858,8 +858,7 @@
                 class="mt-8 font-[jost] font-[500] text-center text-[40px] max-lg:text-[30px] max-md:text-[25px] max-sm:text-[24px] text-[#353535]">
                 Why Choose Us?</h2>
         </div>
-        <div
-            class="grid grid-cols-5 max-md:grid-cols-2 max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 my-[50px] ">
+        <div class="grid grid-cols-5 max-md:grid-cols-2 max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 my-[50px] ">
             <div
                 class="rounded-[4px] shadow-[2px_2px_5px_2px_#0000001A] max-sm:mb-[10px] max-md:mb-[10px] max-lg:mb-[10px]">
                 <div>
@@ -1509,7 +1508,8 @@
             class="text-center text-[#380D37] text-[42px] font-[jost] font-[500] max-md:my-[35px] leading-[61px] max-sm:leading-[5px]">
             <h1 class="max-sm:text-[35px] max-md:text-[45] max-lg:text-[] max-xl:text-[]"> Please Drop a Review!</h1>
         </div>
-        <div class="grid grid-cols-2 max-sm:grid-cols-1 max-md:grid-cols-1 max-lg:grid-cols-2 mt-20 max-md:mt-12 max-sm:mt-[15px]">
+        <div
+            class="grid grid-cols-2 max-sm:grid-cols-1 max-md:grid-cols-1 max-lg:grid-cols-2 mt-20 max-md:mt-12 max-sm:mt-[15px]">
             <div>
                 <div>
                     <h1
@@ -1565,8 +1565,7 @@
                         <span class="block text-[red]">{{ $post_error_msg }}</span>
                     @endif
 
-                    <a
-                        class="fill-up-btn text-[#f2f2f2] text-center text-[16px] h-[44px] px-[40px] py-[10px] rounded-[4px] font-[500] font-[jost] mt-[15px]  bg-gradient-to-r from-[#380D37] to-[#DC275C] "
+                    <a class="fill-up-btn text-[#f2f2f2] text-center text-[16px] h-[44px] px-[40px] py-[10px] rounded-[4px] font-[500] font-[jost] mt-[15px]  bg-gradient-to-r from-[#380D37] to-[#DC275C] "
                         type="submit">
                         Post
                         <div wire:loading
@@ -1666,45 +1665,45 @@
 @script
     <script>
         // ----hero--section---
-                 // Hero section slide
-                 $('#move_back').on('click', function() {
-                        console.log($(this).attr('value'));
-                        let current_slide = Number($(this).attr('value')) - 1;
-                        let total_slide = $('.slide').length;
-                        console.log(current_slide, total_slide, 'yes');
-                        // if(current_slide>=total_slide){
-                        //     current_slide == 1
-                        // }
-                        if (current_slide < 0) {
+        // Hero section slide
+        $('#move_back').on('click', function() {
+            console.log($(this).attr('value'));
+            let current_slide = Number($(this).attr('value')) - 1;
+            let total_slide = $('.slide').length;
+            console.log(current_slide, total_slide, 'yes');
+            // if(current_slide>=total_slide){
+            //     current_slide == 1
+            // }
+            if (current_slide < 0) {
 
-                            current_slide = 2;
-                            console.log(current_slide, total_slide, 'after if');
-                        }
-                        $('.slide').hide();
-                        $('.slide').eq(current_slide).show();
-                        $('.slide_icon').attr('value', current_slide);
-                        $(this).addClass('slide-active');
-                        $('#move_front').removeClass('slide-active')
-                    })
-                    $('#move_front').on('click', function() {
-                        console.log($(this).attr('value'));
-                        let current_slide = Number($(this).attr('value')) + 1;
-                        let total_slide = $('.slide').length;
-                        console.log(current_slide, total_slide, 'yes');
-                        // if(current_slide>=total_slide){
-                        //     current_slide == 1
-                        // }
-                        if (current_slide > 2) {
+                current_slide = 2;
+                console.log(current_slide, total_slide, 'after if');
+            }
+            $('.slide').hide();
+            $('.slide').eq(current_slide).show();
+            $('.slide_icon').attr('value', current_slide);
+            $(this).addClass('slide-active');
+            $('#move_front').removeClass('slide-active')
+        })
+        $('#move_front').on('click', function() {
+            console.log($(this).attr('value'));
+            let current_slide = Number($(this).attr('value')) + 1;
+            let total_slide = $('.slide').length;
+            console.log(current_slide, total_slide, 'yes');
+            // if(current_slide>=total_slide){
+            //     current_slide == 1
+            // }
+            if (current_slide > 2) {
 
-                            current_slide = 0;
-                            console.log(current_slide, total_slide, 'after if');
-                        }
-                        $('.slide').hide();
-                        $('.slide').eq(current_slide).show();
-                        $('.slide_icon').attr('value', current_slide);
-                        $(this).addClass('slide-active');
-                        $('#move_back').removeClass('slide-active')
-                    });
+                current_slide = 0;
+                console.log(current_slide, total_slide, 'after if');
+            }
+            $('.slide').hide();
+            $('.slide').eq(current_slide).show();
+            $('.slide_icon').attr('value', current_slide);
+            $(this).addClass('slide-active');
+            $('#move_back').removeClass('slide-active')
+        });
         // hero---section--end-----
         $(document).ready(function() {
             $('.usa_btn').each(function(index) {
@@ -1756,45 +1755,45 @@
             });
         });
         var swiper = new Swiper(".mySwiper", {
-                    slidesPerView: 5,
-                    spaceBetween: 10,
-                    // freeMode: true,
-                    // cssMode: true,
-                    navigation: {
-                        nextEl: ".swiper-button-next",
-                        prevEl: ".swiper-button-prev",
-                    },
-                    // pagination: {
-                    //     el: ".swiper-pagination",
-                    // },
-                    mousewheel: true,
-                    keyboard: true,
-                    breakpoints: {
-                    // when window width is >= 320px
-                    375: {
+            slidesPerView: 5,
+            spaceBetween: 10,
+            // freeMode: true,
+            // cssMode: true,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            // pagination: {
+            //     el: ".swiper-pagination",
+            // },
+            mousewheel: true,
+            keyboard: true,
+            breakpoints: {
+                // when window width is >= 320px
+                375: {
                     slidesPerView: 2,
                     spaceBetween: 10
-                    },
-                    // when window width is >= 480px
-                    // 640: {
-                    // slidesPerView: 2,
-                    // spaceBetween: 20
-                    // },
-                    768: {
+                },
+                // when window width is >= 480px
+                // 640: {
+                // slidesPerView: 2,
+                // spaceBetween: 20
+                // },
+                768: {
                     slidesPerView: 3,
                     spaceBetween: 20
-                    },
-                    1024: {
+                },
+                1024: {
                     slidesPerView: 4,
                     spaceBetween: 20
-                    },
-                    1280: {
+                },
+                1280: {
                     slidesPerView: 5,
                     spaceBetween: 20
-                    },
-                    // ...
-                }
+                },
+                // ...
+            }
 
-                });
+        });
     </script>
 @endscript
