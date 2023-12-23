@@ -29,6 +29,7 @@ class CouponSeeder extends Seeder
 
         DB::table('coupons')->insert($data);
 
+        //category seeder
         $cats = [
             [
                 'title' => 'Brand New',
@@ -80,6 +81,59 @@ class CouponSeeder extends Seeder
                 'status' => 'active',
                 'is_parent' => 1,
             ],
+        ];
+        DB::table('categories')->insert($cats);
+
+        // subcategory seeder
+        $cats = [
+            // Brand new
+            ['title' => 'Asus', 'slug' => 'brandnew-asus', 'serial' => 8, 'status' => 'active','is_parent'=>0, 'parent_id' => 1],
+            ['title' => 'HP', 'slug' => 'brandnew-hp', 'serial' => 9, 'status' => 'active','is_parent'=>0, 'parent_id' => 1],
+            ['title' => 'DELL', 'slug' => 'brandnew-dell', 'serial' => 10, 'status' => 'active','is_parent'=>0, 'parent_id' => 1],
+            ['title' => 'Lenovo', 'slug' => 'brandnew-lenovo', 'serial' => 11, 'status' => 'active','is_parent'=>0, 'parent_id' => 1],
+            ['title' => 'Apple', 'slug' => 'brandnew-apple', 'serial' => 12, 'status' => 'active','is_parent'=>0, 'parent_id' => 1],
+
+            // // Mac book
+            // ['title' => 'Asus', 'slug' => 'asus', 'serial' => 8, 'status' => 'active','is_parent'=>0, 'parent_id' => 2],
+            // ['title' => 'HP', 'slug' => 'hp', 'serial' => 9, 'status' => 'active','is_parent'=>0, 'parent_id' => 2],
+            // ['title' => 'DELL', 'slug' => 'dell', 'serial' => 10, 'status' => 'active','is_parent'=>0, 'parent_id' => 2],
+            // ['title' => 'Lenovo', 'slug' => 'lenovo', 'serial' => 11, 'status' => 'active','is_parent'=>0, 'parent_id' => 2],
+            // ['title' => 'Apple', 'slug' => 'apple', 'serial' => 12, 'status' => 'active','is_parent'=>0, 'parent_id' => 2],
+
+            // Pre-Owned
+            ['title' => 'Asus', 'slug' => 'preowned-asus', 'serial' =>13, 'status' => 'active','is_parent'=>0, 'parent_id' => 3],
+            ['title' => 'HP', 'slug' => 'preowned-hp', 'serial' =>14, 'status' => 'active','is_parent'=>0, 'parent_id' => 3],
+            ['title' => 'DELL', 'slug' => 'preowned-dell', 'serial' => 15, 'status' => 'active','is_parent'=>0, 'parent_id' => 3],
+            ['title' => 'Lenovo', 'slug' => 'preowned-lenovo', 'serial' => 16, 'status' => 'active','is_parent'=>0, 'parent_id' => 3],
+            ['title' => 'Apple', 'slug' => 'preowned-apple', 'serial' => 17, 'status' => 'active','is_parent'=>0, 'parent_id' => 3],
+
+            // Gaming Laptop
+            ['title' => 'Asus', 'slug' => 'gamminglaptop-asus', 'serial' =>18, 'status' => 'active','is_parent'=>0, 'parent_id' => 4],
+            ['title' => 'HP', 'slug' => 'gamminglaptop-hp', 'serial' =>19, 'status' => 'active','is_parent'=>0, 'parent_id' => 4],
+            ['title' => 'DELL', 'slug' => 'gamminglaptop-dell', 'serial' => 20, 'status' => 'active','is_parent'=>0, 'parent_id' => 4],
+            ['title' => 'Lenovo', 'slug' => 'gamminglaptop-lenovo', 'serial' => 21, 'status' => 'active','is_parent'=>0, 'parent_id' => 4],
+            ['title' => 'Apple', 'slug' => 'gamminglaptop-apple', 'serial' => 22, 'status' => 'active','is_parent'=>0, 'parent_id' => 4],
+
+            // Student Laptop
+            ['title' => 'Asus', 'slug' => 'studentlaptop-asus', 'serial' =>23, 'status' => 'active','is_parent'=>0, 'parent_id' => 5],
+            ['title' => 'HP', 'slug' => 'studentlaptop-hp', 'serial' =>24, 'status' => 'active','is_parent'=>0, 'parent_id' => 5],
+            ['title' => 'DELL', 'slug' => 'studentlaptop-dell', 'serial' => 25, 'status' => 'active','is_parent'=>0, 'parent_id' => 5],
+            ['title' => 'Lenovo', 'slug' => 'studentlaptop-lenovo', 'serial' => 26, 'status' => 'active','is_parent'=>0, 'parent_id' => 5],
+            ['title' => 'Apple', 'slug' => 'studentlaptop-apple', 'serial' => 27, 'status' => 'active','is_parent'=>0, 'parent_id' => 5],
+
+            // Asian Variant
+            ['title' => 'Asus', 'slug' => 'asianvariant-asus', 'serial' =>28, 'status' => 'active','is_parent'=>0, 'parent_id' => 6],
+            ['title' => 'HP', 'slug' => 'asianvariant-hp', 'serial' =>29, 'status' => 'active','is_parent'=>0, 'parent_id' => 6],
+            ['title' => 'DELL', 'slug' => 'asianvariant-dell', 'serial' => 30, 'status' => 'active','is_parent'=>0, 'parent_id' => 6],
+            ['title' => 'Lenovo', 'slug' => 'asianvariant-lenovo', 'serial' => 31, 'status' => 'active','is_parent'=>0, 'parent_id' => 6],
+            ['title' => 'Apple', 'slug' => 'asianvariant-apple', 'serial' => 32, 'status' => 'active','is_parent'=>0, 'parent_id' => 6],
+
+            // Asian Variant
+            ['title' => 'Asus', 'slug' => 'usavariant-asus', 'serial' =>28, 'status' => 'active','is_parent'=>0, 'parent_id' => 7],
+            ['title' => 'HP', 'slug' => 'usavariant-hp', 'serial' =>29, 'status' => 'active','is_parent'=>0, 'parent_id' => 7],
+            ['title' => 'DELL', 'slug' => 'usavariant-dell', 'serial' => 30, 'status' => 'active','is_parent'=>0, 'parent_id' => 7],
+            ['title' => 'Lenovo', 'slug' => 'usavariant-lenovo', 'serial' => 31, 'status' => 'active','is_parent'=>0, 'parent_id' => 7],
+            ['title' => 'Apple', 'slug' => 'usavariant-apple', 'serial' => 32, 'status' => 'active','is_parent'=>0, 'parent_id' => 7],
         ];
         DB::table('categories')->insert($cats);
 

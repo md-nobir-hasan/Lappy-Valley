@@ -13,31 +13,31 @@ class Product extends Model
     protected $fillable=['slug', 'title', 'model', 'mpn', 'price', 'discount', 'final_price', 'summary','description', 'photo', 'stock', 'brand_id',
         'cat_id','child_cat_id','upcomming','is_featured','status','special_feature','average_rating','views','product_offer_id',
         //processor Attributes
-        'processor_model_id','processor_generation_id','p_brand','c_speed','l1_cache', 'l2_cache','l3_cache','p_core','p_thread',
+        'processor_model_id','processor_generation_id','p_brand','c_speed','l1_cache', 'l2_cache','l3_cache','p_core','p_thread','p_other',
         //Display attributes
-        'display_size_id','display_type_id','d_resolution', 'd_other_features','touch_screen',
+        'display_size_id','display_type_id','d_resolution','touch_screen','d_other',
         //Memory Attributes (Ram)
-        'ram_id','m_slot', 'm_removal',
+        'ram_id', 'm_type', 'bus_speed','m_slot', 'm_removal', 'm_other',
         //Storage Attributes (SSD/HDD)
-        'ssd_id','hdd_id', 's_extra_m2_slot', 's_support_type','s_upgrade', 's_slot',
+        'ssd_id','hdd_id', 's_extra_m2_slot', 's_support_type','s_upgrade', 's_slot','stor_other',
         //Graphics Attributes
-        'g_model','graphic_id',
+        'g_model','graphic_id','g_other',
         //Keyboard & Touchpad Attributes
-        'k_type','touchpad',
+        'k_type','touchpad','k_other',
         //Camera & Audio Attributes
-        'webcam','microphone','speaker',
+        'webcam','microphone','speaker', 'ca_other',
         //Port & Slots Attributes
-        'optical_drive','card_reader','hdmi_p', 'usb2_p','usb3_p','type_c_tb_p','headphone_p','microphone_p',
+        'optical_drive','card_reader','hdmi_p', 'usb2_p','usb3_p','type_c_tb_p','headphone_p','microphone_p','ps_other',
         //Network & Connectivity Attributes
-        'wifi','bluetooth',
+        'wifi','bluetooth','nc_other',
         //Security Attributes
-        'finger_print',
+        'finger_print', 'facelock','s_other',
         //Software Attributes
-        'operating_system',
+        'operating_system', 'soft_other',
         //Power Attributes
-        'battery_type','battery_capacity','adapter_type',
+        'battery_type','battery_capacity','adapter_type', 'power_other',
         //Physical Specification Attributes
-        'color', 'dimension','weight',
+        'color', 'dimension','weight','physi_other',
         //Warranty Attributes
         'w_details',
     ];

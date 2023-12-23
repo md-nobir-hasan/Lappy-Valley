@@ -36,7 +36,8 @@ class ProductFactory extends Factory
             'photo' => "/storage/product/large-size-laptop.jpg,/storage/product/large-size-laptop.jpg,/storage/product/large-size-laptop.jpg",
             'stock' => rand(1,20),
             'brand_id' => rand(1,6),
-            'cat_id' => rand(1,42),
+            'cat_id' => rand(1,7),
+            'child_cat_id' => rand(8,37),
             'upcomming' => $upcomming[rand(0,3)],
             'is_featured' => $is_featured[rand(0,1)],
             'status' => 'active',
@@ -59,7 +60,7 @@ class ProductFactory extends Factory
             'display_size_id' => rand(1,6),
             'display_type_id' => rand(1,2),
             'd_resolution' => '1920*1080',
-            'd_other_features' => '220 nits, anti-glare, 171* Viewing Angle',
+            'd_other' => '220 nits, anti-glare, 171* Viewing Angle',
             'touch_screen'=>false,
 
             //Memory Attributes (Ram)

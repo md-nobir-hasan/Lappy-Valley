@@ -49,7 +49,7 @@
     {{-- @dd($product) --}}
     <div class=>
         <h1 class='font-[jost] max-lg:text-[18px] text-[20px] font-[400] leading-[25.3px] text-[#353535]'>
-            Home/{{ $product->cat_info->title }}/{{ $product->brand->title }}/{{ $product->title }}</h1>
+            Home/{{ $product->cat_info?->title }}/{{ $product->brand?->title }}/{{ $product->title }}</h1>
         <div class='h-1 bg-[#764A8733]'></div>
     </div>
     <!-- -----------key-Feature -section----- -->
@@ -79,18 +79,18 @@
             <div class="flex items-center justify-center mt-[40px]">
                 @foreach ($photos as $pto)
                     <div class="w-[52px] border-[2px] max-sm:border-[1px] border-[rgba(53_53_53_0.30)]">
-                        <img class="img-mini object-center" src="{{ $pto }}" alt="{{ $product->title }}">
+                        <img class="object-center img-mini" src="{{ $pto }}" alt="{{ $product->title }}">
                     </div>
                 @endforeach
                 <script>
-                    $('.img-mini').each(function(index){
-                        $(this).on('click',function(){
+                    $('.img-mini').each(function(index) {
+                        $(this).on('click', function() {
                             $('.img-mini').removeClass('border-2 border-[#380D37]');
                             $(this).addClass('border-2 border-[#380D37]');
                             let src = $(this).attr('src');
                             // console.log(src);
                             // alert(src);
-                            $('#hoverImage').attr('src',src);
+                            $('#hoverImage').attr('src', src);
 
                         });
                     });
@@ -118,7 +118,7 @@
                             @endif
                         @endif
                     </span></li>
-                <li class=max-lg:text-[18px] text-[20px] text-[#353535] font-[jost] font-[500]">Key Features:</li>
+                <li class="max-lg:text-[18px] text-[20px] text-[#353535] font-[jost] font-[500]">Key Features:</li>
                 <li class="text-[16px] max-lg:text-[14px] text-[#353535] font-[jost] font-[400]">
                     MPN: {{ $product->mpn }}
                 </li>
@@ -126,7 +126,7 @@
                     Model: {{ $product->model }}
                 </li>
                 <li class=" text-[16px] max-lg:text-[14px] text-[#353535] font-[jost] font-[400]">
-                    Processor: {{ $product->ProcessorModel->name }} ({{ $product->c_speed }})
+                    Processor: {{ $product->ProcessorModel?->name }} ({{ $product->c_speed }})
                 </li>
                 <li class=" text-[16px] max-lg:text-[14px] text-[#353535] font-[jost] font-[400]">
 
@@ -136,7 +136,7 @@
                 </li>
                 <li class=" text-[16px] max-lg:text-[14px] text-[rgb(53,53,53)] font-[jost] font-[400]">
                     Display:
-                    {{ $product->DisplaySize->size . '" ' . $product->DisplayType->name . ' (' . $product->d_resolution }})
+                    {{ $product->DisplaySize?->size . '" ' . $product->DisplayType?->name . ' (' . $product->d_resolution }})
                 </li>
                 <li class=" text-[16px] max-lg:text-[14px] text-[#353535] font-[jost] font-[400]">
                     Features: {{ $product->special_feature }}
@@ -150,7 +150,7 @@
                     Discounted Price:
                 </li>
                 <li class="max-lg:text-[18px] text-[20px] text-[#DC275C] font-[jost] font-[700]">
-                   {{ $product->final_price }} TK
+                    {{ $product->final_price }} TK
                 </li>
             </ul>
             <div>
@@ -160,32 +160,41 @@
                     </h1>
                 </div>
                 <div class="grid grid-cols-2 max-xl:grid-cols-1 gap-6 w-full my-[15px]">
-                        <label class="flex border-[2px] hover:border-[#380D37] border-[#380D37] w-full gap-4" id="cash-payment">
-                            <div class="px-3 flex justify-center bg-[#f2f2f2]">
-                                <input type="radio" name="payment_process" checked value="one_time" wire:model="payment_process"
-                                class="w-[20px] accent-[#380D37]">
-                            </div>
-                            <div class="flex flex-col py-3">
-                                <span class="max-lg:text-[18px] text-[20px] text-[#353535] font-[jost] font-[700]">{{ $product->final_price }}৳</span>
-                                <span class="text-[16px] max-lg:text-[14px] text-[#353535] font-[jost] font-[400]">Cash Discount Price</span>
-                                <span class="text-[16px] max-lg:text-[14px] text-[#353535] font-[jost] font-[400]">Online / Cash Payment</span>
-                            </div>
-                        </label>
+                    <label class="flex border-[2px] hover:border-[#380D37] border-[#380D37] w-full gap-4"
+                        id="cash-payment">
+                        <div class="px-3 flex justify-center bg-[#f2f2f2]">
+                            <input type="radio" name="payment_process" checked value="one_time"
+                                wire:model="payment_process" class="w-[20px] accent-[#380D37]">
+                        </div>
+                        <div class="flex flex-col py-3">
+                            <span
+                                class="max-lg:text-[18px] text-[20px] text-[#353535] font-[jost] font-[700]">{{ $product->final_price }}৳</span>
+                            <span class="text-[16px] max-lg:text-[14px] text-[#353535] font-[jost] font-[400]">Cash
+                                Discount Price</span>
+                            <span class="text-[16px] max-lg:text-[14px] text-[#353535] font-[jost] font-[400]">Online /
+                                Cash Payment</span>
+                        </div>
+                    </label>
 
-                        <label class="flex border-[2px] hover:border-[#380D37] border-[#764A8733] w-full gap-4" id='monthly-payment'>
-                           <div class="px-3 flex justify-center bg-[#f2f2f2]">
-                            <input type="radio" name="payment_process" value="installment" wire:model="payment_process"
-                            class="w-[20px] accent-[#380D37]">
-                           </div>
-                            <div class="flex flex-col py-3">
-                                <span class="max-lg:text-[18px] text-[20px] text-[#353535] font-[jost] font-[700]">{{ round($product->price/6) }}৳/month</span>
-                                <span class="text-[16px] max-lg:text-[14px] text-[#353535] font-[jost] font-[400]">Regular Price: {{ $product->price }}৳ </span>
-                                <span class="text-[16px] max-lg:text-[14px] text-[#353535] font-[jost] font-[400]">0% EMI for up to 6 Months***</span>
-                            </div>
-                        </label>
+                    <label class="flex border-[2px] hover:border-[#380D37] border-[#764A8733] w-full gap-4"
+                        id='monthly-payment'>
+                        <div class="px-3 flex justify-center bg-[#f2f2f2]">
+                            <input type="radio" name="payment_process" value="installment"
+                                wire:model="payment_process" class="w-[20px] accent-[#380D37]">
+                        </div>
+                        <div class="flex flex-col py-3">
+                            <span
+                                class="max-lg:text-[18px] text-[20px] text-[#353535] font-[jost] font-[700]">{{ round($product->price / 6) }}৳/month</span>
+                            <span class="text-[16px] max-lg:text-[14px] text-[#353535] font-[jost] font-[400]">Regular
+                                Price: {{ $product->price }}৳ </span>
+                            <span class="text-[16px] max-lg:text-[14px] text-[#353535] font-[jost] font-[400]">0% EMI
+                                for up to 6 Months***</span>
+                        </div>
+                    </label>
                 </div>
-                <button wire:click='checkout' class="fill-up-btn text-[#f2f2f2] bg-gradient-to-r from-[#380D37] to-[#DC275C] max-lg:text-[18px] max-sm:text-[16px] text-[20px] py-[12px] max-lg:py-[14px] px-[40px] max-lg:px-[40px] max-sm:px-[30px] font-[jost] font-[700] mt-auto rounded-[5px]">
-                        BUY NOW</button>
+                <button wire:click='checkout'
+                    class="fill-up-btn text-[#f2f2f2] bg-gradient-to-r from-[#380D37] to-[#DC275C] max-lg:text-[18px] max-sm:text-[16px] text-[20px] py-[12px] max-lg:py-[14px] px-[40px] max-lg:px-[40px] max-sm:px-[30px] font-[jost] font-[700] mt-auto rounded-[5px]">
+                    BUY NOW</button>
             </div>
         </div>
     </div>
@@ -239,7 +248,7 @@
                                 Processor Model:
                             </td>
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
-                                {{ $product->ProcessorModel->name }}</td>
+                                {{ $product->ProcessorModel?->name }}</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td
@@ -273,6 +282,13 @@
                                 <li class="list-none">L3 Cache: {{ $product->l3_cache }}</li>
                             </td>
                         </tr>
+                        <tr class="border-[#764A8733] border-b-[2px]">
+                            <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[400] pl-[20px]">
+                                Other Features:
+                            </td>
+                            <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
+                                {{ $product->p_other }}</td>
+                        </tr>
                     </tbody>
 
                     <!-- ----------2nd --part (Display attributes)----- -->
@@ -287,13 +303,13 @@
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[400] pl-[20px]">
                                 Display Size:</td>
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
-                                {{ $product->DisplaySize->size }}"</td>
+                                {{ $product->DisplaySize?->size }}"</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[400] pl-[20px]">
                                 Display Type:</td>
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
-                                {{ $product->DisplayType->name }}</td>
+                                {{ $product->DisplayType?->name }}</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[400] pl-[20px]">
@@ -316,8 +332,9 @@
                             </td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500] max-sm:leading-[30px]">
-                                {{ $product->d_other_features }}</td>
+                                {{ $product->d_other }}</td>
                         </tr>
+
                     </tbody>
 
 
@@ -340,7 +357,7 @@
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[400] pl-[20px]">
                                 RAM Type:</td>
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
-                                {{ $product->ram->type }}
+                                {{ $product->ram?->type }}
                             </td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
@@ -354,7 +371,7 @@
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[400] pl-[20px]">
                                 BUS Speed:</td>
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
-                                {{ $product->ram->bus_speed }}
+                                {{ $product->ram?->bus_speed }}
                             </td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
@@ -363,6 +380,13 @@
                             </td>
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
                                 {{ $product->m_slot }}</td>
+                        </tr>
+                        <tr class="border-[#764A8733] border-b-[2px]">
+                            <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[400] pl-[20px]">
+                                Other Features:
+                            </td>
+                            <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
+                                {{ $product->m_other }}</td>
                         </tr>
                     </tbody>
 
@@ -421,6 +445,13 @@
                                 {{ $product->s_upgrade }}
                             </td>
                         </tr>
+                        <tr class="border-[#764A8733] border-b-[2px]">
+                            <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[400] pl-[20px]">
+                                Other Features:
+                            </td>
+                            <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
+                                {{ $product->stor_other }}</td>
+                        </tr>
                     </tbody>
                     <!-- ------------------5th------part------------------ -->
                     <thead>
@@ -442,8 +473,15 @@
                                 Graphics Memory:
                             </td>
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
-                                {{ $product->Graphic->name }}
+                                {{ $product->Graphic?->name }}
                             </td>
+                        </tr>
+                        <tr class="border-[#764A8733] border-b-[2px]">
+                            <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[400] pl-[20px]">
+                                Other Features:
+                            </td>
+                            <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
+                                {{ $product->g_other }}</td>
                         </tr>
                     </tbody>
                     <!-- -------------------6th--part------------ -->
@@ -465,6 +503,13 @@
                                 TouchPad:</td>
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
                                 {{ $product->touchpad ? 'Yes' : 'NO' }}</td>
+                        </tr>
+                        <tr class="border-[#764A8733] border-b-[2px]">
+                            <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[400] pl-[20px]">
+                                Other Features:
+                            </td>
+                            <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
+                                {{ $product->k_other }}</td>
                         </tr>
                     </tbody>
                     <!-- ----------7th--part------------- -->
@@ -493,8 +538,15 @@
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
                                 {{ $product->speaker ? 'Yes' : 'NO' }}</td>
                         </tr>
+                        <tr class="border-[#764A8733] border-b-[2px]">
+                            <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[400] pl-[20px]">
+                                Other Features:
+                            </td>
+                            <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
+                                {{ $product->ca_other }}</td>
+                        </tr>
                     </tbody>
-                    <!-- -----------8th---part----- -->
+                    <!-- -----------8th---part (Ports & Slots) ----- -->
                     <thead>
                         <tr>
                             <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] max-sm:text-[16px] font-[500] pl-[14px] rounded-[5px]"
@@ -552,8 +604,15 @@
                                 {{ $product->headphone_p }}/
                                 {{ $product->microphone_p }}</td>
                         </tr>
+                        <tr class="border-[#764A8733] border-b-[2px]">
+                            <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[400] pl-[20px]">
+                                Other Features:
+                            </td>
+                            <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
+                                {{ $product->ps_other }}</td>
+                        </tr>
                     </tbody>
-                    <!-- ---------------9th--part------ -->
+                    <!-- ---------------9th--part (Network & Connectivity) ------ -->
                     <thead>
                         <tr>
                             <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] max-sm:text-[16px] font-[500] pl-[14px] rounded-[5px]"
@@ -574,6 +633,13 @@
                                 {{ $product->bluetooth }}
                             </td>
                         </tr>
+                        <tr class="border-[#764A8733] border-b-[2px]">
+                            <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[400] pl-[20px]">
+                                Other Features:
+                            </td>
+                            <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
+                                {{ $product->nc_other }}</td>
+                        </tr>
                     </tbody>
                     <!-- ---------------10th---part---------- -->
                     <thead>
@@ -588,10 +654,24 @@
                                 Fingerprint Sensor:
                             </td>
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
-                                {{ $product->final_price ? 'Yes' : 'NO' }}</td>
+                                {{ $product->finger_print }}</td>
+                        </tr>
+                        <tr class="border-[#764A8733] border-b-[2px]">
+                            <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[400] pl-[20px]">
+                                Facelock:
+                            </td>
+                            <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
+                                {{ $product->facelock }}</td>
+                        </tr>
+                        <tr class="border-[#764A8733] border-b-[2px]">
+                            <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[400] pl-[20px]">
+                                Other Features:
+                            </td>
+                            <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
+                                {{ $product->s_other }}</td>
                         </tr>
                     </tbody>
-                    <!-- ---------------11th---part---------- -->
+                    <!-- ---------------11th---part (Software )---------- -->
                     <thead>
                         <tr>
                             <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] max-sm:text-[16px] font-[500] pl-[14px] rounded-[5px]"
@@ -606,8 +686,15 @@
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
                                 {{ $product->operating_system }}</td>
                         </tr>
+                        <tr class="border-[#764A8733] border-b-[2px]">
+                            <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[400] pl-[20px]">
+                                Other Features:
+                            </td>
+                            <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
+                                {{ $product->soft_other }}</td>
+                        </tr>
                     </tbody>
-                    <!-- ---------------12th---part---------- -->
+                    <!-- ---------------12th---part ( power )---------- -->
                     <thead>
                         <tr>
                             <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] max-sm:text-[16px] font-[500] pl-[14px] rounded-[5px]"
@@ -636,8 +723,15 @@
                                 {{ $product->adapter_type }}
                             </td>
                         </tr>
+                        <tr class="border-[#764A8733] border-b-[2px]">
+                            <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[400] pl-[20px]">
+                                Other Features:
+                            </td>
+                            <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
+                                {{ $product->power_other }}</td>
+                        </tr>
                     </tbody>
-                    <!-- ---------------13th---part---------- -->
+                    <!-- ---------------13th---part ( Physical Specification )---------- -->
                     <thead>
                         <tr>
                             <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] max-sm:text-[16px] font-[500] pl-[14px] rounded-[5px]"
@@ -664,8 +758,15 @@
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
                                 {{ $product->weight }}</td>
                         </tr>
+                        <tr class="border-[#764A8733] border-b-[2px]">
+                            <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[400] pl-[20px]">
+                                Other Features:
+                            </td>
+                            <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
+                                {{ $product->physi_other }}</td>
+                        </tr>
                     </tbody>
-                    <!-- ---------------14th---part---------- -->
+                    <!-- ---------------14th---part ( Warranty )---------- -->
                     <thead>
                         <tr>
                             <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] max-sm:text-[16px] font-[500] pl-[14px] rounded-[5px]"
@@ -683,6 +784,7 @@
                                 {{ $product->w_details }}
                             </td>
                         </tr>
+
                     </tbody>
                 </table>
             </section>
@@ -733,263 +835,265 @@
                         </button>
 
 
-                    <!--Verically centered scrollable modal-->
-                    <div data-te-modal-init
-                        class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
-                        id="exampleModalCenteredScrollable" tabindex="-1"
-                        aria-labelledby="exampleModalCenteredScrollableLabel" aria-modal="true" role="dialog">
-                        <div data-te-modal-dialog-ref
-                            class="pointer-events-none relative flex min-h-[calc(100%-1rem)] w-auto translate-y-[-50px] items-center opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:min-h-[calc(100%-3.5rem)] min-[576px]:max-w-[500px]">
-                            <div
-                                class="pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-[#FFFFFF] bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600">
+                        <!--Verically centered scrollable modal-->
+                        <div data-te-modal-init
+                            class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+                            id="exampleModalCenteredScrollable" tabindex="-1"
+                            aria-labelledby="exampleModalCenteredScrollableLabel" aria-modal="true" role="dialog">
+                            <div data-te-modal-dialog-ref
+                                class="pointer-events-none relative flex min-h-[calc(100%-1rem)] w-auto translate-y-[-50px] items-center opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:min-h-[calc(100%-3.5rem)] min-[576px]:max-w-[500px]">
                                 <div
-                                    class="flex items-center justify-between flex-shrink-0 p-4 border-b-2 border-opacity-100 rounded-t-md border-neutral-100 dark:border-opacity-50">
-                                    <!--Modal title-->
-                                    <h5 class="text-xl font-medium font-[jost] leading-norma"
-                                        id="exampleModalCenteredScrollableLabel">
-                                        Review
-                                    </h5>
-                                    @php
-                                        $token = csrf_token();
-                                    @endphp
-                                    <!--Close button-->
-                                    <button type="button" id="modal_close"
-                                        class="box-content border-none rounded-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
-                                        data-te-modal-dismiss aria-label="Close">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="M6 18L18 6M6 6l12 12" />
-                                        </svg>
-                                    </button>
-                                </div>
-                                <!--Modal body-->
-                                <div class="relative p-4">
-
-                                    <div x-data="{
-                                        f_name: null,
-                                        l_name: null,
-                                        img: [],
-                                        msg: null,
-                                        previews: [],
-                                        loading: false,
-                                        review_stars: [],
-                                        yellow_star: [1, 2, 3, 4, 5],
-                                        white_star: [],
-                                        v_msg: '',
-                                        submit() {
-                                            this.loading = true
-                                            if (!this.f_name) {
-                                                this.v_msg = 'Please, give your first name';
-                                                this.loading = false
-                                                return false;
-                                            }
-                                            if (!this.msg) {
-                                                this.v_msg = 'Please, write something';
-                                                this.loading = false
-                                                return false;
-                                            }
-                                            if (this.review_stars.length < 1) {
-                                                this.review_stars.push(5);
-                                            }
-                                            console.log(this.review_stars)
-                                            const formData = new FormData();
-                                            formData.append('f_name', this.f_name);
-                                            formData.append('l_name', this.l_name);
-                                            formData.append('msg', this.msg);
-                                            for (const im of this.img) {
-                                                formData.append('imgs[]', im);
-                                            }
-                                            formData.append('review_stars', this.review_stars);
-                                            formData.append('product_id', '{{ $product->id }}');
-                                            formData.append('_token', '{{ csrf_token() }}');
-                                            fetch('{{ route('product_review') }}', {
-                                                method: 'POST',
-                                                body: formData
-                                            }).then(response => {
-                                                if (response.ok) {
+                                    class="pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-[#FFFFFF] bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600">
+                                    <div
+                                        class="flex items-center justify-between flex-shrink-0 p-4 border-b-2 border-opacity-100 rounded-t-md border-neutral-100 dark:border-opacity-50">
+                                        <!--Modal title-->
+                                        <h5 class="text-xl font-medium font-[jost] leading-norma"
+                                            id="exampleModalCenteredScrollableLabel">
+                                            Review
+                                        </h5>
+                                        @php
+                                            $token = csrf_token();
+                                        @endphp
+                                        <!--Close button-->
+                                        <button type="button" id="modal_close"
+                                            class="box-content border-none rounded-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
+                                            data-te-modal-dismiss aria-label="Close">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                                class="w-6 h-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M6 18L18 6M6 6l12 12" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    
+                                    <!--Modal body-->
+                                    <div class="relative p-4">
+                                        <div x-data="{
+                                            f_name: null,
+                                            l_name: null,
+                                            img: [],
+                                            msg: null,
+                                            previews: [],
+                                            loading: false,
+                                            review_stars: [],
+                                            yellow_star: [1, 2, 3, 4, 5],
+                                            white_star: [],
+                                            v_msg: '',
+                                            submit() {
+                                                this.loading = true
+                                                if (!this.f_name) {
+                                                    this.v_msg = 'Please, give your first name';
                                                     this.loading = false
-                                                    $('#modal_close').click();
-                                                    toastr.success('Review post request send successfully!')
-                                                    this.l_name = null
-                                                    this.f_name = null
-                                                    this.msg = null
-                                                    this.img = []
-                                                    this.review_stars.push(5);
-                                                } else {
-                                                    toastr.error('Error uploading file!')
+                                                    return false;
                                                 }
-                                            }).catch(error => {
-                                                console.error(error)
-                                            })
+                                                if (!this.msg) {
+                                                    this.v_msg = 'Please, write something';
+                                                    this.loading = false
+                                                    return false;
+                                                }
+                                                if (this.review_stars.length < 1) {
+                                                    this.review_stars.push(5);
+                                                }
+                                                console.log(this.review_stars)
+                                                const formData = new FormData();
+                                                formData.append('f_name', this.f_name);
+                                                formData.append('l_name', this.l_name);
+                                                formData.append('msg', this.msg);
+                                                for (const im of this.img) {
+                                                    formData.append('imgs[]', im);
+                                                }
+                                                formData.append('review_stars', this.review_stars);
+                                                formData.append('product_id', '{{ $product->id }}');
+                                                formData.append('_token', '{{ csrf_token() }}');
+                                                fetch('{{ route('product_review') }}', {
+                                                    method: 'POST',
+                                                    body: formData
+                                                }).then(response => {
+                                                    if (response.ok) {
+                                                        this.loading = false
+                                                        $('#modal_close').click();
+                                                        toastr.success('Review post request send successfully!')
+                                                        this.l_name = null
+                                                        this.f_name = null
+                                                        this.msg = null
+                                                        this.img = []
+                                                        this.review_stars.push(5);
+                                                    } else {
+                                                        toastr.error('Error uploading file!')
+                                                    }
+                                                }).catch(error => {
+                                                    console.error(error)
+                                                })
 
-                                        },
-                                        fileHandle(event) {
-                                            for (const file of event.target.files) {
-                                                const reader = new FileReader()
-                                                reader.onload = (e) => { this.previews.push(e.target.result) }
-                                                reader.readAsDataURL(file)
-                                                this.img.push(file)
-                                            }
+                                            },
+                                            fileHandle(event) {
+                                                for (const file of event.target.files) {
+                                                    const reader = new FileReader()
+                                                    reader.onload = (e) => { this.previews.push(e.target.result) }
+                                                    reader.readAsDataURL(file)
+                                                    this.img.push(file)
+                                                }
 
-                                        },
-                                        stared(star) {
-                                            console.log(star);
-                                            if (star == 1) {
-                                                this.yellow_star = [1];
-                                                this.white_star = [2, 3, 4, 5];
+                                            },
+                                            stared(star) {
+                                                console.log(star);
+                                                if (star == 1) {
+                                                    this.yellow_star = [1];
+                                                    this.white_star = [2, 3, 4, 5];
+                                                }
+                                                if (star == 2) {
+                                                    this.yellow_star = [1, 2];
+                                                    this.white_star = [3, 4, 5];
+                                                }
+                                                if (star == 3) {
+                                                    this.yellow_star = [1, 2, 3];
+                                                    this.white_star = [4, 5];
+                                                }
+                                                if (star == 4) {
+                                                    this.yellow_star = [1, 2, 3, 4];
+                                                    this.white_star = [5];
+                                                }
+                                                if (star == 5) {
+                                                    this.yellow_star = [1, 2, 3, 4, 5];
+                                                    this.white_star = [];
+                                                }
                                             }
-                                            if (star == 2) {
-                                                this.yellow_star = [1, 2];
-                                                this.white_star = [3, 4, 5];
-                                            }
-                                            if (star == 3) {
-                                                this.yellow_star = [1, 2, 3];
-                                                this.white_star = [4, 5];
-                                            }
-                                            if (star == 4) {
-                                                this.yellow_star = [1, 2, 3, 4];
-                                                this.white_star = [5];
-                                            }
-                                            if (star == 5) {
-                                                this.yellow_star = [1, 2, 3, 4, 5];
-                                                this.white_star = [];
-                                            }
-                                        }
-                                    }">
-                                        <form enctype="multipart/form-data" id="file_upload">
-                                            @csrf
-                                            <div class="flex justify-between gap-[10px] my-[10px]">
-                                                <input x-model='f_name' type="text" placeholder="First Name"
-                                                    class="relative p-[10px] m-0 -mr-0.5 block w-full flex-auto rounded-l bg-[#F2F2F2] font-[jost] font-[400] text-[12px] text-[#000000] italic" />
-                                                @error('f_name')
-                                                    <span class="text-[red] text-[12px]">{{ $message }}</span>
-                                                @enderror
-                                                <input x-model='l_name' type="text" placeholder="Last Name"
-                                                    class="relative p-[10px]  m-0 -mr-0.5 block w-full flex-auto rounded-l bg-[#F2F2F2] font-[jost] font-[400] text-[12px] text-[#000000] italic" />
-                                                @error('l_name')
-                                                    <span class="text-[red] text-[12px]">{{ $message }}</span>
-                                                @enderror
-                                            </div>
-                                            <div class="mt-[20px]">
-                                                <textarea x-model='msg' placeholder="Write your review here..."
-                                                    class="relative pl-[10px] pt-[10px] pb-[100px] m-0 -mr-0.5 block w-full flex-auto rounded-l bg-[#F2F2F2] font-[jost] font-[jost] font-[400] text-[12px] text-[#000000] italic"
-                                                    id="message-text"></textarea>
-                                                @error('msg')
-                                                    <span class="text-[red] text-[12px]">{{ $message }}</span>
-                                                @enderror
-                                            </div>
-                                            <br /><br />
-                                            <div class="mb-3">
-                                                <input x-ref="fileInput" type="file" multiple
-                                                    class="relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] font-[jost] text-[#380D37] transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-[#380D37] file:px-3 file:py-[0.32rem] file:text-[#f2f2f2] file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 hover:file:text-[#380D37] focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
-                                                    @change="fileHandle($event)">
-                                                <div class="flex">
-                                                    <template x-for="preview in previews">
-                                                        <img :src="preview" alt="preview" class="max-h-20">
-                                                    </template>
+                                        }">
+                                            <form enctype="multipart/form-data" id="file_upload">
+                                                @csrf
+                                                <div class="flex justify-between gap-[10px] my-[10px]">
+                                                    <input x-model='f_name' type="text" placeholder="First Name"
+                                                        class="relative p-[10px] m-0 -mr-0.5 block w-full flex-auto rounded-l bg-[#F2F2F2] font-[jost] font-[400] text-[12px] text-[#000000] italic" />
+                                                    @error('f_name')
+                                                        <span class="text-[red] text-[12px]">{{ $message }}</span>
+                                                    @enderror
+                                                    <input x-model='l_name' type="text" placeholder="Last Name"
+                                                        class="relative p-[10px]  m-0 -mr-0.5 block w-full flex-auto rounded-l bg-[#F2F2F2] font-[jost] font-[400] text-[12px] text-[#000000] italic" />
+                                                    @error('l_name')
+                                                        <span class="text-[red] text-[12px]">{{ $message }}</span>
+                                                    @enderror
                                                 </div>
-                                                @error('img')
-                                                    <span class="text-[red] text-[12px]">{{ $message }}</span>
-                                                @enderror
-                                            </div>
-                                            <div class='flex justify-between my-[50px] items-center'>
-                                                <div class='items-center'>
-                                                    <div>
-                                                        <h1
-                                                            class='text-[24px] text-[#380D37] font-[jost] font-[500] leading-[34.68px]'>
-                                                            Reviews</h1>
-                                                    </div>
-                                                    <div class='flex my-[10px] items-center'>
-
-                                                        <template x-for='yi in yellow_star' :key='yi'>
-                                                            <label :for="'star' + yi" @click='stared(yi)'>
-                                                                <img src="/storage/product/star2.svg" alt="Product"
-                                                                    class='h-[37.45px]'>
-                                                                <input type="checkbox" class="hidden"
-                                                                    :value='yi' :id="'star' + yi"
-                                                                    x-model='review_stars'>
-                                                            </label>
-                                                        </template>
-
-                                                        <template x-for='i in white_star' :key='i'>
-                                                            <label :for="'star' + i" @click='stared(i)'>
-                                                                <img src="/storage/product/star-white.svg"
-                                                                    alt="Product" class='h-[37.45px]'>
-                                                                <input type="checkbox" class="hidden"
-                                                                    :value='i' :id="'star' + i"
-                                                                    x-model='review_stars'>
-                                                            </label>
-                                                        </template>
-
-                                                        @error('review_stars')
-                                                            <span
-                                                                class="text-[red] text-[12px]">{{ $message }}</span>
-                                                        @enderror
-                                                    </div>
+                                                <div class="mt-[20px]">
+                                                    <textarea x-model='msg' placeholder="Write your review here..."
+                                                        class="relative pl-[10px] pt-[10px] pb-[100px] m-0 -mr-0.5 block w-full flex-auto rounded-l bg-[#F2F2F2] font-[jost] font-[jost] font-[400] text-[12px] text-[#000000] italic"
+                                                        id="message-text"></textarea>
+                                                    @error('msg')
+                                                        <span class="text-[red] text-[12px]">{{ $message }}</span>
+                                                    @enderror
                                                 </div>
-                                                <div class='mt-[20px] text-right'>
-                                                    <div class="">
-                                                        <template x-if='v_msg'>
-                                                            <span x-text='v_msg'></span>
+                                                <br /><br />
+                                                <div class="mb-3">
+                                                    <input x-ref="fileInput" type="file" multiple
+                                                        class="relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] font-[jost] text-[#380D37] transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-[#380D37] file:px-3 file:py-[0.32rem] file:text-[#f2f2f2] file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 hover:file:text-[#380D37] focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
+                                                        @change="fileHandle($event)">
+                                                    <div class="flex">
+                                                        <template x-for="preview in previews">
+                                                            <img :src="preview" alt="preview"
+                                                                class="max-h-20">
                                                         </template>
-                                                        <button type="button" @click='submit'
-                                                            class='fill-up-btn relative px-[25px] py-[12px] rounded-[4px] items-center text-[16px] max-lg:text-[14px] text-[#F2F2F2] font-[jost] font-[500] leading-[28.9px] bg-gradient-to-r from-[#380D37] to-[#DC275C]'>
-                                                            <span>Post your review</span>
-                                                            <div x-show='loading'
-                                                                class="absolute inline-block h-6 w-6 top-4 mr-2 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-success motion-reduce:animate-[spin_1.5s_linear_infinite]"
-                                                                role="status">
+                                                    </div>
+                                                    @error('img')
+                                                        <span class="text-[red] text-[12px]">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                                <div class='flex justify-between my-[50px] items-center'>
+                                                    <div class='items-center'>
+                                                        <div>
+                                                            <h1
+                                                                class='text-[24px] text-[#380D37] font-[jost] font-[500] leading-[34.68px]'>
+                                                                Reviews</h1>
+                                                        </div>
+                                                        <div class='flex my-[10px] items-center'>
+
+                                                            <template x-for='yi in yellow_star' :key='yi'>
+                                                                <label :for="'star' + yi" @click='stared(yi)'>
+                                                                    <img src="/storage/product/star2.svg"
+                                                                        alt="Product" class='h-[37.45px]'>
+                                                                    <input type="checkbox" class="hidden"
+                                                                        :value='yi' :id="'star' + yi"
+                                                                        x-model='review_stars'>
+                                                                </label>
+                                                            </template>
+
+                                                            <template x-for='i in white_star' :key='i'>
+                                                                <label :for="'star' + i" @click='stared(i)'>
+                                                                    <img src="/storage/product/star-white.svg"
+                                                                        alt="Product" class='h-[37.45px]'>
+                                                                    <input type="checkbox" class="hidden"
+                                                                        :value='i' :id="'star' + i"
+                                                                        x-model='review_stars'>
+                                                                </label>
+                                                            </template>
+
+                                                            @error('review_stars')
                                                                 <span
-                                                                    class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...
-                                                                </span>
-                                                            </div>
-                                                        </button>
+                                                                    class="text-[red] text-[12px]">{{ $message }}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                    <div class='mt-[20px] text-right'>
+                                                        <div class="">
+                                                            <template x-if='v_msg'>
+                                                                <span x-text='v_msg'></span>
+                                                            </template>
+                                                            <button type="button" @click='submit'
+                                                                class='fill-up-btn relative px-[25px] py-[12px] rounded-[4px] items-center text-[16px] max-lg:text-[14px] text-[#F2F2F2] font-[jost] font-[500] leading-[28.9px] bg-gradient-to-r from-[#380D37] to-[#DC275C]'>
+                                                                <span>Post your review</span>
+                                                                <div x-show='loading'
+                                                                    class="absolute inline-block h-6 w-6 top-4 mr-2 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-success motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                                                                    role="status">
+                                                                    <span
+                                                                        class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...
+                                                                    </span>
+                                                                </div>
+                                                            </button>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </form>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="flex my-[10px]">
-                    @for ($i = 1; $i < 6; $i++)
-                        @if ($i <= $product->average_rating)
-                            <img class="h-7" src="/storage/product/star2.svg" alt="">
-                        @else
-                            <img class="h-7" src="/storage/product/star-white.svg" alt="">
-                        @endif
-                    @endfor
+                    <div class="flex my-[10px]">
+                        @for ($i = 1; $i < 6; $i++)
+                            @if ($i <= $product->average_rating)
+                                <img class="h-7" src="/storage/product/star2.svg" alt="">
+                            @else
+                                <img class="h-7" src="/storage/product/star-white.svg" alt="">
+                            @endif
+                        @endfor
 
-                    <span
-                        class="font-[jost] max-sm:text-[16px] font-[500] mt-[5px] ml-[5px]">{{ $product->average_rating }}
-                        out of 5</span>
-                </div>
-                <div class="h-[2px] max-sm:h-[1px] max-sm:my-[30px] bg-[#764A8733]"></div>
-                {{-- Product Review --}}
-                @foreach ($product_reviews as $pr)
-                    <div class="mt-[10px]">
-                        <div class="flex my-[10px]">
-                            @for ($i = 1; $i < 6; $i++)
-                                @if ($i <= $pr->rate)
-                                    <img class="h-7" src="/storage/product/star2.svg" alt="">
-                                @else
-                                    <img class="h-7" src="/storage/product/star-white.svg" alt="">
-                                @endif
-                            @endfor
-                        </div>
-                        <div>
-                            <span class="font-[jost] font[600] mb-[15px]">{{ $pr->review }}</span>
-                        </div>
-                        <div>
-                            <span class="font-[jost] font[600]">By {{ $pr->f_name . ' ' . $pr->l_name }} on
-                                {{ $pr->created_at->format('d-m-Y') }}</span>
-                        </div>
+                        <span
+                            class="font-[jost] max-sm:text-[16px] font-[500] mt-[5px] ml-[5px]">{{ $product->average_rating }}
+                            out of 5</span>
                     </div>
-                @endforeach
+                    <div class="h-[2px] max-sm:h-[1px] max-sm:my-[30px] bg-[#764A8733]"></div>
+                    {{-- Product Review --}}
+                    @foreach ($product_reviews as $pr)
+                        <div class="mt-[10px]">
+                            <div class="flex my-[10px]">
+                                @for ($i = 1; $i < 6; $i++)
+                                    @if ($i <= $pr->rate)
+                                        <img class="h-7" src="/storage/product/star2.svg" alt="">
+                                    @else
+                                        <img class="h-7" src="/storage/product/star-white.svg" alt="">
+                                    @endif
+                                @endfor
+                            </div>
+                            <div>
+                                <span class="font-[jost] font[600] mb-[15px]">{{ $pr->review }}</span>
+                            </div>
+                            <div>
+                                <span class="font-[jost] font[600]">By {{ $pr->f_name . ' ' . $pr->l_name }} on
+                                    {{ $pr->created_at->format('d-m-Y') }}</span>
+                            </div>
+                        </div>
+                    @endforeach
             </section>
         </div>
         <div class="max-lg:mt-[15px]">
@@ -1054,45 +1158,45 @@
                 $('.dst_btn').addClass('bg-[#F2F2F2] text-[#380D37]');
             });
         })
-// --------------------large--size--img--cursor --effect--------------
-const imageContainer = document.getElementById('imageContainer');
-                    const hoverImage = document.getElementById('hoverImage');
+        // --------------------large--size--img--cursor --effect--------------
+        const imageContainer = document.getElementById('imageContainer');
+        const hoverImage = document.getElementById('hoverImage');
 
-                    imageContainer.addEventListener('mousemove', (e) => {
-                        const {
-                            offsetX,
-                            offsetY
-                        } = e;
-                        const {
-                            width,
-                            height
-                        } = imageContainer.getBoundingClientRect();
-                        const xPercentage = (offsetX / width - 0.5) * 5; // Normalize to -1 to 1
-                        const yPercentage = (offsetY / height - 0.5) * 5; // Normalize to -1 to 1
+        imageContainer.addEventListener('mousemove', (e) => {
+            const {
+                offsetX,
+                offsetY
+            } = e;
+            const {
+                width,
+                height
+            } = imageContainer.getBoundingClientRect();
+            const xPercentage = (offsetX / width - 0.5) * 5; // Normalize to -1 to 1
+            const yPercentage = (offsetY / height - 0.5) * 5; // Normalize to -1 to 1
 
-                        const moveX = -xPercentage * 50; // Adjust the multiplier as needed
-                        const moveY = -yPercentage * 50; // Adjust the multiplier as needed
+            const moveX = -xPercentage * 50; // Adjust the multiplier as needed
+            const moveY = -yPercentage * 50; // Adjust the multiplier as needed
 
-                        hoverImage.style.transform = `translate(${moveX}px, ${moveY}px)`;
-                        imageContainer.addEventListener('mouseleave', () => {
-                            hoverImage.style.transform = 'translate(0, 0)';
-                        });
+            hoverImage.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            imageContainer.addEventListener('mouseleave', () => {
+                hoverImage.style.transform = 'translate(0, 0)';
+            });
 
-                    });
+        });
 
 
 
 
         // --------------------instalment-------------------
-        $("#cash-payment").click( function(){
-                $(this).addClass("border-[#380D37]");
-                $(this).removeClass("border-[#764A8733]");
-                $("#monthly-paymetn").removeClass("border-[#380D37]");
-            })
-            $("#monthly-payment").click( function(){
-                $(this).addClass("border-[#380D37]");
-                $("#cash-payment").removeClass("border-[#380D37]");
-                $("#cash-payment").addClass("border-[#764A8733]");
-            })
+        $("#cash-payment").click(function() {
+            $(this).addClass("border-[#380D37]");
+            $(this).removeClass("border-[#764A8733]");
+            $("#monthly-paymetn").removeClass("border-[#380D37]");
+        })
+        $("#monthly-payment").click(function() {
+            $(this).addClass("border-[#380D37]");
+            $("#cash-payment").removeClass("border-[#380D37]");
+            $("#cash-payment").addClass("border-[#764A8733]");
+        })
     </script>
 </div>

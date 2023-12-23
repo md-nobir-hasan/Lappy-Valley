@@ -10,18 +10,10 @@
             <form method="post" action="{{ route('pa.display-size.store') }}">
                 {{ csrf_field() }}
                 <div class="form-group">
-                    <label for="inputTitle" class="col-form-label">From (inch)<span class="text-danger">*</span></label>
-                    <input id="inputTitle" step=".1" type="number" name="from" placeholder="Enter Display Size"
-                        value="{{ old('from') }}" class="form-control">
-                    @error('from')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                </div>
-                <div class="form-group">
-                    <label for="inputTitle" class="col-form-label">To (inch)<span class="text-danger">*</span></label>
-                    <input id="inputTitle" step=".1" type="number" name="to" placeholder="Enter Display Size"
-                        value="{{ old('to') }}" class="form-control">
-                    @error('to')
+                    <label for="inputTitle" class="col-form-label">Size (inch)<span class="text-danger">*</span></label>
+                    <input id="inputTitle" step=".1" type="number" name="size" placeholder="Enter Display Size"
+                        value="{{ old('size') }}" class="form-control">
+                    @error('size')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>

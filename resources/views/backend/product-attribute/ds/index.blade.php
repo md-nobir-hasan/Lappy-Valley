@@ -24,8 +24,7 @@
                         <thead>
                             <tr>
                                 <th>S.N.</th>
-                                <th>From (inch)</th>
-                                <th>To (inch)</th>
+                                <th>Size (inch)</th>
                                 @canany(['Edit Display Size', 'Delete Display Size'])
                                     <th>Action</th>
                                 @endcanany
@@ -34,8 +33,7 @@
                         <tfoot>
                             <tr>
                                 <th>S.N.</th>
-                                <th>From</th>
-                                <th>To</th>
+                                <th>Size</th>
                                 @canany(['Edit Display Size', 'Delete Display Size'])
                                     <th>Action</th>
                                 @endcanany
@@ -45,8 +43,7 @@
                             @foreach ($mdata as $datum)
                                 <tr>
                                     <td>{{ $datum->id }}</td>
-                                    <td>{{ $datum->from }}</td>
-                                    <td>{{ $datum->to }}</td>
+                                    <td>{{ $datum->size }}</td>
                                     <td>
                                         @can('Edit Display Size')
                                             <a href="{{ route('pa.display-size.edit', $datum->id) }}"

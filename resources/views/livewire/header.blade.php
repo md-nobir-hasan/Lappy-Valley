@@ -1,8 +1,10 @@
 <div>
+
     <header
         class="h-[78px] z-[10000] max-sm:h-[50px] max-xl:h-[68px] max-xl:fixed max-xl:top-0 max-xl:left-0 max-xl:right-0 max-xl:z-150 max-xl:flex max-xl:justify-between max-xl:items-center
      bg-gradient-to-r from-[#380D37] to-[#DC275C] text-[#f2f2f2] px-[72px] max-xl:px-[40px]">
-     <div id="body-overlay1"></div>
+        <div id="body-overlay1"></div>
+
         {{-- ------responsive---show----- --}}
         <div class="xl:hidden max-xl:block">
             <div class="menu-toggle">
@@ -11,11 +13,12 @@
                 <div class="bar"></div>
             </div>
             <div class="menu">
+                {{-- Mobile menue  --}}
                 <nav class="bg-[#f2f2f2] ">
                     <ul class="flex flex-col scroll-auto">
                         <li
                             class="menu-container2pt-2 font-[jost] font-[500] text-[#353535] text-[16px] max-sm:text-[14px] bg-[#f2f2f2]">
-                            <div href="#" class="px-6 py-3 max-sm:px-4 max-sm:py-2 toggleBtn2 flex items-center justify-between">
+                            <div class="flex items-center justify-between px-6 py-3 max-sm:px-4 max-sm:py-2 toggleBtn2">
                                 <div class="max-sm:text-[14px]">All Categories</div>
                                 <div class="toggle-btn2">
                                     <svg class="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
@@ -34,237 +37,69 @@
                             </div>
                             <ul
                                 class="menu2 hidden list-none bg-[#fff] mt-[10px] text-[#380D37] hover:text-[#f2f2f2] text-[16px] max-sm:text-[14px] font-[jost] font-[400] w-full transition-opacity duration-[3s] ease-in-out origin-top">
-                                <li class="border-y-[1px] border-[#764A87]"><a href="#">All</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">USA Variant</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">Brand New</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">Mac Book</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">Student Laptop</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">Pre-Owned</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">Gaming Laptop</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">Asian Laptop</a></li>
+                                <li class="border-y-[1px] border-[#764A87]"><a href="{{ route('shop') }}"
+                                        wire:navigate>All</a></li>
+                                @foreach ($menus as $menu1)
+                                    <li class="border-b-[1px] border-[#764A87]"><a
+                                            href="{{ route('cate_wise.shop', [$menu1->slug]) }}"
+                                            wire:navigate>{{ $menu1->title }}</a></li>
+                                @endforeach
                             </ul>
                         </li>
-                        <div class="h-[1px] bg-[#764D8733]"></div>
-                        <li
-                            class="whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] max-sm:text-[14px] bg-[#f2f2f2]">
-                            <div href="#" class="px-6 py-3 max-sm:px-4 max-sm:py-2 toggleBtn2 flex items-center justify-between">
-                                <div class="max-sm:text-[14px]">USA Variant</div>
-                                <div class="toggle-btn2">
-                                    <svg class="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                        width="24" height="24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="12" y1="5" x2="12" y2="19"></line>
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    </svg>
-                                    <svg class="minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                        width="24" height="24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                        style="display: none;">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    </svg>
-                                </div>
-                            </div>
-                            <ul
-                                class="menu2 hidden list-none bg-[#fff] mt-[10px] text-[#380D37] hover:text-[#f2f2f2] text-[16px] max-sm:text-[14px] font-[jost] font-[400] w-full transition-opacity duration-[3s] ease-in-out origin-top">
-                                <li class="border-y-[1px] border-[#764A87]"><a href="#">Asus</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">DELL</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">HP</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">Lenovo</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">Acer</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">Apple</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">MSI</a></li>
-                            </ul>
-                        </li>
-                        <div class="h-[1px] bg-[#764D8733]"></div>
-                        <li
-                            class="whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] max-sm:text-[14px] bg-[#f2f2f2]">
-                            <div href="#" class="px-6 py-3 max-sm:px-4 max-sm:py-2 toggleBtn2 flex items-center justify-between">
-                                <div class="max-sm:text-[14px]">Brand New</div>
-                                <div class="toggle-btn2">
-                                    <svg class="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                        width="24" height="24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="12" y1="5" x2="12" y2="19"></line>
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    </svg>
-                                    <svg class="minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                        width="24" height="24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                        style="display: none;">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    </svg>
-                                </div>
-                            </div>
-                            <ul
-                                class="menu2 hidden list-none bg-[#fff] mt-[10px] text-[#380D37] hover:text-[#f2f2f2] text-[16px] max-sm:text-[14px] font-[jost] font-[400] w-full transition-opacity duration-[3s] ease-in-out origin-top">
-                                <li class="border-y-[1px] border-[#764A87]"><a href="#">Asus</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">DELL</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">HP</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">Lenovo</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">Acer</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">Apple</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">MSI</a></li>
-                            </ul>
-                        </li>
-                        <div class="h-[1px] bg-[#764D8733]"></div>
-                        <li
-                            class="whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] max-sm:text-[14px] bg-[#f2f2f2]">
-                            <div href="#" class="px-6 py-3 max-sm:px-4 max-sm:py-2 toggleBtn2 flex items-center justify-between">
-                                <div class="max-sm:text-[14px]">Mac Book</div>
-                                <div class="toggle-btn2">
-                                    <svg class="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                        width="24" height="24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="12" y1="5" x2="12" y2="19"></line>
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    </svg>
-                                    <svg class="minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                        width="24" height="24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                        style="display: none;">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    </svg>
-                                </div>
-                            </div>
-                            <ul
-                                class="menu2 hidden list-none bg-[#fff] mt-[10px] text-[#380D37] hover:text-[#f2f2f2] text-[16px] max-sm:text-[14px] font-[jost] font-[400] w-full transition-opacity duration-[3s] ease-in-out origin-top">
-                                <li class="border-y-[1px] border-[#764A87]"><a href="#">Asus</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">DELL</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">HP</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">Lenovo</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">Acer</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">Apple</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">MSI</a></li>
-                            </ul>
-                        </li>
-                        <div class="h-[1px] bg-[#764D8733]"></div>
-                        <li
-                            class="whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] max-sm:text-[14px] bg-[#f2f2f2]">
-                            <div href="#" class="px-6 py-3 max-sm:px-4 max-sm:py-2 toggleBtn2 flex items-center justify-between">
-                                <div class="max-sm:text-[14px]">Student Laptop</div>
-                                <div class="toggle-btn2">
-                                    <svg class="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                        width="24" height="24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="12" y1="5" x2="12" y2="19"></line>
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    </svg>
-                                    <svg class="minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                        width="24" height="24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                        style="display: none;">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    </svg>
-                                </div>
-                            </div>
-                            <ul
-                                class="menu2 hidden list-none bg-[#fff] mt-[10px] text-[#380D37] hover:text-[#f2f2f2] text-[16px] max-sm:text-[14px] font-[jost] font-[400] w-full transition-opacity duration-[3s] ease-in-out origin-top">
-                                <li class="border-y-[1px] border-[#764A87]"><a href="#">Asus</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">DELL</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">HP</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">Lenovo</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">Acer</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">Apple</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">MSI</a></li>
-                            </ul>
-                        </li>
-                        <div class="h-[1px] bg-[#764D8733]"></div>
-                        <li
-                            class="whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] max-sm:text-[14px] bg-[#f2f2f2]">
-                            <div href="#" class="px-6 py-3 max-sm:px-4 max-sm:py-2 toggleBtn2 flex items-center justify-between">
-                                <div class="max-sm:text-[14px]">Pre-Owned</div>
-                                <div class="toggle-btn2">
-                                    <svg class="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                        width="24" height="24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="12" y1="5" x2="12" y2="19"></line>
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    </svg>
-                                    <svg class="minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                        width="24" height="24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                        style="display: none;">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    </svg>
-                                </div>
-                            </div>
-                            <ul
-                                class="menu2 hidden list-none bg-[#fff] mt-[10px] text-[#380D37] hover:text-[#f2f2f2] text-[16px] max-sm:text-[14px] font-[jost] font-[400] w-full transition-opacity duration-[3s] ease-in-out origin-top">
-                                <li class="border-y-[1px] border-[#764A87]"><a href="#">Asus</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">DELL</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">HP</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">Lenovo</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">Acer</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">Apple</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">MSI</a></li>
-                            </ul>
-                        </li>
-                        <div class="h-[1px] bg-[#764D8733]"></div>
-                        <li
-                            class="whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] max-sm:text-[14px] bg-[#f2f2f2]">
-                            <div href="#" class="px-6 py-3 max-sm:px-4 max-sm:py-2 toggleBtn2 flex items-center justify-between">
-                                <div class="max-sm:text-[14px]">Gaming Laptop</div>
-                                <div class="toggle-btn2">
-                                    <svg class="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                        width="24" height="24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="12" y1="5" x2="12" y2="19"></line>
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    </svg>
-                                    <svg class="minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                        width="24" height="24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                        style="display: none;">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    </svg>
-                                </div>
-                            </div>
-                            <ul
-                                class="menu2 hidden list-none bg-[#fff] mt-[10px] text-[#380D37] hover:text-[#f2f2f2] text-[16px] max-sm:text-[14px] font-[jost] font-[400] w-full transition-opacity duration-[3s] ease-in-out origin-top">
-                                <li class="border-y-[1px] border-[#764A87]"><a href="#">Asus</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">DELL</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">HP</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">Lenovo</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">Acer</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">Apple</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">MSI</a></li>
-                            </ul>
-                        </li>
-                        <div class="h-[1px] bg-[#764D8733]"></div>
-                        <li
-                            class="whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] max-sm:text-[14px] bg-[#f2f2f2]">
-                            <div href="#" class="px-6 py-3 max-sm:px-4 max-sm:py-2 toggleBtn2 flex items-center justify-between">
-                                <div class="max-sm:text-[14px]">Asian Variant</div>
-                                <div class="toggle-btn2">
-                                    <svg class="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                        width="24" height="24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="12" y1="5" x2="12" y2="19"></line>
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    </svg>
-                                    <svg class="minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                        width="24" height="24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                        style="display: none;">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    </svg>
-                                </div>
-                            </div>
-                            <ul
-                                class="menu2 hidden list-none bg-[#fff] mt-[10px] text-[#380D37] hover:text-[#f2f2f2] text-[16px] max-sm:text-[14px] font-[jost] font-[400] w-full transition-opacity duration-[3s] ease-in-out origin-top">
-                                <li class="border-y-[1px] border-[#764A87]"><a href="#">Asus</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">DELL</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">HP</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">Lenovo</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">Acer</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">Apple</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">MSI</a></li>
-                            </ul>
-                        </li>
+                        @foreach ($menus as $menu)
+                            <div class="h-[1px] bg-[#764D8733]"></div>
+                            <li
+                                class="whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] max-sm:text-[14px] bg-[#f2f2f2]">
+                                @if (count($menu->child_cat) > 0)
+                                    <div
+                                        class="flex items-center justify-between px-6 py-3 max-sm:px-4 max-sm:py-2 toggleBtn2">
+                                        <div class="max-sm:text-[14px]">{{ $menu->title }}</div>
+                                        <div class="toggle-btn2">
+                                            <svg class="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                                width="24" height="24" fill="none" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <line x1="12" y1="5" x2="12" y2="19">
+                                                </line>
+                                                <line x1="5" y1="12" x2="19" y2="12">
+                                                </line>
+                                            </svg>
+                                            <svg class="minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                                width="24" height="24" fill="none" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                style="display: none;">
+                                                <line x1="5" y1="12" x2="19" y2="12">
+                                                </line>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <ul
+                                        class="menu2 hidden list-none bg-[#fff] mt-[10px] text-[#380D37] hover:text-[#f2f2f2] text-[16px] max-sm:text-[14px] font-[jost] font-[400] w-full transition-opacity duration-[3s] ease-in-out origin-top">
+                                        @foreach ($menu->child_cat as $menu2)
+                                            @if ($loop->first)
+                                                <li class="border-y-[1px] border-[#764A87]"><a
+                                                        href="{{ route('cate_wise.shop', [$menu2->slug]) }}"
+                                                        wire:navigate>{{ $menu2->title }}</a></li>
+                                            @else
+                                                <li class="border-b-[1px] border-[#764A87]"><a
+                                                        href="{{ route('cate_wise.shop', [$menu2->slug]) }}"
+                                                        wire:navigate>{{ $menu2->title }}</a></li>
+                                            @endif
+                                        @endforeach
+                                    </ul>
+                                @else
+                                    <div
+                                        class="flex items-center justify-between px-6 py-3 max-sm:px-4 max-sm:py-2">
+                                        <a  href="{{ route('cate_wise.shop', [$menu->slug]) }}" wire:navigate
+                                            class="max-sm:text-[14px]">{{ $menu->title }}</a>
+
+                                    </div>
+                                @endif
+                            </li>
+                        @endforeach
                         <div class="h-[1px] bg-[#764D8733]"></div>
                         {{-- <li
                             class="whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] max-sm:text-[14px] bg-[#f2f2f2]">
-                            <div href="#" class="px-6 py-3 max-sm:px-4 max-sm:py-2 toggleBtn2 flex items-center justify-between">
+                            <div href="#" class="flex items-center justify-between px-6 py-3 max-sm:px-4 max-sm:py-2 toggleBtn2">
                                 <div class="max-sm:text-[14px]">All Categories</div>
                                 <div class="toggle-btn2">
                                     <svg class="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
@@ -295,7 +130,7 @@
                         <div class="h-[1px] bg-[#764D8733]"></div>
                         <li
                             class="whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] max-sm:text-[14px] bg-[#f2f2f2]">
-                            <div href="#" class="px-6 py-3 max-sm:px-4 max-sm:py-2 toggleBtn2 flex items-center justify-between">
+                            <div href="#" class="flex items-center justify-between px-6 py-3 max-sm:px-4 max-sm:py-2 toggleBtn2">
                                 <div class="max-sm:text-[14px]">All Categories</div>
                                 <div class="toggle-btn2">
                                     <svg class="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
@@ -326,7 +161,7 @@
                         <div class="h-[1px] bg-[#764D8733]"></div>
                         <li
                             class="whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] max-sm:text-[14px] bg-[#f2f2f2]">
-                            <div href="#" class="px-6 py-3 max-sm:px-4 max-sm:py-2 toggleBtn2 flex items-center justify-between">
+                            <div href="#" class="flex items-center justify-between px-6 py-3 max-sm:px-4 max-sm:py-2 toggleBtn2">
                                 <div class="max-sm:text-[14px]">All Categories</div>
                                 <div class="toggle-btn2">
                                     <svg class="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
@@ -357,7 +192,7 @@
                         <div class="h-[1px] bg-[#764D8733]"></div>
                         <li
                             class="whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] max-sm:text-[14px] bg-[#f2f2f2]">
-                            <div href="#" class="px-6 py-3 max-sm:px-4 max-sm:py-2 toggleBtn2 flex items-center justify-between">
+                            <div href="#" class="flex items-center justify-between px-6 py-3 max-sm:px-4 max-sm:py-2 toggleBtn2">
                                 <div class="max-sm:text-[14px]">All Categories</div>
                                 <div class="toggle-btn2">
                                     <svg class="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
@@ -388,7 +223,7 @@
                         <div class="h-[1px] bg-[#764D8733]"></div>
                         <li
                             class="whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] max-sm:text-[14px] bg-[#f2f2f2]">
-                            <div href="#" class="px-6 py-3 max-sm:px-4 max-sm:py-2 toggleBtn2 flex items-center justify-between">
+                            <div href="#" class="flex items-center justify-between px-6 py-3 max-sm:px-4 max-sm:py-2 toggleBtn2">
                                 <div class="max-sm:text-[14px]">All Categories</div>
                                 <div class="toggle-btn2">
                                     <svg class="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
@@ -422,6 +257,7 @@
             </div>
         </div>
         {{-- responsive ---show -----end --}}
+
         <div class="flex items-center justify-between h-full  py-[10px] gap-[30px]">
             <!-- <!- Logo -->
             <div class='items-center'>
@@ -604,7 +440,7 @@
                         class='w-[25.6px] h-[24.84px]' src="/storage/product/cart(2).svg" alt="Logo 2">
                     <div
                         class='rounded-[100%] w-[12px] h-[12px] bg-[#f2f2f2] text-center items-center flex justify-center absolute top-0 left-0 ml-[18px]'>
-                        <p class='text-[#353535] text-[10px] items items-center' id="cart_count">{{ $cart_count }}
+                        <p class='cart_count text-[#353535] text-[10px] items items-center'>{{ $cart_count }}
                         </p>
                     </div>
                     <span class="">Cart</span>
@@ -645,7 +481,7 @@
                     alt="Logo 2">
                 <div
                     class='rounded-[100%] w-[12px] h-[12px] max-sm:w-[10px] max-sm:h-[10px] bg-[#f2f2f2] text-center items-center flex justify-center absolute top-0 left-0 ml-[18px] max-sm:ml-[15px]'>
-                    <p class='text-[#353535] text-[10px] max-sm:text-[8px] items items-center' id="cart_count">
+                    <p class='cart_count text-[#353535] text-[10px] max-sm:text-[8px] items items-center'>
                         {{ $cart_count }}
                     </p>
                 </div>

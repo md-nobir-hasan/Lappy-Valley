@@ -10,10 +10,28 @@
             <form method="post" action="{{ route('pa.ram.store') }}">
                 {{ csrf_field() }}
                 <div class="form-group">
-                    <label for="inputTitle" class="col-form-label">Name <span class="text-danger">*</span></label>
-                    <input id="inputTitle" type="text" name="name" placeholder="Enter Name of RAM"
-                        value="{{ old('name') }}" class="form-control">
-                    @error('name')
+                    <label for="inputTitle" class="col-form-label">Ram (GB) <span class="text-danger">*</span></label>
+                    <input id="inputTitle" type="number" name="ram" placeholder="Enter RAM as GB"
+                        value="{{ old('ram') }}" class="form-control">
+                    @error('ram')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label for="inputTitle" class="col-form-label">Type <span class="text-danger">*</span></label>
+                    <input id="inputTitle" type="text" name="type" placeholder="Enter type of RAM"
+                        value="{{ old('type') }}" class="form-control">
+                    @error('type')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+
+
+                <div class="form-group">
+                    <label for="inputTitle" class="col-form-label">Bus Speed <span class="text-danger">*</span></label>
+                    <input id="inputTitle" type="number" name="bus_speed" placeholder="Enter bus speed"
+                        value="{{ old('bus_speed') }}" class="form-control">
+                    @error('bus_speed')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
