@@ -740,18 +740,6 @@ input[type="range"]:active::-webkit-slider-thumb{
   }
 }
 
-.sr-only{
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-
 .pointer-events-none{
   pointer-events: none;
 }
@@ -1085,6 +1073,7 @@ input[type="range"]:active::-webkit-slider-thumb{
   margin: 0.25rem;
 }
 
+<<<<<<< HEAD
 .m-3{
   margin: 0.75rem;
 }
@@ -1093,19 +1082,11 @@ input[type="range"]:active::-webkit-slider-thumb{
   margin: auto;
 }
 
+=======
+>>>>>>> eff4342f950516800d66a73f2a488c745bf2f2d2
 .\!my-0{
   margin-top: 0px !important;
   margin-bottom: 0px !important;
-}
-
-.mx-1{
-  margin-left: 0.25rem;
-  margin-right: 0.25rem;
-}
-
-.mx-3{
-  margin-left: 0.75rem;
-  margin-right: 0.75rem;
 }
 
 .mx-\[10px\]{
@@ -1381,10 +1362,6 @@ input[type="range"]:active::-webkit-slider-thumb{
 
 .mr-2{
   margin-right: 0.5rem;
-}
-
-.mr-3{
-  margin-right: 0.75rem;
 }
 
 .mr-4{
@@ -2317,10 +2294,6 @@ input[type="range"]:active::-webkit-slider-thumb{
 
 .shrink-0{
   flex-shrink: 0;
-}
-
-.flex-grow-0{
-  flex-grow: 0;
 }
 
 .grow{
@@ -3381,6 +3354,11 @@ input[type="range"]:active::-webkit-slider-thumb{
 .bg-\[\#380D37\]{
   --tw-bg-opacity: 1;
   background-color: rgb(56 13 55 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#380E37\]{
+  --tw-bg-opacity: 1;
+  background-color: rgb(56 14 55 / var(--tw-bg-opacity));
 }
 
 .bg-\[\#380d37\]{
@@ -4633,6 +4611,11 @@ input[type="range"]:active::-webkit-slider-thumb{
   color: rgb(53 53 53 / var(--tw-text-opacity));
 }
 
+.text-\[white\]{
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
 .text-black{
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
@@ -4660,11 +4643,6 @@ input[type="range"]:active::-webkit-slider-thumb{
   color: currentColor;
 }
 
-.text-danger{
-  --tw-text-opacity: 1;
-  color: rgb(220 76 100 / var(--tw-text-opacity));
-}
-
 .text-gray-200{
   --tw-text-opacity: 1;
   color: rgb(229 231 235 / var(--tw-text-opacity));
@@ -4673,11 +4651,6 @@ input[type="range"]:active::-webkit-slider-thumb{
 .text-gray-300{
   --tw-text-opacity: 1;
   color: rgb(209 213 219 / var(--tw-text-opacity));
-}
-
-.text-gray-400{
-  --tw-text-opacity: 1;
-  color: rgb(156 163 175 / var(--tw-text-opacity));
 }
 
 .text-gray-50{
