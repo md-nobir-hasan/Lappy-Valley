@@ -107,8 +107,10 @@
                                          } else {
                                              total = total - this.amount;
                                              this.cp_show = false;
-                                             
+
                                          }
+                                        let cart_count =  Number($('.cart_count:eq(1)').text());
+                                        $('.cart_count').text(cart_count-1);
                                      }
                                  });
                              },
@@ -247,7 +249,7 @@
      </table>
 
      <div class="flex justify-end my-[60px] max-sm:my-[35px]">
-         <a href="{{ route('checkout',,['one_time']) }}" wire:navigate>
+         <a href="{{ route('checkout',['one_time']) }}" wire:navigate>
              <button
                  class="fill-up-btn bg-gradient-to-r from-[#380D37] to-[#DC275C] py-[10px] px-[40px] max-sm:px-[25px] text-[14px] max-sm:text-[12px] text-[#fff] font-[jost] font-[500] rounded-[5px]">Confirm
                  Order</button>

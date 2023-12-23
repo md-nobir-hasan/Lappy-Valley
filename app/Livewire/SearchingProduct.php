@@ -21,9 +21,9 @@ use Livewire\Attributes\Title;
 
 class SearchingProduct extends Component
 {
+    public $stext;
     public $cat;
     public $prds=null;
-    public $stext;
 
     public function mount()
     {

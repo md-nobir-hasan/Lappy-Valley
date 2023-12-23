@@ -440,7 +440,7 @@
                         class='w-[25.6px] h-[24.84px]' src="/storage/product/cart(2).svg" alt="Logo 2">
                     <div
                         class='rounded-[100%] w-[12px] h-[12px] bg-[#f2f2f2] text-center items-center flex justify-center absolute top-0 left-0 ml-[18px]'>
-                        <p class='text-[#353535] text-[10px] items items-center' id="cart_count">{{ $cart_count }}
+                        <p class='cart_count text-[#353535] text-[10px] items items-center'>{{ $cart_count }}
                         </p>
                     </div>
                     <span class="">Cart</span>
@@ -481,7 +481,7 @@
                     alt="Logo 2">
                 <div
                     class='rounded-[100%] w-[12px] h-[12px] max-sm:w-[10px] max-sm:h-[10px] bg-[#f2f2f2] text-center items-center flex justify-center absolute top-0 left-0 ml-[18px] max-sm:ml-[15px]'>
-                    <p class='text-[#353535] text-[10px] max-sm:text-[8px] items items-center' id="cart_count">
+                    <p class='cart_count text-[#353535] text-[10px] max-sm:text-[8px] items items-center'>
                         {{ $cart_count }}
                     </p>
                 </div>
