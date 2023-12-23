@@ -82,6 +82,8 @@
                                 } else {
                                     total = total - this.subtotal;
                                     this.cp_show = false;
+                                     let cart_count =  Number($('.cart_count:eq(1)').text());
+                                    $('.cart_count').text(cart_count-1);
                                 }
                             }
                         });

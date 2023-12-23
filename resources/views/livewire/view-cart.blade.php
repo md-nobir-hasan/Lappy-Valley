@@ -109,8 +109,8 @@
                                              this.cp_show = false;
 
                                          }
-                                        let count =  Number($('#cart_count').text());
-                                        $('#cart_count').text(count-1);
+                                        let cart_count =  Number($('.cart_count:eq(1)').text());
+                                        $('.cart_count').text(cart_count-1);
                                      }
                                  });
                              },
