@@ -24,9 +24,9 @@ class PostController extends Controller
     {
         $this->ccan('Show Post');
 
-        $posts=Post::getAllPost();
-        // return $posts;
-        return view('backend.post.index')->with('posts',$posts);
+        $n['posts']=Post::getAllPost();
+        $n['count'] = Post::get();
+        return view('backend.post.index',$n);
     }
 
     /**

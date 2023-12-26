@@ -22,8 +22,9 @@ class PostCategoryController extends Controller
     {
         $this->ccan('Show pCategory');
 
-        $postCategory=PostCategory::orderBy('id','DESC')->paginate(10);
-        return view('backend.postcategory.index')->with('postCategories',$postCategory);
+        $n['postCategory']=PostCategory::orderBy('id','DESC')->paginate(10);
+        $n['count'] = PostCategory::get();
+        return view('backend.postcategory.index',$n);
     }
 
     /**

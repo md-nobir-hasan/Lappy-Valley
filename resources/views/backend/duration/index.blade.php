@@ -10,8 +10,9 @@
                 @include('backend.layouts.notification')
             </div>
         </div>
-        <div class="py-3 card-header">
+        <div class="py-3 card-header d-flex justify-content-between">
             <h6 class="float-left m-0 font-weight-bold text-primary">Duration List</h6>
+            <h6 class="font-weight-bold text-primary">Total: {{count($count)}} || Active: {{count($count->where('status','active'))}} || Inactive: {{count($count->where('status','inactive'))}}</h6>
             @can('Create Duration')
                 <a href="{{ route('duration.create') }}" class="float-right btn btn-primary btn-sm" data-toggle="tooltip"
                     data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add Duration</a>
@@ -20,7 +21,7 @@
         <div class="card-body">
             <div class="table-responsive">
                 @if (count($data) > 0)
-                    <table class="table table-bordered" id="banner-dataTable" width="100%" cellspacing="0">
+                    <table class="table table-bordered table-striped" id="banner-dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th>S.N.</th>
@@ -47,8 +48,8 @@
                             @foreach ($data as $datum)
                                 <tr>
                                     <td>{{ $datum->id }}</td>
-                                    <td>{{ $datum->year }}</td>
-                                    <td>{{ $datum->month }}</td>
+                                    <td>{{ $datum->year ?? 0 }}</td>
+                                    <td>{{ $datum->month ?? 0 }}</td>
                                     <td>
                                         @if ($datum->status)
                                             <span class="badge badge-success">Active</span>
@@ -78,7 +79,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    <span style="float:right">{{ $data->links('vendor.pagination.bootstrap-4') }}</span>
+                    <span>{{ $data->links('vendor.pagination.bootstrap-5') }}</span>
                 @else
                     <h6 class="text-center">No Durations found!!! Please create Duration</h6>
                 @endif

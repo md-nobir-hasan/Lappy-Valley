@@ -10,8 +10,9 @@
                 @include('backend.layouts.notification')
             </div>
         </div>
-        <div class="py-3 card-header">
+        <div class="py-3 card-header d-flex justify-content-between">
             <h6 class="float-left m-0 font-weight-bold text-primary">Post Tag Lists</h6>
+            <h6 class="font-weight-bold text-primary">Total: {{count($count)}} || Active: {{count($count->where('status','active'))}} || Inactive: {{count($count->where('status','inactive'))}}</h6>
             @can('Create Tag')
             @endcan
             <a href="{{ route('post-tag.create') }}" class="float-right btn btn-primary btn-sm" data-toggle="tooltip"
@@ -20,7 +21,7 @@
         <div class="card-body">
             <div class="table-responsive">
                 @if (count($postTags) > 0)
-                    <table class="table table-bordered" id="post-category-dataTable" width="100%" cellspacing="0">
+                    <table class="table table-bordered table-striped" id="post-category-dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th>S.N.</th>
@@ -78,7 +79,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    <span style="float:right">{{ $postTags->links('vendor.pagination.bootstrap-4') }}</span>
+                    <span>{{ $postTags->links('vendor.pagination.bootstrap-5') }}</span>
                 @else
                     <h6 class="text-center">No Post Tag found!!! Please create post tag</h6>
                 @endif

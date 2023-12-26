@@ -12,7 +12,7 @@
   <h5 class="card-header">Notifications</h5>
   <div class="card-body">
     @if(count(Auth::user()->Notifications)>0)
-    <table class="table  table-hover admin-table" id="notification-dataTable">
+    <table class="table  table-hover admin-table table-striped" id="notification-dataTable">
       <thead>
         <tr>
           <th scope="col">#</th>

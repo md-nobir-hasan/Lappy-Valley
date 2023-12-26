@@ -20,7 +20,7 @@
         <div class="card-body">
             <div class="table-responsive">
                 @if (count($mdata) > 0)
-                    <table class="table table-bordered" id="banner-dataTable" width="100%" cellspacing="0">
+                    <table class="table table-bordered table-striped" id="banner-dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th>S.N.</th>

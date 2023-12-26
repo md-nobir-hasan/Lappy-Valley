@@ -11,13 +11,14 @@
                 @include('backend.layouts.notification')
             </div>
         </div>
-        <div class="py-3 card-header">
+        <div class="py-3 card-header d-flex justify-content-between">
             <h6 class="float-left m-0 font-weight-bold text-primary">Comment Lists</h6>
+            <h6 class="font-weight-bold text-primary">Total: {{count($count)}} || Active: {{count($count->where('status','active'))}} || Inactive: {{count($count->where('status','inactive'))}}</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
                 @if (count($comments) > 0)
-                    <table class="table table-bordered" id="order-dataTable" width="100%" cellspacing="0">
+                    <table class="table table-bordered table-striped" id="order-dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th>S.N.</th>
@@ -83,7 +84,7 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        <span style="float:right">{{ $comments->links('vendor.pagination.bootstrap-4') }}</span>
+                        <span>{{ $comments->links('vendor.pagination.bootstrap-5') }}</span>
                     @else
                         <h6 class="text-center">No post comments found!!!</h6>
                     @endif

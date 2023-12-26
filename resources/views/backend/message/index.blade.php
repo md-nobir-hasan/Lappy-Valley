@@ -12,7 +12,7 @@
   <h5 class="card-header">Messages</h5>
   <div class="card-body">
     @if(count($messages)>0)
-    <table class="table message-table" id="message-dataTable">
+    <table class="table message-table table-striped" id="message-dataTable">
       <thead>
         <tr>
           <th scope="col">ID</th>
@@ -43,8 +43,8 @@
         @endforeach
       </tbody>
     </table>
-    <nav class="blog-pagination justify-content-center d-flex">
-      {{$messages->links('vendor.pagination.bootstrap-4')}}
+    <nav>
+      {{$messages->links('vendor.pagination.bootstrap-5')}}
     </nav>
     @else
       <h2>Messages Empty!</h2>

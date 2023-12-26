@@ -25,7 +25,7 @@ class ProductReviewController extends Controller
         $this->ccan('Show Review');
 
         $reviews = ProductReview::latest()->paginate(10);
-
+        $n['count'] = ProductReview::get();
         return view('backend.review.index')->with('reviews', $reviews);
     }
 
