@@ -46,8 +46,9 @@ class HomePage extends Component
     }
 
     public function post(){
+
         $this->validate();
-// dd($this->name,$this->email,$this->subject,$this->msg);
+        // dd($this->name,$this->email,$this->subject,$this->msg);
        $insert = CompanyReview::create([
             'name' => $this->name,
             'email' => $this->email,
@@ -55,6 +56,7 @@ class HomePage extends Component
             'msg' => $this->msg,
             'user_id' => $this->user_id,
         ]);
+
         if($insert){
             $this->post_success_msg = 'Your post is successfully submitted';
              $this->name = '';
@@ -65,17 +67,18 @@ class HomePage extends Component
         }else{
             $this->post_error_msg = "Something went wrong";
         }
+
     }
+
     public function render()
     {
         $os =  OtherSetting::first();
         $pd = Product::orderBy('views')->get();
-        $n['new_arrival'] = $pd->whereBetween('created_at',[Carbon::now()->subDays($os->new_product),Carbon::now()]);
+        $n['new_arrival'] = $pd->whereBetween('created_at',[Carbon::now()->subDays($os->new_product),Carbon::now()]); 
         $n['features'] = $pd;
         $n['dpds'] = Product::where('status','active')->get();
         $n['menus'] = Category::with('child_cat')->where('status', 'active')->where('is_parent', 1)->orderBy('title', 'ASC')->get();
         $n['home_banner'] = Banner::where('status', 'active')->where('slug', 'home-page')->first();
-
         return view('livewire.home-page',$n);
     }
 }
