@@ -267,7 +267,7 @@
                     @foreach ($features->where('cat_id', 7) as $f_product)
                         <div class="swiper-slide">
                             <div
-                                class="w-[221px] h-[376px] max-xl:w-full mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
+                                class="w-[221px] h-[376px] max-xl:w-full mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white px-2 pt-2 pb-3 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
 
                                 <div class="image-container">
                                     <a href="{{ route('product.details', [$f_product->slug]) }}" wire:navigate>
@@ -283,7 +283,7 @@
 
 
                                 <div
-                                    class="flex justify-between text-[14px] mt-auto font-[jost] font-[700] py-[10px] leading-[20.23px]">
+                                    class="flex justify-between text-[14px] mt-auto font-[jost] font-[700] leading-[20.23px]">
                                     <span class=" text-[#DC275C]">
                                         {{ number_format($f_product->final_price) }} TK
                                     </span>
@@ -535,7 +535,7 @@
                     @foreach ($features->where('cat_id', 6) as $a_product)
                         <div class="swiper-slide">
                             <div
-                                class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
+                                class="w-[221px] h-[376px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white px-2 pt-2 pb-3 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
 
                                 <div class="image-container">
                                     <a href="{{ route('product.details', [$a_product->slug]) }}" wire:navigate>
@@ -551,7 +551,7 @@
 
 
                                 <div
-                                    class="flex justify-between text-[14px] mt-auto font-[jost] font-[700] py-[10px] leading-[20.23px]">
+                                    class="flex justify-between text-[14px] mt-auto font-[jost] font-[700] leading-[20.23px]">
                                     <span class=" text-[#DC275C]">
                                         {{ number_format($a_product->final_price) }} TK
                                     </span>

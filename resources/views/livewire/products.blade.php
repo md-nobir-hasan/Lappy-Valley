@@ -1,4 +1,4 @@
-<div class="w-[221px] max-md:w-full mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
+<div class="w-[221px] h-[376px] max-md:w-full mx-auto flex flex-col bg-white px-2 pt-2 pb-3 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
     <div class="product_div imgae-container">
         <a href="{{ route('product.details') }}">
             @if ($product->photo)
@@ -43,7 +43,7 @@
                         </p>
                        </a>
                     </div>
-                    <div class="flex justify-between text-[14px] mt-auto font-[jost] font-[700] py-[10px] leading-[20.23px]">
+                    <div class="flex justify-between text-[14px] mt-auto font-[jost] font-[700] leading-[20.23px]">
                         
                             <span class="pprice text-[#DC275C]"
                                 value='{{ $product->final_price }}'>{{ number_format($product->final_price) }} TK
