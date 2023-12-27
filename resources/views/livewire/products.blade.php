@@ -6,9 +6,9 @@
                     $photo = explode(',', $product->photo);
                     // dd($photo);
                 @endphp
-                <img src="{{ $photo[0] }}" class="img-fluid zoom" style="max-width:80px" alt="{{ $product->photo }}">
+                <img src="{{ $photo[0] }}" class="img-fluid zoom h-[180px]" style="max-width:80px" alt="{{ $product->photo }}">
             @else
-                <img src="{{ asset('backend/img/thumbnail-default.jpg') }}" class="img-fluid" style="max-width:80px"
+                <img src="{{ asset('backend/img/thumbnail-default.jpg') }}" class="img-fluid h-[180px]" style="max-width:80px"
                     alt="avatar.png">
             @endif
             {{-- <img class="object-center pimg" src="{{$product->photo}}" alt=""> --}}

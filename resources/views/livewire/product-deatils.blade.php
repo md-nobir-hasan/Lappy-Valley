@@ -774,8 +774,8 @@
             </section>
             <section class="mt-[20px] border-[2px] max-sm:border-[1px] border-[#380D37] p-[20px] rounded-[5px]"
                 id='review'>
-                <div class="grid grid-cols-4 max-sm:gap-[15px] max-sm:grid-cols-3 items-center">
-                    <div class="col-span-3 max-sm:col-span-2">
+                <div class="flex justify-between items-center">
+                    <div class="">
                         <div class="title-n-action">
                             <h2 class="my-[10px] font-[jost] max-sm:text-[16px] font-[500]">
                                 Reviews({{ $product_reviews->count() }})</h2>
@@ -785,7 +785,7 @@
                                 customers who own it.</p>
                         </div>
                     </div>
-                    <div class="col-span-1">
+                    <div class="">
                         <button type="button"
                             class="fill-up-btn inline-block rounded bg-gradient-to-r from-[#380D37] to-[#DC275C] px-6 max-sm:px-[10px] pb-2 pt-2.5 text-[#f2f2f2] text-[16px] max-sm:text-[11px] max-lg:text-[14px] font-[500] font-[jost]"
                             data-te-toggle="modal" data-te-target="#exampleModalCenteredScrollable"
@@ -1017,8 +1017,8 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="flex my-[10px]">
+                </div>
+                    <div class="flex my-[10px] items-center">
                         @for ($i = 1; $i < 6; $i++)
                             @if ($i <= $product->average_rating)
                                 <img class="h-7" src="/storage/product/star2.svg" alt="">
@@ -1027,9 +1027,12 @@
                             @endif
                         @endfor
 
-                        <span
-                            class="font-[jost] max-sm:text-[16px] font-[500] mt-[5px] ml-[5px]">{{ $product->average_rating }}
-                            out of 5</span>
+                        <div class="items-center">
+                            <span
+                            class="font-[jost] max-sm:text-[16px] font-[500] mt-[5px]">{{ $product->average_rating }}
+                            out of 5
+                        </span>
+                        </div>
                     </div>
                     <div class="h-[2px] max-sm:h-[1px] max-sm:my-[30px] bg-[#764A8733]"></div>
                     {{-- Product Review --}}
@@ -1061,8 +1064,7 @@
                     <div class="p-[10px]">
                         <h1
                             class="text-[#380D37] max-lg:text-[18px] text-[20px] font-[jost] font-[500] flex justify-center">
-                            Related
-                            Products</h1>
+                            Related Products</h1>
                         <div class="h-[2px] max-sm:h-[1px] max-sm:my-[30px] bg-[#380D37]"></div>
                     </div>
                     @foreach ($related_products as $rp)
@@ -1074,8 +1076,9 @@
                                 <p class="text-[#000000] text-[14px] font-[jost] font-[400]">{{ $rp->title }}</p>
                                 <p
                                     class="text-[#DC275C] text-[16px] max-lg:text-[14px] font-[jost] font-[700] my-[10px]">
-                                    <a><span>{{ number_format($rp->price) }}</span>
-                                        TK</a>
+                                    <a>
+                                     <span>{{ number_format($rp->price) }}</span>
+                                    TK</a>
                                 </p>
                             </div>
                         </div>

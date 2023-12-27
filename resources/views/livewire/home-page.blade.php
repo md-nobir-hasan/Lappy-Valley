@@ -267,11 +267,11 @@
                     @foreach ($features->where('cat_id', 7) as $f_product)
                         <div class="swiper-slide">
                             <div
-                                class="w-[221px] max-xl:w-full mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
+                                class="w-[221px] h-[376px] max-xl:w-full mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
 
                                 <div class="image-container">
                                     <a href="{{ route('product.details', [$f_product->slug]) }}" wire:navigate>
-                                        <img src="{{ $f_product->img()[0] }}" alt="">
+                                        <img src="{{ $f_product->img()[0] }}" alt="" class="h-[180px]">
                                     </a>
                                 </div>
                                 <div>
@@ -539,7 +539,7 @@
 
                                 <div class="image-container">
                                     <a href="{{ route('product.details', [$a_product->slug]) }}" wire:navigate>
-                                        <img src="{{ $a_product->img()[0] }}" alt="">
+                                        <img src="{{ $a_product->img()[0] }}" alt="" class="h-[180px]">
                                     </a>
                                 </div>
                                 <div class="">
