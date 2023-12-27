@@ -1,25 +1,5 @@
 <div class='px-[100px] max-2xl:px-[70px] max-xl:px-[60px] max-lg:px-[38px] max-md:px-[35px] max-sm:px-[15px] max-sm:mt-[70px] max-xl:mt-[100px]'>
-    <div class='flex justify-between'>
-        <h1
-            class='font-[jost] xl:text-[20px] max-sm:text-[16px] max-md:text-[] max-lg:text-[] font-[400] leading-[25.3px] text-[#353535]'>
-            Search / Lenovo</h1>
-        <div class='flex gap-[5px] items-center'><img src="/storage/product/vector-1.svg" alt="Product"
-                class='w-[16px] h-[14px]'>   <form action="{{ route('logout') }}" method="POST">
-                @csrf
-                <button class='text-[16px] text-[#380D37] font-[jost] font-[400] leading-[23.12px]'>Log
-                    Out</button>
-            </form></div>
-    </div>
-<<<
-     {{-- @dd(auth()->user()) --}}
-    <div class='h-[2px] bg-[#764A8733]'></div>
-    <!-- --------------------user-name-------------------------------- -->
-
-    <livewire:user-pic/>
     <livewire:user-account-menu />
-    <div class='h-[2px] bg-[#764A8733]'></div>
-
-
     <div class='my-[15px]'>
         <h1
             class='text-[20px] max-sm:text-[14px] max-md:text-[] max-lg:text-[] text-[#000000] font-[Inter] font-[500] leading-24.2px[]'>
