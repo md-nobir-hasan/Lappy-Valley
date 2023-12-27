@@ -60,7 +60,7 @@
                                     </td>
                                     <td>
                                         @if ($coupon->type == 'fixed')
-                                            ${{ number_format($coupon->value, 2) }}
+                                            BDT {{ number_format($coupon->value, 2) }}
                                         @else
                                             {{ $coupon->value }}%
                                         @endif

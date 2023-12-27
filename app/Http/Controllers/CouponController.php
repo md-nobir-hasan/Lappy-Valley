@@ -20,7 +20,7 @@ class CouponController extends Controller
     {
         $this->ccan('Show Cupon');
         $n['count'] = Coupon::get();
-        $n['coupon']=Coupon::orderBy('id','DESC')->paginate('10');
+        $n['coupons']=Coupon::orderBy('id','DESC')->paginate('10');
         return view('backend.coupon.index',$n);
     }
 
