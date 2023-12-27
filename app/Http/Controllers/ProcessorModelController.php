@@ -18,6 +18,7 @@ class ProcessorModelController extends Controller
     public function index()
     {
         $n['mdata'] = ProcessorModel::paginate(10);
+        $n['count'] = ProcessorModel::get();
         return view('backend.product-attribute.pm.index', $n);
     }
 

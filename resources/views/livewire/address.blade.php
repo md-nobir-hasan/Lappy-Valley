@@ -1,25 +1,7 @@
 <div class='px-[100px] max-lg:px-[45px] max-md:px-[35px] max-sm:px-[20px] mx-auto max-sm:mt-[70px] max-xl:mt-[100px]'>
-    <div class='flex justify-between'>
-        <h1 class='font-[jost] xl:text-[20px] font-[400] leading-[25.3px] text-[#353535]'>Home / Account</h1>
-        <div class='flex gap-[5px] items-center'><img src="/storage/product/vector-1.svg" alt="Product"
-                class='w-[16px] h-[14px]'>   <form action="{{ route('logout') }}" method="POST">
-                @csrf
-                <button class='text-[16px] text-[#380D37] font-[jost] font-[400] leading-[23.12px]'>Log
-                    Out</button>
-            </form>
-        </div>
-    </div>
-    <div class='h-[2px] bg-[#764A8733]'></div>
-    <!-- --------------------user-name-------------------------------- -->
-    <div class='flex gap-[10px] items-center mt-[30px]'>
-        <div class='w-[74px] h-[74px]'><img src="/storage/product/iconoir_profile-circle1.svg" alt="Product"></div>
-        <div>
-            <p class='text-[16px] text-[#000000] font-[Inter] font-[400] leadint-[14.52px]'>Hello,</p>
-            <h1 class='text-[20px] text-[#000000] font-[Inter] font-[500] leadint-[24.2px]'>Username Here</h1>
-        </div>
-    </div>
+
     <livewire:user-account-menu />
-    <div class='h-[2px] bg-[#764A8733]'></div>
+    
     <form wire:submit='addressSave'>
         <div class='flex max-lg:border-[2px] max-lg:border-[#353535] max-md:w-full max-lg:w-[545px] max-lg:mx-auto max-lg:py-[20px] max-md:px-[35px] max-lg:px-[40px] max-sm:pl-[30px] max-lg:rounded-[4px] mt-[20px] gap-[20px]'>
             <div>

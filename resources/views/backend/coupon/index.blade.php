@@ -10,8 +10,9 @@
                 @include('backend.layouts.notification')
             </div>
         </div>
-        <div class="py-3 card-header">
+        <div class="py-3 card-header d-flex justify-content-between">
             <h6 class="float-left m-0 font-weight-bold text-primary">Coupon List</h6>
+            <h6 class="font-weight-bold text-primary">Total: {{count($count)}} || Active: {{count($count->where('status','active'))}} || Inactive: {{count($count->where('status','inactive'))}}</h6>
             @can('Create Cupon')
                 <a href="{{ route('coupon.create') }}" class="float-right btn btn-primary btn-sm" data-toggle="tooltip"
                     data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add Coupon</a>
@@ -20,7 +21,7 @@
         <div class="card-body">
             <div class="table-responsive">
                 @if (count($coupons) > 0)
-                    <table class="table table-bordered" id="banner-dataTable" width="100%" cellspacing="0">
+                    <table class="table table-bordered table-striped" id="banner-dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th>S.N.</th>
@@ -59,7 +60,7 @@
                                     </td>
                                     <td>
                                         @if ($coupon->type == 'fixed')
-                                            ${{ number_format($coupon->value, 2) }}
+                                            BDT {{ number_format($coupon->value, 2) }}
                                         @else
                                             {{ $coupon->value }}%
                                         @endif
@@ -114,7 +115,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    <span style="float:right">{{ $coupons->links('vendor.pagination.bootstrap-4') }}</span>
+                    <span>{{ $coupons->links('vendor.pagination.bootstrap-5') }}</span>
                 @else
                     <h6 class="text-center">No Coupon found!!! Please create coupon</h6>
                 @endif

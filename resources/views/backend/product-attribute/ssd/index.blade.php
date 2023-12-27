@@ -10,17 +10,18 @@
                 @include('backend.layouts.notification')
             </div>
         </div>
-        <div class="py-3 card-header">
-            <h6 class="float-left m-0 font-weight-bold text-primary">SSD List</h6>
+        <div class="py-3 card-header d-flex justify-content-between">
+            <h6 class="font-weight-bold text-primary">SSD List</h6>
+            <h6 class="font-weight-bold text-primary">Total: {{count($count)}} || Active: {{count($count->where('status','active'))}} || Inactive: {{count($count->where('status','inactive'))}}</h6>
             @can('Create SSD')
-                <a href="{{ route('pa.ssd.create') }}" class="float-right btn btn-primary btn-sm" data-toggle="tooltip"
+                <a href="{{ route('pa.ssd.create') }}" class="btn btn-primary btn-sm" data-toggle="tooltip"
                     data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add SSD</a>
             @endcan
         </div>
         <div class="card-body">
             <div class="table-responsive">
                 @if (count($mdata) > 0)
-                    <table class="table table-bordered" id="banner-dataTable" width="100%" cellspacing="0">
+                    <table class="table table-bordered table-striped" id="banner-dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th>S.N.</th>
@@ -66,7 +67,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    <span style="float:right">{{ $mdata->links('vendor.pagination.bootstrap-4') }}</span>
+                    <span>{{ $mdata->links('vendor.pagination.bootstrap-5 ') }}</span>
                 @else
                     <h6 class="text-center">No brands found!!! Please create brand</h6>
                 @endif

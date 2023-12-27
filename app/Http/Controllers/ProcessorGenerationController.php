@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ProcessorGeneration;
 use App\Http\Requests\StoreProcessorGenerationRequest;
 use App\Http\Requests\UpdateProcessorGenerationRequest;
+use App\Models\ProcessorModel;
 
 class ProcessorGenerationController extends Controller
 {
@@ -18,6 +19,7 @@ class ProcessorGenerationController extends Controller
     public function index()
     {
         $n['mdata'] = ProcessorGeneration::paginate(10);
+        $n['count'] = ProcessorGeneration::get();
         return view('backend.product-attribute.pg.index',$n);
     }
 

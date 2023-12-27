@@ -18,6 +18,7 @@ class DisplaySizeController extends Controller
     public function index()
     {
         $n['mdata'] = DisplaySize::paginate(10);
+        $n['count'] = DisplaySize::get();
         return view('backend.product-attribute.ds.index', $n);
     }
 
