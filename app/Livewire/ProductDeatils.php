@@ -14,7 +14,7 @@ use Livewire\Attributes\Title;
 class ProductDeatils extends Component
 {
     public $slug;
-    public $product;
+    // public $product;
 
     public $payment_process = 'one_time';
 
@@ -47,24 +47,36 @@ class ProductDeatils extends Component
     }
     public function mount()
     {
-        $this->product = Product::with('cat_info', 'sub_cat_info', 'brand', 'ProcessorGeneration', 'ProcessorModel', 'DisplayType', 'DisplaySize', 'Ram', 'ssd', 'hdd', 'Graphic', 'SpecialFeature')
-            ->where('slug', $this->slug)->first();
-    }
-    public function render()
-    {
+       $product = Product::with('cat_info', 'sub_cat_info', 'brand', 'ProcessorGeneration', 'ProcessorModel', 'DisplayType', 'DisplaySize', 'Ram', 'ssd', 'hdd', 'Graphic', 'SpecialFeature')
+                ->where('slug', $this->slug)->first();
+
+       //increase views
+         $product->update([
+            'views' => $product->views,
+        ]);
+
+        // added as recent view product
         if ($user = auth()->user()) {
             RecentViewedProduct::firstOrCreate([
-                'product_id' => $this->product->id,
+                'product_id' => $product->id,
                 'user_id' => $user->id,
             ]);
-        }else{
+        } else {
             RecentViewedProduct::firstOrCreate([
-                'product_id' => $this->product->id,
+                'product_id' => $product->id,
                 'ip' => request()->ip(),
             ]);
         }
+
+    }
+    public function render()
+    {
+
+        $n['product'] = Product::with('cat_info', 'sub_cat_info', 'brand', 'ProcessorGeneration', 'ProcessorModel', 'DisplayType', 'DisplaySize', 'Ram', 'ssd', 'hdd', 'Graphic', 'SpecialFeature')
+                        ->where('slug', $this->slug)->first();
+        $n['recent_views'] = RecentViewedProduct::get();
         $n['product_reviews'] = ProductReview::with('images')->where('status', 'active')->get();
-        $n['related_products'] = Product::where('status', 'active')->where('cat_id', $this->product->cat_id)->get();
+        $n['related_products'] = Product::where('status', 'active')->where('cat_id', $n['product']->cat_id)->get();
         return view('livewire.product-deatils', $n);
     }
 }
