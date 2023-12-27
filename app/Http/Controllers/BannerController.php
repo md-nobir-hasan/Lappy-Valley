@@ -20,9 +20,9 @@ class BannerController extends Controller
     public function index()
     {
         $this->ccan('Show Banner');
-
-        $banner=Banner::orderBy('id','DESC')->paginate(10);
-        return view('backend.banner.index')->with('banners',$banner);
+        $n['count'] = Banner::get();
+        $n['banners']=Banner::orderBy('id','DESC')->paginate(10);
+        return view('backend.banner.index',$n);
     }
 
     /**

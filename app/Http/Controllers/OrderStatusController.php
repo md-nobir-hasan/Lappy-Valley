@@ -20,8 +20,9 @@ class OrderStatusController extends Controller
     {
         $this->ccan('Show Order Status');
 
-        $order_status = OrderStatus::orderBy('id', 'DESC')->paginate();
-        return view('backend.order-status.index')->with('data', $order_status);
+        $n['order_status'] = OrderStatus::orderBy('id', 'DESC')->paginate();
+        $n['count'] = OrderStatus::get();
+        return view('backend.order-status.index',$n);
     }
 
     /**

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use Carbon\Carbon;
 use Illuminate\Support\Str;
 
 class CategoryController extends Controller
@@ -21,10 +22,9 @@ class CategoryController extends Controller
     public function index()
     {
         $this->ccan('Show Category');
-
-        $category=Category::where('status','active')->orderBy('serial','asc')->paginate();
-        // return $category;
-        return view('backend.category.index')->with('categories',$category);
+        $n['categories']=Category::where('status','active')->orderBy('serial','asc')->paginate();
+        $n['count'] = Category::get();
+        return view('backend.category.index',$n);
     }
 
     /**

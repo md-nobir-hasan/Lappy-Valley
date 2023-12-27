@@ -19,9 +19,9 @@ class DurationController extends Controller
     {
         $this->ccan('Show Duration');
 
-        $duration = Duration::
-                    orderBy('id', 'DESC')->paginate();
-        return view('backend.duration.index')->with('data', $duration);
+        $n['data'] = Duration::orderBy('id', 'DESC')->paginate();
+        $n['count'] = Duration::get();
+        return view('backend.duration.index',$n);
     }
 
     /**

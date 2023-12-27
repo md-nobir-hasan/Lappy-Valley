@@ -19,9 +19,9 @@ class CouponController extends Controller
     public function index()
     {
         $this->ccan('Show Cupon');
-
-        $coupon=Coupon::orderBy('id','DESC')->paginate('10');
-        return view('backend.coupon.index')->with('coupons',$coupon);
+        $n['count'] = Coupon::get();
+        $n['coupons']=Coupon::orderBy('id','DESC')->paginate('10');
+        return view('backend.coupon.index',$n);
     }
 
     /**

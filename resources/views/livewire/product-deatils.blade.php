@@ -1,49 +1,3 @@
-<x-slot name='styles'>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
-    <link href="tablet-pcfdb0.html?page=4" rel="next">
-</x-slot>
-
-<x-slot name='script'>
-    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
-
-    <script>
-        // set the default active slide to the first one
-        let slideIndex = 0;
-        // showSlide(slideIndex);
-
-
-        // change slide with the prev/next button
-        function moveSlide(moveStep) {
-            showSlide(slideIndex += moveStep);
-        }
-
-        // change slide with the dots
-        function currentSlide(n) {
-            showSlide(slideIndex = n);
-        }
-
-        function showSlide(n) {
-            let i;
-            const slides = document.getElementsByClassName("slide");
-
-            if (n > slides.length - 1) {
-                slideIndex = 0
-            }
-            if (n < 0) {
-                slideIndex = slides.length - 1
-            }
-
-            // const dots = document.getElementsByClassName('dot');
-            // hide all slides
-            for (i = 0; i < slides.length; i++) {
-                slides[i].classList.add('hidden');
-            }
-
-            // show the active slide
-            slides[slideIndex].classList.remove('hidden');
-        }
-    </script>
-</x-slot>
 <div
     class="px-[100px] max-2xl:px-[70px] max-xl:px-[60px] max-lg:px-[38px] max-md:px-[35px] max-sm:px-[15px] max-sm:mt-[70px] max-xl:mt-[100px]">
     {{-- @dd($product) --}}
@@ -871,7 +825,7 @@
                                             </svg>
                                         </button>
                                     </div>
-                                    
+
                                     <!--Modal body-->
                                     <div class="relative p-4">
                                         <div x-data="{

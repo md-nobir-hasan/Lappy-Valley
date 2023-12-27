@@ -21,9 +21,9 @@ class BrandController extends Controller
     public function index()
     {
         $this->ccan('Show Brand');
-
-        $brand=Brand::orderBy('id','DESC')->paginate();
-        return view('backend.brand.index')->with('data',$brand);
+        $n['count'] = Brand::get();
+        $n['data']=Brand::orderBy('id','DESC')->paginate();
+        return view('backend.brand.index',$n);
     }
 
     /**

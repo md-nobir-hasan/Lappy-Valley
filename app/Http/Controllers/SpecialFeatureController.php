@@ -18,6 +18,7 @@ class SpecialFeatureController extends Controller
     public function index()
     {
         $n['mdata'] = SpecialFeature::paginate(10);
+        $n['count'] = SpecialFeature::get();
         return view('backend.product-attribute.sf.index', $n);
     }
 

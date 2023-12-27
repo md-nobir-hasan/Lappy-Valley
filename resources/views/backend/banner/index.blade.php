@@ -11,8 +11,9 @@
                 @include('backend.layouts.notification')
             </div>
         </div>
-        <div class="py-3 card-header">
+        <div class="py-3 card-header d-flex justify-content-between">
             <h6 class="float-left m-0 font-weight-bold text-primary">Banners List</h6>
+            <h6 class="font-weight-bold text-primary">Total: {{count($count)}} || Active: {{count($count->where('status','active'))}} || Inactive: {{count($count->where('status','inactive'))}}</h6>
             @can('Create Banner')
                 <a href="{{ route('banner.create') }}" class="float-right btn btn-primary btn-sm" data-toggle="tooltip"
                     data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add Banner</a>
@@ -21,7 +22,7 @@
         <div class="card-body">
             <div class="table-responsive">
                 @if (count($banners) > 0)
-                    <table class="table table-bordered" id="banner-dataTable" width="100%" cellspacing="0">
+                    <table class="table table-bordered table-striped" id="banner-dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th>S.N.</th>
@@ -112,7 +113,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    <span style="float:right">{{ $banners->links('vendor.pagination.bootstrap-4') }}</span>
+                    <span>{{ $banners->links('vendor.pagination.bootstrap-5') }}</span>
                 @else
                     <h6 class="text-center">No banners found!!! Please create banner</h6>
                 @endif
