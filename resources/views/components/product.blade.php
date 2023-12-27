@@ -7,9 +7,9 @@
                 @php
                     $photo = explode(',', $product->photo);
                 @endphp
-                <img src="{{ $photo[0] }}" class="object-center pimg h-[180px]" alt="{{ $product->photo }}">
+                <img src="{{ $photo[0] }}" class="object-cover pimg h-[180px]" alt="{{ $product->photo }}">
             @else
-                <img src="{{ asset('backend/img/thumbnail-default.jpg') }}" class="object-center pimg h-[180px]" alt="avatar.png">
+                <img src="{{ asset('backend/img/thumbnail-default.jpg') }}" class="object-cover pimg h-[180px]" alt="avatar.png">
             @endif
         </a>
     </div>

@@ -1,5 +1,5 @@
 <div
-    class="px-[100px] max-2xl:px-[70px] max-xl:px-[60px] max-lg:px-[38px] max-md:px-[35px] max-sm:pr-[15px] max-sm:mt-[70px] max-xl:mt-[100px]">
+    class="px-[100px] max-2xl:px-[70px] max-xl:px-[60px] max-lg:px-[38px] max-md:px-[35px] max-sm:px-[15px] max-sm:mt-[70px] max-xl:mt-[100px]">
     {{-- Alert message  --}}
     @if ($error = session('error'))
         <script>
@@ -14,7 +14,7 @@
     <!-- Hero Section  -->
     @if ($home_banner)
         <section class="w-full mx-auto">
-            <div class="px-auto mx-auto relative items-center" x-data="{ active: true }">
+            <div class="px-auto w-full mx-auto relative items-center" x-data="{ active: true }">
                 @php
                     $bnrs = explode(',', $home_banner->photo);
                 @endphp
@@ -25,11 +25,11 @@
                 @endforeach
 
                 <!-- The previous button -->
-                <div>
+                <div class="w-full mx-auto">
                     <a id="move_back" value='0'
                         class="slide_icon absolute left-0 top-1/2 p-4 -translate-y-1/2 -translate-x-[42px] text-[40px] text-blue-500 opacity-50 hover:opacity-100 cursor-pointer">
                         <svg xmlns="http://www.w3.org/2000/svg"
-                            class="w-[18px] h-[36px] max-md:w-[25px] max-md:h-[20px]" viewBox="0 0 23 40"
+                            class="w-[18px] h-[36px]" viewBox="0 0 23 40"
                             fill="none">
                             <path d="M21 2L3 20L21 38" stroke="#999999" stroke-opacity="1" stroke-width="5" />
                         </svg>
@@ -37,7 +37,7 @@
                     <!-- The next button -->
                     <a id="move_front" value='0'
                         class="slide_icon absolute right-0 top-1/2 p-4 -translate-y-1/2 translate-x-[42px] text-[40px] text-blue-500 opacity-50 hover:opacity-100 cursor-pointer"><svg
-                            xmlns="http://www.w3.org/2000/svg" class="w-[18px] h-[36px] max-md:w-[25px] max-md:h-[20px]"
+                            xmlns="http://www.w3.org/2000/svg" class="w-[18px] h-[36px]"
                             viewBox="0 0 23 40" fill="none">
                             <path :class="{ 'text-[black]': active }" d="M2 2L20 20L2 38" stroke="#999999"
                                 stroke-opacity="0.5" stroke-width="5" />
@@ -271,7 +271,7 @@
 
                                 <div class="image-container">
                                     <a href="{{ route('product.details', [$f_product->slug]) }}" wire:navigate>
-                                        <img src="{{ $f_product->img()[0] }}" alt="" class="h-[180px]">
+                                        <img src="{{ $f_product->img()[0] }}" alt="" class="h-[180px] object-cover">
                                     </a>
                                 </div>
                                 <div>
@@ -539,7 +539,7 @@
 
                                 <div class="image-container">
                                     <a href="{{ route('product.details', [$a_product->slug]) }}" wire:navigate>
-                                        <img src="{{ $a_product->img()[0] }}" alt="" class="h-[180px]">
+                                        <img src="{{ $a_product->img()[0] }}" alt="" class="h-[180px] object-cover">
                                     </a>
                                 </div>
                                 <div class="">
