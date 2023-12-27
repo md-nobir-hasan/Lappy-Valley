@@ -79,6 +79,7 @@
                                                             class="fas fa-trash-alt"></i></button>
                                                 </form>
                                             @endcan
+                                            @endcan
                                         </td>
                                     </tr>
                                 @endforeach

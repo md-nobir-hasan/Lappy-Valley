@@ -70,7 +70,7 @@
             @endforeach
           </tbody>
         </table>
-        <span>{{ $categories->links('vendor.pagination.bootstrap-5') }}</span>
+        <span>{{ $roles->links('vendor.pagination.bootstrap-5') }}</span>
       </div>
     </div>
 </div>

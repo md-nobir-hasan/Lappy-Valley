@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\PostTag;
 use Illuminate\Support\Str;
-class TagTagController extends Controller
+class PostTagController extends Controller
 {
     public function __construct()
     {
@@ -19,9 +19,9 @@ class TagTagController extends Controller
     public function index()
     {
         $this->ccan('Show Tag');
-
-        $postTag=PostTag::orderBy('id','DESC')->paginate(10);
-        return view('backend.posttag.index')->with('postTags',$postTag);
+        $n['count'] = PostTag::get();
+        $n['postTags']=PostTag::orderBy('id','DESC')->paginate(10);
+        return view('backend.posttag.index',$n);
     }
 
     /**

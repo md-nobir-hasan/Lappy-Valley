@@ -21,7 +21,7 @@ class ShippingController extends Controller
     {
         $this->ccan('Show Shipping');
 
-        $shipping=Shipping::orderBy('id','DESC')->paginate(10);
+        $n['shippings']=Shipping::orderBy('id','DESC')->paginate(10);
         $n['count'] = Shipping::get();
         return view('backend.shipping.index',$n);
     }
