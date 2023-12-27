@@ -1875,6 +1875,10 @@ input[type="range"]:active::-webkit-slider-thumb{
   height: ;
 }
 
+.h-\[1\]{
+  height: 1;
+}
+
 .max-h-20{
   max-height: 5rem;
 }

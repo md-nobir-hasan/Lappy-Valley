@@ -15,7 +15,7 @@
              // dd($photo);
          @endphp
      @endif
-     <img src="{{ $photo }}" class="object-center" alt="{{ $product->title }}">
+     <img src="{{ $photo }}" class="object-center h-[180px]" alt="{{ $product->title }}">
      {{-- @else
              <img src="{{ asset('backend/img/thumbnail-default.jpg') }}" class="rounded-t-lg img-fluid "
                  data-te-ripple-init data-te-ripple-color="dark" alt="avatar.png">
