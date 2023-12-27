@@ -397,9 +397,9 @@
                                                     @foreach ($products as $prd)
                                                         <li>
                                                             <a href="{{ route('product.details', [$prd->slug]) }}"
-                                                                wire:navigate class="flex">
+                                                                wire:navigate class="flex font-[400] font-[jost] text-[#380D37] text-[14px] max-sm:text-[12px]">
                                                                 <img src="{{ explode(',', $prd->photo)[0] }}"
-                                                                    alt="" width="40px" height="40px">
+                                                                    alt="" class="w-[40px] max-sm:w-auto max-sm:h-auto h-[40px]">
                                                                 <div>
                                                                     <span>{{ $prd->title }}</span>
                                                                     <p>
@@ -464,7 +464,7 @@
         </div>
     </header>
     <div
-        class='h-[68px] max-sm:h-[50px] text-[#f2f2f2] px-[72px] max-xl:px-[60px] max-md:px-[40px] font-[jost] xl:hidden max-xl:block items-center z-[9999] fixed bottom-0 left-0 right-0  bg-gradient-to-r from-[#380D37] to-[#DC275C]'>
+        class='h-[68px] max-sm:h-[50px] text-[#f2f2f2] px-[72px] max-xl:px-[60px] max-md:px-[40px] font-[jost] xl:hidden max-xl:block items-center z-[9999] fixed bottom-0 left-0 right-0 shadow bg-gradient-to-r from-[#380D37] to-[#DC275C] border-t-[2px] border-[#f2f2f2]'>
         <div class='flex items-center justify-between gap-[20px] my-[15px]'>
             <!-- <div class="flex item-center "> -->
             <a href="{{ route('offer') }}" wire:navigate
