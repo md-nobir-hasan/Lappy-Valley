@@ -18,6 +18,7 @@ class ssdController extends Controller
     public function index()
     {
         $n['mdata'] = ssd::paginate(10);
+        $n['count'] = ssd::get();
         return view('backend.product-attribute.ssd.index', $n);
     }
 

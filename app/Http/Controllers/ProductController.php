@@ -35,10 +35,11 @@ class ProductController extends Controller
 
     public function index()
     {
-        $products=Product::with('cat_info', 'sub_cat_info','brand','ProcessorGeneration','ProcessorModel','DisplayType','DisplaySize','Ram','ssd','hdd','Graphic','SpecialFeature')
-                            ->latest()->paginate(10);
+        $n['products']=Product::with('cat_info', 'sub_cat_info','brand','ProcessorGeneration','ProcessorModel','DisplayType','DisplaySize','Ram','ssd','hdd','Graphic','SpecialFeature')
+                            ->latest()->get();
+        $n['count'] = Product::get();
         // return $products;
-        return view('backend.product.index')->with('products',$products);
+        return view('backend.product.index',$n);
     }
 
     /**

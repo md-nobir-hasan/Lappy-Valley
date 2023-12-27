@@ -10,13 +10,14 @@
             @include('backend.layouts.notification')
          </div>
      </div>
-    <div class="py-3 card-header">
+    <div class="py-3 card-header d-flex justify-content-between">
       <h6 class="float-left m-0 font-weight-bold text-primary">Users List</h6>
+      <h6 class="font-weight-bold text-primary">Total: {{count($count)}} || Active: {{count($count->where('status','active'))}} || Inactive: {{count($count->where('status','inactive'))}}</h6>
       <a href="{{route('auser.users.create')}}" class="float-right btn btn-primary btn-sm" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add User</a>
     </div>
     <div class="card-body">
       <div class="table-responsive">
-        <table class="table table-bordered" id="user-dataTable" width="100%" cellspacing="0">
+        <table class="table table-bordered table-striped" id="user-dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
               <th>S.N.</th>
@@ -95,7 +96,7 @@
             @endforeach
           </tbody>
         </table>
-        <span style="float:right">{{$users->links('vendor.pagination.bootstrap-4')}}</span>
+        <span>{{$users->links('vendor.pagination.bootstrap-5')}}</span>
       </div>
     </div>
 </div>

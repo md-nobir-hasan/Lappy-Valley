@@ -10,11 +10,17 @@
          </h1>
          <div class='h-[2px] bg-[#764A87]'></div>
      </div>
+
      {{-- <!-- -------------order-table--section----------- --> --}}
      <section class="mt-[20px]">
-         <div class="my-[10px]">
-             <h1 class="text-[#353535] text-[20px] font-[jost] font-[500]">Shopping Cart</h1>
-         </div>
+       <div class="my-[10px] flex justify-between items-center">
+        <div>
+            <span class="text-[#353535] text-[20px] font-[jost] font-[500]">Shopping Cart</span>
+        </div>
+        <div>
+          <a href="#" class="text-[#2F37FF] text-[12px] font-[Inter] font-[400] leading-[14.52px] cursor-pointer">Add a coupon code?</a>
+        </div>
+       </div>
          <div class="overflow-auto rounded-lg shadow">
              <table class="w-full text-[#FFFFFF] text-[14px] font-[jost] font-[500] bg-[#380D37]">
                  <thead class="w-full text-[#FFFFFF]  bg-[#380D37]">

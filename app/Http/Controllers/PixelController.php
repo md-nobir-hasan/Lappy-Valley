@@ -18,6 +18,7 @@ class PixelController extends Controller
     public function index()
     {
         $n['mdata'] = Pixel::paginate(10);
+        $n['count'] = Pixel::get();
         return view('backend.seo.pixel.index', $n);
     }
 

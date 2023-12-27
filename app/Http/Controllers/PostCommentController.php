@@ -23,8 +23,9 @@ class PostCommentController extends Controller
     {
         $this->ccan('Show Comment');
 
-        $comments=PostComment::getAllComments();
-        return view('backend.comment.index')->with('comments',$comments);
+        $n['comments']=PostComment::getAllComments();
+        $n['count'] = PostComment::get();
+        return view('backend.comment.index',$n);
     }
 
     /**

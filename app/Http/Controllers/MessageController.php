@@ -13,8 +13,9 @@ class MessageController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        $messages=Message::paginate(20);
-        return view('backend.message.index')->with('messages',$messages);
+        $n['messages']=Message::paginate(20);
+        $n['count'] = Message::get();
+        return view('backend.message.index',$n);
     }
     public function messageFive()
     {
@@ -60,7 +61,7 @@ class MessageController extends Controller
         $data['message']=$message->message;
         $data['subject']=$message->subject;
         $data['photo']=Auth()->user()->photo;
-        // return $data;    
+        // return $data;
         event(new MessageSent($data));
         exit();
     }

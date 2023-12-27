@@ -18,6 +18,7 @@ class ProductOfferController extends Controller
     public function index()
     {
         $n['mdata'] = ProductOffer::paginate(10);
+        $n['count'] = ProductOffer::get();
         return view('backend.product-attribute.product-offer.index', $n);
     }
 

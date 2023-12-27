@@ -23,7 +23,7 @@ class UsersController extends Controller
         $this->ccan('Show User');
 
         $n['users']=User::orderBy('id','ASC')->paginate(10);
-
+        $n['count'] = User::get();
         return view('backend.auser.users.index',$n);
     }
 

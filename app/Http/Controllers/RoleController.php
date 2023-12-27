@@ -22,7 +22,7 @@ class RoleController extends Controller
         $this->ccan('Show Role');
 
         $n['roles'] = Role::with('permissions')->paginate(10);
-
+        $n['count'] = Role::get();
         return view('backend.auser.role.index',$n);
     }
 
