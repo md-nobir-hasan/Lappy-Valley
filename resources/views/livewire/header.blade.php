@@ -397,9 +397,9 @@
                                                     @foreach ($products as $prd)
                                                         <li>
                                                             <a href="{{ route('product.details', [$prd->slug]) }}"
-                                                                wire:navigate class="flex">
+                                                                wire:navigate class="flex font-[400] font-[jost] text-[#380D37] text-[14px] max-sm:text-[12px]">
                                                                 <img src="{{ explode(',', $prd->photo)[0] }}"
-                                                                    alt="" width="40px" height="40px">
+                                                                    alt="" class="w-[40px] max-sm:w-auto max-sm:h-auto h-[40px]">
                                                                 <div>
                                                                     <span>{{ $prd->title }}</span>
                                                                     <p>
