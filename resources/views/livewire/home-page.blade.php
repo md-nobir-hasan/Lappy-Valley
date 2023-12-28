@@ -27,21 +27,19 @@
                 <!-- The previous button -->
                 <div class="w-full mx-auto absolute top-0 bottom-0 flex justify-between items-center">
                     <a id="move_back" value='0'
-                        class="slide_icon md:translate-x-[-30px] text-[40px] text-blue-500 opacity-50 hover:opacity-100 cursor-pointer">
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                            class="w-[18px] h-[36px]" viewBox="0 0 23 40"
-                            fill="none">
-                            <path d="M21 2L3 20L21 38" stroke="#999999" stroke-opacity="1" stroke-width="5" />
-                        </svg>
+                        class="slide_icon sm:translate-x-[-40px] text-[40px] text-blue-500 opacity-50 hover:opacity-100 cursor-pointer">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12">
+                            <path stroke-linecap="round" class="max-sm:stroke-[#f2f2f2]"  stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                          </svg>
+                          
                     </a>
                     <!-- The next button -->
                     <a id="move_front" value='0'
-                        class="slide_icon md:translate-x-[30px]  text-[40px] text-blue-500 opacity-50 hover:opacity-100 cursor-pointer"><svg
-                            xmlns="http://www.w3.org/2000/svg" class="w-[18px] h-[36px]"
-                            viewBox="0 0 23 40" fill="none">
-                            <path :class="{ 'text-[black]': active }" d="M2 2L20 20L2 38" stroke="#999999"
-                                stroke-opacity="0.5" stroke-width="5" />
-                        </svg>
+                        class="slide_icon sm:translate-x-[40px]  text-[40px] text-blue-500 opacity-50 hover:opacity-100 cursor-pointer">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12">
+                            <path :class="{ 'text-blue-500': active }" class="max-sm:stroke-[#f2f2f2]" stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                          </svg>
+                          
                     </a>
                 </div>
             </div>
