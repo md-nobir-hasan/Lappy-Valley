@@ -982,9 +982,7 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
                     <div
                         class="col-span-2 flex justify-between text-center items-center font-[jost] font-[500] text-[17px]">
 
@@ -1053,21 +1051,22 @@
                 <template x-if="products">
                     <div>
                         <div x-show="ajaxProduct" id="product_pdiv">
-                            <div class='grid grid-cols-4 gap-8 mx-auto mt-4 product_pdiv'>
+                            <div class='grid grid-cols-4 max-lg:grid-cols-3 max-sm:grid-cols-2 gap-8 mx-auto mt-4 product_pdiv'>
                                 {{-- x-if="Object.keys(products).length > 0" --}}
                                 <template x-for="product in pagi_products" id="product">
                                     <div
                                         class="product_div relative overflow-hidden border-[1px] border-[#380D37] bg-[#f2f2f2] rounded-[4px] box-border px-[5px] mt-2 flex flex-col gap-2 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] ">
 
-                                        <img :src="product.photo.split(',')[0]" class="rounded-t-lg img-fluid h-[180px]"
-                                            data-te-ripple-init data-te-ripple-color="dark" alt="avatar.png">
+                                       <div class="image-container flex justify-center items-center">
+                                        <img :src="product.photo.split(',')[0]" class="rounded-t-lg img-fluid h-[180px] object-container"
+                                        data-te-ripple-init data-te-ripple-color="dark" alt="avatar.png">
+                                       </div>
 
                                         <div class="p-4 max-sm:p-[8px] border-t-[1px] border-b-[1px]  border-[#380D3733]">
                                             <div class=' border-[#380D3733] mb-2'>
-                                                <h1 class="font-[jost] text-[12px] font-[500] leading-[20px] text-left text-[#380D37]"
+                                                <a href="#" class="font-[jost] text-[12px] font-[500] leading-[20px] text-left text-[#380D37] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-1 hover:underline hover:underline-offset-4"
                                                     x-text='product.title'>
-
-                                                </h1>
+                                                </a>
                                             </div>
                                             <div class='mb-4'>
                                                 <ul
@@ -1137,7 +1136,7 @@
                                                 <template x-for="npage in page_num" :key="npage">
                                                     <span x-text='npage' @click='pageChange(npage)'
                                                         class="relative inline-flex items-center px-4 py-2 -ml-px text-[12px] text-[#353535] font-[jost] font-[500] leading-[17.34px] bg-[#f2f2f2] transition duration-150 ease-in-out border border-gray-300 cursor-pointer hover:text-gray-500 focus:z-10 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700"
-                                                        :class="current_page == npage ? 'bg-[#380D37] text-[#F2F2F2]' :
+                                                        :class="current_page == npage ? 'text-[#353535] bg-[#F2F2F2]' :
                                                             'bg-[#F2F2F2] text-[#380D37]'"
                                                         aria-label="Go to page 2">
                                                     </span>
@@ -1154,10 +1153,10 @@
                                         <div>
                                             <p class="text-[12px] text-[#353535] font-[jost] font-[500] leading-[17.34px] bg-[#f2f2f2]">
                                                 Showing
-                                                <span x-text='show_from' class="font-[jost] font-[500] text-[12px] text-[#353535]"
+                                                <span x-text='show_from' class="font-[jost] font-[500] text-[12px] text-[#353535] bg-[#f2f2f2]"
                                                     id="showing_from">1</span>
                                                 to
-                                                <span x-text='show_to' class="font-[jost] font-[500] text-[12px] text-[#353535]" id="showing_to">20</span>
+                                                <span x-text='show_to' class="font-[jost] font-[500] text-[12px] text-[#353535] bg-[#f2f2f2]" id="showing_to">20</span>
                                                 of
                                                 <span x-text='total_product' class="text-[12px] text-[#353535] font-[jost] font-[500]"></span>
                                                 results (<span x-text='page_num'></span> pages)

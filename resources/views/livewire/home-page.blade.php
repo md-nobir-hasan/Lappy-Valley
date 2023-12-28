@@ -19,8 +19,8 @@
                     $bnrs = explode(',', $home_banner->photo);
                 @endphp
                 @foreach ($bnrs as $banner)
-                    <div class="{{ $loop->first ? '' : ' hidden' }} slide w-full object-cover">
-                        <img class="w-full mx-auto" src="{{ $banner }}">
+                    <div class="{{ $loop->first ? '' : ' hidden' }} slide w-full">
+                        <img class="w-full mx-auto object-cover" src="{{ $banner }}">
                     </div>
                 @endforeach
 
@@ -269,9 +269,9 @@
                             <div
                                 class="w-[221px] h-[376px] max-xl:w-full mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white px-2 pt-2 pb-3 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
 
-                                <div class="image-container">
-                                    <a href="{{ route('product.details', [$f_product->slug]) }}" wire:navigate>
-                                        <img src="{{ $f_product->img()[0] }}" alt="" class="h-[180px] object-cover">
+                                <div class="image-container h-[180px]">
+                                    <a href="{{ route('product.details', [$f_product->slug]) }}" wire:navigate class="h-full">
+                                        <img src="{{ $f_product->img()[0] }}" alt="" class="h-full object-container">
                                     </a>
                                 </div>
                                 <div>
@@ -537,9 +537,9 @@
                             <div
                                 class="w-[221px] h-[376px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white px-2 pt-2 pb-3 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
 
-                                <div class="image-container">
-                                    <a href="{{ route('product.details', [$a_product->slug]) }}" wire:navigate>
-                                        <img src="{{ $a_product->img()[0] }}" alt="" class="h-[180px] object-cover">
+                                <div class="image-container h-[180px]">
+                                    <a href="{{ route('product.details', [$a_product->slug]) }}" wire:navigate class="h-full">
+                                        <img src="{{ $a_product->img()[0] }}" alt="" class="h-full object-container">
                                     </a>
                                 </div>
                                 <div class="">
