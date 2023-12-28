@@ -25,9 +25,9 @@
                 @endforeach
 
                 <!-- The previous button -->
-                <div class="w-full mx-auto">
+                <div class="w-full mx-auto absolute top-0 bottom-0 flex justify-between items-center">
                     <a id="move_back" value='0'
-                        class="slide_icon absolute left-0 top-1/2 p-4 -translate-y-1/2 -translate-x-[42px] text-[40px] text-blue-500 opacity-50 hover:opacity-100 cursor-pointer">
+                        class="slide_icon md:translate-x-[-30px] text-[40px] text-blue-500 opacity-50 hover:opacity-100 cursor-pointer">
                         <svg xmlns="http://www.w3.org/2000/svg"
                             class="w-[18px] h-[36px]" viewBox="0 0 23 40"
                             fill="none">
@@ -36,7 +36,7 @@
                     </a>
                     <!-- The next button -->
                     <a id="move_front" value='0'
-                        class="slide_icon absolute right-0 top-1/2 p-4 -translate-y-1/2 translate-x-[42px] text-[40px] text-blue-500 opacity-50 hover:opacity-100 cursor-pointer"><svg
+                        class="slide_icon md:translate-x-[30px]  text-[40px] text-blue-500 opacity-50 hover:opacity-100 cursor-pointer"><svg
                             xmlns="http://www.w3.org/2000/svg" class="w-[18px] h-[36px]"
                             viewBox="0 0 23 40" fill="none">
                             <path :class="{ 'text-[black]': active }" d="M2 2L20 20L2 38" stroke="#999999"
