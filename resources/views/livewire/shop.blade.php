@@ -1059,7 +1059,7 @@
                                     <div
                                         class="product_div relative overflow-hidden border-[1px] border-[#380D37] bg-[#f2f2f2] rounded-[4px] box-border px-[5px] mt-2 flex flex-col gap-2 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] ">
 
-                                        <img :src="product.photo.split(',')[0]" class="rounded-t-lg img-fluid "
+                                        <img :src="product.photo.split(',')[0]" class="rounded-t-lg img-fluid h-[180px]"
                                             data-te-ripple-init data-te-ripple-color="dark" alt="avatar.png">
 
                                         <div class="p-4 max-sm:p-[8px] border-t-[1px] border-b-[1px]  border-[#380D3733]">

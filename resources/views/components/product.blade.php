@@ -1,15 +1,15 @@
 {{-- @foreach ($products as $product) --}}
 <div
-    class="w-[221px] max-md:w-full mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
+    class="w-[221px] h-[376px] max-md:w-full mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white px-2 pt-2 pb-3 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
     <div class="image-container">
         <a href="{{ route('product.details', [$product->slug]) }}" wire:navigate>
             @if ($product->photo)
                 @php
                     $photo = explode(',', $product->photo);
                 @endphp
-                <img src="{{ $photo[0] }}" class="object-center pimg" alt="{{ $product->photo }}">
+                <img src="{{ $photo[0] }}" class="object-cover pimg h-[180px]" alt="{{ $product->photo }}">
             @else
-                <img src="{{ asset('backend/img/thumbnail-default.jpg') }}" class="object-center pimg" alt="avatar.png">
+                <img src="{{ asset('backend/img/thumbnail-default.jpg') }}" class="object-cover pimg h-[180px]" alt="avatar.png">
             @endif
         </a>
     </div>
@@ -22,7 +22,7 @@
         </a>
     </div>
     {{ $slot }}
-    <div class="flex justify-between text-[14px] mt-auto font-[jost] font-[700] py-[10px] leading-[20.23px]">
+    <div class="flex justify-between text-[14px] mt-auto font-[jost] font-[700] leading-[20.23px]">
         <span class="pprice text-[#DC275C]"
             value='{{ $product->final_price }}'>{{ number_format($product->final_price) }} TK
         </span>

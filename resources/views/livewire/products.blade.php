@@ -1,4 +1,4 @@
-<div class="w-[221px] max-md:w-full mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
+<div class="w-[221px] h-[376px] max-md:w-full mx-auto flex flex-col bg-white px-2 pt-2 pb-3 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
     <div class="product_div imgae-container">
         <a href="{{ route('product.details') }}">
             @if ($product->photo)
@@ -6,9 +6,9 @@
                     $photo = explode(',', $product->photo);
                     // dd($photo);
                 @endphp
-                <img src="{{ $photo[0] }}" class="img-fluid zoom" style="max-width:80px" alt="{{ $product->photo }}">
+                <img src="{{ $photo[0] }}" class="img-fluid zoom h-[180px] object-cover" style="max-width:80px" alt="{{ $product->photo }}">
             @else
-                <img src="{{ asset('backend/img/thumbnail-default.jpg') }}" class="img-fluid" style="max-width:80px"
+                <img src="{{ asset('backend/img/thumbnail-default.jpg') }}" class="img-fluid h-[180px] object-cover" style="max-width:80px"
                     alt="avatar.png">
             @endif
             {{-- <img class="object-center pimg" src="{{$product->photo}}" alt=""> --}}
@@ -43,7 +43,7 @@
                         </p>
                        </a>
                     </div>
-                    <div class="flex justify-between text-[14px] mt-auto font-[jost] font-[700] py-[10px] leading-[20.23px]">
+                    <div class="flex justify-between text-[14px] mt-auto font-[jost] font-[700] leading-[20.23px]">
                         
                             <span class="pprice text-[#DC275C]"
                                 value='{{ $product->final_price }}'>{{ number_format($product->final_price) }} TK
