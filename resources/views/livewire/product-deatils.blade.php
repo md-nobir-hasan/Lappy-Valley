@@ -776,7 +776,7 @@
             </section>
             <section class="mt-[20px] border-[2px] max-sm:border-[1px] border-[#380D37] p-[20px] rounded-[5px]"
                 id='review'>
-                <div class="flex items-center justify-between">
+                <div class="flex items-center justify-between gap-[5px]">
                     <div class="">
                         <div class="title-n-action">
                             <h2 class="my-[10px] font-[jost] max-sm:text-[16px] font-[500]">
@@ -789,7 +789,7 @@
                     </div>
                     <div class="">
                         <button type="button"
-                            class="fill-up-btn inline-block rounded bg-gradient-to-r from-[#380D37] to-[#DC275C] px-6 max-sm:px-[10px] pb-2 pt-2.5 text-[#f2f2f2] text-[16px] max-sm:text-[11px] max-lg:text-[14px] font-[500] font-[jost]"
+                            class="fill-up-btn max-sm:w-[100px] w-[130px] inline-block rounded bg-gradient-to-r from-[#380D37] to-[#DC275C] px-2 max-sm:px-[10px] pb-2 pt-2.5 text-[#f2f2f2] text-[16px] max-sm:text-[11px] max-lg:text-[14px] font-[500] font-[jost]"
                             data-te-toggle="modal" data-te-target="#exampleModalCenteredScrollable"
                             data-te-ripple-init data-te-ripple-color="light">
                             Write a review
