@@ -16,6 +16,11 @@ return new class extends Migration
             $table->integer('new_product')->default(10);
             $table->integer('popular_product')->default(21);
             $table->integer('most_viewed_product')->default(25);
+            $table->string('fb')->nullable();
+            $table->string('youtube')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('linkedin')->nullable();
+            $table->string('email')->nullable();
             $table->timestamps();
         });
     }

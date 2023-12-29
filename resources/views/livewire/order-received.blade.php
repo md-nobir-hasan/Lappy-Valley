@@ -165,10 +165,12 @@
                         </svg>
                     </span>
                 </div>
-                <div class="bg-[#fff] leading-5 max-sm:flex max-sm:flex-col">
+               <a href="{{}}">
+                 <div class="bg-[#fff] leading-5 max-sm:flex max-sm:flex-col">
                     <span class="text-blue-900 text-[14px] font-[jost] font-[700]">Find us on</span>
                     <span class="text-blue-900 text-[18px] font-[jost] font-[700]">Facebook</span>
                 </div>
+               </a>
             </a>
         </div>
         <div class='h-[2px] bg-[#764A8733]'></div>

@@ -10,7 +10,8 @@
             @foreach ($offers as $offer)
                 <div class='bg-[#f2f2f2] rounded-[4px] py-[15px] px-[20px] w-full'>
                     <div class='rounded-[4px]'>
-                        <img class='w-full' src="{{ $offer->img()[0] }}" alt="Product">
+                        <a href="{{route('product.details',[$offer->slug])}}">
+                        <img class='w-full' src="{{ $offer->img()[0] }}" alt="Product"></a>
                     </div>
 
                     <div class='flex justify-between py-[10px] border-b-[1px] border-[#380D3733]'>

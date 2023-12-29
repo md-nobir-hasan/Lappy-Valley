@@ -59,7 +59,7 @@ class LoginController extends Controller
         // dd($users);
         if($users){
             Auth::login($users);
-            return redirect('/')->with('success','You are login from '.$provider);
+            return redirect('/account')->with('success','You are login from '.$provider);
         }else{
 
             $user = User::create([
@@ -69,7 +69,7 @@ class LoginController extends Controller
                 'provider_id'   => $userSocial->getId(),
                 'provider'      => $provider,
             ]);
-         return redirect()->route('home');
+         return redirect()->route('/account');
         }
     }
 }
