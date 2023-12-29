@@ -7991,6 +7991,16 @@ input[type="range"]:active::-webkit-slider-thumb{
     padding-bottom: 8px;
   }
 
+  .max-sm\:py-\[\]{
+    padding-top: ;
+    padding-bottom: ;
+  }
+
+  .max-sm\:py-\[10px\]{
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
   .max-sm\:pb-\[0px\]{
     padding-bottom: 0px;
   }
