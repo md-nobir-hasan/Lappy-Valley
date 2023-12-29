@@ -1,8 +1,8 @@
  <div x-data="{
-    total: '{{ $carts->sum('amount') }}',
-    all_total: {{ $carts->sum('amount') }},
-    carts: {{$carts}},
-}"
+     total: '{{ $carts->sum('amount') }}',
+     all_total: {{ $carts->sum('amount') }},
+     carts: {{ $carts }},
+ }"
      class="px-[100px] max-2xl:px-[70px] max-xl:px-[60px] max-lg:px-[38px] max-md:px-[35px] max-sm:px-[15px] max-sm:mt-[70px] max-xl:mt-[100px]">
      <div class="">
          <h1 class='font-[jost] xl:text-[20px] font-[400] leading-[25.3px] text-[#353535]'>
@@ -13,39 +13,112 @@
 
      {{-- <!-- -------------order-table--section----------- --> --}}
      <section class="mt-[20px] relative">
-       <div class="my-[10px] flex justify-between items-center">
-        <div>
-            <span class="text-[#353535] text-[20px] font-[jost] font-[500]">Shopping Cart</span>
-        </div>
-       <div>
-        <div class="border-b-[1px] border-[#2F37FF]">
-            <span id='add' class="text-[#2F37FF] text-[12px] font-[Inter] font-[400] leading-[14.52px] cursor-pointer">Add a coupon code?</span>
-          </div>
+         <div class="my-[10px] flex justify-between items-center">
+             <div>
+                 <span class="text-[#353535] text-[20px] font-[jost] font-[500]">Shopping Cart</span>
+             </div>
+             <div>
+                 <div class="border-b-[1px] border-[#2F37FF]">
+                     <span id='add'
+                         class="text-[#2F37FF] text-[12px] font-[Inter] font-[400] leading-[14.52px] cursor-pointer"
+                         data-te-toggle="modal" data-te-target="#exampleModalFirst" data-te-ripple-init
+                         data-te-ripple-color="light">
+                         Add a coupon code?</span>
+                 </div>
+                 {{-- -------------------------------------- --}}
 
-   <div id='add-coupon'  class="hidden absolute top-0 bottom-0 left-0 w-[388px] border-[1px] border-[#380D37] rounded-[4px] mx-auto">
-    <div class=" flex flex-col gap-[15px] p-6">
-        <div>
-            <span class="text-[20px] text-[#380D37] font-[jost] font-[500] leading-[28.9px]">Add Coupon:</span>
-        </div>
-        <div>
-            <input type="text" placeholder='HXZ123' class="w-full py-[15px] px-[10px] placeholder-[#C4C4C4] bg-[#F2F2F2] text-[#000000] text-[16px] font-[jost] font-[500] leading-[23.12px]">
-        </div>
-        <div class="w-full flex justify-center items-center">
-            <button class="text-[#F2F2F2] text-[14px] font-[jost] font-[500] px-[40px] py-[10px] leading-[20.23px] rounded-[4px] bg-gradient-to-r from-[#380D37] to-[#DC275C]">Add</button>
-        </div>
-    </div>
-   </div>
-
-<script>
-   $('#add').on('click', function() {
-    // $("#add-coupon").toggle();
-    $("#add-coupon").addClass('block');
-    $("#add-coupon").removeClass('hidden');
+                 <!-- First Modal -->
+                 <div data-te-modal-init
+                     class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+                     id="exampleModalFirst" tabindex="-1" aria-labelledby="exampleModalFirstLabel" aria-hidden="true">
+                     <div data-te-modal-dialog-ref
+                         class="pointer-events-none relative translate-y-[-50px] opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:max-w-[500px]">
+                         
+                            <div
+                             class="p-6 gap-6 max-sm:ml-[10px] max-sm:mt-[120px] max-md:mt-[155px] mt-[200px] w-[388px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] pointer-events-auto relative flex w-full flex-col bg-[#fff] rounded-[4px] border-[2px] border-[#380D37]">
+                             <div>
+                                 <h5 class="text-[20px] text-[#380D37] font-[jost] font-[500] leading-[28.9px]"
+                                     id="exampleModalFirstLabel">
+                                     Add Coupon
+                                 </h5>
+                             </div>
+                             <div>
+                                 <input type="text" placeholder='HXZ123'
+                                     class="w-full py-[15px] px-[10px] placeholder-[#C4C4C4] bg-[#F2F2F2] text-[#000000] text-[16px] font-[jost] font-[500] leading-[23.12px]">
+                             </div>
+                             <div class="w-full flex justify-center items-center">
+                                 <span data-te-modal-dismiss>
+                                     <button type="button"
+                                         class="text-[#F2F2F2] text-[14px] font-[jost] font-[500] px-[60px] py-[14px] leading-[20.23px] rounded-[4px] bg-gradient-to-r from-[#380D37] to-[#DC275C]"
+                                         data-te-ripple-init data-te-ripple-color="light" data-te-toggle="modal"
+                                         data-te-target="#exampleModalSecond" data-te-ripple-init
+                                         data-te-ripple-color="light">
+                                         Add
+                                     </button>
+                                 </span>
+                             </div>
+                         </div>
+                         </div>
                   
-         });
-</script>
-       </div>
-       </div>
+                 </div>
+
+                 <!-- Second Modal -->
+                 <div data-te-modal-init
+                     class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+                     id="exampleModalSecond" tabindex="-1" aria-labelledby="exampleModalSecondLabel"
+                     aria-hidden="true">
+                     <div data-te-modal-dialog-ref
+                         class="pointer-events-none relative w-auto translate-y-[-50px] opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:max-w-[500px]">
+                         <div
+                             class="px-6 py-14 gap-6 max-sm:mt-[120px] max-md:mt-[155px] mt-[200px]  min-[300px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] pointer-events-auto relative flex w-full flex-col justify-center items-center bg-[#fff] rounded-[4px] border-[2px] border-[#380D37]">
+                             <div class="w-[60px] h-[60px] bg-[#DC275C] rounded-[50%] flex justify-center items-center">
+                               
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#f2f2f2" class="w-8 h-8">
+                                        <path  stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                      </svg>                                      
+                            
+                             </div>
+                             <div>
+                                <h5 class="text-[#380D37] text-[20px] font-[jost] font-[500] leading-[28.9px]">
+                                    Coupon Added
+                                </h5>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+
+                 {{-- --------------------------- --}}
+
+
+
+                 <div
+                     class="hidden absolute top-0 bottom-0 left-0 w-[388px] border-[1px] border-[#380D37] rounded-[4px] mx-auto">
+                     <div class=" flex flex-col gap-[15px] p-6">
+                         <div>
+                             <span class="text-[20px] text-[#380D37] font-[jost] font-[500] leading-[28.9px]">Add
+                                 Coupon:</span>
+                         </div>
+                         <div>
+                             <input type="text" placeholder='HXZ123'
+                                 class="w-full py-[15px] px-[10px] placeholder-[#C4C4C4] bg-[#F2F2F2] text-[#000000] text-[16px] font-[jost] font-[500] leading-[23.12px]">
+                         </div>
+                         <div class="w-full flex justify-center items-center">
+                             <button
+                                 class="text-[#F2F2F2] text-[14px] font-[jost] font-[500] px-[40px] py-[10px] leading-[20.23px] rounded-[4px] bg-gradient-to-r from-[#380D37] to-[#DC275C]">Add</button>
+                         </div>
+                     </div>
+                 </div>
+
+                 <script>
+                     $('#add').on('click', function() {
+                         // $("#add-coupon").toggle();
+                         $("#add-coupon").addClass('block');
+                         $("#add-coupon").removeClass('hidden');
+
+                     });
+                 </script>
+             </div>
+         </div>
          <div class="overflow-auto rounded-lg shadow">
              <table class="w-full text-[#FFFFFF] text-[14px] font-[jost] font-[500] bg-[#380D37]">
                  <thead class="w-full text-[#FFFFFF]  bg-[#380D37]">
@@ -76,7 +149,7 @@
                      @empty
                      @endforelse --}}
                      <template x-for='cart in carts' :key='cart.id'>
-                          <tr class="items-center bg-white" x-data="{
+                         <tr class="items-center bg-white" x-data="{
                              qty: cart.quantity,
                              price: cart.price,
                              amount: cart.amount,
@@ -131,42 +204,40 @@
                                      method: 'get',
                                      data: { id: cart.id, mt: 'Cart' },
                                      success: (res) => {
-                                        console.log(res)
-                                        carts = res.carts;
+                                         console.log(res)
+                                         carts = res.carts;
                                          if (res.msg) {
                                              toastr.warning(res.msg)
                                          } else {
                                              total = total - this.amount;
                                              this.cp_show = false;
-
+                         
                                          }
-                                        let cart_count =  Number($('.cart_count:eq(1)').text());
-                                        $('.cart_count').text(cart_count-1);
+                                         let cart_count = Number($('.cart_count:eq(1)').text());
+                                         $('.cart_count').text(cart_count - 1);
                                      }
                                  });
                              },
-                              sync() {
+                             sync() {
                                  $.ajax({
                                      url: '{{ route('sync') }}',
                                      method: 'get',
                                      data: { id: cart.id, mt: 'Cart' },
                                      success: (res) => {
-                                        console.log(res)
-                                        carts = res.carts;
-                                        toastr.success('Cart syncing succeed')
+                                         console.log(res)
+                                         carts = res.carts;
+                                         toastr.success('Cart syncing succeed')
                                      }
                                  });
                              },
-                            }">
+                         }">
                              <td class=" p-3 tracking-wide text-left text-[14px] whitespace-nowrap">
-                                 <img class="w-[48px] h-[48px]"
-                                 :src='cart.product.photo.split(",")[0]'
-                                 {{-- src="{{ $cart->product->img()[0] }}" --}}
-                                     :alt="cart.product.title">
+                                 <img class="w-[48px] h-[48px]" :src='cart.product.photo.split(",")[0]'
+                                     {{-- src="{{ $cart->product->img()[0] }}" --}} :alt="cart.product.title">
                              </td>
                              <td
                                  class="p-3 tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]">
-                             <span x-text='cart.product.title'></span>
+                                 <span x-text='cart.product.title'></span>
                                  {{-- {{ $cart->product->title }} --}}
 
                              </td>
@@ -182,7 +253,8 @@
 
                                          <span @click='minus'>
                                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                 stroke-width="1.5" stroke="currentColor" class="w-4 h-4 cursor-pointer">
+                                                 stroke-width="1.5" stroke="currentColor"
+                                                 class="w-4 h-4 cursor-pointer">
                                                  <path stroke-linecap="round" stroke-linejoin="round" d="M18 12H6" />
                                              </svg>
                                          </span>
@@ -190,7 +262,8 @@
                                          </span>
                                          <span @click='plus'>
                                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                 stroke-width="1.5" stroke="currentColor" class="w-4 h-4 cursor-pointer">
+                                                 stroke-width="1.5" stroke="currentColor"
+                                                 class="w-4 h-4 cursor-pointer">
                                                  <path stroke-linecap="round" stroke-linejoin="round"
                                                      d="M12 6v12m6-6H6" />
                                              </svg>
@@ -280,7 +353,7 @@
      </table>
 
      <div class="flex justify-end my-[60px] max-sm:my-[35px]">
-         <a href="{{ route('checkout',['one_time']) }}" wire:navigate>
+         <a href="{{ route('checkout', ['one_time']) }}" wire:navigate>
              <button
                  class="fill-up-btn bg-gradient-to-r from-[#380D37] to-[#DC275C] py-[10px] px-[40px] max-sm:px-[25px] text-[14px] max-sm:text-[12px] text-[#fff] font-[jost] font-[500] rounded-[5px]">Confirm
                  Order</button>
