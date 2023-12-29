@@ -8,7 +8,7 @@
          <h1 class='font-[jost] xl:text-[20px] font-[400] leading-[25.3px] text-[#353535]'>
              Shopping Cart/View Cart
          </h1>
-         <div class='h-[2px] bg-[#764A87]'></div>
+         <div class='h-[2px] bg-[#764A8733]'></div>
      </div>
 
      {{-- <!-- -------------order-table--section----------- --> --}}
@@ -17,9 +17,14 @@
         <div>
             <span class="text-[#353535] text-[20px] font-[jost] font-[500]">Shopping Cart</span>
         </div>
-        <div>
-          <a href="#" class="text-[#2F37FF] text-[12px] font-[Inter] font-[400] leading-[14.52px] cursor-pointer">Add a coupon code?</a>
-        </div>
+       <div>
+        <div class="border-b-[1px] border-[#2F37FF]">
+            <a href="#" class="text-[#2F37FF] text-[12px] font-[Inter] font-[400] leading-[14.52px] cursor-pointer">Add a coupon code?</a>
+          </div>
+    <div>
+        <span></span>
+    </div>
+       </div>
        </div>
          <div class="overflow-auto rounded-lg shadow">
              <table class="w-full text-[#FFFFFF] text-[14px] font-[jost] font-[500] bg-[#380D37]">

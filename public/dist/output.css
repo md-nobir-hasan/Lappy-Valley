@@ -3322,6 +3322,15 @@ input[type="range"]:active::-webkit-slider-thumb{
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
 
+.border-\[\]{
+  border-color: ;
+}
+
+.border-\[\#2F37FF\]{
+  --tw-border-opacity: 1;
+  border-color: rgb(47 55 255 / var(--tw-border-opacity));
+}
+
 .border-b-\[\#3535354D\]{
   border-bottom-color: #3535354D;
 }
@@ -3336,6 +3345,14 @@ input[type="range"]:active::-webkit-slider-thumb{
 
 .border-t-transparent{
   border-top-color: transparent;
+}
+
+.border-b-\[\]{
+  border-bottom-color: ;
+}
+
+.border-b-\[1\]{
+  border-bottom-color: 1;
 }
 
 .border-opacity-100{
