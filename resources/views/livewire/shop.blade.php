@@ -150,9 +150,11 @@
 
     <!-- Sidenav -->
     <div class="mt-4">
-        <div class="grid grid-cols-5 max-xl:grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 gap-8"
+        <div class="grid grid-cols-5 gap-8 max-xl:grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1"
             x-data="{
-                products: $wire.prds,
+                cat: '{{$cat}}',
+                subcat: '{{$subcat}}',
+                products: '',
                 minPrice: 0,
                 maxPrice: 500000,
                 pre_order: '',
@@ -178,10 +180,13 @@
                 show_to: 20,
                 current_page: 1,
                 productFetch() {
+                    console.log(this.cat,this.subcat)
                     $.ajax({
                         type: 'get',
                         url: '{{ route('shop.shorting') }}',
                         data: {
+                            cat: this.cat,
+                            subcat: this.subcat,
                             minPrice: this.minPrice,
                             maxPrice: this.maxPrice,
                             pre_order: this.pre_order == true ? 1 : 0,
@@ -573,7 +578,14 @@
                 <nav
                     class=" px-3 grid grid-cols-4 items-center bg-[#F2F2F2] py-3 font-[jost] font-[600] text-[16px] rounded-[6px]">
                     <div class="flex">
-                        <h1 class="max-xl:hidden">Shop</h1>
+                        <h1 class="max-xl:hidden">
+                            {{-- Shop --}}
+                            {{Str::of($cat)->headline()}}
+                            @isset($subcat)
+                                / {{Str::of(Str::of($subcat)->afterLast('-'))->upper()}}
+                                {{-- / {{Str::of(Str::of($subcat)->afterLast('-'))->headline()}} --}}
+                            @endisset
+                        </h1>
                         <div class="hidden max-xl:block">
                             <div id="body-overlay"></div>
                             <!-- Menu Icon -->
@@ -1024,10 +1036,11 @@
                         </span>
                     </div>
                 </nav>
+
                 {{-- product show after reload  --}}
                 <div x-show='productShow'>
                     <div
-                        class='grid grid-cols-4 max-lg:grid-cols-3 max-sm:grid-cols-2 gap-8 mx-auto mt-4 product_pdiv'>
+                        class='grid grid-cols-4 gap-8 mx-auto mt-4 max-lg:grid-cols-3 max-sm:grid-cols-2 product_pdiv'>
                         @foreach ($products as $product)
                             <x-shop-product :product="$product">
                                 <div class='mt-2'>
@@ -1051,13 +1064,13 @@
                 <template x-if="products">
                     <div>
                         <div x-show="ajaxProduct" id="product_pdiv">
-                            <div class='grid grid-cols-4 max-lg:grid-cols-3 max-sm:grid-cols-2 gap-8 mx-auto mt-4 product_pdiv'>
+                            <div class='grid grid-cols-4 gap-8 mx-auto mt-4 max-lg:grid-cols-3 max-sm:grid-cols-2 product_pdiv'>
                                 {{-- x-if="Object.keys(products).length > 0" --}}
                                 <template x-for="product in pagi_products" id="product">
                                     <div
                                         class="product_div relative overflow-hidden border-[1px] border-[#380D37] bg-[#f2f2f2] rounded-[4px] box-border px-[5px] mt-2 flex flex-col gap-2 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] ">
 
-                                       <div class="image-container flex justify-center items-center">
+                                       <div class="flex items-center justify-center image-container">
                                         <img :src="product.photo.split(',')[0]" class="rounded-t-lg img-fluid h-[180px] object-container"
                                         data-te-ripple-init data-te-ripple-color="dark" alt="avatar.png">
                                        </div>
@@ -1097,11 +1110,11 @@
                                                     </button></a>
                                             </div>
                                             <div>
-                                                <a href="">
-                                                    <p
-                                                        class="font-[jost] text-[10px] text-[#380D37] font-[500] leading-[20px]">
-                                                        Add to Cart</p>
-                                                </a>
+                                                {{-- <a href=""> --}}
+                                                    {{-- <livewire:add-to-cart :id="product.id"
+                                        button='<p class="font-[jost] text-[10px] text-[#380D37] font-[500] leading-[20px]"> Add to Cart</p>' /> --}}
+                                                    <p :id="product.id" class="cursor-pointer add-to-cart font-[jost] text-[10px] text-[#380D37] font-[500] leading-[20px]"> Add to Cart</p>
+                                                {{-- </a> --}}
                                             </div>
                                         </div>
                                     </div>
@@ -1136,8 +1149,7 @@
                                                 <template x-for="npage in page_num" :key="npage">
                                                     <span x-text='npage' @click='pageChange(npage)'
                                                         class="relative inline-flex items-center px-4 py-2 -ml-px text-[12px] text-[#353535] font-[jost] font-[500] leading-[17.34px] bg-[#f2f2f2] transition duration-150 ease-in-out border border-gray-300 cursor-pointer hover:text-gray-500 focus:z-10 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700"
-                                                        :class="current_page == npage ? 'text-[#353535] bg-[#F2F2F2]' :
-                                                            'bg-[#F2F2F2] text-[#380D37]'"
+                                                        :class="current_page == npage ? 'text-[#353535] bg-[#F2F2F2]' : 'bg-[#F2F2F2] text-[#380D37]'"
                                                         aria-label="Go to page 2">
                                                     </span>
                                                 </template>
