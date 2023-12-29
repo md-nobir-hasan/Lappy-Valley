@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('frontend/owl-carousel-libraries/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{ asset('dist/output.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/cstyle.css') }}">
+   
 </head>
 
 <body>
