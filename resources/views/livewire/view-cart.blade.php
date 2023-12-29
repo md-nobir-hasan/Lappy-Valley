@@ -12,18 +12,38 @@
      </div>
 
      {{-- <!-- -------------order-table--section----------- --> --}}
-     <section class="mt-[20px]">
+     <section class="mt-[20px] relative">
        <div class="my-[10px] flex justify-between items-center">
         <div>
             <span class="text-[#353535] text-[20px] font-[jost] font-[500]">Shopping Cart</span>
         </div>
        <div>
         <div class="border-b-[1px] border-[#2F37FF]">
-            <a href="#" class="text-[#2F37FF] text-[12px] font-[Inter] font-[400] leading-[14.52px] cursor-pointer">Add a coupon code?</a>
+            <span id='add' class="text-[#2F37FF] text-[12px] font-[Inter] font-[400] leading-[14.52px] cursor-pointer">Add a coupon code?</span>
           </div>
-    <div>
-        <span></span>
+
+   <div id='add-coupon'  class="hidden absolute top-0 bottom-0 left-0 w-[388px] border-[1px] border-[#380D37] rounded-[4px] mx-auto">
+    <div class=" flex flex-col gap-[15px] p-6">
+        <div>
+            <span class="text-[20px] text-[#380D37] font-[jost] font-[500] leading-[28.9px]">Add Coupon:</span>
+        </div>
+        <div>
+            <input type="text" placeholder='HXZ123' class="w-full py-[15px] px-[10px] placeholder-[#C4C4C4] bg-[#F2F2F2] text-[#000000] text-[16px] font-[jost] font-[500] leading-[23.12px]">
+        </div>
+        <div class="w-full flex justify-center items-center">
+            <button class="text-[#F2F2F2] text-[14px] font-[jost] font-[500] px-[40px] py-[10px] leading-[20.23px] rounded-[4px] bg-gradient-to-r from-[#380D37] to-[#DC275C]">Add</button>
+        </div>
     </div>
+   </div>
+
+<script>
+   $('#add').on('click', function() {
+    // $("#add-coupon").toggle();
+    $("#add-coupon").addClass('block');
+    $("#add-coupon").removeClass('hidden');
+                  
+         });
+</script>
        </div>
        </div>
          <div class="overflow-auto rounded-lg shadow">

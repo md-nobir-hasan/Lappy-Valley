@@ -24,7 +24,7 @@
                     <label for="city"
                         class='text-[16px] text-[#353535] font-[jost] font-[500] leading-[23.12px] tracking-[3%] block my-[5px]'>City:</label>
                     <input type="text" wire:model='city' id="city" placeholder='Enter the city Name'
-                        class='w-[344px] max-lg:w-full h-[44px] bg-[#F2F2F2] font-[jost] font-[500] text-[16px] text-[#353535]  blcok italic px-[10px] rounded-[4px]'>
+                        class='w-[344px] max-lg:w-full h-[44px] bg-[#F2F2F2] font-[jost] font-[500] text-[16px] text-[#353535] blcok italic px-[10px] rounded-[4px]'>
                 </div>
 
                 {{-- post code  --}}
