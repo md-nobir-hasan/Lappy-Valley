@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('frontend/owl-carousel-libraries/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{ asset('dist/output.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/cstyle.css') }}">
+   
 </head>
 
 <body>
@@ -71,7 +72,8 @@
             });
             let cart_product_no = $('.cart-product').length - 1;
             //open cart by clicking on add to cart
-            $('.add-to-cart').on('click', function() {
+            // $('.add-to-cart').on('click', function() {
+            $(document).on('click','.add-to-cart', function() {
                 cart_product_no += 1;
                 const p_id = $(this).prop('id');
                 $.ajax({

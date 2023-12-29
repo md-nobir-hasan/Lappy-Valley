@@ -1,3 +1,6 @@
+#nprogress .spinner{
+    display: none !important;
+}
 .swiper-button-prev .swiper-button-next {
     position: initial;
 }
@@ -15,7 +18,7 @@
   .linear{
     background: linear-gradient(to right, #380D37, #DC275C);
   }
-  
+
   .fill-up-btn::before {
     content: '';
     position: absolute;
@@ -29,7 +32,7 @@
     transition: transform 0.3s ease-in-out;
     z-index: -1;
   }
-  
+
   .fill-up-btn:hover::before {
     transform: scaleY(1);
   }
@@ -40,7 +43,7 @@
   }
 
   .image-container:hover img {
-    filter: brightness(1.2); 
+    filter: brightness(1.2);
   }
 /* ----------swiper-lider----------- */
 .swiper {

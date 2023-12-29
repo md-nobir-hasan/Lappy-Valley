@@ -15,9 +15,11 @@
              // dd($photo);
          @endphp
      @endif
-    <div class="image-container flex justify-center items-center">
-        <img src="{{ $photo }}" class="object-container h-[180px]" alt="{{ $product->title }}">
-    </div>
+     <div class="flex items-center justify-center image-container">
+         <a href="{{ route('product.details', [$product->slug]) }}">
+             <img src="{{ $photo }}" class="object-container h-[180px]" alt="{{ $product->title }}">
+         </a>
+     </div>
      {{-- @else
              <img src="{{ asset('backend/img/thumbnail-default.jpg') }}" class="rounded-t-lg img-fluid "
                  data-te-ripple-init data-te-ripple-color="dark" alt="avatar.png">
@@ -25,7 +27,8 @@
      {{-- </a> --}}
      <div class="p-4 max-sm:p-[8px] border-t-[2px] border-b-[2px] border-[#380D3733]">
          <div class=' border-[#380D3733] mb-2'>
-             <a href="#" class="font-[jost] text-[12px] font-[500] leading-[20px] text-left text-[#380D37] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-1 hover:underline hover:underline-offset-4">
+             <a href="{{ route('product.details', [$product->slug])}}"
+                 class="font-[jost] text-[12px] font-[500] leading-[20px] text-left text-[#380D37] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-1 hover:underline hover:underline-offset-4">
                  {{ $product->title }}
              </a>
          </div>
@@ -43,8 +46,7 @@
          <div>
              <a href="#" class="font-[jost] text-[12px] font-[700] leading-[24px] text-[#DC275C] block">
                  {{ number_format($product->final_price) }}
-                 <span
-                     class="ml-[5px] text-[12px] font-[jost] font-[700]">TAKA</span>
+                 <span class="ml-[5px] text-[12px] font-[jost] font-[700]">TAKA</span>
              </a>
          </div>
          <div class="my-3 text-center">
