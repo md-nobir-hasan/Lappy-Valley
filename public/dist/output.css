@@ -7708,6 +7708,10 @@ input[type="range"]:active::-webkit-slider-thumb{
     margin-top: 70px;
   }
 
+  .max-sm\:ml-\[1px\]{
+    margin-left: 1px;
+  }
+
   .max-sm\:block{
     display: block;
   }
@@ -8117,6 +8121,10 @@ input[type="range"]:active::-webkit-slider-thumb{
 
   .max-sm\:leading-\[5px\]{
     line-height: 5px;
+  }
+
+  .max-sm\:leading-\[14px\]{
+    line-height: 14px;
   }
 
   .max-sm\:text-\[14p\]{

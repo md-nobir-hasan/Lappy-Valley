@@ -56,7 +56,7 @@
                   class="text-[#F2F2F2] font-[jost] max-sm:text-center text-[40px] max-sm:text-[34px] max-md:text-[32px] max-lg:text-[34px] font-[500]  my-3">
                   Company</p>
               <ul
-                  class="text-[#F2F2F2] font-[jost] max-sm:text-center text-[16px] max-sm:text-[16px] max-md:text-[12px] max-lg:text-[14px] font-[500] leading-[23px] max-sm:leading-[22px] max-md:leading-[12px] max-lg:leading-[15px] max-sm:my-[21px]  ml-[30px]">
+                  class="text-[#F2F2F2] font-[jost] max-sm:text-center text-[16px] max-sm:text-[16px] max-md:text-[12px] max-lg:text-[14px] font-[500] leading-[23px] max-sm:leading-[14px] max-md:leading-[12px] max-lg:leading-[15px] max-sm:my-[21px] max-sm:ml-[1px]  ml-[30px]">
                   <li class="mb-[25px] max-sm:mb-[18px] list-disc max-sm:list-none "><a class="hover:bg-blue-700"
                           href="{{ route('about_us') }}" id='about-us'>About Us</a></li>
                   <li class="mb-[25px] max-sm:mb-[18px] list-disc max-sm:list-none"><a class="hover:bg-blue-700"
