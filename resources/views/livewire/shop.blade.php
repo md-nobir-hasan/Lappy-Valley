@@ -155,7 +155,7 @@
         <div class="grid grid-cols-5 gap-8 max-xl:grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1"
             x-data="{
                 cat: '{{ isset($cat) ? $cat : '' }}',
-                subcat: '{{ isset($subcat) ? $$subcat : '' }}',
+                subcat: '{{ isset($subcat) ? $subcat : '' }}',
                 products: '',
                 minPrice: 0,
                 maxPrice: 500000,
