@@ -403,7 +403,7 @@
                                                                 <div>
                                                                     <span>{{ $prd->title }}</span>
                                                                     <p>
-                                                                        <span>{{ round($prd->price - ($prd->price * $prd->discount) / 100) }}</span>
+                                                                        <span>{{ $prd->final_price }}</span>
                                                                         <span
                                                                             class="line-through">{{ $prd->price }}</span>
                                                                     </p>
