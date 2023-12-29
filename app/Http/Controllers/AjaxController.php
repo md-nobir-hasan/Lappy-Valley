@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Category;
 use App\Models\Product;
 use App\Models\ProductReview;
 use App\Models\ProductReviewImag;
@@ -154,6 +155,20 @@ class AjaxController extends Controller
             $product = Product::whereBetween('price', [$req->minPrice, $req->maxPrice])->get();
         }
 
+
+
+        if ($subcat = $req->subcat) {
+            $subcat = Category::where('slug', $subcat)->first();
+
+            $product = $product->where('child_cat_id', $subcat->id);
+
+        }else{
+            if ($cat = $req->cat) {
+                $cat = Category::where('slug', $cat)->first();
+                $product = $product->where('cat_id', $cat->id);
+            }
+        }
+        // dd($product);
         if ($req->in_stock) {
             $product = $product->where('stock', '>', 0);
         }
@@ -161,7 +176,6 @@ class AjaxController extends Controller
         if ($req->upcomming) {
             $product = $product->where('upcomming', '!=', null);
         }
-
         if ($req->brands) {
             $product = $product->whereIn('brand_id', $req->brands);
         }

@@ -38,43 +38,43 @@ class Header extends Component
     }
     public function prdouctFetch(){
         if(($id = $this->cat) && ($s= $this->search)){
-            $this->products = DB::table('products')->select('id', 'photo', 'title', 'slug', 'price', 'discount')
+            $this->products = DB::table('products')->select('id', 'photo', 'title', 'slug', 'price','final_price', 'discount')
                                 ->where('cat_id',$id)
                                 ->where('title', 'like', '%' . $this->search . '%')
                                 ->get();
         }
         elseif(($id = $this->cat)){
-            $this->products = DB::table('products')->select('id', 'photo', 'title', 'slug', 'price', 'discount')
+            $this->products = DB::table('products')->select('id', 'photo', 'title', 'slug', 'price','final_price', 'discount')
                                 ->where('cat_id',$id)
                                 ->get();
         }
         elseif(($s= $this->search)){
-            $this->products = DB::table('products')->select('id', 'photo', 'title', 'slug', 'price', 'discount')
+            $this->products = DB::table('products')->select('id', 'photo', 'title', 'slug', 'price','final_price', 'discount')
                                 ->where('title', 'like', '%' . $this->search . '%')
                                 ->get();
         }
         else{
-            $this->products = DB::table('products')->select('id', 'photo', 'title', 'slug', 'price', 'discount')
+            $this->products = DB::table('products')->select('id', 'photo', 'title', 'slug', 'price','final_price', 'discount')
                                 ->get();
         }
     }
 
     public function searchFuc(){
         if (($id = $this->cat) && ($s = $this->search)) {
-            $this->products = DB::table('products')->select('id', 'photo', 'title', 'slug', 'price', 'discount')
+            $this->products = DB::table('products')->select('id', 'photo', 'title', 'slug', 'price','final_price', 'discount')
                 ->where('cat_id', $id)
                 ->where('title', 'like', '%' . $this->search . '%')
                 ->get();
         } elseif (($id = $this->cat)) {
-            $this->products = DB::table('products')->select('id', 'photo', 'title', 'slug', 'price', 'discount')
+            $this->products = DB::table('products')->select('id', 'photo', 'title', 'slug', 'price','final_price', 'discount')
                 ->where('cat_id', $id)
                 ->get();
         } elseif (($s = $this->search)) {
-            $this->products = DB::table('products')->select('id', 'photo', 'title', 'slug', 'price', 'discount')
+            $this->products = DB::table('products')->select('id', 'photo', 'title', 'slug', 'price','final_price', 'discount')
                 ->where('title', 'like', '%' . $this->search . '%')
                 ->get();
         } else {
-            $this->products = DB::table('products')->select('id', 'photo', 'title', 'slug', 'price', 'discount')
+            $this->products = DB::table('products')->select('id', 'photo', 'title', 'slug', 'price','final_price', 'discount')
                 ->get();
         }
     }

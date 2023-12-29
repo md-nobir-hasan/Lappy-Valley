@@ -1,4 +1,5 @@
-<div class="px-[100px] max-2xl:px-[70px] max-xl:px-[60px] max-lg:px-[38px] max-md:px-[35px] max-sm:px-[15px] max-sm:mt-[70px] max-xl:mt-[100px]">
+<div
+    class="px-[100px] max-2xl:px-[70px] max-xl:px-[60px] max-lg:px-[38px] max-md:px-[35px] max-sm:px-[15px] max-sm:mt-[70px] max-xl:mt-[100px]">
     <style>
         ::selection {
             color: #fff;
@@ -118,9 +119,10 @@
             /* background:#f2f2f2; */
             /* Animation transition */
         }
-        @media(max-width:640px){
+
+        @media(max-width:640px) {
             #menu {
-                top:50px;
+                top: 50px;
             }
         }
 
@@ -150,9 +152,11 @@
 
     <!-- Sidenav -->
     <div class="mt-4">
-        <div class="grid grid-cols-5 max-xl:grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 gap-8"
+        <div class="grid grid-cols-5 gap-8 max-xl:grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1"
             x-data="{
-                products: $wire.prds,
+                cat: '{{ isset($cat) ? $cat : '' }}',
+                subcat: '{{ isset($subcat) ? $subcat : '' }}',
+                products: '',
                 minPrice: 0,
                 maxPrice: 500000,
                 pre_order: '',
@@ -178,10 +182,13 @@
                 show_to: 20,
                 current_page: 1,
                 productFetch() {
+                    console.log(this.cat, this.subcat)
                     $.ajax({
                         type: 'get',
                         url: '{{ route('shop.shorting') }}',
                         data: {
+                            cat: this.cat,
+                            subcat: this.subcat,
                             minPrice: this.minPrice,
                             maxPrice: this.maxPrice,
                             pre_order: this.pre_order == true ? 1 : 0,
@@ -219,6 +226,7 @@
                     })
                 },
                 pageChange(pNum) {
+
                     if (pNum == this.current_page || pNum > this.page_num || pNum < 1) {
                         return false;
                     } else {
@@ -231,7 +239,6 @@
                         this.show_to = to;
                         this.pagi_products = Object.fromEntries(Object.entries(this.products).slice(from, to));
                         this.current_page = pNum
-
                     }
                 }
             }">
@@ -573,7 +580,19 @@
                 <nav
                     class=" px-3 grid grid-cols-4 items-center bg-[#F2F2F2] py-3 font-[jost] font-[600] text-[16px] rounded-[6px]">
                     <div class="flex">
-                        <h1 class="max-xl:hidden">Shop</h1>
+                        <h1 class="max-xl:hidden">
+                            {{-- Shop --}}
+                            @isset($cat, $subcat)
+                                {{ Str::of($cat)->headline() }}
+                                @isset($subcat)
+                                    /
+                                    {{ Str::of(Str::of($subcat)->afterLast('-'))->upper() }}
+                                @endisset
+                            @else
+                                All
+                            @endisset
+
+                        </h1>
                         <div class="hidden max-xl:block">
                             <div id="body-overlay"></div>
                             <!-- Menu Icon -->
@@ -1024,10 +1043,11 @@
                         </span>
                     </div>
                 </nav>
+
                 {{-- product show after reload  --}}
                 <div x-show='productShow'>
                     <div
-                        class='grid grid-cols-4 max-lg:grid-cols-3 max-sm:grid-cols-2 gap-8 mx-auto mt-4 product_pdiv'>
+                        class='grid grid-cols-4 gap-8 mx-auto mt-4 max-lg:grid-cols-3 max-sm:grid-cols-2 product_pdiv'>
                         @foreach ($products as $product)
                             <x-shop-product :product="$product">
                                 <div class='mt-2'>
@@ -1051,20 +1071,24 @@
                 <template x-if="products">
                     <div>
                         <div x-show="ajaxProduct" id="product_pdiv">
-                            <div class='grid grid-cols-4 max-lg:grid-cols-3 max-sm:grid-cols-2 gap-8 mx-auto mt-4 product_pdiv'>
+                            <div
+                                class='grid grid-cols-4 gap-8 mx-auto mt-4 max-lg:grid-cols-3 max-sm:grid-cols-2 product_pdiv'>
                                 {{-- x-if="Object.keys(products).length > 0" --}}
                                 <template x-for="product in pagi_products" id="product">
                                     <div
                                         class="product_div relative overflow-hidden border-[1px] border-[#380D37] bg-[#f2f2f2] rounded-[4px] box-border px-[5px] mt-2 flex flex-col gap-2 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] ">
 
-                                       <div class="image-container flex justify-center items-center">
-                                        <img :src="product.photo.split(',')[0]" class="rounded-t-lg img-fluid h-[180px] object-container"
-                                        data-te-ripple-init data-te-ripple-color="dark" alt="avatar.png">
-                                       </div>
+                                        <div class="flex items-center justify-center image-container">
+                                            <img :src="product.photo.split(',')[0]"
+                                                class="rounded-t-lg img-fluid h-[180px] object-container"
+                                                data-te-ripple-init data-te-ripple-color="dark" alt="avatar.png">
+                                        </div>
 
-                                        <div class="p-4 max-sm:p-[8px] border-t-[1px] border-b-[1px]  border-[#380D3733]">
+                                        <div
+                                            class="p-4 max-sm:p-[8px] border-t-[1px] border-b-[1px]  border-[#380D3733]">
                                             <div class=' border-[#380D3733] mb-2'>
-                                                <a href="#" class="font-[jost] text-[12px] font-[500] leading-[20px] text-left text-[#380D37] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-1 hover:underline hover:underline-offset-4"
+                                                <a href="#"
+                                                    class="font-[jost] text-[12px] font-[500] leading-[20px] text-left text-[#380D37] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-1 hover:underline hover:underline-offset-4"
                                                     x-text='product.title'>
                                                 </a>
                                             </div>
@@ -1090,24 +1114,27 @@
                                             </div>
                                             <div class="my-3 text-center">
 
-                                                <a :href="'/product-details/'+product.slug" class="">
+                                                <a :href="'/product-details/' + product.slug" class="">
                                                     <button
                                                         class='bg-[#380D37] text-[#F2F2F2] text-[10px] font-[jost] font-[500] py-[8px] px-[50px] max-lg:px-0 max-lg:w-[100px] rounded-[5px]'>
                                                         Buy Now
                                                     </button></a>
                                             </div>
                                             <div>
-                                                <a href="">
-                                                    <p
-                                                        class="font-[jost] text-[10px] text-[#380D37] font-[500] leading-[20px]">
-                                                        Add to Cart</p>
-                                                </a>
+                                                {{-- <a href=""> --}}
+                                                {{-- <livewire:add-to-cart :id="product.id"
+                                        button='<p class="font-[jost] text-[10px] text-[#380D37] font-[500] leading-[20px]"> Add to Cart</p>' /> --}}
+                                                <p :id="product.id"
+                                                    class="cursor-pointer add-to-cart font-[jost] text-[10px] text-[#380D37] font-[500] leading-[20px]">
+                                                    Add to Cart</p>
+                                                {{-- </a> --}}
                                             </div>
                                         </div>
                                     </div>
                                 </template>
                             </div>
 
+                            {{-- pagination  --}}
                             <div class="mt-8">
                                 <nav role="navigation" aria-label="Pagination Navigation"
                                     class="flex items-center justify-between">
@@ -1126,39 +1153,49 @@
                                         <div>
                                             <span class="relative z-0 inline-flex rounded-md shadow-sm">
                                                 <span aria-disabled="true" aria-label="&amp;laquo; Previous">
-                                                    <span @click='pageChange(current_page-1)'
-                                                        class="relative inline-flex items-center px-2 py-2 text-[12px] text-[#353535] font-[jost] font-[500] leading-[17.34px] bg-[#f2f2f2] border-gray-300 cursor-default rounded-l-md"
-                                                        aria-hidden="true">
+                                                    <a href="javascript::void(0)" @click='pageChange(current_page-1)' rel="prev" class="relative inline-flex items-center px-2 py-2 text-sm font-medium leading-5 text-gray-500 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-l-md hover:text-gray-400 focus:z-10 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-500" aria-label="&amp;laquo; Previous">
                                                         PREV
-                                                    </span>
+                                                    </a>
                                                 </span>
 
+                                                {{-- 1,2,3,4 serial  --}}
                                                 <template x-for="npage in page_num" :key="npage">
-                                                    <span x-text='npage' @click='pageChange(npage)'
-                                                        class="relative inline-flex items-center px-4 py-2 -ml-px text-[12px] text-[#353535] font-[jost] font-[500] leading-[17.34px] bg-[#f2f2f2] transition duration-150 ease-in-out border border-gray-300 cursor-pointer hover:text-gray-500 focus:z-10 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700"
-                                                        :class="current_page == npage ? 'text-[#353535] bg-[#F2F2F2]' :
-                                                            'bg-[#F2F2F2] text-[#380D37]'"
-                                                        aria-label="Go to page 2">
-                                                    </span>
+                                                    <div>
+                                                        <template x-if='current_page == npage'>
+                                                            <span aria-current="page"  @click='pageChange(npage)'>
+                                                                <span x-text='npage'
+                                                                    class="relative text-[white] inline-flex items-center px-4 py-2 -ml-px text-sm font-medium leading-5  bg-[#380E37] border border-gray-300 cursor-default">2</span>
+                                                            </span>
+                                                        </template>
+                                                        <template x-if='current_page != npage'>
+                                                            <a href="javascript:void(0)" x-text='npage' @click='pageChange(npage)'
+                                                                class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 hover:text-gray-500 focus:z-10 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700"
+                                                                aria-label="Go to page 3">
+                                                                3
+                                                            </a>
+                                                        </template>
+                                                    </div>
                                                 </template>
-                                                <span @click='pageChange(current_page+1)'
-                                                    class="relative inline-flex items-center px-2 py-2 -ml-px text-[12px] text-[#353535] font-[jost] font-[500] leading-[17.34px] bg-[#f2f2f2] transition duration-150 ease-in-out border border-gray-300 rounded-r-md hover:text-gray-400 focus:z-10 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-500"
-                                                    aria-label="Next &amp;raquo;">
-
+                                                <a @click='pageChange(current_page+1)' href="javascript:void(0)" rel="next" class="relative inline-flex items-center px-2 py-2 -ml-px text-sm font-medium leading-5 text-gray-500 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-r-md hover:text-gray-400 focus:z-10 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-500" aria-label="Next &amp;raquo;">
                                                     NEXT
-                                                </span>
+                                                </a>
                                             </span>
                                         </div>
 
                                         <div>
-                                            <p class="text-[12px] text-[#353535] font-[jost] font-[500] leading-[17.34px] bg-[#f2f2f2]">
+                                            <p
+                                                class="text-[12px] text-[#353535] font-[jost] font-[500] leading-[17.34px] bg-[#f2f2f2]">
                                                 Showing
-                                                <span x-text='show_from' class="font-[jost] font-[500] text-[12px] text-[#353535] bg-[#f2f2f2]"
+                                                <span x-text='show_from'
+                                                    class="font-[jost] font-[500] text-[12px] text-[#353535] bg-[#f2f2f2]"
                                                     id="showing_from">1</span>
                                                 to
-                                                <span x-text='show_to' class="font-[jost] font-[500] text-[12px] text-[#353535] bg-[#f2f2f2]" id="showing_to">20</span>
+                                                <span x-text='show_to'
+                                                    class="font-[jost] font-[500] text-[12px] text-[#353535] bg-[#f2f2f2]"
+                                                    id="showing_to">20</span>
                                                 of
-                                                <span x-text='total_product' class="text-[12px] text-[#353535] font-[jost] font-[500]"></span>
+                                                <span x-text='total_product'
+                                                    class="text-[12px] text-[#353535] font-[jost] font-[500]"></span>
                                                 results (<span x-text='page_num'></span> pages)
                                             </p>
                                         </div>

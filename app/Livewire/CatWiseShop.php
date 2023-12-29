@@ -22,7 +22,8 @@ use Livewire\Attributes\Title;
 
 class CatWiseShop extends Component
 {
-    public $slug;
+    public $cat;
+    public $subcat;
     public $prds=null;
     // public $slug_wise_product;
     // public function mount(){
@@ -30,8 +31,8 @@ class CatWiseShop extends Component
     // }
     public function render()
     {
-        $cat = Category::where('slug', $this->slug)->first();
-        // dd($this->slug,$cat);
+
+        // dd($this->cat,$cat);
         // $n['products'] = Product::where('status', 'active')->paginate(20);
         $n['brands'] = Brand::get();
         $n['p_models'] = ProcessorModel::get();
@@ -43,10 +44,14 @@ class CatWiseShop extends Component
         $n['hdds'] = hdd::get();
         $n['graphics'] = Graphic::get();
         $n['s_features'] = SpecialFeature::get();
-        $n['products'] = Product::where('cat_id', $cat->id)->where('status', 'active')->paginate(20);
-        if(count($n['products'])<1){
-            $n['products'] = Product::where('child_cat_id', $cat->id)->where('status', 'active')->paginate(20);
-        };
+        if($this->subcat){
+            $subcat = Category::where('slug', $this->subcat)->first();
+            $n['products'] = Product::where('child_cat_id', $subcat->id)->where('status', 'active')->paginate(20);
+        }else{
+            $cat = Category::where('slug', $this->cat)->first();
+            $n['products'] = Product::where('cat_id', $cat->id)->where('status', 'active')->paginate(20);
+        }
+
         return view('livewire.shop', $n);
     }
 }
