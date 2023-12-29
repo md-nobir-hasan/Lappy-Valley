@@ -114,6 +114,7 @@
                     </h1>
                 </div>
                 <div class="grid grid-cols-2 max-xl:grid-cols-1 gap-6 w-full my-[15px]">
+                    {{-- buying option without installment --}}
                     <label class="flex border-[2px] hover:border-[#380D37] border-[#380D37] w-full gap-4"
                         id="cash-payment">
                         <div class="px-3 flex justify-center bg-[#f2f2f2]">
@@ -130,6 +131,7 @@
                         </div>
                     </label>
 
+                    {{-- buying option  with installment --}}
                     <label class="flex border-[2px] hover:border-[#380D37] border-[#764A8733] w-full gap-4"
                         id='monthly-payment'>
                         <div class="px-3 flex justify-center bg-[#f2f2f2]">
