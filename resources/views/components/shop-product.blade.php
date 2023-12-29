@@ -15,7 +15,9 @@
              // dd($photo);
          @endphp
      @endif
-     <img src="{{ $photo }}" class="object-center h-[180px]" alt="{{ $product->title }}">
+    <div class="image-container flex justify-center items-center">
+        <img src="{{ $photo }}" class="object-container h-[180px]" alt="{{ $product->title }}">
+    </div>
      {{-- @else
              <img src="{{ asset('backend/img/thumbnail-default.jpg') }}" class="rounded-t-lg img-fluid "
                  data-te-ripple-init data-te-ripple-color="dark" alt="avatar.png">
@@ -23,9 +25,9 @@
      {{-- </a> --}}
      <div class="p-4 max-sm:p-[8px] border-t-[2px] border-b-[2px] border-[#380D3733]">
          <div class=' border-[#380D3733] mb-2'>
-             <h1 class="font-[jost] text-[12px] font-[500] leading-[20px] text-left text-[#380D37]">
+             <a href="#" class="font-[jost] text-[12px] font-[500] leading-[20px] text-left text-[#380D37] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-1 hover:underline hover:underline-offset-4">
                  {{ $product->title }}
-             </h1>
+             </a>
          </div>
          <div class='mb-4'>
              <ul class='text-[#353535] text-[10px] font-[jost] font-[400] list-decimal px-4 leading-[20px]'>
