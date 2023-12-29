@@ -19,29 +19,27 @@
                     $bnrs = explode(',', $home_banner->photo);
                 @endphp
                 @foreach ($bnrs as $banner)
-                    <div class="{{ $loop->first ? '' : ' hidden' }} slide w-full object-cover">
-                        <img class="w-full mx-auto" src="{{ $banner }}">
+                    <div class="{{ $loop->first ? '' : ' hidden' }} slide w-full">
+                        <img class="w-full mx-auto object-cover" src="{{ $banner }}">
                     </div>
                 @endforeach
 
                 <!-- The previous button -->
-                <div class="w-full mx-auto">
+                <div class="w-full mx-auto absolute top-0 bottom-0 flex justify-between items-center">
                     <a id="move_back" value='0'
-                        class="slide_icon absolute left-0 top-1/2 p-4 -translate-y-1/2 -translate-x-[42px] text-[40px] text-blue-500 opacity-50 hover:opacity-100 cursor-pointer">
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                            class="w-[18px] h-[36px]" viewBox="0 0 23 40"
-                            fill="none">
-                            <path d="M21 2L3 20L21 38" stroke="#999999" stroke-opacity="1" stroke-width="5" />
-                        </svg>
+                        class="slide_icon sm:translate-x-[-40px] text-[40px] text-blue-500 opacity-50 hover:opacity-100 cursor-pointer">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12">
+                            <path stroke-linecap="round" class="max-sm:stroke-[#f2f2f2]"  stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                          </svg>
+                          
                     </a>
                     <!-- The next button -->
                     <a id="move_front" value='0'
-                        class="slide_icon absolute right-0 top-1/2 p-4 -translate-y-1/2 translate-x-[42px] text-[40px] text-blue-500 opacity-50 hover:opacity-100 cursor-pointer"><svg
-                            xmlns="http://www.w3.org/2000/svg" class="w-[18px] h-[36px]"
-                            viewBox="0 0 23 40" fill="none">
-                            <path :class="{ 'text-[black]': active }" d="M2 2L20 20L2 38" stroke="#999999"
-                                stroke-opacity="0.5" stroke-width="5" />
-                        </svg>
+                        class="slide_icon sm:translate-x-[40px]  text-[40px] text-blue-500 opacity-50 hover:opacity-100 cursor-pointer">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12">
+                            <path :class="{ 'text-blue-500': active }" class="max-sm:stroke-[#f2f2f2]" stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                          </svg>
+                          
                     </a>
                 </div>
             </div>
@@ -269,9 +267,9 @@
                             <div
                                 class="w-[221px] h-[376px] max-xl:w-full mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white px-2 pt-2 pb-3 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
 
-                                <div class="image-container">
-                                    <a href="{{ route('product.details', [$f_product->slug]) }}" wire:navigate>
-                                        <img src="{{ $f_product->img()[0] }}" alt="" class="h-[180px] object-cover">
+                                <div class="image-container h-[180px]">
+                                    <a href="{{ route('product.details', [$f_product->slug]) }}" wire:navigate class="h-full">
+                                        <img src="{{ $f_product->img()[0] }}" alt="" class="h-full object-container">
                                     </a>
                                 </div>
                                 <div>
@@ -537,9 +535,9 @@
                             <div
                                 class="w-[221px] h-[376px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white px-2 pt-2 pb-3 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
 
-                                <div class="image-container">
-                                    <a href="{{ route('product.details', [$a_product->slug]) }}" wire:navigate>
-                                        <img src="{{ $a_product->img()[0] }}" alt="" class="h-[180px] object-cover">
+                                <div class="image-container h-[180px]">
+                                    <a href="{{ route('product.details', [$a_product->slug]) }}" wire:navigate class="h-full">
+                                        <img src="{{ $a_product->img()[0] }}" alt="" class="h-full object-container">
                                     </a>
                                 </div>
                                 <div class="">
