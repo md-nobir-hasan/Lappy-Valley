@@ -3982,6 +3982,11 @@ input[type="range"]:active::-webkit-slider-thumb{
   padding-bottom: 8px;
 }
 
+.py-\[\]{
+  padding-top: ;
+  padding-bottom: ;
+}
+
 .pb-0{
   padding-bottom: 0px;
 }
