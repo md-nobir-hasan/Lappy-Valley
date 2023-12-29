@@ -150,8 +150,8 @@
                     <button wire:click='checkout'
                     class="fill-up-btn text-[#f2f2f2] bg-gradient-to-r from-[#380D37] to-[#DC275C] max-lg:text-[18px] max-sm:text-[16px] text-[20px] py-[12px] max-lg:py-[14px] px-[40px] max-lg:px-[40px] max-sm:px-[30px] font-[jost] font-[700] mt-auto rounded-[5px]">
                     BUY NOW</button>
-                    <button
-                    class="fill-up-btn text-[#f2f2f2] bg-gradient-to-r from-[#380D37] to-[#DC275C] max-lg:text-[18px] max-sm:text-[16px] text-[20px] py-[12px] max-lg:py-[14px] px-[40px] max-lg:px-[40px] max-sm:px-[30px] font-[jost] font-[700] mt-auto rounded-[5px]">
+                    <button id="{{$product->id}}"
+                    class="add-to-cart fill-up-btn text-[#f2f2f2] bg-gradient-to-r from-[#380D37] to-[#DC275C] max-lg:text-[18px] max-sm:text-[16px] text-[20px] py-[12px] max-lg:py-[14px] px-[40px] max-lg:px-[40px] max-sm:px-[30px] font-[jost] font-[700] mt-auto rounded-[5px]">
                     Add To Cart</button>
                 </div>
             </div>
@@ -774,7 +774,7 @@
             </section>
             <section class="mt-[20px] border-[2px] max-sm:border-[1px] border-[#380D37] p-[20px] rounded-[5px]"
                 id='review'>
-                <div class="flex justify-between items-center">
+                <div class="flex items-center justify-between">
                     <div class="">
                         <div class="title-n-action">
                             <h2 class="my-[10px] font-[jost] max-sm:text-[16px] font-[500]">
