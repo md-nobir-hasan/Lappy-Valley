@@ -10,18 +10,18 @@
         <table class="w-full">
             <thead>
                 <tr class="bg-[#380D37]">
-                    <th class='w-20 p-3 tracking-wide text-left text-[14px] text-[#FFFFFF] font-[jost] font-[500]'>
+                    <th class='p-3 tracking-wide text-left text-[14px] text-[#FFFFFF] font-[jost] font-[500]'>
                         Image
                     </th>
-                    <th class='w-20 p-3 tracking-wide text-left text-[14px] text-[#FFFFFF] font-[jost] font-[500]'>
+                    <th class='p-3 tracking-wide text-left text-[14px] text-[#FFFFFF] font-[jost] font-[500]'>
                         Product Name
                     </th>
-                    <th class='w-20 p-3 tracking-wide text-left text-[14px] text-[#FFFFFF] font-[jost] font-[500]'>
+                    <th class='p-3 tracking-wide text-left text-[14px] text-[#FFFFFF] font-[jost] font-[500]'>
                         Price
                     </th>
-                    <th class='w-20 p-3 tracking-wide text-left text-[14px] text-[#FFFFFF] font-[jost] font-[500]'>
+                    <th class='p-3 tracking-wide text-left text-[14px] text-[#FFFFFF] font-[jost] font-[500]'>
                     </th>
-                    <th class='w-20 p-3 tracking-wide text-left text-[14px] text-[#FFFFFF] font-[jost] font-[500]'>
+                    <th class='p-3 tracking-wide text-left text-[14px] text-[#FFFFFF] font-[jost] font-[500]'>
                     </th>
                 </tr>
             </thead>
