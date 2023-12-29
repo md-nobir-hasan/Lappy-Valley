@@ -33,9 +33,9 @@
                      id="exampleModalFirst" tabindex="-1" aria-labelledby="exampleModalFirstLabel" aria-hidden="true">
                      <div data-te-modal-dialog-ref
                          class="pointer-events-none relative translate-y-[-50px] opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:max-w-[500px]">
-                         
-                            <div
-                             class="p-6 gap-6 max-sm:ml-[10px] max-sm:mt-[120px] max-md:mt-[155px] mt-[200px] w-[388px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] pointer-events-auto relative flex w-full flex-col bg-[#fff] rounded-[4px] border-[2px] border-[#380D37]">
+
+                         <div
+                             class="p-6 gap-6 max-sm:ml-[10px] max-sm:mt-[120px] max-md:mt-[155px] mt-[200px] max-sm:w-full w-[388px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] pointer-events-auto relative flex w-full flex-col bg-[#fff] rounded-[4px] border-[2px] border-[#380D37]">
                              <div>
                                  <h5 class="text-[20px] text-[#380D37] font-[jost] font-[500] leading-[28.9px]"
                                      id="exampleModalFirstLabel">
@@ -58,8 +58,8 @@
                                  </span>
                              </div>
                          </div>
-                         </div>
-                  
+                     </div>
+
                  </div>
 
                  <!-- Second Modal -->
@@ -68,20 +68,19 @@
                      id="exampleModalSecond" tabindex="-1" aria-labelledby="exampleModalSecondLabel"
                      aria-hidden="true">
                      <div data-te-modal-dialog-ref
-                         class="pointer-events-none relative w-auto translate-y-[-50px] opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:max-w-[500px]">
+                         class="pointer-events-none relative translate-y-[-50px] opacity-0 transition-all duration-300 ease-in-out w-[300px] mx-auto">
                          <div
-                             class="px-6 py-14 gap-6 max-sm:mt-[120px] max-md:mt-[155px] mt-[200px]  min-[300px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] pointer-events-auto relative flex w-full flex-col justify-center items-center bg-[#fff] rounded-[4px] border-[2px] border-[#380D37]">
+                             class="px-6 py-14 gap-6 mx-auto max-sm:mt-[120px] max-md:mt-[155px] mt-[200px] max-sm:w-[240px] w-[300px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] pointer-events-auto relative flex w-full flex-col justify-center items-center bg-[#fff] rounded-[4px] border-[2px] border-[#380D37]">
                              <div class="w-[60px] h-[60px] bg-[#DC275C] rounded-[50%] flex justify-center items-center">
-                               
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#f2f2f2" class="w-8 h-8">
-                                        <path  stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                                      </svg>                                      
-                            
+                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                     stroke-width="1.5" stroke="#f2f2f2" class="w-8 h-8">
+                                     <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                                 </svg>
                              </div>
                              <div>
-                                <h5 class="text-[#380D37] text-[20px] font-[jost] font-[500] leading-[28.9px]">
-                                    Coupon Added
-                                </h5>
+                                 <h5 class="text-[#380D37] text-[20px] font-[jost] font-[500] leading-[28.9px]">
+                                     Coupon Added
+                                 </h5>
                              </div>
                          </div>
                      </div>
@@ -89,34 +88,6 @@
 
                  {{-- --------------------------- --}}
 
-
-
-                 <div
-                     class="hidden absolute top-0 bottom-0 left-0 w-[388px] border-[1px] border-[#380D37] rounded-[4px] mx-auto">
-                     <div class=" flex flex-col gap-[15px] p-6">
-                         <div>
-                             <span class="text-[20px] text-[#380D37] font-[jost] font-[500] leading-[28.9px]">Add
-                                 Coupon:</span>
-                         </div>
-                         <div>
-                             <input type="text" placeholder='HXZ123'
-                                 class="w-full py-[15px] px-[10px] placeholder-[#C4C4C4] bg-[#F2F2F2] text-[#000000] text-[16px] font-[jost] font-[500] leading-[23.12px]">
-                         </div>
-                         <div class="w-full flex justify-center items-center">
-                             <button
-                                 class="text-[#F2F2F2] text-[14px] font-[jost] font-[500] px-[40px] py-[10px] leading-[20.23px] rounded-[4px] bg-gradient-to-r from-[#380D37] to-[#DC275C]">Add</button>
-                         </div>
-                     </div>
-                 </div>
-
-                 <script>
-                     $('#add').on('click', function() {
-                         // $("#add-coupon").toggle();
-                         $("#add-coupon").addClass('block');
-                         $("#add-coupon").removeClass('hidden');
-
-                     });
-                 </script>
              </div>
          </div>
          <div class="overflow-auto rounded-lg shadow">
