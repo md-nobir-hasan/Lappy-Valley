@@ -1,5 +1,5 @@
 <div
-    class=" p360 px-[100px] max-2xl:px-[70px] max-xl:px-[60px] max-lg:px-[38px] max-md:px-[35px] max-sm:px-[12px] max-sm:mt-[70px] max-xl:mt-[100px]">
+    class=" p360 px-[100px] max-2xl:px-[70px] max-xl:px-[60px] max-lg:px-[38px] max-md:px-[35px] max-sm:px-[8px] max-sm:mt-[70px] max-xl:mt-[100px]">
     {{-- Alert message  --}}
     @if ($error = session('error'))
         <script>
@@ -269,7 +269,7 @@
 
                                 <div class="image-container h-[180px]">
                                     <a href="{{ route('product.details', [$f_product->slug]) }}" wire:navigate class="h-full">
-                                        <img src="{{ $f_product->img()[0] }}" alt="" class="h-full object-cover">
+                                        <img src="{{ $f_product->img()[0] }}" alt="" class="h-full object-contain">
                                     </a>
                                 </div>
                                 <div>
@@ -537,8 +537,8 @@
 
                                 <div class="image-container h-[180px]">
                                     <a href="{{ route('product.details', [$a_product->slug]) }}" wire:navigate class="h-full">
-                                        <img src="{{ $a_product->img()[0] }}" alt="" class="h-full object-cover">
-                                    </a>
+                                        <img src="{{ $a_product->img()[0] }}" alt="" class="h-full object-contain">
+k                                    </a>
                                 </div>
                                 <div class="">
                                     <a href="{{ route('product.details', [$a_product->slug]) }}" wire:navigate
@@ -872,7 +872,7 @@
                         </div>
                     </div>
                     <h2
-                        class="px-1 py-4 text-[#DC275C] font-[jost] text-[24px] font-[500] leading-[35px] text-center ">
+                        class="h-[100px] px-1 py-4 text-[#DC275C] font-[jost] text-[24px] font-[500] leading-[35px] text-center ">
                         Wide Varieties</h2>
                 </div>
                 <div class="p-3 mt-auto">
@@ -887,7 +887,7 @@
                 <div>
                     <img class="p-3 mx-auto w-[116px] h-[116px]" src="/storage/product/trust-1.svg" alt="Product">
                     <h2
-                        class="px-1 py-4 text-[#DC275C] font-[jost] text-[24px]  font-[500] leading-[35px] text-center ">
+                        class="h-[100px] px-1 py-4 text-[#DC275C] font-[jost] text-[24px]  font-[500] leading-[35px] text-center ">
                         Trusted and Reliable</h2>
                 </div>
                 <div class="p-3 mt-auto">
@@ -903,7 +903,7 @@
                     <img class="p-3 mx-auto w-[116px] h-[116px]" src="/storage/product/best-service.svg"
                         alt="Product">
                     <h2
-                        class="px-1 py-4 text-[#DC275C] font-[jost] text-[24px] font-[500] leading-[35px] text-center ">
+                        class="h-[100px] px-1 py-4 text-[#DC275C] font-[jost] text-[24px] font-[500] leading-[35px] text-center ">
                         Best Service</h2>
                 </div>
                 <div class="p-3 mt-auto">
@@ -918,7 +918,7 @@
                     <img class="p-3 mx-auto w-[116px] h-[116px]" src="/storage/product/best-price-1.svg"
                         alt="Product">
                     <h2
-                        class="px-1 py-4 text-[#DC275C] font-[jost] text-[24px] font-[500] leading-[35px] text-center ">
+                        class="h-[100px] px-1 py-4 text-[#DC275C] font-[jost] text-[24px] font-[500] leading-[35px] text-center ">
                         Best Price in Market</h2>
                 </div>
                 <div class="p-3 mt-auto">
@@ -934,7 +934,7 @@
                         alt="Product">
 
                     <h2
-                        class="px-1 py-4 text-[#DC275C] font-[jost] text-[24px] font-[500] leading-[35px] text-center ">
+                        class="h-[100px] px-1 py-4 text-[#DC275C] font-[jost] text-[24px] font-[500] leading-[35px] text-center ">
                         Fast Delivary</h2>
                 </div>
                 <div class="p-3 mt-auto">
@@ -1504,7 +1504,7 @@
     <section class="mt-16 mb-5 max-md:mt-6">
         <div
             class="text-center text-[#380D37] text-[42px] font-[jost] font-[500] max-md:my-[35px] leading-[61px] max-sm:leading-[5px]">
-            <h1 class="max-sm:text-[35px] max-md:text-[45] max-lg:text-[] max-xl:text-[]"> Please Drop a Review!</h1>
+            <h1 class="max-sm:text-[34px] max-md:text-[45] max-lg:text-[] max-xl:text-[]"> Please Drop a Review!</h1>
         </div>
         <div
             class="grid grid-cols-2 max-sm:grid-cols-1 max-md:grid-cols-1 max-lg:grid-cols-2 mt-20 max-md:mt-12 max-sm:mt-[15px]">
