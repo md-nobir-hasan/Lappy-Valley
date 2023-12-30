@@ -1,5 +1,5 @@
 <div
-    class="px-[100px] max-2xl:px-[70px] max-xl:px-[60px] max-lg:px-[38px] max-md:px-[35px] max-sm:px-[15px] max-sm:mt-[70px] max-xl:mt-[100px]">
+    class=" p360 px-[100px] max-2xl:px-[70px] max-xl:px-[60px] max-lg:px-[38px] max-md:px-[35px] max-sm:px-[12px] max-sm:mt-[70px] max-xl:mt-[100px]">
     {{-- Alert message  --}}
     @if ($error = session('error'))
         <script>
@@ -269,7 +269,7 @@
 
                                 <div class="image-container h-[180px]">
                                     <a href="{{ route('product.details', [$f_product->slug]) }}" wire:navigate class="h-full">
-                                        <img src="{{ $f_product->img()[0] }}" alt="" class="h-full object-container">
+                                        <img src="{{ $f_product->img()[0] }}" alt="" class="h-full object-cover">
                                     </a>
                                 </div>
                                 <div>
@@ -537,7 +537,7 @@
 
                                 <div class="image-container h-[180px]">
                                     <a href="{{ route('product.details', [$a_product->slug]) }}" wire:navigate class="h-full">
-                                        <img src="{{ $a_product->img()[0] }}" alt="" class="h-full object-container">
+                                        <img src="{{ $a_product->img()[0] }}" alt="" class="h-full object-cover">
                                     </a>
                                 </div>
                                 <div class="">
@@ -1768,7 +1768,7 @@
             keyboard: true,
             breakpoints: {
                 // when window width is >= 320px
-                375: {
+                300: {
                     slidesPerView: 2,
                     spaceBetween: 10
                 },
