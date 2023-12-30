@@ -50,7 +50,6 @@
           </tfoot>
           <tbody>
             @foreach($orders as $order)
-{{-- @dd($order) --}}
                 <tr>
                     <td>{{$order->id}}</td>
                     <td>{{$order->order_number}}</td>
@@ -58,7 +57,7 @@
                     <td>{{$order->email}}</td>
                     <td>{{$order->quantity}}</td>
                     <td>{{$order->shipping->price}}</td>
-                    <td>৳{{number_format($order->total_amount,2)}}</td>
+                    <td>৳{{number_format($order->amount,2)}}</td>
                     <td>
                         @if($order->order_status->title=='New')
                           <span class="badge badge-primary">{{$order->order_status->title}}</span>
