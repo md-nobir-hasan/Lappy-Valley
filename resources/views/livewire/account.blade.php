@@ -29,7 +29,7 @@
                 </div>
                 <div class="leading-[18px]">
                     <p class='text-[#000] text-[12px] font-[Inter] font-[400]'>Hello,</p>
-                    <h1 class='text-[#000] text-[20px] max-sm:text-[18px] font-[Inter] font-[500]'>Username Here</h1>
+                    <h1 class='text-[#000] text-[20px] max-sm:text-[18px] font-[Inter] font-[500]'>{{auth()->user()->name}}</h1>
                 </div>
 
             </div>
