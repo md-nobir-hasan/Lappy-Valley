@@ -160,8 +160,9 @@
                         C496,114.5,473.2,90.2,443.9,88.2z M212.1,331.2V180.8L342.3,256L212.1,331.2z"></path>
                       </svg>
                   </a>
-                  <a href="#"
+                  <a href="{{$other_setting->email}}"
                       class="rounded-[20%] hover:bg-blue-400 w-[25.08px] h-[24px] flex justify-center items-center">
+
                       <svg xmlns="http://www.w3.org/2000/svg" width="25.08" height="24"
                           class="max-sm:w-[25.08px] max-sm:h-[24px] max-md:w-[21px] max-lg:w-[23px] max-md:h-[20px] max-lg:h-[22px]"
                           viewBox="0 0 25 24" fill="#F2F2F2">
