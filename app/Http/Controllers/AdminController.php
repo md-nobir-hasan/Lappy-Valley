@@ -102,7 +102,7 @@ class AdminController extends Controller
         else{
             request()->session()->flash('error','Please try again');
         }
-        return redirect()->route('admin');
+        return back();
     }
 
     public function changePassword(){

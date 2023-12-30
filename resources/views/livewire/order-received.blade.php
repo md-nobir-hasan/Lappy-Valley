@@ -165,7 +165,7 @@
                         </svg>
                     </span>
                 </div>
-               <a href="{{}}">
+               <a href="{{$other_setting->fb}}">
                  <div class="bg-[#fff] leading-5 max-sm:flex max-sm:flex-col">
                     <span class="text-blue-900 text-[14px] font-[jost] font-[700]">Find us on</span>
                     <span class="text-blue-900 text-[18px] font-[jost] font-[700]">Facebook</span>
