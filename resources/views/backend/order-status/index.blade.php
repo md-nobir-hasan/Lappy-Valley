@@ -59,6 +59,8 @@
                                         @endif
                                     </td>
                                     <td>
+                                         @if ($datum->delete)
+
                                         @can('Edit Order Status')
                                             <a href="{{ route('order-status.edit', $datum->id) }}"
                                                 class="float-left mr-1 btn btn-primary btn-sm"
@@ -75,12 +77,13 @@
                                                         class="fas fa-trash-alt"></i></button>
                                             </form>
                                         @endcan
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
-                    <span>{{ $categories->links('vendor.pagination.bootstrap-5') }}</span>
+                    <span>{{ $data->links('vendor.pagination.bootstrap-5') }}</span>
                 @else
                     <h6 class="text-center">No Order Status found!!! Please create Order Status</h6>
                 @endif

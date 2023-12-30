@@ -6,6 +6,7 @@ use App\Models\OrderStatus;
 use App\Http\Requests\StoreOrderStatusRequest;
 use App\Http\Requests\UpdateOrderStatusRequest;
 use Stringable;
+use Str;
 
 class OrderStatusController extends Controller
 {
@@ -20,7 +21,7 @@ class OrderStatusController extends Controller
     {
         $this->ccan('Show Order Status');
 
-        $n['order_status'] = OrderStatus::orderBy('id', 'DESC')->paginate();
+        $n['data'] = OrderStatus::orderBy('id', 'DESC')->paginate();
         $n['count'] = OrderStatus::get();
         return view('backend.order-status.index',$n);
     }
@@ -43,7 +44,7 @@ class OrderStatusController extends Controller
         $this->ccan('Create Order Status');
 
         $data = $request->all();
-        $slug = Stringable::slug($request->title);
+        $slug = Str::slug($request->title);
         $count = OrderStatus::where('slug', $slug)->count();
         if ($count > 0) {
             $slug = $slug . '-' . date('ymdis') . '-' . rand(0, 999);

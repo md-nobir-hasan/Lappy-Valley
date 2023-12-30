@@ -35,21 +35,18 @@ class Login extends Component
             $this->redirect(url()->previous(),navigate:true);
         }
     }
-    
+
 
     public function login(){
         $user = User::where('email',$this->email)->first();
         if($user){
-            if ($this->email != $user->email) {
-                $this->check_msg = "Worng email";
-                return false;
-            } elseif (Hash::check($user->password,$this->password)) {
+            if (Hash::check($user->password,$this->password)) {
                 $this->check_msg = "Worng Password";
                 return false;
             }else{
                 Auth::login($user);
                 $this->success_msg = "Login Successfull.....";
-                 return to_route('home');
+                return $this->redirect(route('account'), navigate: true);
             }
         } else {
             $this->check_msg = "You have no account. Please, register";

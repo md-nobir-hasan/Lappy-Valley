@@ -42,7 +42,7 @@ class Signup extends Component
         Auth::login($user);
         // Mail::to($this->email)->send(new PasswordSendMail($this->email));
         session()->flash('success', "Your account is successfully created");
-        return $this->redirect(HomePage::class, navigate: true);
+        return $this->redirect(route('account'), navigate: true);
     }
     public function render()
     {

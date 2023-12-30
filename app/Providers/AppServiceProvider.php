@@ -2,9 +2,13 @@
 
 namespace App\Providers;
 
+use App\Models\OtherSetting;
+use App\Models\Settings;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\View;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -26,5 +30,8 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
         // Paginator::useBootstrapFour();
+        $n['setting'] = Settings::first();
+        $n['other_setting'] = OtherSetting::first();
+        View::share($n);
     }
 }

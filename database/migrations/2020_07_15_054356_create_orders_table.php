@@ -38,11 +38,11 @@ class CreateOrdersTable extends Migration
             $table->text('address')->nullable();
             $table->string('country')->nullable();
             // $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreignIdFor(OrderStatus::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            // $table->foreignIdFor(OrderStatus::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('transaction_id')->nullable();
             $table->string('currency')->nullable();
             $table->string('city')->nullable();
-            $table->enum('status',['Pending','New','Processing','Delivered','Canceled'])->default('Pending');
+            $table->string('status')->default('Pending');
             $table->text('comment')->nullable();
             $table->foreignIdFor(Divission::class)->nullable()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();

@@ -186,18 +186,27 @@ class CouponSeeder extends Seeder
                 'title' => 'New',
                 'slug' => 'New',
                 'status' => 'active',
+                'delete'=>1,
             ],
             [
                 'title' => 'Processing',
                 'slug' => 'Processing',
                 'status' => 'active',
+                'delete'=>1,
             ],
             [
                 'title' => 'Devivered',
                 'slug' => 'Devivered',
                 'status' => 'active',
+                'delete'=>1,
             ],
 
+            [
+                'title' => 'Canceled',
+                'slug' => 'canceled',
+                'status' => 'active',
+                'delete'=>0,
+            ],
         ];
         DB::table('order_statuses')->insert($order_status);
     }
