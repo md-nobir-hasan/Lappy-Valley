@@ -182,7 +182,7 @@
                                          } else {
                                              total = total - this.amount;
                                              this.cp_show = false;
-                         
+
                                          }
                                          let cart_count = Number($('.cart_count:eq(1)').text());
                                          $('.cart_count').text(cart_count - 1);
@@ -242,7 +242,7 @@
                                      </div>
                                      <div class="grid grid-cols-2 gap-[4px] items-center">
                                          <div>
-                                             <span @click='sync'>
+                                             <span @click='sync' class="cursor-pointer">
                                                  <svg version="1.1" id="ios7_x5F_arrows_1_"
                                                      xmlns="http://www.w3.org/2000/svg" x="0" y="0"
                                                      viewBox="0 0 128 128" class="w-[20px] h-[20px]"
@@ -262,7 +262,7 @@
                                              </span>
                                          </div>
                                          <div>
-                                             <span @click='removeProd'><svg xmlns="http://www.w3.org/2000/svg"
+                                             <span @click='removeProd' class="cursor-pointer"><svg xmlns="http://www.w3.org/2000/svg"
                                                      fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                                      stroke="currentColor" class="w-6 h-6">
                                                      <path stroke-linecap="round" stroke-linejoin="round"

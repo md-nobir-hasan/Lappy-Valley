@@ -1,5 +1,4 @@
 <div>
-
     <header
         class="h-[78px] z-[10000] max-sm:h-[50px] max-xl:h-[68px] max-xl:fixed max-xl:top-0 max-xl:left-0 max-xl:right-0 max-xl:z-150 max-xl:flex max-xl:justify-between max-xl:items-center max-xl:border-b-[2px] max-xl:border-[#f2f2f2]
      bg-gradient-to-r from-[#380D37] to-[#DC275C] text-[#f2f2f2] px-[72px] max-xl:px-[40px]">
@@ -20,7 +19,7 @@
                         <li
                             class="menu-container2pt-2 font-[jost] font-[500] text-[#353535] text-[16px] max-sm:text-[14px] bg-[#f2f2f2]">
                             <div class="flex items-center justify-between px-6 py-3 max-sm:px-4 max-sm:py-2 toggleBtn2">
-                                <div class="max-sm:text-[14px]">All Categories</div>
+                                <div class="max-sm:text-[14px] cursor-pointer">All Categories</div>
                                 <div class="toggle-btn2">
                                     <svg class="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                                         width="24" height="24" fill="none" stroke="currentColor"
@@ -41,7 +40,7 @@
                                 <li class="border-y-[1px] border-[#764A87]"><a href="{{ route('shop') }}"
                                         wire:navigate>All</a></li>
                                 @foreach ($menus as $menu1)
-                                    <li class="border-b-[1px] border-[#764A87]"><a
+                                    <li class="border-b-[1px] border-[#764A87] "><a
                                             href="{{ route('cate_wise.shop', [$menu1->slug]) }}"
                                             wire:navigate>{{ $menu1->title }}</a></li>
                                 @endforeach
@@ -54,7 +53,7 @@
                                 @if (count($menu->child_cat) > 0)
                                     <div
                                         class="flex items-center justify-between px-6 py-3 max-sm:px-4 max-sm:py-2 toggleBtn2">
-                                        <div class="max-sm:text-[14px]">{{ $menu->title }}</div>
+                                        <div class="max-sm:text-[14px] cursor-pointer">{{ $menu->title }}</div>
                                         <div class="toggle-btn2">
                                             <svg class="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                                                 width="24" height="24" fill="none" stroke="currentColor"
