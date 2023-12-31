@@ -346,7 +346,7 @@
 
 @media (max-width: 375px) {
     .p360 {
-        padding: 0px 0px !important;
+        padding: 0px 4px !important;
     }
 }
 
@@ -505,5 +505,5 @@
     /* Apply blur effect to the body background */
     z-index: 1;
     display: none;
-    overflow-block:
+    /* overflow-block: */
 }
