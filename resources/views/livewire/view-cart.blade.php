@@ -2,10 +2,21 @@
      total: '{{ $carts->sum('amount') }}',
      all_total: {{ $carts->sum('amount') }},
      carts: {{ $carts }},
-     discount: 0,
-     discountCal(){
-        this.all_total = this.total - (this.total*this.discount/100)
-     }
+     discode: '',
+     discount:'',
+     discountCal() {
+        $.ajax({
+            method:'get',
+            url:'{{route('coupon.fetch')}}',
+            data:{code: this.discode},
+            success:(res)=>{
+                if(this.discode){
+                    
+                }
+            },
+        });
+     },
+
  }"
      class="px-[100px] max-2xl:px-[70px] max-xl:px-[60px] max-lg:px-[38px] max-md:px-[35px] max-sm:px-[15px] max-sm:mt-[70px] max-xl:mt-[100px]">
      <div class="">
@@ -47,7 +58,7 @@
                                  </h5>
                              </div>
                              <div>
-                                 <input x-model='discount' type="number" placeholder='HXZ123'
+                                 <input x-model='discode' type="text" placeholder='HXZ123'
                                      class="w-full py-[15px] px-[10px] placeholder-[#C4C4C4] bg-[#F2F2F2] text-[#000000] text-[16px] font-[jost] font-[500] leading-[23.12px]">
                              </div>
                              <div class="w-full flex justify-center items-center">
@@ -269,9 +280,10 @@
                                              </span>
                                          </div>
                                          <div>
-                                             <span @click='removeProd' class="cursor-pointer"><svg xmlns="http://www.w3.org/2000/svg"
-                                                     fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                                     stroke="currentColor" class="w-6 h-6">
+                                             <span @click='removeProd' class="cursor-pointer"><svg
+                                                     xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                     viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                                     class="w-6 h-6">
                                                      <path stroke-linecap="round" stroke-linejoin="round"
                                                          d="M6 18L18 6M6 6l12 12" />
                                                  </svg>
@@ -313,7 +325,8 @@
                  <td class="text-[20px] max-sm:text-[16px] text-[#DC275C] font-[jost] font-[500]">
                      {{-- {{ number_format($carts->sum('amount')) }} --}}
                      {{-- <span x-text='mFormat(total)'></span> --}}
-                     <span x-text='discount'></span>%</td>
+                     <span x-text='discount'></span>
+                 </td>
              </tr>
 
              <tr class="p-3 flex justify-between border-b-[2px] max-sm:border-b-[1px] border-[#380D37]">
@@ -331,11 +344,20 @@
      </table>
 
      <div class="flex justify-end my-[60px] max-sm:my-[35px]">
-         <a href="{{ route('checkout', ['one_time']) }}" wire:navigate>
-             <button
-                 class="fill-up-btn bg-gradient-to-r from-[#380D37] to-[#DC275C] py-[10px] px-[40px] max-sm:px-[25px] text-[14px] max-sm:text-[12px] text-[#fff] font-[jost] font-[500] rounded-[5px]">Confirm
-                 Order</button>
-         </a>
+         {{-- <a href="{{ route('checkout') }}" wire:navigate> --}}
+
+             <button wire:click="toCheckout"
+                 class="fill-up-btn flex items-center justify-center bg-gradient-to-r from-[#380D37] to-[#DC275C] py-[10px] px-[40px] max-sm:px-[25px] text-[14px] max-sm:text-[12px] text-[#fff] font-[jost] font-[500] rounded-[5px]">Confirm
+                 <span>Order</span>
+                 <div wire:loading wire:target='toCheckout'
+                     class="inline-block h-6 w-6 mr-2 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-success motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                     role="status">
+                     <span
+                         class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...
+                     </span>
+                 </div>
+             </button>
+         {{-- </a> --}}
      </div>
      <div class="h-[2px] bg-[#764A87] my-[100px] max-sm:my-[45px]"></div>
  </div>

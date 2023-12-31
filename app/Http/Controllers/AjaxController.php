@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\Category;
+use App\Models\Coupon;
 use App\Models\Product;
 use App\Models\ProductReview;
 use App\Models\ProductReviewImag;
@@ -210,7 +211,11 @@ class AjaxController extends Controller
 
         return response()->json($n);
     }
-
+    public function couponFetch(Request $req){
+        $coupon = Coupon::where('code', $req->code)->first();
+        // dd($coupon,$discode);
+        return response()->json($coupon);
+    }
     public function productReview(Request $req)
     {
         $data['f_name'] = $req->f_name;

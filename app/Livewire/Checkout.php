@@ -10,6 +10,7 @@ use App\Models\Shipping;
 use App\Notifications\StatusNotification;
 use App\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
 use Livewire\Attributes\Title;
@@ -158,8 +159,6 @@ class Checkout extends Component
 
     public function render()
     {
-
-
         if ($user = Auth()->user()) {
             $n['carts'] = Cart::with(['product'])->where('user_id', $user->id)->where('order_id', null)->latest()->get();
             $this->name = $user->name;
