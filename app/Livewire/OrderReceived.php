@@ -10,10 +10,10 @@ use Livewire\Attributes\Title;
 
 class OrderReceived extends Component
 {
-    public $id;
+    public $order_number;
     public function render()
     {
-        $n['order'] = Order::find($this->id);
+        $n['order'] = Order::where('order_number',$this->order_number)->first();
         return view('livewire.order-received',$n);
     }
 }

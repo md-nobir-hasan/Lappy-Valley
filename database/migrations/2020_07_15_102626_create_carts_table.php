@@ -23,7 +23,6 @@ class CreateCartsTable extends Migration
             $table->enum('status',['new','progress','delivered','cancel'])->default('new');
             $table->integer('quantity')->default(1);
             $table->unsignedBigInteger('amount')->default(0);
-            $table->unsignedBigInteger('coupon_dis')->default(0);
             $table->foreign('product_id')->references('id')->on('products')->onDelete('CASCADE');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('CASCADE');
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('SET NULL');

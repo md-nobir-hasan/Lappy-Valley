@@ -15,10 +15,10 @@
     <script type="text/javascript" src="{{ asset('dist/toastr/tastr-helper.js') }}"></script>
     <script type="text/javascript" src="{{ asset('dist/toastr/toastr.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('library/swiper/swiper.min.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{asset('frontend/owl-carousel-libraries/owl.carousel.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/owl-carousel-libraries/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('dist/output.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/cstyle.css') }}">
-   
+
 </head>
 
 <body>
@@ -61,6 +61,7 @@
 
     {{-- Jquery --}}
 
+    {{-- @script --}}
     <script>
         $(document).ready(function() {
             const sc = $('#side_cart');
@@ -73,7 +74,7 @@
             let cart_product_no = $('.cart-product').length - 1;
             //open cart by clicking on add to cart
             // $('.add-to-cart').on('click', function() {
-            $(document).on('click','.add-to-cart', function() {
+            $(document).on('click', '.add-to-cart', function() {
                 cart_product_no += 1;
                 const p_id = $(this).prop('id');
                 $.ajax({
@@ -203,8 +204,8 @@
                                 </div>`;
 
                             $('#side_cart_body').append(product);
-                            let cart_count =  Number($('.cart_count:eq(1)').text());
-                            $('.cart_count').text(cart_count+1);
+                            let cart_count = Number($('.cart_count:eq(1)').text());
+                            $('.cart_count').text(cart_count + 1);
                         }
                     }
                 });
@@ -233,7 +234,9 @@
             }
         });
     </script>
-    <script src="{{asset('frontend/owl-carousel-libraries/owl.carousel.min.js')}}"></script>
+    
+    {{-- @endscript --}}
+    <script src="{{ asset('frontend/owl-carousel-libraries/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('library/swiper/swiper.min.js') }}"></script>
     <script src="{{ asset('library/tailwind-eliment/te.min.js') }}"></script>
     <!-- Initialize Swiper -->

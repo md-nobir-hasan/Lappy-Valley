@@ -62,8 +62,6 @@ class Checkout extends Component
     public function orderSubmit()
     {
         $this->validate();
-        // dd($this->all());
-        //Cart fetch
         if (auth()->user()) {
             $carts = Cart::with('product')->where('user_id', auth()->user()->id)->where('order_id', null)->get();
             $user = auth()->user();
@@ -131,7 +129,7 @@ class Checkout extends Component
         $status = $order->save();
         if ($order)
             // dd($order->id);
-            $users = User::find(1);
+            $users = User::role('Admin')->get();
         $details = [
             'title' => 'New order created',
             'actionURL' => route('order.show', $order->id),
@@ -155,7 +153,7 @@ class Checkout extends Component
         // dd($users);
         request()->session()->flash('success', 'Your Order successfully placed in order');
         // return $this->redirect(HomePage::class, navigate: true);
-        return $this->redirect(route('order.receive', [$order->id]));
+        return $this->redirect(route('order.receive', [$order->order_number]));
     }
 
     public function render()
