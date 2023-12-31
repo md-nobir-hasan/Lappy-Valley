@@ -861,10 +861,6 @@ input[type="range"]:active::-webkit-slider-thumb{
   left: -300px;
 }
 
-.left-\[210px\]{
-  left: 210px;
-}
-
 .left-\[50\%\]{
   left: 50%;
 }
@@ -947,10 +943,6 @@ input[type="range"]:active::-webkit-slider-thumb{
 
 .top-\[50px\]{
   top: 50px;
-}
-
-.top-\[70px\]{
-  top: 70px;
 }
 
 .top-full{
@@ -1869,10 +1861,6 @@ input[type="range"]:active::-webkit-slider-thumb{
 
 .h-screen{
   height: 100vh;
-}
-
-.h-\[\]{
-  height: ;
 }
 
 .max-h-20{
@@ -3983,6 +3971,11 @@ input[type="range"]:active::-webkit-slider-thumb{
   padding-bottom: 8px;
 }
 
+.px-\[\]{
+  padding-left: ;
+  padding-right: ;
+}
+
 .pb-0{
   padding-bottom: 0px;
 }
@@ -5479,6 +5472,14 @@ input[type="range"]:active::-webkit-slider-thumb{
   border-radius: 50%;
 }
 
+.hover\:rounded-md:hover{
+  border-radius: 0.375rem;
+}
+
+.hover\:rounded-sm:hover{
+  border-radius: 0.125rem;
+}
+
 .hover\:border-\[\#380D37\]:hover{
   --tw-border-opacity: 1;
   border-color: rgb(56 13 55 / var(--tw-border-opacity));
@@ -5536,6 +5537,10 @@ input[type="range"]:active::-webkit-slider-thumb{
   background-color: rgb(217 228 243 / var(--tw-bg-opacity));
 }
 
+.hover\:bg-\[\]:hover{
+  background-color: ;
+}
+
 .hover\:fill-\[\#8b8b8b\]:hover{
   fill: #8b8b8b;
 }
@@ -5583,6 +5588,10 @@ input[type="range"]:active::-webkit-slider-thumb{
 .hover\:text-white:hover{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.hover\:text-\[\]:hover{
+  color: ;
 }
 
 .hover\:underline:hover{
@@ -7958,6 +7967,11 @@ input[type="range"]:active::-webkit-slider-thumb{
     padding-right: 40px;
   }
 
+  .max-sm\:px-\[8px\]{
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
   .max-sm\:py-2{
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
@@ -7986,11 +8000,6 @@ input[type="range"]:active::-webkit-slider-thumb{
   .max-sm\:py-\[8px\]{
     padding-top: 8px;
     padding-bottom: 8px;
-  }
-
-  .max-sm\:px-\[8px\]{
-    padding-left: 8px;
-    padding-right: 8px;
   }
 
   .max-sm\:pb-\[0px\]{
@@ -8083,10 +8092,6 @@ input[type="range"]:active::-webkit-slider-thumb{
 
   .max-sm\:text-\[34px\]{
     font-size: 34px;
-  }
-
-  .max-sm\:text-\[35px\]{
-    font-size: 35px;
   }
 
   .max-sm\:text-\[40px\]{

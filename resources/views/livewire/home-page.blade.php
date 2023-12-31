@@ -269,7 +269,7 @@
 
                                 <div class="image-container h-[180px]">
                                     <a href="{{ route('product.details', [$f_product->slug]) }}" wire:navigate class="h-full">
-                                        <img src="{{ $f_product->img()[0] }}" alt="" class="h-full object-contain">
+                                        <img src="{{ $f_product->img()[0] }}" alt="" class=" img-contain h-full object-contain">
                                     </a>
                                 </div>
                                 <div>
@@ -537,7 +537,7 @@
 
                                 <div class="image-container h-[180px]">
                                     <a href="{{ route('product.details', [$a_product->slug]) }}" wire:navigate class="h-full">
-                                        <img src="{{ $a_product->img()[0] }}" alt="" class="h-full object-contain">
+                                        <img src="{{ $a_product->img()[0] }}" alt="" class="img-contain h-full object-contain">
 k                                    </a>
                                 </div>
                                 <div class="">
