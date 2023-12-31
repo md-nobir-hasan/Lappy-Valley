@@ -51,7 +51,7 @@
          </div>
          <div class="my-3 text-center">
 
-             <a href="{{ route('product.details', [$product->slug]) }}" class="">
+             <a href="{{ route('single_checkout', [$product->slug]) }}" wire:navigate class="">
                  <button
                      class='bg-[#380D37] text-[#F2F2F2] text-[10px] font-[jost] font-[500] py-[8px] max-lg:px-0 max-lg:w-[100px] px-[50px] rounded-[5px]'>Buy
                      Now

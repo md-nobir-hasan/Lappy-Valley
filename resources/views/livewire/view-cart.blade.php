@@ -2,6 +2,10 @@
      total: '{{ $carts->sum('amount') }}',
      all_total: {{ $carts->sum('amount') }},
      carts: {{ $carts }},
+     discount: 0,
+     discountCal(){
+        this.all_total = this.total - (this.total*this.discount/100)
+     }
  }"
      class="px-[100px] max-2xl:px-[70px] max-xl:px-[60px] max-lg:px-[38px] max-md:px-[35px] max-sm:px-[15px] max-sm:mt-[70px] max-xl:mt-[100px]">
      <div class="">
@@ -43,12 +47,12 @@
                                  </h5>
                              </div>
                              <div>
-                                 <input type="text" placeholder='HXZ123'
+                                 <input x-model='discount' type="number" placeholder='HXZ123'
                                      class="w-full py-[15px] px-[10px] placeholder-[#C4C4C4] bg-[#F2F2F2] text-[#000000] text-[16px] font-[jost] font-[500] leading-[23.12px]">
                              </div>
                              <div class="w-full flex justify-center items-center">
                                  <span data-te-modal-dismiss>
-                                     <button type="button"
+                                     <button type="button" @click='discountCal'
                                          class="text-[#F2F2F2] text-[14px] font-[jost] font-[500] px-[60px] py-[14px] leading-[20.23px] rounded-[4px] bg-gradient-to-r from-[#380D37] to-[#DC275C]"
                                          data-te-ripple-init data-te-ripple-color="light" data-te-toggle="modal"
                                          data-te-target="#exampleModalSecond" data-te-ripple-init
@@ -134,6 +138,7 @@
                                  const stotal = pq * this.price;
                                  total = total - this.amount + stotal;
                                  this.amount = stotal;
+                                 discountCal();
                                  $.ajax({
                                      url: '{{ route('plus') }}',
                                      method: 'get',
@@ -155,6 +160,7 @@
                                  const mq = --this.qty;
                                  const stotal = mq * this.price;
                                  total = total - this.amount + stotal;
+                                 discountCal();
                                  this.amount = stotal;
                                  $.ajax({
                                      url: '{{ route('minus') }}',
@@ -181,8 +187,9 @@
                                              toastr.warning(res.msg)
                                          } else {
                                              total = total - this.amount;
+                                             discountCal();
                                              this.cp_show = false;
-                         
+
                                          }
                                          let cart_count = Number($('.cart_count:eq(1)').text());
                                          $('.cart_count').text(cart_count - 1);
@@ -242,7 +249,7 @@
                                      </div>
                                      <div class="grid grid-cols-2 gap-[4px] items-center">
                                          <div>
-                                             <span @click='sync'>
+                                             <span @click='sync' class="cursor-pointer">
                                                  <svg version="1.1" id="ios7_x5F_arrows_1_"
                                                      xmlns="http://www.w3.org/2000/svg" x="0" y="0"
                                                      viewBox="0 0 128 128" class="w-[20px] h-[20px]"
@@ -262,7 +269,7 @@
                                              </span>
                                          </div>
                                          <div>
-                                             <span @click='removeProd'><svg xmlns="http://www.w3.org/2000/svg"
+                                             <span @click='removeProd' class="cursor-pointer"><svg xmlns="http://www.w3.org/2000/svg"
                                                      fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                                      stroke="currentColor" class="w-6 h-6">
                                                      <path stroke-linecap="round" stroke-linejoin="round"
@@ -306,7 +313,7 @@
                  <td class="text-[20px] max-sm:text-[16px] text-[#DC275C] font-[jost] font-[500]">
                      {{-- {{ number_format($carts->sum('amount')) }} --}}
                      {{-- <span x-text='mFormat(total)'></span> --}}
-                     15%</td>
+                     <span x-text='discount'></span>%</td>
              </tr>
 
              <tr class="p-3 flex justify-between border-b-[2px] max-sm:border-b-[1px] border-[#380D37]">
@@ -315,7 +322,7 @@
                      Total:</td>
                  <td class="text-[20px] max-sm:text-[16px] text-[#DC275C] font-[jost] font-[500]">
                      {{-- {{ number_format($carts->sum('amount')) }} --}}
-                     <span x-text='mFormat(total)'></span>
+                     <span x-text='mFormat(all_total)'></span>
                      ৳
                  </td>
              </tr>

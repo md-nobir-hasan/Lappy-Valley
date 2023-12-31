@@ -66,6 +66,7 @@ use App\Livewire\OtpConfirm;
 use App\Livewire\ResetPassword;
 use App\Livewire\Review;
 use App\Livewire\SearchingProduct;
+use App\Livewire\SingleCheckout;
 use App\Livewire\ViewCart;
 use App\Livewire\Wishlist;
 use \UniSharp\LaravelFilemanager\Lfm;
@@ -335,8 +336,9 @@ Route::get('/minus',[AjaxController::class, 'minus'])->name('minus');
 Route::get('/delete',[AjaxController::class, 'delete'])->name('delete');
 Route::get('/sync',[AjaxController::class, 'sync'])->name('sync');
 Route::get('/add-to-cart',[AjaxController::class,'addToCart'])->name('add_to_cart');
-Route::get('/order-received/{id}',OrderReceived::class)->name('order.receive');
+Route::get('/order-received/{order_number}',OrderReceived::class)->name('order.receive');
 Route::post('/product-review',[AjaxController::class, 'productReview'])->name('product_review');
+Route::get('/single-checkout/{pslug}',SingleCheckout::class)->name('single_checkout');
 
 Route::middleware('auth')->group(function(){
     Route::post('/cart-sotre',[AjaxController::class,'cartStore'])->name('cart.store');
