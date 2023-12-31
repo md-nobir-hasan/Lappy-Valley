@@ -5,6 +5,7 @@
      bg-gradient-to-r from-[#380D37] to-[#DC275C] text-[#f2f2f2] px-[72px] max-xl:px-[40px]">
         <div id="body-overlay1"></div>
 
+        {{-- Mobile menue  --}}
         {{-- ------responsive---show----- --}}
         <div class="xl:hidden max-xl:block">
             <div class="menu-toggle">
@@ -77,11 +78,11 @@
                                         @foreach ($menu->child_cat as $menu2)
                                             @if ($loop->first)
                                                 <li class="border-y-[1px] border-[#764A87]"><a
-                                                        href="{{ route('cate_wise.shop', [$menu2->slug]) }}"
+                                                        href="{{ route('cate_wise.shop', [$menu->slug,$menu2->slug]) }}"
                                                         wire:navigate>{{ $menu2->title }}</a></li>
                                             @else
                                                 <li class="border-b-[1px] border-[#764A87]"><a
-                                                        href="{{ route('cate_wise.shop', [$menu2->slug]) }}"
+                                                        href="{{ route('cate_wise.shop', [$menu->slug,$menu2->slug]) }}"
                                                         wire:navigate>{{ $menu2->title }}</a></li>
                                             @endif
                                         @endforeach
