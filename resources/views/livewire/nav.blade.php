@@ -58,7 +58,7 @@
          @else
              <div class="relative">
                  <a class="flex items-center whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]"
-                     href="{{ route('cate_wise.shop', [$men->slug]) }}" type="button" id="dropdownMenuButton2">
+                     href="{{ route('cate_wise.shop', [$men->slug]) }}" wire:navigate type="button" id="dropdownMenuButton2">
                      {{ $men->title }}
 
                  </a>

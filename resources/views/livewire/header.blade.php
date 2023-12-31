@@ -1,10 +1,10 @@
 <div>
-
     <header
         class="h-[78px] z-[10000] max-sm:h-[50px] max-xl:h-[68px] max-xl:fixed max-xl:top-0 max-xl:left-0 max-xl:right-0 max-xl:z-150 max-xl:flex max-xl:justify-between max-xl:items-center max-xl:border-b-[2px] max-xl:border-[#f2f2f2]
      bg-gradient-to-r from-[#380D37] to-[#DC275C] text-[#f2f2f2] px-[72px] max-xl:px-[40px]">
         <div id="body-overlay1"></div>
 
+        {{-- Mobile menue  --}}
         {{-- ------responsive---show----- --}}
         <div class="xl:hidden max-xl:block">
             <div class="menu-toggle">
@@ -19,7 +19,7 @@
                         <li
                             class="menu-container2pt-2 font-[jost] font-[500] text-[#353535] text-[16px] max-sm:text-[14px] bg-[#f2f2f2]">
                             <div class="flex items-center justify-between px-6 py-3 max-sm:px-4 max-sm:py-2 toggleBtn2">
-                                <div class="max-sm:text-[14px]">All Categories</div>
+                                <div class="max-sm:text-[14px] cursor-pointer">All Categories</div>
                                 <div class="toggle-btn2">
                                     <svg class="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                                         width="24" height="24" fill="none" stroke="currentColor"
@@ -40,7 +40,7 @@
                                 <li class="border-y-[1px] border-[#764A87]"><a href="{{ route('shop') }}"
                                         wire:navigate>All</a></li>
                                 @foreach ($menus as $menu1)
-                                    <li class="border-b-[1px] border-[#764A87]"><a
+                                    <li class="border-b-[1px] border-[#764A87] "><a
                                             href="{{ route('cate_wise.shop', [$menu1->slug]) }}"
                                             wire:navigate>{{ $menu1->title }}</a></li>
                                 @endforeach
@@ -53,7 +53,7 @@
                                 @if (count($menu->child_cat) > 0)
                                     <div
                                         class="flex items-center justify-between px-6 py-3 max-sm:px-4 max-sm:py-2 toggleBtn2">
-                                        <div class="max-sm:text-[14px]">{{ $menu->title }}</div>
+                                        <div class="max-sm:text-[14px] cursor-pointer">{{ $menu->title }}</div>
                                         <div class="toggle-btn2">
                                             <svg class="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                                                 width="24" height="24" fill="none" stroke="currentColor"
@@ -77,11 +77,11 @@
                                         @foreach ($menu->child_cat as $menu2)
                                             @if ($loop->first)
                                                 <li class="border-y-[1px] border-[#764A87]"><a
-                                                        href="{{ route('cate_wise.shop', [$menu2->slug]) }}"
+                                                        href="{{ route('cate_wise.shop', [$menu->slug,$menu2->slug]) }}"
                                                         wire:navigate>{{ $menu2->title }}</a></li>
                                             @else
                                                 <li class="border-b-[1px] border-[#764A87]"><a
-                                                        href="{{ route('cate_wise.shop', [$menu2->slug]) }}"
+                                                        href="{{ route('cate_wise.shop', [$menu->slug,$menu2->slug]) }}"
                                                         wire:navigate>{{ $menu2->title }}</a></li>
                                             @endif
                                         @endforeach
@@ -274,76 +274,6 @@
                     <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                 </svg>
             </div>
-            {{-- <div id="search-bar" class="fixed top-[70px] left-[210px] z-[9999] hidden" x-data="{
-
-                search: '',
-                open: false,
-                items: $wire.products,
-                get filteredItems() {
-                    const searchLower = this.search.toLowerCase();
-                    return this.items.filter((i) => i.title.toLowerCase().startsWith(searchLower));
-                }
-            }">
-
-                <form wire:submit='searchTo' class='h-[44px] w-[655px]'>
-                    <div class="flex" @click.outside='open = false'>
-                        <select name="cat_id" wire:model.live='cat' wire:change='prdouctFetch'
-                            @change='open=true'
-                            class="block w-[80px] p-2.5 text-[#380D37] text-[14px] font-[jost] font-[400] leading-[20.23px] border-r-[2px] border-[#380D37]">
-                            <option value="" selected>All</option>
-                            @foreach ($cats as $ct)
-                                <option value="{{ $ct->id }}">{{ $ct->title }}</option>
-                            @endforeach
-                        </select>
-                        <div class="relative flex w-full">
-                            <div>
-                                <span class="">
-                                    <input name="search_text" wire:model.live="search"
-                                        wire:keyup="searchFuc" @click="open = true" type="search"
-                                        id="search-dropdown"
-                                        class=" z-20 block p-2.5 w-full text-[#380D37]"
-                                        placeholder="I am shopping for..." required>
-                                    <div wire:loading wire:target='prdouctFetch,searchFuc'
-                                        class="absolute right-[6.5rem] top-2.5 inline-block h-6 w-6 mr-2 animate-spin rounded-full
-                                        border-4 border-solid border-current border-r-transparent align-[-0.125em]
-                                            text-success motion-reduce:animate-[spin_1.5s_linear_infinite]"
-                                        role="status">
-                                        <span
-                                            class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...
-                                        </span>
-                                    </div>
-                                </span>
-                                @if (count($products) > 0)
-                                    <ul x-show='open'
-                                        class="absolute z-50 bg-[white] text-[black]max-h-[530px] overflow-scroll w-full">
-                                        @foreach ($products as $prd)
-                                            <li>
-                                                <a href="{{ route('product.details', [$prd->slug]) }}"
-                                                    wire:navigate class="flex">
-                                                    <img src="{{ explode(',', $prd->photo)[0] }}"
-                                                        alt="" width="40px" height="40px">
-                                                    <div>
-                                                        <span>{{ $prd->title }}</span>
-                                                        <p>
-                                                            <span>{{ round($prd->price - ($prd->price * $prd->discount) / 100) }}</span>
-                                                            <span
-                                                                class="line-through">{{ $prd->price }}</span>
-                                                        </p>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        @endforeach
-                                    </ul>
-                                @endif
-                            </div>
-                            <button type="submit"
-                                class=" top-0 end-0 py-2.5 px-[30px]   h-full bg-[#df146e] text-[#f2f2f2] rounded-r-[2px] overflow-hidden">
-                                <span class="">Search</span>
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div> --}}
             <div id="search-bar"
                 class="search-bar max-xl:fixed max-sm:top-[49px] max-md:top-[67px] max-xl:top-[67px] max-xl:left-0 max-xl:w-full z-[9999] max-xl:hidden">
 
@@ -369,9 +299,6 @@
                                         @foreach ($cats as $ct)
                                             <option value="{{ $ct->id }}">{{ $ct->title }}</option>
                                         @endforeach
-                                        {{-- <option value="CA">Canada</option>
-                                            <option value="FR">France</option>
-                                            <option value="DE">Germany</option> --}}
                                     </select>
                                     <div class="relative flex w-full">
                                         <div class="w-full">

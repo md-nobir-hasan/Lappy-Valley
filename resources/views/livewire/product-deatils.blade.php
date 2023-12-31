@@ -84,9 +84,7 @@
                 </li>
                 <li class=" text-[16px] max-lg:text-[14px] text-[#353535] font-[jost] font-[400]">
 
-                    RAM: {{ $product->ram->ram }} GB, Storage:
-                    {{ $product->ssd ? $product->ssd->name . ' SSD' : '' }}
-                    {{ $product->hdd ? ', ' . $product->hdd->name . ' HDD ' : '' }}
+                    RAM: {{ $product->ram->ram }} GB, Storage: {{$product->storage()}}
                 </li>
                 <li class=" text-[16px] max-lg:text-[14px] text-[rgb(53,53,53)] font-[jost] font-[400]">
                     Display:
@@ -149,9 +147,11 @@
                     </label>
                 </div>
                 <div class="flex gap-[30px]">
-                    <button wire:click='checkout'
-                    class="fill-up-btn text-[#f2f2f2] bg-gradient-to-r from-[#380D37] to-[#DC275C] max-lg:text-[18px] max-sm:text-[16px] text-[20px] py-[12px] max-lg:py-[14px] px-[40px] max-lg:px-[40px] max-sm:px-[30px] font-[jost] font-[700] mt-auto rounded-[5px]">
-                    BUY NOW</button>
+                    <a href="{{ route('single_checkout', [$product->slug]) }}" wire:navigate>
+                        <button
+                        class="fill-up-btn text-[#f2f2f2] bg-gradient-to-r from-[#380D37] to-[#DC275C] max-lg:text-[18px] max-sm:text-[16px] text-[20px] py-[12px] max-lg:py-[14px] px-[40px] max-lg:px-[40px] max-sm:px-[30px] font-[jost] font-[700] mt-auto rounded-[5px]">
+                        BUY NOW</button>
+                    </a>
                     <button id="{{$product->id}}"
                     class="add-to-cart fill-up-btn text-[#f2f2f2] bg-gradient-to-r from-[#380D37] to-[#DC275C] max-lg:text-[18px] max-sm:text-[16px] text-[20px] py-[12px] max-lg:py-[14px] px-[40px] max-lg:px-[40px] max-sm:px-[30px] font-[jost] font-[700] mt-auto rounded-[5px]">
                     Add To Cart</button>
@@ -194,8 +194,8 @@
                                 Processor:
                             </td>
                         </tr>
-                   
-                   
+
+
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[400] pl-[20px]">
                                 Processor Brand:
@@ -250,16 +250,16 @@
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
                                 {{ $product->p_other }}</td>
                         </tr>
-                   
+
 
                     <!-- ----------2nd --part (Display attributes)----- -->
-                   
+
                         <tr>
                             <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] max-sm:text-[16px] font-[500] py-[10px] pl-[14px] rounded-[5px] mt-[10px]"
                                 colspan="3">Display Features:</td>
                         </tr>
-                
-               
+
+
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[400] pl-[20px]">
                                 Display Size:</td>
@@ -296,17 +296,17 @@
                                 {{ $product->d_other }}</td>
                         </tr>
 
-            
+
 
 
                     <!-- --------3rd---------part (Memory Attributes )---------- -->
-                  
+
                         <tr>
                             <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] max-sm:text-[16px] font-[500] py-[10px] pl-[14px] rounded-[5px]"
                                 colspan="3">Memory:</td>
                         </tr>
-                   
-                
+
+
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[400] pl-[20px]">
                                 RAM:</td>
@@ -349,18 +349,18 @@
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
                                 {{ $product->m_other }}</td>
                         </tr>
-                  
+
 
                     <!-- --------------4th---part------------------ -->
-                   
+
                         <tr>
                             <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] max-sm:text-[16px] font-[500] py-[10px] pl-[14px] rounded-[5px]"
                                 colspan="3">
                                 Storage:
                             </td>
                         </tr>
-                  
-                 
+
+
                         <tr class="border-[#764A8733] border-b-[2px]">
 
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[400] pl-[20px]">
@@ -413,14 +413,14 @@
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
                                 {{ $product->stor_other }}</td>
                         </tr>
-                  
-                 
+
+
                         <tr>
                             <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] max-sm:text-[16px] font-[500] py-[10px] pl-[14px] rounded-[5px]"
                                 colspan="3">Graphics:</td>
                         </tr>
-                   
-                 
+
+
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[400] pl-[20px]">
                                 Graphics Model:
@@ -443,14 +443,14 @@
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
                                 {{ $product->g_other }}</td>
                         </tr>
-                   
+
                     <!-- -------------------6th--part------------ -->
-                 
+
                         <tr>
                             <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] max-sm:text-[16px] font-[500] py-[10px] pl-[14px] rounded-[5px]"
                                 colspan="3">Keyboard & Touchpad:</td>
                         </tr>
-               
+
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[400] pl-[20px]">
                                 Keyboard Type:</td>
@@ -470,14 +470,14 @@
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
                                 {{ $product->k_other }}</td>
                         </tr>
-                   
+
                     <!-- ----------7th--part------------- -->
-                 
+
                         <tr>
                             <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] max-sm:text-[16px] font-[500] py-[10px] pl-[14px] rounded-[5px]"
                                 colspan="3">Camera & Audio:</td>
                         </tr>
-               
+
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[400] pl-[20px]">
                                 WebCam:</td>
@@ -503,15 +503,15 @@
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
                                 {{ $product->ca_other }}</td>
                         </tr>
-                 
+
                     <!-- -----------8th---part (Ports & Slots) ----- -->
-                  
+
                         <tr>
                             <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] max-sm:text-[16px] font-[500] py-[10px] pl-[14px] rounded-[5px]"
                                 colspan="3">Ports & Slots:</td>
                         </tr>
-                  
-                 
+
+
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[400] pl-[20px]">
                                 Optical Drive:</td>
@@ -569,14 +569,14 @@
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
                                 {{ $product->ps_other }}</td>
                         </tr>
-                  
+
                     <!-- ---------------9th--part (Network & Connectivity) ------ -->
-                 
+
                         <tr>
                             <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] max-sm:text-[16px] font-[500] py-[10px] pl-[14px] rounded-[5px]"
                                 colspan="3">Network & Connectivity:</td>
                         </tr>
-                  
+
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[400] pl-[20px]">
                                 WiFi:</td>
@@ -597,15 +597,15 @@
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
                                 {{ $product->nc_other }}</td>
                         </tr>
-                  
+
                     <!-- ---------------10th---part---------- -->
-                  
+
                         <tr>
                             <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] max-sm:text-[16px] font-[500] py-[10px] pl-[14px] rounded-[5px]"
                                 colspan="3">Security:</td>
                         </tr>
-                
-           
+
+
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[400] pl-[20px]">
                                 Fingerprint Sensor:
@@ -627,13 +627,13 @@
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
                                 {{ $product->s_other }}</td>
                         </tr>
-                
-                
+
+
                         <tr>
                             <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] max-sm:text-[16px] font-[500] py-[10px] pl-[14px] rounded-[5px]"
                                 colspan="3">Software:</td>
                         </tr>
-                 
+
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[400] pl-[20px]">
                                 Operating System:
@@ -648,13 +648,13 @@
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
                                 {{ $product->soft_other }}</td>
                         </tr>
-                
-                 
+
+
                         <tr>
                             <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] max-sm:text-[16px] font-[500] py-[10px] pl-[14px] rounded-[5px]"
                                 colspan="3">Power:</td>
                         </tr>
-                 
+
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[400] pl-[20px]">
                                 Battery Type:</td>
@@ -683,12 +683,12 @@
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
                                 {{ $product->power_other }}</td>
                         </tr>
-                
+
                         <tr>
                             <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] max-sm:text-[16px] font-[500] py-[10px]  pl-[14px] rounded-[5px]"
                                 colspan="3">Physical Specification:</td>
                         </tr>
-              
+
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[400] pl-[20px]">
                                 Color:</td>
@@ -715,12 +715,12 @@
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
                                 {{ $product->physi_other }}</td>
                         </tr>
-                 
+
                         <tr>
                             <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] max-sm:text-[16px] font-[500] py-[10px] pl-[14px] rounded-[5px]"
                                 colspan="3">Warranty :</td>
                         </tr>
-          
+
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[400] max-sm:translate-y-[-16px] pl-[20px]">
@@ -1058,10 +1058,14 @@
                     @foreach ($related_products as $rp)
                         <div class="grid grid-cols-4 gap-[5px] leading-[20.23px]">
                             <div class="col-span-1">
-                                <img class="object-center " src="{{ $rp->img()[0] }}" alt="Product">
+                                <a href="{{route('product.details',[$rp->slug])}}">
+                                 <img class="object-center " src="{{ $rp->img()[0] }}" alt="Product">
+                                </a>
                             </div>
                             <div class="col-span-3">
-                                <p class="text-[#000000] text-[14px] font-[jost] font-[400]">{{ $rp->title }}</p>
+                                <a href="{{route('product.details',[$rp->slug])}}">
+                                    <p class="text-[#000000] text-[14px] font-[jost] font-[400]">{{ $rp->title }}</p>
+                                </a>
                                 <p
                                     class="text-[#DC275C] text-[16px] max-lg:text-[14px] font-[jost] font-[700] my-[10px]">
                                     <a>
