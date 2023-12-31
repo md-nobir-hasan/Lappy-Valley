@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\Category;
+use App\Models\Coupon;
 use App\Models\Product;
 use App\Models\ProductReview;
 use App\Models\ProductReviewImag;
@@ -12,6 +13,7 @@ use Exception;
 use Hamcrest\Type\IsBoolean;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class AjaxController extends Controller
 {
@@ -210,7 +212,16 @@ class AjaxController extends Controller
 
         return response()->json($n);
     }
-
+    public function couponFetch(Request $req){
+        $coupon = Coupon::where('code', $req->code)->first();
+        // dd($coupon,$discode);
+        if($coupon){
+            Session::put('coupon_id',$coupon->id);
+            return response()->json($coupon);
+        }else{
+            return 'invalid';
+        }
+    }
     public function productReview(Request $req)
     {
         $data['f_name'] = $req->f_name;
