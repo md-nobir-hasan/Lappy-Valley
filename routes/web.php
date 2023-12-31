@@ -313,7 +313,7 @@ Route::get('/shop/sorting', [AjaxController::class,'shopSorting'])->name('shop.s
 Route::get('/category-wise/{cat?}/{subcat?}', CatWiseShop::class)->name('cate_wise.shop');
 Route::get('/search/{stext?}/{cat?}', SearchingProduct::class)->name('searching_product');
 Route::get('/product-details/{slug}', ProductDeatils::class)->name('product.details');
-Route::get('/checkout/{payment_possess}', Checkout::class)->name('checkout');
+Route::get('/checkout', Checkout::class)->name('checkout');
 Route::get('/view-cart', ViewCart::class)->name('vcart');
 Route::get('/user/register', Signup::class)->name('user.register');
 Route::get('/user/login', Login::class)->name('user.login');
@@ -338,6 +338,7 @@ Route::get('/sync',[AjaxController::class, 'sync'])->name('sync');
 Route::get('/add-to-cart',[AjaxController::class,'addToCart'])->name('add_to_cart');
 Route::get('/order-received/{order_number}',OrderReceived::class)->name('order.receive');
 Route::post('/product-review',[AjaxController::class, 'productReview'])->name('product_review');
+Route::get('/coupon-fetch',[AjaxController::class, 'couponFetch'])->name('coupon.fetch');
 Route::get('/single-checkout/{pslug}',SingleCheckout::class)->name('single_checkout');
 
 Route::middleware('auth')->group(function(){
