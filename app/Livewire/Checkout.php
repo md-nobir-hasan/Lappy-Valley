@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Cart;
+use App\Models\Coupon;
 use App\Models\Divission;
 use App\Models\Order;
 use App\Models\OrderStatus;
@@ -90,13 +91,23 @@ class Checkout extends Component
         $order_data = $this->all();
         $order_data['order_number'] = 'ORD-' . strtoupper(Str::random(10));
         $order_data['user_id'] = $user->id;
-        $order_data['order_status_id'] = OrderStatus::first()->id;
+        // $order_data['status'] = OrderStatus::first()->id;
 
 
         // $order_data['shipping_id'] = $request->shipping;
         // $shipping = Shipping::where('id', $order_data['shipping_id'])->pluck('price');
-        $order_data['sub_total'] = $carts->sum('price');
-        $order_data['amount'] = $carts->sum('amount');
+        // $order_data['sub_total'] = $carts->sum('amount');
+
+        if($c_id = Session::get('coupon_id')){
+            $coupon = Coupon::find($c_id);
+            $order_data['sub_total'] = $carts->sum('amount')-$coupon->discount($carts->sum('amount'));
+        }else{
+            $order_data['sub_total'] = $carts->sum('amount');
+        }
+
+        $shipngs = Shipping::find($this->shipping_id);
+        // dd($shipngs);
+        $order_data['amount'] = $order_data['sub_total'] + $shipngs->price;
         $order_data['quantity'] = $carts->sum('quantity');
 
 
@@ -159,6 +170,10 @@ class Checkout extends Component
 
     public function render()
     {
+        if($coupon_id = Session::get('coupon_id')){
+            $n['coupon'] = Coupon::find($coupon_id);
+
+        }
         if ($user = Auth()->user()) {
             $n['carts'] = Cart::with(['product'])->where('user_id', $user->id)->where('order_id', null)->latest()->get();
             $this->name = $user->name;

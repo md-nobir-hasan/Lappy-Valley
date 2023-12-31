@@ -13,6 +13,7 @@ use Exception;
 use Hamcrest\Type\IsBoolean;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class AjaxController extends Controller
 {
@@ -214,7 +215,12 @@ class AjaxController extends Controller
     public function couponFetch(Request $req){
         $coupon = Coupon::where('code', $req->code)->first();
         // dd($coupon,$discode);
-        return response()->json($coupon);
+        if($coupon){
+            Session::put('coupon_id',$coupon->id);
+            return response()->json($coupon);
+        }else{
+            return 'invalid';
+        }
     }
     public function productReview(Request $req)
     {

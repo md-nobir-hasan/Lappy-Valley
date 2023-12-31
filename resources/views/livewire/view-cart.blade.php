@@ -3,18 +3,28 @@
      all_total: {{ $carts->sum('amount') }},
      carts: {{ $carts }},
      discode: '',
-     discount:'',
+     discount: '00.00',
+     coupon_msg: '',
      discountCal() {
-        $.ajax({
-            method:'get',
-            url:'{{route('coupon.fetch')}}',
-            data:{code: this.discode},
-            success:(res)=>{
-                if(this.discode){
-                    
-                }
-            },
-        });
+         $.ajax({
+             method: 'get',
+             url: '{{ route('coupon.fetch') }}',
+             data: { code: this.discode },
+             success: (res) => {
+                 if (res == 'invalid') {
+                     this.coupon_msg = 'Invalid Coupon Code';
+                 } else {
+                    this.coupon_msg = 'Coupon Added';
+                    if (res.type == 'percent') {
+                         this.all_total = this.total - (this.total * Number(res.value) / 100);
+                         this.discount = res.value + '%';
+                     } else {
+                         this.all_total = this.total - Number(res.value);
+                         this.discount = 'BDT ' + res.value;
+                     }
+                 }
+             },
+         });
      },
 
  }"
@@ -93,8 +103,8 @@
                                  </svg>
                              </div>
                              <div>
-                                 <h5 class="text-[#380D37] text-[20px] font-[jost] font-[500] leading-[28.9px]">
-                                     Coupon Added
+                                 <h5 x-text='coupon_msg' class="text-[#380D37] text-[20px] font-[jost] font-[500] leading-[28.9px]">
+
                                  </h5>
                              </div>
                          </div>
@@ -295,13 +305,13 @@
 
                              <td
                                  class="p-4 tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]">
-                                 {{-- {{ number_format($cart->amount) }} --}} <span x-text='price'></span>
+                                 {{-- {{ number_format($cart->amount) }} --}} <span x-text='mFormat(price)'></span>
                                  ৳
                              </td>
                              <td
                                  class=" tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]">
                                  {{-- {{ $cart->amount }} --}}
-                                 <span x-text='amount'></span>
+                                 <span x-text='mFormat(amount)'></span>
                                  ৳
                              </td>
                          </tr>
@@ -346,17 +356,17 @@
      <div class="flex justify-end my-[60px] max-sm:my-[35px]">
          {{-- <a href="{{ route('checkout') }}" wire:navigate> --}}
 
-             <button wire:click="toCheckout"
-                 class="fill-up-btn flex items-center justify-center bg-gradient-to-r from-[#380D37] to-[#DC275C] py-[10px] px-[40px] max-sm:px-[25px] text-[14px] max-sm:text-[12px] text-[#fff] font-[jost] font-[500] rounded-[5px]">Confirm
-                 <span>Order</span>
-                 <div wire:loading wire:target='toCheckout'
-                     class="inline-block h-6 w-6 mr-2 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-success motion-reduce:animate-[spin_1.5s_linear_infinite]"
-                     role="status">
-                     <span
-                         class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...
-                     </span>
-                 </div>
-             </button>
+         <button wire:click="toCheckout"
+             class="fill-up-btn flex items-center justify-center bg-gradient-to-r from-[#380D37] to-[#DC275C] py-[10px] px-[40px] max-sm:px-[25px] text-[14px] max-sm:text-[12px] text-[#fff] font-[jost] font-[500] rounded-[5px]">
+             <span>Confirm Order</span>
+             <div wire:loading wire:target='toCheckout'
+                 class="inline-block h-6 w-6 mr-2 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-success motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                 role="status">
+                 <span
+                     class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...
+                 </span>
+             </div>
+         </button>
          {{-- </a> --}}
      </div>
      <div class="h-[2px] bg-[#764A87] my-[100px] max-sm:my-[45px]"></div>

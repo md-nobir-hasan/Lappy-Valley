@@ -14,7 +14,6 @@ class ViewCart extends Component
 {
 
     public function toCheckout(){
-        Session::put('discount',$this->discount);
         return $this->redirect(route('checkout'),navigate:true);
     }
 
