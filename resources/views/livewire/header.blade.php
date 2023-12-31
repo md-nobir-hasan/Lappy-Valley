@@ -320,13 +320,13 @@
                                             </span>
                                             @if (count($products) > 0)
                                                 <ul x-show='open'
-                                                    class="absolute z-50 bg-[white] text-[black]overflow-scroll w-full">
+                                                    class="absolute z-50 bg-[white] text-[black] overflow-scroll w-full">
                                                     @foreach ($products as $prd)
-                                                        <li>
+                                                        <li class="hover:bg-[#380D37] hover:rounded-sm px-[10px] items-center">
                                                             <a href="{{ route('product.details', [$prd->slug]) }}"
-                                                                wire:navigate class="flex font-[400] font-[jost] text-[#380D37] text-[14px] max-sm:text-[12px]">
+                                                                wire:navigate class="flex items-center font-[400] font-[jost] hover:text-[#f2f2f2] text-[#380D37] text-[14px] max-sm:text-[12px]">
                                                                 <img src="{{ explode(',', $prd->photo)[0] }}"
-                                                                    alt="" class="w-[40px] max-sm:w-auto max-sm:h-auto h-[40px]">
+                                                                    alt="" class="w-[40px] items-center max-sm:w-auto max-sm:h-auto h-full">
                                                                 <div>
                                                                     <span>{{ $prd->title }}</span>
                                                                     <p>
