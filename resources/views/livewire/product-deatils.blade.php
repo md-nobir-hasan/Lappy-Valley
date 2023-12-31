@@ -147,9 +147,11 @@
                     </label>
                 </div>
                 <div class="flex gap-[30px]">
-                    <button wire:click='checkout'
-                    class="fill-up-btn text-[#f2f2f2] bg-gradient-to-r from-[#380D37] to-[#DC275C] max-lg:text-[18px] max-sm:text-[16px] text-[20px] py-[12px] max-lg:py-[14px] px-[40px] max-lg:px-[40px] max-sm:px-[30px] font-[jost] font-[700] mt-auto rounded-[5px]">
-                    BUY NOW</button>
+                    <a href="{{ route('single_checkout', [$product->slug]) }}" wire:navigate>
+                        <button
+                        class="fill-up-btn text-[#f2f2f2] bg-gradient-to-r from-[#380D37] to-[#DC275C] max-lg:text-[18px] max-sm:text-[16px] text-[20px] py-[12px] max-lg:py-[14px] px-[40px] max-lg:px-[40px] max-sm:px-[30px] font-[jost] font-[700] mt-auto rounded-[5px]">
+                        BUY NOW</button>
+                    </a>
                     <button id="{{$product->id}}"
                     class="add-to-cart fill-up-btn text-[#f2f2f2] bg-gradient-to-r from-[#380D37] to-[#DC275C] max-lg:text-[18px] max-sm:text-[16px] text-[20px] py-[12px] max-lg:py-[14px] px-[40px] max-lg:px-[40px] max-sm:px-[30px] font-[jost] font-[700] mt-auto rounded-[5px]">
                     Add To Cart</button>
@@ -1056,10 +1058,14 @@
                     @foreach ($related_products as $rp)
                         <div class="grid grid-cols-4 gap-[5px] leading-[20.23px]">
                             <div class="col-span-1">
-                                <img class="object-center " src="{{ $rp->img()[0] }}" alt="Product">
+                                <a href="{{route('product.details',[$rp->slug])}}">
+                                 <img class="object-center " src="{{ $rp->img()[0] }}" alt="Product">
+                                </a>
                             </div>
                             <div class="col-span-3">
-                                <p class="text-[#000000] text-[14px] font-[jost] font-[400]">{{ $rp->title }}</p>
+                                <a href="{{route('product.details',[$rp->slug])}}">
+                                    <p class="text-[#000000] text-[14px] font-[jost] font-[400]">{{ $rp->title }}</p>
+                                </a>
                                 <p
                                     class="text-[#DC275C] text-[16px] max-lg:text-[14px] font-[jost] font-[700] my-[10px]">
                                     <a>

@@ -1125,7 +1125,7 @@
                                             </div>
                                             <div class="my-3 text-center">
 
-                                                <a :href="'/product-details/' + product.slug" class="">
+                                                <a :href="'/single-checkout/' + product.slug" wire:navigate class="">
                                                     <button
                                                         class='bg-[#380D37] text-[#F2F2F2] text-[10px] font-[jost] font-[500] py-[8px] px-[50px] max-lg:px-0 max-lg:w-[100px] rounded-[5px]'>
                                                         Buy Now
