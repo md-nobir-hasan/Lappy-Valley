@@ -3,6 +3,8 @@
 namespace App\Livewire;
 
 use App\Models\Cart;
+use App\Models\Coupon;
+use Illuminate\Support\Facades\Session;
 use Livewire\Component;
 use Livewire\Attributes\Title;
 
@@ -10,6 +12,16 @@ use Livewire\Attributes\Title;
 
 class ViewCart extends Component
 {
+
+    public function toCheckout(){
+        return $this->redirect(route('checkout'),navigate:true);
+    }
+
+    public function discountCal($discode){
+       $coupon= Coupon::where('code',$discode)->first();
+        // dd($coupon,$discode);
+    return response()->json($coupon);
+    }
 
     public function render()
     {

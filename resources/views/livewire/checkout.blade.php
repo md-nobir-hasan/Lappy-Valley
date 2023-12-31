@@ -13,10 +13,21 @@
          total: {{ $carts->sum('amount') }},
          shipping_price: 0,
          sub_total: {{ $carts->sum('amount') }},
+         all_total: {{ $carts->sum('amount') }},
          shipChange(price) {
              this.total -= this.shipping_price;
              this.total += price;
              this.shipping_price = price;
+         },
+         discount(){
+            let res = {{$coupon}};
+            if (res.type == 'percent') {
+                this.all_total = Math.round(this.total - (this.total * Number(res.value) / 100));
+                return res.value + '%';
+            } else {
+                this.all_total = Math.round(this.total - Number(res.value));
+                return 'BDT ' + res.value;
+            }
          }
      }">
          <div>
@@ -302,10 +313,20 @@
                                      <td></td>
                                      <td
                                          class="text-right py-[10px] text-[12px] max-sm:text-[10px] font-[700] text-[#353535]">
+                                         Discount:
+                                     </td>
+                                     <td class="text-right text-[#DC275C] text-[12px] max-sm:text-[10px] font-[700]">
+                                         <span x-text='discount'></span>
+                                     </td>
+                                 </tr>
+                                 <tr class="border-b-[rgba(#00000033] border-b-[1px] font-[jost]">
+                                     <td></td>
+                                     <td
+                                         class="text-right py-[10px] text-[12px] max-sm:text-[10px] font-[700] text-[#353535]">
                                          Total:
                                      </td>
                                      <td class="text-right text-[#DC275C] text-[12px] max-sm:text-[10px] font-[700]">
-                                         <span x-text="mFormat(total)"></span> Taka
+                                         <span x-text="mFormat(all_total)"></span> Taka
                                      </td>
                                  </tr>
                              </tbody>

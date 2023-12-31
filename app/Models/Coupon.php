@@ -22,4 +22,6 @@ class Coupon extends Model
             return 0;
         }
     }
+
+    
 }

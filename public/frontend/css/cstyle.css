@@ -5,7 +5,10 @@
     position: initial;
 }
 
-
+/* ------------ */
+.img-contain{
+    object-fit: contain !important;
+}
 /* --------button--effect--- */
 .fill-up-btn {
     position: relative;
