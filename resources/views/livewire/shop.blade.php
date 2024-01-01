@@ -152,7 +152,7 @@
 
 
     <div class="mt-4">
-        <div class="grid grid-cols-5 gap-8 max-xl:grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1"
+        <div class="grid grid-cols-5 gap-8  max-xl:grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1"
             x-data="{
                 cat: '{{ isset($cat) ? $cat : '' }}',
                 subcat: '{{ isset($subcat) ? $subcat : '' }}',
@@ -1048,7 +1048,7 @@
                 {{-- product show after reload  --}}
                 <div x-show='productShow'>
                     <div
-                        class='grid grid-cols-4 gap-8 mx-auto mt-4 max-lg:grid-cols-3 max-sm:grid-cols-2 product_pdiv'>
+                        class='grid grid-cols-4 gap-8 max-sm:gap-[5px] mx-auto mt-4 max-lg:grid-cols-3 max-sm:grid-cols-2 product_pdiv'>
                         @foreach ($products as $product)
                             <x-shop-product :product="$product">
                                 <div class='mt-2'>
@@ -1083,7 +1083,7 @@
                     <div>
                         <div x-show="ajaxProduct" id="product_pdiv">
                             <div
-                                class='grid grid-cols-4 gap-8 mx-auto mt-4 max-lg:grid-cols-3 max-sm:grid-cols-2 product_pdiv'>
+                                class='grid grid-cols-4 gap-8 max-sm:gap-[5px] mx-auto mt-4 max-lg:grid-cols-3 max-sm:grid-cols-2 product_pdiv'>
                                 {{-- x-if="Object.keys(products).length > 0" --}}
                                 <template x-for="product in pagi_products" id="product">
                                     <div

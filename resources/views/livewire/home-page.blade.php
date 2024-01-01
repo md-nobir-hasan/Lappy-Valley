@@ -1741,20 +1741,25 @@ k                                    </a>
                 ],
                 responsive: {
                     0: {
-                        items: 1
+                        items: 1,
+                       
                     },
                     640: {
-                        items: 1
+                        items: 1,
+                       
+                       
                     },
                     1024: {
-                        items: 3
+                        items: 3,
+                      
+                       
                     }
                 }
             });
         });
         var swiper = new Swiper(".mySwiper", {
             slidesPerView: 5,
-            spaceBetween: 10,
+            spaceBetween: 5,
             // freeMode: true,
             // cssMode: true,
             navigation: {
@@ -1770,7 +1775,7 @@ k                                    </a>
                 // when window width is >= 320px
                 300: {
                     slidesPerView: 2,
-                    spaceBetween: 10
+                    spaceBetween: 2
                 },
                 // when window width is >= 480px
                 // 640: {
@@ -1779,15 +1784,15 @@ k                                    </a>
                 // },
                 768: {
                     slidesPerView: 3,
-                    spaceBetween: 20
+                    spaceBetween: 5
                 },
                 1024: {
                     slidesPerView: 4,
-                    spaceBetween: 20
+                    spaceBetween: 5
                 },
                 1280: {
                     slidesPerView: 5,
-                    spaceBetween: 20
+                    spaceBetween: 5
                 },
                 // ...
             }
