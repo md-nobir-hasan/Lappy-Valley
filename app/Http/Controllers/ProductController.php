@@ -14,6 +14,7 @@ use App\Models\hdd;
 use App\Models\Installment;
 use App\Models\ProcessorGeneration;
 use App\Models\ProcessorModel;
+use App\Models\ProductOffer;
 use App\Models\Ram;
 use App\Models\SpecialFeature;
 use App\Models\ssd;
@@ -62,6 +63,7 @@ class ProductController extends Controller
         $n['hdds']=hdd::get();
         $n['graphics']=Graphic::get();
         $n['special_features']=SpecialFeature::get();
+        $n['product_offers']=ProductOffer::get();
         $n['categories']=Category::where('is_parent',1)->get();
         // return $category;
         return view('backend.product.create',$n);
