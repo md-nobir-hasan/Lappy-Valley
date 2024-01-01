@@ -115,6 +115,7 @@ class ProductAttributeSeeder extends Seeder
             ['title' => 'Lenovo','slug'=>'lenevo'],
             ['title' => 'Acer','slug'=>'acer'],
             ['title' => 'Apple','slug'=>'aplle'],
+            ['title' => 'Walton','slug'=>'walton'],
         ];
         DB::table('brands')->insert($brand);
 

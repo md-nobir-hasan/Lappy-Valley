@@ -166,6 +166,7 @@ class AjaxController extends Controller
 
         }else{
             if ($cat = $req->cat) {
+                // dd($cat);
                 $cat = Category::where('slug', $cat)->first();
                 $product = $product->where('cat_id', $cat->id);
             }
