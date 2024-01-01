@@ -1,17 +1,17 @@
  <div
      class="bg-[#F2F2F2] h-[51px] py-4 2xl:px-[100px] xl:px-[50px] max-xl:hidden flex justify-between text-center items-center">
      <div class="relative">
-         <a class="flex menue items-center whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]"
-             href="javascript:void(0)" type="button" id="dropdownMenuButton2">
-             <span> All Categories</span>
-             <span class="w-2 ml-2">
+         <span class="flex items-center whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]"
+              type="button" id="dropdownMenuButton2">
+             <a href="{{ route('shop') }}" wire:navigate> All Categories</a>
+             <span class="w-2 ml-2 cursor-pointer menue">
                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
                      <path fill-rule="evenodd"
                          d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
                          clip-rule="evenodd" />
                  </svg>
              </span>
-         </a>
+         </span>
          <ul
              class="submenu absolute z-[1000] float-left p-2 hidden w-[200px] list-none overflow-hidden border-none bg-[#f2f2f2] text-[#353535] text-left [&[data-te-dropdown-show]]:block">
              <li
