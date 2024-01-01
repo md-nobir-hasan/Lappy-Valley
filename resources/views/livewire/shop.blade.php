@@ -153,7 +153,7 @@
                     {{ Str::of(Str::of($subcat)->afterLast('-'))->upper() }}
                 @endisset
             @else
-                All
+                All Categories
             @endisset
         </h1>
         <div class='h-[1px] bg-[#764A8733]'></div>
