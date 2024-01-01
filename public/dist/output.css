@@ -3971,11 +3971,6 @@ input[type="range"]:active::-webkit-slider-thumb{
   padding-bottom: 8px;
 }
 
-.px-\[\]{
-  padding-left: ;
-  padding-right: ;
-}
-
 .pb-0{
   padding-bottom: 0px;
 }
@@ -5472,10 +5467,6 @@ input[type="range"]:active::-webkit-slider-thumb{
   border-radius: 50%;
 }
 
-.hover\:rounded-md:hover{
-  border-radius: 0.375rem;
-}
-
 .hover\:rounded-sm:hover{
   border-radius: 0.125rem;
 }
@@ -5537,10 +5528,6 @@ input[type="range"]:active::-webkit-slider-thumb{
   background-color: rgb(217 228 243 / var(--tw-bg-opacity));
 }
 
-.hover\:bg-\[\]:hover{
-  background-color: ;
-}
-
 .hover\:fill-\[\#8b8b8b\]:hover{
   fill: #8b8b8b;
 }
@@ -5588,10 +5575,6 @@ input[type="range"]:active::-webkit-slider-thumb{
 .hover\:text-white:hover{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.hover\:text-\[\]:hover{
-  color: ;
 }
 
 .hover\:underline:hover{
@@ -7891,6 +7874,14 @@ input[type="range"]:active::-webkit-slider-thumb{
 
   .max-sm\:gap-\[20px\]{
     gap: 20px;
+  }
+
+  .max-sm\:gap-\[5px\]{
+    gap: 5px;
+  }
+
+  .max-sm\:gap-\[\]{
+    gap: ;
   }
 
   .max-sm\:border-\[1px\]{

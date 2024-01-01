@@ -326,7 +326,7 @@
                                                             <a href="{{ route('product.details', [$prd->slug]) }}"
                                                                 wire:navigate class="flex items-center font-[400] font-[jost] hover:text-[#f2f2f2] text-[#380D37] text-[14px] max-sm:text-[12px]">
                                                                 <img src="{{ explode(',', $prd->photo)[0] }}"
-                                                                    alt="" class="w-[40px] items-center max-sm:w-auto max-sm:h-auto h-full">
+                                                                    alt="" class="w-[40px] items-center max-sm:h-auto h-full">
                                                                 <div>
                                                                     <span>{{ $prd->title }}</span>
                                                                     <p>
