@@ -254,6 +254,7 @@ class ProductController extends Controller
         $n['hdds'] = hdd::get();
         $n['graphics'] = Graphic::get();
         $n['special_features'] = SpecialFeature::get();
+        $n['product_offers'] = ProductOffer::get();
         $n['categories'] = Category::where('is_parent', 1)->get();
         return view('backend.product.edit',$n);
     }

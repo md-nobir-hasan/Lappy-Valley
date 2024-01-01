@@ -135,6 +135,27 @@
                         </div>
                     </div>
 
+
+                    <div class="form-group">
+                        <label for="isOfferToggler">Is Offer Products</label><br>
+                        <input type="checkbox" name='isOfferToggler' @checked($product->product_offer_id)
+                            id='isOfferToggler' value='1'>
+                        <label for="isOfferToggler">Yes</label>
+                        <div class="ml-3" id="div_product_offer">
+                            <label for="product_offer_id" class="col-form-label">Select an offer </label>
+                            <select name="product_offer_id" class="form-control" id="product_offer_id">
+                                <option value="" hidden>Choose....</option>
+                                @foreach ($product_offers as $poffer)
+                                    <option value="{{ $poffer->id }}" @selected($poffer->id == $product->product_offer_id)>{{ $poffer->title.' ('.$poffer->dis }}%)
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('product_offer_id')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+                    </div>
+
                     <div class="form-group">
                         <label for="speacial_feature">Special Features </label>
                         <select name="special_feature[]" class="form-control selectpicker" id="speacial_feature"
@@ -994,6 +1015,17 @@
                 placeholder: "Write detail Description.....",
                 tabsize: 2,
                 height: 150
+            });
+
+            $('#upcomming_toggler').on('click', function() {
+                $('#div_lunch_date').toggle();
+                //  show = true;
+
+            });
+            $('#isOfferToggler').on('click', function() {
+                $('#div_product_offer').toggle();
+                //  show = true;
+
             });
         });
     </script>
