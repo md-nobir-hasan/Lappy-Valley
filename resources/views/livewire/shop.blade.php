@@ -1041,7 +1041,7 @@
                         <span id="grid"
                             class="grid-view mf-shop-view current mx-[20px] max-md:mx-[10px] max-sm:mx-[2px]"
                             data-view="grid">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="2em" class="max-sm:h-[15px]"
+                            <svg xmlns="http://www.w3.org/2000/svg" height="2em" class="max-sm:h-[15px] cursor-pointer"
                                 fill='black' viewBox="0 0 512 512">
                                 <path
                                     d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64
@@ -1050,7 +1050,7 @@
                             </svg></span>
                         <span id="column" class="list-view mf-shop-view mx-[20px] max-md:mx-[10px] max-sm:mx-[2px]"
                             data-view="list">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="2em" class="max-sm:h-[15px]"
+                            <svg xmlns="http://www.w3.org/2000/svg" height="2em" class="max-sm:h-[15px] cursor-pointer"
                                 fill='black' viewBox="0 0 512 512">
                                 <path
                                     d="M64 144a48 48 0 1 0 0-96 48 48 0 1 0 0 96zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zM64 464a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm48-208a48 48 0 1 0 -96 0 48 48 0 1 0 96 0z" />
