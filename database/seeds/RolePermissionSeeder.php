@@ -194,6 +194,12 @@ class RolePermissionSeeder extends Seeder
             ['name' => 'Edit Product Offer', 'guard_name' => 'web'],
             ['name' => 'Delete Product Offer', 'guard_name' => 'web'],
 
+            //Report
+            ['name' => 'Sales Report', 'guard_name' => 'web'],
+            ['name' => 'Customer Purchase History', 'guard_name' => 'web'],
+            ['name' => 'Order Report', 'guard_name' => 'web'],
+            ['name' => 'Inventory Report', 'guard_name' => 'web'],
+
             //Site and Other Settings
             ['name' => 'Show Site Setting', 'guard_name' => 'web'],
             ['name' => 'Update Site Setting', 'guard_name' => 'web'],
