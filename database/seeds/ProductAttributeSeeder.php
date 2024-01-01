@@ -115,12 +115,13 @@ class ProductAttributeSeeder extends Seeder
             ['title' => 'Lenovo','slug'=>'lenevo'],
             ['title' => 'Acer','slug'=>'acer'],
             ['title' => 'Apple','slug'=>'aplle'],
+            ['title' => 'Walton','slug'=>'walton'],
         ];
         DB::table('brands')->insert($brand);
 
         $from = Carbon::now();
         $product_offer = [
-            ['title' => 'Bkash Durga Puja Cashback Offer','des'=> 'Pay with Bkash and Enjoy 10% instant Cashback!','dis'=>10,'from'=> $from,'to'=> $from->addDays(7), 'type' => 'Online'],
+            ['title' => 'Bkash New Year Cashback Offer','des'=> 'Pay with Bkash and Enjoy 10% instant Cashback!','dis'=>10,'from'=> $from,'to'=> $from->addDays(7), 'type' => 'Online'],
         ];
         DB::table('product_offers')->insert($product_offer);
 

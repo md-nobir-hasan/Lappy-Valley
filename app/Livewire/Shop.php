@@ -22,7 +22,8 @@ use Livewire\Attributes\Title;
 class Shop extends Component
 {
     public $prds;
-
+    public $cat;
+    public $subcat;
     public function mount(){
         $this->prds = Product::where('status', 'active')->get();
     }

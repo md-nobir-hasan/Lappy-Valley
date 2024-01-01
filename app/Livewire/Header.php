@@ -30,7 +30,7 @@ class Header extends Component
             $this->cart_count = Cart::where('ip', request()->ip())->where('order_id', null)->get()->count();
         }
         // $this->products = DB::table('products')->select('id','photo','title', 'slug','price', 'discount')->get();
-        $this->cats = DB::table('categories')->select('title','id')->orderBy('serial','asc')->get();
+        $this->cats = DB::table('categories')->select('title','id','slug')->orderBy('serial','asc')->get();
     }
 
     public function searchTo(){
@@ -38,14 +38,16 @@ class Header extends Component
     }
     public function prdouctFetch(){
         if(($id = $this->cat) && ($s= $this->search)){
+            $cat = Category::where('slug',$this->cat)->first();
             $this->products = DB::table('products')->select('id', 'photo', 'title', 'slug', 'price','final_price', 'discount')
-                                ->where('cat_id',$id)
+                                ->where('cat_id',$cat->id)
                                 ->where('title', 'like', '%' . $this->search . '%')
                                 ->get();
         }
         elseif(($id = $this->cat)){
+            $cat = Category::where('slug', $this->cat)->first();
             $this->products = DB::table('products')->select('id', 'photo', 'title', 'slug', 'price','final_price', 'discount')
-                                ->where('cat_id',$id)
+                                ->where('cat_id',$cat->id)
                                 ->get();
         }
         elseif(($s= $this->search)){
@@ -61,13 +63,15 @@ class Header extends Component
 
     public function searchFuc(){
         if (($id = $this->cat) && ($s = $this->search)) {
+            $cat = Category::where('slug', $this->cat)->first();
             $this->products = DB::table('products')->select('id', 'photo', 'title', 'slug', 'price','final_price', 'discount')
-                ->where('cat_id', $id)
+                ->where('cat_id', $cat->id)
                 ->where('title', 'like', '%' . $this->search . '%')
                 ->get();
         } elseif (($id = $this->cat)) {
+            $cat = Category::where('slug', $this->cat)->first();
             $this->products = DB::table('products')->select('id', 'photo', 'title', 'slug', 'price','final_price', 'discount')
-                ->where('cat_id', $id)
+                ->where('cat_id', $cat->id)
                 ->get();
         } elseif (($s = $this->search)) {
             $this->products = DB::table('products')->select('id', 'photo', 'title', 'slug', 'price','final_price', 'discount')
