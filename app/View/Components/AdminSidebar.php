@@ -58,6 +58,7 @@ class AdminSidebar extends Component
             ]],
             ['access' => 'Show Review','title' => 'Reviews', 'route' => 'review.index', 'child' => []],
         ]],
+
         ['access' => ['Show Post', 'Show pCategory', 'Show Tag', 'Show Comment'],'title' => 'Posts', 'child' => [
             ['access' => 'Show Post','title' => 'Posts', 'route' => 'post.*', 'child' => [
                 ['access' => 'Show Post','title' => 'Posts', 'route' => 'post.index'],
@@ -73,6 +74,23 @@ class AdminSidebar extends Component
             ]],
             ['access' => 'Show Comment','title' => 'Comments', 'route' => 'comment.index', 'child' => []],
         ]],
+
+        ['access' => ['Sales Report', 'Customer Purchase History', 'Order Report', 'Inventory Report'],'title' => 'Report', 'child' => [
+            ['access' => 'Sales Report','title' => 'Sales Report', 'route' => 'report.sale', 'child' => [
+                ['access' => 'Customer Purchase History','title' => 'Posts', 'route' => 'post.index'],
+                ['access' => 'Order Report','title' => 'Add Posts', 'route' => 'post.create']
+            ]],
+            ['access' => 'Show pCategory','title' => 'Category', 'route' => 'post-category.*', 'child' => [
+                ['access' => 'Show pCategory','title' => 'Category', 'route' => 'post-category.index'],
+                ['access' => 'Create pCategory','title' => 'Add Category', 'route' => 'post-category.create']
+            ]],
+            ['access' => 'Show Tag','title' => 'Tags', 'route' => 'post-tag.*', 'child' => [
+                ['access' => 'Show Tag','title' => 'Tags', 'route' => 'post-tag.index'],
+                ['access' => 'Create Tag','title' => 'Add Tags', 'route' => 'post-tag.create']
+            ]],
+            ['access' => 'Show Comment','title' => 'Comments', 'route' => 'comment.index', 'child' => []],
+        ]],
+
         ['access' => ['Show Cupon', 'Show User', 'Setting'],'title' => ' General Settings', 'child' => [
             ['access' => 'Show SEO', 'title' => 'SEO', 'route' => 'seo.*', 'child' => [
                 ['access' => 'Show Google Tag', 'title' => 'Google', 'route' => 'seo.gtag.index'],
