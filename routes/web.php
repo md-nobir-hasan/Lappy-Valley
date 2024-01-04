@@ -35,6 +35,7 @@ use App\Http\Controllers\ProcessorModelController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductOfferController;
 use App\Http\Controllers\RamController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ShippingController;
 use App\Http\Controllers\SpecialFeatureController;
@@ -301,6 +302,15 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
     Lfm::routes();
 });
 
+//Report
+Route::prefix('/report')->name('report.')->group(function(){
+    // Sales Report
+    Route::prefix('/sale')->name('sale.')->group(function(){
+        Route::get('/daily',[ReportController::class,'saleReportDaily'])->name('daily');
+        Route::get('/weekly',[ReportController::class,'saleReportweekly'])->name('weekly');
+        Route::get('/monthly',[ReportController::class,'saleReportmonthly'])->name('weekly');
+    });
+});
 // Route::get('/demo',[FrontendController::class,'demo']);
 
 // ===========================================================================================================
@@ -346,7 +356,6 @@ Route::middleware('auth')->group(function(){
     // Route::get('/billing',[AjaxController::class,'addToCart'])->name('add_to_cart');
 
     // user account
-
     Route::get('/account', Account::class)->name('account');
     Route::get('/edit-profile', EditProfile::class)->name('ep');
     Route::get('/order-confirm', OrderConfirm::class)->name('oc');

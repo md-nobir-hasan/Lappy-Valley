@@ -80,15 +80,6 @@ class AdminSidebar extends Component
                 ['access' => 'Customer Purchase History','title' => 'Posts', 'route' => 'post.index'],
                 ['access' => 'Order Report','title' => 'Add Posts', 'route' => 'post.create']
             ]],
-            ['access' => 'Show pCategory','title' => 'Category', 'route' => 'post-category.*', 'child' => [
-                ['access' => 'Show pCategory','title' => 'Category', 'route' => 'post-category.index'],
-                ['access' => 'Create pCategory','title' => 'Add Category', 'route' => 'post-category.create']
-            ]],
-            ['access' => 'Show Tag','title' => 'Tags', 'route' => 'post-tag.*', 'child' => [
-                ['access' => 'Show Tag','title' => 'Tags', 'route' => 'post-tag.index'],
-                ['access' => 'Create Tag','title' => 'Add Tags', 'route' => 'post-tag.create']
-            ]],
-            ['access' => 'Show Comment','title' => 'Comments', 'route' => 'comment.index', 'child' => []],
         ]],
 
         ['access' => ['Show Cupon', 'Show User', 'Setting'],'title' => ' General Settings', 'child' => [

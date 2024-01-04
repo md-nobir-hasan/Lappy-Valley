@@ -196,6 +196,9 @@ class RolePermissionSeeder extends Seeder
 
             //Report
             ['name' => 'Sales Report', 'guard_name' => 'web'],
+            ['name' => 'Sales Report Daily', 'guard_name' => 'web'],
+            ['name' => 'Sales Report Weekly', 'guard_name' => 'web'],
+            ['name' => 'Sales Report Monthly', 'guard_name' => 'web'],
             ['name' => 'Customer Purchase History', 'guard_name' => 'web'],
             ['name' => 'Order Report', 'guard_name' => 'web'],
             ['name' => 'Inventory Report', 'guard_name' => 'web'],
