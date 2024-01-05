@@ -7812,10 +7812,6 @@ input[type="range"]:active::-webkit-slider-thumb{
     width: 750px;
   }
 
-  .max-sm\:w-auto{
-    width: auto;
-  }
-
   .max-sm\:w-full{
     width: 100%;
   }
@@ -7878,10 +7874,6 @@ input[type="range"]:active::-webkit-slider-thumb{
 
   .max-sm\:gap-\[5px\]{
     gap: 5px;
-  }
-
-  .max-sm\:gap-\[\]{
-    gap: ;
   }
 
   .max-sm\:border-\[1px\]{
@@ -7991,6 +7983,16 @@ input[type="range"]:active::-webkit-slider-thumb{
   .max-sm\:py-\[8px\]{
     padding-top: 8px;
     padding-bottom: 8px;
+  }
+
+  .max-sm\:px-\[\]{
+    padding-left: ;
+    padding-right: ;
+  }
+
+  .max-sm\:py-\[\]{
+    padding-top: ;
+    padding-bottom: ;
   }
 
   .max-sm\:pb-\[0px\]{
