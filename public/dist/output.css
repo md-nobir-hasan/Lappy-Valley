@@ -7908,6 +7908,14 @@ input[type="range"]:active::-webkit-slider-thumb{
     padding: 0.5rem;
   }
 
+  .max-sm\:p-1{
+    padding: 0.25rem;
+  }
+
+  .max-sm\:p-0{
+    padding: 0px;
+  }
+
   .max-sm\:px-3{
     padding-left: 0.75rem;
     padding-right: 0.75rem;
