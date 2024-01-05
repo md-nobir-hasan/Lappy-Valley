@@ -297,7 +297,7 @@
                                         class="block w-[80px] p-2.5 text-[#380D37] text-[14px] bg-[#f2f2f2] font-[jost] font-[400] leading-[20.23px] border-r-[2px] border-[#380D37]">
                                         <option value="" selected>All</option>
                                         @foreach ($cats as $ct)
-                                            <option value="{{ $ct->id }}">{{ $ct->title }}</option>
+                                            <option value="{{ $ct->slug }}">{{ $ct->title }}</option>
                                         @endforeach
                                     </select>
                                     <div class="relative flex w-full">

@@ -148,6 +148,26 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="isOfferToggler">Is Offer Products</label><br>
+                        <input type="checkbox" name='isOfferToggler' @checked(old('isOfferToggler'))
+                            id='isOfferToggler' value='1'>
+                        <label for="isOfferToggler">Yes</label>
+                        <div class="ml-3" id="div_product_offer">
+                            <label for="product_offer_id" class="col-form-label">Select an offer </label>
+                            <select name="product_offer_id" class="form-control" id="product_offer_id">
+                                <option value="" hidden>Choose....</option>
+                                @foreach ($product_offers as $poffer)
+                                    <option value="{{ $poffer->id }}" @selected($poffer->id == old('product_offer_id'))>{{ $poffer->title.' ('.$poffer->dis }}%)
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('product_offer_id')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         <label for="speacial_feature">Special Features </label>
                         <select name="special_feature[]" class="form-control selectpicker" id="speacial_feature"
                             multiple>
@@ -1006,6 +1026,9 @@
         #div_lunch_date {
             display: none;
         }
+        #div_product_offer {
+            display: none;
+        }
     </style>
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
@@ -1034,6 +1057,11 @@
             let show = false;
             $('#upcomming_toggler').on('click', function() {
                 $('#div_lunch_date').toggle();
+                //  show = true;
+
+            });
+            $('#isOfferToggler').on('click', function() {
+                $('#div_product_offer').toggle();
                 //  show = true;
 
             });

@@ -145,8 +145,17 @@
         }
     </style>
     <div class=''>
-        <h1 class='font-[jost] text-[16px] font-[400] leading-[23.12px] tracking-[3%] text-[#353535]'>All Categories/
-            Pre-Owned</h1>
+        <h1 class='font-[jost] text-[16px] font-[400] leading-[23.12px] tracking-[3%] text-[#353535]'>
+            @isset($cat, $subcat)
+                {{ Str::of($cat)->headline() }}
+                @isset($subcat)
+                    /
+                    {{ Str::of(Str::of($subcat)->afterLast('-'))->upper() }}
+                @endisset
+            @else
+                All Categories
+            @endisset
+        </h1>
         <div class='h-[1px] bg-[#764A8733]'></div>
     </div>
 
@@ -320,30 +329,33 @@
                 </div>
 
                 <!-- --------------------------nav----2nd---part (Brands)--------------- -->
-                <div x-data="{ open: true, toggle() { this.open = !this.open } }" class='bg-[#F2F2F2] shadow-[0_2px_4px_rgba(0,0,0,.1)] rounded-[10px] mt-3'>
-                    <div class="flex justify-between p-[12px]">
-                        <span class='text-[#380D37] font-[jost] font-[500] text-[12px] leading-[25.23px] '
-                            for="text">Brands</span>
-                        <img src="/storage/product/down-arrow.svg" @click="toggle()" :class="{ 'rotate-180': !open }"
-                            class="text-[#000000] text-[14px] cursor-pointer w-[20px]" aria-hidden="true">
-                    </div>
-                    <div class="h-[1px] bg-[#380D3733] w-full">
-                    </div>
-                    <div x-show="open" class='p-[12px] flex flex-col gap-2'>
-                        @foreach ($brands as $brand)
-                            <span class='flex items-center gap-[4px]'>
-                                <input id="brand{{ $brand->id }}" value="{{ $brand->id }}"
-                                    class='border-[1px] border-[#380D37] bg-[#f2f2f2] w-[11px] h-[12px]'
-                                    type="checkbox" x-model='brands' @change='productFetch'>
-                                <label for="brand{{ $brand->id }}"
-                                    class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>{{ $brand->title }}
+                @if (!$subcat)
+                    <div x-data="{ open: true, toggle() { this.open = !this.open } }"
+                        class='bg-[#F2F2F2] shadow-[0_2px_4px_rgba(0,0,0,.1)] rounded-[10px] mt-3'>
+                        <div class="flex justify-between p-[12px]">
+                            <span class='text-[#380D37] font-[jost] font-[500] text-[12px] leading-[25.23px] '
+                                for="text">Brands</span>
+                            <img src="/storage/product/down-arrow.svg" @click="toggle()"
+                                :class="{ 'rotate-180': !open }"
+                                class="text-[#000000] text-[14px] cursor-pointer w-[20px]" aria-hidden="true">
+                        </div>
+                        <div class="h-[1px] bg-[#380D3733] w-full">
+                        </div>
+                        <div x-show="open" class='p-[12px] flex flex-col gap-2'>
+                            @foreach ($brands as $brand)
+                                <span class='flex items-center gap-[4px]'>
+                                    <input id="brand{{ $brand->id }}" value="{{ $brand->id }}"
+                                        class='border-[1px] border-[#380D37] bg-[#f2f2f2] w-[11px] h-[12px]'
+                                        type="checkbox" x-model='brands' @change='productFetch'>
+                                    <label for="brand{{ $brand->id }}"
+                                        class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>{{ $brand->title }}
 
-                                </label>
-                            </span>
-                        @endforeach
+                                    </label>
+                                </span>
+                            @endforeach
+                        </div>
                     </div>
-                </div>
-
+                @endif
                 <!-- ------------------nav-3rd--part (Processor Models)-------------- -->
                 <div x-data="{ open: true, toggle() { this.open = !this.open } }"
                     class='bg-[#F2F2F2] shadow-[0_2px_4px_rgba(0,0,0,.1)] rounded-[10px] mt-3'>
@@ -582,8 +594,8 @@
                     class=" px-3 grid grid-cols-4 items-center bg-[#F2F2F2] py-3 font-[jost] font-[600] text-[16px] rounded-[6px]">
                     <div class="flex">
                         <h1 class="max-xl:hidden">
-                            {{-- Shop --}}
-                            @isset($cat, $subcat)
+                            Filter
+                            {{-- @isset($cat, $subcat)
                                 {{ Str::of($cat)->headline() }}
                                 @isset($subcat)
                                     /
@@ -591,7 +603,7 @@
                                 @endisset
                             @else
                                 All
-                            @endisset
+                            @endisset --}}
 
                         </h1>
                         <div class="hidden max-xl:block">
@@ -708,34 +720,36 @@
                                     </div>
 
                                     <!-- --------------------------nav----2nd---part (Brands)--------------- -->
-                                    <div x-data="{ open: true, toggle() { this.open = !this.open } }"
-                                        class='bg-[#F2F2F2] shadow-[0_2px_4px_rgba(0,0,0,.1)] rounded-[10px] mt-3'>
-                                        <div class="flex justify-between p-[12px]">
-                                            <span
-                                                class='text-[#380D37] font-[jost] font-[500] text-[12px] leading-[25.23px] '
-                                                for="text">Brands</span>
-                                            <img src="/storage/product/down-arrow.svg" @click="toggle()"
-                                                :class="{ 'rotate-180': !open }"
-                                                class="text-[#000000] text-[14px] cursor-pointer w-[20px]"
-                                                aria-hidden="true">
-                                        </div>
-                                        <div class="h-[1px] bg-[#380D3733] w-full">
-                                        </div>
-                                        <div x-show="open" class='p-[12px] flex flex-col gap-2'>
-                                            @foreach ($brands as $brand)
-                                                <span class='flex items-center gap-[4px]'>
-                                                    <input id="brand{{ $brand->id }}" value="{{ $brand->id }}"
-                                                        class='border-[1px] border-[#380D37] bg-[#f2f2f2] w-[11px] h-[12px]'
-                                                        type="checkbox" x-model='brands' @change='productFetch'>
-                                                    <label for="brand{{ $brand->id }}"
-                                                        class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>{{ $brand->title }}
+                                    @if (!$subcat)
+                                        <div x-data="{ open: true, toggle() { this.open = !this.open } }"
+                                            class='bg-[#F2F2F2] shadow-[0_2px_4px_rgba(0,0,0,.1)] rounded-[10px] mt-3'>
+                                            <div class="flex justify-between p-[12px]">
+                                                <span
+                                                    class='text-[#380D37] font-[jost] font-[500] text-[12px] leading-[25.23px] '
+                                                    for="text">Brands</span>
+                                                <img src="/storage/product/down-arrow.svg" @click="toggle()"
+                                                    :class="{ 'rotate-180': !open }"
+                                                    class="text-[#000000] text-[14px] cursor-pointer w-[20px]"
+                                                    aria-hidden="true">
+                                            </div>
+                                            <div class="h-[1px] bg-[#380D3733] w-full">
+                                            </div>
+                                            <div x-show="open" class='p-[12px] flex flex-col gap-2'>
+                                                @foreach ($brands as $brand)
+                                                    <span class='flex items-center gap-[4px]'>
+                                                        <input id="brand{{ $brand->id }}"
+                                                            value="{{ $brand->id }}"
+                                                            class='border-[1px] border-[#380D37] bg-[#f2f2f2] w-[11px] h-[12px]'
+                                                            type="checkbox" x-model='brands' @change='productFetch'>
+                                                        <label for="brand{{ $brand->id }}"
+                                                            class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>{{ $brand->title }}
 
-                                                    </label>
-                                                </span>
-                                            @endforeach
+                                                        </label>
+                                                    </span>
+                                                @endforeach
+                                            </div>
                                         </div>
-                                    </div>
-
+                                    @endif
                                     <!-- ------------------nav-3rd--part (Processor Models)-------------- -->
                                     <div x-data="{ open: true, toggle() { this.open = !this.open } }"
                                         class='bg-[#F2F2F2] shadow-[0_2px_4px_rgba(0,0,0,.1)] rounded-[10px] mt-3'>
@@ -1008,10 +1022,10 @@
 
                         <div class="grid grid-cols-3 gap-[5px] items-center">
                             <label
-                                class="col-span-1 text-right bg-[#f2f2f2] text-[#380D37] text-[14px] max-sm:text-[12px] font-[jost] font-[400] leading-[20.23px]">Stor
+                                class="col-span-1 text-right bg-[#f2f2f2] text-[#380D37] text-[14px] max-sm:text-[12px] font-[jost] font-[400] leading-[20.23px]">Sort
                                 by:</label>
                             <select x-model='sorting' @change='productFetch'
-                                class="flex items-center gap-[4px] col-span-2 max-md:w-full py-[14px] max-sm:py-[8px] text-[#380D37] text-[14px] max-sm:text-[12px] font-[jost] font-[400] leading-[20.23px]">
+                                class="flex items-center justify-center text-center gap-[4px] col-span-2 max-md:w-full py-[14px] max-sm:py-[8px] text-[#380D37] text-[14px] max-sm:text-[12px] font-[jost] font-[400] leading-[20.23px]">
                                 <option selected>Default sorting</option>
                                 <option value="sbp">Sort by popularity</option>
                                 <option value="sbar">Sort by average rating</option>
@@ -1027,7 +1041,7 @@
                         <span id="grid"
                             class="grid-view mf-shop-view current mx-[20px] max-md:mx-[10px] max-sm:mx-[2px]"
                             data-view="grid">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="2em" class="max-sm:h-[15px]"
+                            <svg xmlns="http://www.w3.org/2000/svg" height="2em" class="max-sm:h-[15px] cursor-pointer"
                                 fill='black' viewBox="0 0 512 512">
                                 <path
                                     d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64
@@ -1036,7 +1050,7 @@
                             </svg></span>
                         <span id="column" class="list-view mf-shop-view mx-[20px] max-md:mx-[10px] max-sm:mx-[2px]"
                             data-view="list">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="2em" class="max-sm:h-[15px]"
+                            <svg xmlns="http://www.w3.org/2000/svg" height="2em" class="max-sm:h-[15px] cursor-pointer"
                                 fill='black' viewBox="0 0 512 512">
                                 <path
                                     d="M64 144a48 48 0 1 0 0-96 48 48 0 1 0 0 96zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zM64 464a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm48-208a48 48 0 1 0 -96 0 48 48 0 1 0 96 0z" />
@@ -1054,15 +1068,20 @@
                                 <div class='mt-2'>
                                     <ul
                                         class='text-[#353535] text-[10px] font-[jost] font-[400] list-decimal px-4 leading-[20px]'>
-                                        <li>Processor: {{ $product->ProcessorModel?->name }} {{ $product->ProcessorModel?->c_speed }}</li>
+                                        <li>Processor: {{ $product->ProcessorModel?->name }}
+                                            {{ $product->ProcessorModel?->c_speed }}</li>
                                         {{-- <li>Processor: AMD Ryzen 5 7520U (2.8 GHz up to 4.3 GHz)</li> --}}
-                                        @if ($product->ram ||  $product->ssd)
-                                        <li>RAM: {{ $product->ram?->ram }} {{ $product->ram?->type }} {{ $product->ram?->bus_speed }}, Storage: {{$product->storage()}}</li>
-                                        {{-- <li>RAM: 8GB DDR5 5500MHz, Storage: 256GB SSD</li> --}}
+                                        @if ($product->ram || $product->ssd)
+                                            <li>RAM: {{ $product->ram?->ram }} {{ $product->ram?->type }}
+                                                {{ $product->ram?->bus_speed }}, Storage: {{ $product->storage() }}
+                                            </li>
+                                            {{-- <li>RAM: 8GB DDR5 5500MHz, Storage: 256GB SSD</li> --}}
                                         @endif
                                         @if ($ds = $product->DisplaySize?->size)
-                                        <li>Display: {{$ds.'"' . $product->DisplayType?->name . ' (' . $product->d_resolution}})</li>
-                                        {{-- <li>Display: 15.6" FHD (1920X1080)</li> --}}
+                                            <li>Display:
+                                                {{ $ds . '"' . $product->DisplayType?->name . ' (' . $product->d_resolution }})
+                                            </li>
+                                            {{-- <li>Display: 15.6" FHD (1920X1080)</li> --}}
                                         @endif
                                         @if ($sp = $product->special_feature)
                                             <li>Features: {{ $sp }}</li>
@@ -1125,7 +1144,8 @@
                                             </div>
                                             <div class="my-3 text-center">
 
-                                                <a :href="'/single-checkout/' + product.slug" wire:navigate class="">
+                                                <a :href="'/single-checkout/' + product.slug" wire:navigate
+                                                    class="">
                                                     <button
                                                         class='bg-[#380D37] text-[#F2F2F2] text-[10px] font-[jost] font-[500] py-[8px] px-[50px] max-lg:px-0 max-lg:w-[100px] rounded-[5px]'>
                                                         Buy Now
@@ -1164,7 +1184,10 @@
                                         <div>
                                             <span class="relative z-0 inline-flex rounded-md shadow-sm">
                                                 <span aria-disabled="true" aria-label="&amp;laquo; Previous">
-                                                    <a href="javascript::void(0)" @click='pageChange(current_page-1)' rel="prev" class="relative inline-flex items-center px-2 py-2 text-sm font-medium leading-5 text-gray-500 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-l-md hover:text-gray-400 focus:z-10 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-500" aria-label="&amp;laquo; Previous">
+                                                    <a href="javascript::void(0)" @click='pageChange(current_page-1)'
+                                                        rel="prev"
+                                                        class="relative inline-flex items-center px-2 py-2 text-sm font-medium leading-5 text-gray-500 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-l-md hover:text-gray-400 focus:z-10 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-500"
+                                                        aria-label="&amp;laquo; Previous">
                                                         PREV
                                                     </a>
                                                 </span>
@@ -1173,13 +1196,14 @@
                                                 <template x-for="npage in page_num" :key="npage">
                                                     <div>
                                                         <template x-if='current_page == npage'>
-                                                            <span aria-current="page"  @click='pageChange(npage)'>
+                                                            <span aria-current="page" @click='pageChange(npage)'>
                                                                 <span x-text='npage'
                                                                     class="relative text-[white] inline-flex items-center px-4 py-2 -ml-px text-sm font-medium leading-5  bg-[#380E37] border border-gray-300 cursor-default">2</span>
                                                             </span>
                                                         </template>
                                                         <template x-if='current_page != npage'>
-                                                            <a href="javascript:void(0)" x-text='npage' @click='pageChange(npage)'
+                                                            <a href="javascript:void(0)" x-text='npage'
+                                                                @click='pageChange(npage)'
                                                                 class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 hover:text-gray-500 focus:z-10 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700"
                                                                 aria-label="Go to page 3">
                                                                 3
@@ -1187,7 +1211,10 @@
                                                         </template>
                                                     </div>
                                                 </template>
-                                                <a @click='pageChange(current_page+1)' href="javascript:void(0)" rel="next" class="relative inline-flex items-center px-2 py-2 -ml-px text-sm font-medium leading-5 text-gray-500 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-r-md hover:text-gray-400 focus:z-10 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-500" aria-label="Next &amp;raquo;">
+                                                <a @click='pageChange(current_page+1)' href="javascript:void(0)"
+                                                    rel="next"
+                                                    class="relative inline-flex items-center px-2 py-2 -ml-px text-sm font-medium leading-5 text-gray-500 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-r-md hover:text-gray-400 focus:z-10 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-500"
+                                                    aria-label="Next &amp;raquo;">
                                                     NEXT
                                                 </a>
                                             </span>

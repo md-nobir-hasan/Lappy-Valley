@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Brand;
+use App\Models\Category;
 use App\Models\DisplaySize;
 use App\Models\DisplayType;
 use App\Models\Graphic;
@@ -23,6 +24,7 @@ class SearchingProduct extends Component
 {
     public $stext;
     public $cat;
+    public $subcat;
     public $prds=null;
 
     public function mount()
@@ -32,21 +34,20 @@ class SearchingProduct extends Component
     public function render()
     {
         if (($id = $this->cat) && ($s = $this->stext)) {
-            $slug_wise_product = DB::table('products')->select('id', 'photo', 'title', 'slug', 'price', 'discount', 'final_price')
-                ->where('cat_id', $id)
+            $cat = Category::where('slug', $id)->first();
+            // DB::table('products')->select('id', 'photo', 'title', 'slug', 'price', 'discount', 'final_price')
+            $slug_wise_product = Product::where('cat_id', $cat->id)
                 ->where('title', 'like', '%' . $this->stext . '%')
                 ->paginate(20);
         } elseif (($id = $this->cat)) {
-            $slug_wise_product = DB::table('products')->select('id', 'photo', 'title', 'slug', 'price', 'discount', 'final_price')
-                ->where('cat_id', $id)
+            $cat = Category::where('slug', $id)->first();
+            $slug_wise_product = Product::where('cat_id', $cat->id)
                 ->paginate(20);
         } elseif (($s = $this->stext)) {
-            $slug_wise_product = DB::table('products')->select('id', 'photo', 'title', 'slug', 'price', 'discount', 'final_price')
-                ->where('title', 'like', '%' . $this->stext . '%')
+            $slug_wise_product = Product::where('title', 'like', '%' . $this->stext . '%')
                 ->paginate(20);
         } else {
-            $slug_wise_product = DB::table('products')->select('id', 'photo', 'title', 'slug', 'price', 'discount', 'final_price')
-                ->paginate(20);
+            $slug_wise_product = Product::paginate(20);
         }
         $n['products'] = $slug_wise_product;
         $n['brands'] = Brand::get();
