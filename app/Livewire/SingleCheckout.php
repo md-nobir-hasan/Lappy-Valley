@@ -94,7 +94,6 @@ class SingleCheckout extends Component
         $order_data['payment_status'] = 'Unpaid';
         $order->fill($order_data);
         $status = $order->save();
-
         $users = User::role('Admin')->get();
 
         $details = [
@@ -102,11 +101,21 @@ class SingleCheckout extends Component
             'actionURL' => route('order.show', $order->id),
             'fas' => 'fa-file-alt'
         ];
+
         Notification::send($users, new StatusNotification($details));
 
             $product = $this->product;
             $product->stock -= 1;
             $product->save();
+            Cart::create([
+                'product_id'=>$product->id,
+                'order_id'=> $order->id,
+                'user_id'=> $user->id,
+                'ip'=> request()->ip(),
+                'price'=> $order->sub_total,
+                'quantity'=> 1,
+                'amount'=> $order->sub_total,
+            ]);
         request()->session()->flash('success', 'Your Order successfully placed in order');
         return $this->redirect(route('order.receive', [$order->order_number]));
     }
