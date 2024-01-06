@@ -24,9 +24,11 @@
             if (res.type == 'percent') {
                 this.all_total = Math.round(this.total - (this.total * Number(res.value) / 100));
                 return res.value + '%';
-            } else {
+            } else if(res.type == 'fixed'){
                 this.all_total = Math.round(this.total - Number(res.value));
                 return 'BDT ' + res.value;
+            }else{
+                return 'BDT' + 0;
             }
          }
      }">

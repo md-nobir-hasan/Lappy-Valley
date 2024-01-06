@@ -189,16 +189,22 @@ class CouponSeeder extends Seeder
                 'delete'=>1,
             ],
             [
+                'title' => 'Pending',
+                'slug' => 'Pending',
+                'status' => 'active',
+                'delete'=>1,
+            ],
+            [
                 'title' => 'Processing',
                 'slug' => 'Processing',
                 'status' => 'active',
                 'delete'=>1,
             ],
             [
-                'title' => 'Devivered',
-                'slug' => 'Devivered',
+                'title' => 'Delivered',
+                'slug' => 'Delivered',
                 'status' => 'active',
-                'delete'=>1,
+                'delete'=>0,
             ],
 
             [

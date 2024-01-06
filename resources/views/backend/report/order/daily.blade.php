@@ -19,104 +19,321 @@
                      data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add Post</a>
              @endcan
          </div>
-         
+
+
+
          <div class="card-body">
-             <div class="table-responsive">
-                 @if (count($data) > 0)
-                     <table class="table table-bordered table-striped" id="product-dataTable" width="100%"
-                         cellspacing="0">
-                         <thead>
-                             <tr>
-                                 <th>S.N.</th>
-                                 <th>Title</th>
-                                 <th>Category</th>
-                                 <th>Tag</th>
-                                 <th>Author</th>
-                                 <th>Photo</th>
-                                 <th>Status</th>
-                                 @canany(['Edit Post', 'Delete Post'])
-                                     <th>Action</th>
-                                 @endcanany
-                             </tr>
-                         </thead>
-                         <tfoot>
-                             <tr>
-                                 <th>S.N.</th>
-                                 <th>Title</th>
-                                 <th>Category</th>
-                                 <th>Tag</th>
-                                 <th>Author</th>
-                                 <th>Photo</th>
-                                 <th>Status</th>
-                                 @canany(['Edit Post', 'Delete Post'])
-                                     <th>Action</th>
-                                 @endcanany
-                             </tr>
-                         </tfoot>
-                         <tbody>
+             <nav class="mb-2">
+                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                     <button class="nav-link active" id="nav-home-tab" data-toggle="tab" data-target="#nav-home"
+                         type="button" role="tab" aria-controls="nav-home" aria-selected="true">Pending</button>
+                     <button class="nav-link" id="nav-profile-tab" data-toggle="tab" data-target="#nav-profile"
+                         type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Delivered</button>
+                     <button class="nav-link" id="nav-contact-tab" data-toggle="tab" data-target="#nav-contact"
+                         type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Cancelled</button>
+                 </div>
+             </nav>
+             <div class="tab-content" id="nav-tabContent">
+                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                     <div class="table-responsive">
+                         @if (count($data) > 0)
+                             <table class="table table-bordered table-striped" id="product-dataTable" width="100%"
+                                 cellspacing="0">
+                                 <thead>
+                                     <tr>
+                                         <th>S.N.</th>
+                                         <th>Title</th>
+                                         <th>Category</th>
+                                         <th>Tag</th>
+                                         <th>Author</th>
+                                         <th>Photo</th>
+                                         <th>Status</th>
+                                         @canany(['Edit Post', 'Delete Post'])
+                                             <th>Action</th>
+                                         @endcanany
+                                     </tr>
+                                 </thead>
+                                 <tfoot>
+                                     <tr>
+                                         <th>S.N.</th>
+                                         <th>Title</th>
+                                         <th>Category</th>
+                                         <th>Tag</th>
+                                         <th>Author</th>
+                                         <th>Photo</th>
+                                         <th>Status</th>
+                                         @canany(['Edit Post', 'Delete Post'])
+                                             <th>Action</th>
+                                         @endcanany
+                                     </tr>
+                                 </tfoot>
+                                 <tbody>
 
-                             @foreach ($data as $post)
-                                 @php
-                                     $author_info = DB::table('users')
-                                         ->select('name')
-                                         ->where('id', $post->added_by)
-                                         ->get();
-                                     // dd($sub_cat_info);
-                                     // dd($author_info);
-                                 @endphp
-                                 <tr>
-                                     <td>{{ $post->id }}</td>
-                                     <td>{{ $post->title }}</td>
-                                     <td>{{ $post->cat_info->title }}</td>
-                                     <td>{{ $post->tags }}</td>
+                                     @foreach ($data->where('status', 'Pending') as $post)
+                                         @php
+                                             $author_info = DB::table('users')
+                                                 ->select('name')
+                                                 ->where('id', $post->added_by)
+                                                 ->get();
+                                             // dd($sub_cat_info);
+                                             // dd($author_info);
+                                         @endphp
+                                         <tr>
+                                             <td>{{ $post->id }}</td>
+                                             <td>{{ $post->title }}</td>
+                                             <td>{{ $post->cat_info->title }}</td>
+                                             <td>{{ $post->tags }}</td>
 
-                                     <td>
-                                         @foreach ($author_info as $data)
-                                             {{ $data->name }}
-                                         @endforeach
-                                     </td>
-                                     <td>
-                                         @if ($post->photo)
-                                             <img src="{{ $post->photo }}" class="img-fluid zoom" style="max-width:80px"
-                                                 alt="{{ $post->photo }}">
-                                         @else
-                                             <img src="{{ asset('backend/img/thumbnail-default.jpg') }}" class="img-fluid"
-                                                 style="max-width:80px" alt="avatar.png">
-                                         @endif
-                                     </td>
-                                     <td>
-                                         @if ($post->status == 'active')
-                                             <span class="badge badge-success">{{ $post->status }}</span>
-                                         @else
-                                             <span class="badge badge-warning">{{ $post->status }}</span>
-                                         @endif
-                                     </td>
-                                     <td>
-                                         @can('Edit Post')
-                                             <a href="{{ route('post.edit', $post->id) }}"
-                                                 class="float-left mr-1 btn btn-primary btn-sm"
-                                                 style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip"
-                                                 title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
-                                         @endcan
-                                         @can('Delete Post')
-                                             <form method="POST" action="{{ route('post.destroy', [$post->id]) }}">
-                                                 @csrf
-                                                 @method('delete')
-                                                 <button class="btn btn-danger btn-sm dltBtn" data-id={{ $post->id }}
-                                                     style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip"
-                                                     data-placement="bottom" title="Delete"><i
-                                                         class="fas fa-trash-alt"></i></button>
-                                             </form>
-                                         @endcan
-                                     </td>
-                                 </tr>
-                             @endforeach
-                         </tbody>
-                     </table>
-                     <span>{{ $data->links('vendor.pagination.bootstrap-5') }}</span>
-                 @else
-                     <h6 class="text-center">No data found!!! Please create Post</h6>
-                 @endif
+                                             <td>
+                                                 @foreach ($author_info as $data)
+                                                     {{ $data->name }}
+                                                 @endforeach
+                                             </td>
+                                             <td>
+                                                 @if ($post->photo)
+                                                     <img src="{{ $post->photo }}" class="img-fluid zoom"
+                                                         style="max-width:80px" alt="{{ $post->photo }}">
+                                                 @else
+                                                     <img src="{{ asset('backend/img/thumbnail-default.jpg') }}"
+                                                         class="img-fluid" style="max-width:80px" alt="avatar.png">
+                                                 @endif
+                                             </td>
+                                             <td>
+                                                 @if ($post->status == 'active')
+                                                     <span class="badge badge-success">{{ $post->status }}</span>
+                                                 @else
+                                                     <span class="badge badge-warning">{{ $post->status }}</span>
+                                                 @endif
+                                             </td>
+                                             <td>
+                                                 @can('Edit Post')
+                                                     <a href="{{ route('post.edit', $post->id) }}"
+                                                         class="float-left mr-1 btn btn-primary btn-sm"
+                                                         style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip"
+                                                         title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
+                                                 @endcan
+                                                 @can('Delete Post')
+                                                     <form method="POST" action="{{ route('post.destroy', [$post->id]) }}">
+                                                         @csrf
+                                                         @method('delete')
+                                                         <button class="btn btn-danger btn-sm dltBtn"
+                                                             data-id={{ $post->id }}
+                                                             style="height:30px; width:30px;border-radius:50%"
+                                                             data-toggle="tooltip" data-placement="bottom" title="Delete"><i
+                                                                 class="fas fa-trash-alt"></i></button>
+                                                     </form>
+                                                 @endcan
+                                             </td>
+                                         </tr>
+                                     @endforeach
+                                 </tbody>
+                             </table>
+                             <span>{{ $data->links('vendor.pagination.bootstrap-5') }}</span>
+                         @else
+                             <h6 class="text-center">No data found!!! Please create Post</h6>
+                         @endif
+                     </div>
+                 </div>
+                 <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                     <div class="table-responsive">
+                         @if (count($data) > 0)
+                             <table class="table table-bordered table-striped" id="product-dataTable" width="100%"
+                                 cellspacing="0">
+                                 <thead>
+                                     <tr>
+                                         <th>S.N.</th>
+                                         <th>Title</th>
+                                         <th>Category</th>
+                                         <th>Tag</th>
+                                         <th>Author</th>
+                                         <th>Photo</th>
+                                         <th>Status</th>
+                                         @canany(['Edit Post', 'Delete Post'])
+                                             <th>Action</th>
+                                         @endcanany
+                                     </tr>
+                                 </thead>
+                                 <tfoot>
+                                     <tr>
+                                         <th>S.N.</th>
+                                         <th>Title</th>
+                                         <th>Category</th>
+                                         <th>Tag</th>
+                                         <th>Author</th>
+                                         <th>Photo</th>
+                                         <th>Status</th>
+                                         @canany(['Edit Post', 'Delete Post'])
+                                             <th>Action</th>
+                                         @endcanany
+                                     </tr>
+                                 </tfoot>
+                                 <tbody>
+
+                                     @foreach ($data->where('status', 'Delivered') as $post)
+                                         @php
+                                             $author_info = DB::table('users')
+                                                 ->select('name')
+                                                 ->where('id', $post->added_by)
+                                                 ->get();
+                                         @endphp
+                                         <tr>
+                                             <td>{{ $post->id }}</td>
+                                             <td>{{ $post->title }}</td>
+                                             <td>{{ $post->cat_info->title }}</td>
+                                             <td>{{ $post->tags }}</td>
+
+                                             <td>
+                                                 @foreach ($author_info as $data)
+                                                     {{ $data->name }}
+                                                 @endforeach
+                                             </td>
+                                             <td>
+                                                 @if ($post->photo)
+                                                     <img src="{{ $post->photo }}" class="img-fluid zoom"
+                                                         style="max-width:80px" alt="{{ $post->photo }}">
+                                                 @else
+                                                     <img src="{{ asset('backend/img/thumbnail-default.jpg') }}"
+                                                         class="img-fluid" style="max-width:80px" alt="avatar.png">
+                                                 @endif
+                                             </td>
+                                             <td>
+                                                 @if ($post->status == 'active')
+                                                     <span class="badge badge-success">{{ $post->status }}</span>
+                                                 @else
+                                                     <span class="badge badge-warning">{{ $post->status }}</span>
+                                                 @endif
+                                             </td>
+                                             <td>
+                                                 @can('Edit Post')
+                                                     <a href="{{ route('post.edit', $post->id) }}"
+                                                         class="float-left mr-1 btn btn-primary btn-sm"
+                                                         style="height:30px; width:30px;border-radius:50%"
+                                                         data-toggle="tooltip" title="edit" data-placement="bottom"><i
+                                                             class="fas fa-edit"></i></a>
+                                                 @endcan
+                                                 @can('Delete Post')
+                                                     <form method="POST" action="{{ route('post.destroy', [$post->id]) }}">
+                                                         @csrf
+                                                         @method('delete')
+                                                         <button class="btn btn-danger btn-sm dltBtn"
+                                                             data-id={{ $post->id }}
+                                                             style="height:30px; width:30px;border-radius:50%"
+                                                             data-toggle="tooltip" data-placement="bottom" title="Delete"><i
+                                                                 class="fas fa-trash-alt"></i></button>
+                                                     </form>
+                                                 @endcan
+                                             </td>
+                                         </tr>
+                                     @endforeach
+                                 </tbody>
+                             </table>
+                             <span>{{ $data->links('vendor.pagination.bootstrap-5') }}</span>
+                         @else
+                             <h6 class="text-center">No data found!!! Please create Post</h6>
+                         @endif
+                     </div>
+                 </div>
+                 <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                     <div class="table-responsive">
+                         @if (count($data) > 0)
+                             <table class="table table-bordered table-striped" id="product-dataTable" width="100%"
+                                 cellspacing="0">
+                                 <thead>
+                                     <tr>
+                                         <th>S.N.</th>
+                                         <th>Title</th>
+                                         <th>Category</th>
+                                         <th>Tag</th>
+                                         <th>Author</th>
+                                         <th>Photo</th>
+                                         <th>Status</th>
+                                         @canany(['Edit Post', 'Delete Post'])
+                                             <th>Action</th>
+                                         @endcanany
+                                     </tr>
+                                 </thead>
+                                 <tfoot>
+                                     <tr>
+                                         <th>S.N.</th>
+                                         <th>Title</th>
+                                         <th>Category</th>
+                                         <th>Tag</th>
+                                         <th>Author</th>
+                                         <th>Photo</th>
+                                         <th>Status</th>
+                                         @canany(['Edit Post', 'Delete Post'])
+                                             <th>Action</th>
+                                         @endcanany
+                                     </tr>
+                                 </tfoot>
+                                 <tbody>
+
+                                     @foreach ($data->where('status', 'Canceled') as $post)
+                                         @php
+                                             $author_info = DB::table('users')
+                                                 ->select('name')
+                                                 ->where('id', $post->added_by)
+                                                 ->get();
+                                             // dd($sub_cat_info);
+                                             // dd($author_info);
+                                         @endphp
+                                         <tr>
+                                             <td>{{ $post->id }}</td>
+                                             <td>{{ $post->title }}</td>
+                                             <td>{{ $post->cat_info->title }}</td>
+                                             <td>{{ $post->tags }}</td>
+
+                                             <td>
+                                                 @foreach ($author_info as $data)
+                                                     {{ $data->name }}
+                                                 @endforeach
+                                             </td>
+                                             <td>
+                                                 @if ($post->photo)
+                                                     <img src="{{ $post->photo }}" class="img-fluid zoom"
+                                                         style="max-width:80px" alt="{{ $post->photo }}">
+                                                 @else
+                                                     <img src="{{ asset('backend/img/thumbnail-default.jpg') }}"
+                                                         class="img-fluid" style="max-width:80px" alt="avatar.png">
+                                                 @endif
+                                             </td>
+                                             <td>
+                                                 @if ($post->status == 'active')
+                                                     <span class="badge badge-success">{{ $post->status }}</span>
+                                                 @else
+                                                     <span class="badge badge-warning">{{ $post->status }}</span>
+                                                 @endif
+                                             </td>
+                                             <td>
+                                                 @can('Edit Post')
+                                                     <a href="{{ route('post.edit', $post->id) }}"
+                                                         class="float-left mr-1 btn btn-primary btn-sm"
+                                                         style="height:30px; width:30px;border-radius:50%"
+                                                         data-toggle="tooltip" title="edit" data-placement="bottom"><i
+                                                             class="fas fa-edit"></i></a>
+                                                 @endcan
+                                                 @can('Delete Post')
+                                                     <form method="POST" action="{{ route('post.destroy', [$post->id]) }}">
+                                                         @csrf
+                                                         @method('delete')
+                                                         <button class="btn btn-danger btn-sm dltBtn"
+                                                             data-id={{ $post->id }}
+                                                             style="height:30px; width:30px;border-radius:50%"
+                                                             data-toggle="tooltip" data-placement="bottom" title="Delete"><i
+                                                                 class="fas fa-trash-alt"></i></button>
+                                                     </form>
+                                                 @endcan
+                                             </td>
+                                         </tr>
+                                     @endforeach
+                                 </tbody>
+                             </table>
+                             <span>{{ $data->links('vendor.pagination.bootstrap-5') }}</span>
+                         @else
+                             <h6 class="text-center">No data found!!! Please create Post</h6>
+                         @endif
+                     </div>
+                 </div>
              </div>
          </div>
      </div>

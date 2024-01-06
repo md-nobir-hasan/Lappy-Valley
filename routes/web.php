@@ -131,7 +131,7 @@ Route::post('cart-update', [CartController::class, 'cartUpdate'])->name('cart.up
 Route::get('/cart', function () {
     return view('frontend.pages.cart');
 })->name('cart');
-Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout')->middleware('user');
+// Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout')->middleware('user');
 // Wishlist
 Route::get('/wishlist', function () {
     return view('frontend.pages.wishlist');
