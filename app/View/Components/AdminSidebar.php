@@ -75,10 +75,25 @@ class AdminSidebar extends Component
             ['access' => 'Show Comment','title' => 'Comments', 'route' => 'comment.index', 'child' => []],
         ]],
 
+        //Report
         ['access' => ['Sales Report', 'Customer Purchase History', 'Order Report', 'Inventory Report'],'title' => 'Report', 'child' => [
+            // Sales Report
             ['access' => 'Sales Report','title' => 'Sales Report', 'route' => 'report.sale', 'child' => [
-                ['access' => 'Customer Purchase History','title' => 'Posts', 'route' => 'post.index'],
-                ['access' => 'Order Report','title' => 'Add Posts', 'route' => 'post.create']
+                ['access' => 'Sales Report Daily','title' => 'Daily', 'route' => 'report.sale.daily'],
+                ['access' => 'Sales Report Weekly','title' => 'Weekly', 'route' => 'report.sale.weekly'],
+                ['access' => 'Sales Report Monthly','title' => 'Monthly', 'route' => 'report.sale.monthly'],
+                // ['access' => 'Customer Purchase History','title' => 'Posts', 'route' => 'post.index'],
+                // ['access' => 'Order Report','title' => 'Add Posts', 'route' => 'post.create']
+            ]],
+
+            // Order Report
+            ['access' => 'Order Report','title' => 'Order Report', 'route' => 'report.order', 'child' => [
+                ['access' => 'Order Report Daily','title' => 'Daily', 'route' => 'report.order.daily'],
+                ['access' => 'Order Report Weekly','title' => 'Weekly', 'route' => 'report.order.weekly'],
+                ['access' => 'Order Report Monthly','title' => 'Monthly', 'route' => 'report.order.monthly'],
+                ['access' => 'Order Report Yearly','title' => 'Yearly', 'route' => 'report.order.monthly'],
+                ['access' => 'Date Wise Order Report','title' => 'Date Wise', 'route' => 'report.order.monthly'],
+                ['access' => 'Product Wise Order Report','title' => 'Product Wise', 'route' => 'report.order.monthly'],
             ]],
         ]],
 

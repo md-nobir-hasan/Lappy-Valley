@@ -304,14 +304,26 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
 
 //Report
 Route::prefix('/report')->name('report.')->group(function(){
+    Route::get('/view/{blade_file}',[ReportController::class,'view'])->name('view');
+
+    // Order Report
+    Route::prefix('/order')->name('order.')->group(function(){
+        Route::get('/daily',[ReportController::class,'orderReportDaily'])->name('daily');
+        Route::get('/weekly',[ReportController::class,'orderReportWeekly'])->name('weekly');
+        Route::get('/monthly',[ReportController::class,'orderReportMonthly'])->name('monthly');
+        Route::get('/yearly',[ReportController::class,'orderReportYearly'])->name('yearly');
+        Route::get('/date-wise',[ReportController::class,'orderReportDateWise'])->name('date.wise');
+        Route::get('/product-wise',[ReportController::class,'orderReportProductWise'])->name('product.wise');
+    });
+
     // Sales Report
     Route::prefix('/sale')->name('sale.')->group(function(){
         Route::get('/daily',[ReportController::class,'saleReportDaily'])->name('daily');
-        Route::get('/weekly',[ReportController::class,'saleReportweekly'])->name('weekly');
-        Route::get('/monthly',[ReportController::class,'saleReportmonthly'])->name('weekly');
+        Route::get('/weekly',[ReportController::class,'saleReportWeekly'])->name('weekly');
+        Route::get('/monthly',[ReportController::class,'saleReportMonthly'])->name('monthly');
     });
 });
-// Route::get('/demo',[FrontendController::class,'demo']);
+
 
 // ===========================================================================================================
 //=====================================       Frontend section          ======================================
