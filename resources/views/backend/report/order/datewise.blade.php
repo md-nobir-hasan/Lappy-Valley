@@ -40,9 +40,7 @@
                                          <th>Email</th>
                                          <th>Phone</th>
                                          <th>Address</th>
-                                         @canany(['Edit Post', 'Delete Post'])
                                              <th>Action</th>
-                                         @endcanany
                                      </tr>
                                  </thead>
                                  <tfoot>
@@ -53,9 +51,7 @@
                                          <th>Email</th>
                                          <th>Phone</th>
                                          <th>Address</th>
-                                         @canany(['Edit Post', 'Delete Post'])
                                              <th>Action</th>
-                                         @endcanany
                                      </tr>
                                  </tfoot>
                                  <tbody>
@@ -96,9 +92,9 @@
                                          <th>Email</th>
                                          <th>Phone</th>
                                          <th>Address</th>
-                                         @canany(['Edit Post', 'Delete Post'])
+
                                              <th>Action</th>
-                                         @endcanany
+                                         
                                      </tr>
                                  </thead>
                                  <tfoot>
@@ -109,9 +105,9 @@
                                          <th>Email</th>
                                          <th>Phone</th>
                                          <th>Address</th>
-                                         @canany(['Edit Post', 'Delete Post'])
+
                                              <th>Action</th>
-                                         @endcanany
+                                         
                                      </tr>
                                  </tfoot>
                                  <tbody>
@@ -152,9 +148,9 @@
                                          <th>Email</th>
                                          <th>Phone</th>
                                          <th>Address</th>
-                                         @canany(['Edit Post', 'Delete Post'])
+
                                              <th>Action</th>
-                                         @endcanany
+                                         
                                      </tr>
                                  </thead>
                                  <tfoot>
@@ -165,9 +161,9 @@
                                          <th>Email</th>
                                          <th>Phone</th>
                                          <th>Address</th>
-                                         @canany(['Edit Post', 'Delete Post'])
+
                                              <th>Action</th>
-                                         @endcanany
+                                         
                                      </tr>
                                  </tfoot>
                                  <tbody>
