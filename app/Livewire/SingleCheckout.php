@@ -5,7 +5,6 @@ namespace App\Livewire;
 use App\Models\Cart;
 use App\Models\Divission;
 use App\Models\Order;
-use App\Models\OrderStatus;
 use App\Models\Product;
 use App\Models\Shipping;
 use App\Notifications\StatusNotification;
