@@ -172,7 +172,8 @@ class Checkout extends Component
     {
         if($coupon_id = Session::get('coupon_id')){
             $n['coupon'] = Coupon::find($coupon_id);
-
+        }else{
+            $n['coupon'] = 0;
         }
         if ($user = Auth()->user()) {
             $n['carts'] = Cart::with(['product'])->where('user_id', $user->id)->where('order_id', null)->latest()->get();
@@ -183,6 +184,7 @@ class Checkout extends Component
         } else {
             $n['carts'] = Cart::with(['product'])->where('ip', request()->ip())->where('order_id', null)->latest()->get();
         }
+
         $n['divissions'] = Divission::get();
         $n['shippings'] = Shipping::where('status', 'active')->get();
         return view('livewire.checkout', $n);

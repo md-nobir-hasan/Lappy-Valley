@@ -25,6 +25,11 @@ class ViewCart extends Component
 
     public function render()
     {
+        if($coupon_id = Session::get('coupon_id')){
+            $n['coupon'] = Coupon::find($coupon_id);
+        }else{
+            $n['coupon'] = 0;
+        }
         if($user = auth()->user()){
             $n['carts'] = Cart::with('product')->where('user_id',$user->id)->where('order_id', null)->latest()->get();
         }else{

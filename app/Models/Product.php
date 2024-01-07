@@ -161,4 +161,26 @@ class Product extends Model
         }
         return $strage;
     }
+
+    public function totalOrder()
+    {
+        return count($this->carts);
+    }
+
+    public function statusWiseOrderCount($status)
+    {
+        if(count($this->carts)>0){
+            $count = 0;
+            foreach($this->carts as $cart){
+                if($cart->order->status == $status){
+                    $count++;
+                }
+            }
+            return $count;
+
+        }else{
+            return 0;
+        }
+    }
+
 }

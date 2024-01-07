@@ -178,7 +178,7 @@
             </a>
         </div>
         <div class='items-center flex justify-center w-full mt-[30px]'>
-            <a href="{{ route('checkout',['one_time']) }}" wire:navigate class="w-full">
+            <a href="{{ route('checkout') }}" wire:navigate class="w-full">
                 <button
                     class='fill-up-btn w-full rounded-[4px] items-center py-[10px] text-[#F2F2F2] bg-gradient-to-r from-[#380D37] to-[#DC275C] text-[20px] font-[jost] font-[700]'>
                     Checkout

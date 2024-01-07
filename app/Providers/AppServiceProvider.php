@@ -30,8 +30,13 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
         // Paginator::useBootstrapFour();
-        $n['setting'] = Settings::first();
-        $n['other_setting'] = OtherSetting::first();
+        $n =[];
+        if(Schema::hasTable('settings')){
+            $n['setting'] = Settings::first();
+        }
+        if(Schema::hasTable('other_settings')){
+            $n['other_setting'] = OtherSetting::first();
+        }
         View::share($n);
     }
 }
