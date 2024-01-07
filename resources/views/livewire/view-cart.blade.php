@@ -3,8 +3,19 @@
      all_total: {{ $carts->sum('amount') }},
      carts: {{ $carts }},
      discode: '',
-     discount: '00.00',
      coupon_msg: '',
+     discount: '00.00',
+     discountFormat(coupon_array) {
+         if (coupon_array.type == 'percent') {
+             this.all_total = this.total - (this.total * Number(coupon_array.value) / 100);
+             return coupon_array.value + '%';
+         } else if(coupon_array.type == 'fixed'){
+             this.all_total = this.total - Number(coupon_array.value);
+             return 'BDT ' + coupon_array.value;
+         }else{
+            return '00.00';
+         }
+     },
      discountCal() {
          $.ajax({
              method: 'get',
@@ -14,20 +25,14 @@
                  if (res == 'invalid') {
                      this.coupon_msg = 'Invalid Coupon Code';
                  } else {
-                    this.coupon_msg = 'Coupon Added';
-                    if (res.type == 'percent') {
-                         this.all_total = this.total - (this.total * Number(res.value) / 100);
-                         this.discount = res.value + '%';
-                     } else {
-                         this.all_total = this.total - Number(res.value);
-                         this.discount = 'BDT ' + res.value;
-                     }
+                     this.coupon_msg = 'Coupon Added';
+                     this.discount = this.discountFormat(res);
+
                  }
              },
          });
      },
-
- }"
+ }" x-init='discount = discountFormat({{$coupon}}) '
      class="px-[100px] max-2xl:px-[70px] max-xl:px-[60px] max-lg:px-[38px] max-md:px-[35px] max-sm:px-[15px] max-sm:mt-[70px] max-xl:mt-[100px]">
      <div class="">
          <h1 class='font-[jost] xl:text-[20px] font-[400] leading-[25.3px] text-[#353535]'>
@@ -71,7 +76,7 @@
                                  <input x-model='discode' type="text" placeholder='HXZ123'
                                      class="w-full py-[15px] px-[10px] placeholder-[#C4C4C4] bg-[#F2F2F2] text-[#000000] text-[16px] font-[jost] font-[500] leading-[23.12px]">
                              </div>
-                             <div class="w-full flex justify-center items-center">
+                             <div class="flex items-center justify-center w-full">
                                  <span data-te-modal-dismiss>
                                      <button type="button" @click='discountCal'
                                          class="text-[#F2F2F2] text-[14px] font-[jost] font-[500] px-[60px] py-[14px] leading-[20.23px] rounded-[4px] bg-gradient-to-r from-[#380D37] to-[#DC275C]"
@@ -103,7 +108,8 @@
                                  </svg>
                              </div>
                              <div>
-                                 <h5 x-text='coupon_msg' class="text-[#380D37] text-[20px] font-[jost] font-[500] leading-[28.9px]">
+                                 <h5 x-text='coupon_msg'
+                                     class="text-[#380D37] text-[20px] font-[jost] font-[500] leading-[28.9px]">
 
                                  </h5>
                              </div>

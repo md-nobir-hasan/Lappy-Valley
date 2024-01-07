@@ -36,14 +36,14 @@
                             <td>৳{{ $order->shipping->price }}</td>
                             <td>৳{{ number_format($order->total_amount, 2) }}</td>
                             <td>
-                                @if ($order->order_status->title == 'New')
-                                    <span class="badge badge-primary">{{ $order->order_status->title }}</span>
-                                @elseif($order->order_status->title == 'Processing')
-                                    <span class="badge badge-warning">{{ $order->order_status->title }}</span>
-                                @elseif($order->order_status->title == 'Delivered')
-                                    <span class="badge badge-success">{{ $order->order_status->title }}</span>
+                                @if ($order->status == 'New')
+                                    <span class="badge badge-primary">{{ $order->status }}</span>
+                                @elseif($order->status == 'Processing')
+                                    <span class="badge badge-warning">{{ $order->status }}</span>
+                                @elseif($order->status == 'Delivered')
+                                    <span class="badge badge-success">{{ $order->status }}</span>
                                 @else
-                                    <span class="badge badge-danger">{{ $order->order_status->title }}</span>
+                                    <span class="badge badge-danger">{{ $order->status }}</span>
                                 @endif
                             </td>
                             <td>
@@ -86,7 +86,7 @@
                                         </tr>
                                         <tr>
                                             <td>Order Status</td>
-                                            <td> : {{ $order->order_status->title }}</td>
+                                            <td> : {{ $order->status }}</td>
                                         </tr>
                                         <tr>
                                             <td>Shipping Charge</td>
@@ -147,6 +147,117 @@
                                         </tr>
                                     </table>
                                 </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="mt-2 row">
+                        <div class="col-lg-12 col-lx-12">
+                            <div class="shipping-info">
+                                <h4 class="pb-4 text-center">Product Information</h4>
+                                <table class="table table-bordered table-striped" id="product-dataTable" width="100%"
+                                    cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>S.N.</th>
+                                            <th>Title</th>
+                                            <th>Category</th>
+                                            <th>Price</th>
+                                            <th>Discount</th>
+                                            <th>Brand</th>
+                                            <th>Stock</th>
+                                            <th>Photo</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>S.N.</th>
+                                            <th>Title</th>
+                                            <th>Category</th>
+                                            <th>Price</th>
+                                            <th>Discount</th>
+                                            <th>Brand</th>
+                                            <th>Stock</th>
+                                            <th>Photo</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+
+                                        @foreach ($order->cart as $cat)
+                                            <tr>
+                                                <td>{{ $loop->index + 1 }}</td>
+                                                <td><a target="_blank" href="{{route('product.show',$cat->product->id)}}">{{ $cat->product->title }}</a></td>
+                                                <td>{{ $cat->product->cat_info?->title }}
+                                                    <sub>
+                                                        {{ $cat->product->sub_cat_info?->title ?? '' }}
+                                                    </sub>
+                                                </td>
+                                                {{-- <td>{{ $cat->product->is_featured == 1 ? 'Yes' : 'No' }}</td> --}}
+                                                <td>BDT. {{ $cat->product->price }} /-</td>
+                                                <td> {{ $cat->product->discount }}% OFF</td>
+                                                <td> {{ ucfirst($cat->product->brand?->title) }}</td>
+                                                <td>
+                                                    @if ($cat->product->stock > 0)
+                                                        <span class="badge badge-primary">{{ $cat->product->stock }}</span>
+                                                    @else
+                                                        <span class="badge badge-danger">{{ $cat->product->stock }}</span>
+                                                    @endif
+                                                </td>
+                                                <td>
+
+                                                    @if ($cat->product->photo)
+                                                        @php
+                                                            $photo = explode(',', $cat->product->photo);
+                                                            // dd($photo);
+                                                        @endphp
+                                                        <img src="{{ $photo[0] }}" class="img-fluid zoom"
+                                                            style="max-width:80px" alt="{{ $cat->product->photo }}">
+                                                    @else
+                                                        <img src="{{ asset('backend/img/thumbnail-default.jpg') }}"
+                                                            class="img-fluid" style="max-width:80px" alt="avatar.png">
+                                                    @endif
+                                                </td>
+                                                {{-- <td>
+                                                    @if ($cat->product->status == 'active')
+                                                        <span class="badge badge-success">{{ $cat->product->status }}</span>
+                                                    @else
+                                                        <span class="badge badge-warning">{{ $cat->product->status }}</span>
+                                                    @endif
+                                                </td> --}}
+
+                                                {{-- <td class="d-flex">
+                                                    <a target="_blank" href="{{ route('product.show', $cat->product->id) }}"
+                                                        class="float-left mr-1 btn btn-warning btn-sm"
+                                                        style="height:30px; width:30px;border-radius:50%"
+                                                        data-toggle="tooltip" title="view" data-placement="bottom"><i
+                                                            class="fas fa-eye"></i></a>
+                                                    @can('Edit Product')
+                                                        <a href="{{ route('product.edit', $cat->product->id) }}"
+                                                            class="float-left mr-1 btn btn-primary btn-sm"
+                                                            style="height:30px; width:30px;border-radius:50%"
+                                                            data-toggle="tooltip" title="edit" data-placement="bottom"><i
+                                                                class="fas fa-edit"></i>
+                                                        </a>
+                                                    @endcan
+                                                    @can('Delete Product')
+                                                        <form method="POST"
+                                                            action="{{ route('product.destroy', [$cat->product->id]) }}">
+                                                            @csrf
+                                                            @method('delete')
+                                                            <button class="btn btn-danger btn-sm dltBtn"
+                                                                data-id={{ $cat->product->id }}
+                                                                style="height:30px; width:30px;border-radius:50%"
+                                                                data-toggle="tooltip" data-placement="bottom" title="Delete"><i
+                                                                    class="fas fa-trash-alt"></i></button>
+                                                        </form>
+                                                    @endcan
+
+                                                </td> --}}
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>

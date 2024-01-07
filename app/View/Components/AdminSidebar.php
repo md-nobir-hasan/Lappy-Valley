@@ -75,20 +75,26 @@ class AdminSidebar extends Component
             ['access' => 'Show Comment','title' => 'Comments', 'route' => 'comment.index', 'child' => []],
         ]],
 
+        //Report
         ['access' => ['Sales Report', 'Customer Purchase History', 'Order Report', 'Inventory Report'],'title' => 'Report', 'child' => [
-            ['access' => 'Sales Report','title' => 'Sales Report', 'route' => 'report.sale', 'child' => [
-                ['access' => 'Customer Purchase History','title' => 'Posts', 'route' => 'post.index'],
-                ['access' => 'Order Report','title' => 'Add Posts', 'route' => 'post.create']
+            // Sales Report
+            ['access' => 'Sales Report','title' => 'Sales Report', 'route' => 'report.sale.*', 'child' => [
+                ['access' => 'Sales Report Daily','title' => 'Daily', 'route' => 'report.sale.daily'],
+                ['access' => 'Sales Report Weekly','title' => 'Weekly', 'route' => 'report.sale.weekly'],
+                ['access' => 'Sales Report Monthly','title' => 'Monthly', 'route' => 'report.sale.monthly'],
+                // ['access' => 'Customer Purchase History','title' => 'Posts', 'route' => 'post.index'],
+                // ['access' => 'Order Report','title' => 'Add Posts', 'route' => 'post.create']
             ]],
-            ['access' => 'Show pCategory','title' => 'Category', 'route' => 'post-category.*', 'child' => [
-                ['access' => 'Show pCategory','title' => 'Category', 'route' => 'post-category.index'],
-                ['access' => 'Create pCategory','title' => 'Add Category', 'route' => 'post-category.create']
+
+            // Order Report
+            ['access' => 'Order Report','title' => 'Order Report', 'route' => 'report.order.*', 'child' => [
+                ['access' => 'Order Report Daily','title' => 'Daily', 'route' => 'report.order.daily'],
+                ['access' => 'Order Report Weekly','title' => 'Weekly', 'route' => 'report.order.weekly'],
+                ['access' => 'Order Report Monthly','title' => 'Monthly', 'route' => 'report.order.monthly'],
+                ['access' => 'Order Report Yearly','title' => 'Yearly', 'route' => 'report.order.yearly'],
+                ['access' => 'Date Wise Order Report','title' => 'Date Wise', 'route' => 'report.order.datewise'],
+                ['access' => 'Product Wise Order Report','title' => 'Product Wise', 'route' => 'report.order.productwise'],
             ]],
-            ['access' => 'Show Tag','title' => 'Tags', 'route' => 'post-tag.*', 'child' => [
-                ['access' => 'Show Tag','title' => 'Tags', 'route' => 'post-tag.index'],
-                ['access' => 'Create Tag','title' => 'Add Tags', 'route' => 'post-tag.create']
-            ]],
-            ['access' => 'Show Comment','title' => 'Comments', 'route' => 'comment.index', 'child' => []],
         ]],
 
         ['access' => ['Show Cupon', 'Show User', 'Setting'],'title' => ' General Settings', 'child' => [
