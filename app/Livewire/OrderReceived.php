@@ -6,7 +6,7 @@ use App\Models\Order;
 use Livewire\Component;
 use Livewire\Attributes\Title;
 
-#[Title('Wishlist')]
+#[Title('Order Received')]
 
 class OrderReceived extends Component
 {
