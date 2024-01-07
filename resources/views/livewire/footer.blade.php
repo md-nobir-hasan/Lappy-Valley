@@ -2,12 +2,12 @@
       class="bg-gradient-to-r from-[#380D37] to-[#DC275C] pt-4 text-white mt-20 max-sm:mt-14 max-md:mt-16 max-lg:mt-18 h-[400px] max-sm:h-[100%] max-md:h-[380px] max-lg:h-[390px]">
       <div class="flex justify-evenly max-sm:block max-sm:px-[18px]">
 
-          <div>
+          <div class="">
               <p
-                  class="text-[#F2F2F2] font-[jost] max-sm:text-center text-[40px] max-sm:text-[34px] max-md:text-[32px] max-lg:text-[34px] font-[500] text-left my-3">
+                  class="text-[#F2F2F2] font-[jost] max-sm:text-center text-[40px] max-sm:text-[34px] max-md:text-[32px] max-lg:text-[34px] font-[500] max-md:text-center my-3">
                   Address</p>
               <ul
-                  class="text-[#F2F2F2] font-[jost] max-sm:text-center text-[16px] max-sm:text-[16px] max-md:text-[12px] max-lg:text-[14px] font-[500] leading-[23px] max-sm:leading-[28px] max-md:leading-[18px] max-lg:leading-[20px]  text-left">
+                  class="text-[#F2F2F2] font-[jost] max-sm:text-center text-[16px] max-sm:text-[16px] max-md:text-[12px] max-lg:text-[14px] font-[500] leading-[23px] max-sm:leading-[28px] max-md:leading-[18px] max-lg:leading-[20px] max-md:text-center">
                   <li>
                       <span class="hover:bg-blue-700">
                           Address:
@@ -57,26 +57,44 @@
                   Company</p>
               <ul
                   class="text-[#F2F2F2] font-[jost] max-sm:text-center text-[16px] max-sm:text-[16px] max-md:text-[12px] max-lg:text-[14px] font-[500] leading-[23px] max-sm:leading-[14px] max-md:leading-[12px] max-lg:leading-[15px] max-sm:my-[21px] max-sm:ml-[1px]  ml-[30px]">
-                  <li class="mb-[25px] max-sm:mb-[18px] list-disc max-sm:list-none "><a class="hover:bg-blue-700"
-                          href="{{ route('about_us') }}" id='about-us'>About Us</a></li>
-                  <li class="mb-[25px] max-sm:mb-[18px] list-disc max-sm:list-none"><a class="hover:bg-blue-700"
-                          href="{{ route('tc') }}">Terms& Conditions</a></li>
-                  <li class="mb-[25px] max-sm:mb-[18px] list-disc max-sm:list-none "><a class="hover:bg-blue-700"
-                          href="{{ route('pp') }}">Privay Policy</a></li>
-                  <li class="mb-[25px] max-sm:mb-[18px] list-disc max-sm:list-none "><a class="hover:bg-blue-700"
-                          href="{{ route('account') }}">My account</a></li>
-                  <li class="mb-[25px] max-sm:mb-[18px] list-disc max-sm:list-none "><a class="hover:bg-blue-700"
-                          href="{{ route('rsp') }}">Refund & Service Policy</a>
+                  <li class="mb-[25px] max-sm:mb-[18px] list-disc max-sm:list-none ">
+                    <a class="hover:bg-blue-700"
+                          href="{{ route('about_us') }}" id='about-us'>
+                          About Us
+                        </a>
+                        </li>
+                  <li class="mb-[25px] max-sm:mb-[18px] list-disc max-sm:list-none">
+                    <a class="hover:bg-blue-700" href="{{ route('tc') }}">
+                        Terms& Conditions
+                    </a>
+                    </li>
+                  <li class="mb-[25px] max-sm:mb-[18px] list-disc max-sm:list-none ">
+                    <a class="hover:bg-blue-700"
+                          href="{{ route('pp') }}">
+                          Privay Policy
+                        </a>
+                    </li>
+                  <li class="mb-[25px] max-sm:mb-[18px] list-disc max-sm:list-none ">
+                    <a class="hover:bg-blue-700"
+                          href="{{ route('account') }}">
+                          My account
+                        </a>
+                    </li>
+                  <li class="mb-[25px] max-sm:mb-[18px] list-disc max-sm:list-none ">
+                    <a class="hover:bg-blue-700"
+                          href="{{ route('rsp') }}">
+                          Refund & Service Policy
+                        </a>
                   </li>
               </ul>
           </div>
 
           <div>
               <p
-                  class="text-[#F2F2F2] font-[jost] max-sm:text-center text-[40px] max-sm:text-[34px] max-md:text-[32px] max-lg:text-[34px] font-[500] text-left my-3">
+                  class="text-[#F2F2F2] font-[jost] text-[40px] max-sm:text-[34px] max-md:text-[32px] max-lg:text-[34px] font-[500] max-md:text-center my-3">
                   Contact</p>
               <ul
-                  class="text-[#F2F2F2] font-[jost] max-sm:text-center text-[16px] max-sm:text-[16px] max-md:text-[12px] max-lg:text-[14px] font-[500] leading-[23px] max-sm:leading-[28px] max-md:leading-[18px] max-lg:leading-[20px]  text-left">
+                  class="text-[#F2F2F2] font-[jost] text-[16px] max-sm:text-[16px] max-md:text-[12px] max-lg:text-[14px] font-[500] leading-[23px] max-sm:leading-[28px] max-md:leading-[18px] max-lg:leading-[20px] max-sm:text-center">
                   <li class="mt-[15px] ">
                       <span class="hover:bg-blue-700">
                           Phone:

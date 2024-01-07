@@ -131,7 +131,7 @@
                         endpoint="{{ url('/pay-via-ajax') }}"
                     class="px-[30px] py-[10px] border-[2px] border-[#380D37] text-[#380D37] text-[14px] font-[jost] font-[500] rounded-[4px]">Pay
                     Now</button>
-                <a href="#" id="pay-Later"
+                <a href="#" id="pay-later"
                     class="px-[30px] py-[10px] border-[2px] border-[#380D37] bg-gradient-to-r from-[#380D37] to-[#DC275C] text-[#f2f2f2] text-[14px] font-[jost] font-[500] rounded-[4px]">Pay
                     Later
                 </a>
@@ -225,11 +225,11 @@
         $(document).ready(function() {
             $("#sslczPayBtn").on('click', function() {
                 $(this).addClass("bg-gradient-to-r from-[#380D37] to-[#DC275C] text-[#f2f2f2]");
-                $("#play-Later").removeClass("bg-gradient-to-r from-[#380D37] to-[#DC275C] text-[#f2f2f2]");
-                $("#play-Later").addClass("text-[#380D37]");
+                $("#pay-later").removeClass("bg-gradient-to-r from-[#380D37] to-[#DC275C] text-[#f2f2f2]");
+                $("#pay-later").addClass("text-[#380D37]");
             });
 
-            $("#play-Later").on('click', function() {
+            $("#pay-later").on('click', function() {
                 $(this).addClass("bg-gradient-to-r from-[#380D37] to-[#DC275C] text-[#f2f2f2]");
                 $("#sslczPayBtn").removeClass("bg-gradient-to-r from-[#380D37] to-[#DC275C] text-[#f2f2f2]");
                 $("#sslczPayBtn").addClass("text-[#380D37]");
