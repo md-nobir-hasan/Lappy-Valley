@@ -116,7 +116,7 @@ Route::get('/home', [FrontendController::class, 'index']);
 Route::get('/about-us', [FrontendController::class, 'aboutUs'])->name('about-us');
 Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
 Route::post('/contact/message', [MessageController::class, 'store'])->name('contact.store');
-Route::get('product-detail/{slug}', [FrontendController::class, 'productDetail'])->name('product-detail');
+Route::get('/product-detail/{slug}', [FrontendController::class, 'productDetail'])->name('product-detail');
 Route::post('/product/search', [FrontendController::class, 'productSearch'])->name('product.search');
 Route::get('/product-cat/{slug}', [FrontendController::class, 'productCat'])->name('product-cat');
 Route::get('/product-sub-cat/{slug}/{sub_slug}', [FrontendController::class, 'productSubCat'])->name('product-sub-cat');
@@ -125,8 +125,8 @@ Route::get('/product-brand/{slug}', [FrontendController::class, 'productBrand'])
 // Cart section
 Route::get('/add-to-cart/{slug}', [CartController::class, 'addToCart'])->name('add-to-cart')->middleware('user');
 Route::post('/add-to-cart', [CartController::class, 'singleAddToCart'])->name('single-add-to-cart')->middleware('user');
-Route::get('cart-delete/{id}', [CartController::class, 'cartDelete'])->name('cart-delete');
-Route::post('cart-update', [CartController::class, 'cartUpdate'])->name('cart.update');
+Route::get('/cart-delete/{id}', [CartController::class, 'cartDelete'])->name('cart-delete');
+Route::post('/cart-update', [CartController::class, 'cartUpdate'])->name('cart.update');
 
 Route::get('/cart', function () {
     return view('frontend.pages.cart');
@@ -137,9 +137,9 @@ Route::get('/wishlist', function () {
     return view('frontend.pages.wishlist');
 })->name('wishlist');
 Route::get('/wishlist/{slug}', [WishlistController::class, 'wishlist'])->name('add-to-wishlist')->middleware('user');
-Route::get('wishlist-delete/{id}', [WishlistController::class, 'wishlistDelete'])->name('wishlist-delete');
-Route::post('cart/order', [OrderController::class, 'store'])->name('cart.order');
-Route::get('order/pdf/{id}', [OrderController::class, 'pdf'])->name('order.pdf');
+Route::get('/wishlist-delete/{id}', [WishlistController::class, 'wishlistDelete'])->name('wishlist-delete');
+Route::post('/cart/order', [OrderController::class, 'store'])->name('cart.order');
+Route::get('/order/pdf/{id}', [OrderController::class, 'pdf'])->name('order.pdf');
 Route::get('/income', [OrderController::class, 'incomeChart'])->name('product.order.income');
 // Route::get('/user/chart',[AdminController::class, 'userPieChart'])->name('user.piechart');
 Route::get('/product-grids', [FrontendController::class, 'productGrids'])->name('product-grids');
@@ -268,6 +268,27 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'admin']], function
     // Password Change
     Route::get('change-password', [AdminController::class, 'changePassword'])->name('change.password.form');
     Route::post('change-password', [AdminController::class, 'changPasswordStore'])->name('change.password');
+
+    //Report
+    Route::prefix('/report')->name('report.')->group(function () {
+        // Order Report
+        Route::prefix('/order')->name('order.')->group(function () {
+            Route::get('/daily', [ReportController::class, 'orderReportDaily'])->name('daily');
+            Route::get('/weekly', [ReportController::class, 'orderReportWeekly'])->name('weekly');
+            Route::get('/monthly', [ReportController::class, 'orderReportMonthly'])->name('monthly');
+            Route::get('/yearly', [ReportController::class, 'orderReportYearly'])->name('yearly');
+            Route::get('/date-wise', [ReportController::class, 'orderReportDateWiseSearch'])->name('datewise');
+            Route::post('/date-wise', [ReportController::class, 'orderReportDateWise'])->name('datewise');
+            Route::get('/product-wise', [ReportController::class, 'orderReportProductWise'])->name('productwise');
+        });
+
+        // Sales Report
+        Route::prefix('/sale')->name('sale.')->group(function () {
+            Route::get('/daily', [ReportController::class, 'saleReportDaily'])->name('daily');
+            Route::get('/weekly', [ReportController::class, 'saleReportWeekly'])->name('weekly');
+            Route::get('/monthly', [ReportController::class, 'saleReportMonthly'])->name('monthly');
+        });
+    });
 });
 
 
@@ -302,27 +323,7 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
     Lfm::routes();
 });
 
-//Report
-Route::prefix('/report')->name('report.')->group(function(){
-    Route::get('/view/{blade_file}',[ReportController::class,'view'])->name('view');
 
-    // Order Report
-    Route::prefix('/order')->name('order.')->group(function(){
-        Route::get('/daily',[ReportController::class,'orderReportDaily'])->name('daily');
-        Route::get('/weekly',[ReportController::class,'orderReportWeekly'])->name('weekly');
-        Route::get('/monthly',[ReportController::class,'orderReportMonthly'])->name('monthly');
-        Route::get('/yearly',[ReportController::class,'orderReportYearly'])->name('yearly');
-        Route::get('/date-wise',[ReportController::class,'orderReportDateWise'])->name('date.wise');
-        Route::get('/product-wise',[ReportController::class,'orderReportProductWise'])->name('product.wise');
-    });
-
-    // Sales Report
-    Route::prefix('/sale')->name('sale.')->group(function(){
-        Route::get('/daily',[ReportController::class,'saleReportDaily'])->name('daily');
-        Route::get('/weekly',[ReportController::class,'saleReportWeekly'])->name('weekly');
-        Route::get('/monthly',[ReportController::class,'saleReportMonthly'])->name('monthly');
-    });
-});
 
 
 // ===========================================================================================================

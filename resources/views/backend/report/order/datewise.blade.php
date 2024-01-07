@@ -1,6 +1,6 @@
  @extends('backend.layouts.master')
  @push('title')
-     Daily Order Report
+     {{$page_name}}
  @endpush
  @section('main-content')
      <div class="mb-4 shadow card">
@@ -10,7 +10,7 @@
              </div>
          </div>
          <div class="py-3 card-header d-flex justify-content-between">
-             <h6 class="float-left m-0 font-weight-bold text-primary">Daily Order Report</h6>
+             <h6 class="float-left m-0 font-weight-bold text-primary">{{$page_name}}</h6>
          </div>
 
 

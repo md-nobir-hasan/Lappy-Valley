@@ -78,7 +78,7 @@ class AdminSidebar extends Component
         //Report
         ['access' => ['Sales Report', 'Customer Purchase History', 'Order Report', 'Inventory Report'],'title' => 'Report', 'child' => [
             // Sales Report
-            ['access' => 'Sales Report','title' => 'Sales Report', 'route' => 'report.sale', 'child' => [
+            ['access' => 'Sales Report','title' => 'Sales Report', 'route' => 'report.sale.*', 'child' => [
                 ['access' => 'Sales Report Daily','title' => 'Daily', 'route' => 'report.sale.daily'],
                 ['access' => 'Sales Report Weekly','title' => 'Weekly', 'route' => 'report.sale.weekly'],
                 ['access' => 'Sales Report Monthly','title' => 'Monthly', 'route' => 'report.sale.monthly'],
@@ -87,13 +87,13 @@ class AdminSidebar extends Component
             ]],
 
             // Order Report
-            ['access' => 'Order Report','title' => 'Order Report', 'route' => 'report.order', 'child' => [
+            ['access' => 'Order Report','title' => 'Order Report', 'route' => 'report.order.*', 'child' => [
                 ['access' => 'Order Report Daily','title' => 'Daily', 'route' => 'report.order.daily'],
                 ['access' => 'Order Report Weekly','title' => 'Weekly', 'route' => 'report.order.weekly'],
                 ['access' => 'Order Report Monthly','title' => 'Monthly', 'route' => 'report.order.monthly'],
-                ['access' => 'Order Report Yearly','title' => 'Yearly', 'route' => 'report.order.monthly'],
-                ['access' => 'Date Wise Order Report','title' => 'Date Wise', 'route' => 'report.order.monthly'],
-                ['access' => 'Product Wise Order Report','title' => 'Product Wise', 'route' => 'report.order.monthly'],
+                ['access' => 'Order Report Yearly','title' => 'Yearly', 'route' => 'report.order.yearly'],
+                ['access' => 'Date Wise Order Report','title' => 'Date Wise', 'route' => 'report.order.datewise'],
+                ['access' => 'Product Wise Order Report','title' => 'Product Wise', 'route' => 'report.order.productwise'],
             ]],
         ]],
 

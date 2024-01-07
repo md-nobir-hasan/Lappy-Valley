@@ -43,4 +43,17 @@ class Order extends Model
         return $this->belongsTo(Divission::class);
     }
 
+    public function total(){
+        return count($this->all());
+    }
+    public function pending(){
+        return count($this->where('status','Pending')->get());
+    }
+    public function delivered(){
+        return count($this->where('status','Delivered')->get());
+    }
+    public function cancelled(){
+        return count($this->where('status','Cancelled')->get());
+    }
+
 }
