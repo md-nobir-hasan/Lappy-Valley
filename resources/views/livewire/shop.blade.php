@@ -1115,14 +1115,14 @@
                                         </div>
 
                                         <div
-                                            class="p-4 max-sm:p-[8px] border-t-[1px] border-b-[1px]  border-[#380D3733]">
+                                            class="p-4 max-sm:p-[8px] border-t-[1px] border-[#380D3733]">
                                             <div class=' border-[#380D3733] mb-2'>
                                                 <a href="#"
                                                     class="font-[jost] text-[12px] font-[500] leading-[20px] text-left text-[#380D37] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-1 hover:underline hover:underline-offset-4"
                                                     x-text='product.title'>
                                                 </a>
                                             </div>
-                                            <div class='mb-4'>
+                                            <div class='mb-4 mt-auto'>
                                                 <ul
                                                     class='text-[#353535] list-decimal px-4 text-[10px] leading-[20px]'>
                                                     <li>Processor: AMD Ryzen 5 7520U (2.8 GHz up to 4.3 GHz)</li>
@@ -1133,7 +1133,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="px-6 py-6 mt-auto text-center">
+                                        <div class="px-6 py-6 mt-auto text-center border-t-[2px] border-[#380D3733]">
                                             <div class="flex justify-center">
                                                 <span
                                                     class="font-[jost] text-[12px] font-[700] leading-[24px] text-[#DC275C] flex items-center gap-[4px]">
