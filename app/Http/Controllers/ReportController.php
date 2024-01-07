@@ -32,21 +32,21 @@ class ReportController extends Controller
     public function orderReportWeekly()
     {
         $n['page_name'] = 'Weekly Order Report';
-        $n['data'] = Order::whereBetween('created_at', [ Carbon::now()->today()->subWeek(),Carbon::now()->today()])->get();
+        $n['data'] = Order::whereBetween('created_at', [Carbon::now()->today()->subWeek(),Carbon::now()->today()->addDay()])->get();
         return view('backend.report.order.datewise', $n);
     }
 
     public function orderReportMonthly()
     {
         $n['page_name'] = 'Monthly Order Report';
-        $n['data'] = Order::whereBetween('created_at', [ Carbon::now()->today()->subMonth(),Carbon::now()->today()])->get();
+        $n['data'] = Order::whereBetween('created_at', [Carbon::now()->today()->subMonth(),Carbon::now()->today()->addDay()])->get();
         return view('backend.report.order.datewise', $n);
     }
 
     public function orderReportYearly()
     {
         $n['page_name'] = 'Yearly Order Report';
-        $n['data'] = Order::whereBetween('created_at', [Carbon::now()->today()->subYear(),Carbon::now()->today()])->get();
+        $n['data'] = Order::whereBetween('created_at', [Carbon::now()->today()->subYear(),Carbon::now()->today()->addDay()])->get();
         return view('backend.report.order.datewise', $n);
     }
 
@@ -61,8 +61,7 @@ class ReportController extends Controller
             'from' => 'required|date',
             'to' => 'required|date',
         ]);
-
-        $n['data'] = Order::whereBetween('created_at', [$req->from, $req->to])->get();
+        $n['data'] = Order::whereBetween('created_at', [$req->from, Carbon::create($req->to)->addDay()])->get();
         $n['page_name'] = 'Date Wise Report';
         return view('backend.report.order.datewise', $n);
     }
