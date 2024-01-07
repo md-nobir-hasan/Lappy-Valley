@@ -985,7 +985,7 @@
                                                                 <span x-text='v_msg'></span>
                                                             </template>
                                                             <button type="button" @click='submit'
-                                                                class='fill-up-btn relative px-[25px] py-[12px] rounded-[4px] items-center text-[16px] max-lg:text-[14px] text-[#F2F2F2] font-[jost] font-[500] leading-[28.9px] bg-gradient-to-r from-[#380D37] to-[#DC275C]'>
+                                                                class='fill-up-btn relative px-[25px] max-sm:px-[15px] max-sm:py-[8px] py-[12px] rounded-[4px] items-center text-[16px] max-lg:text-[14px] text-[#F2F2F2] font-[jost] font-[500] leading-[28.9px] bg-gradient-to-r from-[#380D37] to-[#DC275C]'>
                                                                 <span>Post your review</span>
                                                                 <div x-show='loading'
                                                                     class="absolute inline-block h-6 w-6 top-4 mr-2 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-success motion-reduce:animate-[spin_1.5s_linear_infinite]"
