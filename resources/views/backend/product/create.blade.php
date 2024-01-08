@@ -74,6 +74,15 @@
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
+                    
+                    <div class="form-group">
+                        <label for="inventory_cost" class="col-form-label">Inventory Cost</label>
+                        <input id="inventory_cost" type="number" name="inventory_cost" min="0" max="100"
+                            placeholder="Exp:- Enter Inventory Cost" value="{{ old('inventory_cost') }}" class="form-control">
+                        @error('inventory_cost')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
 
                     <div class="form-group">
                         <label for="summary" class="col-form-label">Summary </label>
