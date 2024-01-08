@@ -123,7 +123,7 @@
         {{-- @dd($order) --}}
         {{-- <div class='h-[2px] bg-[#764A8733]'></div> --}}
         @if ($order->payment_method == 'online')
-            <div class="flex justify-end gap-4">
+            <div class="flex justify-end max-sm:flex-col max-sm:justify-center max-sm:items-center gap-4">
                 <button id="sslczPayBtn"
                         token="if you have any token validation"
                         postdata="your javascript arrays or objects which requires in backend"
@@ -132,11 +132,10 @@
                     class="px-[30px] py-[10px] border-[2px] border-[#380D37] text-[#380D37] text-[14px] font-[jost] font-[500] rounded-[4px]">Pay
                     Now</button>
                 <a href="#" id="pay-later"
-                    class="px-[30px] py-[10px] border-[2px] border-[#380D37] bg-gradient-to-r from-[#380D37] to-[#DC275C] text-[#f2f2f2] text-[14px] font-[jost] font-[500] rounded-[4px]">Pay
+                    class="nav-colors fill-up-btn px-[30px] py-[10px] border-[1px] border-[#380D37] bg-gradient-to-r from-[#380D37] to-[#DC275C] text-[#f2f2f2] text-[14px] font-[jost] font-[500] rounded-[4px]">Pay
                     Later</a>
             </div>
         @endif
-
     </div>
 
     <div class="w-[650px] max-xl:w-full mx-auto p-3 my-[15px] bg-[#f2f2f2] rounded-lg shadow">
@@ -150,27 +149,25 @@
                     Like us on <span>Facebook</span> to keep you up to date with all our offers and announcements.
                 </p>
             </div>
-            <a class="flex justify-center itmes-center">
-                <div>
-                    <span>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" id="facebook"
-                            class="w-[40px] h-[40px]">
-                            <path fill="#1976D2"
-                                d="M14 0H2C.897 0 0 .897 0 2v12c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2V2c0-1.103-.897-2-2-2z">
-                            </path>
-                            <path fill="#FAFAFA" fill-rule="evenodd"
-                                d="M13.5 8H11V6c0-.552.448-.5 1-.5h1V3h-2a3 3 0 0 0-3 3v2H6v2.5h2V16h3v-5.5h1.5l1-2.5z"
-                                clip-rule="evenodd">
-                            </path>
-                        </svg>
-                    </span>
-                </div>
-               <a  href="{{$other_setting->fb}}">
+            <a class=".nav-a nav-color1 flex justify-center itmes-center" href="{{$other_setting->fb}}">
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" id="facebook"
+                        class="w-[40px] h-[40px]">
+                        <path fill="#1976D2"
+                            d="M14 0H2C.897 0 0 .897 0 2v12c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2V2c0-1.103-.897-2-2-2z">
+                        </path>
+                        <path fill="#FAFAFA" fill-rule="evenodd"
+                            d="M13.5 8H11V6c0-.552.448-.5 1-.5h1V3h-2a3 3 0 0 0-3 3v2H6v2.5h2V16h3v-5.5h1.5l1-2.5z"
+                            clip-rule="evenodd">
+                        </path>
+                    </svg>
+                </span>
+          
                  <div class="bg-[#fff] leading-5 max-sm:flex max-sm:flex-col">
-                    <span class="text-blue-900 text-[14px] font-[jost] font-[700]">Find us on</span>
-                    <span class="text-blue-900 text-[18px] font-[jost] font-[700]">Facebook</span>
+                    <span class="nav-color1 text-blue-900 text-[14px] font-[jost] font-[700]">Find us on</span>
+                    <span class="nav-color1 text-blue-900 text-[18px] font-[jost] font-[700]">Facebook</span>
                 </div>
-               </a>
+              
             </a>
         </div>
         <div class='h-[2px] bg-[#764A8733]'></div>
