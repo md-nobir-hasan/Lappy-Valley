@@ -507,3 +507,12 @@
     display: none;
     /* overflow-block: */
 }
+
+.nav-color{
+    color: #353535 !important;
+    text-decoration: none !important;
+}
+.nav-colors{
+    color: #f2f2f2 !important;
+    text-decoration: none !important;
+}

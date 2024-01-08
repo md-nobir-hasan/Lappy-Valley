@@ -133,8 +133,7 @@
                     Now</button>
                 <a href="#" id="pay-later"
                     class="px-[30px] py-[10px] border-[2px] border-[#380D37] bg-gradient-to-r from-[#380D37] to-[#DC275C] text-[#f2f2f2] text-[14px] font-[jost] font-[500] rounded-[4px]">Pay
-                    Later
-                </a>
+                    Later</a>
             </div>
         @endif
 
@@ -166,7 +165,7 @@
                         </svg>
                     </span>
                 </div>
-               <a href="{{$other_setting->fb}}">
+               <a  href="{{$other_setting->fb}}">
                  <div class="bg-[#fff] leading-5 max-sm:flex max-sm:flex-col">
                     <span class="text-blue-900 text-[14px] font-[jost] font-[700]">Find us on</span>
                     <span class="text-blue-900 text-[18px] font-[jost] font-[700]">Facebook</span>
@@ -229,7 +228,7 @@
                 $("#pay-later").addClass("text-[#380D37]");
             });
 
-            $("#pay-later").on('click', function() {
+            $("#play-Later").on('click', function() {
                 $(this).addClass("bg-gradient-to-r from-[#380D37] to-[#DC275C] text-[#f2f2f2]");
                 $("#sslczPayBtn").removeClass("bg-gradient-to-r from-[#380D37] to-[#DC275C] text-[#f2f2f2]");
                 $("#sslczPayBtn").addClass("text-[#380D37]");

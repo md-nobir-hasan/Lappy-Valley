@@ -58,30 +58,30 @@
               <ul
                   class="text-[#F2F2F2] font-[jost] max-sm:text-center text-[16px] max-sm:text-[16px] max-md:text-[12px] max-lg:text-[14px] font-[500] leading-[23px] max-sm:leading-[14px] max-md:leading-[12px] max-lg:leading-[15px] max-sm:my-[21px] max-sm:ml-[1px]  ml-[30px]">
                   <li class="mb-[25px] max-sm:mb-[18px] list-disc max-sm:list-none ">
-                    <a class="hover:bg-blue-700"
+                    <a class="hover:bg-blue-700 nav-colors"
                           href="{{ route('about_us') }}" id='about-us'>
                           About Us
                         </a>
                         </li>
                   <li class="mb-[25px] max-sm:mb-[18px] list-disc max-sm:list-none">
-                    <a class="hover:bg-blue-700" href="{{ route('tc') }}">
+                    <a class="hover:bg-blue-700 nav-colors" href="{{ route('tc') }}">
                         Terms& Conditions
                     </a>
                     </li>
                   <li class="mb-[25px] max-sm:mb-[18px] list-disc max-sm:list-none ">
-                    <a class="hover:bg-blue-700"
+                    <a class="hover:bg-blue-700 nav-colors"
                           href="{{ route('pp') }}">
                           Privay Policy
                         </a>
                     </li>
                   <li class="mb-[25px] max-sm:mb-[18px] list-disc max-sm:list-none ">
-                    <a class="hover:bg-blue-700"
+                    <a class="hover:bg-blue-700 nav-colors"
                           href="{{ route('account') }}">
                           My account
                         </a>
                     </li>
                   <li class="mb-[25px] max-sm:mb-[18px] list-disc max-sm:list-none ">
-                    <a class="hover:bg-blue-700"
+                    <a class="hover:bg-blue-700 nav-colors"
                           href="{{ route('rsp') }}">
                           Refund & Service Policy
                         </a>
@@ -96,23 +96,23 @@
               <ul
                   class="text-[#F2F2F2] font-[jost] text-[16px] max-sm:text-[16px] max-md:text-[12px] max-lg:text-[14px] font-[500] leading-[23px] max-sm:leading-[28px] max-md:leading-[18px] max-lg:leading-[20px] max-sm:text-center">
                   <li class="mt-[15px] ">
-                      <span class="hover:bg-blue-700">
+                      <span class="">
                           Phone:
                       </span>
                   </li>
                   <li>
-                      <a href="tel:01757773557" class="hover:bg-blue-700">
+                      <a href="tel:01757773557" class="hover:bg-blue-700 nav-colors">
                           +8801757773557,
                       </a>
-                      <a href="tel:01712644209" class="hover:bg-blue-700">
+                      <a href="tel:01712644209" class="hover:bg-blue-700 nav-colors">
                           +8801712644209,
                       </a>
                   </li>
                   <li class="mb-[15px]">
-                      <a href="tel:01736361123" class="hover:bg-blue-700">
+                      <a href="tel:01736361123" class="hover:bg-blue-700 nav-colors">
                           +8801736361123,
                       </a>
-                      <a href="tel:01757773557" class="hover:bg-blue-700">
+                      <a href="tel:01757773557" class="hover:bg-blue-700 nav-colors">
                           +8801757773557,
                       </a>
                   </li>
@@ -122,7 +122,7 @@
                       </span>
                   </li>
                   <li class="mb-[15px]">
-                      <a href="mailto:info@lappyvalley.com" class="hover:bg-blue-700">
+                      <a href="mailto:info@lappyvalley.com" class="hover:bg-blue-700 nav-colors">
                           info@lappyvalley.com
                       </a>
                   </li>

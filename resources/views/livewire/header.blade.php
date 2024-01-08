@@ -357,34 +357,34 @@
             <div class='flex items-center justify-between gap-[30px] max-xl:hidden'>
                 <!-- <div class="flex item-center "> -->
                 <a href="{{ route('offer') }}" wire:navigate
-                    class='flex justify-between items-center gap-[10px] text-[16px] max-sm:text-[14px] text-[#FFFFFF] font-[jost] font-[500]'><img
+                    class='nav-colors flex justify-between items-center gap-[10px] text-[16px] max-sm:text-[14px] text-[#FFFFFF] font-[jost] font-[500]'><img
                         class='w-[30px] h-[30px]' src="/storage/product/gift.svg" alt="Logo 1">
-                    <span class="">
+                    <span class="nav-colors">
                         Offers
                     </span></a>
                 <a href="{{ route('vcart') }}" wire:navigate
-                    class='relative flex justify-between items-center gap-[10px] text-[16px] max-sm:text-[14px] text-[#FFFFFF] font-[jost] font-[500]'><img
+                    class='nav-colors relative flex justify-between items-center gap-[10px] text-[16px] max-sm:text-[14px] text-[#FFFFFF] font-[jost] font-[500]'><img
                         class='w-[25.6px] h-[24.84px]' src="/storage/product/cart(2).svg" alt="Logo 2">
                     <div
                         class='rounded-[100%] w-[12px] h-[12px] bg-[#f2f2f2] text-center items-center flex justify-center absolute top-0 left-0 ml-[18px]'>
                         <p class='cart_count text-[#353535] text-[10px] items items-center'>{{ $cart_count }}
                         </p>
                     </div>
-                    <span class="">Cart</span>
+                    <span class="nav-colors">Cart</span>
                 </a>
 
                 @auth
                     <a href="{{ route('account') }}" wire:navigate
-                        class='flex justify-between items-center gap-[10px] text-[16px] max-sm:text-[14px] text-[#FFFFFF] font-[jost] font-[500]'>
+                        class='nav-colors flex justify-between items-center gap-[10px] text-[16px] max-sm:text-[14px] text-[#FFFFFF] font-[jost] font-[500]'>
                         <img class='w-[30.72px] h-[29.81px]' src="/storage/product/account2.svg" alt="Logo 3">
 
-                        <span class="">Account</span>
+                        <span class="nav-colors">Account</span>
                     </a>
                 @else
                     <a href="{{ route('user.login') }}" wire:navigate
                         class='flex justify-between items-center gap-[10px] text-[16px] max-sm:text-[14px] text-[#FFFFFF] font-[jost] font-[500]'>
                         <img class='w-[30.72px] h-[29.81px]' src="/storage/product/account2.svg" alt="Logo 3">
-                        <span class="">Account</span>
+                        <span class="nav-colors">Account</span>
                     </a>
                 @endauth
             </div>
