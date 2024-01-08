@@ -95,6 +95,15 @@ class AdminSidebar extends Component
                 ['access' => 'Date Wise Order Report','title' => 'Date Wise', 'route' => 'report.order.datewise'],
                 ['access' => 'Product Wise Order Report','title' => 'Product Wise', 'route' => 'report.order.productwise'],
             ]],
+            // Sale Report
+            ['access' => 'Sale Report','title' => 'Sale Report', 'route' => 'report.sale.*', 'child' => [
+                ['access' => 'Sale Report Daily','title' => 'Daily', 'route' => 'report.sale.daily'],
+                ['access' => 'Sale Report Weekly','title' => 'Weekly', 'route' => 'report.sale.weekly'],
+                ['access' => 'Sale Report Monthly','title' => 'Monthly', 'route' => 'report.sale.monthly'],
+                ['access' => 'Sale Report Yearly','title' => 'Yearly', 'route' => 'report.sale.yearly'],
+                ['access' => 'Date Wise Sale Report','title' => 'Date Wise', 'route' => 'report.sale.datewise'],
+                ['access' => 'Product Wise Sale Report','title' => 'Product Wise', 'route' => 'report.sale.productwise'],
+            ]],
         ]],
 
         ['access' => ['Show Cupon', 'Show User', 'Setting'],'title' => ' General Settings', 'child' => [
