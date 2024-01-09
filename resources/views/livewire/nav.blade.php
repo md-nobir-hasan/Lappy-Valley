@@ -44,11 +44,11 @@
                      </span>
                  </span>
                  <ul
-                     class="submenu absolute z-[1000] float-left p-2  hidden w-[200px] list-none overflow-hidden border-none bg-[#f2f2f2] text-[#353535] text-left [&[data-te-dropdown-show]]:block">
+                     class="nav-colors1 submenu absolute z-[1000] float-left p-2  hidden w-[200px] list-none overflow-hidden border-none bg-[#f2f2f2] text-[#353535] text-left [&[data-te-dropdown-show]]:block">
                      @foreach ($men->child_cat as $cc)
                          <li
                              class="w-full border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
-                             <a class="block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                             <a class="nav-color block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
                                  href="{{ route('cate_wise.shop', [$men->slug, $cc->slug]) }}"
                                  wire:navigate>{{ $cc->title }}</a>
                          </li>

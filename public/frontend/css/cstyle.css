@@ -508,6 +508,13 @@
     /* overflow-block: */
 }
 
+
+
+.nav-colors1{
+    color: #353535 ;
+    text-decoration: none !important;
+}
+
 .nav-color{
     color: #353535 !important;
     text-decoration: none !important;
