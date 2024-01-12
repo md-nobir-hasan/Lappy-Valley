@@ -290,7 +290,7 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'admin']], function
             Route::get('/yearly', [ReportController::class, 'saleReportYearly'])->name('yearly');
             Route::get('/date-wise', [ReportController::class, 'saleReportDateWiseSearch'])->name('datewise');
             Route::post('/date-wise', [ReportController::class, 'saleReportDateWise'])->name('datewise');
-            Route::get('/product-wise', [ReportController::class, 'saleReportProductWise'])->name('productwise');
+            Route::get('/overall', [ReportController::class, 'overall'])->name('overall');
         });
 
     });

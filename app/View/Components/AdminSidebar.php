@@ -95,7 +95,7 @@ class AdminSidebar extends Component
                 ['access' => 'Sale Report Monthly','title' => 'Monthly', 'route' => 'report.sale.monthly'],
                 ['access' => 'Sale Report Yearly','title' => 'Yearly', 'route' => 'report.sale.yearly'],
                 ['access' => 'Date Wise Sale Report','title' => 'Date Wise', 'route' => 'report.sale.datewise'],
-                ['access' => 'Product Wise Sale Report','title' => 'Product Wise', 'route' => 'report.sale.productwise'],
+                ['access' => 'Overall Sale Report','title' => 'Overall', 'route' => 'report.sale.overall'],
             ]],
         ]],
 

@@ -24,7 +24,8 @@ class CreateWishlistsTable extends Migration
             $table->unsignedBigInteger('price');
             $table->integer('quantity');
             $table->string('ip')->unique()->nullable();
-            $table->unsignedBigInteger('amount');
+            $table->unsignedBigInteger('amount')->default(0);
+            $table->unsignedBigInteger('inventory_cost')->default(0);
             $table->timestamps();
         });
     }

@@ -217,7 +217,7 @@ class RolePermissionSeeder extends Seeder
             ['name' => 'Sale Report Monthly', 'guard_name' => 'web'],
             ['name' => 'Sale Report Yearly', 'guard_name' => 'web'],
             ['name' => 'Date Wise Sale Report', 'guard_name' => 'web'],
-            ['name' => 'Product Wise Sale Report', 'guard_name' => 'web'],
+            ['name' => 'Overall Sale Report', 'guard_name' => 'web'],
 
             ['name' => 'Customer Purchase History', 'guard_name' => 'web'],
             ['name' => 'Inventory Report', 'guard_name' => 'web'],
