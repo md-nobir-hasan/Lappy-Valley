@@ -25,14 +25,14 @@
                  data-te-ripple-init data-te-ripple-color="dark" alt="avatar.png">
          @endif --}}
      {{-- </a> --}}
-     <div class="p-4 max-sm:p-[8px] border-t-[2px] border-b-[2px] border-[#380D3733]">
+     <div class="p-4 max-sm:p-[8px] border-t-[2px] border-[#380D3733]">
          <div class=' border-[#380D3733] mb-2'>
              <a href="{{ route('product.details', [$product->slug])}}"
                  class="font-[jost] text-[12px] font-[500] leading-[20px] text-left text-[#380D37] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-1 hover:underline hover:underline-offset-4">
                  {{ $product->title }}
              </a>
          </div>
-         <div class='mb-4'>
+         <div class='mb-4 mt-auto'>
              <ul class='text-[#353535] text-[10px] font-[jost] font-[400] list-decimal px-4 leading-[20px]'>
                  <li>Processor: AMD Ryzen 5 7520U (2.8 GHz up to 4.3 GHz)</li>
                  <li>RAM: 8GB DDR5 5500MHz, Storage: 256GB SSD</li>
@@ -42,7 +42,7 @@
          </div>
      </div>
 
-     <div class="px-6 py-6 mt-auto text-center">
+     <div class="px-6 py-6 mt-auto text-center border-t-[2px] border-[#380D3733]">
          <div>
              <a href="#" class="font-[jost] text-[12px] font-[700] leading-[24px] text-[#DC275C] block">
                  {{ number_format($product->final_price) }}

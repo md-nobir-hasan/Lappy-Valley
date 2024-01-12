@@ -2259,10 +2259,6 @@ input[type="range"]:active::-webkit-slider-thumb{
   width: 100vw;
 }
 
-.w-\[\]{
-  width: ;
-}
-
 .min-w-0{
   min-width: 0px;
 }
@@ -7904,18 +7900,6 @@ input[type="range"]:active::-webkit-slider-thumb{
     padding: 8px;
   }
 
-  .max-sm\:p-2{
-    padding: 0.5rem;
-  }
-
-  .max-sm\:p-1{
-    padding: 0.25rem;
-  }
-
-  .max-sm\:p-0{
-    padding: 0px;
-  }
-
   .max-sm\:px-3{
     padding-left: 0.75rem;
     padding-right: 0.75rem;
@@ -8001,19 +7985,9 @@ input[type="range"]:active::-webkit-slider-thumb{
     padding-bottom: 8px;
   }
 
-  .max-sm\:px-\[\]{
-    padding-left: ;
-    padding-right: ;
-  }
-
-  .max-sm\:py-\[\]{
-    padding-top: ;
-    padding-bottom: ;
-  }
-
-  .max-sm\:px-0{
-    padding-left: 0px;
-    padding-right: 0px;
+  .max-sm\:px-\[15\]{
+    padding-left: 15;
+    padding-right: 15;
   }
 
   .max-sm\:pb-\[0px\]{
