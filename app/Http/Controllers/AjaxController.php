@@ -39,12 +39,6 @@ class AjaxController extends Controller
         }
         // return $already_cart;
         if ($already_cart) {
-            // dd($already_cart);
-            // $already_cart->quantity = $already_cart->quantity + 1;
-            // $already_cart->amount = $product->price + $already_cart->amount;
-            // return $already_cart->quantity;
-            // if ($already_cart->product->stock < $already_cart->quantity || $already_cart->product->stock <= 0) return back()->with('error', 'Stock not sufficient!.');
-            // $already_cart->save();
             return response()->json(['msg' => "This product is already in your cart"]);
         } else {
 
@@ -56,7 +50,8 @@ class AjaxController extends Controller
             $cart->product_id = $product->id;
             $cart->price = $product->final_price;
             $cart->quantity = 1;
-            $cart->amount = $cart->price;
+            $cart->amount = $product->final_price;
+            $cart->inventory_cost = $product->inventory_cost;
             if ($product->stock != null) {
                 if ($product->stock < $cart->quantity || $product->stock <= 0) {
                     return response()->json(['msg' => "Stock not sufficient"]);
@@ -79,6 +74,7 @@ class AjaxController extends Controller
         $cart = Cart::with('product')->find($req->id);
         $qty = $cart->quantity + 1;
         $amount = $cart->price * $qty;
+        $inventory_cost = $cart->inventory_cost * $qty;
         if ($cart->product->stock != null) {
             if ($cart->product->stock < $cart->quantity || $cart->product->stock <= 0) return response()->json(['msg' => "No sufficient stock"]);;
         }
@@ -86,6 +82,7 @@ class AjaxController extends Controller
         $cart->update([
             'quantity' => $qty,
             'amount' => $amount,
+            'inventory_cost' => $inventory_cost,
         ]);
         return response()->json($cart);
     }
@@ -95,6 +92,7 @@ class AjaxController extends Controller
         $cart = Cart::with('product')->find($req->id);
         $qty = $cart->quantity - 1;
         $amount = $cart->price * $qty;
+        $inventory_cost = $cart->inventory_cost * $qty;
         if ($qty < 1) {
             return response()->json(['msg' => "You can't less quantity then 1"]);
         }
@@ -102,6 +100,7 @@ class AjaxController extends Controller
         $cart->update([
             'quantity' => $qty,
             'amount' => $amount,
+            'inventory_cost' => $inventory_cost,
         ]);
         return response()->json($cart);
     }
