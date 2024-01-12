@@ -6,7 +6,7 @@
     <div class="card">
         <h5 class="card-header">Date Wise Search</h5>
         <div class="card-body">
-            <form method="post" action="{{ route('report.order.datewise') }}">
+            <form method="post" action="{{ route('report.sale.datewise') }}">
                 {{ csrf_field() }}
                 <div class="row">
                     <div class="col-md-6">
