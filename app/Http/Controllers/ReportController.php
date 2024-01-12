@@ -243,6 +243,6 @@ class ReportController extends Controller
             $n['profit'] =  0;
             $n['loss'] = $inventory_cost - $n['total_sell'];
         }
-        return view('backend.report.sale.productwise', $n);
+        return view('backend.report.sale.datewise', $n);
     }
 }
