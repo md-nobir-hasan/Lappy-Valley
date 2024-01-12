@@ -507,3 +507,34 @@
     display: none;
     /* overflow-block: */
 }
+
+
+
+.nav-colors1{
+    color: #353535 ;
+    text-decoration: none !important;
+}
+
+.nav-color{
+    color: #353535 !important;
+    text-decoration: none !important;
+}
+
+.nav-colors{
+    color: #f2f2f2 !important;
+    text-decoration: none !important;
+}
+
+.nav-color1{
+    color:blue !important;
+    text-decoration: none !important;
+}
+
+.nav-a{
+    text-decoration: none !important;
+}
+
+.carts-count{
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
