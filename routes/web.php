@@ -282,12 +282,17 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'admin']], function
             Route::get('/product-wise', [ReportController::class, 'orderReportProductWise'])->name('productwise');
         });
 
-        // Sales Report
+        // Sale Report
         Route::prefix('/sale')->name('sale.')->group(function () {
             Route::get('/daily', [ReportController::class, 'saleReportDaily'])->name('daily');
             Route::get('/weekly', [ReportController::class, 'saleReportWeekly'])->name('weekly');
             Route::get('/monthly', [ReportController::class, 'saleReportMonthly'])->name('monthly');
+            Route::get('/yearly', [ReportController::class, 'saleReportYearly'])->name('yearly');
+            Route::get('/date-wise', [ReportController::class, 'saleReportDateWiseSearch'])->name('datewise');
+            Route::post('/date-wise', [ReportController::class, 'saleReportDateWise'])->name('datewise');
+            Route::get('/overall', [ReportController::class, 'overall'])->name('overall');
         });
+
     });
 });
 
