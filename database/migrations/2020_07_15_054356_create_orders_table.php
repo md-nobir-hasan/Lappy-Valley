@@ -24,6 +24,7 @@ class CreateOrdersTable extends Migration
             $table->float('coupon')->nullable();
             $table->float('sub_total')->nullable();
             $table->float('amount')->nullable();
+            $table->unsignedBigInteger('inventory_cost')->default(0);
             $table->integer('quantity')->nullable();
             $table->enum('payment_method',['cod','online'])->default('cod');
             $table->enum('payment_status',['paid','unpaid'])->default('unpaid');

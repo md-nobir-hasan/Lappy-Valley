@@ -19,6 +19,7 @@ class AdminSidebar extends Component
                 ['access' => 'Create Banner','title' => 'Add Banners', 'route' => 'banner.create']
             ]]
         ]],
+
         ['access' => ['Show Category', 'Show Product', 'Show Brand', 'Show Shipping', 'Show Order', 'Show Review'],'title' => 'Shop', 'child' => [
             ['access' => 'Show Category','title' => 'Category', 'route' => 'category.*', 'child' => [
                 ['access' => 'Show Category','title' => 'Category', 'route' => 'category.index',],
@@ -77,15 +78,6 @@ class AdminSidebar extends Component
 
         //Report
         ['access' => ['Sales Report', 'Customer Purchase History', 'Order Report', 'Inventory Report'],'title' => 'Report', 'child' => [
-            // Sales Report
-            ['access' => 'Sales Report','title' => 'Sales Report', 'route' => 'report.sale.*', 'child' => [
-                ['access' => 'Sales Report Daily','title' => 'Daily', 'route' => 'report.sale.daily'],
-                ['access' => 'Sales Report Weekly','title' => 'Weekly', 'route' => 'report.sale.weekly'],
-                ['access' => 'Sales Report Monthly','title' => 'Monthly', 'route' => 'report.sale.monthly'],
-                // ['access' => 'Customer Purchase History','title' => 'Posts', 'route' => 'post.index'],
-                // ['access' => 'Order Report','title' => 'Add Posts', 'route' => 'post.create']
-            ]],
-
             // Order Report
             ['access' => 'Order Report','title' => 'Order Report', 'route' => 'report.order.*', 'child' => [
                 ['access' => 'Order Report Daily','title' => 'Daily', 'route' => 'report.order.daily'],
@@ -95,28 +87,39 @@ class AdminSidebar extends Component
                 ['access' => 'Date Wise Order Report','title' => 'Date Wise', 'route' => 'report.order.datewise'],
                 ['access' => 'Product Wise Order Report','title' => 'Product Wise', 'route' => 'report.order.productwise'],
             ]],
+
+            // Sale Report
+            ['access' => 'Sale Report','title' => 'Sale Report', 'route' => 'report.sale.*', 'child' => [
+                ['access' => 'Sale Report Daily','title' => 'Daily', 'route' => 'report.sale.daily'],
+                ['access' => 'Sale Report Weekly','title' => 'Weekly', 'route' => 'report.sale.weekly'],
+                ['access' => 'Sale Report Monthly','title' => 'Monthly', 'route' => 'report.sale.monthly'],
+                ['access' => 'Sale Report Yearly','title' => 'Yearly', 'route' => 'report.sale.yearly'],
+                ['access' => 'Date Wise Sale Report','title' => 'Date Wise', 'route' => 'report.sale.datewise'],
+                ['access' => 'Overall Sale Report','title' => 'Overall', 'route' => 'report.sale.overall'],
+            ]],
         ]],
 
-        ['access' => ['Show Cupon', 'Show User', 'Setting'],'title' => ' General Settings', 'child' => [
+        ['access' => ['Show Cupon', 'Show User', 'Setting'],'title' => 'General Settings', 'child' => [
             ['access' => 'Show SEO', 'title' => 'SEO', 'route' => 'seo.*', 'child' => [
                 ['access' => 'Show Google Tag', 'title' => 'Google', 'route' => 'seo.gtag.index'],
                 ['access' => 'Show Pixel', 'title' => 'Pixel', 'route' => 'seo.pixel.index'],
             ]],
+
             ['access' => 'Show Cupon','title' => 'Coupon', 'route' => 'coupon.index', 'child' => []],
-            // ['access' => 'Show Product','title' => 'Users', 'route' => 'users.index', 'child' => []],
+
             ['access' => 'Show User','title' => 'User Management', 'route' => 'auser.*', 'child' => [
                 ['access' => 'Show User','title' => 'Users', 'route' => 'auser.users.index'],
                 ['access' => 'Show Role','title' => 'Roles', 'route' => 'auser.role.index'],
                 ['access' => 'Show Permission','title' => 'Permissions', 'route' => 'auser.permission'],
             ]],
 
-            // ['access' => 'Setting','title' => 'Settings', 'route' => 'settings', 'child' => []],
             ['access' => 'Setting', 'title' => 'Settings', 'route' => 'setting.*', 'child' => [
                 ['access' => 'Show Site Setting', 'title' => 'Site Setting', 'route' => 'setting.ss'],
                 ['access' => 'Show Others Setting', 'title' => 'Other Setting', 'route' => 'setting.os'],
             ]],
         ]],
     ];
+
     public function __construct()
     {
         //

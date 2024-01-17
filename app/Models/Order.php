@@ -8,7 +8,7 @@ class Order extends Model
     protected $fillable=['user_id','order_number','sub_total','quantity','delivery_charge',
      'amount','name','l_name','country','post_code','address','address2','phone','email','payment_method',
      'payment_status','shipping_id','coupon', 'order_status_id','divission_id', 'status', 'transaction_id',
-        'currency', 'city','user_id'];
+        'currency', 'city', 'inventory_cost'];
 
     public function cart_info(){
         return $this->hasMany('App\Models\Cart','order_id','id');
