@@ -520,6 +520,12 @@
     text-decoration: none !important;
 }
 
+.hover-colors:hover{
+    color: #f2f2f2 !important;
+    background: #380D37 !important;
+   
+}
+
 .nav-colors{
     color: #f2f2f2 !important;
     text-decoration: none !important;

@@ -1355,10 +1355,6 @@ input[type="range"]:active::-webkit-slider-thumb{
   margin-left: 40px;
 }
 
-.ml-\[4px\]{
-  margin-left: 4px;
-}
-
 .ml-\[5px\]{
   margin-left: 5px;
 }
@@ -7983,11 +7979,6 @@ input[type="range"]:active::-webkit-slider-thumb{
   .max-sm\:py-\[8px\]{
     padding-top: 8px;
     padding-bottom: 8px;
-  }
-
-  .max-sm\:px-\[15\]{
-    padding-left: 15;
-    padding-right: 15;
   }
 
   .max-sm\:pb-\[0px\]{

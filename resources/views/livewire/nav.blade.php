@@ -22,7 +22,7 @@
              @foreach ($menus as $menu)
                  <li
                      class="border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
-                     <a class="nav-color block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                     <a class="nav-color hover-colors block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
                          href="{{ route('cate_wise.shop', [$menu->slug]) }}" wire:navigate>{{ $menu->title }}</a>
                  </li>
              @endforeach
@@ -48,7 +48,7 @@
                      @foreach ($men->child_cat as $cc)
                          <li
                              class="w-full border-b-[1px] border-[#380D37] hover:bg-[#380D37] hover:text-[#f2f2f2] active:bg-[#380D37] active:text-[#f2f2f2]">
-                             <a class="nav-color block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
+                             <a class="nav-color hover-colors block w-full whitespace-nowrap px-4 py-2 font-[jost] font-[500] text-[16px] text-[#35353]"
                                  href="{{ route('cate_wise.shop', [$men->slug, $cc->slug]) }}"
                                  wire:navigate>{{ $cc->title }}</a>
                          </li>
