@@ -28,10 +28,17 @@ class AjaxController extends Controller
         //     return response()->json(['msg' => "Invalid Product"]);
         // }
         $product = Product::find($id);
+
         // return $product;
         if (empty($product)) {
             return response()->json(['msg' => "Invalid Product"]);
         }
+
+        //Stock checking
+        if ($product->stock = null && $product->stock < 1) {
+            return response()->json(['msg' => "Stock not sufficient"]);
+        }
+        
         if (auth()->user()) {
             $already_cart = Cart::where('user_id', auth()->user()->id)->where('order_id', null)->where('product_id', $product->id)->first();
         } else {
@@ -52,11 +59,6 @@ class AjaxController extends Controller
             $cart->quantity = 1;
             $cart->amount = $product->final_price;
             $cart->inventory_cost = $product->inventory_cost;
-            if ($product->stock != null) {
-                if ($product->stock < $cart->quantity || $product->stock <= 0) {
-                    return response()->json(['msg' => "Stock not sufficient"]);
-                }
-            }
             $cart->save();
             $fetch_cart = Cart::with('product')->find($cart->id);
             if (auth()->user()) {
