@@ -20,7 +20,7 @@
                     // dd($photo);
                 @endphp
             @endif
-            <div class="overflow-hidden w-[400px] max-md:w-full max-lg:w-[340px] mx-auto items-center">
+            <div class="overflow-hidden h-[450px] w-[440px] max-md:w-full max-lg:w-[340px] mx-auto max-md:flex justify-center items-center">
                 <div class="flex items-center w-[432px] max-lg:w-[350px] max-md:w-[432px] justify-center transition duration-50 ease-in-out hover:scale-125 overflow-hidden"
                     id="imageContainer">
                     <img id="hoverImage"
@@ -30,7 +30,7 @@
             </div>
 
 
-            <div class="flex items-center justify-center mt-[40px]">
+            <div class="flex items-center justify-center max-md:mt-[20px] md:mt-[1px]">
                 @foreach ($photos as $pto)
                     <div class="w-[52px] border-[2px] max-sm:border-[1px] border-[rgba(53_53_53_0.30)]">
                         <img class="object-center img-mini" src="{{ $pto }}" alt="{{ $product->title }}">

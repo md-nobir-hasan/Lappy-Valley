@@ -528,8 +528,8 @@
         {{-- swiper for asian laptop --}}
         <div class="hidden asian_prds">
             <!-- Swiper -->
-            <div class="swiper mySwiper mt-[20px]">
-                <div class="swiper-wrapper">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper mt-[20px] mb-[10px]">
                     @foreach ($features->where('cat_id', 6) as $a_product)
                         <div class="swiper-slide">
                             <div
@@ -787,7 +787,7 @@ k                                    </a>
                 </div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
-                <div class="swiper-pagination"></div>
+                {{-- <div class="swiper-pagination"></div> --}}
             </div>
             <!-- Initialize Swiper -->
         </div>
