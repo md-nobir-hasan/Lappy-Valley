@@ -128,8 +128,8 @@ class ProductAttributeSeeder extends Seeder
         $duration = [
             ['year' => 1, 'month' => 6,'status'=>true],
             ['year' => 2, 'month' => 6,'status'=>true],
-            ['year' => null, 'month' => 6,'status'=>true],
-            ['year' => null, 'month' => 3,'status'=>true],
+            ['year' => 0, 'month' => 6,'status'=>true],
+            ['year' => 0, 'month' => 3,'status'=>true],
             ['year' => 1, 'month' => 3,'status'=>true],
         ];
         DB::table('durations')->insert($duration);
