@@ -39,19 +39,20 @@ class Login extends Component
 
     public function login(){
         $user = User::where('email',$this->email)->first();
-        if($user){
-            if (Hash::check($user->password,$this->password)) {
-                $this->check_msg = "Worng Password";
-                return false;
-            }else{
-                Auth::login($user);
-                $this->success_msg = "Login Successfull.....";
-                return $this->redirect(route('account'), navigate: true);
-            }
-        } else {
+
+        if(!$user){
             $this->check_msg = "You have no account. Please, register";
             return false;
         }
+
+        if (!Hash::check($user->password,$this->password)) {
+            $this->check_msg = "Worng Password";
+            return false;
+        }
+
+        Auth::login($user);
+        $this->success_msg = "Login Successfull.....";
+        return $this->redirect(route('account'), navigate: true);
     }
 
     public function render()

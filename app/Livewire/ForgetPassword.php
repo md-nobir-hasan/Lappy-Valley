@@ -22,7 +22,7 @@ class ForgetPassword extends Component
     {
         $this->validate();
         Mail::to($this->email)->send(new PasswordSendMail($this->email));
-      
+
         session()->flash('success', "Your account is successfully created");
         return $this->redirect(ConfirmPassword::class, navigate: true);
     }

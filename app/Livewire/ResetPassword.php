@@ -2,6 +2,10 @@
 
 namespace App\Livewire;
 
+use App\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
 use Livewire\Attributes\Title;
@@ -20,7 +24,14 @@ class ResetPassword extends Component
     public function save()
     {
         $this->validate();
-       $this->redirect(Login::class,navigate:true);
+        $email = Session::get('femail');
+       $user = User::where('email',$email)->first();
+       $user->update([
+            'password' => Hash::make($this->password),
+       ]);
+
+       Auth::login($user);
+        return $this->redirect(route('account'), navigate: true);
     }
     public function render()
     {

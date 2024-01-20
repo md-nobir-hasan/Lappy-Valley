@@ -32,7 +32,7 @@
                     <p
                         class='w-[full] h-[76px] mx-auto text-[12px] max-sm:text-[12px] text-[#000000] font-[jost] font-[500] leading-[17.34px]'>
                         Did not get the OTP?
-                        <span wire:click='resend' class="cursor-pointer">Resend?</span>
+                        <span wire:click='resend' class="cursor-pointer text-[blue]">Resend?</span>
                         @if ($resent_msg)
                             <span class="block text-[green]">{{ $resent_msg }}</span>
                         @endif
