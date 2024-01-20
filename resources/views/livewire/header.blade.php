@@ -77,19 +77,18 @@
                                         @foreach ($menu->child_cat as $menu2)
                                             @if ($loop->first)
                                                 <li class="border-y-[1px] border-[#764A87]"><a
-                                                        href="{{ route('cate_wise.shop', [$menu->slug,$menu2->slug]) }}"
+                                                        href="{{ route('cate_wise.shop', [$menu->slug, $menu2->slug]) }}"
                                                         wire:navigate>{{ $menu2->title }}</a></li>
                                             @else
                                                 <li class="border-b-[1px] border-[#764A87]"><a
-                                                        href="{{ route('cate_wise.shop', [$menu->slug,$menu2->slug]) }}"
+                                                        href="{{ route('cate_wise.shop', [$menu->slug, $menu2->slug]) }}"
                                                         wire:navigate>{{ $menu2->title }}</a></li>
                                             @endif
                                         @endforeach
                                     </ul>
                                 @else
-                                    <div
-                                        class="flex items-center justify-between px-6 py-3 max-sm:px-4 max-sm:py-2">
-                                        <a  href="{{ route('cate_wise.shop', [$menu->slug]) }}" wire:navigate
+                                    <div class="flex items-center justify-between px-6 py-3 max-sm:px-4 max-sm:py-2">
+                                        <a href="{{ route('cate_wise.shop', [$menu->slug]) }}" wire:navigate
                                             class="max-sm:text-[14px]">{{ $menu->title }}</a>
 
                                     </div>
@@ -266,14 +265,7 @@
                         src="/storage/product/Logo.svg" alt="Your Logo">
                 </a>
             </div>
-            <div id="search-icon" class="xl:hidden">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
-                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <circle cx="11" cy="11" r="6"></circle>
-                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
-            </div>
+            
             <div id="search-bar"
                 class="search-bar max-xl:fixed max-sm:top-[49px] max-md:top-[67px] max-xl:top-[67px] max-xl:left-0 max-xl:w-full z-[9999] max-xl:hidden">
 
@@ -322,11 +314,14 @@
                                                 <ul x-show='open'
                                                     class="absolute z-50 bg-[white] text-[black] overflow-scroll w-full">
                                                     @foreach ($products as $prd)
-                                                        <li class="hover:bg-[#380D37] hover:rounded-sm px-[10px] items-center">
+                                                        <li
+                                                            class="hover:bg-[#380D37] hover:rounded-sm px-[10px] items-center">
                                                             <a href="{{ route('product.details', [$prd->slug]) }}"
-                                                                wire:navigate class="flex items-center font-[400] font-[jost] hover:text-[#f2f2f2] text-[#380D37] text-[14px] max-sm:text-[12px]">
+                                                                wire:navigate
+                                                                class="flex items-center font-[400] font-[jost] hover:text-[#f2f2f2] text-[#380D37] text-[14px] max-sm:text-[12px]">
                                                                 <img src="{{ explode(',', $prd->photo)[0] }}"
-                                                                    alt="" class="w-[40px] items-center max-sm:h-auto h-full">
+                                                                    alt=""
+                                                                    class="w-[40px] items-center max-sm:h-auto h-full">
                                                                 <div>
                                                                     <span>{{ $prd->title }}</span>
                                                                     <p>
@@ -352,7 +347,6 @@
                     </div>
                 </div>
             </div>
-            <script></script>
             <!-- Right-Side Logos/Icons -->
             <div class='flex items-center justify-between gap-[30px] max-xl:hidden'>
                 <!-- <div class="flex item-center "> -->
@@ -367,7 +361,8 @@
                         class='w-[25.6px] h-[24.84px]' src="/storage/product/cart(2).svg" alt="Logo 2">
                     <div
                         class='rounded-[100%] w-[12px] h-[12px] bg-[#f2f2f2] text-center items-center flex justify-center absolute top-0 left-0 ml-[18px]'>
-                        <span class='carts-count cart_count text-[#353535] text-[10px] items items-center'>{{ $cart_count }}
+                        <span
+                            class='carts-count cart_count text-[#353535] text-[10px] items items-center'>{{ $cart_count }}
                         </span>
                     </div>
                     <span class="nav-colors">Cart</span>
@@ -389,6 +384,16 @@
                 @endauth
             </div>
         </div>
+        {{-- -----search-icon----- --}}
+        <div id="search-icon" class="xl:hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="11" cy="11" r="6"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+        </div>
+        {{-- ------search--icon--end----- --}}
     </header>
     <div
         class='h-[68px] max-sm:h-[50px] text-[#f2f2f2] px-[72px] max-xl:px-[60px] max-md:px-[40px] font-[jost] xl:hidden max-xl:block items-center z-[9999] fixed bottom-0 left-0 right-0 shadow bg-gradient-to-r from-[#380D37] to-[#DC275C] border-t-[2px] border-[#f2f2f2]'>
@@ -408,7 +413,8 @@
                     alt="Logo 2">
                 <div
                     class='carts-count rounded-[100%] w-[12px] h-[12px] max-sm:w-[10px] max-sm:h-[10px] bg-[#f2f2f2] text-center items-center flex justify-center absolute top-0 left-0 ml-[18px] max-sm:ml-[15px]'>
-                    <span class='carts-count cart_count text-[#353535] text-[10px] max-sm:text-[8px] items items-center'>
+                    <span
+                        class='carts-count cart_count text-[#353535] text-[10px] max-sm:text-[8px] items items-center'>
                         {{ $cart_count }}
                     </span>
                 </div>
