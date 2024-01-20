@@ -1508,6 +1508,10 @@ input[type="range"]:active::-webkit-slider-thumb{
   margin-top: px;
 }
 
+.ml-1{
+  margin-left: 0.25rem;
+}
+
 .box-border{
   box-sizing: border-box;
 }
@@ -4885,6 +4889,11 @@ input[type="range"]:active::-webkit-slider-thumb{
 .text-white{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-\[blue\]{
+  --tw-text-opacity: 1;
+  color: rgb(0 0 255 / var(--tw-text-opacity));
 }
 
 .underline{
