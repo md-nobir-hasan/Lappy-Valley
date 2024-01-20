@@ -69,7 +69,7 @@
                             <a href="{{route('login.redirect',['google'])}}">
                                 <button
                                     class=' h-[44px] max-sm:h-[35px] flex gap-2 items-center justify-center text-[16px] max-sm:text-[14px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]'>
-                                    Log in with
+                                    Register with
                                     <img class="max-sm:w-[60px]" src="/storage/product/google.svg" alt="Product">
                                 </button>
                             </a>
@@ -79,7 +79,7 @@
                             <a href="{{route('login.redirect',['facebook'])}}">
                                 <button
                                     class=' h-[44px] max-sm:h-[35px] flex gap-2 items-center justify-center text-[16px] max-sm:text-[14px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]'>
-                                    Log in with
+                                    Register with
                                     <img class="max-sm:w-[60px]" src="/storage/product/facebook.svg"alt="Product">
                                 </button>
                             </a>
