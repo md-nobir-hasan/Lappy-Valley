@@ -17,7 +17,7 @@ use Notification;
 use Illuminate\Support\Str;
 #[Title('Checkout')]
 
-class SingleCheckout extends Component
+class InstallmentCheckout extends Component
 {
     public $pslug;
 
@@ -62,13 +62,15 @@ class SingleCheckout extends Component
 
     public $product;
 
-    public function mount(){
+    public function mount()
+    {
         $this->product = Product::where('slug', $this->pslug)->first();
     }
 
     public function orderSubmit()
     {
         $this->validate();
+        
         if (auth()->user()) {
             $user = auth()->user();
         } else {
@@ -103,27 +105,25 @@ class SingleCheckout extends Component
 
         Notification::send($users, new StatusNotification($details));
 
-            $product = $this->product;
-            $product->stock -= 1;
-            $product->save();
-            Cart::create([
-                'product_id'=>$product->id,
-                'order_id'=> $order->id,
-                'user_id'=> $user->id,
-                'ip'=> request()->ip(),
-                'price'=> $order->sub_total,
-                'quantity'=> 1,
-                'amount'=> $order->sub_total,
-            ]);
+        $product = $this->product;
+        $product->stock -= 1;
+        $product->save();
+        Cart::create([
+            'product_id' => $product->id,
+            'order_id' => $order->id,
+            'user_id' => $user->id,
+            'ip' => request()->ip(),
+            'price' => $order->sub_total,
+            'quantity' => 1,
+            'amount' => $order->sub_total,
+        ]);
         request()->session()->flash('success', 'Your Order successfully placed in order');
         return $this->redirect(route('order.receive', [$order->order_number]));
     }
-
-
     public function render()
     {
         $n['divissions'] = Divission::get();
-        $n['shippings'] = Shipping::where('status', 'active')->get();
-        return view('livewire.single-checkout', $n);
+        $n['shipping'] = Shipping::where('status', 'active')->first();
+        return view('livewire.installment-checkout',$n);
     }
 }

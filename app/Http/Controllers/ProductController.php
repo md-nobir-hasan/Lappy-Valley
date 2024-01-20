@@ -196,7 +196,6 @@ class ProductController extends Controller
         }
         $data['slug']=$slug;
         $data['is_featured']=$request->input('is_featured',0);
-
         $status=Product::create($data);
         if($status){
             if($drs = $request->durations){

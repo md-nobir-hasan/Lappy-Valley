@@ -28,7 +28,7 @@ class HomePage extends Component
     // public $email;
     public $subject;
 
-    #[Rule("required", message: "Please, Write something")]
+    #[Rule("required", message: "Please, Write a message")]
     #[Rule("string", message: "Message should be contain only letter and space")]
     public $msg;
 
@@ -74,7 +74,7 @@ class HomePage extends Component
     {
         $os =  OtherSetting::first();
         $pd = Product::orderBy('views')->get();
-        $n['new_arrival'] = $pd->whereBetween('created_at',[Carbon::now()->subDays($os->new_product),Carbon::now()]); 
+        $n['new_arrival'] = $pd->whereBetween('created_at',[Carbon::now()->subDays($os->new_product),Carbon::now()]);
         $n['features'] = $pd;
         $n['dpds'] = Product::where('status','active')->get();
         $n['menus'] = Category::with('child_cat')->where('status', 'active')->where('is_parent', 1)->orderBy('title', 'ASC')->get();

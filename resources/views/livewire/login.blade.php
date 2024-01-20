@@ -11,14 +11,13 @@
             <button type="button" id="login_btn"
                 class="default text-[16px] max-sm:text-[14px] focus:outline-none bg-[#380D37] text-[#fff] py-[12px] max-sm:py-[6px] font-[jost] font-[600] w-full text-center rounded-[5px]">
                 LogIn</button>
-           <a href="{{route('user.register')}}" wire:navigate type="button" id='reg_btn'
-                class="text-center change bg-[#F2F2F2] text-[#380D37] text-[16px] max-sm:text-[14px] max-sm:w-[300px] focus:text-[#fff]  font-[jost] font-[600] w-full py-[12px] max-sm:py-[6px] text- rounded-[5px]"
-                >Register
-         {{-- <button type="button" id='reg_btn'
+            <a href="{{ route('user.register') }}" wire:navigate type="button" id='reg_btn'
+                class="text-center change bg-[#F2F2F2] text-[#380D37] text-[16px] max-sm:text-[14px] max-sm:w-[300px] focus:text-[#fff]  font-[jost] font-[600] w-full py-[12px] max-sm:py-[6px] text- rounded-[5px]">Register
+                {{-- <button type="button" id='reg_btn'
                 class="change bg-[#F2F2F2] text-[#380D37] text-[16px] max-sm:text-[14px] max-sm:w-[300px] focus:text-[#fff]  font-[jost] font-[600] w-full py-[12px] max-sm:py-[6px] text- rounded-[5px]">
                 Register
             </button> --}}
-        </a>
+            </a>
         </div>
         <div
             class=" w-[463px] max-sm:w-[300px] mx-auto border-[2px] border-[#380D37] rounded-[4px] left-[70px] pt-[33px] max-sm:pt-[20px] pb-[20px] pl-[65px] max-sm:pb-[0px] pr-[50px] max-sm:px-[12px]">
@@ -79,11 +78,38 @@
                     {{-- </div> --}}
                 </form>
             </div>
-
+   <div class='flex justify-evenly items-center gap-2 my-[25px]'>
+                        <div class='h-[1px] w-[155px] bg-[#000000]'></div>
+                        <div class='text-[14px] text-[#380D37] font-[jost] font-[400] leading-[20.23px]'>OR
+                        </div>
+                        <div class='h-[1px] w-[155px] bg-[#000000]'></div>
+                    </div>
+                    <div class='items-center my-[25px]'>
+                        <div
+                            class='my-[25px] border-[1px] border-[#380D37] rounded-[4px] flex items-center justify-center'>
+                            <a href="{{route('login.redirect',['google'])}}">
+                                <button
+                                    class=' h-[44px] max-sm:h-[35px] flex gap-2 items-center justify-center text-[16px] max-sm:text-[14px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]'>
+                                    Login with
+                                    <img class="max-sm:w-[60px]" src="/storage/product/google.svg" alt="Product">
+                                </button>
+                            </a>
+                        </div>
+                        <div
+                            class='my-[25px] border-[1px] border-[#380D37] rounded-[4px] flex items-center justify-center'>
+                            <a href="{{route('login.redirect',['facebook'])}}">
+                                <button
+                                    class=' h-[44px] max-sm:h-[35px] flex gap-2 items-center justify-center text-[16px] max-sm:text-[14px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]'>
+                                    Login with
+                                    <img class="max-sm:w-[60px]" src="/storage/product/facebook.svg"alt="Product">
+                                </button>
+                            </a>
+                        </div>
+                    </div>
         </div>
         {{-- <div class="h-[2px] bg-[#764A8733] my-[60px]"> </div> --}}
     </div>
-{{-- // Hero section slide
+    {{-- // Hero section slide
             $('#move_back').on('click', function() {
                 let current_slide = Number($(this).val()) - 1;
                 let total_slide = $('.slide').lenght;

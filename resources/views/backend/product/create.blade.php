@@ -74,7 +74,7 @@
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="inventory_cost" class="col-form-label">Inventory Cost</label>
                         <input id="inventory_cost" type="number" name="inventory_cost" min="0" max="100"
@@ -978,11 +978,11 @@
                     <div class="ml-3">
                         {{-- installment duration  --}}
                         <div class="form-group">
-                            <label for="durations">Special Features </label>
-                            <select name="durations[]" class="form-control selectpicker" id="durations" multiple>
+                            <label for="durations">Duration </label>
+                            <select name="durations[]" class="form-control selectpicker" id="durations">
                                 @foreach ($durations as $duration)
                                     <option value="{{ $duration->id }}" @selected($duration->id == old('durations'))>
-                                        {{ $duration->year ? $duration->year . ' years' : ' ' }}{{ $duration->month ? $duration->month . ' month' : ' ' }}
+                                        {{ $duration->year ? $duration->year . ' years ' : ' ' }}{{ $duration->month ? $duration->month . ' month' : ' ' }}
                                     </option>
                                 @endforeach
                             </select>

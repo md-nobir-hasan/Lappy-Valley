@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\gtag;
 use App\Models\OtherSetting;
+use App\Models\Pixel;
 use App\Models\Settings;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
@@ -36,6 +38,12 @@ class AppServiceProvider extends ServiceProvider
         }
         if(Schema::hasTable('other_settings')){
             $n['other_setting'] = OtherSetting::first();
+        }
+        if(Schema::hasTable('pixels')){
+            $n['pixels'] = Pixel::first();
+        }
+        if(Schema::hasTable('gtags')){
+            $n['gtags'] = gtag::first();
         }
         View::share($n);
     }
