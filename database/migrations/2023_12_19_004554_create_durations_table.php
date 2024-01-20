@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('durations', function (Blueprint $table) {
             $table->id();
-            $table->tinyInteger('year')->nullable();
-            $table->tinyInteger('month')->nullable();
+            $table->integer('year')->default(0);
+            $table->integer('month')->default(0);
             $table->boolean('status');
             $table->timestamps();
         });

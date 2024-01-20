@@ -9,42 +9,42 @@
               <ul
                   class="text-[#F2F2F2] font-[jost] max-sm:text-center text-[16px] max-sm:text-[16px] max-md:text-[12px] max-lg:text-[14px] font-[500] leading-[23px] max-sm:leading-[28px] max-md:leading-[18px] max-lg:leading-[20px] max-md:text-center">
                   <li>
-                      <span class="hover:bg-blue-700">
+                      <span class="px-1 hover:bg-blue-700">
                           Address:
                       </span>
                   </li>
                   <li>
-                      <span class="hover:bg-blue-700">
+                      <span class="px-1 hover:bg-blue-700">
                           Shop # 4A-009A, Block # A, Level #04,
                       </span>
                   </li>
                   <li class="mb-[15px] ">
-                      <span class="hover:bg-blue-700">
+                      <span class="px-1 hover:bg-blue-700">
                           Jamuna Future Park, Dhaka -1229
                       </span>
                   </li>
                   <li>
-                      <span class="hover:bg-blue-700">
+                      <span class="px-1 hover:bg-blue-700">
                           Shop # 607(5th Floor),
                       </span>
                   </li>
                   <li>
-                      <span class="hover:bg-blue-700">
+                      <span class="px-1 hover:bg-blue-700">
                           Rajuk Commercial-Complex,
                       </span>
                   </li>
                   <li class="mb-[15px] ">
-                      <span class="hover:bg-blue-700">
+                      <span class="px-1 hover:bg-blue-700">
                           Azampur, Uttara, Dhaka-1230
                       </span>
                   </li>
                   <li>
-                      <span class="hover:bg-blue-700">
+                      <span class="px-1 hover:bg-blue-700">
                           Trade license : 202984t
                       </span>
                   </li>
                   <li>
-                      <span class="hover:bg-blue-700">
+                      <span class="px-1 hover:bg-blue-700">
                           Bin Number : 0049818790102
                       </span>
                   </li>
@@ -58,33 +58,29 @@
               <ul
                   class="text-[#F2F2F2] font-[jost] max-sm:text-center text-[16px] max-sm:text-[16px] max-md:text-[12px] max-lg:text-[14px] font-[500] leading-[23px] max-sm:leading-[14px] max-md:leading-[12px] max-lg:leading-[15px] max-sm:my-[21px] max-sm:ml-[1px]  ml-[30px]">
                   <li class="mb-[25px] max-sm:mb-[18px] list-disc max-sm:list-none ">
-                    <a class="hover:bg-blue-700 nav-colors"
-                          href="{{ route('about_us') }}" id='about-us'>
+                      <a class="px-1 hover:bg-blue-700 nav-colors" href="{{ route('about_us') }}" id='about-us'>
                           About Us
-                        </a>
-                        </li>
+                      </a>
+                  </li>
                   <li class="mb-[25px] max-sm:mb-[18px] list-disc max-sm:list-none">
-                    <a class="hover:bg-blue-700 nav-colors" href="{{ route('tc') }}">
-                        Terms& Conditions
-                    </a>
-                    </li>
+                      <a class="px-1 hover:bg-blue-700 nav-colors" href="{{ route('tc') }}">
+                          Terms & Conditions
+                      </a>
+                  </li>
                   <li class="mb-[25px] max-sm:mb-[18px] list-disc max-sm:list-none ">
-                    <a class="hover:bg-blue-700 nav-colors"
-                          href="{{ route('pp') }}">
+                      <a class="px-1 hover:bg-blue-700 nav-colors" href="{{ route('pp') }}">
                           Privay Policy
-                        </a>
-                    </li>
+                      </a>
+                  </li>
                   <li class="mb-[25px] max-sm:mb-[18px] list-disc max-sm:list-none ">
-                    <a class="hover:bg-blue-700 nav-colors"
-                          href="{{ route('account') }}">
+                      <a class="px-1 hover:bg-blue-700 nav-colors" href="{{ route('account') }}">
                           My account
-                        </a>
-                    </li>
+                      </a>
+                  </li>
                   <li class="mb-[25px] max-sm:mb-[18px] list-disc max-sm:list-none ">
-                    <a class="hover:bg-blue-700 nav-colors"
-                          href="{{ route('rsp') }}">
+                      <a class="px-1 hover:bg-blue-700 nav-colors" href="{{ route('rsp') }}">
                           Refund & Service Policy
-                        </a>
+                      </a>
                   </li>
               </ul>
           </div>
@@ -101,38 +97,38 @@
                       </span>
                   </li>
                   <li>
-                      <a href="tel:01757773557" class="hover:bg-blue-700 nav-colors">
+                      <a href="tel:01757773557" class="px-1 hover:bg-blue-700 nav-colors">
                           +8801757773557,
                       </a>
-                      <a href="tel:01712644209" class="hover:bg-blue-700 nav-colors">
+                      <a href="tel:01712644209" class="px-1 hover:bg-blue-700 nav-colors">
                           +8801712644209,
                       </a>
                   </li>
                   <li class="mb-[15px]">
-                      <a href="tel:01736361123" class="hover:bg-blue-700 nav-colors">
+                      <a href="tel:01736361123" class="px-1 hover:bg-blue-700 nav-colors">
                           +8801736361123,
                       </a>
-                      <a href="tel:01757773557" class="hover:bg-blue-700 nav-colors">
+                      <a href="tel:01757773557" class="px-1 hover:bg-blue-700 nav-colors">
                           +8801757773557,
                       </a>
                   </li>
                   <li>
-                      <span class="hover:bg-blue-700">
+                      <span class="px-1 hover:bg-blue-700">
                           Email:
                       </span>
                   </li>
                   <li class="mb-[15px]">
-                      <a href="mailto:info@lappyvalley.com" class="hover:bg-blue-700 nav-colors">
+                      <a href="mailto:info@lappyvalley.com" class="px-1 hover:bg-blue-700 nav-colors">
                           info@lappyvalley.com
                       </a>
                   </li>
                   <li>
-                      <span class="hover:bg-blue-700">
+                      <span class="px-1 hover:bg-blue-700">
                           Trade license : 202984
                       </span>
                   </li>
                   <li>
-                      <span class="hover:bg-blue-700">
+                      <span class="px-1 hover:bg-blue-700">
                           Bin Number : 0049818790102
                       </span>
                   </li>
@@ -151,11 +147,13 @@
                           </path>
                       </svg>
                   </a>
-                  <a href="#"
-                      class="hover:bg-blue-400 w-[25.08px] h-[24px] flex justify-center items-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="w-[25.08px] h-[24px] hover:bg-blue-400" x="0px" fill="#F2F2F2" y="0px" viewBox="0 0 50 50">
-                        <path d="M 11 4 C 7.134 4 4 7.134 4 11 L 4 39 C 4 42.866 7.134 46 11 46 L 39 46 C 42.866 46 46 42.866 46 39 L 46 11 C 46 7.134 42.866 4 39 4 L 11 4 z M 13.085938 13 L 21.023438 13 L 26.660156 21.009766 L 33.5 13 L 36 13 L 27.789062 22.613281 L 37.914062 37 L 29.978516 37 L 23.4375 27.707031 L 15.5 37 L 13 37 L 22.308594 26.103516 L 13.085938 13 z M 16.914062 15 L 31.021484 35 L 34.085938 35 L 19.978516 15 L 16.914062 15 z"></path>
-                    </svg>
+                  <a href="#" class="hover:bg-blue-400 w-[25.08px] h-[24px] flex justify-center items-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-[25.08px] h-[24px] hover:bg-blue-400" x="0px"
+                          fill="#F2F2F2" y="0px" viewBox="0 0 50 50">
+                          <path
+                              d="M 11 4 C 7.134 4 4 7.134 4 11 L 4 39 C 4 42.866 7.134 46 11 46 L 39 46 C 42.866 46 46 42.866 46 39 L 46 11 C 46 7.134 42.866 4 39 4 L 11 4 z M 13.085938 13 L 21.023438 13 L 26.660156 21.009766 L 33.5 13 L 36 13 L 27.789062 22.613281 L 37.914062 37 L 29.978516 37 L 23.4375 27.707031 L 15.5 37 L 13 37 L 22.308594 26.103516 L 13.085938 13 z M 16.914062 15 L 31.021484 35 L 34.085938 35 L 19.978516 15 L 16.914062 15 z">
+                          </path>
+                      </svg>
                   </a>
                   <a href="#"
                       class="bg-[#f2f2f2] rounded-[20%] hover:bg-blue-400 w-[25.08px] h-[24px] flex justify-center items-center">
@@ -178,7 +176,7 @@
                         C496,114.5,473.2,90.2,443.9,88.2z M212.1,331.2V180.8L342.3,256L212.1,331.2z"></path>
                       </svg>
                   </a>
-                  <a href="{{$other_setting->email}}"
+                  <a href="{{ $other_setting->email }}"
                       class="rounded-[20%] hover:bg-blue-400 w-[25.08px] h-[24px] flex justify-center items-center">
 
                       <svg xmlns="http://www.w3.org/2000/svg" width="25.08" height="24"
@@ -194,38 +192,38 @@
           </div>
       </div>
   </footer>
-@assets
-  {{-- add to cart functionality by jquery --}}
-        <script>
-            $(document).ready(function() {
-                const sc = $('#side_cart');
-                // sc.hide();
+  @assets
+      {{-- add to cart functionality by jquery --}}
+      <script>
+          $(document).ready(function() {
+              const sc = $('#side_cart');
+              // sc.hide();
 
-                //close side cart
-                $(document).on('click','#side_cart_close', function() {
-                    sc.hide(500);
-                });
-                let cart_product_no = $('.cart-product').length - 1;
-                //open cart by clicking on add to cart
-                // $('.add-to-cart').on('click', function() {
-                $(document).on('click', '.add-to-cart', function() {
-                    cart_product_no += 1;
-                    const p_id = $(this).prop('id');
-                    $.ajax({
-                        type: "get",
-                        url: "{{ route('add_to_cart') }}",
-                        data: {
-                            pid: p_id
-                        },
-                        dataType: "json",
-                        success: function(response) {
-                            $('#side_cart').show(500);
-                            if (response.msg) {
-                                toastr.error(response.msg);
-                            } else {
-                                console.log(response);
+              //close side cart
+              $(document).on('click', '#side_cart_close', function() {
+                  sc.hide(500);
+              });
+              let cart_product_no = $('.cart-product').length - 1;
+              //open cart by clicking on add to cart
+              // $('.add-to-cart').on('click', function() {
+              $(document).on('click', '.add-to-cart', function() {
+                  cart_product_no += 1;
+                  const p_id = $(this).prop('id');
+                  $.ajax({
+                      type: "get",
+                      url: "{{ route('add_to_cart') }}",
+                      data: {
+                          pid: p_id
+                      },
+                      dataType: "json",
+                      success: function(response) {
+                          $('#side_cart').show(500);
+                          if (response.msg) {
+                              toastr.error(response.msg);
+                          } else {
+                              console.log(response);
 
-                                const product = `
+                              const product = `
                                 <div x-data="{ qty: 1,price:'${response.price}', subtotal:'${response.amount}', cp_show:true,
                                     mplus() {
                                          if(this.qty>= 5){
@@ -337,15 +335,20 @@
                                     </div>
                                 </div>`;
 
-                                $('#side_cart_body').append(product);
-                                let cart_count = Number($('.cart_count:eq(1)').text());
-                                $('.cart_count').text(cart_count + 1);
-                            }
-                        }
-                    });
-                })
+                              $('#side_cart_body').append(product);
+                              let cart_count = Number($('.cart_count:eq(1)').text());
+                              $('.cart_count').text(cart_count + 1);
+                          }
+                      }
+                  });
+              })
 
-            })
-        </script>
-
-@endassets
+          })
+      </script>
+      @isset($pixels)
+          {!! $pixels->footer !!}
+      @endisset
+      @isset($gtags)
+          {!! $gtags->footer !!}
+      @endisset
+  @endassets

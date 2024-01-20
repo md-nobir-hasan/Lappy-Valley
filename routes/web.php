@@ -52,6 +52,7 @@ use App\Livewire\ConfirmPassword;
 use App\Livewire\EditProfile;
 use App\Livewire\ForgetPassword;
 use App\Livewire\HomePage;
+use App\Livewire\InstallmentCheckout;
 use App\Livewire\Login;
 use App\Livewire\NewProduct;
 use App\Livewire\PrivacyPolicy;
@@ -368,6 +369,7 @@ Route::get('/order-received/{order_number}',OrderReceived::class)->name('order.r
 Route::post('/product-review',[AjaxController::class, 'productReview'])->name('product_review');
 Route::get('/coupon-fetch',[AjaxController::class, 'couponFetch'])->name('coupon.fetch');
 Route::get('/single-checkout/{pslug}',SingleCheckout::class)->name('single_checkout');
+Route::get('/installment-checkout/{pslug}',InstallmentCheckout::class)->name('installment_checkout');
 
 Route::middleware('auth')->group(function(){
     Route::post('/cart-sotre',[AjaxController::class,'cartStore'])->name('cart.store');

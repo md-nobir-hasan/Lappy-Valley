@@ -14,24 +14,24 @@
     <!-- Hero Section  -->
     @if ($home_banner)
         <section class="w-full mx-auto">
-            <div class="px-auto w-full mx-auto relative items-center" x-data="{ active: true }">
+            <div class="relative items-center w-full mx-auto px-auto" x-data="{ active: true }">
                 @php
                     $bnrs = explode(',', $home_banner->photo);
                 @endphp
                 @foreach ($bnrs as $banner)
                     <div class="{{ $loop->first ? '' : ' hidden' }} slide w-full">
-                        <img class="w-full mx-auto object-cover" src="{{ $banner }}">
+                        <img class="object-cover w-full mx-auto" src="{{ $banner }}">
                     </div>
                 @endforeach
 
                 <!-- The previous button -->
-                <div class="w-full mx-auto absolute top-0 bottom-0 flex justify-between items-center">
+                <div class="absolute top-0 bottom-0 flex items-center justify-between w-full mx-auto">
                     <a id="move_back" value='0'
                         class="slide_icon sm:translate-x-[-40px] text-[40px] text-blue-500 opacity-50 hover:opacity-100 cursor-pointer">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12">
                             <path stroke-linecap="round" class="max-sm:stroke-[#f2f2f2]"  stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
                           </svg>
-                          
+
                     </a>
                     <!-- The next button -->
                     <a id="move_front" value='0'
@@ -39,7 +39,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12">
                             <path :class="{ 'text-blue-500': active }" class="max-sm:stroke-[#f2f2f2]" stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                           </svg>
-                          
+
                     </a>
                 </div>
             </div>
@@ -113,7 +113,7 @@
                         class="max-sm:text-center max-md:text-center leading-[75.14px] max-xl:leading-[64.14px] max-lg:leading-[48px] max-sm:leading-[50px]">
                         Our newest</br>products are</br>here,just for you!</p>
                 </div>
-                <div class='flex justify-center items-center'>
+                <div class='flex items-center justify-center'>
                     <a href="{{ route('new_product', 'new_product') }}" wire:navigate
                         class="fill-up-btn linear px-[20px] py-[10px] mt-[20px] font-[jost] font-[500] text-[16px] text-[#F2F2F2] rounded-[4px]">
                         Visit Now
@@ -269,7 +269,7 @@
 
                                 <div class="image-container h-[180px]">
                                     <a href="{{ route('product.details', [$f_product->slug]) }}" wire:navigate class="h-full">
-                                        <img src="{{ $f_product->img()[0] }}" alt="" class=" img-contain h-full object-contain">
+                                        <img src="{{ $f_product->img()[0] }}" alt="" class="object-contain h-full img-contain">
                                     </a>
                                 </div>
                                 <div>
@@ -528,8 +528,8 @@
         {{-- swiper for asian laptop --}}
         <div class="hidden asian_prds">
             <!-- Swiper -->
-            <div class="swiper mySwiper mt-[20px]">
-                <div class="swiper-wrapper">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper mt-[20px] mb-[10px]">
                     @foreach ($features->where('cat_id', 6) as $a_product)
                         <div class="swiper-slide">
                             <div
@@ -537,7 +537,7 @@
 
                                 <div class="image-container h-[180px]">
                                     <a href="{{ route('product.details', [$a_product->slug]) }}" wire:navigate class="h-full">
-                                        <img src="{{ $a_product->img()[0] }}" alt="" class="img-contain h-full object-contain">
+                                        <img src="{{ $a_product->img()[0] }}" alt="" class="object-contain h-full img-contain">
 k                                    </a>
                                 </div>
                                 <div class="">
@@ -787,7 +787,7 @@ k                                    </a>
                 </div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
-                <div class="swiper-pagination"></div>
+                {{-- <div class="swiper-pagination"></div> --}}
             </div>
             <!-- Initialize Swiper -->
         </div>
@@ -1522,22 +1522,27 @@ k                                    </a>
                         experience with us.</br> Drop a comment and we will look into it.</p>
                 </div>
             </div>
+
             <form wire:submit="post"
                 class="max-md:border-[1px] max-md:border-[#380D37] max-md:rounded-[4px] max-sm:p-[10px] max-md:p-[15px] max-sm:mt-[15px] max-md:my-[22px]">
 
                 <div class="grid grid-cols-2 gap-2">
-                    <input wire:model="name"
+                  <span>
+                      <input wire:model="name"
                         class=" h-[64px] max-sm:h-[40px] max-lg:h-[55px] rounded-[4px] bg-[#F2F2F2] font-[jost] text-[16px] max-sm:text-[12px] italic font-[500] leading-[23px] py-[8px] px-[16px] max-sm:pl-[12px]"
                         id="name" type="text" placeholder="Name*">
                     @error('name')
-                        <span class="text-[red] text-[12px]">{{ $message }}</span>
+                        <span class="text-[red] text-[12px] block ml-1">{{ $message }}</span>
                     @enderror
-                    <input wire:model="email"
+                  </span>
+                    <span>
+                        <input wire:model="email"
                         class=" h-[64px] max-sm:h-[40px] max-lg:h-[55px] rounded-[4px] bg-[#F2F2F2] font-[jost] text-[16px] max-sm:text-[12px] italic font-[500] leading-[23px]  py-[8px] px-[16px]"
                         id="email" type="email" placeholder="Email*">
                     @error('email')
-                        <span class="text-[red] text-[12px]">{{ $message }}</span>
+                        <span class="text-[red] text-[12px] block ml-1">{{ $message }}</span>
                     @enderror
+                    </span>
                 </div>
                 <div>
                     <input wire:model="subject"
@@ -1563,7 +1568,7 @@ k                                    </a>
                         <span class="block text-[red]">{{ $post_error_msg }}</span>
                     @endif
 
-                    <a class="fill-up-btn text-[#f2f2f2] text-center text-[16px] h-[44px] px-[40px] py-[10px] rounded-[4px] font-[500] font-[jost] mt-[15px]  bg-gradient-to-r from-[#380D37] to-[#DC275C] "
+                    <button class="fill-up-btn text-[#f2f2f2] text-center text-[16px] h-[44px] px-[40px] py-[10px] rounded-[4px] font-[500] font-[jost] mt-[15px]  bg-gradient-to-r from-[#380D37] to-[#DC275C] "
                         type="submit">
                         Post
                         <div wire:loading
@@ -1573,20 +1578,20 @@ k                                    </a>
                                 class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...
                             </span>
                         </div>
-                    </a>
+                    </button>
                 </div>
             </form>
         </div>
     </section>
 
-    {{-- <div class="px-30 mt-20">
+    {{-- <div class="mt-20 px-30">
         <style>
             .menu-container2 {
                 position: relative;
                 display: inline-block;
                 cursor: pointer;
             }
-    
+
             .menu2 {
                 display: none;
                 position: absolute;
@@ -1598,12 +1603,12 @@ k                                    </a>
                 box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
                 z-index: 1;
             }
-    
+
             .menu2 li {
                 padding: 8px;
                 cursor: pointer;
             }
-    
+
             .toggle-btn2 {
                 display: flex;
                 align-items: center;
@@ -1614,17 +1619,17 @@ k                                    </a>
                 border-radius: 50%; */
                 transition: background-color 0.3s ease;
             }
-    
+
             .toggle-btn2 .minus {
                 display: none;
             }
-    
+
             .toggle-btn2.active {
                 background-color: black;
             }
         </style>
         <div class="menu-container2">
-            <div class="toggleBtn2 flex">
+            <div class="flex toggleBtn2">
                 <div>
                     <span>
                         sumon
@@ -1657,7 +1662,7 @@ k                                    </a>
                 });
             });
         </script>
-    
+
     </div> --}}
 </div>
 @script
@@ -1742,17 +1747,17 @@ k                                    </a>
                 responsive: {
                     0: {
                         items: 1,
-                       
+
                     },
                     640: {
                         items: 1,
-                       
-                       
+
+
                     },
                     1024: {
                         items: 3,
-                      
-                       
+
+
                     }
                 }
             });
