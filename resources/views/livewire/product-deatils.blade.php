@@ -176,22 +176,22 @@
                     @if ($product->stock > 0)
                         {{-- <a href="{{ route('single_checkout', [$product->slug]) }}" wire:navigate> --}}
                             <button wire:click='checkout("{{$product->slug}}")'
-                                class="fill-up-btn text-[#f2f2f2] bg-gradient-to-r from-[#380D37] to-[#DC275C] max-lg:text-[18px] max-sm:text-[16px] text-[20px] py-[12px] max-lg:py-[14px] px-[40px] max-lg:px-[40px] max-sm:px-[30px] font-[jost] font-[700] mt-auto rounded-[5px]">
+                                class="fill-up-btn text-[#f2f2f2] bg-gradient-to-r from-[#380D37] to-[#DC275C] max-lg:text-[18px] max-sm:text-[16px] text-[20px] py-[12px] max-lg:py-[14px] px-[40px] max-lg:px-[30px] max-md:px-[30px] font-[jost] font-[700] mt-auto rounded-[5px]">
                                 BUY NOW
                             </button>
                         {{-- </a> --}}
                         <button id="{{ $product->id }}"
-                            class="add-to-cart fill-up-btn text-[#f2f2f2] bg-gradient-to-r from-[#380D37] to-[#DC275C] max-lg:text-[18px] max-sm:text-[16px] text-[20px] py-[12px] max-lg:py-[14px] px-[40px] max-lg:px-[40px] max-sm:px-[30px] font-[jost] font-[700] mt-auto rounded-[5px]">
+                            class="add-to-cart fill-up-btn text-[#f2f2f2] bg-gradient-to-r from-[#380D37] to-[#DC275C] max-lg:text-[18px] max-sm:text-[16px] text-[20px] py-[12px] max-lg:py-[14px] px-[40px] max-lg:px-[30px] max-md:px-[30px] font-[jost] font-[700] mt-auto rounded-[5px]">
                             Add To Cart</button>
                     @else
                     {{-- Mora buttons  --}}
                       <a>
                             <button
-                                class="fill-up-btn text-[#f2f2f2] bg-gradient-to-r from-[#380D37] to-[#DC275C] max-lg:text-[18px] max-sm:text-[16px] text-[20px] py-[12px] max-lg:py-[14px] px-[40px] max-lg:px-[40px] max-sm:px-[30px] font-[jost] font-[700] mt-auto rounded-[5px]">
+                                class="fill-up-btn text-[#f2f2f2] bg-gradient-to-r from-[#380D37] to-[#DC275C] max-lg:text-[18px] max-sm:text-[16px] text-[20px] py-[12px] max-lg:py-[14px] px-[40px] max-lg:px-[30px] max-md:px-[30px] font-[jost] font-[700] mt-auto rounded-[5px]">
                                 BUY NOW</button>
                         </a>
                         <button
-                            class="fill-up-btn text-[#f2f2f2] bg-gradient-to-r from-[#380D37] to-[#DC275C] max-lg:text-[18px] max-sm:text-[16px] text-[20px] py-[12px] max-lg:py-[14px] px-[40px] max-lg:px-[40px] max-sm:px-[30px] font-[jost] font-[700] mt-auto rounded-[5px]">
+                            class="fill-up-btn text-[#f2f2f2] bg-gradient-to-r from-[#380D37] to-[#DC275C] max-lg:text-[18px] max-sm:text-[16px] text-[20px] py-[12px] max-lg:py-[14px] px-[40px] max-lg:px-[30px] max-md:px-[30px]  font-[jost] font-[700] mt-auto rounded-[5px]">
                             Add To Cart</button>
                     @endif
                 </div>
