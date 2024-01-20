@@ -40,11 +40,16 @@ class ProductDeatils extends Component
     //     $this->validate();
     //     // dd($this);
     // }
-    public function checkout()
+    public function checkout($slug)
     {
         // dd($this->payment_process);
-        return $this->redirect(route('checkout', [$this->payment_process]), navigate: true);
+        if($this->payment_process == 'installment'){
+            return $this->redirect(route('installment_checkout', [$slug]), navigate: true);
+        }
+        // dd($this->payment_process);
+        return $this->redirect(route('single_checkout', [$slug]), navigate: true);
     }
+
     public function mount()
     {
        $product = Product::with('cat_info', 'sub_cat_info', 'brand', 'ProcessorGeneration', 'ProcessorModel', 'DisplayType', 'DisplaySize', 'Ram', 'ssd', 'hdd', 'Graphic', 'SpecialFeature')
@@ -72,7 +77,7 @@ class ProductDeatils extends Component
     public function render()
     {
 
-        $n['product'] = Product::with('cat_info', 'sub_cat_info', 'brand', 'ProcessorGeneration', 'ProcessorModel', 'DisplayType', 'DisplaySize', 'Ram', 'ssd', 'hdd', 'Graphic', 'SpecialFeature')
+        $n['product'] = Product::with('cat_info', 'sub_cat_info', 'brand', 'ProcessorGeneration', 'ProcessorModel', 'DisplayType', 'DisplaySize', 'Ram', 'ssd', 'hdd', 'Graphic', 'SpecialFeature', 'installment', 'installment.duration')
                         ->where('slug', $this->slug)->first();
         $n['recent_views'] = RecentViewedProduct::get();
         $n['product_reviews'] = ProductReview::with('images')->where('status', 'active')->get();

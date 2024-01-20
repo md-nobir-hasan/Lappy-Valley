@@ -145,9 +145,13 @@ class Product extends Model
         return explode(',', $this->photo);
     }
 
-    public function installments()
+    // public function installments()
+    // {
+    //     return $this->hasMany(Installment::class);
+    // }
+    public function installment(): BelongsTo
     {
-        return $this->hasMany(Installment::class);
+        return $this->belongsTo(Installment::class,'id','product_id');
     }
 
     public function storage()

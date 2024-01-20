@@ -35,10 +35,10 @@ class AjaxController extends Controller
         }
 
         //Stock checking
-        if ($product->stock = null && $product->stock < 1) {
+        if ($product->stock = null || $product->stock < 1) {
             return response()->json(['msg' => "Stock not sufficient"]);
         }
-        
+
         if (auth()->user()) {
             $already_cart = Cart::where('user_id', auth()->user()->id)->where('order_id', null)->where('product_id', $product->id)->first();
         } else {
