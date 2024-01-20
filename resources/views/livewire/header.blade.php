@@ -501,3 +501,12 @@
         });
     </script>
 @endscript
+
+@assets
+    @isset($pixels)
+        {!! $pixels->header !!}
+    @endisset
+    @isset($gtags)
+        {!! $gtags->header !!}
+    @endisset
+@endassets
