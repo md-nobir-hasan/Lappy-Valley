@@ -311,7 +311,7 @@
                                             </span>
                                             @if (count($products) > 0)
                                                 <ul x-show='open'
-                                                    class="absolute z-50 bg-[white] text-[black] overflow-scroll w-full">
+                                                    class="absolute z-50 bg-[white] text-[black] overflow-scroll w-[100%]">
                                                     @foreach ($products as $prd)
                                                         <li
                                                             class="hover:bg-[#380D37] hover:rounded-sm px-[10px] items-center">
@@ -335,11 +335,13 @@
                                                 </ul>
                                             @endif
                                         </div>
-                                        <button type="submit"
-                                            class=" top-0 end-0 py-2.5 px-[30px]   h-full bg-[#df146e] text-[#f2f2f2] rounded-r-[2px] overflow-hidden">
-                                            <span class="">Search</span>
-                                        </button>
-                                    </div>
+                                      
+                                    </div>  
+                                    <button type="submit"
+                                    class=" top-0 end-0 py-2.5 px-[30px] h-full bg-[#df146e] text-[#f2f2f2] rounded-r-[2px] overflow-hidden">
+                                    <span class="">Search</span>
+                                </button>
+
                                 </div>
                             </form>
                         </div>
