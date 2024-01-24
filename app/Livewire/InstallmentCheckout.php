@@ -142,6 +142,7 @@ class InstallmentCheckout extends Component
             'quantity' => 1,
             'amount' => $order->sub_total,
         ]);
+
         request()->session()->flash('success', 'Your Order successfully placed in order');
         return $this->redirect(route('order.receive', [$order->order_number]));
     }
@@ -152,4 +153,5 @@ class InstallmentCheckout extends Component
         $n['shipping'] = Shipping::where('status', 'active')->first();
         return view('livewire.installment-checkout', $n);
     }
+    
 }
