@@ -15,6 +15,7 @@ use Livewire\Component;
 use Livewire\Attributes\Title;
 use Notification;
 use Illuminate\Support\Str;
+
 #[Title('Checkout')]
 
 class InstallmentCheckout extends Component
@@ -61,16 +62,28 @@ class InstallmentCheckout extends Component
     public $payment_possess;
 
     public $product;
+    public $month;
 
     public function mount()
     {
-        $this->product = Product::where('slug', $this->pslug)->first();
+        $product = Product::where('slug', $this->pslug)->first();
+        $this->product = $product;
+        $month = 0;
+        if ($ins = $product->installment) {
+            if ($ins->duration->year) {
+                $month += $ins->duration->year * 12;
+            }
+            if ($ins->duration->month) {
+                $month += $ins->duration->month;
+            }
+        }
+        $this->month = $month;
     }
 
     public function orderSubmit()
     {
         $this->validate();
-        
+
         if (auth()->user()) {
             $user = auth()->user();
         } else {
@@ -88,7 +101,9 @@ class InstallmentCheckout extends Component
         $order_data['user_id'] = $user->id;
         $order_data['status'] = 'New';
         $order_data['sub_total'] = $this->product->final_price;
-        $order_data['amount'] = $this->product->final_price;
+        $order_data['amount'] = $this->product->price/$this->month;
+        $order_data['payable'] = $this->product->price;
+        $order_data['installment_count'] = $this->month;
         $order_data['inventory_cost'] = $this->product->inventory_cost;
         $order_data['quantity'] = 1;
         $order_data['status'] = "Pending";
@@ -124,6 +139,6 @@ class InstallmentCheckout extends Component
     {
         $n['divissions'] = Divission::get();
         $n['shipping'] = Shipping::where('status', 'active')->first();
-        return view('livewire.installment-checkout',$n);
+        return view('livewire.installment-checkout', $n);
     }
 }
