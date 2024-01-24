@@ -2232,6 +2232,10 @@ input[type="range"]:active::-webkit-slider-thumb{
   width: 76px;
 }
 
+.w-\[80\%\]{
+  width: 80%;
+}
+
 .w-\[800px\]{
   width: 800px;
 }
@@ -2266,6 +2270,22 @@ input[type="range"]:active::-webkit-slider-thumb{
 
 .w-screen{
   width: 100vw;
+}
+
+.w-\[81\%\]{
+  width: 81%;
+}
+
+.w-\[0px\]{
+  width: 0px;
+}
+
+.w-\[0\%\]{
+  width: 0%;
+}
+
+.w-\[100\%\]{
+  width: 100%;
 }
 
 .min-w-0{
@@ -7290,6 +7310,11 @@ input[type="range"]:active::-webkit-slider-thumb{
     padding-right: 0px;
   }
 
+  .max-lg\:px-\[30px\]{
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
   .max-lg\:px-\[38px\]{
     padding-left: 38px;
     padding-right: 38px;
@@ -7318,16 +7343,6 @@ input[type="range"]:active::-webkit-slider-thumb{
   .max-lg\:py-\[20px\]{
     padding-top: 20px;
     padding-bottom: 20px;
-  }
-
-  .max-lg\:px-\[300px\]{
-    padding-left: 300px;
-    padding-right: 300px;
-  }
-
-  .max-lg\:px-\[30px\]{
-    padding-left: 30px;
-    padding-right: 30px;
   }
 
   .max-lg\:pl-\[40px\]{
@@ -8071,6 +8086,10 @@ input[type="range"]:active::-webkit-slider-thumb{
 
   .max-sm\:pr-\[0px\]{
     padding-right: 0px;
+  }
+
+  .max-sm\:pr-\[20px\]{
+    padding-right: 20px;
   }
 
   .max-sm\:pt-\[20px\]{
