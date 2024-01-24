@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Cart;
 use App\Models\Divission;
+use App\Models\InstallmentOrder;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\Shipping;
@@ -100,8 +101,9 @@ class InstallmentCheckout extends Component
         $order_data['order_number'] = 'ORD-' . strtoupper(Str::random(10));
         $order_data['user_id'] = $user->id;
         $order_data['status'] = 'New';
-        $order_data['sub_total'] = $this->product->final_price;
-        $order_data['amount'] = $this->product->price/$this->month;
+        $order_data['sub_total'] = $this->product->price;
+        $installment1 = $this->product->price/$this->month;
+        $order_data['amount'] = $installment1;
         $order_data['payable'] = $this->product->price;
         $order_data['installment_count'] = $this->month;
         $order_data['inventory_cost'] = $this->product->inventory_cost;
@@ -123,6 +125,14 @@ class InstallmentCheckout extends Component
         $product = $this->product;
         $product->stock -= 1;
         $product->save();
+
+        //insert into installment table
+        InstallmentOrder::create([
+            'order_id' => $order->id,
+            'user_id' => $user->id,
+            'amount' => $installment1,
+        ]);
+
         Cart::create([
             'product_id' => $product->id,
             'order_id' => $order->id,
@@ -135,6 +145,7 @@ class InstallmentCheckout extends Component
         request()->session()->flash('success', 'Your Order successfully placed in order');
         return $this->redirect(route('order.receive', [$order->order_number]));
     }
+
     public function render()
     {
         $n['divissions'] = Divission::get();

@@ -87,6 +87,8 @@ class SingleCheckout extends Component
         $order_data['status'] = 'New';
         $order_data['sub_total'] = $this->product->final_price;
         $order_data['amount'] = $this->product->final_price;
+        $order_data['payable'] = $this->product->final_price;
+        $order_data['installment_count'] = 1;
         $order_data['inventory_cost'] = $this->product->inventory_cost;
         $order_data['quantity'] = 1;
         $order_data['status'] = "Pending";

@@ -327,7 +327,7 @@
                                         @endif
                                     @endif
                                     <td class="text-right text-[#DC275C] text-[12px] max-sm:text-[10px] font-[700]">
-                                        <span x-text="mFormat(total/{{ $month }})"></span> Taka/Month
+                                        <span x-text="mFormat(total/{{ $month }})"></span> Taka/Month <br> (total {{$month}} month)
                                     </td>
                                 </tr>
                             </tbody>

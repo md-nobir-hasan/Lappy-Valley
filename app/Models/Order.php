@@ -2,11 +2,12 @@
 
 namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Order extends Model
 {
     protected $fillable=['user_id','order_number','sub_total','quantity','delivery_charge',
-     'amount','name','l_name','country','post_code','address','address2','phone','email','payment_method',
+     'amount','installment_count','payable','name','l_name','country','post_code','address','address2','phone','email','payment_method',
      'payment_status','shipping_id','coupon', 'order_status_id','divission_id', 'status', 'transaction_id',
         'currency', 'city', 'inventory_cost'];
 
@@ -54,6 +55,10 @@ class Order extends Model
     }
     public function cancelled(){
         return count($this->where('status','Cancelled')->get());
+    }
+
+    public function installment_order():HasMany{
+        return $this->hasMany(InstallmentOrder::class);
     }
 
 }
