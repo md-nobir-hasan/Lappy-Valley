@@ -300,7 +300,7 @@
                                                     class=" z-20 block p-2.5 w-full bg-[#f2f2f2] text-[#380D37]"
                                                     placeholder="I am shopping for..." required>
                                                 <div wire:loading wire:target='prdouctFetch,searchFuc'
-                                                    class="absolute right-[6.5rem] top-2.5 inline-block h-6 w-6 mr-2 animate-spin rounded-full
+                                                    class="absolute right-[50%] top-2.5 inline-block h-6 w-6 mr-2 animate-spin rounded-full
                                                         border-4 border-solid border-current border-r-transparent align-[-0.125em]
                                                          text-success motion-reduce:animate-[spin_1.5s_linear_infinite]"
                                                     role="status">
