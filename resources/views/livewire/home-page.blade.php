@@ -28,17 +28,21 @@
                 <div class="absolute top-0 bottom-0 flex items-center justify-between w-full mx-auto">
                     <a id="move_back" value='0'
                         class="slide_icon sm:translate-x-[-40px] text-[40px] text-blue-500 opacity-50 hover:opacity-100 cursor-pointer">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12">
-                            <path stroke-linecap="round" class="max-sm:stroke-[#f2f2f2]"  stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-                          </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-12 h-12">
+                            <path stroke-linecap="round" class="max-sm:stroke-[#f2f2f2]" stroke-linejoin="round"
+                                d="M15.75 19.5 8.25 12l7.5-7.5" />
+                        </svg>
 
                     </a>
                     <!-- The next button -->
                     <a id="move_front" value='0'
                         class="slide_icon sm:translate-x-[40px]  text-[40px] text-blue-500 opacity-50 hover:opacity-100 cursor-pointer">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12">
-                            <path :class="{ 'text-blue-500': active }" class="max-sm:stroke-[#f2f2f2]" stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                          </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-12 h-12">
+                            <path :class="{ 'text-blue-500': active }" class="max-sm:stroke-[#f2f2f2]"
+                                stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                        </svg>
 
                     </a>
                 </div>
@@ -92,6 +96,7 @@
             </div>
         </div>
     </section>
+
     <!-- New arrival  -->
     <section>
         <!-- heading -->
@@ -126,6 +131,7 @@
             </div>
         </div>
     </section>
+
     <!-- Product  -->
     <section>
         <div
@@ -139,8 +145,11 @@
         </div>
     </section>
     <!-- Product  -->
+
     <!-- Feature Laptops Sliders -->
-    <section>
+    <section x-data='{redirect(url){
+        window.open(url,"_blank");
+    }}'>
         <div class="py-1 text-center">
             <h2
                 class="font-[jost] text-[40px] font-[500] max-lg:text-[30px] max-md:text-[25px] max-sm:text-[24px] text-[#353535]">
@@ -268,12 +277,16 @@
                                 class="w-[221px] h-[376px] max-xl:w-full mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white px-2 pt-2 pb-3 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
 
                                 <div class="image-container h-[180px]">
-                                    <a href="{{ route('product.details', [$f_product->slug]) }}" wire:navigate class="h-full">
-                                        <img src="{{ $f_product->img()[0] }}" alt="" class="object-contain h-full img-contain">
+                                    <a @click.stop='redirect("{{ route('product.details', [$f_product->slug]) }}")'
+                                        href="{{ route('product.details', [$f_product->slug]) }}" wire:navigate
+                                        class="h-full">
+                                        <img src="{{ $f_product->img()[0] }}" alt=""
+                                            class="object-contain h-full img-contain">
                                     </a>
                                 </div>
                                 <div>
-                                    <a href="{{ route('product.details', [$f_product->slug]) }}" wire:navigate
+                                    <a @click.stop='redirect("{{ route('product.details', [$f_product->slug]) }}")'
+                                        href="{{ route('product.details', [$f_product->slug]) }}" wire:navigate
                                         class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-300 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
                                         {{ Str::of($f_product->title)->words(5) }}
                                     </a>
@@ -291,230 +304,7 @@
                             </div>
                         </div>
                     @endforeach
-                    {{-- <div class="swiper-slide">
-                        <div
-                            class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div class="">
-                                <div class="image-container1">
-                                    <a href="#">
-                                        <img src="/storage/product/large-size-laptop.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="mb-auto">
-                                    <a href="#"
-                                        class="mb-auto text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-300 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                        Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB, Brand New Cloud grey
-                                    </a>
-                                </div>
-                            </div>
 
-                            <div
-                                class=" flex justify-between gap-5 text-[14px] mt-auto font-[jost] font-[700] py-[10px] leading-[20.23px]">
-                                <span href="#" class=" text-[#DC275C]">
-                                    1,50,000 TK
-                                </span>
-                                <a class="text-[#380D37]">
-                                    Add to Cart
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div
-                            class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div class="">
-                                <div class="image-container1">
-                                    <a href="#">
-                                        <img src="/storage/product/large-size-laptop.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="mb-auto">
-                                    <a href="#"
-                                        class="mb-auto text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-300 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                        Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB, Brand New Cloud grey
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div
-                                class=" flex justify-between gap-5 text-[14px] mt-auto font-[jost] font-[700] py-[10px] leading-[20.23px]">
-                                <span href="#" class=" text-[#DC275C]">
-                                    1,50,000 TK
-                                </span>
-                                <a class="text-[#380D37]">
-                                    Add to Cart
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div
-                            class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div class="">
-                                <div class="image-container1">
-                                    <a href="#">
-                                        <img src="/storage/product/large-size-laptop.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="mb-auto">
-                                    <a href="#"
-                                        class="mb-auto text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-300 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                        Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB, Brand New Cloud grey
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div
-                                class=" flex justify-between gap-5 text-[14px] mt-auto font-[jost] font-[700] py-[10px] leading-[20.23px]">
-                                <span href="#" class=" text-[#DC275C]">
-                                    1,50,000 TK
-                                </span>
-                                <a class="text-[#380D37]">
-                                    Add to Cart
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div
-                            class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div class="">
-                                <div class="image-container1">
-                                    <a href="#">
-                                        <img src="/storage/product/large-size-laptop.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="mb-auto">
-                                    <a href="#"
-                                        class="mb-auto text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-300 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                        Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB, Brand New Cloud grey
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div
-                                class=" flex justify-between gap-5 text-[14px] mt-auto font-[jost] font-[700] py-[10px] leading-[20.23px]">
-                                <span href="#" class=" text-[#DC275C]">
-                                    1,50,000 TK
-                                </span>
-                                <a class="text-[#380D37]">
-                                    Add to Cart
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div
-                            class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div class="">
-                                <div class="image-container1">
-                                    <a href="#">
-                                        <img src="/storage/product/large-size-laptop.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="mb-auto">
-                                    <a href="#"
-                                        class="mb-auto text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-300 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                        Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB, Brand New Cloud grey
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div
-                                class=" flex justify-between gap-5 text-[14px] mt-auto font-[jost] font-[700] py-[10px] leading-[20.23px]">
-                                <span href="#" class=" text-[#DC275C]">
-                                    1,50,000 TK
-                                </span>
-                                <a class="text-[#380D37]">
-                                    Add to Cart
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div
-                            class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div class="">
-                                <div class="image-container1">
-                                    <a href="#">
-                                        <img src="/storage/product/large-size-laptop.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="mb-auto">
-                                    <a href="#"
-                                        class="mb-auto text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-300 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                        Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB, Brand New Cloud grey
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div
-                                class=" flex justify-between gap-5 text-[14px] mt-auto font-[jost] font-[700] py-[10px] leading-[20.23px]">
-                                <span href="#" class=" text-[#DC275C]">
-                                    1,50,000 TK
-                                </span>
-                                <a class="text-[#380D37]">
-                                    Add to Cart
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div
-                            class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div class="">
-                                <div class="image-container1">
-                                    <a href="#">
-                                        <img src="/storage/product/large-size-laptop.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="mb-auto">
-                                    <a href="#"
-                                        class="mb-auto text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-300 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                        Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB, Brand New Cloud grey
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div
-                                class=" flex justify-between gap-5 text-[14px] mt-auto font-[jost] font-[700] py-[10px] leading-[20.23px]">
-                                <span href="#" class=" text-[#DC275C]">
-                                    1,50,000 TK
-                                </span>
-                                <a class="text-[#380D37]">
-                                    Add to Cart
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div
-                            class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div class="">
-                                <div class="image-container1">
-                                    <a href="#">
-                                        <img src="/storage/product/large-size-laptop.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="mb-auto">
-                                    <a href="#"
-                                        class="mb-auto text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-300 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                        Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB, Brand New Cloud grey
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div
-                                class=" flex justify-between gap-5 text-[14px] mt-auto font-[jost] font-[700] py-[10px] leading-[20.23px]">
-                                <span href="#" class=" text-[#DC275C]">
-                                    1,50,000 TK
-                                </span>
-                                <a class="text-[#380D37]">
-                                    Add to Cart
-                                </a>
-                            </div>
-                        </div>
-                    </div> --}}
                 </div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
@@ -536,14 +326,18 @@
                                 class="w-[221px] h-[376px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white px-2 pt-2 pb-3 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
 
                                 <div class="image-container h-[180px]">
-                                    <a href="{{ route('product.details', [$a_product->slug]) }}" wire:navigate class="h-full">
-                                        <img src="{{ $a_product->img()[0] }}" alt="" class="object-contain h-full img-contain">
-k                                    </a>
+                                    <a @click.stop='redirect("{{ route('product.details', [$f_product->slug]) }}")'
+                                        href="{{ route('product.details', [$a_product->slug]) }}" wire:navigate
+                                        class="h-full">
+                                        <img src="{{ $a_product->img()[0] }}" alt=""
+                                            class="object-contain h-full img-contain">
+                                    </a>
                                 </div>
                                 <div class="">
-                                    <a href="{{ route('product.details', [$a_product->slug]) }}" wire:navigate
+                                    <a @click.stop='redirect("{{ route('product.details', [$f_product->slug]) }}")'
+                                        href="{{ route('product.details', [$a_product->slug]) }}" wire:navigate
                                         class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-300 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                        {{ $a_product->title }}
+                                        {{ Str::of($a_product->title)->words(5) }}
                                     </a>
                                 </div>
 
@@ -1523,29 +1317,77 @@ k                                    </a>
                 </div>
             </div>
 
-            <form wire:submit="post"
+            <form x-data="{
+                name: '{{ $name }}',
+                email: '{{ $email }}',
+                subject: '',
+                msg: '',
+                spin: false,
+                postSubmit() {
+                    this.spin = true;
+                    if (!this.name) {
+                        toastr.warning('Please, Enter a name');
+                        this.spin = false;
+                        return false;
+                    }
+                    if (!this.email) {
+                        toastr.warning('Please, Enter an email');
+                        this.spin = false;
+                        return false;
+                    }
+                    if (!this.msg) {
+                        toastr.warning('Please, Write something as message');
+                        this.spin = false;
+                        return false;
+                    }
+                    $.ajax({
+                        type: 'get',
+                        url: '{{ route('post') }}',
+                        data: {
+                            name: this.name,
+                            email: this.email,
+                            subject: this.subject,
+                            msg: this.msg,
+                        },
+                        dataType: 'json',
+                        success: (response) => {
+                            if (response.error) {
+                                toastr.warning(response.error);
+                                this.spin = false;
+                                return false;
+                            } else {
+                                toastr.success('Your post is successfully submitted');
+                                this.subject = '';
+                                this.msg = '';
+                                this.spin = false;
+                            }
+
+                        }
+                    });
+                }
+            }"
                 class="max-md:border-[1px] max-md:border-[#380D37] max-md:rounded-[4px] max-sm:p-[10px] max-md:p-[15px] max-sm:mt-[15px] max-md:my-[22px]">
 
                 <div class="grid grid-cols-2 gap-2">
-                  <span>
-                      <input wire:model="name"
-                        class=" h-[64px] max-sm:h-[40px] max-lg:h-[55px] rounded-[4px] bg-[#F2F2F2] font-[jost] text-[16px] max-sm:text-[12px] italic font-[500] leading-[23px] py-[8px] px-[16px] max-sm:pl-[12px]"
-                        id="name" type="text" placeholder="Name*">
-                    @error('name')
-                        <span class="text-[red] text-[12px] block ml-1">{{ $message }}</span>
-                    @enderror
-                  </span>
                     <span>
-                        <input wire:model="email"
-                        class=" h-[64px] max-sm:h-[40px] max-lg:h-[55px] rounded-[4px] bg-[#F2F2F2] font-[jost] text-[16px] max-sm:text-[12px] italic font-[500] leading-[23px]  py-[8px] px-[16px]"
-                        id="email" type="email" placeholder="Email*">
-                    @error('email')
-                        <span class="text-[red] text-[12px] block ml-1">{{ $message }}</span>
-                    @enderror
+                        <input x-model="name"
+                            class=" h-[64px] max-sm:h-[40px] max-lg:h-[55px] rounded-[4px] bg-[#F2F2F2] font-[jost] text-[16px] max-sm:text-[12px] italic font-[500] leading-[23px] py-[8px] px-[16px] max-sm:pl-[12px]"
+                            id="name" type="text" placeholder="Name*">
+                        @error('name')
+                            <span class="text-[red] text-[12px] block ml-1">{{ $message }}</span>
+                        @enderror
+                    </span>
+                    <span>
+                        <input x-model='email'
+                            class=" h-[64px] max-sm:h-[40px] max-lg:h-[55px] rounded-[4px] bg-[#F2F2F2] font-[jost] text-[16px] max-sm:text-[12px] italic font-[500] leading-[23px]  py-[8px] px-[16px]"
+                            id="email" type="email" placeholder="Email*">
+                        @error('email')
+                            <span class="text-[red] text-[12px] block ml-1">{{ $message }}</span>
+                        @enderror
                     </span>
                 </div>
                 <div>
-                    <input wire:model="subject"
+                    <input x-model="subject"
                         class=" h-[64px] max-sm:h-[40px] max-lg:h-[55px] rounded-[4px] w-full py-2 px-3 bg-[#F2F2F2] font-[jost] text-[16px] max-sm:text-[12px] mt-[20px] mb-[20px] italic font-[500] "
                         id="subject" type="text" placeholder="Subject(optional)">
                     @error('subject')
@@ -1553,25 +1395,26 @@ k                                    </a>
                     @enderror
                 </div>
                 <div>
-                    <textarea wire:model='msg'
+                    <textarea x-model='msg'
                         class="h-[271px] max-sm:h-[150px] max-lg:h-[220px] max-xl:h-[230px] rounded-[4px] w-full py-2 pb-32 px-3 bg-[#F2F2F2] font-[jost] text-[16px] max-sm:text-[12px]  italic font-[500] "
                         id="message" rows="4" placeholder=" Message"></textarea>
                     @error('msg')
                         <span class="text-[red] text-[12px]">{{ $message }}</span>
                     @enderror
                 </div>
-                <div class="flex items-center max-md:justify-center">
-                    @if ($post_success_msg)
+                <div class="flex items-center max-md:justify-center flex-col">
+                    {{-- @if ($post_success_msg)
                         <span class="block text-[green]">{{ $post_success_msg }}</span>
                     @endif
                     @if ($post_error_msg)
                         <span class="block text-[red]">{{ $post_error_msg }}</span>
-                    @endif
+                    @endif --}}
 
-                    <button class="fill-up-btn text-[#f2f2f2] text-center text-[16px] h-[44px] px-[40px] py-[10px] rounded-[4px] font-[500] font-[jost] mt-[15px]  bg-gradient-to-r from-[#380D37] to-[#DC275C] "
-                        type="submit">
+                    <button @click="postSubmit()"
+                        class="fill-up-btn text-[#f2f2f2] text-center text-[16px] h-[44px] px-[40px] py-[10px] rounded-[4px] font-[500] font-[jost] mt-[15px]  bg-gradient-to-r from-[#380D37] to-[#DC275C] "
+                        type="button">
                         Post
-                        <div wire:loading
+                        <div x-show='spin'
                             class="absolute right-0 inline-block h-6 w-6 mr-2 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-success motion-reduce:animate-[spin_1.5s_linear_infinite]"
                             role="status">
                             <span

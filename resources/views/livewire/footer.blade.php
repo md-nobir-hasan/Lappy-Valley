@@ -217,12 +217,9 @@
                       },
                       dataType: "json",
                       success: function(response) {
-                          $('#side_cart').show(500);
                           if (response.msg) {
                               toastr.error(response.msg);
                           } else {
-                              console.log(response);
-
                               const product = `
                                 <div x-data="{ qty: 1,price:'${response.price}', subtotal:'${response.amount}', cp_show:true,
                                     mplus() {
@@ -336,6 +333,7 @@
                                 </div>`;
 
                               $('#side_cart_body').append(product);
+                              $('#side_cart').show(500);
                               let cart_count = Number($('.cart_count:eq(1)').text());
                               $('.cart_count').text(cart_count + 1);
                           }
