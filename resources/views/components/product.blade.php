@@ -29,7 +29,7 @@
             </span>
 
             <span class="pprice text-[#DC275C]"
-            value='{{ $product->final_price }}'>{{ number_format($product->final_price) }} TK
+            value='{{ $product->final_price }}'>{{ number_format($product->final_price) }} ৳
         </span>
         </div>
         <livewire:add-to-cart :id="$product->id"
