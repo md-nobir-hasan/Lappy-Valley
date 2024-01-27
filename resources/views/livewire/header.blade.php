@@ -325,9 +325,8 @@
             }
         }
         // Toggle search bar when clicking the search icon
-
         if (window.screen.width < 1280) {
-            $("#search-bar").hide(200);
+            $("#search-bar").hide();
         }
 
         $("#search-icon").on('click', function() {

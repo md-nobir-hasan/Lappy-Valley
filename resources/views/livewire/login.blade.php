@@ -78,34 +78,32 @@
                     {{-- </div> --}}
                 </form>
             </div>
-   <div class='flex justify-evenly items-center gap-2 my-[25px]'>
-                        <div class='h-[1px] w-[155px] bg-[#000000]'></div>
-                        <div class='text-[14px] text-[#380D37] font-[jost] font-[400] leading-[20.23px]'>OR
-                        </div>
-                        <div class='h-[1px] w-[155px] bg-[#000000]'></div>
-                    </div>
-                    <div class='items-center my-[25px]'>
-                        <div
-                            class='my-[25px] border-[1px] border-[#380D37] rounded-[4px] flex items-center justify-center'>
-                            <a href="{{route('login.redirect',['google'])}}">
-                                <button
-                                    class=' h-[44px] max-sm:h-[35px] flex gap-2 items-center justify-center text-[16px] max-sm:text-[14px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]'>
-                                    Login with
-                                    <img class="max-sm:w-[60px]" src="/storage/product/google.svg" alt="Product">
-                                </button>
-                            </a>
-                        </div>
-                        <div
-                            class='my-[25px] border-[1px] border-[#380D37] rounded-[4px] flex items-center justify-center'>
-                            <a href="{{route('login.redirect',['facebook'])}}">
-                                <button
-                                    class=' h-[44px] max-sm:h-[35px] flex gap-2 items-center justify-center text-[16px] max-sm:text-[14px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]'>
-                                    Login with
-                                    <img class="max-sm:w-[60px]" src="/storage/product/facebook.svg"alt="Product">
-                                </button>
-                            </a>
-                        </div>
-                    </div>
+            <div class='flex justify-evenly items-center gap-2 my-[25px]'>
+                <div class='h-[1px] w-[155px] bg-[#000000]'></div>
+                <div class='text-[14px] text-[#380D37] font-[jost] font-[400] leading-[20.23px]'>OR
+                </div>
+                <div class='h-[1px] w-[155px] bg-[#000000]'></div>
+            </div>
+            <div class='items-center my-[25px]'>
+                <div class='my-[25px] border-[1px] border-[#380D37] rounded-[4px] flex items-center justify-center'>
+                    <a href="{{ route('login.redirect', ['google']) }}">
+                        <button
+                            class=' h-[44px] max-sm:h-[35px] flex gap-2 items-center justify-center text-[16px] max-sm:text-[14px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]'>
+                            Login with
+                            <img class="max-sm:w-[60px]" src="/storage/product/google.svg" alt="Product">
+                        </button>
+                    </a>
+                </div>
+                <div class='my-[25px] border-[1px] border-[#380D37] rounded-[4px] flex items-center justify-center'>
+                    <a href="{{ route('login.redirect', ['facebook']) }}">
+                        <button
+                            class=' h-[44px] max-sm:h-[35px] flex gap-2 items-center justify-center text-[16px] max-sm:text-[14px] text-[#380D37] font-[jost] font-[500] leading-[23.12px]'>
+                            Login with
+                            <img class="max-sm:w-[60px]" src="/storage/product/facebook.svg"alt="Product">
+                        </button>
+                    </a>
+                </div>
+            </div>
         </div>
         {{-- <div class="h-[2px] bg-[#764A8733] my-[60px]"> </div> --}}
     </div>

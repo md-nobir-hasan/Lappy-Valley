@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\Category;
+use App\Models\CompanyReview;
 use App\Models\Coupon;
 use App\Models\Product;
 use App\Models\ProductReview;
@@ -254,5 +255,26 @@ class AjaxController extends Controller
         } else {
             return false;
         }
+    }
+
+    public function post(Request $req){
+        if(!$req->name){
+            return response()->json(['msg' => 'Please, Enter a name']);
+        }
+        if(!$req->email){
+            return response()->json(['msg' => 'Please, Enter an email']);
+        }
+        if(!$req->msg){
+            return response()->json(['msg' => 'Please, Write something as message']);
+        }
+
+        $insert = CompanyReview::create([
+            'name' => $req->name,
+            'email' => $req->email,
+            'subject' => $req->subject,
+            'msg' => $req->msg,
+            'user_id' => auth()->user() ? auth()->user()->id : null,
+        ]);
+        return response()->json($insert);
     }
 }

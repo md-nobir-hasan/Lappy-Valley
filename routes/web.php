@@ -362,6 +362,7 @@ Route::get('/your-review', Review::class)->name('freview');
 Route::get('/about-us', AboutUs::class)->name('about_us');
 Route::get('/plus',[AjaxController::class,'plus'])->name('plus');
 Route::get('/minus',[AjaxController::class, 'minus'])->name('minus');
+Route::get('/post',[AjaxController::class,'post'])->name('post');
 Route::get('/delete',[AjaxController::class, 'delete'])->name('delete');
 Route::get('/sync',[AjaxController::class, 'sync'])->name('sync');
 Route::get('/add-to-cart',[AjaxController::class,'addToCart'])->name('add_to_cart');

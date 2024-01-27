@@ -79,6 +79,10 @@ class HomePage extends Component
         $n['dpds'] = Product::where('status','active')->get();
         $n['menus'] = Category::with('child_cat')->where('status', 'active')->where('is_parent', 1)->orderBy('title', 'ASC')->get();
         $n['home_banner'] = Banner::where('status', 'active')->where('slug', 'home-page')->first();
+       if(auth()->user()){
+        $this->name = auth()->user()->name;
+        $this->email = auth()->user()->email;
+       }
         return view('livewire.home-page',$n);
     }
 }
