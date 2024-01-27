@@ -1,7 +1,7 @@
 <div class='px-[100px] max-lg:px-[45px] max-md:px-[35px] max-sm:px-[20px] mx-auto max-sm:mt-[70px] max-xl:mt-[100px]'>
 
     <livewire:user-account-menu />
-    
+
     <form wire:submit='addressSave'>
         <div class='flex max-lg:border-[2px] max-lg:border-[#353535] max-md:w-full max-lg:w-[545px] max-lg:mx-auto max-lg:py-[20px] max-md:px-[35px] max-lg:px-[40px] max-sm:pl-[30px] max-lg:rounded-[4px] mt-[20px] gap-[20px]'>
             <div>
@@ -15,7 +15,9 @@
                         <label for="address"
                             class='text-[16px] text-[#353535] font-[jost] font-[500] leading-[23.12px] tracking-[3%] block my-[5px]'>Address:</label>
                         <input type="text" wire:model='address' id="address" placeholder='Enter the address'
-                            class='w-[344px] max-lg:w-full h-[44px] bg-[#F2F2F2] font-[jost] font-[500] text-[16px] text-[#353535] block italic px-[10px] rounded-[4px]'>
+                            class='w-[344px] max-lg:w-full h-[44px] bg-[#F2F2F2] font-[jost] font-[500] text-[16px] text-[#353535] block italic px-[10px] rounded-[4px]'
+                            {{-- value="@if(auth()->user()) {{auth()->user()->address}} @endif" --}}
+                            >
                     </div>
                 </div>
 
@@ -24,6 +26,7 @@
                     <label for="city"
                         class='text-[16px] text-[#353535] font-[jost] font-[500] leading-[23.12px] tracking-[3%] block my-[5px]'>City:</label>
                     <input type="text" wire:model='city' id="city" placeholder='Enter the city Name'
+                    {{-- value="@if(auth()->user()) {{auth()->user()->city}} @endif" --}}
                         class='w-[344px] max-lg:w-full h-[44px] bg-[#F2F2F2] font-[jost] font-[500] text-[16px] text-[#353535] blcok italic px-[10px] rounded-[4px]'>
                 </div>
 
@@ -33,6 +36,7 @@
                         class='text-[16px] text-[#353535] font-[jost] font-[500] leading-[23.12px] tracking-[3%] block my-[5px]'>Post
                         code:</label>
                     <input type="number" wire:model='post_code' id="post_code" placeholder='Enter the post code here'
+                    {{-- value="@if(auth()->user()) {{auth()->user()->post_code}} @endif" --}}
                         class='w-[344px] max-lg:w-full h-[44px] bg-[#F2F2F2] font-[jost] font-[500] text-[16px] text-[#353535]  block italic px-[10px] rounded-[4px]'>
                 </div>
             </div>
