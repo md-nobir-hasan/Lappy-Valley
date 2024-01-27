@@ -57,18 +57,19 @@
                                                 wire:navigate>{{ $menu->title }}</a>
                                         </div>
                                         <div class="toggleBtn2">
-                                            <svg class="plus text-[black]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                width="24" height="24" fill="none" stroke="currentColor"
-                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <svg class="plus text-[black]" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 24 24" width="24" height="24" fill="none"
+                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round">
                                                 <line x1="12" y1="5" x2="12" y2="19">
                                                 </line>
                                                 <line x1="5" y1="12" x2="19" y2="12">
                                                 </line>
                                             </svg>
-                                            <svg class="minus text-[red]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                width="24" height="24" fill="none" stroke="currentColor"
-                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                style="display: none;">
+                                            <svg class="minus text-[red]" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 24 24" width="24" height="24" fill="none"
+                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round" style="display: none;">
                                                 <line x1="5" y1="12" x2="19" y2="12">
                                                 </line>
                                             </svg>
@@ -113,9 +114,9 @@
                 </a>
             </div>
             <div id="search-bar"
-                class="search-bar max-xl:fixed max-xl:hidden max-sm:top-[49px] max-md:top-[67px] max-xl:top-[67px] max-xl:left-0 max-xl:w-full z-[9999]">
+                class="search-bar max-xl:fixed max-sm:top-[49px] max-md:top-[67px] max-xl:top-[67px] max-xl:left-0 max-xl:w-full z-[9999]">
                 <div>
-                    <div class="">
+                    <div>
                         <div class="relative" x-data="{
                             search: '',
                             open: false,
@@ -327,11 +328,14 @@
             }
         }
         // Toggle search bar when clicking the search icon
+
+        if (window.screen.width < 1280) {
+            $("#search-bar").hide(200);
+        }
         $("#search-icon").on('click', function() {
             console.log('yes');
             $("#search-bar").slideToggle();
-            $("#search-bar").removeClass("hidden");
-            $("#search-bar").addClass("block");
+            $("#search-bar").show(200);
             $(this).html(function(_, oldHtml) {
                 return oldHtml.includes("circle") ?
                     '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>' :
@@ -340,10 +344,9 @@
         });
 
         $(document).ready(function() {
-            var previous_click = 0;
+
             $('.toggleBtn2').each(function(index) {
                 $(this).on('click', function() {
-                    // previous_click  index
                     //Twice handle
                     var menu = $('.toggleDiv2').eq(index);
                     if (menu.is(':visible')) {
