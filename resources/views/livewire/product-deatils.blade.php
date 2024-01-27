@@ -1200,13 +1200,13 @@
                     @foreach ($related_products as $rp)
                         <div class="grid grid-cols-4 gap-[5px] leading-[20.23px]">
                             <div class="col-span-1">
-                                <a href="{{ route('product.details', [$rp->slug]) }}">
+                                <a class="image-container" href="{{ route('product.details', [$rp->slug]) }}">
                                     <img class="object-center " src="{{ $rp->img()[0] }}" alt="Product">
                                 </a>
                             </div>
                             <div class="col-span-3">
                                 <a href="{{ route('product.details', [$rp->slug]) }}">
-                                    <p class="text-[#000000] text-[14px] font-[jost] font-[400]">{{ $rp->title }}
+                                    <p class="text-[#000000] text-[14px] font-[jost] font-[400] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-1 hover:underline hover:underline-offset-4">{{ $rp->title }}
                                     </p>
                                 </a>
                                 <p
