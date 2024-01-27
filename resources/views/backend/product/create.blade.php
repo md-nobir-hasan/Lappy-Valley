@@ -772,7 +772,7 @@
 
                         {{-- wifi  --}}
                         <div class="form-group">
-                            <label for="wifi" class="col-form-label">Wifi </label>
+                            <label for="wifi" class="col-form-label">WIFI </label>
                             <input id="wifi" type="text" name="wifi" placeholder="Exp:- 11ax, 2x2"
                                 value="{{ old('wifi') }}" class="form-control">
                             @error('wifi')

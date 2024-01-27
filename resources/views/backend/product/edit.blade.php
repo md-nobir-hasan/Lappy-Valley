@@ -55,10 +55,21 @@
                     </div>
 
                     <div class="form-group" id="final_price_div">
-                        <label for="final_price" class="col-form-label">Final Price(tk)<span class="text-danger">*</span></label>
+                        <label for="final_price" class="col-form-label">Final Price(tk)<span
+                                class="text-danger">*</span></label>
                         <input id="final_price" type="number" name="final_price" min="0" max="500000"
                             placeholder="Exp:- Enter Final Price" value="{{ $product->final_price }}" class="form-control">
                         @error('final_price')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inventory_cost" class="col-form-label">Inventory Cost</label>
+                        <input id="inventory_cost" type="number" name="inventory_cost" min="0" max="100"
+                            placeholder="Exp:- Enter Inventory Cost" value="{{ $product->inventory_cost }}"
+                            class="form-control">
+                        @error('inventory_cost')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
@@ -75,7 +86,7 @@
                         <label for="description" class="col-form-label">Description</label>
                         <textarea class="form-control" id="description" name="description">{!! $product->description !!}</textarea>
                         @error('description')
-                            <span class="text-danger">{{$message}}</span>
+                            <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
 
@@ -98,7 +109,7 @@
                         <select name="cat_id" id="cat_id" class="form-control">
                             <option value="">--Select any category--</option>
                             @foreach ($categories as $key => $cat_data)
-                                <option value='{{ $cat_data->id }}' @selected($cat_data->id == $product->cat_id )>{{ $cat_data->title }}
+                                <option value='{{ $cat_data->id }}' @selected($cat_data->id == $product->cat_id)>{{ $cat_data->title }}
                                 </option>
                             @endforeach
                         </select>
@@ -108,7 +119,7 @@
                         <label for="child_cat_id">Sub Category</label>
                         <select name="child_cat_id" id="child_cat_id" class="form-control">
                             <option value="" hidden>--Select any category--</option>
-                            <option value="{{$product->child_cat_id}}"> {{$product->sub_cat_info?->title}} </option>
+                            <option value="{{ $product->child_cat_id }}"> {{ $product->sub_cat_info?->title }} </option>
                         </select>
                     </div>
 
@@ -138,15 +149,16 @@
 
                     <div class="form-group">
                         <label for="isOfferToggler">Is Offer Products</label><br>
-                        <input type="checkbox" name='isOfferToggler' @checked($product->product_offer_id)
-                            id='isOfferToggler' value='1'>
+                        <input type="checkbox" name='isOfferToggler' @checked($product->product_offer_id) id='isOfferToggler'
+                            value='1'>
                         <label for="isOfferToggler">Yes</label>
                         <div class="ml-3" id="div_product_offer">
                             <label for="product_offer_id" class="col-form-label">Select an offer </label>
                             <select name="product_offer_id" class="form-control" id="product_offer_id">
                                 <option value="" hidden>Choose....</option>
                                 @foreach ($product_offers as $poffer)
-                                    <option value="{{ $poffer->id }}" @selected($poffer->id == $product->product_offer_id)>{{ $poffer->title.' ('.$poffer->dis }}%)
+                                    <option value="{{ $poffer->id }}" @selected($poffer->id == $product->product_offer_id)>
+                                        {{ $poffer->title . ' (' . $poffer->dis }}%)
                                     </option>
                                 @endforeach
                             </select>
@@ -189,7 +201,7 @@
                         <div class="form-group">
                             <label for="p_brand" class="col-form-label">Processor Brand </label>
                             <input id="p_brand" type="text" name="p_brand" placeholder="Exp:- 2.8 GHz upto 4.3 GHz"
-                                value="{{ $product->p_brand }}" class="form-control" >
+                                value="{{ $product->p_brand }}" class="form-control">
                             @error('p_brand')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -198,7 +210,7 @@
                         {{-- Processore Model  --}}
                         <div class="form-group">
                             <label for="processor_model_id">Prosessor Model </label>
-                            <select name="processor_model_id" class="form-control" id="processor_model_id" >
+                            <select name="processor_model_id" class="form-control" id="processor_model_id">
                                 <option value="" hidden>Choose....</option>
                                 @foreach ($p_models as $pm)
                                     <option value="{{ $pm->id }}" @selected($pm->id == $product->processor_model_id)>{{ $pm->name }}
@@ -213,8 +225,7 @@
                         {{-- Processore Generation --}}
                         <div class="form-group">
                             <label for="processor_generation_id">Prosessor Generation </label>
-                            <select name="processor_generation_id" class="form-control" id="processor_generation_id"
-                                >
+                            <select name="processor_generation_id" class="form-control" id="processor_generation_id">
                                 <option value="" hidden>Choose....</option>
                                 @foreach ($p_generations as $pg)
                                     <option value="{{ $pg->id }}" @selected($pg->id == $product->processor_generation_id)>{{ $pg->name }}
@@ -230,7 +241,7 @@
                         <div class="form-group">
                             <label for="c_speed" class="col-form-label">Processor Speed </label>
                             <input id="c_speed" type="text" name="c_speed" placeholder="Exp:- 2.8 GHz upto 4.3 GHz"
-                                value="{{ $product->c_speed }}" class="form-control" >
+                                value="{{ $product->c_speed }}" class="form-control">
                             @error('c_speed')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -240,7 +251,7 @@
                         <div class="form-group">
                             <label for="l1_cache" class="col-form-label">L1 Cache </label>
                             <input id="l1_cache" type="text" name="l1_cache" placeholder="Exp:- 256 KB"
-                                value="{{ $product->l1_cache }}" class="form-control" >
+                                value="{{ $product->l1_cache }}" class="form-control">
                             @error('l1_cache')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -250,7 +261,7 @@
                         <div class="form-group">
                             <label for="l2_cache" class="col-form-label">L2 Cache </label>
                             <input id="l2_cache" type="text" name="l2_cache" placeholder="Exp:- 2 MB"
-                                value="{{ $product->l2_cache }}" class="form-control" >
+                                value="{{ $product->l2_cache }}" class="form-control">
                             @error('l2_cache')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -260,7 +271,7 @@
                         <div class="form-group">
                             <label for="l3_cache" class="col-form-label">L3 Cache </label>
                             <input id="l3_cache" type="text" name="l3_cache" placeholder="Exp:- 4 MB"
-                                value="{{ $product->l3_cache }}" class="form-control" >
+                                value="{{ $product->l3_cache }}" class="form-control">
                             @error('l3_cache')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -304,7 +315,7 @@
                         {{-- display Size --}}
                         <div class="form-group">
                             <label for="display_size_id">Display Size </label>
-                            <select name="display_size_id" class="form-control" id="display_size_id" >
+                            <select name="display_size_id" class="form-control" id="display_size_id">
                                 <option value="" hidden>Choose....</option>
                                 @foreach ($d_sizes as $ds)
                                     <option value="{{ $ds->id }}" @selected($ds->id == $product->display_size_id)>
@@ -318,7 +329,7 @@
                         {{-- display type --}}
                         <div class="form-group">
                             <label for="display_type_id">Display Type </label>
-                            <select name="display_type_id" class="form-control" id="display_type_id" >
+                            <select name="display_type_id" class="form-control" id="display_type_id">
                                 <option value="" hidden>Choose....</option>
                                 @foreach ($d_types as $dt)
                                     <option value="{{ $dt->id }}" @selected($dt->id == $product->display_type_id)>{{ $dt->name }}
@@ -335,7 +346,7 @@
                         <div class="form-group">
                             <label for="d_resolution" class="col-form-label">Display Resolution </label>
                             <input id="d_resolution" type="text" name="d_resolution" placeholder="Exp:- 1920 x 1080"
-                                value="{{ $product->d_resolution }}" class="form-control" >
+                                value="{{ $product->d_resolution }}" class="form-control">
                             @error('d_resolution')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -372,10 +383,11 @@
 
                         <div class="form-group">
                             <label for="ram_id">RAM (GB)</label>
-                            <select name="ram_id" class="form-control" id="ram_id" >
+                            <select name="ram_id" class="form-control" id="ram_id">
                                 <option value="" hidden>Choose....</option>
                                 @foreach ($rams as $ram)
-                                    <option value="{{ $ram->id }}" @selected($ram->id == $product->ram_id)>{{ $ram->ram }}GB
+                                    <option value="{{ $ram->id }}" @selected($ram->id == $product->ram_id)>
+                                        {{ $ram->ram }}GB
                                     </option>
                                 @endforeach
                             </select>
@@ -442,7 +454,7 @@
                         {{-- SSD  --}}
                         <div class="form-group">
                             <label for="ssd_id">SSD </label>
-                            <select name="ssd_id" class="form-control" id="ssd_id" >
+                            <select name="ssd_id" class="form-control" id="ssd_id">
                                 <option value="">Choose....</option>
                                 @foreach ($ssds as $ssd)
                                     <option value="{{ $ssd->id }}" @selected($ssd->id == $product->ssd_id)>{{ $ssd->name }}
@@ -456,7 +468,7 @@
                         {{-- HDD --}}
                         <div class="form-group">
                             <label for="hdd_id">HDD </label>
-                            <select name="hdd_id" class="form-control" id="hdd_id" >
+                            <select name="hdd_id" class="form-control" id="hdd_id">
                                 <option value="">Choose....</option>
                                 @foreach ($hdds as $hdd)
                                     <option value="{{ $hdd->id }}" @selected($hdd->id == $product->hdd_id)>{{ $hdd->name }}
@@ -478,7 +490,7 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
-
+{{-- @dd($durations) --}}
                         {{-- s_support_type  --}}
                         <div class="form-group">
                             <label for="s_support_type" class="col-form-label">Support SSD/HDD type </label>
@@ -521,7 +533,7 @@
                         <div class="form-group">
                             <label for="g_model" class="col-form-label">Model</label>
                             <input id="g_model" type="text" name="g_model" placeholder="Exp:- AMD Radeon 610M"
-                                value="{{ $product->g_model }}" class="form-control" >
+                                value="{{ $product->g_model }}" class="form-control">
                             @error('g_model')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -530,7 +542,7 @@
                         {{-- Graphics Capcity  --}}
                         <div class="form-group">
                             <label for="graphic_id">Capacity</label>
-                            <select name="graphic_id" class="form-control" id="graphic_id" >
+                            <select name="graphic_id" class="form-control" id="graphic_id">
                                 <option value="" hidden>Choose....</option>
                                 @foreach ($graphics as $graphic)
                                     <option value="{{ $graphic->id }}" @selected($graphic->id == $product->graphic_id)>
@@ -562,7 +574,7 @@
                         <div class="form-group">
                             <label for="k_type" class="col-form-label">Keyboard Type</label>
                             <input id="k_type" type="text" name="k_type" placeholder="Exp:- Standard"
-                                value="{{ $product->k_type }}" class="form-control" >
+                                value="{{ $product->k_type }}" class="form-control">
                             @error('k_type')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -599,7 +611,7 @@
                         <div class="form-group">
                             <label for="webcam" class="col-form-label">Webcam</label>
                             <input id="webcam" type="text" name="webcam" placeholder="Exp:- Yes"
-                                value="{{ $product->webcam ?? 'Yes' }}" class="form-control" >
+                                value="{{ $product->webcam ?? 'Yes' }}" class="form-control">
                             @error('webcam')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -609,7 +621,7 @@
                         <div class="form-group">
                             <label for="microphone" class="col-form-label">Microphone</label>
                             <input id="microphone" type="text" name="microphone" placeholder="Exp:- Yes"
-                                value="{{ $product->microphone ?? 'Yes' }}" class="form-control" >
+                                value="{{ $product->microphone ?? 'Yes' }}" class="form-control">
                             @error('microphone')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -619,7 +631,7 @@
                         <div class="form-group">
                             <label for="speaker" class="col-form-label">Speaker</label>
                             <input id="speaker" type="text" name="speaker" placeholder="Exp:- Yes"
-                                value="{{ $product->speaker ?? 'Yes' }}" class="form-control" >
+                                value="{{ $product->speaker ?? 'Yes' }}" class="form-control">
                             @error('speaker')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -667,7 +679,7 @@
                         <div class="form-group">
                             <label for="hdmi_p" class="col-form-label">HDMI Port </label>
                             <input id="hdmi_p" type="text" name="hdmi_p" placeholder="Exp:- 1x HDMI 1.4b"
-                                 value="{{ $product->hdmi_p }}" class="form-control">
+                                value="{{ $product->hdmi_p }}" class="form-control">
                             @error('hdmi_p')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -677,7 +689,7 @@
                         <div class="form-group">
                             <label for="usb2_p" class="col-form-label">USB 2 Port </label>
                             <input id="usb2_p" type="text" name="usb2_p" placeholder="Exp:- 1x USB 2.0 Type-A"
-                                 value="{{ $product->usb2_p }}" class="form-control">
+                                value="{{ $product->usb2_p }}" class="form-control">
                             @error('usb2_p')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -688,7 +700,7 @@
                             <label for="usb3_p" class="col-form-label">USB 3 Port </label>
                             <input id="usb3_p" type="text" name="usb3_p"
                                 placeholder="Exp:- 1x USB 3.2 Gen 1 Type-A" value="{{ $product->usb3_p }}"
-                                class="form-control" >
+                                class="form-control">
                             @error('usb3_p')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -709,7 +721,7 @@
                         <div class="form-group">
                             <label for="headphone_p" class="col-form-label">Headphone </label>
                             <input id="headphone_p" type="text" name="headphone_p" placeholder="Exp:- 1x Headphone"
-                                 value="{{ $product->headphone_p }}" class="form-control">
+                                value="{{ $product->headphone_p }}" class="form-control">
                             @error('headphone_p')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -719,7 +731,7 @@
                         <div class="form-group">
                             <label for="microphone_p" class="col-form-label">Microphone </label>
                             <input id="microphone_p" type="text" name="microphone_p"
-                                placeholder="Exp:- Microphone Port Combo"  value="{{ $product->microphone_p }}"
+                                placeholder="Exp:- Microphone Port Combo" value="{{ $product->microphone_p }}"
                                 class="form-control">
                             @error('microphone_p')
                                 <span class="text-danger">{{ $message }}</span>
@@ -744,7 +756,7 @@
 
                         {{-- wifi  --}}
                         <div class="form-group">
-                            <label for="wifi" class="col-form-label">Wifi </label>
+                            <label for="wifi" class="col-form-label">WIFI </label>
                             <input id="wifi" type="text" name="wifi" placeholder="Exp:- 11ax, 2x2"
                                 value="{{ $product->wifi }}" class="form-control">
                             @error('wifi')
@@ -756,7 +768,7 @@
                         <div class="form-group">
                             <label for="bluetooth" class="col-form-label">Bluetooth </label>
                             <input id="bluetooth" type="text" name="bluetooth" placeholder="Exp:- Bluetooth 5.0"
-                                 value="{{ $product->bluetooth }}" class="form-control">
+                                value="{{ $product->bluetooth }}" class="form-control">
                             @error('bluetooth')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -815,7 +827,8 @@
                         <div class="form-group">
                             <label for="operating_system" class="col-form-label">Operating System </label>
                             <input id="operating_system" type="text" name="operating_system"
-                                placeholder="Exp:- Windows" value="{{ $product->operating_system }}" class="form-control">
+                                placeholder="Exp:- Windows" value="{{ $product->operating_system }}"
+                                class="form-control">
                             @error('operating_system')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -842,7 +855,7 @@
                             <label for="battery_type" class="col-form-label">Battery Type </label>
                             <input id="battery_type" type="text" name="battery_type"
                                 placeholder="Exp:- 3 Cell Li-ion" value="{{ $product->battery_type }}"
-                                class="form-control" >
+                                class="form-control">
                             @error('battery_type')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -852,8 +865,8 @@
                         <div class="form-group">
                             <label for="battery_capacity" class="col-form-label">Battery Capacity </label>
                             <input id="battery_capacity" type="text" name="battery_capacity"
-                                placeholder="Exp:- 42Whr" value="{{ $product->battery_capacity }}" class="form-control"
-                                >
+                                placeholder="Exp:- 42Whr" value="{{ $product->battery_capacity }}"
+                                class="form-control">
                             @error('battery_capacity')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -864,7 +877,7 @@
                             <label for="adapter_type" class="col-form-label">Adapter Type </label>
                             <input id="adapter_type" type="text" name="adapter_type"
                                 placeholder="Exp:- 65W Round Tip(3-pin)" value="{{ $product->adapter_type }}"
-                                class="form-control" >
+                                class="form-control">
                             @error('adapter_type')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -890,7 +903,7 @@
                         <div class="form-group">
                             <label for="color" class="col-form-label">Color</label>
                             <input id="color" type="text" name="color" placeholder="Exp:- Cloud Grey"
-                                value="{{ $product->color }}" class="form-control" >
+                                value="{{ $product->color }}" class="form-control">
                             @error('color')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -901,7 +914,7 @@
                             <label for="dimension" class="col-form-label">Dimension </label>
                             <input id="dimension" type="text" name="dimension"
                                 placeholder="Exp:- 325.3 x 216.5 x 17.9 mm" value="{{ $product->dimension }}"
-                                class="form-control" >
+                                class="form-control">
                             @error('dimension')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -911,7 +924,7 @@
                         <div class="form-group">
                             <label for="weight" class="col-form-label">Weight </label>
                             <input id="weight" type="text" name="weight" placeholder="Exp:- 1.58 kg"
-                                value="{{ $product->weight }}" class="form-control" >
+                                value="{{ $product->weight }}" class="form-control">
                             @error('weight')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -933,10 +946,12 @@
                     <h4>Warranty Attributes</h4>
                     <div class="ml-3">
                         {{-- w_details  --}}
-                        {{-- Other's information --}}
+                        {{-- w_details  --}}
                         <div class="form-group">
-                            <label for="w_details" class="col-form-label">Others</label>
-                            <textarea class="form-control" id="w_details" name="w_details">{{ $product->w_details }}</textarea>
+                            <label for="w_details" class="col-form-label">Warranty Details</label>
+                            <input id="w_details" type="text" name="w_details"
+                                placeholder="Exp:- 2 years warranty (Battery adapter 1 year)"
+                                value="{{ $product->w_details }}" class="form-control">
                             @error('w_details')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -950,6 +965,26 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div> --}}
+                    </div>
+                </div>
+                {{-- Installment process --}}
+                <div class="mt-4">
+                    <h4>Installment</h4>
+                    <div class="ml-3">
+                        {{-- installment duration  --}}
+                        <div class="form-group">
+                            <label for="durations">Duration </label>
+                            <select name="durations[]" class="form-control selectpicker" id="durations">
+                                @foreach ($durations as $duration)
+                                    <option value="{{ $duration->id }}" @selected($duration->id == $product->installment?->id)>
+                                        {{ $duration->year ? $duration->year . ' years ' : ' ' }}{{ $duration->month ? $duration->month . ' month' : ' ' }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('durations')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
                     </div>
                 </div>
 
@@ -983,7 +1018,7 @@
 
                 <div class="mb-3 form-group">
                     <button type="reset" class="btn btn-warning">Reset</button>
-                    <button class="btn btn-success" type="submit">Submit</button>
+                    <button class="btn btn-success" type="submit">Update</button>
                 </div>
             </form>
         </div>
