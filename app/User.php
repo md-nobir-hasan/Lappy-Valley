@@ -2,8 +2,10 @@
 
 namespace App;
 
+use App\Models\Divission;
+use App\Models\InstallmentOrder;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
@@ -18,7 +20,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','role', 'photo','status','provider','provider_id', 'phone', 'l_name',
+        'name','l_name', 'email','phone','address', 'city','division_id', 'password','role', 'photo','status',
+        'provider','provider_id',
     ];
 
     /**
@@ -41,5 +44,13 @@ class User extends Authenticatable
 
     public function orders(){
         return $this->hasMany('App\Models\Order');
+    }
+
+    public function installment_order():HasMany{
+        return $this->hasMany(InstallmentOrder::class);
+    }
+
+    public function divission(){
+        return $this->belongsTo(Divission::class);
     }
 }

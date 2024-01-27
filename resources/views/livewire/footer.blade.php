@@ -201,7 +201,7 @@
 
               //close side cart
               $(document).on('click', '#side_cart_close', function() {
-                  sc.hide(500);
+                  $("#side_cart").hide(300);
               });
               let cart_product_no = $('.cart-product').length - 1;
               //open cart by clicking on add to cart

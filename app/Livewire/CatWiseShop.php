@@ -14,7 +14,6 @@ use App\Models\Product;
 use App\Models\Ram;
 use App\Models\SpecialFeature;
 use App\Models\ssd;
-use Illuminate\Support\Facades\Request;
 use Livewire\Component;
 use Livewire\Attributes\Title;
 
@@ -31,7 +30,6 @@ class CatWiseShop extends Component
     // }
     public function render()
     {
-
         // dd($this->cat,$cat);
         // $n['products'] = Product::where('status', 'active')->paginate(20);
         $n['brands'] = Brand::get();
