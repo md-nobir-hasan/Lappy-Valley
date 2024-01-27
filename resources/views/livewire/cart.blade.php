@@ -1,7 +1,7 @@
 {{-- <form action="{{ route('checkout') }}" method="POST">
     @csrf --}}
 <!-- ----------cart----- -->
-<div id="side_cart" x-data="{ total: '{{ $carts?->sum('amount') }}' }"
+<div id="side_cart" x-data="{ total: '{{ $carts?->sum('amount') }}', }"
     class="hidden w-[400px] max-sm:w-full max-sm:mt-[50px] bg-[#F2F2F2] right-0 top-0 fixed z-[9999] overflow-y-scroll">
     {{-- cart header (cart icon and close button) --}}
     <div class="w-[400px] max-sm:w-full h-[61px] bg-[#380D37] flex justify-between text-[20px] text-[#fff] items-center pl-[20px] pr-[30px]">
@@ -12,7 +12,6 @@
             </span>
         </div>
         <div>
-            {{-- <h2 id="side_cart_close" class='font-[jost] cursor-pointer font-[500] text-[20px] text-[#F2F2F2]'>Close</h2> --}}
             <span id="side_cart_close" class="cursor-pointer">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
