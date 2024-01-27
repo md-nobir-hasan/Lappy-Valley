@@ -8,6 +8,7 @@ use App\Models\Divission;
 use App\Models\Order;
 use App\Models\OrderStatus;
 use App\Models\Shipping;
+use App\Models\UserAddress;
 use App\Notifications\StatusNotification;
 use App\User;
 use Illuminate\Support\Facades\Auth;
@@ -40,7 +41,6 @@ class Checkout extends Component
 
     #[Rule("required", message: "Please, enter an email")]
     #[Rule("email", message: "Please,Enter a valid email")]
-    // #[Rule("unique:users,email", message: "You have an account. Please, login.")]
     public $email;
 
     #[Rule("required", message: "Please, write your city")]
@@ -64,31 +64,39 @@ class Checkout extends Component
     public function orderSubmit()
     {
         $this->validate();
+
         if (auth()->user()) {
             $carts = Cart::with('product')->where('user_id', auth()->user()->id)->where('order_id', null)->get();
             $user = auth()->user();
         } else {
-            $user = User::where('email', $this->email)->first();
-            if ($user) {
-                $carts = Cart::with('product')->where('user_id', $user->id)->where('order_id', null)->get();
-                $user->name = $this->name;
-                $user->l_name = $this->l_name;
-                $user->save();
-            } else {
-                $carts = Cart::with('product')->where('ip', request()->ip())->where('order_id', null)->get();
-                $user = User::create([
-                    'email' => $this->email,
-                    'name' => $this->name,
-                    'l_name' => $this->l_name,
+            $carts = Cart::with('product')->where('ip', request()->ip())->where('order_id', null)->get();
+            $user = User::firstOrcreate([
+                'email' => $this->email,
+            ]);
+
+            $address =  UserAddress::where('user_id',$user->id)->where('is_default',true)->first();
+            if(!$address){
+                UserAddress::create([
+                    'address' => $this->address,
+                    'city' => $this->city,
+                    'divission_id' => $this->divission_id,
+                    'user_id' => $user->id,
+                    'is_default' => true,
                 ]);
             }
-
             Auth::login($user);
             foreach ($carts as $ct) {
                 $ct->update(['user_id', $user->id]);
             }
         }
-
+        //update user
+        $user->name = $this->name;
+        $user->l_name = $this->l_name;
+        $user->phone = $this->phone;
+        $user->address = $this->address;
+        $user->city = $this->city;
+        $user->divission_id = $this->divission_id;
+        $user->save();
         //cart check
         if (count($carts) < 1) {
             request()->session()->flash('error', 'Cart is Empty !');
@@ -190,15 +198,20 @@ class Checkout extends Component
         }
         if ($user = Auth()->user()) {
             $n['carts'] = Cart::with(['product'])->where('user_id', $user->id)->where('order_id', null)->latest()->get();
+            $address = UserAddress::where('user_id',$user->id)->where('is_default',true)->first();
             $this->name = $user->name;
             $this->l_name = $user->l_name;
             $this->email = $user->email;
             $this->phone = $user->phone;
+            $this->address = $address?->address;
+            $this->city = $address?->city;
+            $this->divission_id = $user?->divission_id;
         } else {
             $n['carts'] = Cart::with(['product'])->where('ip', request()->ip())->where('order_id', null)->latest()->get();
         }
 
         $n['divissions'] = Divission::get();
+        // dd($n);
         $n['shippings'] = Shipping::where('status', 'active')->get();
         return view('livewire.checkout', $n);
     }
