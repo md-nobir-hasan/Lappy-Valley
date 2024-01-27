@@ -329,7 +329,7 @@
                 </div>
 
                 <!-- --------------------------nav----2nd---part (Brands)--------------- -->
-                @if (!$subcat)
+                @if (!$subcat && !$cat)
                     <div x-data="{ open: true, toggle() { this.open = !this.open } }"
                         class='bg-[#F2F2F2] shadow-[0_2px_4px_rgba(0,0,0,.1)] rounded-[10px] mt-3'>
                         <div class="flex justify-between p-[12px]">

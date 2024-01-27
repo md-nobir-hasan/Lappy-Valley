@@ -20,7 +20,7 @@
                             class="menu-container2pt-2 font-[jost] font-[500] text-[#353535] text-[16px] max-sm:text-[14px] bg-[#f2f2f2]">
                             <div class="flex items-center justify-between px-6 py-3 max-sm:px-4 max-sm:py-2 toggleBtn2">
                                 <div class="max-sm:text-[14px] cursor-pointer">All Categories</div>
-                                <div class="toggle-btn2">
+                                <div class="">
                                     <svg class="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                                         width="24" height="24" fill="none" stroke="currentColor"
                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -36,7 +36,7 @@
                                 </div>
                             </div>
                             <ul
-                                class="menu2 hidden list-none bg-[#fff] mt-[10px] text-[#380D37] hover:text-[#f2f2f2] text-[16px] max-sm:text-[14px] font-[jost] font-[400] w-full transition-opacity duration-[3s] ease-in-out origin-top">
+                                class="toggleDiv2 hidden list-none bg-[#fff] mt-[10px] text-[#380D37] hover:text-[#f2f2f2] text-[16px] max-sm:text-[14px] font-[jost] font-[400] w-full transition-opacity duration-[3s] ease-in-out origin-top">
                                 <li class="border-y-[1px] border-[#764A87]"><a href="{{ route('shop') }}"
                                         wire:navigate>All</a></li>
                                 @foreach ($menus as $menu1)
@@ -51,11 +51,13 @@
                             <li
                                 class="whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] max-sm:text-[14px] bg-[#f2f2f2]">
                                 @if (count($menu->child_cat) > 0)
-                                    <div
-                                        class="flex items-center justify-between px-6 py-3 max-sm:px-4 max-sm:py-2 toggleBtn2">
-                                        <div class="max-sm:text-[14px] cursor-pointer">{{ $menu->title }}</div>
-                                        <div class="toggle-btn2">
-                                            <svg class="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                    <div class="flex items-center justify-between px-6 py-3 max-sm:px-4 max-sm:py-2 ">
+                                        <div class="max-sm:text-[14px] cursor-pointer">
+                                            <a href="{{ route('cate_wise.shop', [$menu->slug]) }}"
+                                                wire:navigate>{{ $menu->title }}</a>
+                                        </div>
+                                        <div class="toggleBtn2">
+                                            <svg class="plus text-[black]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                                                 width="24" height="24" fill="none" stroke="currentColor"
                                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                                 <line x1="12" y1="5" x2="12" y2="19">
@@ -63,7 +65,7 @@
                                                 <line x1="5" y1="12" x2="19" y2="12">
                                                 </line>
                                             </svg>
-                                            <svg class="minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                            <svg class="minus text-[red]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                                                 width="24" height="24" fill="none" stroke="currentColor"
                                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                                 style="display: none;">
@@ -73,7 +75,7 @@
                                         </div>
                                     </div>
                                     <ul
-                                        class="menu2 hidden list-none bg-[#fff] mt-[10px] text-[#380D37] hover:text-[#f2f2f2] text-[16px] max-sm:text-[14px] font-[jost] font-[400] w-full transition-opacity duration-[3s] ease-in-out origin-top">
+                                        class="toggleDiv2 hidden list-none bg-[#fff] mt-[10px] text-[#380D37] hover:text-[#f2f2f2] text-[16px] max-sm:text-[14px] font-[jost] font-[400] w-full transition-opacity duration-[3s] ease-in-out origin-top">
                                         @foreach ($menu->child_cat as $menu2)
                                             @if ($loop->first)
                                                 <li class="border-y-[1px] border-[#764A87]"><a
@@ -96,161 +98,6 @@
                             </li>
                         @endforeach
                         <div class="h-[1px] bg-[#764D8733]"></div>
-                        {{-- <li
-                            class="whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] max-sm:text-[14px] bg-[#f2f2f2]">
-                            <div href="#" class="flex items-center justify-between px-6 py-3 max-sm:px-4 max-sm:py-2 toggleBtn2">
-                                <div class="max-sm:text-[14px]">All Categories</div>
-                                <div class="toggle-btn2">
-                                    <svg class="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                        width="24" height="24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="12" y1="5" x2="12" y2="19"></line>
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    </svg>
-                                    <svg class="minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                        width="24" height="24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                        style="display: none;">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    </svg>
-                                </div>
-                            </div>
-                            <ul
-                                class="menu2 hidden list-none bg-[#fff] mt-[10px] text-[#380D37] hover:text-[#f2f2f2] text-[16px] max-sm:text-[14px] font-[jost] font-[400] w-full transition-opacity duration-[3s] ease-in-out origin-top">
-                                <li class="border-y-[1px] border-[#764A87]"><a href="#">Asus</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">DELL</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">HP</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">Lenovo</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">Acer</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">Apple</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">MSI</a></li>
-                            </ul>
-                        </li>
-                        <div class="h-[1px] bg-[#764D8733]"></div>
-                        <li
-                            class="whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] max-sm:text-[14px] bg-[#f2f2f2]">
-                            <div href="#" class="flex items-center justify-between px-6 py-3 max-sm:px-4 max-sm:py-2 toggleBtn2">
-                                <div class="max-sm:text-[14px]">All Categories</div>
-                                <div class="toggle-btn2">
-                                    <svg class="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                        width="24" height="24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="12" y1="5" x2="12" y2="19"></line>
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    </svg>
-                                    <svg class="minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                        width="24" height="24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                        style="display: none;">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    </svg>
-                                </div>
-                            </div>
-                            <ul
-                                class="menu2 hidden list-none bg-[#fff] mt-[10px] text-[#380D37] hover:text-[#f2f2f2] text-[16px] max-sm:text-[14px] font-[jost] font-[400]  w-full transition-opacity duration-[3s] ease-in-out origin-top">
-                                <li class="border-y-[1px] border-[#764A87]"><a href="#">Asus</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">DELL</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">HP</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">Lenovo</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">Acer</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">Apple</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">MSI</a></li>
-                            </ul>
-                        </li>
-                        <div class="h-[1px] bg-[#764D8733]"></div>
-                        <li
-                            class="whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] max-sm:text-[14px] bg-[#f2f2f2]">
-                            <div href="#" class="flex items-center justify-between px-6 py-3 max-sm:px-4 max-sm:py-2 toggleBtn2">
-                                <div class="max-sm:text-[14px]">All Categories</div>
-                                <div class="toggle-btn2">
-                                    <svg class="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                        width="24" height="24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="12" y1="5" x2="12" y2="19"></line>
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    </svg>
-                                    <svg class="minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                        width="24" height="24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                        style="display: none;">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    </svg>
-                                </div>
-                            </div>
-                            <ul
-                                class="menu2 hidden list-none bg-[#fff] mt-[10px] text-[#380D37] hover:text-[#f2f2f2] text-[16px] max-sm:text-[14px] font-[jost] font-[400] w-full transition-opacity duration-[3s] ease-in-out origin-top">
-                                <li class="border-y-[1px] border-[#764A87]"><a href="#">Asus</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">DELL</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">HP</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">Lenovo</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">Acer</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">Apple</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">MSI</a></li>
-                            </ul>
-                        </li>
-                        <div class="h-[1px] bg-[#764D8733]"></div>
-                        <li
-                            class="whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] max-sm:text-[14px] bg-[#f2f2f2]">
-                            <div href="#" class="flex items-center justify-between px-6 py-3 max-sm:px-4 max-sm:py-2 toggleBtn2">
-                                <div class="max-sm:text-[14px]">All Categories</div>
-                                <div class="toggle-btn2">
-                                    <svg class="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                        width="24" height="24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="12" y1="5" x2="12" y2="19"></line>
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    </svg>
-                                    <svg class="minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                        width="24" height="24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                        style="display: none;">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    </svg>
-                                </div>
-                            </div>
-                            <ul
-                                class="menu2 hidden list-none bg-[#fff] mt-[10px] text-[#380D37] hover:text-[#f2f2f2] text-[16px] max-sm:text-[14px] font-[jost] font-[400] w-full transition-opacity duration-[3s] ease-in-out origin-top">
-                                <li class="border-y-[1px] border-[#764A87]"><a href="#">Asus</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">DELL</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">HP</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">Lenovo</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">Acer</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">Apple</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">MSI</a></li>
-                            </ul>
-                        </li>
-                        <div class="h-[1px] bg-[#764D8733]"></div>
-                        <li
-                            class="whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] max-sm:text-[14px] bg-[#f2f2f2]">
-                            <div href="#" class="flex items-center justify-between px-6 py-3 max-sm:px-4 max-sm:py-2 toggleBtn2">
-                                <div class="max-sm:text-[14px]">All Categories</div>
-                                <div class="toggle-btn2">
-                                    <svg class="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                        width="24" height="24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="12" y1="5" x2="12" y2="19"></line>
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    </svg>
-                                    <svg class="minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                        width="24" height="24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                        style="display: none;">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    </svg>
-                                </div>
-                            </div>
-                            <ul
-                                class="menu2 hidden list-none bg-[#fff] mt-[10px] text-[#380D37] hover:text-[#f2f2f2] text-[16px] max-sm:text-[14px] font-[jost] font-[400] w-full transition-opacity duration-[3s] ease-in-out origin-top">
-                                <li class="border-y-[1px] border-[#764A87]"><a href="#">Asus</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">DELL</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">HP</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">Lenovo</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">Acer</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">Apple</a></li>
-                                <li class="border-b-[1px] border-[#764A87]"><a href="#">MSI</a></li>
-                            </ul>
-                        </li>
-                        <div class="h-[1px] bg-[#764D8733]"></div> --}}
                     </ul>
                 </nav>
             </div>
@@ -266,8 +113,7 @@
                 </a>
             </div>
             <div id="search-bar"
-                class="search-bar max-xl:fixed max-sm:top-[49px] max-md:top-[67px] max-xl:top-[67px] max-xl:left-0 max-xl:w-full z-[9999]">
-
+                class="search-bar max-xl:fixed max-xl:hidden max-sm:top-[49px] max-md:top-[67px] max-xl:top-[67px] max-xl:left-0 max-xl:w-full z-[9999]">
                 <div>
                     <div class="">
                         <div class="relative" x-data="{
@@ -335,12 +181,12 @@
                                                 </ul>
                                             @endif
                                         </div>
-                                      
-                                    </div>  
+
+                                    </div>
                                     <button type="submit"
-                                    class=" top-0 end-0 py-2.5 px-[30px] h-full bg-[#df146e] text-[#f2f2f2] rounded-r-[2px] overflow-hidden">
-                                    <span class="">Search</span>
-                                </button>
+                                        class=" top-0 end-0 py-2.5 px-[30px] h-full bg-[#df146e] text-[#f2f2f2] rounded-r-[2px] overflow-hidden">
+                                        <span class="">Search</span>
+                                    </button>
 
                                 </div>
                             </form>
@@ -440,6 +286,9 @@
             @endauth
         </div>
     </div>
+    <div>
+        <h1 class="dblclick">Click me double</h1>
+    </div>
 </div>
 @script
     <script>
@@ -491,13 +340,29 @@
         });
 
         $(document).ready(function() {
-            $('.toggleBtn2').click(function() {
-                var menu = $(this).next('.menu2');
-                menu.toggle();
-                $(this).find('.plus, .minus').toggle();
-            });
-            $('.menu li').click(function() {
-                $(this).toggleClass('active');
+            var previous_click = 0;
+            $('.toggleBtn2').each(function(index) {
+                $(this).on('click', function() {
+                    // previous_click  index
+                    //Twice handle
+                    var menu = $('.toggleDiv2').eq(index);
+                    if (menu.is(':visible')) {
+                        menu.hide(200);
+                        $(this).find('.plus').show(200);
+                        $(this).find('.minus').hide(200);
+                        return false;
+                    } else {
+                        //everythis is off
+                        $('.toggleDiv2').hide(200);
+                        $('.plus').show(200);
+                        $('.minus').hide(200);
+
+                        // Specific on
+                        menu.show(200);
+                        $(this).find('.plus').hide(200);
+                        $(this).find('.minus').show(200);
+                    }
+                });
             });
         });
     </script>

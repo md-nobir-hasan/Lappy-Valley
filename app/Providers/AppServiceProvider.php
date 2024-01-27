@@ -6,6 +6,7 @@ use App\Models\gtag;
 use App\Models\OtherSetting;
 use App\Models\Pixel;
 use App\Models\Settings;
+use FontLib\Table\Type\name;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Pagination\Paginator;
