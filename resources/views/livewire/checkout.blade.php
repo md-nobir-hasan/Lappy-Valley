@@ -1,14 +1,15 @@
- <div class="px-[100px] max-2xl:px-[70px] max-xl:px-[60px] max-lg:px-[38px] max-md:px-[35px] max-sm:px-[15px] max-sm:mt-[70px] max-xl:mt-[100px]">
-    @if ($success = session('success'))
-        <script>
-            toastr.success("{{ $success }}")
-        </script>
-    @endif
-    @if ($error = session('error'))
-        <script>
-            toastr.error("{{ $error }}")
-        </script>
-    @endif
+ <div
+     class="px-[100px] max-2xl:px-[70px] max-xl:px-[60px] max-lg:px-[38px] max-md:px-[35px] max-sm:px-[15px] max-sm:mt-[70px] max-xl:mt-[100px]">
+     @if ($success = session('success'))
+         <script>
+             toastr.success("{{ $success }}")
+         </script>
+     @endif
+     @if ($error = session('error'))
+         <script>
+             toastr.error("{{ $error }}")
+         </script>
+     @endif
      <form wire:submit='orderSubmit' x-data="{
          total: {{ $carts->sum('amount') }},
          shipping_price: 0,
@@ -19,17 +20,17 @@
              this.total += price;
              this.shipping_price = price;
          },
-         discount(){
-            let res = {{$coupon}};
-            if (res.type == 'percent') {
-                this.all_total = Math.round(this.total - (this.total * Number(res.value) / 100));
-                return res.value + '%';
-            } else if(res.type == 'fixed'){
-                this.all_total = Math.round(this.total - Number(res.value));
-                return 'BDT ' + res.value;
-            }else{
-                return 'BDT' + 0;
-            }
+         discount() {
+             let res = {{ $coupon }};
+             if (res.type == 'percent') {
+                 this.all_total = Math.round(this.total - (this.total * Number(res.value) / 100));
+                 return res.value + '%';
+             } else if (res.type == 'fixed') {
+                 this.all_total = Math.round(this.total - Number(res.value));
+                 return 'BDT ' + res.value;
+             } else {
+                 return 'BDT' + 0;
+             }
          }
      }">
          <div>
@@ -76,9 +77,10 @@
                              <input name="l_name" id="l_name"
                                  class=" w-full py-[10px] pl-[10px] border-[1px] border-[#380D37] italic rounded-[4px] font-[jost] font-[500] text-[12px] text-[#380D37] placeholder-[#C4C4C4]"
                                  type="text"
-                                 @if (auth()->user()) value='{{ auth()->user()->l_name ?? old('l_name') }}' @else value='{{ old('l_name') }}' @endif
-                                 placeholder="Last Name*"
-                                 wire:model='l_name'>
+                                 @if (auth()->user()) value='@if (auth()->user()->l_name) {{ auth()->user()->l_name }} @else {{ old('l_name') }} @endif'
+                             @else value='{{ old('l_name') }}' @endif
+                             placeholder="Last Name*"
+                             wire:model='l_name'>
                              @error('l_name')
                                  <span class="text-[red] text-[12px]">{{ $message }}</span>
                              @enderror
@@ -91,7 +93,7 @@
                          <input name="address" id="address"
                              class="w-full py-[10px] pl-[10px] border-[1px] border-[#380D37] italic rounded-[4px] font-[jost] font-[500] text-[12px] text-[#380D37] placeholder-[#C4C4C4]"
                              type="text" placeholder="Address*"
-                             @if (auth()->user()) value='{{ auth()->user()->name ?? old('address') }}' @else value='{{ old('address') }}' @endif
+                             @if (auth()->user()) value='{{ auth()->user()->address ?? 'address' }}' @else value='{{ old('address') }}' @endif
                              wire:model='address'>
                          @error('address')
                              <span class="text-[red] text-[12px]">{{ $message }}</span>
@@ -102,7 +104,7 @@
                          <label class="block font-[jost] font-[500] text-[#353535] text-[12px]"
                              for="phone">Mobile*</label>
                          <input name="phone" id="phone"
-                             class=" w-full py-[10px] pl-[10px] border-[1px] border-[#380D37] italic rounded-[4px] font-[jost] font-[500] text-[12px] text-[#380D37] placeholder-[#C4C4C4]"
+                             class="w-full py-[10px] pl-[10px] border-[1px] border-[#380D37] italic rounded-[4px] font-[jost] font-[500] text-[12px] text-[#380D37] placeholder-[#C4C4C4]"
                              type="number" placeholder="Mobile Number*"
                              @if (auth()->user()) value='{{ auth()->user()->phone ?? old('phone') }}' @else value='{{ old('phone') }}' @endif
                              wire:model='phone'>
@@ -128,23 +130,26 @@
                          <div class="w-full">
                              <label class="block font-[jost] font-[500] text-[#353535] text-[12px]"
                                  for="city">City*</label>
+
                              <input name="city" id="city"
                                  class=" w-full py-[10px] pl-[10px] border-[1px] border-[#380D37] italic rounded-[4px] font-[jost] font-[500] text-[12px] text-[#380D37] placeholder-[#C4C4C4]"
                                  type="text" placeholder="City*"
-                                 @if (auth()->user()) value='{{ auth()->user()->city ?? old('city') }}' @else value='{{ old('city') }}' @endif
+                                 @if (auth()->user()) value='{{ auth()->user()->city }}' @else value="{{ old('city') }}" @endif
                                  wire:model='city'>
                              @error('city')
                                  <span class="text-[red] text-[12px]">{{ $message }}</span>
                              @enderror
                          </div>
+                         {{-- @dd(auth()->user()) --}}
                          <div class="w-full">
                              <label class="block font-[jost] font-[500] text-[#353535] text-[12px]"
                                  for="divission_id">Zone*</label>
                              <select name="divission_id" id="divission_id"
                                  class="w-full py-[10px] pl-[10px] border-[1px] rounded-[4px] italic border-[#380D37] font-[jost] font-[500] text-[12px] text-[#380D37] placeholder-[#C4C4C4]"
                                  wire:model='divission_id'>
+                                 <option value="">Choose...</option>
                                  @foreach ($divissions as $division)
-                                     <option value="{{ $division->id }}" @selected($division->id == old('divission_id'))>
+                                     <option value="{{ $division->id }}" @selected($division->id ==( auth()->user() ? auth()->user()->divission_id : 0))>
                                          {{ $division->name }}</option>
                                  @endforeach
                              </select>
@@ -159,8 +164,7 @@
                              for="comment">Comment:</label>
                          <input id="comment"
                              class="w-full pt-[10px] pb-[80px] pl-[10px] border-[1px] border-[#380D37] italic rounded-[4px] font-[jost] font-[500] text-[12px] text-[#380D37] placeholder-[#C4C4C4]"
-                             type="text" placeholder="comment"
-                             wire:model='comment'>
+                             type="text" placeholder="comment" wire:model='comment'>
                          @error('comment')
                              <span class="text-[red] text-[12px]">{{ $message }}</span>
                          @enderror
@@ -191,15 +195,13 @@
                          </div>
                          <div class="my-[10px] flex items-center gap-[5px]">
                              <input name="payment_method" id="cod" class="w-[14px] h-[14px] accent-[#380D37]"
-                                  type="radio" value="cod"
-                                 wire:model='payment_method'>
+                                 type="radio" value="cod" wire:model='payment_method'>
                              <label class="text-[#353535] text-[14px] font-[jost] font-[400]" for="cod">
                                  Cash on Delivery</label>
                          </div>
                          <div class="my-[10px] flex items-center gap-[5px]">
                              <input id="online" name="payment_method" class="w-[14px] h-[14px] accent-[#380D37]"
-                                 type="radio" value="online"
-                                 wire:model='payment_method'>
+                                 type="radio" value="online" wire:model='payment_method'>
                              <label class="text-[#353535] text-[14px] font-[jost] font-[400]" for="online">
                                  Online Payment</label>
                          </div>
@@ -226,7 +228,7 @@
                                  <h1
                                      class="text-[#380D37] text-[20px] font-[jost] font-[500] tracking-[.5px] text-center">
                                      Delivery Method
-                                </h1>
+                                 </h1>
                              </div>
                          </div>
                          <div class="my-[10px]">
@@ -236,9 +238,9 @@
                          @foreach ($shippings as $shipping)
                              <div class="my-[10px] flex items-center gap-[5px]">
                                  <input @checked($loop->first) name="shipping_id"
-                                     id="shipping{{ $shipping->id }}"
-                                     value="{{ $shipping->id }}" class="w-[14px] h-[14px] accent-[#380D37]"
-                                     type="radio" wire:model='shipping_id' @change="shipChange({{ $shipping->price }})">
+                                     id="shipping{{ $shipping->id }}" value="{{ $shipping->id }}"
+                                     class="w-[14px] h-[14px] accent-[#380D37]" type="radio"
+                                     wire:model='shipping_id' @change="shipChange({{ $shipping->price }})">
                                  <label class="text-[#353535] text-[14px] font-[jost] font-[400]"
                                      for="shipping{{ $shipping->id }}">
                                      {{ $shipping->type . '- ' . $shipping->price . ' Taka ' . $shipping->through ?? '' }}</label>
@@ -339,8 +341,8 @@
          </section>
 
          <div class="mt-6">
-             @if($err_msg)
-             <span class="text-[red] block text-right mb-1">{{$err_msg}}</span>
+             @if ($err_msg)
+                 <span class="text-[red] block text-right mb-1">{{ $err_msg }}</span>
              @endif
              <button
                  class="fill-up-btn ml-auto flex justify-center items-center rounded-[4px] px-[20px] py-[10px] text-[16px] text-center text-[#f2f2f2] font-[jost] font-[500] bg-gradient-to-r from-[#380D37] to-[#DC275C]">

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Divission;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -19,6 +20,10 @@ class CreateUsersTable extends Migration
             $table->string('l_name')->nullable();
             $table->string('email')->unique()->nullable();
             $table->bigInteger('phone')->nullable();
+            $table->text('address')->nullable();
+            $table->string('city')->nullable();
+            $table->foreignIdFor(Divission::class)->nullable();
+            $table->integer('post_code')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
             $table->string('photo')->nullable();
