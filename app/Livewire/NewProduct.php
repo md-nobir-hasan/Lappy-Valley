@@ -27,6 +27,8 @@ class NewProduct extends Component
     public $prds;
     public $product_type;
     public $shop_title = 'New Product';
+    public $subcat;
+    public $cat;
     // public function mount()
     // {
     //     $this->prds = Product::where('status', 'active')->get();
