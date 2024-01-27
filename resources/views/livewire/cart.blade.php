@@ -2,7 +2,7 @@
     @csrf --}}
 <!-- ----------cart----- -->
 <div id="side_cart" x-data="{ total: '{{ $carts?->sum('amount') }}', }"
-    class="hidden w-[400px] max-sm:w-full max-sm:mt-[50px] bg-[#F2F2F2] right-0 top-0 fixed z-[9999] overflow-y-scroll">
+    class="hidden w-[400px] max-sm:w-full bg-[#F2F2F2] right-0 top-0 max-sm:top-[50px] max-xl:top-[68px]  fixed z-[9999] overflow-y-scroll">
     {{-- cart header (cart icon and close button) --}}
     <div class="w-[400px] max-sm:w-full h-[61px] bg-[#380D37] flex justify-between text-[20px] text-[#fff] items-center pl-[20px] pr-[30px]">
         <div class="flex items-center gap-[5px]">
@@ -111,7 +111,7 @@
                                 // dd($photo);
                             @endphp
                         @endif
-                        <img class="w-[80px] h-[px]" src="{{ $photo }}" alt="{{ $cart->product->title }}">
+                        <img class="w-[80px]" src="{{ $photo }}" alt="{{ $cart->product->title }}">
                     </div>
 
                     <div>
@@ -123,13 +123,17 @@
                         <div
                             class='border-[#380D37] w-[85px] h-[19.231px] border-[2px] rounded-[4px] my-[10px] flex items-center justify-around'>
                             <span @click="minus"
-                                class='text-[#380D37] h-[19.231px] border-[#380D37] border-r-[2px] pr-[5px] flex items-center cursor-pointer  text-center'>-</span>
+                                class='text-[#380D37] text-[20px] h-[19.231px] border-[#380D37] border-r-[2px] pl-[5px] pr-[5px] flex items-center justify-center cursor-pointer text-center'>
+                                -
+                            </span>
                             <span x-text="qty"
-                                class='text-[#380D37] h-[19.231px] w-[40px] border-[#380D37] border-r-[2px]  flex items-center  justify-center'>
+                                class='text-[#380D37] h-[19.231px] w-[45px] border-[#380D37] border-r-[2px] flex items-center justify-center'>
 
                             </span>
                             <span @click="plus"
-                                class='text-[#380D37] h-[19.231px] pr-[5px] flex items-center cursor-pointer text-center'>+</span>
+                                class='text-[#380D37] text-[20px] h-[19.231px] pl-[5px] pr-[5px] flex items-center justify-center cursor-pointer text-center'>
+                                +
+                            </span>
                         </div>
 
                         <div class="flex text-left">
