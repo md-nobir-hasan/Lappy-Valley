@@ -203,20 +203,20 @@
     <div class="my-[15px]">
         <div class="flex gap-[20px]">
             <a href="#specification" data-te-smooth-scroll-init data-te-offset="25"
-                class="spf_btn bg-[#380D37] max-lg:text-[18px] text-[20px] max-sm:text-[12px] text-[#F2F2F2] text-center font-[700] font-[jost] py-[14px] max-sm:py-[10px] px-6 max-sm:px-3 rounded-[5px] max-md:w-full md:w-[168px] h-[50px] max-md:h-full">
+                class="spf_btn flex items-center justify-center bg-[#380D37] max-lg:text-[18px] text-[20px] max-sm:text-[12px] text-[#f2f2f2] text-center font-[700] font-[jost] py-[14px] max-sm:py-[10px] px-6 max-sm:px-3 rounded-[5px] max-md:w-full md:w-[168px] h-[50px] max-md:h-full">
                 Specification</a>
             <a href="#description" data-te-smooth-scroll-init data-te-offset="25"
-                class="dst_btn bg-[#F2F2F2] max-lg:text-[18px] text-[20px] max-sm:text-[12px] text-[#380D37] text-center font-[700] font-[jost] py-[14px] max-sm:py-[10px] px-6 max-sm:px-3 rounded-[5px] max-md:w-full w-[168px] h-[50px] max-md:h-full">
+                class="dst_btn flex items-center justify-center bg-[#F2F2F2] max-lg:text-[18px] text-[20px] max-sm:text-[12px] text-[#380D37] text-center font-[700] font-[jost] py-[14px] max-sm:py-[10px] px-6 max-sm:px-3 rounded-[5px] max-md:w-full w-[168px] h-[50px] max-md:h-full">
                 Description</a>
             <a href='#review' data-te-smooth-scroll-init data-te-offset="25"
-                class="rev_btn bg-[#F2F2F2] max-lg:text-[18px] text-[20px] max-sm:text-[12px] text-[#380D37] text-center font-[700] font-[jost] py-[14px] max-sm:py-[10px] px-8 max-sm:px-4 rounded-[5px] max-md:w-full w-[168px] h-[50px] max-md:h-full"
+                class="rev_btn flex items-center justify-center bg-[#F2F2F2] max-lg:text-[18px] text-[20px] max-sm:text-[12px] text-[#380D37] text-center font-[700] font-[jost] py-[14px] max-sm:py-[10px] px-8 max-sm:px-4 rounded-[5px] max-md:w-full w-[168px] h-[50px] max-md:h-full"
                 data-area="ask-question">Review</a>
         </div>
     </div>
     <!-- -----table--section---start----- -->
     <div class="grid grid-cols-4 gap-10 max-lg:grid-cols-1 max-lg:gap-0">
         <div class="col-span-3">
-            <section class="border-[2px] max-sm:border-[1px] border-[#380D37] p-[20px] rounded-[5px]"
+            <section class="border-[2px] max-sm:border-[1px] border-[#380D37] max-sm:p-[5px] max-md:p-[8px] max-lg-[12px] p-[20px] rounded-[5px]"
                 id="specification">
                 <div class="text-[#353535] max-lg:text-[18px] text-[20px] font-[jost] font-[500]">
                     <h2>Specification</h2>
@@ -1249,7 +1249,7 @@
             $('.rev_btn').on('click', function() {
                 $(this).addClass('bg-[#380D37] text-[#F2F2F2]');
                 $(this).removeClass('bg-[#F2F2F2] text-[#380D37]');
-                $('.spf_btn').removeClass('bg-[#380D37] text-[#F2F2F2]');
+                $('.spf_btn').removeClass('bg-[#380D37] text-[#f2f2f2]');
                 $('.spf_btn').addClass('bg-[#F2F2F2] text-[#380D37]');
                 $('.dst_btn').removeClass('bg-[#380D37] text-[#F2F2F2]');
                 $('.dst_btn').addClass('bg-[#F2F2F2] text-[#380D37]');

@@ -5663,6 +5663,10 @@ input[type="range"]:active::-webkit-slider-thumb{
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.hover\:text-\[\]:hover{
+  color: ;
+}
+
 .hover\:underline:hover{
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
@@ -7620,6 +7624,10 @@ input[type="range"]:active::-webkit-slider-thumb{
     padding: 15px;
   }
 
+  .max-md\:p-\[8px\]{
+    padding: 8px;
+  }
+
   .max-md\:px-\[30px\]{
     padding-left: 30px;
     padding-right: 30px;
@@ -8030,6 +8038,10 @@ input[type="range"]:active::-webkit-slider-thumb{
 
   .max-sm\:p-\[8px\]{
     padding: 8px;
+  }
+
+  .max-sm\:p-\[5px\]{
+    padding: 5px;
   }
 
   .max-sm\:px-3{
