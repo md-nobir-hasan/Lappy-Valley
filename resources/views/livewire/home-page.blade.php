@@ -92,6 +92,7 @@
             </div>
         </div>
     </section>
+
     <!-- New arrival  -->
     <section>
         <!-- heading -->
@@ -126,6 +127,7 @@
             </div>
         </div>
     </section>
+
     <!-- Product  -->
     <section>
         <div
@@ -139,6 +141,7 @@
         </div>
     </section>
     <!-- Product  -->
+
     <!-- Feature Laptops Sliders -->
     <section>
         <div class="py-1 text-center">
@@ -291,230 +294,7 @@
                             </div>
                         </div>
                     @endforeach
-                    {{-- <div class="swiper-slide">
-                        <div
-                            class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div class="">
-                                <div class="image-container1">
-                                    <a href="#">
-                                        <img src="/storage/product/large-size-laptop.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="mb-auto">
-                                    <a href="#"
-                                        class="mb-auto text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-300 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                        Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB, Brand New Cloud grey
-                                    </a>
-                                </div>
-                            </div>
 
-                            <div
-                                class=" flex justify-between gap-5 text-[14px] mt-auto font-[jost] font-[700] py-[10px] leading-[20.23px]">
-                                <span href="#" class=" text-[#DC275C]">
-                                    1,50,000 TK
-                                </span>
-                                <a class="text-[#380D37]">
-                                    Add to Cart
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div
-                            class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div class="">
-                                <div class="image-container1">
-                                    <a href="#">
-                                        <img src="/storage/product/large-size-laptop.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="mb-auto">
-                                    <a href="#"
-                                        class="mb-auto text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-300 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                        Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB, Brand New Cloud grey
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div
-                                class=" flex justify-between gap-5 text-[14px] mt-auto font-[jost] font-[700] py-[10px] leading-[20.23px]">
-                                <span href="#" class=" text-[#DC275C]">
-                                    1,50,000 TK
-                                </span>
-                                <a class="text-[#380D37]">
-                                    Add to Cart
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div
-                            class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div class="">
-                                <div class="image-container1">
-                                    <a href="#">
-                                        <img src="/storage/product/large-size-laptop.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="mb-auto">
-                                    <a href="#"
-                                        class="mb-auto text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-300 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                        Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB, Brand New Cloud grey
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div
-                                class=" flex justify-between gap-5 text-[14px] mt-auto font-[jost] font-[700] py-[10px] leading-[20.23px]">
-                                <span href="#" class=" text-[#DC275C]">
-                                    1,50,000 TK
-                                </span>
-                                <a class="text-[#380D37]">
-                                    Add to Cart
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div
-                            class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div class="">
-                                <div class="image-container1">
-                                    <a href="#">
-                                        <img src="/storage/product/large-size-laptop.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="mb-auto">
-                                    <a href="#"
-                                        class="mb-auto text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-300 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                        Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB, Brand New Cloud grey
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div
-                                class=" flex justify-between gap-5 text-[14px] mt-auto font-[jost] font-[700] py-[10px] leading-[20.23px]">
-                                <span href="#" class=" text-[#DC275C]">
-                                    1,50,000 TK
-                                </span>
-                                <a class="text-[#380D37]">
-                                    Add to Cart
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div
-                            class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div class="">
-                                <div class="image-container1">
-                                    <a href="#">
-                                        <img src="/storage/product/large-size-laptop.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="mb-auto">
-                                    <a href="#"
-                                        class="mb-auto text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-300 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                        Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB, Brand New Cloud grey
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div
-                                class=" flex justify-between gap-5 text-[14px] mt-auto font-[jost] font-[700] py-[10px] leading-[20.23px]">
-                                <span href="#" class=" text-[#DC275C]">
-                                    1,50,000 TK
-                                </span>
-                                <a class="text-[#380D37]">
-                                    Add to Cart
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div
-                            class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div class="">
-                                <div class="image-container1">
-                                    <a href="#">
-                                        <img src="/storage/product/large-size-laptop.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="mb-auto">
-                                    <a href="#"
-                                        class="mb-auto text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-300 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                        Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB, Brand New Cloud grey
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div
-                                class=" flex justify-between gap-5 text-[14px] mt-auto font-[jost] font-[700] py-[10px] leading-[20.23px]">
-                                <span href="#" class=" text-[#DC275C]">
-                                    1,50,000 TK
-                                </span>
-                                <a class="text-[#380D37]">
-                                    Add to Cart
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div
-                            class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div class="">
-                                <div class="image-container1">
-                                    <a href="#">
-                                        <img src="/storage/product/large-size-laptop.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="mb-auto">
-                                    <a href="#"
-                                        class="mb-auto text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-300 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                        Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB, Brand New Cloud grey
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div
-                                class=" flex justify-between gap-5 text-[14px] mt-auto font-[jost] font-[700] py-[10px] leading-[20.23px]">
-                                <span href="#" class=" text-[#DC275C]">
-                                    1,50,000 TK
-                                </span>
-                                <a class="text-[#380D37]">
-                                    Add to Cart
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div
-                            class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                            <div class="">
-                                <div class="image-container1">
-                                    <a href="#">
-                                        <img src="/storage/product/large-size-laptop.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="mb-auto">
-                                    <a href="#"
-                                        class="mb-auto text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-300 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                        Lenovo IdeaPad 15AMN7 AMD Ryzen 5 7520U 8-512 GB, Brand New Cloud grey
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div
-                                class=" flex justify-between gap-5 text-[14px] mt-auto font-[jost] font-[700] py-[10px] leading-[20.23px]">
-                                <span href="#" class=" text-[#DC275C]">
-                                    1,50,000 TK
-                                </span>
-                                <a class="text-[#380D37]">
-                                    Add to Cart
-                                </a>
-                            </div>
-                        </div>
-                    </div> --}}
                 </div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
@@ -1560,7 +1340,7 @@ k                                    </a>
                         <span class="text-[red] text-[12px]">{{ $message }}</span>
                     @enderror
                 </div>
-                <div class="flex items-center max-md:justify-center">
+                <div class="flex items-center max-md:justify-center flex-col">
                     @if ($post_success_msg)
                         <span class="block text-[green]">{{ $post_success_msg }}</span>
                     @endif
@@ -1571,7 +1351,7 @@ k                                    </a>
                     <button class="fill-up-btn text-[#f2f2f2] text-center text-[16px] h-[44px] px-[40px] py-[10px] rounded-[4px] font-[500] font-[jost] mt-[15px]  bg-gradient-to-r from-[#380D37] to-[#DC275C] "
                         type="submit">
                         Post
-                        <div wire:loading
+                        <div wire:loading wire:target='post'
                             class="absolute right-0 inline-block h-6 w-6 mr-2 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-success motion-reduce:animate-[spin_1.5s_linear_infinite]"
                             role="status">
                             <span
