@@ -40,7 +40,7 @@ class Checkout extends Component
 
     #[Rule("required", message: "Please, enter an email")]
     #[Rule("email", message: "Please,Enter a valid email")]
-    #[Rule("unique:users,email", message: "You have an account. Please, login.")]
+    // #[Rule("unique:users,email", message: "You have an account. Please, login.")]
     public $email;
 
     #[Rule("required", message: "Please, write your city")]
@@ -68,12 +68,21 @@ class Checkout extends Component
             $carts = Cart::with('product')->where('user_id', auth()->user()->id)->where('order_id', null)->get();
             $user = auth()->user();
         } else {
-            $carts = Cart::with('product')->where('ip', request()->ip())->where('order_id', null)->get();
-            $user = User::create([
-                'email' => $this->email,
-                'name' => $this->name,
-                'l_name' => $this->l_name,
-            ]);
+            $user = User::where('email', $this->email)->first();
+            if ($user) {
+                $carts = Cart::with('product')->where('user_id', $user->id)->where('order_id', null)->get();
+                $user->name = $this->name;
+                $user->l_name = $this->l_name;
+                $user->save();
+            } else {
+                $carts = Cart::with('product')->where('ip', request()->ip())->where('order_id', null)->get();
+                $user = User::create([
+                    'email' => $this->email,
+                    'name' => $this->name,
+                    'l_name' => $this->l_name,
+                ]);
+            }
+
             Auth::login($user);
             foreach ($carts as $ct) {
                 $ct->update(['user_id', $user->id]);
@@ -98,10 +107,10 @@ class Checkout extends Component
         // $shipping = Shipping::where('id', $order_data['shipping_id'])->pluck('price');
         // $order_data['sub_total'] = $carts->sum('amount');
 
-        if($c_id = Session::get('coupon_id')){
+        if ($c_id = Session::get('coupon_id')) {
             $coupon = Coupon::find($c_id);
-            $order_data['sub_total'] = $carts->sum('amount')-$coupon->discount($carts->sum('amount'));
-        }else{
+            $order_data['sub_total'] = $carts->sum('amount') - $coupon->discount($carts->sum('amount'));
+        } else {
             $order_data['sub_total'] = $carts->sum('amount');
         }
 
@@ -174,9 +183,9 @@ class Checkout extends Component
 
     public function render()
     {
-        if($coupon_id = Session::get('coupon_id')){
+        if ($coupon_id = Session::get('coupon_id')) {
             $n['coupon'] = Coupon::find($coupon_id);
-        }else{
+        } else {
             $n['coupon'] = 0;
         }
         if ($user = Auth()->user()) {
