@@ -239,8 +239,7 @@ class ProductController extends Controller
     public function edit($id)
     {
         $this->ccan('Edit Product');
-
-        $n['product'] = Product::with('cat_info', 'sub_cat_info', 'brand', 'ProcessorGeneration', 'ProcessorModel', 'DisplayType', 'DisplaySize', 'Ram', 'ssd', 'hdd', 'Graphic', 'SpecialFeature')
+        $n['product'] = Product::with('cat_info','installment', 'sub_cat_info', 'brand', 'ProcessorGeneration', 'ProcessorModel', 'DisplayType', 'DisplaySize', 'Ram', 'ssd', 'hdd', 'Graphic', 'SpecialFeature')
                         ->find($id);
         $n['brands'] = Brand::get();
         $n['brands'] = Brand::get();
@@ -251,6 +250,7 @@ class ProductController extends Controller
         $n['rams'] = Ram::get();
         $n['ssds'] = ssd::get();
         $n['hdds'] = hdd::get();
+        $n['durations']=Duration::where('status',true)->get();
         $n['graphics'] = Graphic::get();
         $n['special_features'] = SpecialFeature::get();
         $n['product_offers'] = ProductOffer::get();
@@ -387,7 +387,7 @@ class ProductController extends Controller
                 foreach ($drs as $dr) {
                     Installment::updateOrCreate([
                         'duration_id' => $dr,
-                        'product_id' => $status->id,
+                        'product_id' => $product->id,
                     ]);
                 }
             }
