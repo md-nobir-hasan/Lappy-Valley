@@ -329,7 +329,7 @@
                 </div>
 
                 <!-- --------------------------nav----2nd---part (Brands)--------------- -->
-                @if (!$subcat)
+                @if (!$subcat && !$cat)
                     <div x-data="{ open: true, toggle() { this.open = !this.open } }"
                         class='bg-[#F2F2F2] shadow-[0_2px_4px_rgba(0,0,0,.1)] rounded-[10px] mt-3'>
                         <div class="flex justify-between p-[12px]">
@@ -1109,15 +1109,17 @@
                                         class="product_div relative overflow-hidden border-[1px] border-[#380D37] bg-[#f2f2f2] rounded-[4px] box-border px-[5px] mt-2 flex flex-col gap-2 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] ">
 
                                         <div class="flex items-center justify-center image-container">
+                                           <a :href="'/product-details/'+product.slug" wire:navigate>
                                             <img :src="product.photo.split(',')[0]"
-                                                class="rounded-t-lg img-fluid h-[180px] object-container"
-                                                data-te-ripple-init data-te-ripple-color="dark" alt="avatar.png">
+                                            class="rounded-t-lg img-fluid h-[180px] object-container"
+                                            data-te-ripple-init data-te-ripple-color="dark" alt="avatar.png">
+                                           </a>
                                         </div>
 
                                         <div
                                             class="p-4 max-sm:p-[8px] border-t-[1px] border-[#380D3733]">
                                             <div class=' border-[#380D3733] mb-2'>
-                                                <a href="#"
+                                                <a :href="'/product-details/'+product.slug" wire:navigate
                                                     class="font-[jost] text-[12px] font-[500] leading-[20px] text-left text-[#380D37] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-1 hover:underline hover:underline-offset-4"
                                                     x-text='product.title'>
                                                 </a>
