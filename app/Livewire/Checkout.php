@@ -107,7 +107,10 @@ class Checkout extends Component
 
         $shipngs = Shipping::find($this->shipping_id);
         // dd($shipngs);
-        $order_data['amount'] = $order_data['sub_total'] + $shipngs->price;
+        $installment1 = $order_data['sub_total'] + $shipngs->price;
+        $order_data['amount'] = $installment1;
+        $order_data['payable'] = $installment1;
+        $order_data['installment_count'] = 1;
         $order_data['inventory_cost'] = $carts->sum('inventory_cost');
         $order_data['quantity'] = $carts->sum('quantity');
 
