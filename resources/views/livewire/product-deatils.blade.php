@@ -473,7 +473,7 @@
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td
-                                class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[400] max-sm:translate-y-[-16px] pl-[20px]">
+                                class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[400] pl-[20px]">
                                 Storage Upgrade:
                             </td>
                             <td
@@ -1148,7 +1148,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="flex my-[10px] items-center">
+                <div class="flex my-[10px] items-center gap-[10px]">
                     @for ($i = 1; $i < 6; $i++)
                         @if ($i <= $product->average_rating)
                             <img class="h-7" src="/storage/product/star2.svg" alt="">
@@ -1157,7 +1157,7 @@
                         @endif
                     @endfor
 
-                    <div class="items-center">
+                    <div class="items-center mt-[5px]">
                         <span
                             class="font-[jost] max-sm:text-[16px] font-[500] mt-[5px]">{{ $product->average_rating }}
                             out of 5
