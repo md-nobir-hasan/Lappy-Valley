@@ -24,7 +24,6 @@ class Admin
                 return redirect()->route('account');
 
             }else{
-
                 return redirect()->route('user.login');
             }
         }

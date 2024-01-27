@@ -69,7 +69,7 @@ class LoginController extends Controller
                 'provider_id'   => $userSocial->getId(),
                 'provider'      => $provider,
             ]);
-         return redirect()->route('/account');
+         return redirect()->route('account');
         }
     }
 }
