@@ -154,7 +154,7 @@
                             </div>
 
 
-                            <div class="flex flex-col py-3">
+                            <div class="flex flex-col py-3 cursor-pointer">
                                 <span>
                                     <span
                                         class="max-lg:text-[18px] text-[20px] text-[#353535] font-[jost] font-[700]">{{ number_format($product->price / $month, 2) }}৳/month
@@ -185,11 +185,11 @@
                     {{-- Mora buttons  --}}
                     <a>
                         <button disabled
-                            class="cursor-not-allowed text-[#f2f2f2] bg-gradient-to-r from-[#380D37] to-[#DC275C] max-lg:text-[18px] max-sm:text-[16px] text-[20px] py-[12px] max-lg:py-[14px] px-[40px] max-lg:px-[30px] max-md:px-[30px] font-[jost] font-[700] mt-auto rounded-[5px]">
+                            class="cursor-not-allowed text-[#f2f2f2] bg-[#cccccc] max-lg:text-[18px] max-sm:text-[16px] text-[20px] py-[12px] max-lg:py-[14px] px-[40px] max-lg:px-[30px] max-md:px-[30px] font-[jost] font-[700] mt-auto rounded-[5px]">
                             BUY NOW</button>
                     </a>
                     <button disabled
-                        class="cursor-not-allowed text-[#f2f2f2] bg-gradient-to-r from-[#380D37] to-[#DC275C] max-lg:text-[18px] max-sm:text-[16px] text-[20px] py-[12px] max-lg:py-[14px] px-[40px] max-lg:px-[30px] max-md:px-[30px]  font-[jost] font-[700] mt-auto rounded-[5px]">
+                        class="cursor-not-allowed text-[#f2f2f2] bg-[#cccccc] max-lg:text-[18px] max-sm:text-[16px] text-[20px] py-[12px] max-lg:py-[14px] px-[40px] max-lg:px-[30px] max-md:px-[30px]  font-[jost] font-[700] mt-auto rounded-[5px]">
                         Add To Cart</button>
                     {{-- @endif --}}
                 </div>
