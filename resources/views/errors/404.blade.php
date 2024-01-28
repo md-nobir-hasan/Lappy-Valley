@@ -7,11 +7,11 @@
 
 </head>
 
-<body>
+<body class="xl:px-[50px]">
 
         <div class="text-center">
             <a href="{{ route('home') }}">
-                <img src="/storage/photos/404.jpg" alt="">
+                <img class="object-cover w-full" src="/storage/photos/404.jpg" alt="">
             </a>
         </div>
 
