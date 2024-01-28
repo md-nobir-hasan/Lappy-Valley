@@ -297,9 +297,9 @@
                                     class="flex justify-between items-end text-[14px] mt-auto font-[jost] font-[700] leading-[20.23px]">
                                     <div class="flex flex-col">
                                         <span class="text-[#380D37] text-[14px] font-[jost] font-[700] line-through">
-                                            1200 ৳
+                                            <span>{{$product->price}}</span> ৳
                                         </span>
-                            
+
                                         <span class="pprice text-[#DC275C]"
                                         value='{{ $product->final_price }}'>{{ number_format($product->final_price) }} ৳
                                     </span>
@@ -352,9 +352,9 @@
                                     class="flex justify-between items-end text-[14px] mt-auto font-[jost] font-[700] leading-[20.23px]">
                                     <div class="flex flex-col">
                                         <span class="text-[#380D37] text-[14px] font-[jost] font-[700] line-through">
-                                            1200 ৳
+                                            <span>{{$product->price}}</span> ৳
                                         </span>
-                            
+
                                         <span class="pprice text-[#DC275C]"
                                         value='{{ $product->final_price }}'>{{ number_format($product->final_price) }} ৳
                                     </span>

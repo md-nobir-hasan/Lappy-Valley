@@ -44,17 +44,17 @@
                        </a>
                     </div>
                     <div class="flex justify-between text-[14px] mt-auto font-[jost] font-[700] leading-[20.23px]">
-                        
+
                             <div>
                                 <span class="text-[#380D37] text-[14px] font-[jost] font-[700] line-through">
-                                    1200 ৳
+                                    <span>{{$product->price}}</span> ৳
                                 </span>
 
                                 <span class="pprice text-[#DC275C]"
                                 value='{{ $product->final_price }}'>{{ number_format($product->final_price) }} ৳
                             </span>
                             </div>
-                           
+
                         @auth
                             <livewire:add-to-cart :id="$product->id"
                                 button='<p  class="font-[jost] text-[14px] text-[#380D37] font-[600] leading-[20px] text-left cursor-pointer ">Add to Cart</p>' />
