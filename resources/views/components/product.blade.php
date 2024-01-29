@@ -9,7 +9,8 @@
                 @endphp
                 <img src="{{ $photo[0] }}" class="object-container pimg h-[180px]" alt="{{ $product->photo }}">
             @else
-                <img src="{{ asset('backend/img/thumbnail-default.jpg') }}" class="object-container pimg h-[180px]" alt="avatar.png">
+                <img src="{{ asset('backend/img/thumbnail-default.jpg') }}" class="object-container pimg h-[180px]"
+                    alt="avatar.png">
             @endif
         </a>
     </div>
@@ -24,19 +25,16 @@
     {{ $slot }}
     <div class="flex justify-between items-end text-[14px] mt-auto font-[jost] font-[700] leading-[20.23px]">
         <div class="flex flex-col">
+            <span class="pprice text-[#DC275C]"
+                value='{{ $product->final_price }}'>{{ number_format($product->final_price) }} ৳
+            </span>
             <span class="text-[#380D37] text-[14px] font-[jost] font-[700] line-through">
                 1200 ৳
             </span>
-
-            <span class="pprice text-[#DC275C]"
-            value='{{ $product->final_price }}'>{{ number_format($product->final_price) }} ৳
-        </span>
         </div>
         <livewire:add-to-cart :id="$product->id"
             button='<p  class="font-[jost] text-[14px] text-[#380D37] font-[600] leading-[20px] text-left cursor-pointer ">Add to Cart</p>' />
-        
+
     </div>
 
 </div>
-
-

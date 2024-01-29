@@ -185,11 +185,11 @@
                     {{-- Mora buttons  --}}
                     <a>
                         <button disabled
-                            class="cursor-not-allowed text-[#f2f2f2] bg-[#cccccc] max-lg:text-[18px] max-sm:text-[16px] text-[20px] py-[12px] max-lg:py-[14px] px-[40px] max-lg:px-[30px] max-md:px-[30px] font-[jost] font-[700] mt-auto rounded-[5px]">
+                            class="cursor-not-allowed text-[#f2f2f2] bg-[#b6b5b5] max-lg:text-[18px] max-sm:text-[16px] text-[20px] py-[12px] max-lg:py-[14px] px-[40px] max-lg:px-[30px] max-md:px-[30px] font-[jost] font-[700] mt-auto rounded-[5px]">
                             BUY NOW</button>
                     </a>
                     <button disabled
-                        class="cursor-not-allowed text-[#f2f2f2] bg-[#cccccc] max-lg:text-[18px] max-sm:text-[16px] text-[20px] py-[12px] max-lg:py-[14px] px-[40px] max-lg:px-[30px] max-md:px-[30px]  font-[jost] font-[700] mt-auto rounded-[5px]">
+                        class="cursor-not-allowed text-[#f2f2f2] bg-[#b6b5b5] max-lg:text-[18px] max-sm:text-[16px] text-[20px] py-[12px] max-lg:py-[14px] px-[40px] max-lg:px-[30px] max-md:px-[30px]  font-[jost] font-[700] mt-auto rounded-[5px]">
                         Add To Cart</button>
                     {{-- @endif --}}
                 </div>
@@ -1213,7 +1213,8 @@
                                     class="text-[#DC275C] text-[16px] max-lg:text-[14px] font-[jost] font-[700] my-[10px]">
                                     <a>
                                         <span>{{ number_format($rp->price) }}</span>
-                                        TK</a>
+                                        ৳
+                                    </a>
                                 </p>
                             </div>
                         </div>

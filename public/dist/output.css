@@ -3607,6 +3607,16 @@ input[type="range"]:active::-webkit-slider-thumb{
   background-color: bg-[#cccccc];
 }
 
+.bg-\[\#818080\]{
+  --tw-bg-opacity: 1;
+  background-color: rgb(129 128 128 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#b6b5b5\]{
+  --tw-bg-opacity: 1;
+  background-color: rgb(182 181 181 / var(--tw-bg-opacity));
+}
+
 .bg-gradient-to-r{
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }
