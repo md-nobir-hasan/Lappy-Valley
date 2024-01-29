@@ -1508,6 +1508,10 @@ input[type="range"]:active::-webkit-slider-thumb{
   margin-top: auto;
 }
 
+.mt-1{
+  margin-top: 0.25rem;
+}
+
 .box-border{
   box-sizing: border-box;
 }
