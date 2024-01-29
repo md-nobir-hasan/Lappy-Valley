@@ -301,7 +301,7 @@
                                             ৳
                                         </span>
                                         <span class="text-[#380D37] text-[14px] font-[jost] font-[700] line-through">
-                                            1200 ৳
+                                            {{$product->price}} ৳
                                         </span>
                                     </div>
                                     <livewire:add-to-cart :id="$f_product->id"
@@ -356,7 +356,7 @@
                                             ৳
                                         </span>
                                         <span class="text-[#380D37] text-[14px] font-[jost] font-[700] line-through">
-                                            1200 ৳
+                                            {{$product->price}} ৳
                                         </span>
                                     </div>
                                     <a class="text-[#380D37]">
@@ -1373,7 +1373,7 @@
                                 this.msg = '';
                                 this.spin = false;
                             }
-            
+
                         }
                     });
                 }
