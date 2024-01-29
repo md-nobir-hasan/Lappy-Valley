@@ -1144,7 +1144,7 @@
                                                         class="text-[12px] font-[jost] font-[700]">৳</span>
                                                 </span>
                                                 <span class="text-[#380D37] text-[12px] font-[jost] font-[700] line-through">
-                                                    1200 ৳
+                                                    {{$product->price}} ৳
                                                 </span>
                                             </div>
                                             <div class="my-3 text-center">

@@ -29,7 +29,7 @@
                 value='{{ $product->final_price }}'>{{ number_format($product->final_price) }} ৳
             </span>
             <span class="text-[#380D37] text-[14px] font-[jost] font-[700] line-through">
-                <span>{{$product->price}}</span> ৳
+                {{$product->price}} ৳
             </span>
         </div>
         <livewire:add-to-cart :id="$product->id"
