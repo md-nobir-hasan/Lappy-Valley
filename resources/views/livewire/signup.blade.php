@@ -28,20 +28,43 @@
                             <span class="text-[red] text-[12px]">{{ $message }}</span>
                         @enderror
 
-                        <input name="password" wire:model='password'
+                        {{-- <input name="password" wire:model='password'
                             class="italic my-[10px] rounded-[5px] bg-[#F2F2F2] py-[12px] max-sm:py-[6px] max-sm:text-[14px]  text-[16px] text-[#353535] leading-[23.12px] w-full pl-[15px] font-[jost] font-[500]"
                             type="password" placeholder="Set Password">
                         @error('password')
                             <span class="text-[red] text-[12px]">{{ $message }}</span>
+                        @enderror --}}
+                        <div
+                        class="password-input flex gap-[10px] items-center my-[10px] rounded-[5px] bg-[#F2F2F2] py-[12px] max-sm:py-[6px] pl-[15px] pr-[15px] max-sm:pr-[10px] max-sm:pl-[10px] w-full">
+                        <input name="password" wire:model='password' data-eyeicon="eyeicon1"
+                            class="password w-[90%] italic bg-[#F2F2F2] text-[#353535] text-[16px] max-sm:text-[14p] font-[jost] font-[500] outline-none"
+                            type="password" placeholder="Set Password">
+                        <img class="eyeicon toggle-eye w-[20px] h-[20px] max-sm:w-[15px] max-sm:h-[15px]"
+                            data-eyeicon="eyeicon1" src="/storage/product/eyeclose.svg">
+                        @error('password')
+                            <span class="text-[red] text-[12px]">{{ $message }}</span>
                         @enderror
+                    </div>
 
-                        <input name="confirmed" wire:model='confirmed'
+                        {{-- <input name="confirmed" wire:model='confirmed'
                             class="italic my-[10px] rounded-[5px] bg-[#F2F2F2] py-[12px] max-sm:py-[6px] max-sm:text-[14px]  text-[16px] text-[#353535] leading-[23.12px] w-full pl-[15px] font-[jost] font-[500]"
                             type="password" placeholder="Confirm The Password">
 
                         @error('confirmed')
                             <span class="text-[red] text-[12px]">{{ $message }}</span>
+                        @enderror --}}
+
+                        <div
+                        class="password-input flex gap-[10px] items-center my-[10px] rounded-[5px] bg-[#F2F2F2] py-[12px] max-sm:py-[6px] pl-[15px] pr-[15px] max-sm:pr-[10px] max-sm:pl-[10px] w-full">
+                        <input name="confirmed" wire:model='confirmed' data-eyeicon="eyeicon2"
+                            class="password w-[90%] italic bg-[#F2F2F2] text-[#353535] text-[16px] max-sm:text-[14p] font-[jost] font-[500] outline-none"
+                            type="password" placeholder="Confirm The Password">
+                        <img class="eyeicon toggle-eye w-[20px] h-[20px] max-sm:w-[15px] max-sm:h-[15px]"
+                            data-eyeicon="eyeicon2" src="/storage/product/eyeclose.svg">
+                        @error('password')
+                            <span class="text-[red] text-[12px]">{{ $message }}</span>
                         @enderror
+                    </div>
 
                         <div class="my-[10px]">
                             <button
@@ -88,4 +111,20 @@
                 </div>
             </div>
         </div>
+        <script>
+            $(document).ready(function() {
+                $('.toggle-eye').click(function() {
+                    var passwordId = $(this).data('eyeicon');
+                    var passwordInput = $('[data-eyeicon="' + passwordId + '"]');
+    
+                    if (passwordInput.length && passwordInput.prop('type')) {
+                        var passwordType = passwordInput.prop('type');
+                        var newType = (passwordType === 'password') ? 'text' : 'password';
+    
+                        passwordInput.prop('type', newType);
+                        $(this).attr('src', '/storage/product/' + (newType === 'password' ? 'eyeclose' : 'eyeopen') + '.svg');
+                    }
+                });
+            });
+        </script>
     </div>
