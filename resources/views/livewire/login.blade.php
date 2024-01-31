@@ -1,6 +1,7 @@
     <div class="px-[100px] max-2xl:px-[70px] max-xl:px-[60px] max-lg:px-[38px] max-md:px-[35px] max-sm:px-[15px]">
         <div class=>
-            <h1 class='font-[jost] text-[16px] font-[400] leading-[25.3px] text-[#353535]'><a href="{{route('home')}}" wire:navigate>Home</a> / login</h1>
+            <h1 class='font-[jost] text-[16px] font-[400] leading-[25.3px] text-[#353535]'><a href="{{ route('home') }}"
+                    wire:navigate>Home</a> / login</h1>
             <div class='h-[2px] bg-[#764A8733]'></div>
         </div>
 
@@ -33,13 +34,18 @@
                             <span class="text-[red] text-[12px] max-sm:text-[10px]">{{ $message }}</span>
                         @enderror
                     </div>
-                    <div class="mb-[20px]">
-                        <input wire:model.blur='password'
-                            class="italic rounded-[5px] bg-[#F2F2F2] text-[#353535] text-[16px] max-sm:text-[14p] py-[12px] max-sm:py-[6px]  pl-[20px] max-sm:pl-[10px] w-full font-[jost] font-[500]"
-                            type="password" placeholder="Password">
-                        @error('password')
-                            <span class="text-[red] text-[12px] max-sm:text-[10px]">{{ $message }}</span>
-                        @enderror
+                    <div class="password-container mb-[20px]">
+                        <div
+                            class="password-input flex gap-[10px] items-center rounded-[5px] bg-[#F2F2F2] py-[12px] max-sm:py-[6px] pl-[15px] pr-[15px] max-sm:pr-[10px] max-sm:pl-[10px] w-full">
+                            <input wire:model.blur='password' data-eyeicon="eyeicon1"
+                                class="password w-[90%] italic bg-[#F2F2F2] text-[#353535] text-[16px] max-sm:text-[14p] font-[jost] font-[500] outline-none"
+                                type="password" placeholder="Password">
+                            <img class="eyeicon toggle-eye w-[20px] h-[20px] max-sm:w-[15px] max-sm:h-[15px]"
+                                data-eyeicon="eyeicon1" src="/storage/product/eyeclose.svg">
+                            @error('password')
+                                <span class="text-[red] text-[12px] max-sm:text-[10px]">{{ $message }}</span>
+                            @enderror
+                        </div>
                     </div>
                     <div class="flex justify-between my-[15px]">
                         <div class="flex gap-[10px]  text-[12px] max-sm:text-[10px] font-[jost] font-[600]">
@@ -106,6 +112,22 @@
             </div>
         </div>
         {{-- <div class="h-[2px] bg-[#764A8733] my-[60px]"> </div> --}}
+        <script>
+            $(document).ready(function() {
+                $('.toggle-eye').click(function() {
+                    var passwordId = $(this).data('eyeicon');
+                    var passwordInput = $('[data-eyeicon="' + passwordId + '"]');
+    
+                    if (passwordInput.length && passwordInput.prop('type')) {
+                        var passwordType = passwordInput.prop('type');
+                        var newType = (passwordType === 'password') ? 'text' : 'password';
+    
+                        passwordInput.prop('type', newType);
+                        $(this).attr('src', '/storage/product/' + (newType === 'password' ? 'eyeclose' : 'eyeopen') + '.svg');
+                    }
+                });
+            });
+        </script>
     </div>
     {{-- // Hero section slide
             $('#move_back').on('click', function() {

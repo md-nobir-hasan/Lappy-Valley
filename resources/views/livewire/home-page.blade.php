@@ -276,13 +276,14 @@
                             <div
                                 class="w-[221px] h-[376px] max-xl:w-full mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white px-2 pt-2 pb-3 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
 
-                                <div class="image-container h-[180px]">
+                                <div class="image-container h-[180px] relative">
                                     <a @click.stop='redirect("{{ route('product.details', [$f_product->slug]) }}")'
                                         href="{{ route('product.details', [$f_product->slug]) }}" wire:navigate
                                         class="h-full">
                                         <img src="{{ $f_product->img()[0] }}" alt=""
                                             class="object-contain h-full img-contain">
                                     </a>
+                                    <span class="text-[14px] bg-[#ef4a23] text-[#fff] absolute top-[-8px] left-[-8px] px-2 py-[2px] rounded-r-lg">Out Of Stock</span>
                                 </div>
                                 <div>
                                     <a @click.stop='redirect("{{ route('product.details', [$f_product->slug]) }}")'
@@ -331,13 +332,14 @@
                             <div
                                 class="w-[221px] h-[376px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white px-2 pt-2 pb-3 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
 
-                                <div class="image-container h-[180px]">
+                                <div class="image-container h-[180px] relative">
                                     <a @click.stop='redirect("{{ route('product.details', [$f_product->slug]) }}")'
                                         href="{{ route('product.details', [$a_product->slug]) }}" wire:navigate
                                         class="h-full">
                                         <img src="{{ $a_product->img()[0] }}" alt=""
                                             class="object-contain h-full img-contain">
                                     </a>
+                                    <span class="text-[14px] bg-[#ef4a23] text-[#fff] absolute top-[-8px] left-[-8px] px-2 py-[2px] rounded-r-lg">Out Of Stock</span>
                                 </div>
                                 <div class="">
                                     <a @click.stop='redirect("{{ route('product.details', [$f_product->slug]) }}")'
@@ -356,6 +358,7 @@
                                             ৳
                                         </span>
                                         <span class="text-[#380D37] text-[14px] font-[jost] font-[700] line-through">
+                                            1200 ৳
                                             {{$product->price}} ৳
                                         </span>
                                     </div>
@@ -1373,7 +1376,7 @@
                                 this.msg = '';
                                 this.spin = false;
                             }
-
+            
                         }
                     });
                 }
