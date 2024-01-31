@@ -131,8 +131,9 @@
                         endpoint="{{ url('/pay-via-ajax') }}"
                     class="px-[30px] py-[10px] border-[2px] border-[#380D37] text-[#380D37] text-[14px] font-[jost] font-[500] rounded-[4px]">Pay
                     Now</button>
-                <a href="#" id="pay-later"
-                    class="nav-colors fill-up-btn px-[30px] py-[10px] border-[1px] border-[#380D37] bg-gradient-to-r from-[#380D37] to-[#DC275C] text-[#f2f2f2] text-[14px] font-[jost] font-[500] rounded-[4px]">Pay
+                <a href="{{route('account')}}" id="pay-later"
+                    class="nav-colors fill-up-btn px-[30px] py-[10px] border-[1px] border-[#380D37] bg-gradient-to-r from-[#380D37] to-[#DC275C] text-[#f2f2f2] text-[14px] font-[jost] font-[500] rounded-[4px]">
+                    Pay
                     Later</a>
             </div>
         @endif
@@ -162,12 +163,12 @@
                         </path>
                     </svg>
                 </span>
-          
+
                  <div class="bg-[#fff] leading-5 max-sm:flex max-sm:flex-col">
                     <span class="nav-color1 text-blue-900 text-[14px] font-[jost] font-[700]">Find us on</span>
                     <span class="nav-color1 text-blue-900 text-[18px] font-[jost] font-[700]">Facebook</span>
                 </div>
-              
+
             </a>
         </div>
         <div class='h-[2px] bg-[#764A8733]'></div>
