@@ -2,15 +2,19 @@
     {{-- toastr error message  --}}
     @if (session('error'))
         <div class="alert alert-success">
-           <script>toastr.error( {{ session('error') }})</script>
+            @script
+           <script>toastr.error( "{{ session('error') }}")</script>
+           @endscript
         </div>
     @endif
     {{-- toastr success message  --}}
     @if (session('success'))
         <div class="alert alert-success">
+            @script
             <script>
-                toastr.success({{ session('success') }})
+                toastr.success("{{ session('success') }}")
             </script>
+            @script
 
         </div>
     @endif
