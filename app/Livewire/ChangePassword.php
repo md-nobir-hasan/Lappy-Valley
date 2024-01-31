@@ -24,23 +24,36 @@ class ChangePassword extends Component
 
     public $err_msg;
     public $msg;
-    public function save(){
-        $user = User::find(auth()->user()->id);
-        if(Hash::check($this->old_password,$user->password)){
-            $this->err_msg = "";
-            $this->msg = "";
-            $this->validate();
-            $user->update(['password'=>Hash::make($this->password)]);
-            $this->msg = 'Password successfully changed';
-            $this->err_msg = '';
-            $this->old_password = '';
-            $this->password = '';
-            $this->confirmed = '';
-        }else{
-            $this->err_msg = "Old password don't match";
-            $this->msg = "";
-        }
 
+    public function newPassCheckUpdate($user){
+        $this->err_msg = "";
+        $this->msg = "";
+        $this->validate();
+        $user->update(['password' => Hash::make($this->password)]);
+        $this->msg = 'Password successfully changed';
+        $this->err_msg = '';
+        $this->old_password = '';
+        $this->password = '';
+        $this->confirmed = '';
+    }
+    public function save()
+    {
+        $user = User::find(auth()->user()->id);
+        if ($user->password) {
+            if (Hash::check($this->old_password, $user->password)) {
+                $this->newPassCheckUpdate($user);
+            } else {
+                $this->err_msg = "Old password don't match";
+                $this->msg = "";
+            }
+        } else {
+            if (!$this->old_password) {
+               $this->newPassCheckUpdate($user);
+            } else {
+                $this->err_msg = "Old password don't match";
+                $this->msg = "";
+            }
+        }
     }
     public function render()
     {
