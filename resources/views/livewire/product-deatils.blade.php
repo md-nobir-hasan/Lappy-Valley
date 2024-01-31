@@ -173,7 +173,7 @@
                     @endif
                 </div>
                 <div class="flex gap-[30px]">
-                    {{-- @if ($product->stock > 0)
+                    @if ($product->stock > 0)
                             <button wire:click='checkout("{{$product->slug}}")'
                                 class="fill-up-btn text-[#f2f2f2] bg-gradient-to-r from-[#380D37] to-[#DC275C] max-lg:text-[18px] max-sm:text-[16px] text-[20px] py-[12px] max-lg:py-[14px] px-[40px] max-lg:px-[30px] max-md:px-[30px] font-[jost] font-[700] mt-auto rounded-[5px]">
                                 BUY NOW
@@ -181,7 +181,7 @@
                         <button id="{{ $product->id }}"
                             class="add-to-cart fill-up-btn text-[#f2f2f2] bg-gradient-to-r from-[#380D37] to-[#DC275C] max-lg:text-[18px] max-sm:text-[16px] text-[20px] py-[12px] max-lg:py-[14px] px-[40px] max-lg:px-[30px] max-md:px-[30px] font-[jost] font-[700] mt-auto rounded-[5px]">
                             Add To Cart</button>
-                    @else --}}
+                    @else
                     {{-- Mora buttons  --}}
                     <a>
                         <button disabled
@@ -191,7 +191,7 @@
                     <button disabled
                         class="cursor-not-allowed text-[#f2f2f2] bg-[#b6b5b5] max-lg:text-[18px] max-sm:text-[16px] text-[20px] py-[12px] max-lg:py-[14px] px-[40px] max-lg:px-[30px] max-md:px-[30px]  font-[jost] font-[700] mt-auto rounded-[5px]">
                         Add To Cart</button>
-                    {{-- @endif --}}
+                    @endif
                 </div>
             </div>
         </div>
