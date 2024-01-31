@@ -1,7 +1,6 @@
 {{-- @foreach ($products as $product) --}}
 <div
     class="w-[221px] h-[376px] max-md:w-full mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white px-2 pt-2 pb-3 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-   
     <div class="image-container relative">
         <a href="{{ route('product.details', [$product->slug]) }}" wire:navigate>
             @if ($product->photo)
@@ -14,7 +13,12 @@
                     alt="avatar.png">
             @endif
         </a>
-        <span class="text-[14px] text-[#fff] bg-red-900 absolute top-[-8px] left-[-8px] px-2 py-[2px] rounded-r-lg">Out Of Stock</span>
+        @if ($product->stock < 1)
+            <span class="text-[14px] text-[#fff] bg-red-900 absolute top-[-8px] left-[-8px] px-2 py-[2px] rounded-r-lg">
+                Out Of Stock
+            </span>
+        @endif
+
     </div>
     <div>
         <a href="{{ route('product.details', [$product->slug]) }}" wire:navigate>
@@ -31,7 +35,7 @@
                 value='{{ $product->final_price }}'>{{ number_format($product->final_price) }} ৳
             </span>
             <span class="text-[#380D37] text-[14px] font-[jost] font-[700] line-through">
-                {{$product->price}} ৳
+                {{ $product->price }} ৳
             </span>
         </div>
         <livewire:add-to-cart :id="$product->id"
