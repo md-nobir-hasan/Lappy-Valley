@@ -19,36 +19,44 @@ class Login extends Component
     #[Rule("email", message: "Please,Enter a valid email")]
     public $email;
 
-    #[Rule("required", message: "Please,Enter a password")]
+    // #[Rule("required", message: "Please,Enter a password")]
     #[Rule("string")]
     public $password;
 
-    #[Rule("same:password", message: "Password confirmation doesn't match")]
-    public $confirmed;
+    // #[Rule("same:password", message: "Password confirmation doesn't match")]
+    // public $confirmed;
 
     public $check_msg;
     public $success_msg;
 
     public function routeChange()
     {
-        if(Auth::user()){
-            $this->redirect(url()->previous(),navigate:true);
+        if (Auth::user()) {
+            $this->redirect(url()->previous(), navigate: true);
         }
     }
 
 
-    public function login(){
-        $user = User::where('email',$this->email)->first();
+    public function login()
+    {
+        $user = User::where('email', $this->email)->first();
 
-        if(!$user){
+        if (!$user) {
             $this->check_msg = "You have no account. Please, register";
             return false;
         }
-
-        if (!Hash::check($user->password,$this->password)) {
-            $this->check_msg = "Worng Password";
-            return false;
+        if ($user->password) {
+            if (!Hash::check($user->password, $this->password)) {
+                $this->check_msg = "Worng Password";
+                return false;
+            }
+        } else {
+            if ($this->password) {
+                $this->check_msg = "Worng Password";
+                return false;
+            }
         }
+
 
         Auth::login($user);
         $this->success_msg = "Login Successfull.....";
