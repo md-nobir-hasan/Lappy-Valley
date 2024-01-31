@@ -57,10 +57,10 @@
                         </p>
                     </div>
 
-                    <div class='flex justify-center'>
+                    <div class='flex justify-center mt-1'>
                         <a href="{{route('product.details',[$offer->slug])}}" wire:navigate>
                             <button
-                            class='text-[#f2f2f2] text-[14px] font-[jost] font-[500] rounded-[4px] bg-gradient-to-r from-[#380D37] to-[#DC275C] py-[10px] px-[21px] flex items-center'>
+                            class='fill-up-btn text-[#f2f2f2] text-[14px] font-[jost] font-[500] rounded-[4px] bg-gradient-to-r from-[#380D37] to-[#DC275C] py-[10px] px-[21px] flex items-center'>
                             View Details</button>
                         </a>
                     </div>

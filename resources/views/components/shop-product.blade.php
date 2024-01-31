@@ -15,10 +15,11 @@
              // dd($photo);
          @endphp
      @endif
-     <div class="flex items-center justify-center image-container">
+     <div class="flex items-center justify-center image-container relative">
          <a href="{{ route('product.details', [$product->slug]) }}">
-             <img src="{{ $photo }}" class="object-container h-[180px]" alt="{{ $product->title }}">
+             <img src="{{ $photo }}" class="object-container h-[150px]" alt="{{ $product->title }}">
          </a>
+         <span class="text-[14px] bg-red-900 text-[#fff] absolute top-0 left-[-5px] px-2 py-[2px] rounded-r-lg">Out Of Stock</span>
      </div>
      {{-- @else
              <img src="{{ asset('backend/img/thumbnail-default.jpg') }}" class="rounded-t-lg img-fluid "
