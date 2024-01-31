@@ -14,7 +14,7 @@
                     alt="avatar.png">
             @endif
         </a>
-        <span class="text-[14px] text-[#fff] bg-red-900 absolute top-0 left-[-5px] px-2 py-[2px] rounded-r-lg">Out Of Stock</span>
+        <span class="text-[14px] text-[#fff] bg-red-900 absolute top-[-8px] left-[-8px] px-2 py-[2px] rounded-r-lg">Out Of Stock</span>
     </div>
     <div>
         <a href="{{ route('product.details', [$product->slug]) }}" wire:navigate>

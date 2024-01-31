@@ -283,7 +283,7 @@
                                         <img src="{{ $f_product->img()[0] }}" alt=""
                                             class="object-contain h-full img-contain">
                                     </a>
-                                    <span class="text-[14px] bg-[#ef4a23] text-[#fff] absolute top-0 left-0 p-2 rounded-r-lg">Out Of Stock</span>
+                                    <span class="text-[14px] bg-[#ef4a23] text-[#fff] absolute top-[-8px] left-[-8px] px-2 py-[2px] rounded-r-lg">Out Of Stock</span>
                                 </div>
                                 <div>
                                     <a @click.stop='redirect("{{ route('product.details', [$f_product->slug]) }}")'
@@ -339,7 +339,7 @@
                                         <img src="{{ $a_product->img()[0] }}" alt=""
                                             class="object-contain h-full img-contain">
                                     </a>
-                                    <span class="text-[14px] bg-[#ef4a23] text-[#fff] absolute top-0 left-0 p-2 rounded-r-lg">Out Of Stock</span>
+                                    <span class="text-[14px] bg-[#ef4a23] text-[#fff] absolute top-[-8px] left-[-8px] px-2 py-[2px] rounded-r-lg">Out Of Stock</span>
                                 </div>
                                 <div class="">
                                     <a @click.stop='redirect("{{ route('product.details', [$f_product->slug]) }}")'
