@@ -2,6 +2,8 @@
 
 namespace App\Livewire;
 
+use App\Mail\OrderMail;
+use App\Mail\OrderMailToAdmin;
 use App\Models\Cart;
 use App\Models\Coupon;
 use App\Models\Divission;
@@ -11,6 +13,7 @@ use App\Models\UserAddress;
 use App\Notifications\StatusNotification;
 use App\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
@@ -168,6 +171,15 @@ class Checkout extends Component
             'fas' => 'fa-file-alt'
         ];
         Notification::send($users, new StatusNotification($details));
+
+        // send mail to admin
+        foreach($users as $us){
+            Mail::to($us->email)->send(new OrderMailToAdmin($order));
+
+        }
+
+        // send mail to user
+        Mail::to($user->email)->send(new OrderMail($order));
         // if (request('payment_method') == 'paypal') {
         //     return redirect()->route('payment')->with(['id' => $order->id]);
         // } else {

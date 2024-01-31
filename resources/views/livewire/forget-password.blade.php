@@ -1,6 +1,6 @@
 <div class="px-[100px] max-2xl:px-[70px] max-xl:px-[60px] max-lg:px-[38px] max-md:px-[35px] max-sm:px-[15px] max-sm:mt-[70px] max-xl:mt-[100px]">
     <div class=>
-        <h1 class='font-[jost] text-[16px] font-[400] leading-[25.3px] text-[#353535]'>Home / Account</h1>
+        <h1 class='font-[jost] text-[16px] font-[400] leading-[25.3px] text-[#353535]'><a href="{{route('home')}}" wire:navigate>Home</a> / Forgot Password</h1>
         <div class='h-[2px] bg-[#764A8733]'></div>
     </div>
     <!-- --------------log-in--section----------- -->
@@ -19,7 +19,7 @@
                         class="italic rounded-[5px] bg-[#F2F2F2] text-[#353535]  py-[14px] pl-[15px] w-full font-[jost] font-[500] @error('email') is-invalid @enderror"
                         type="email" placeholder="User Name or Email Address">
                     @error('email')
-                        <span class="invalid-feedback" role="alert">
+                        <span class="invalid-feedback text-[red]" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
