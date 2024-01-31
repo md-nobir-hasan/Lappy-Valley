@@ -89,7 +89,7 @@
                                 <td
                                     class="p-3 tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]">
                                     @if ($order->status == 'Delivered')
-                                        {{ $order->status }}
+                                        Received
                                     @else
                                     {{ $order->status }}
                                     @endif
