@@ -88,7 +88,12 @@
                                     {{ number_format($cart->amount) }}৳</td>
                                 <td
                                     class="p-3 tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]">
-                                    {{ $order->status }}</td>
+                                    @if ($order->status == 'Delivered')
+                                        {{ $order->status }}
+                                    @else
+                                    {{ $order->status }}
+                                    @endif
+                                </td>
                                 <td
                                     class="p-3 tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]">
                                     {{ $order->payment_status }}</td>
