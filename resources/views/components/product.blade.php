@@ -14,7 +14,7 @@
             @endif
         </a>
         @if ($product->stock < 1)
-            <span class="text-[14px] text-[#fff] bg-red-900 absolute top-[-8px] left-[-8px] px-2 py-[2px] rounded-r-lg">
+            <span class="text-[14px] text-[#fff] bg-[#ef4a23] absolute top-[-8px] left-[-8px] px-2 py-[2px] rounded-r-lg">
                 Out Of Stock
             </span>
         @endif
