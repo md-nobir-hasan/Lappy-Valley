@@ -67,7 +67,7 @@ class SingleCheckout extends Component
     public function mount()
     {
         $product = Product::where('slug', $this->pslug)->first();
-        if($product->quantity<1){
+        if($product->stock < 1){
             $this->redirect(url()->previous(),navigate:true);
         }
         $this->product = $product;

@@ -69,6 +69,9 @@ class InstallmentCheckout extends Component
     public function mount()
     {
         $product = Product::where('slug', $this->pslug)->first();
+        if($product->stock < 1){
+            $this->redirect(url()->previous(),navigate:true);
+        }
         $this->product = $product;
         $month = 0;
         if ($ins = $product->installment) {
@@ -113,7 +116,7 @@ class InstallmentCheckout extends Component
         $user->city = $this->city;
         $user->divission_id = $this->divission_id;
         $user->save();
-         
+
         $order = new Order();
         $order_data = $this->all();
         $order_data['order_number'] = 'ORD-' . strtoupper(Str::random(10));
