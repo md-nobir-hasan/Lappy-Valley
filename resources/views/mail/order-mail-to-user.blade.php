@@ -154,7 +154,7 @@
                 <td>{{ $order->amount }}</td>
             </tr>
 
-            <tr class="heading">
+            {{-- <tr class="heading">
                 <td>Item</td>
 
                 <td>Price</td>
@@ -166,7 +166,7 @@
 
                     <td>{{ $cart->product->price }}</td>
                 </tr>
-            @endforeach
+            @endforeach --}}
         </table>
     </div>
 </div>
