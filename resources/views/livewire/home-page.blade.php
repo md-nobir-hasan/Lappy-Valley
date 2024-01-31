@@ -283,7 +283,11 @@
                                         <img src="{{ $f_product->img()[0] }}" alt=""
                                             class="object-contain h-full img-contain">
                                     </a>
-                                    <span class="text-[14px] bg-[#ef4a23] text-[#fff] absolute top-[-8px] left-[-8px] px-2 py-[2px] rounded-r-lg">Out Of Stock</span>
+                                    @if ($product->stock < 1)
+                                        <span
+                                            class="text-[14px] bg-[#ef4a23] text-[#fff] absolute top-[-8px] left-[-8px] px-2 py-[2px] rounded-r-lg">Out
+                                            Of Stock</span>
+                                    @endif
                                 </div>
                                 <div>
                                     <a @click.stop='redirect("{{ route('product.details', [$f_product->slug]) }}")'
@@ -302,7 +306,7 @@
                                             ৳
                                         </span>
                                         <span class="text-[#380D37] text-[14px] font-[jost] font-[700] line-through">
-                                            {{$product->price}} ৳
+                                            {{ $product->price }} ৳
                                         </span>
                                     </div>
                                     <livewire:add-to-cart :id="$f_product->id"
@@ -315,7 +319,6 @@
                 </div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
-                {{-- <div class="swiper-pagination"></div> --}}
             </div>
 
             <!-- Swiper JS -->
@@ -339,7 +342,11 @@
                                         <img src="{{ $a_product->img()[0] }}" alt=""
                                             class="object-contain h-full img-contain">
                                     </a>
-                                    <span class="text-[14px] bg-[#ef4a23] text-[#fff] absolute top-[-8px] left-[-8px] px-2 py-[2px] rounded-r-lg">Out Of Stock</span>
+                                    @if ($product->stock < 1)
+                                        <span
+                                            class="text-[14px] bg-[#ef4a23] text-[#fff] absolute top-[-8px] left-[-8px] px-2 py-[2px] rounded-r-lg">Out
+                                            Of Stock</span>
+                                    @endif
                                 </div>
                                 <div class="">
                                     <a @click.stop='redirect("{{ route('product.details', [$f_product->slug]) }}")'
@@ -359,7 +366,7 @@
                                         </span>
                                         <span class="text-[#380D37] text-[14px] font-[jost] font-[700] line-through">
                                             1200 ৳
-                                            {{$product->price}} ৳
+                                            {{ $product->price }} ৳
                                         </span>
                                     </div>
                                     <a class="text-[#380D37]">
@@ -1376,7 +1383,7 @@
                                 this.msg = '';
                                 this.spin = false;
                             }
-            
+
                         }
                     });
                 }
