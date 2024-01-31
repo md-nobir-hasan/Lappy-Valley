@@ -113,12 +113,13 @@
                     <table>
                         <tr>
                             <td class="title">
-                                <img src="{{asset($setting->logo)}}" alt="Company logo" style="width: 100%; max-width: 300px" />
+                                <img src="{{ asset('storage/' . $setting->logo) }}" alt="{{ env('APP_NAME') }}"
+                                    style="width: 100%; max-width: 300px" />
                             </td>
 
                             <td>
-                                Invoice #: {{$order->order_number}}<br />
-                                Created: {{$order->created_at->format('d-M-Y')}}<br />
+                                Invoice #: {{ $order->order_number }}<br />
+                                Created: {{ $order->created_at->format('d-M-Y') }}<br />
                                 {{-- Due: February 1, 2023 --}}
                             </td>
                         </tr>
@@ -131,11 +132,11 @@
                     <table>
                         <tr>
                             <td>
-                               {{$order->address}}
+                                {{ $order->address }}
                             </td>
 
                             <td>
-                               {{$order->email}}
+                                {{ $order->email }}
                             </td>
                         </tr>
                     </table>
@@ -149,8 +150,8 @@
             </tr>
 
             <tr class="details">
-                <td>{{$order->payment_method}}</td>
-                <td>{{$order->amount}}</td>
+                <td>{{ $order->payment_method }}</td>
+                <td>{{ $order->amount }}</td>
             </tr>
 
             <tr class="heading">
@@ -160,11 +161,11 @@
             </tr>
 
             @foreach ($order->cart_info as $cart)
-            <tr class="item">
-                <td>{{$cart->product->title}}</td>
+                <tr class="item">
+                    <td>{{ $cart->product->title }}</td>
 
-                <td>{{$cart->product->price}}</td>
-            </tr>
+                    <td>{{ $cart->product->price }}</td>
+                </tr>
             @endforeach
         </table>
     </div>
