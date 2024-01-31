@@ -24,7 +24,7 @@ class Address extends Component
     #[Rule("numeric", message: "Please, enter a valid phone number")]
     public $post_code;
 
-    public $is_default=1;
+    public $is_default;
     public $msg;
     public $err_msg;
 
@@ -41,6 +41,7 @@ class Address extends Component
             $this->msg = 'Address successfully saved';
             $this->err_msg = '';
         }
+        // dd($address);
     }
 
     public function render()

@@ -8,6 +8,7 @@ use App\Models\InstallmentOrder;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\Shipping;
+use App\Models\UserAddress;
 use App\Notifications\StatusNotification;
 use App\User;
 use Illuminate\Support\Facades\Auth;
@@ -88,14 +89,31 @@ class InstallmentCheckout extends Component
         if (auth()->user()) {
             $user = auth()->user();
         } else {
-            $user = User::create([
+            $user = User::firstOrcreate([
                 'email' => $this->email,
-                'name' => $this->name,
-                'l_name' => $this->l_name,
             ]);
+
+            $address =  UserAddress::where('user_id',$user->id)->where('is_default',true)->first();
+            if(!$address){
+                UserAddress::create([
+                    'address' => $this->address,
+                    'city' => $this->city,
+                    'divission_id' => $this->divission_id,
+                    'user_id' => $user->id,
+                    'is_default' => true,
+                ]);
+            }
             Auth::login($user);
         }
-
+        //update user
+        $user->name = $this->name;
+        $user->l_name = $this->l_name;
+        $user->phone = $this->phone;
+        $user->address = $this->address;
+        $user->city = $this->city;
+        $user->divission_id = $this->divission_id;
+        $user->save();
+         
         $order = new Order();
         $order_data = $this->all();
         $order_data['order_number'] = 'ORD-' . strtoupper(Str::random(10));
@@ -153,5 +171,5 @@ class InstallmentCheckout extends Component
         $n['shipping'] = Shipping::where('status', 'active')->first();
         return view('livewire.installment-checkout', $n);
     }
-    
+
 }
