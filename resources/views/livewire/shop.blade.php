@@ -1109,12 +1109,13 @@
                                     <div
                                         class="product_div relative overflow-hidden border-[1px] border-[#380D37] bg-[#f2f2f2] rounded-[4px] box-border px-[5px] mt-2 flex flex-col gap-2 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] ">
 
-                                        <div class="flex items-center justify-center image-container">
+                                        <div class="flex items-center justify-center image-container relative">
                                            <a :href="'/product-details/'+product.slug" wire:navigate>
                                             <img :src="product.photo.split(',')[0]"
                                             class="rounded-t-lg img-fluid h-[150px] object-container"
                                             data-te-ripple-init data-te-ripple-color="dark" alt="avatar.png">
                                            </a>
+                                           <span class="text-[14px] bg-red-900 text-[#fff] absolute top-0 left-[-5px] px-2 py-[2px] rounded-r-lg">Out Of Stock</span>
                                         </div>
 
                                         <div
