@@ -85,7 +85,7 @@ class Header extends Component
 
     public function render()
     {
-        $n['menus'] = Category::with('child_cat')->where('status', 'active')->where('is_parent', 1)->orderBy('serial', 'ASC')->get();
+        $n['menus'] = Category::with(['child_cat','products','child_cat.sub_products'])->where('status', 'active')->where('is_parent', 1)->orderBy('serial', 'ASC')->get();
         return view('livewire.header', $n);
     }
 

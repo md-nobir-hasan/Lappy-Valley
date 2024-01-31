@@ -13,6 +13,7 @@
                 <div class="bar"></div>
             </div>
             <div class="menu">
+
                 {{-- Mobile menue  --}}
                 <nav class="bg-[#f2f2f2] ">
                     <ul class="flex flex-col scroll-auto">
@@ -40,9 +41,11 @@
                                 <li class="border-y-[1px] border-[#764A87]"><a href="{{ route('shop') }}"
                                         wire:navigate>All</a></li>
                                 @foreach ($menus as $menu1)
-                                    <li class="border-b-[1px] border-[#764A87] "><a
-                                            href="{{ route('cate_wise.shop', [$menu1->slug]) }}"
-                                            wire:navigate>{{ $menu1->title }}</a></li>
+                                    @if (count($menu1->products) > 0)
+                                        <li class="border-b-[1px] border-[#764A87] "><a
+                                                href="{{ route('cate_wise.shop', [$menu1->slug]) }}"
+                                                wire:navigate>{{ $menu1->title }}</a></li>
+                                    @endif
                                 @endforeach
                             </ul>
                         </li>
@@ -50,51 +53,51 @@
                             <div class="h-[1px] bg-[#764D8733]"></div>
                             <li
                                 class="whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] max-sm:text-[14px] bg-[#f2f2f2]">
-                                @if (count($menu->child_cat) > 0)
+                                @if (count($menu->products) > 0)
                                     <div class="flex items-center justify-between px-6 py-3 max-sm:px-4 max-sm:py-2 ">
                                         <div class="max-sm:text-[14px] cursor-pointer">
                                             <a href="{{ route('cate_wise.shop', [$menu->slug]) }}"
                                                 wire:navigate>{{ $menu->title }}</a>
                                         </div>
-                                        <div class="toggleBtn2">
-                                            <svg class="plus text-[black]" xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 24 24" width="24" height="24" fill="none"
-                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                stroke-linejoin="round">
-                                                <line x1="12" y1="5" x2="12" y2="19">
-                                                </line>
-                                                <line x1="5" y1="12" x2="19" y2="12">
-                                                </line>
-                                            </svg>
-                                            <svg class="minus text-[red]" xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 24 24" width="24" height="24" fill="none"
-                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                stroke-linejoin="round" style="display: none;">
-                                                <line x1="5" y1="12" x2="19" y2="12">
-                                                </line>
-                                            </svg>
-                                        </div>
+                                        @if (count($menu->child_cat) > 0)
+                                            <div class="toggleBtn2">
+                                                <svg class="plus text-[black]" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 24 24" width="24" height="24" fill="none"
+                                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round">
+                                                    <line x1="12" y1="5" x2="12" y2="19">
+                                                    </line>
+                                                    <line x1="5" y1="12" x2="19" y2="12">
+                                                    </line>
+                                                </svg>
+                                                <svg class="minus text-[red]" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 24 24" width="24" height="24" fill="none"
+                                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" style="display: none;">
+                                                    <line x1="5" y1="12" x2="19" y2="12">
+                                                    </line>
+                                                </svg>
+                                            </div>
+                                        @endif
                                     </div>
-                                    <ul
-                                        class="toggleDiv2 hidden list-none bg-[#fff] mt-[10px] text-[#380D37] hover:text-[#f2f2f2] text-[16px] max-sm:text-[14px] font-[jost] font-[400] w-full transition-opacity duration-[3s] ease-in-out origin-top">
-                                        @foreach ($menu->child_cat as $menu2)
-                                            @if ($loop->first)
-                                                <li class="border-y-[1px] border-[#764A87]"><a
-                                                        href="{{ route('cate_wise.shop', [$menu->slug, $menu2->slug]) }}"
-                                                        wire:navigate>{{ $menu2->title }}</a></li>
-                                            @else
-                                                <li class="border-b-[1px] border-[#764A87]"><a
-                                                        href="{{ route('cate_wise.shop', [$menu->slug, $menu2->slug]) }}"
-                                                        wire:navigate>{{ $menu2->title }}</a></li>
-                                            @endif
-                                        @endforeach
-                                    </ul>
-                                @else
-                                    <div class="flex items-center justify-between px-6 py-3 max-sm:px-4 max-sm:py-2">
-                                        <a href="{{ route('cate_wise.shop', [$menu->slug]) }}" wire:navigate
-                                            class="max-sm:text-[14px]">{{ $menu->title }}</a>
-
-                                    </div>
+                                    @if (count($menu->child_cat) > 0)
+                                        <ul
+                                            class="toggleDiv2 hidden list-none bg-[#fff] mt-[10px] text-[#380D37] hover:text-[#f2f2f2] text-[16px] max-sm:text-[14px] font-[jost] font-[400] w-full transition-opacity duration-[3s] ease-in-out origin-top">
+                                            @foreach ($menu->child_cat as $menu2)
+                                                @if (count($menu2->sub_products) > 0)
+                                                    @if ($loop->first)
+                                                        <li class="border-y-[1px] border-[#764A87]"><a
+                                                                href="{{ route('cate_wise.shop', [$menu->slug, $menu2->slug]) }}"
+                                                                wire:navigate>{{ $menu2->title }}</a></li>
+                                                    @else
+                                                        <li class="border-b-[1px] border-[#764A87]"><a
+                                                                href="{{ route('cate_wise.shop', [$menu->slug, $menu2->slug]) }}"
+                                                                wire:navigate>{{ $menu2->title }}</a></li>
+                                                    @endif
+                                                @endif
+                                            @endforeach
+                                        </ul>
+                                    @endif
                                 @endif
                             </li>
                         @endforeach
