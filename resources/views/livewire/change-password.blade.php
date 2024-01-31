@@ -15,7 +15,7 @@
                 <label for="address" id="old_password"
                     class='text-[16px] text-[#353535] font-[jost] font-[500] leading-[23.12px] tracking-[3%] block my-[5px]'>Old
                     Password:</label>
-                <input type="text" wire:model='old_password' id="old_password" placeholder='Old Password'
+                <input type="password" wire:model='old_password' id="old_password" placeholder='Old Password'
                     class='w-[344px] max-lg:w-full h-[44px] bg-[#F2F2F2] font-[jost] font-[500] text-[16px] text-[#353535] block italic px-[10px] rounded-[4px]'>
                     @error('old_password')
                     <span class="text-[red] text-[12px] block">{{ $message }}</span>
@@ -25,7 +25,7 @@
                 <label for="password"
                     class='text-[16px] text-[#353535] font-[jost] font-[500] leading-[23.12px] tracking-[3%] block my-[5px]'>New
                     Password:</label>
-                <input type="text" wire:model='password' id="password" placeholder='New Password'
+                <input type="password" wire:model='password' id="password" placeholder='New Password'
                     class='w-[344px] max-lg:w-full h-[44px] bg-[#F2F2F2] font-[jost] font-[500] text-[16px] text-[#353535] blcok italic px-[10px] rounded-[4px]'>
                     @error('password')
                     <span class="text-[red] text-[12px] block">{{ $message }}</span>
@@ -35,7 +35,7 @@
                 <label for="confirmed"
                     class='text-[16px] text-[#353535] font-[jost] font-[500] leading-[23.12px] tracking-[3%] block my-[5px]'>Confirm
                     Password:</label>
-                <input type="text" wire:model='confirmed' id="confirmed" placeholder='Confirm Password'
+                <input type="password" wire:model='confirmed' id="confirmed" placeholder='Confirm Password'
                     class='w-[344px] max-lg:w-full h-[44px] bg-[#F2F2F2] font-[jost] font-[500] text-[16px] text-[#353535] block italic px-[10px] rounded-[4px]'>
     @error('confirmed')
                     <span class="text-[red] text-[12px] block">{{ $message }}</span>

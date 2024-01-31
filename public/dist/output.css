@@ -1556,6 +1556,10 @@ input[type="range"]:active::-webkit-slider-thumb{
   margin-right: 7px;
 }
 
+.mr-\[7\]{
+  margin-right: 7;
+}
+
 .box-border{
   box-sizing: border-box;
 }
