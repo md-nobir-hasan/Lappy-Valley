@@ -66,7 +66,12 @@ class SingleCheckout extends Component
 
     public function mount()
     {
-        $this->product = Product::where('slug', $this->pslug)->first();
+        $product = Product::where('slug', $this->pslug)->first();
+        if($product->quantity<1){
+            $this->redirect(url()->previous(),navigate:true);
+        }
+        $this->product = $product;
+
     }
 
     public function orderSubmit()
@@ -99,7 +104,7 @@ class SingleCheckout extends Component
         $user->city = $this->city;
         $user->divission_id = $this->divission_id;
         $user->save();
-        
+
         $order = new Order();
         $order_data = $this->all();
         $order_data['order_number'] = 'ORD-' . strtoupper(Str::random(10));
