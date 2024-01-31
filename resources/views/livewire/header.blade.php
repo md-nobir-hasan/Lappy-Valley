@@ -1,4 +1,19 @@
 <div>
+    {{-- toastr error message  --}}
+    @if (session('error'))
+        <div class="alert alert-success">
+           <script>toastr.error( {{ session('error') }})</script>
+        </div>
+    @endif
+    {{-- toastr success message  --}}
+    @if (session('success'))
+        <div class="alert alert-success">
+            <script>
+                toastr.success({{ session('success') }})
+            </script>
+
+        </div>
+    @endif
     <header
         class="h-[78px] z-[10000] max-sm:h-[50px] max-xl:h-[68px] max-xl:fixed max-xl:top-0 max-xl:left-0 max-xl:right-0 max-xl:z-150 max-xl:flex max-xl:justify-between max-xl:items-center max-xl:border-b-[2px] max-xl:border-[#f2f2f2]
      bg-gradient-to-r from-[#380D37] to-[#DC275C] text-[#f2f2f2] px-[72px] max-xl:px-[40px]">

@@ -70,6 +70,7 @@ class InstallmentCheckout extends Component
     {
         $product = Product::where('slug', $this->pslug)->first();
         if($product->stock < 1){
+            session()->flash('error','Stock not sufficient');
             $this->redirect(url()->previous(),navigate:true);
         }
         $this->product = $product;
