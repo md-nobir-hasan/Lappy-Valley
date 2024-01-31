@@ -1,7 +1,6 @@
 {{-- @foreach ($products as $product) --}}
 <div
     class="w-[221px] h-[376px] max-md:w-full mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white px-2 pt-2 pb-3 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-
     <div class="image-container relative">
         <a href="{{ route('product.details', [$product->slug]) }}" wire:navigate>
             @if ($product->photo)
@@ -15,7 +14,7 @@
             @endif
         </a>
         @if ($product->stock < 1)
-            <span class="text-[14px] text-[#fff] bg-red-900 absolute top-[-8px] left-[-8px] px-2 py-[2px] rounded-r-lg">
+            <span class="text-[14px] text-[#fff] bg-[#ef4a23] absolute top-[-8px] left-[-8px] px-2 py-[2px] rounded-r-lg">
                 Out Of Stock
             </span>
         @endif
