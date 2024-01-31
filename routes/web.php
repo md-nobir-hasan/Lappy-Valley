@@ -163,7 +163,7 @@ Route::post('/subscribe', [FrontendController::class, 'subscribe'])->name('subsc
 // Product Review
 Route::resource('/review', ProductReviewController::class);
 Route::post('product/{slug}/review', [ProductReviewController::class, 'store'])->name('review.store');
-Route::post('review-status/change',[ProductReviewController::class,'reviewStatusChange'])->name('review_status.change');
+Route::post('review-status/change', [ProductReviewController::class, 'reviewStatusChange'])->name('review_status.change');
 
 // Post Comment
 Route::post('post/{slug}/comment', [PostCommentController::class, 'store'])->name('post-comment.store');
@@ -188,14 +188,14 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'admin']], function
     })->name('file-manager');
 
     // User Management
-    Route::prefix('/admin-user')->name('auser.')->group(function(){
+    Route::prefix('/admin-user')->name('auser.')->group(function () {
         Route::resource('users', UsersController::class);
         Route::resource('role', RoleController::class);
-        Route::get('permission',[RoleController::class,'permission'])->name('permission');
+        Route::get('permission', [RoleController::class, 'permission'])->name('permission');
     });
 
     // User Management
-    Route::prefix('/setting')->name('setting.')->group(function(){
+    Route::prefix('/setting')->name('setting.')->group(function () {
         // Site Settings
         Route::get('/site-settings', [AdminController::class, 'siteSettings'])->name('ss');
         Route::post('/site-setting/update', [AdminController::class, 'siteSettingsUpdate'])->name('ss.update');
@@ -206,7 +206,7 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'admin']], function
     });
 
     // SEO Management
-    Route::prefix('/seo')->name('seo.')->group(function(){
+    Route::prefix('/seo')->name('seo.')->group(function () {
         Route::resource('gtag', GtagController::class);
         Route::resource('pixel', PixelController::class);
     });
@@ -220,17 +220,17 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'admin']], function
     // Category
     Route::resource('/category', CategoryController::class);
     //Product Attribute
-    Route::prefix('/product-attributes')->name('pa.')->group(function(){
-        Route::resource('/processor-model',ProcessorModelController::class);
-        Route::resource('/processor-generation',ProcessorGenerationController::class);
-        Route::resource('/display-size',DisplaySizeController::class);
-        Route::resource('/display-type',DisplayTypeController::class);
-        Route::resource('/ram',RamController::class);
-        Route::resource('/hdd',hddController::class);
-        Route::resource('/ssd',ssdController::class);
-        Route::resource('/graphic',GraphicController::class);
-        Route::resource('/special-feature',SpecialFeatureController::class);
-        Route::resource('/product-offers',ProductOfferController::class);
+    Route::prefix('/product-attributes')->name('pa.')->group(function () {
+        Route::resource('/processor-model', ProcessorModelController::class);
+        Route::resource('/processor-generation', ProcessorGenerationController::class);
+        Route::resource('/display-size', DisplaySizeController::class);
+        Route::resource('/display-type', DisplayTypeController::class);
+        Route::resource('/ram', RamController::class);
+        Route::resource('/hdd', hddController::class);
+        Route::resource('/ssd', ssdController::class);
+        Route::resource('/graphic', GraphicController::class);
+        Route::resource('/special-feature', SpecialFeatureController::class);
+        Route::resource('/product-offers', ProductOfferController::class);
     });
     // Product
     Route::resource('/product', ProductController::class)->middleware(['can:Show Product']);
@@ -293,7 +293,6 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'admin']], function
             Route::post('/date-wise', [ReportController::class, 'saleReportDateWise'])->name('datewise');
             Route::get('/overall', [ReportController::class, 'overall'])->name('overall');
         });
-
     });
 });
 
@@ -338,7 +337,7 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
 Route::get('/', HomePage::class)->name('home');
 Route::get('/shop', Shop::class)->name('shop');
 Route::get('/new-product/{product_type}', NewProduct::class)->name('new_product');
-Route::get('/shop/sorting', [AjaxController::class,'shopSorting'])->name('shop.shorting');
+Route::get('/shop/sorting', [AjaxController::class, 'shopSorting'])->name('shop.shorting');
 Route::get('/category-wise/{cat?}/{subcat?}', CatWiseShop::class)->name('cate_wise.shop');
 Route::get('/search/{stext?}/{cat?}', SearchingProduct::class)->name('searching_product');
 Route::get('/product-details/{slug}', ProductDeatils::class)->name('product.details');
@@ -356,24 +355,23 @@ Route::get('/offers', Offer::class)->name('offer');
 Route::get('/otp-confirm', OtpConfirm::class)->name('otpc');
 Route::get('/product-review', Review::class)->name('preview');
 // Route::get('/edit-profile', EditProfile::class)->name('eprofile');
-Route::get('/change-password', ChangePassword::class)->name('cp');
 Route::get('/wishlist', Wishlist::class)->name('wishlist');
 Route::get('/your-review', Review::class)->name('freview');
 Route::get('/about-us', AboutUs::class)->name('about_us');
-Route::get('/plus',[AjaxController::class,'plus'])->name('plus');
-Route::get('/minus',[AjaxController::class, 'minus'])->name('minus');
-Route::get('/post',[AjaxController::class,'post'])->name('post');
-Route::get('/delete',[AjaxController::class, 'delete'])->name('delete');
-Route::get('/sync',[AjaxController::class, 'sync'])->name('sync');
-Route::get('/add-to-cart',[AjaxController::class,'addToCart'])->name('add_to_cart');
-Route::get('/order-received/{order_number}',OrderReceived::class)->name('order.receive');
-Route::post('/product-review',[AjaxController::class, 'productReview'])->name('product_review');
-Route::get('/coupon-fetch',[AjaxController::class, 'couponFetch'])->name('coupon.fetch');
-Route::get('/single-checkout/{pslug}',SingleCheckout::class)->name('single_checkout');
-Route::get('/installment-checkout/{pslug}',InstallmentCheckout::class)->name('installment_checkout');
+Route::get('/plus', [AjaxController::class, 'plus'])->name('plus');
+Route::get('/minus', [AjaxController::class, 'minus'])->name('minus');
+Route::get('/post', [AjaxController::class, 'post'])->name('post');
+Route::get('/delete', [AjaxController::class, 'delete'])->name('delete');
+Route::get('/sync', [AjaxController::class, 'sync'])->name('sync');
+Route::get('/add-to-cart', [AjaxController::class, 'addToCart'])->name('add_to_cart');
+Route::get('/order-received/{order_number}', OrderReceived::class)->name('order.receive');
+Route::post('/product-review', [AjaxController::class, 'productReview'])->name('product_review');
+Route::get('/coupon-fetch', [AjaxController::class, 'couponFetch'])->name('coupon.fetch');
+Route::get('/single-checkout/{pslug}', SingleCheckout::class)->name('single_checkout');
+Route::get('/installment-checkout/{pslug}', InstallmentCheckout::class)->name('installment_checkout');
 
-Route::middleware('auth')->group(function(){
-    Route::post('/cart-sotre',[AjaxController::class,'cartStore'])->name('cart.store');
+Route::middleware('auth')->group(function () {
+    Route::post('/cart-sotre', [AjaxController::class, 'cartStore'])->name('cart.store');
     // Route::get('/billing',[AjaxController::class,'addToCart'])->name('add_to_cart');
 
     // user account
@@ -381,6 +379,7 @@ Route::middleware('auth')->group(function(){
     Route::get('/edit-profile', EditProfile::class)->name('ep');
     Route::get('/order-confirm', OrderConfirm::class)->name('oc');
     Route::get('/address', Address::class)->name('address');
+    Route::get('/change-password', ChangePassword::class)->name('cp');
 });
 
 

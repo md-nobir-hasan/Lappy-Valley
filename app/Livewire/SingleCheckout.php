@@ -7,6 +7,7 @@ use App\Models\Divission;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\Shipping;
+use App\Models\UserAddress;
 use App\Notifications\StatusNotification;
 use App\User;
 use Illuminate\Support\Facades\Auth;
@@ -15,6 +16,7 @@ use Livewire\Component;
 use Livewire\Attributes\Title;
 use Notification;
 use Illuminate\Support\Str;
+
 #[Title('Checkout')]
 
 class SingleCheckout extends Component
@@ -62,7 +64,8 @@ class SingleCheckout extends Component
 
     public $product;
 
-    public function mount(){
+    public function mount()
+    {
         $this->product = Product::where('slug', $this->pslug)->first();
     }
 
@@ -72,14 +75,31 @@ class SingleCheckout extends Component
         if (auth()->user()) {
             $user = auth()->user();
         } else {
-            $user = User::create([
+            $user = User::firstOrcreate([
                 'email' => $this->email,
-                'name' => $this->name,
-                'l_name' => $this->l_name,
             ]);
+
+            $address =  UserAddress::where('user_id', $user->id)->where('is_default', true)->first();
+            if (!$address) {
+                UserAddress::create([
+                    'address' => $this->address,
+                    'city' => $this->city,
+                    'divission_id' => $this->divission_id,
+                    'user_id' => $user->id,
+                    'is_default' => true,
+                ]);
+            }
             Auth::login($user);
         }
-
+        //update user
+        $user->name = $this->name;
+        $user->l_name = $this->l_name;
+        $user->phone = $this->phone;
+        $user->address = $this->address;
+        $user->city = $this->city;
+        $user->divission_id = $this->divission_id;
+        $user->save();
+        
         $order = new Order();
         $order_data = $this->all();
         $order_data['order_number'] = 'ORD-' . strtoupper(Str::random(10));
@@ -105,18 +125,18 @@ class SingleCheckout extends Component
 
         Notification::send($users, new StatusNotification($details));
 
-            $product = $this->product;
-            $product->stock -= 1;
-            $product->save();
-            Cart::create([
-                'product_id'=>$product->id,
-                'order_id'=> $order->id,
-                'user_id'=> $user->id,
-                'ip'=> request()->ip(),
-                'price'=> $order->sub_total,
-                'quantity'=> 1,
-                'amount'=> $order->sub_total,
-            ]);
+        $product = $this->product;
+        $product->stock -= 1;
+        $product->save();
+        Cart::create([
+            'product_id' => $product->id,
+            'order_id' => $order->id,
+            'user_id' => $user->id,
+            'ip' => request()->ip(),
+            'price' => $order->sub_total,
+            'quantity' => 1,
+            'amount' => $order->sub_total,
+        ]);
         request()->session()->flash('success', 'Your Order successfully placed in order');
         return $this->redirect(route('order.receive', [$order->order_number]));
     }

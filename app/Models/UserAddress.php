@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class UserAddress extends Model
 {
     use HasFactory;
-    protected $fillable = ['address', 'address2', 'city', 'post_code','divission_id','user_id'];
+    protected $fillable = ['address', 'address2', 'city', 'post_code','divission_id','user_id','is_default'];
 
     public function divission(){
         return $this->belongsTo(Divission::class);

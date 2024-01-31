@@ -6,7 +6,6 @@ use App\Models\Cart;
 use App\Models\Coupon;
 use App\Models\Divission;
 use App\Models\Order;
-use App\Models\OrderStatus;
 use App\Models\Shipping;
 use App\Models\UserAddress;
 use App\Notifications\StatusNotification;
