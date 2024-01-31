@@ -17,7 +17,7 @@
      @endif
      <div class="flex items-center justify-center image-container">
          <a href="{{ route('product.details', [$product->slug]) }}">
-             <img src="{{ $photo }}" class="object-container h-[180px]" alt="{{ $product->title }}">
+             <img src="{{ $photo }}" class="object-container h-[150px]" alt="{{ $product->title }}">
          </a>
      </div>
      {{-- @else

@@ -10,8 +10,9 @@
             <div class="border-[2px] border-[#380D37] rounded-[4px] left-[70px] max-sm:px-[40px] max-sm:py-[18px] pt-[33px] pb-[20px] pl-[65px] pr-[50px]">
                 <div class="mb-[40px] mt-[10px]">
                     <span
-                        class="font-[jost] font-[600] text-[#380D37] w-[181.56px] h-[29.25px] text-[20px] my-[15px]">Reset
-                        Password</span>
+                        class="font-[jost] font-[600] text-[#380D37] w-[181.56px] h-[29.25px] text-[20px] my-[15px]">
+                        Reset Password
+                    </span>
                 </div>
                 <div class="mb-[20px] w-full">
                     <input wire:model='password' name="password"
@@ -35,8 +36,9 @@
                 </div>
                 <div class="my-[20px] w-full">
                     <button
-                        class="w-full font-[jost] font-[500] text-[16px] text-[#fff] bg-gradient-to-r from-[#380D37] to-[#DC275C] py-[18px] rounded-[5px]">Change
-                        Password</button>
+                        class="w-full font-[jost] font-[500] text-[16px] text-[#fff] bg-gradient-to-r from-[#380D37] to-[#DC275C] py-[18px] rounded-[5px]">
+                        Change Password
+                    </button>
                 </div>
             </div>
         </div>
