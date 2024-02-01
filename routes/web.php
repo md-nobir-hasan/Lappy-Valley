@@ -93,8 +93,7 @@ Route::get('cache-clear', function () {
 // Storage Link
 Route::get('mdnh/str-link', function () {
     Artisan::call('storage:link');
-    request()->session()->flash('success', 'Successfully storage linked.');
-    return redirect()->back();
+    echo 'Storage linked successfully';
 })->name('mdnh.sl');
 
 // STORAGE LINKED ROUTE
