@@ -1,26 +1,7 @@
 <div>
-    {{-- toastr error message  --}}
-    @if (session('error'))
-        <div class="alert alert-success">
-            @script
-           <script>toastr.error( "{{ session('error') }}")</script>
-           @endscript
-        </div>
-    @endif
-    {{-- toastr success message  --}}
-    @if (session('success'))
-        <div class="alert alert-success">
-            @script
-            <script>
-                toastr.success("{{ session('success') }}")
-            </script>
-            @script
-
-        </div>
-    @endif
     <header
         class="h-[78px] z-[10000] max-sm:h-[50px] max-xl:h-[68px] max-xl:fixed max-xl:top-0 max-xl:left-0 max-xl:right-0 max-xl:z-150 max-xl:flex max-xl:justify-between max-xl:items-center max-xl:border-b-[2px] max-xl:border-[#f2f2f2]
-     bg-gradient-to-r from-[#380D37] to-[#DC275C] text-[#f2f2f2] px-[72px] max-xl:px-[40px]">
+         bg-gradient-to-r from-[#380D37] to-[#DC275C] text-[#f2f2f2] px-[72px] max-xl:px-[40px]">
         <div id="body-overlay1"></div>
 
         {{-- Mobile menue  --}}
@@ -170,8 +151,8 @@
                                                     placeholder="I am shopping for..." required>
                                                 <div wire:loading wire:target='prdouctFetch,searchFuc'
                                                     class="absolute right-0 top-2.5 inline-block h-6 w-6 mr-[7px] animate-spin rounded-full
-                                                        border-4 border-solid border-current border-r-transparent align-[-0.125em]
-                                                         text-success motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                                                            border-4 border-solid border-current border-r-transparent align-[-0.125em]
+                                                             text-success motion-reduce:animate-[spin_1.5s_linear_infinite]"
                                                     role="status">
                                                     <span
                                                         class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...
@@ -265,6 +246,7 @@
         </div>
         {{-- ------search--icon--end----- --}}
     </header>
+
     <div
         class='h-[68px] max-sm:h-[50px] text-[#f2f2f2] px-[72px] max-xl:px-[60px] max-md:px-[40px] font-[jost] xl:hidden max-xl:block items-center z-[9999] fixed bottom-0 left-0 right-0 shadow bg-gradient-to-r from-[#380D37] to-[#DC275C] border-t-[2px] border-[#f2f2f2]'>
         <div class='flex items-center justify-between gap-[20px] my-[15px]'>
@@ -310,8 +292,18 @@
         </div>
     </div>
 </div>
+
 @script
     <script>
+        // Session message
+        @if (session('error'))
+        toastr.error("{{ session('error') }}");
+        @endif
+
+        @if (session('success'))
+        toastr.error("{{ session('success') }}");
+        @endif
+
         $('.menu-toggle').click(function(e) {
             $(this).addClass('left-0');
             $('.menu').removeClass('left-[-300px]');
