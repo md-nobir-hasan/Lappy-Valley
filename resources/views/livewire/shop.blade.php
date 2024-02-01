@@ -1063,7 +1063,7 @@
                 {{-- product show after reload  --}}
                 <div x-show='productShow'>
                     <div
-                        class='grid grid-cols-4 gap-8 max-sm:gap-[5px] mx-auto mt-4 max-lg:grid-cols-3 max-sm:grid-cols-2 product_pdiv'>
+                        class='grid grid-cols-4 max-lg:grid-cols-3 max-sm:grid-cols-2 gap-8 max-sm:gap-[5px] mx-auto mt-4 product_pdiv'>
                         @foreach ($products as $product)
                             <x-shop-product :product="$product">
                                 <div class='mt-2'>
@@ -1270,14 +1270,16 @@
 @script
     <script>
         $(document).ready(function() {
-            //Grid and colulm button
+            //Grid and colulm button grid max-sm:gap-[5px] mx-auto mt-4 max-lg:grid-cols-3 max-sm:grid-cols-2 product_pdiv grid-cols-1 max-w-2xl
             $('#column').on('click', function() {
-                $('.product_pdiv').removeClass('grid-cols-4 gap-8');
-                $('.product_pdiv').addClass('grid-cols-1  max-w-2xl');
+            console.log('column')
+                $('.product_pdiv').removeClass('grid-cols-4 max-lg:grid-cols-3 max-sm:grid-cols-2 gap-8 max-sm:gap-[5px]');
+                $('.product_pdiv').addClass('grid-cols-1 max-w-2xl');
             })
             $('#grid').on('click', function() {
+                console.log('grid')
                 $('.product_pdiv').removeClass('grid-cols-1  max-w-2xl');
-                $('.product_pdiv').addClass('grid-cols-4 gap-8');
+                $('.product_pdiv').addClass('grid-cols-4 max-lg:grid-cols-3 max-sm:grid-cols-2 gap-8 max-sm:gap-[5px]');
             })
 
             //ajax searching products paginations
