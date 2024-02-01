@@ -146,15 +146,19 @@
     </style>
     <div class=''>
         <h1 class='font-[jost] text-[16px] font-[400] leading-[23.12px] tracking-[3%] text-[#353535]'>
-            <a href="{{route('home')}}" wire:navigate>Home</a> / Shop /
-            @isset($cat, $subcat)
-                {{ Str::of($cat)->headline() }}
-                @isset($subcat)
-                    /
-                    {{ Str::of(Str::of($subcat)->afterLast('-'))->upper() }}
-                @endisset
+            <a href="{{ route('home') }}" wire:navigate>Home</a> / Shop /
+            @isset($shop_title)
+                {{ Str::of($shop_title)->headline() }}
             @else
-                All Categories
+                @isset($cat)
+                    {{ Str::of($cat)->headline() }}
+                    @isset($subcat)
+                        /
+                        {{ Str::of(Str::of($subcat)->afterLast('-'))->upper() }}
+                    @endisset
+                @else
+                    All Categories
+                @endisset
             @endisset
         </h1>
         <div class='h-[1px] bg-[#764A8733]'></div>
@@ -1042,8 +1046,8 @@
                         <span id="grid"
                             class="grid-view mf-shop-view current mx-[20px] max-md:mx-[10px] max-sm:mx-[2px]"
                             data-view="grid">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="2em" class="max-sm:h-[15px] cursor-pointer"
-                                fill='black' viewBox="0 0 512 512">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="2em"
+                                class="max-sm:h-[15px] cursor-pointer" fill='black' viewBox="0 0 512 512">
                                 <path
                                     d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64
                                         64H448c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm88 64v64H64V96h88zm56 0h88v64H208V96zm240 0v64H360V96h88zM64
@@ -1051,8 +1055,8 @@
                             </svg></span>
                         <span id="column" class="list-view mf-shop-view mx-[20px] max-md:mx-[10px] max-sm:mx-[2px]"
                             data-view="list">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="2em" class="max-sm:h-[15px] cursor-pointer"
-                                fill='black' viewBox="0 0 512 512">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="2em"
+                                class="max-sm:h-[15px] cursor-pointer" fill='black' viewBox="0 0 512 512">
                                 <path
                                     d="M64 144a48 48 0 1 0 0-96 48 48 0 1 0 0 96zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zM64 464a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm48-208a48 48 0 1 0 -96 0 48 48 0 1 0 96 0z" />
                             </svg>
@@ -1063,7 +1067,7 @@
                 {{-- product show after reload  --}}
                 <div x-show='productShow'>
                     <div
-                        class='grid grid-cols-4 gap-8 max-sm:gap-[5px] mx-auto mt-4 max-lg:grid-cols-3 max-sm:grid-cols-2 product_pdiv'>
+                        class='grid grid-cols-4 max-lg:grid-cols-3 max-sm:grid-cols-2 gap-8 max-sm:gap-[5px] mx-auto mt-4 product_pdiv'>
                         @foreach ($products as $product)
                             <x-shop-product :product="$product">
                                 <div class='mt-2'>
@@ -1110,20 +1114,21 @@
                                         class="product_div relative overflow-hidden border-[1px] border-[#380D37] bg-[#f2f2f2] rounded-[4px] box-border px-[5px] mt-2 flex flex-col gap-2 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] ">
 
                                         <div class="flex items-center justify-center image-container relative">
-                                           <a :href="'/product-details/'+product.slug" wire:navigate>
-                                            <img :src="product.photo.split(',')[0]"
-                                            class="rounded-t-lg img-fluid h-[130px] object-container"
-                                            data-te-ripple-init data-te-ripple-color="dark" alt="avatar.png">
-                                           </a>
-                                           <template x-if='product.stock < 1'>
-                                               <span class="text-[14px] bg-[#ef4a23] text-[#fff] absolute top-0 left-[-5px] px-2 py-[2px] rounded-r-lg">Out Of Stock</span>
-                                           </template>
+                                            <a :href="'/product-details/' + product.slug" wire:navigate>
+                                                <img :src="product.photo.split(',')[0]"
+                                                    class="rounded-t-lg img-fluid h-[130px] object-container"
+                                                    data-te-ripple-init data-te-ripple-color="dark" alt="avatar.png">
+                                            </a>
+                                            <template x-if='product.stock < 1'>
+                                                <span
+                                                    class="text-[14px] bg-[#ef4a23] text-[#fff] absolute top-0 left-[-5px] px-2 py-[2px] rounded-r-lg">Out
+                                                    Of Stock</span>
+                                            </template>
                                         </div>
 
-                                        <div
-                                            class="p-4 max-sm:p-[8px] border-t-[1px] border-[#380D3733]">
+                                        <div class="p-4 max-sm:p-[8px] border-t-[1px] border-[#380D3733]">
                                             <div class=' border-[#380D3733] mb-2'>
-                                                <a :href="'/product-details/'+product.slug" wire:navigate
+                                                <a :href="'/product-details/' + product.slug" wire:navigate
                                                     class="font-[jost] text-[12px] font-[500] leading-[20px] text-left text-[#380D37] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-1 hover:underline hover:underline-offset-4"
                                                     x-text='product.title'>
                                                 </a>
@@ -1144,10 +1149,10 @@
                                                 <span
                                                     class="font-[jost] text-[12px] font-[700] leading-[24px] text-[#DC275C] flex items-center justify-center gap-[4px]">
                                                     <span x-text='product.price'></span>
-                                                    <span
-                                                        class="text-[12px] font-[jost] font-[700]">৳</span>
+                                                    <span class="text-[12px] font-[jost] font-[700]">৳</span>
                                                 </span>
-                                                <span class="text-[#380D37] text-[12px] font-[jost] font-[700] line-through">
+                                                <span
+                                                    class="text-[#380D37] text-[12px] font-[jost] font-[700] line-through">
                                                     <span x-text='product.price'></span>৳
                                                 </span>
                                             </div>
@@ -1270,14 +1275,18 @@
 @script
     <script>
         $(document).ready(function() {
-            //Grid and colulm button
+            //Grid and colulm button grid max-sm:gap-[5px] mx-auto mt-4 max-lg:grid-cols-3 max-sm:grid-cols-2 product_pdiv grid-cols-1 max-w-2xl
             $('#column').on('click', function() {
-                $('.product_pdiv').removeClass('grid-cols-4 gap-8');
-                $('.product_pdiv').addClass('grid-cols-1  max-w-2xl');
+                console.log('column')
+                $('.product_pdiv').removeClass(
+                    'grid-cols-4 max-lg:grid-cols-3 max-sm:grid-cols-2 gap-8 max-sm:gap-[5px]');
+                $('.product_pdiv').addClass('grid-cols-1 max-w-2xl');
             })
             $('#grid').on('click', function() {
+                console.log('grid')
                 $('.product_pdiv').removeClass('grid-cols-1  max-w-2xl');
-                $('.product_pdiv').addClass('grid-cols-4 gap-8');
+                $('.product_pdiv').addClass(
+                    'grid-cols-4 max-lg:grid-cols-3 max-sm:grid-cols-2 gap-8 max-sm:gap-[5px]');
             })
 
             //ajax searching products paginations

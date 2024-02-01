@@ -1,7 +1,9 @@
-<div class='px-[100px] max-2xl:px-[70px] max-xl:px-[60px] max-lg:px-[38px] max-md:px-[35px] max-sm:px-[15px] max-sm:mt-[70px] max-xl:mt-[100px]'>
-        <!-- Bootstrap core CSS -->
+<div>
+    <div
+    class='px-[100px] max-2xl:px-[70px] max-xl:px-[60px] max-lg:px-[38px] max-md:px-[35px] max-sm:px-[15px] max-sm:mt-[70px] max-xl:mt-[100px]'>
+    <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <div>
         <h1 class='font-[jost] text-[16px] max-sm:text-[14px] font-[400] leading-[25.3px] text-[#353535]'>
             Checkout / Payment
@@ -124,14 +126,13 @@
         {{-- <div class='h-[2px] bg-[#764A8733]'></div> --}}
         @if ($order->payment_method == 'online')
             <div class="flex justify-end max-sm:flex-col max-sm:justify-center max-sm:items-center gap-4">
-                <button id="sslczPayBtn"
-                        token="if you have any token validation"
-                        postdata="your javascript arrays or objects which requires in backend"
-                        order="If you already have the transaction generated for current order"
-                        endpoint="{{ url('/pay-via-ajax') }}"
+                <button id="sslczPayBtn" token="if you have any token validation"
+                    postdata="your javascript arrays or objects which requires in backend"
+                    order="If you already have the transaction generated for current order"
+                    endpoint="{{ url('/pay-via-ajax') }}"
                     class="px-[30px] py-[10px] border-[2px] border-[#380D37] text-[#380D37] text-[14px] font-[jost] font-[500] rounded-[4px]">Pay
                     Now</button>
-                <a href="{{route('account')}}" id="pay-later"
+                <a href="{{ route('account') }}" id="pay-later"
                     class="nav-colors fill-up-btn px-[30px] py-[10px] border-[1px] border-[#380D37] bg-gradient-to-r from-[#380D37] to-[#DC275C] text-[#f2f2f2] text-[14px] font-[jost] font-[500] rounded-[4px]">
                     Pay
                     Later</a>
@@ -150,7 +151,7 @@
                     Like us on <span>Facebook</span> to keep you up to date with all our offers and announcements.
                 </p>
             </div>
-            <a class=".nav-a nav-color1 flex justify-center itmes-center" href="{{$other_setting->fb}}">
+            <a class=".nav-a nav-color1 flex justify-center itmes-center" href="{{ $other_setting->fb }}">
                 <span>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" id="facebook"
                         class="w-[40px] h-[40px]">
@@ -164,7 +165,7 @@
                     </svg>
                 </span>
 
-                 <div class="bg-[#fff] leading-5 max-sm:flex max-sm:flex-col">
+                <div class="bg-[#fff] leading-5 max-sm:flex max-sm:flex-col">
                     <span class="nav-color1 text-blue-900 text-[14px] font-[jost] font-[700]">Find us on</span>
                     <span class="nav-color1 text-blue-900 text-[18px] font-[jost] font-[700]">Facebook</span>
                 </div>
@@ -182,7 +183,7 @@
         </div>
 
     </div>
-        {{-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    {{-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script> --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
@@ -196,7 +197,7 @@
     <!-- If you want to use the popup integration, -->
     <script>
         var obj = {};
-        obj.order_id = '{{$order->id}}';
+        obj.order_id = '{{ $order->id }}';
 
 
         $('#sslczPayBtn').prop('postdata', obj);
@@ -228,12 +229,12 @@
 
             $("#play-Later").on('click', function() {
                 $(this).addClass("bg-gradient-to-r from-[#380D37] to-[#DC275C] text-[#f2f2f2]");
-                $("#sslczPayBtn").removeClass("bg-gradient-to-r from-[#380D37] to-[#DC275C] text-[#f2f2f2]");
+                $("#sslczPayBtn").removeClass(
+                "bg-gradient-to-r from-[#380D37] to-[#DC275C] text-[#f2f2f2]");
                 $("#sslczPayBtn").addClass("text-[#380D37]");
             })
 
         })
     </script>
-
-
 @endscript
+</div>
