@@ -64,8 +64,10 @@
                             <td
                                 class="p-3 tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]">
                                 {{-- <a href=""> --}}
-                                    {{ $order->payment_status }} ({{count($order->installment_order)}}/{{$order->installment_count}}) <br> <span class="text-blue-200">Installment</span></td>
-                                {{-- </a> --}}
+                                {{ $order->payment_status }}
+                                ({{ count($order->installment_order) }}/{{ $order->installment_count }}) <br> <span
+                                    class="text-blue-200">Installment</span></td>
+                            {{-- </a> --}}
                         </tr>
                     @else
                         @foreach ($order->cart_info as $cart)
@@ -91,12 +93,17 @@
                                     @if ($order->status == 'Delivered')
                                         Received
                                     @else
-                                    {{ $order->status }}
+                                        {{ $order->status }}
                                     @endif
                                 </td>
                                 <td
                                     class="p-3 tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]">
-                                    {{ $order->payment_status }}</td>
+                                    {{ $order->payment_status }} <br>
+                                    @if ($order->payment_status == 'unpaid')
+                                        <a href="{{ route('pssl', [$order->order_number]) }}">pay now</a>
+                                    @endif
+
+                                </td>
                             </tr>
                         @endforeach
                     @endif
