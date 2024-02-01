@@ -2340,6 +2340,10 @@ input[type="range"]:active::-webkit-slider-thumb{
   width: 100vw;
 }
 
+.w-\[\]{
+  width: ;
+}
+
 .w-\[35px\]{
   width: 35px;
 }
@@ -3640,6 +3644,11 @@ input[type="range"]:active::-webkit-slider-thumb{
   background-color: rgb(206 219 238 / var(--tw-bg-opacity));
 }
 
+.bg-red-900{
+  --tw-bg-opacity: 1;
+  background-color: rgb(127 29 29 / var(--tw-bg-opacity));
+}
+
 .bg-transparent{
   background-color: transparent;
 }
@@ -3674,11 +3683,6 @@ input[type="range"]:active::-webkit-slider-thumb{
 
 .bg-\[\]{
   background-color: ;
-}
-
-.bg-red-900{
-  --tw-bg-opacity: 1;
-  background-color: rgb(127 29 29 / var(--tw-bg-opacity));
 }
 
 .bg-gradient-to-r{
