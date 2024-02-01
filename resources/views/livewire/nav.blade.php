@@ -31,6 +31,7 @@
              @endforeach
          </ul>
      </div>
+     {{-- @dd($menus) --}}
      @foreach ($menus as $men)
          @if (count($men->products) > 0)
              <div class="relative">
@@ -39,7 +40,19 @@
                      type="button" id="dropdownMenuButton2">
                      <a class="nav-color" href="{{ route('cate_wise.shop', [$men->slug]) }}"
                          wire:navigate>{{ $men->title }}</a>
-                     @if (count($men->child_cat) > 0)
+
+                     {{-- checking child has child  --}}
+                     @php
+                         $has_child = 0;
+                     @endphp
+                     @foreach ($men->child_cat as $ccc)
+                         @if (count($ccc->sub_products) > 0)
+                             @php
+                                 ++$has_child;
+                             @endphp
+                         @endif
+                     @endforeach
+                     @if (count($men->child_cat) > 0 && $has_child)
                          <span class="w-2 ml-2 cursor-pointer menue">
                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                                  class="w-5 h-5">
