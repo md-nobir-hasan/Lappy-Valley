@@ -151,12 +151,12 @@
                     Like us on <span>Facebook</span> to keep you up to date with all our offers and announcements.
                 </p>
             </div>
-            <a class=".nav-a nav-color1 flex justify-center itmes-center" href="{{ $other_setting->fb }}">
+            <a class=".nav-a nav-color1 flex justify-center items-center gap-2 bg-[#f2f2f2]" href="{{ $other_setting->fb }}">
                 <span>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" id="facebook"
-                        class="w-[40px] h-[40px]">
+                        class="w-[35px] h-[35px]">
                         <path fill="#1976D2"
-                            d="M14 0H2C.897 0 0 .897 0 2v12c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2V2c0-1.103-.897-2-2-2z">
+                            d="M14 0H2C.900 0 0 .900 0 2v12c0 1.103.898 2 2 2h12c1.103 0 2-.897 2-2V2c0-1.103-.897-2-2-2z">
                         </path>
                         <path fill="#FAFAFA" fill-rule="evenodd"
                             d="M13.5 8H11V6c0-.552.448-.5 1-.5h1V3h-2a3 3 0 0 0-3 3v2H6v2.5h2V16h3v-5.5h1.5l1-2.5z"
@@ -165,9 +165,9 @@
                     </svg>
                 </span>
 
-                <div class="bg-[#fff] leading-5 max-sm:flex max-sm:flex-col">
-                    <span class="nav-color1 text-blue-900 text-[14px] font-[jost] font-[700]">Find us on</span>
-                    <span class="nav-color1 text-blue-900 text-[18px] font-[jost] font-[700]">Facebook</span>
+                <div class="bg-[#f2f2f2] leading-5 max-sm:flex max-sm:flex-col">
+                    <span class="nav-color1 text-blue-900 text-[14px] font-[700]">Find us on</span>
+                    <span class="nav-color1 text-blue-900 text-[18px] font-[700]">Facebook</span>
                 </div>
 
             </a>
