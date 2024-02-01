@@ -1116,7 +1116,7 @@
                                         <div class="flex items-center justify-center image-container relative">
                                             <a :href="'/product-details/' + product.slug" wire:navigate>
                                                 <img :src="product.photo.split(',')[0]"
-                                                    class="rounded-t-lg img-fluid h-[150px] object-container"
+                                                    class="rounded-t-lg img-fluid h-[130px] object-container"
                                                     data-te-ripple-init data-te-ripple-color="dark" alt="avatar.png">
                                             </a>
                                             <template x-if='product.stock < 1'>

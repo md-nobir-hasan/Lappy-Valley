@@ -292,7 +292,7 @@
                                 <div>
                                     <a @click.stop='redirect("{{ route('product.details', [$f_product->slug]) }}")'
                                         href="{{ route('product.details', [$f_product->slug]) }}" wire:navigate
-                                        class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-300 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
+                                        class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-300 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-1 hover:underline hover:underline-offset-4">
                                         {{ Str::of($f_product->title)->words(5) }}
                                     </a>
                                 </div>
@@ -351,7 +351,7 @@
                                 <div class="">
                                     <a @click.stop='redirect("{{ route('product.details', [$f_product->slug]) }}")'
                                         href="{{ route('product.details', [$a_product->slug]) }}" wire:navigate
-                                        class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-300 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
+                                        class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-300 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-1 hover:underline hover:underline-offset-4">
                                         {{ Str::of($a_product->title)->words(5) }}
                                     </a>
                                 </div>

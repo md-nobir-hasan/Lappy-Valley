@@ -7,7 +7,7 @@
                 @php
                     $photo = explode(',', $product->photo);
                 @endphp
-                <img src="{{ $photo[0] }}" class="object-container pimg h-[180px]" alt="{{ $product->photo }}">
+                <img src="{{ $photo[0] }}" class="object-container pimg h-[180px] mx-auto" alt="{{ $product->photo }}">
             @else
                 <img src="{{ asset('backend/img/thumbnail-default.jpg') }}" class="object-container pimg h-[180px]"
                     alt="avatar.png">
@@ -23,7 +23,7 @@
     <div>
         <a href="{{ route('product.details', [$product->slug]) }}" wire:navigate>
             <p
-                class="ptitle text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-300 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
+                class="ptitle text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-300 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-1 hover:underline hover:underline-offset-4">
                 {{ $product->title }}
             </p>
         </a>
