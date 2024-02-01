@@ -1116,7 +1116,7 @@
                                             data-te-ripple-init data-te-ripple-color="dark" alt="avatar.png">
                                            </a>
                                            <template x-if='product.stock < 1'>
-                                               <span class="text-[14px] bg-red-900 text-[#fff] absolute top-0 left-[-5px] px-2 py-[2px] rounded-r-lg">Out Of Stock</span>
+                                               <span class="text-[14px] bg-[#ef4a23] text-[#fff] absolute top-0 left-[-5px] px-2 py-[2px] rounded-r-lg">Out Of Stock</span>
                                            </template>
                                         </div>
 
