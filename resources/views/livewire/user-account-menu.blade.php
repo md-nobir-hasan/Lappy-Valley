@@ -162,7 +162,7 @@
                 </div>
             </a>
 
-            <a href="{{ route('wishlist') }}" wire:navigate>
+            {{-- <a href="{{ route('wishlist') }}" wire:navigate>
                 <div class='flex gap-[5px] items-center'>
                     @if (request()->routeIs('wishlist'))
                         <img src="/storage/product/Vector-2.svg"alt="Product" class='w-[23.36px] h-[26.21px]'>
@@ -170,13 +170,11 @@
                         <img src="/storage/product/Vector-light-opacity.svg"alt="Product"
                             class='w-[23.36px] h-[26.21px]'>
                     @endif
-                    {{-- <img src="/storage/product/{{ request()->routeIs('wishlist') ? 'Vector-2.svg' : 'Vector-light-opacity.svg' }}"
-                    alt="Product" class='w-[22.3px] h-[20.88px]'> --}}
                     <span
                         class='{{ request()->routeIs('wishlist') ? 'text-[#380D37]' : 'text-[#AAAAAA]' }} text-[16px] font-[jost] font-[500] leading-[23.12px]'>Wish
                         List</span>
                 </div>
-            </a>
+            </a> --}}
 
         </div>
 
