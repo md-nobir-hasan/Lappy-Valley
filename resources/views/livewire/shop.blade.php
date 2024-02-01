@@ -147,7 +147,7 @@
     <div class=''>
         <h1 class='font-[jost] text-[16px] font-[400] leading-[23.12px] tracking-[3%] text-[#353535]'>
             <a href="{{route('home')}}" wire:navigate>Home</a> / Shop /
-            @isset($cat, $subcat)
+            @isset($cat)
                 {{ Str::of($cat)->headline() }}
                 @isset($subcat)
                     /
