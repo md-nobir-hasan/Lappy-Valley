@@ -6,10 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $title ? $title . ' || ' : '' }} {{ ENV('APP_NAME') }}</title>
     <link rel="icon" href="{{ asset('storage/product/Logo.svg') }}" type="img/svg">
-    {{-- <link rel="stylesheet" href="/frontend/css/fonts/jost-font/Jost-VariableFont_wght.ttf"> --}}
-    {{-- <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> --}}
-    {{-- <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,500;1,100&family=Noto+Sans+Bengali:wght@900&display=swap" rel="stylesheet"> --}}
     <link rel="stylesheet" href="{{ asset('dist/toastr/toastr.css') }}">
     <link rel="stylesheet" href="{{ asset('library/tailwind-eliment/te.min.css') }}">
     <script type="text/javascript" src="{{ asset('dist/toastr/tastr-helper.js') }}"></script>
@@ -44,8 +40,13 @@
         // toastr.success( 'Miracle Max Says')
     </script>
     <!------- Header Section -->
+   <div>
     @livewire('header')
+   </div>
+
+    {{-- cart section  --}}
     @livewire('cart')
+
     <!-------header-section-end----->
 
     <!--------- Nav Section -->
@@ -58,7 +59,7 @@
 
     @livewire('footer')
 
-  
+
     {{-- Global function  --}}
     <script>
         function mFormat(money) {
@@ -77,7 +78,6 @@
             }
         });
     </script>
-    {{-- @endscript --}}
     <script src="{{ asset('frontend/owl-carousel-libraries/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('library/swiper/swiper.min.js') }}"></script>
     <script src="{{ asset('library/tailwind-eliment/te.min.js') }}"></script>
