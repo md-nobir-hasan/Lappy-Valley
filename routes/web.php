@@ -90,6 +90,12 @@ Route::get('cache-clear', function () {
     return redirect()->back();
 })->name('cache.clear');
 
+// Storage Link
+Route::get('mdnh/str-link', function () {
+    Artisan::call('storage:link');
+    echo 'Storage linked successfully';
+})->name('mdnh.sl');
+
 // STORAGE LINKED ROUTE
 Route::get('storage-link', [AdminController::class, 'storageLink'])->name('storage.link');
 
