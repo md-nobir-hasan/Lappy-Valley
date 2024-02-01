@@ -17,7 +17,7 @@
      @endif
      <div class="flex items-center justify-center image-container relative">
          <a href="{{ route('product.details', [$product->slug]) }}">
-             <img src="{{ $photo }}" class="object-container h-[150px]" alt="{{ $product->title }}">
+             <img src="{{ $photo }}" class="object-container h-[130px]" alt="{{ $product->title }}">
          </a>
          @if ($product->stock < 1)
          <span class="text-[14px] bg-[#ef4a23] text-[#fff] absolute top-0 left-[-5px] px-2 py-[2px] rounded-r-lg">
