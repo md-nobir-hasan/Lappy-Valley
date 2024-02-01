@@ -65,6 +65,7 @@ use App\Livewire\Offer;
 use App\Livewire\OrderConfirm;
 use App\Livewire\OrderReceived;
 use App\Livewire\OtpConfirm;
+use App\Livewire\RedirectToPay;
 use App\Livewire\ResetPassword;
 use App\Livewire\Review;
 use App\Livewire\SearchingProduct;
@@ -386,6 +387,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/order-confirm', OrderConfirm::class)->name('oc');
     Route::get('/address', Address::class)->name('address');
     Route::get('/change-password', ChangePassword::class)->name('cp');
+    Route::get('/pay/ssl/{order_number}', RedirectToPay::class)->name('pssl');
 });
 
 
