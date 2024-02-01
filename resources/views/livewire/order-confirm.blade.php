@@ -100,7 +100,7 @@
                                     class="p-3 tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]">
                                     {{ $order->payment_status }} <br>
                                     @if ($order->payment_status == 'unpaid')
-                                        <a href="{{ route('pssl', [$order->order_number]) }}">pay now</a>
+                                        <a class="text-[#ef4a23] text-[14px]" href="{{ route('pssl', [$order->order_number]) }}">pay now</a>
                                     @endif
 
                                 </td>

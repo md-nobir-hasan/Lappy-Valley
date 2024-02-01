@@ -1,6 +1,25 @@
-<div>
-    <div class="flex h-full justify-center items-center">
-        <button id="sslczPayBtn" token="if you have any token validation"
+<div class="h-[360px]">
+    <style>
+        .button0{
+            animation: anime 1s infinite ease-in-out;
+            
+        }
+        .button0{
+            animation-delay: .3s;
+        }
+        @keyframes anime {
+            100% {
+                transform: : translateY(20px);
+                -webkit-transform: translateY(20px);
+                -moz-transform: translateY(20px);
+                -ms-transform: translateY(20px);
+                -o-transform: translateY(20px);
+                box-shadow : 0 40px 10px -18px rgba (0,0,0,0.2);
+            }
+        }
+    </style>
+    <div class="flex h-full justify-center items-center mt-[50px]">
+        <button id="sslczPayBtn" token="if you have any token validation" class=" button0 shadow-lg shadow-cyan-500/50"
             postdata="your javascript arrays or objects which requires in backend"
             order="If you already have the transaction generated for current order" endpoint="{{ url('/pay-via-ajax') }}">
             Pay Now
