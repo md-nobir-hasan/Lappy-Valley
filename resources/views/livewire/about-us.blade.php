@@ -1,6 +1,6 @@
 <div class="px-[100px] max-sm:px-[15px] max-lg:px-[45px] max-xl:px-[60px] max-sm:mt-[70px] max-xl:mt-[100px]">
     <div class=''>
-        <h1 class='font-[jost] text-[20px] font-[400] leading-[25.3px] text-[#353535]'>Home / About Us</h1>
+        <h1 class='font-[jost] text-[20px] font-[400] leading-[25.3px] text-[#353535]'><a href="{{route('home')}}" wire:navigate>Home</a> / About Us</h1>
     </div>
     <div class='h-[2px] bg-[#764A8733]'></div>
 
