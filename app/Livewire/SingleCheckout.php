@@ -41,7 +41,7 @@ class SingleCheckout extends Component
 
     #[Rule("required", message: "Please, enter an email")]
     #[Rule("email", message: "Please,Enter a valid email")]
-    #[Rule("unique:users,email", message: "You have an account. Please, login.")]
+    // #[Rule("unique:users,email", message: "You have an account. Please, login.")]
     public $email;
 
     #[Rule("required", message: "Please, write your city")]
