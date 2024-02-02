@@ -130,6 +130,7 @@
                              <select name="divission_id" id="divission_id"
                                  class="w-full py-[10px] pl-[10px] border-[1px] rounded-[4px] italic border-[#380D37] font-[jost] font-[500] text-[12px] text-[#380D37] placeholder-[#C4C4C4]"
                                  wire:model='divission_id'>
+                                 <option value="">Choose...</option>
                                  @foreach ($divissions as $division)
                                      <option value="{{ $division->id }}" @selected($division->id == old('divission_id'))>
                                          {{ $division->name }}</option>
