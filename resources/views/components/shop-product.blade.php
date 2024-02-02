@@ -17,7 +17,7 @@
      @endif
      <div class="flex items-center justify-center image-container relative">
          <a href="{{ route('product.details', [$product->slug]) }}">
-             <img src="{{ $photo }}" class="object-container h-[150px]" alt="{{ $product->title }}">
+             <img src="{{ $photo }}" class="object-container h-[130px]" alt="{{ $product->title }}">
          </a>
          @if ($product->stock < 1)
          <span class="text-[14px] bg-[#ef4a23] text-[#fff] absolute top-0 left-[-5px] px-2 py-[2px] rounded-r-lg">
@@ -59,7 +59,7 @@
          </div>
          <div class="my-3 text-center">
 
-             <a href="{{ route('single_checkout', [$product->slug]) }}" wire:navigate class="">
+             <a href="{{ route('single_checkout', [$product->slug]) }}" wire:navigate>
                  <button
                      class='bg-[#380D37] text-[#F2F2F2] text-[10px] font-[jost] font-[500] py-[8px] max-lg:px-0 max-lg:w-[100px] px-[50px] rounded-[5px]'>Buy
                      Now

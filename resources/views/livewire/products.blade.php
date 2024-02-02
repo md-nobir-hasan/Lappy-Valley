@@ -8,10 +8,10 @@
                     $photo = explode(',', $product->photo);
                     // dd($photo);
                 @endphp
-                <img src="{{ $photo[0] }}" class="img-fluid zoom h-[180px] object-container" style="max-width:80px"
+                <img src="{{ $photo[0] }}" class="img-fluid zoom h-[180px] object-container mx-auto" style="max-width:80px"
                     alt="{{ $product->photo }}">
             @else
-                <img src="{{ asset('backend/img/thumbnail-default.jpg') }}" class="img-fluid h-[180px] object-container"
+                <img src="{{ asset('backend/img/thumbnail-default.jpg') }}" class="img-fluid h-[180px] mx-auto object-container"
                     style="max-width:80px" alt="avatar.png">
             @endif
             {{-- <img class="object-center pimg" src="{{$product->photo}}" alt=""> --}}
@@ -44,7 +44,7 @@
                 <div>
                     <a href="#">
                         <p
-                            class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 underline hover:underline-offset-4">
+                            class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-1 underline hover:underline-offset-4">
                             {{ $product->title }}
                         </p>
                     </a>
