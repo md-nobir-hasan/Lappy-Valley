@@ -1,12 +1,14 @@
 <div class="h-[360px]">
     <style>
-        .button0{
+        .button0 {
             animation: anime 1s infinite ease-in-out;
-            
+
         }
-        .button0{
+
+        .button0 {
             animation-delay: .3s;
         }
+
         @keyframes anime {
             100% {
                 transform: : translateY(20px);
@@ -14,7 +16,7 @@
                 -moz-transform: translateY(20px);
                 -ms-transform: translateY(20px);
                 -o-transform: translateY(20px);
-                box-shadow : 0 40px 10px -18px rgba (0,0,0,0.2);
+                box-shadow: 0 40px 10px -18px rgba (0, 0, 0, 0.2);
             }
         }
     </style>
