@@ -1319,7 +1319,7 @@
     <!-- Drop/submit a review  -->
     <section class="mt-16 mb-5 max-md:mt-6">
         <div
-            class="text-center text-[#380D37] text-[42px] font-[jost] font-[500] max-md:my-[35px] leading-[61px] max-sm:leading-[5px]">
+            class="text-center text-[#380D37] text-[42px] font-[jost] font-[500] max-md:my-[35px] leading-[61px] max-sm:leading-[40px]">
             <h1 class="max-sm:text-[34px] max-md:text-[45] max-lg:text-[] max-xl:text-[]"> Please Drop a Review!</h1>
         </div>
         <div
@@ -1601,6 +1601,7 @@
                 margin: 10,
                 nav: true,
                 dots: true,
+                pagination: true,
                 autoplay: true,
                 autoplayTimeout: 3000,
                 autoplayHoverPause: true,
