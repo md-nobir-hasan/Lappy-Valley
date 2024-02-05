@@ -1007,6 +1007,7 @@
                                                         this.f_name = null
                                                         this.msg = null
                                                         this.img = []
+                                                        this.previews = []
                                                         this.review_stars.push(5);
                                                     } else {
                                                         toastr.error('Error uploading file!')
@@ -1124,7 +1125,7 @@
                                                     <div class='mt-[20px] text-right'>
                                                         <div class="">
                                                             <template x-if='v_msg'>
-                                                                <span x-text='v_msg'></span>
+                                                                <span x-text='v_msg' class="text-[red]"></span>
                                                             </template>
                                                             <button type="button" @click='submit'
                                                                 class='fill-up-btn relative px-[25px] max-sm:px-[15px] max-sm:py-[8px] py-[12px] rounded-[4px] items-center text-[16px] max-lg:text-[14px] text-[#F2F2F2] font-[jost] font-[500] leading-[28.9px] bg-gradient-to-r from-[#380D37] to-[#DC275C]'>

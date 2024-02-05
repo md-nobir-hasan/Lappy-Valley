@@ -66,7 +66,7 @@
 
                     <div class="form-group">
                         <label for="inventory_cost" class="col-form-label">Inventory Cost</label>
-                        <input id="inventory_cost" type="number" name="inventory_cost" min="0" max="100"
+                        <input id="inventory_cost" type="number" name="inventory_cost" min="0" max="1000000"
                             placeholder="Exp:- Enter Inventory Cost" value="{{ $product->inventory_cost }}"
                             class="form-control">
                         @error('inventory_cost')
