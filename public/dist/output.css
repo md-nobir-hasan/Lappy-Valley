@@ -4275,6 +4275,14 @@ input[type="range"]:active::-webkit-slider-thumb{
   padding-top: 6px;
 }
 
+.pl-\[\]{
+  padding-left: ;
+}
+
+.pl-3{
+  padding-left: 0.75rem;
+}
+
 .text-left{
   text-align: left;
 }

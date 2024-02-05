@@ -1391,17 +1391,17 @@
                 class="max-md:border-[1px] max-md:border-[#380D37] max-md:rounded-[4px] max-sm:p-[10px] max-md:p-[15px] max-sm:mt-[15px] max-md:my-[22px]">
 
                 <div class="grid grid-cols-2 gap-2">
-                    <span>
+                    <span class="w-full">
                         <input x-model="name"
-                            class=" h-[64px] max-sm:h-[40px] max-lg:h-[55px] rounded-[4px] bg-[#F2F2F2] font-[jost] text-[16px] max-sm:text-[12px] italic font-[500] leading-[23px] py-[8px] px-[16px] max-sm:pl-[12px]"
+                            class=" h-[64px] max-sm:h-[40px] max-lg:h-[55px] rounded-[4px] bg-[#F2F2F2] font-[jost] text-[16px] max-sm:text-[12px] italic font-[500] leading-[23px] py-[8px] pl-3 w-full"
                             id="name" type="text" placeholder="Name*">
                         @error('name')
                             <span class="text-[red] text-[12px] block ml-1">{{ $message }}</span>
                         @enderror
                     </span>
-                    <span>
+                    <span class="w-full">
                         <input x-model='email'
-                            class=" h-[64px] max-sm:h-[40px] max-lg:h-[55px] rounded-[4px] bg-[#F2F2F2] font-[jost] text-[16px] max-sm:text-[12px] italic font-[500] leading-[23px]  py-[8px] px-[16px]"
+                            class=" h-[64px] max-sm:h-[40px] max-lg:h-[55px] rounded-[4px] bg-[#F2F2F2] font-[jost] text-[16px] max-sm:text-[12px] italic font-[500] leading-[23px] py-[8px] pl-3 w-full"
                             id="email" type="email" placeholder="Email*">
                         @error('email')
                             <span class="text-[red] text-[12px] block ml-1">{{ $message }}</span>

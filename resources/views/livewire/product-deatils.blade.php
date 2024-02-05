@@ -347,7 +347,7 @@
                                 Display Features:
                             </td>
                             <td
-                                class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500] max-sm:leading-[30px]">
+                                class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
                                 {{ $product->d_other }}</td>
                         </tr>
 
@@ -477,7 +477,7 @@
                                 Storage Upgrade:
                             </td>
                             <td
-                                class="text-[#353535] text-[16px] max-lg:text-[14px] max-sm:leading-[30px]  font-[jost] font-[500]">
+                                class="text-[#353535] text-[16px] max-lg:text-[14px]  font-[jost] font-[500]">
                                 {{ $product->s_upgrade }}
                             </td>
                         </tr>
@@ -656,7 +656,7 @@
                                 Type-C /<br />
                                 Thunderbolt Port:</td>
                             <td
-                                class="text-[#353535] text-[16px] max-lg:text-[14px] max-sm:leading-[30px] font-[jost] font-[500]">
+                                class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
                                 {{ $product->type_c_tb_p ?? 'NO' }}</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
@@ -665,7 +665,7 @@
                                 Headphone &<br /> Microphone
                                 Port:</td>
                             <td
-                                class="text-[#353535] text-[16px] max-lg:text-[14px] max-sm:leading-[30px] font-[jost] font-[500]">
+                                class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
                                 {{ $product->headphone_p }}/
                                 {{ $product->microphone_p }}</td>
                         </tr>
@@ -864,11 +864,11 @@
 
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td
-                                class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[400] max-sm:translate-y-[-16px] pl-[20px]">
+                                class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[400] pl-[20px]">
                                 Warranty Details
                             </td>
                             <td
-                                class="text-[#353535] text-[16px] max-lg:text-[14px] max-sm:leading-[30px] font-[jost] font-[500]">
+                                class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
                                 {{ $product->w_details }}
                             </td>
                         </tr>
