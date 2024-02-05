@@ -1,4 +1,5 @@
-<div class='px-[100px] max-2xl:px-[70px] max-xl:px-[60px] max-lg:px-[38px] max-md:px-[35px] max-sm:px-[15px] max-sm:mt-[70px] max-xl:mt-[100px]'>
+<div
+    class='px-[100px] max-2xl:px-[70px] max-xl:px-[60px] max-lg:px-[38px] max-md:px-[35px] max-sm:px-[15px] max-sm:mt-[70px] max-xl:mt-[100px]'>
     <livewire:user-account-menu />
     <div class='my-[15px]'>
         <h1
@@ -53,9 +54,9 @@
                         </td>
                     </tr>
                 @empty
-                <tr>
-                    <td colspan="4" class="py-12 text-center"> There are no products in your wishlislts</td>
-                </tr>
+                    <tr>
+                        <td colspan="4" class="py-12 text-center"> There are no products in your wishlislts</td>
+                    </tr>
                 @endforelse
             </tbody>
         </table>
