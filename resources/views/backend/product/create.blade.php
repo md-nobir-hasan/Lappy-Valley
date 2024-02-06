@@ -1079,8 +1079,8 @@
 
             $('#price').on('keyup', function() {
                 // let price = Number(this.val);
-                let price = Number($('#price').val() ?? 0);
-                let discount = Number($('#discount').val() ?? 0);
+                let price = Number($('#price').val()) ?? 0;
+                let discount = Number($('#discount').val()) ?? 0;
                 let final_price = price - Math.round(price * discount / 100);
                 console.log(price, discount, final_price);
 
@@ -1090,8 +1090,8 @@
 
             $('#discount').on('keyup', function() {
                 // let price = Number(this.val);
-                let price = Number($('#price').val() ?? 0);
-                let discount = Number($('#discount').val() ?? 0);
+                let price = Number($('#price').val()) ?? 0;
+                let discount = Number($('#discount').val()) ?? 0;
                 let final_price = price - Math.round(price * discount / 100);
                 console.log(price, discount, final_price);
 
