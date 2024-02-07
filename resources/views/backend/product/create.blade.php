@@ -6,8 +6,7 @@
     <div class="card">
         <h5 class="card-header">Add Product</h5>
         <div class="card-body">
-            {{-- @if ($errors) --}}
-            @if ($errors->any())
+            {{-- @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
                         @foreach ($errors->all() as $error)
@@ -15,8 +14,7 @@
                         @endforeach
                     </ul>
                 </div>
-            @endif
-            {{-- @endif --}}
+            @endif --}}
             <form method="post" action="{{ route('product.store') }}">
                 {{ csrf_field() }}
 
@@ -78,7 +76,8 @@
                     <div class="form-group">
                         <label for="inventory_cost" class="col-form-label">Inventory Cost</label>
                         <input id="inventory_cost" type="number" name="inventory_cost" min="0" max="1000000"
-                            placeholder="Exp:- Enter Inventory Cost" value="{{ old('inventory_cost') }}" class="form-control">
+                            placeholder="Exp:- Enter Inventory Cost" value="{{ old('inventory_cost') }}"
+                            class="form-control">
                         @error('inventory_cost')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -158,15 +157,16 @@
 
                     <div class="form-group">
                         <label for="isOfferToggler">Is Offer Products</label><br>
-                        <input type="checkbox" name='isOfferToggler' @checked(old('isOfferToggler'))
-                            id='isOfferToggler' value='1'>
+                        <input type="checkbox" name='isOfferToggler' @checked(old('isOfferToggler')) id='isOfferToggler'
+                            value='1'>
                         <label for="isOfferToggler">Yes</label>
                         <div class="ml-3" id="div_product_offer">
                             <label for="product_offer_id" class="col-form-label">Select an offer </label>
                             <select name="product_offer_id" class="form-control" id="product_offer_id">
                                 <option value="" hidden>Choose....</option>
                                 @foreach ($product_offers as $poffer)
-                                    <option value="{{ $poffer->id }}" @selected($poffer->id == old('product_offer_id'))>{{ $poffer->title.' ('.$poffer->dis }}%)
+                                    <option value="{{ $poffer->id }}" @selected($poffer->id == old('product_offer_id'))>
+                                        {{ $poffer->title . ' (' . $poffer->dis }}%)
                                     </option>
                                 @endforeach
                             </select>
@@ -363,8 +363,8 @@
                         <div class="form-group">
                             <label for="d_other" class="col-form-label">Other Features</label>
                             <input id="d_other" type="text" name="d_other"
-                                placeholder="Exp:- 220 nits, anti-glare, 171* Viewing Angle"
-                                value="{{ old('d_other') }}" class="form-control">
+                                placeholder="Exp:- 220 nits, anti-glare, 171* Viewing Angle" value="{{ old('d_other') }}"
+                                class="form-control">
                             @error('d_other')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -824,13 +824,13 @@
                     </div>
 
                     {{-- Other's information --}}
-                        <div class="form-group">
-                            <label for="s_other" class="col-form-label">Others</label>
-                            <textarea class="form-control" id="s_other" name="s_other">{{ old('s_other') }}</textarea>
-                            @error('s_other')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
+                    <div class="form-group">
+                        <label for="s_other" class="col-form-label">Others</label>
+                        <textarea class="form-control" id="s_other" name="s_other">{{ old('s_other') }}</textarea>
+                        @error('s_other')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
                 </div>
 
                 {{-- Software Attributes --}}
@@ -979,6 +979,7 @@
                         <div class="form-group">
                             <label for="durations">Duration </label>
                             <select name="durations[]" class="form-control selectpicker" id="durations">
+                                <option value="">Choose a duration</option>
                                 @foreach ($durations as $duration)
                                     <option value="{{ $duration->id }}" @selected($duration->id == old('durations'))>
                                         {{ $duration->year ? $duration->year . ' years ' : ' ' }}{{ $duration->month ? $duration->month . ' month' : ' ' }}
@@ -1034,13 +1035,13 @@
         #div_lunch_date {
             display: none;
         }
+
         #div_product_offer {
             display: none;
         }
     </style>
-    <link rel="stylesheet"
-        {{-- href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" /> --}}
-    <link rel="stylesheet" href="{{ asset('backend/summernote/summernote-lite.css') }}">
+    <link rel="stylesheet" {{-- href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" /> --}} <link rel="stylesheet"
+        href="{{ asset('backend/summernote/summernote-lite.css') }}">
 @endpush
 @push('scripts')
     <script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
@@ -1098,48 +1099,45 @@
                 $('#final_price_div').show();
             });
 
+            $('#cat_id').change(function() {
+                var cat_id = $(this).val();
+                // alert(cat_id);
+                if (cat_id != null) {
+                    // Ajax call
+                    $.ajax({
+                        url: "/admin/category/" + cat_id + "/child",
+                        data: {
+                            _token: "{{ csrf_token() }}",
+                            id: cat_id
+                        },
+                        type: "POST",
+                        success: function(response) {
+                            if (typeof(response) != 'object') {
+                                response = $.parseJSON(response)
+                            }
+                            // console.log(response);
+                            var html_option =
+                                "<option value=''>----Select sub category----</option>"
+                            if (response.status) {
+                                var data = response.data;
+                                // alert(data);
+                                if (response.data) {
+                                    $('#child_cat_div').removeClass('d-none');
+                                    $.each(data, function(id, title) {
+                                        html_option += "<option value='" + id + "'>" +
+                                            title +
+                                            "</option>"
+                                    });
+                                } else {}
+                            } else {
+                                $('#child_cat_div').addClass('d-none');
+                            }
+                            $('#child_cat_id').html(html_option);
+                        }
+                    });
+                } else {}
+            });
+
         });
-
-
-        // $('select').selectpicker();
-    </script>
-
-    <script>
-        $('#cat_id').change(function() {
-            var cat_id = $(this).val();
-            // alert(cat_id);
-            if (cat_id != null) {
-                // Ajax call
-                $.ajax({
-                    url: "/admin/category/" + cat_id + "/child",
-                    data: {
-                        _token: "{{ csrf_token() }}",
-                        id: cat_id
-                    },
-                    type: "POST",
-                    success: function(response) {
-                        if (typeof(response) != 'object') {
-                            response = $.parseJSON(response)
-                        }
-                        // console.log(response);
-                        var html_option = "<option value=''>----Select sub category----</option>"
-                        if (response.status) {
-                            var data = response.data;
-                            // alert(data);
-                            if (response.data) {
-                                $('#child_cat_div').removeClass('d-none');
-                                $.each(data, function(id, title) {
-                                    html_option += "<option value='" + id + "'>" + title +
-                                        "</option>"
-                                });
-                            } else {}
-                        } else {
-                            $('#child_cat_div').addClass('d-none');
-                        }
-                        $('#child_cat_id').html(html_option);
-                    }
-                });
-            } else {}
-        })
     </script>
 @endpush
