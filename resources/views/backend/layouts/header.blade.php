@@ -104,24 +104,23 @@
 
     </ul>
     <script>
-        // function startTimer() {
-        //     let currentTime = new Date();
-        //     let hours = currentTime.getHours();
-        //     let minutes = currentTime.getMinutes();
-        //     let seconds = currentTime.getSeconds();
-        //     let amPm = hours >= 12 ? "PM" : "AM";
+        function startTimer() {
+            let currentTime = new Date();
+            let hours = currentTime.getHours();
+            let minutes = currentTime.getMinutes();
+            let seconds = currentTime.getSeconds();
+            let amPm = hours >= 12 ? "PM" : "AM";
 
-        //     hours = hours % 12 || 12; // Handle 0 hours for 12 AM
-        //     minutes = minutes < 10 ? "0" + minutes : minutes; // Add leading zero for minutes
-        //     seconds = seconds < 10 ? "0" + seconds : seconds; // Add leading zero for seconds
+            hours = hours % 12 || 12; // Handle 0 hours for 12 AM
+            minutes = minutes < 10 ? "0" + minutes : minutes; // Add leading zero for minutes
+            seconds = seconds < 10 ? "0" + seconds : seconds; // Add leading zero for seconds
 
-        //     let formattedTime = hours + ":" + minutes + ":" + seconds + " " + amPm;
+            let formattedTime = hours + ":" + minutes + ":" + seconds + " " + amPm;
 
-        //     document.getElementById("clock").textContent = formattedTime;
+            document.getElementById("clock").textContent = formattedTime;
 
-        //     setInterval(startTimer, 1000); // Update timer every second
-        // }
-
-        // startTimer(); // Start the timer initially
-    </script>
+        }
+        startTimer();
+        setInterval(startTimer, 1000); // Update timer every second
+        </script>
 </nav>
