@@ -200,10 +200,13 @@ class ProductController extends Controller
         if($status){
             if($drs = $request->durations){
                 foreach($drs as $dr){
-                    Installment::create([
-                        'duration_id' => $dr,
-                        'product_id' => $status->id,
-                    ]);
+                    if($dr){
+                        Installment::create([
+                            'duration_id' => $dr,
+                            'product_id' => $status->id,
+                        ]);
+                    }
+
                 }
             }
             request()->session()->flash('success','Product Successfully added');
