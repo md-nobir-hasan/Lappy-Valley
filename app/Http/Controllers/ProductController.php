@@ -388,10 +388,13 @@ class ProductController extends Controller
         if($status){
             if ($drs = $request->durations) {
                 foreach ($drs as $dr) {
-                    Installment::updateOrCreate([
-                        'duration_id' => $dr,
-                        'product_id' => $product->id,
-                    ]);
+                    if($dr){
+                        Installment::updateOrCreate([
+                            'duration_id' => $dr,
+                            'product_id' => $product->id,
+                        ]);
+                    }
+
                 }
             }
             request()->session()->flash('success','Product Successfully updated');
