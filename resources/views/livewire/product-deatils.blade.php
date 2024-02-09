@@ -203,13 +203,13 @@
     <div class="my-[15px]">
         <div class="flex gap-[20px]">
             <a href="#specification" data-te-smooth-scroll-init data-te-offset="25"
-                class="spf_btn flex items-center justify-center bg-[#380D37] max-lg:text-[18px] text-[20px] max-sm:text-[12px] text-[#f2f2f2] text-center font-[700] font-[jost] py-[14px] max-sm:py-[10px] px-6 max-sm:px-3 rounded-[5px] max-md:w-full md:w-[168px] h-[50px] max-md:h-full">
+                class="spf_btn flex items-center justify-center bg-[#380D37] text-[#f2f2f2] max-lg:text-[18px] text-[20px] max-sm:text-[12px] text-center font-[700] font-[jost] py-[14px] max-sm:py-[10px] px-6 max-sm:px-3 rounded-[5px] max-md:w-full md:w-[168px] h-[50px] max-md:h-full">
                 Specification</a>
             <a href="#description" data-te-smooth-scroll-init data-te-offset="25"
-                class="dst_btn flex items-center justify-center bg-[#F2F2F2] max-lg:text-[18px] text-[20px] max-sm:text-[12px] text-[#380D37] text-center font-[700] font-[jost] py-[14px] max-sm:py-[10px] px-6 max-sm:px-3 rounded-[5px] max-md:w-full w-[168px] h-[50px] max-md:h-full">
+                class="dst_btn flex items-center justify-center bg-[#f2f2f2] max-lg:text-[18px] text-[20px] max-sm:text-[12px] text-[#380D37] text-center font-[700] font-[jost] py-[14px] max-sm:py-[10px] px-6 max-sm:px-3 rounded-[5px] max-md:w-full w-[168px] h-[50px] max-md:h-full">
                 Description</a>
             <a href='#review' data-te-smooth-scroll-init data-te-offset="25"
-                class="rev_btn flex items-center justify-center bg-[#F2F2F2] max-lg:text-[18px] text-[20px] max-sm:text-[12px] text-[#380D37] text-center font-[700] font-[jost] py-[14px] max-sm:py-[10px] px-8 max-sm:px-4 rounded-[5px] max-md:w-full w-[168px] h-[50px] max-md:h-full"
+                class="rev_btn flex items-center justify-center bg-[#f2f2f2] max-lg:text-[18px] text-[20px] max-sm:text-[12px] text-[#380D37] text-center font-[700] font-[jost] py-[14px] max-sm:py-[10px] px-8 max-sm:px-4 rounded-[5px] max-md:w-full w-[168px] h-[50px] max-md:h-full"
                 data-area="ask-question">Review</a>
         </div>
     </div>
@@ -225,7 +225,7 @@
                     {{-- Processore Attributes  --}}
                     <tbody class="ml-[20px] mb-[30px]">
                         <tr>
-                            <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] max-sm:text-[16px] font-[500] py-[10px]  pl-[14px] rounded-[5px]"
+                            <td class="bg-[#380D37] text-[#f2f2f2] font-[jost] max-sm:text-[16px] font-[500] py-[10px]  pl-[14px] rounded-[5px]"
                                 colspan="3">
                                 Processor:
                             </td>
@@ -302,7 +302,7 @@
                         <!-- ----------2nd --part (Display attributes)----- -->
 
                         <tr>
-                            <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] max-sm:text-[16px] font-[500] py-[10px] pl-[14px] rounded-[5px] mt-[10px]"
+                            <td class="bg-[#380D37] text-[#f2f2f2] font-[jost] max-sm:text-[16px] font-[500] py-[10px] pl-[14px] rounded-[5px] mt-[10px]"
                                 colspan="3">Display Features:</td>
                         </tr>
 
@@ -347,7 +347,7 @@
                                 Display Features:
                             </td>
                             <td
-                                class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500] max-sm:leading-[30px]">
+                                class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
                                 {{ $product->d_other }}</td>
                         </tr>
 
@@ -357,7 +357,7 @@
                         <!-- --------3rd---------part (Memory Attributes )---------- -->
 
                         <tr>
-                            <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] max-sm:text-[16px] font-[500] py-[10px] pl-[14px] rounded-[5px]"
+                            <td class="bg-[#380D37] text-[#f2f2f2] font-[jost] max-sm:text-[16px] font-[500] py-[10px] pl-[14px] rounded-[5px]"
                                 colspan="3">Memory:</td>
                         </tr>
 
@@ -421,7 +421,7 @@
                         <!-- --------------4th---part------------------ -->
 
                         <tr>
-                            <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] max-sm:text-[16px] font-[500] py-[10px] pl-[14px] rounded-[5px]"
+                            <td class="bg-[#380D37] text-[#f2f2f2] font-[jost] max-sm:text-[16px] font-[500] py-[10px] pl-[14px] rounded-[5px]"
                                 colspan="3">
                                 Storage:
                             </td>
@@ -477,7 +477,7 @@
                                 Storage Upgrade:
                             </td>
                             <td
-                                class="text-[#353535] text-[16px] max-lg:text-[14px] max-sm:leading-[30px]  font-[jost] font-[500]">
+                                class="text-[#353535] text-[16px] max-lg:text-[14px]  font-[jost] font-[500]">
                                 {{ $product->s_upgrade }}
                             </td>
                         </tr>
@@ -493,7 +493,7 @@
 
 
                         <tr>
-                            <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] max-sm:text-[16px] font-[500] py-[10px] pl-[14px] rounded-[5px]"
+                            <td class="bg-[#380D37] text-[#f2f2f2] font-[jost] max-sm:text-[16px] font-[500] py-[10px] pl-[14px] rounded-[5px]"
                                 colspan="3">Graphics:</td>
                         </tr>
 
@@ -530,7 +530,7 @@
                         <!-- -------------------6th--part------------ -->
 
                         <tr>
-                            <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] max-sm:text-[16px] font-[500] py-[10px] pl-[14px] rounded-[5px]"
+                            <td class="bg-[#380D37] text-[#f2f2f2] font-[jost] max-sm:text-[16px] font-[500] py-[10px] pl-[14px] rounded-[5px]"
                                 colspan="3">Keyboard & Touchpad:</td>
                         </tr>
 
@@ -563,7 +563,7 @@
                         <!-- ----------7th--part------------- -->
 
                         <tr>
-                            <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] max-sm:text-[16px] font-[500] py-[10px] pl-[14px] rounded-[5px]"
+                            <td class="bg-[#380D37] text-[#f2f2f2] font-[jost] max-sm:text-[16px] font-[500] py-[10px] pl-[14px] rounded-[5px]"
                                 colspan="3">Camera & Audio:</td>
                         </tr>
 
@@ -604,7 +604,7 @@
                         <!-- -----------8th---part (Ports & Slots) ----- -->
 
                         <tr>
-                            <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] max-sm:text-[16px] font-[500] py-[10px] pl-[14px] rounded-[5px]"
+                            <td class="bg-[#380D37] text-[#f2f2f2] font-[jost] max-sm:text-[16px] font-[500] py-[10px] pl-[14px] rounded-[5px]"
                                 colspan="3">Ports & Slots:</td>
                         </tr>
 
@@ -656,7 +656,7 @@
                                 Type-C /<br />
                                 Thunderbolt Port:</td>
                             <td
-                                class="text-[#353535] text-[16px] max-lg:text-[14px] max-sm:leading-[30px] font-[jost] font-[500]">
+                                class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
                                 {{ $product->type_c_tb_p ?? 'NO' }}</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
@@ -665,7 +665,7 @@
                                 Headphone &<br /> Microphone
                                 Port:</td>
                             <td
-                                class="text-[#353535] text-[16px] max-lg:text-[14px] max-sm:leading-[30px] font-[jost] font-[500]">
+                                class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
                                 {{ $product->headphone_p }}/
                                 {{ $product->microphone_p }}</td>
                         </tr>
@@ -682,7 +682,7 @@
                         <!-- ---------------9th--part (Network & Connectivity) ------ -->
 
                         <tr>
-                            <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] max-sm:text-[16px] font-[500] py-[10px] pl-[14px] rounded-[5px]"
+                            <td class="bg-[#380D37] text-[#f2f2f2] font-[jost] max-sm:text-[16px] font-[500] py-[10px] pl-[14px] rounded-[5px]"
                                 colspan="3">Network & Connectivity:</td>
                         </tr>
 
@@ -716,7 +716,7 @@
                         <!-- ---------------10th---part---------- -->
 
                         <tr>
-                            <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] max-sm:text-[16px] font-[500] py-[10px] pl-[14px] rounded-[5px]"
+                            <td class="bg-[#380D37] text-[#f2f2f2] font-[jost] max-sm:text-[16px] font-[500] py-[10px] pl-[14px] rounded-[5px]"
                                 colspan="3">Security:</td>
                         </tr>
 
@@ -751,7 +751,7 @@
 
 
                         <tr>
-                            <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] max-sm:text-[16px] font-[500] py-[10px] pl-[14px] rounded-[5px]"
+                            <td class="bg-[#380D37] text-[#f2f2f2] font-[jost] max-sm:text-[16px] font-[500] py-[10px] pl-[14px] rounded-[5px]"
                                 colspan="3">Software:</td>
                         </tr>
 
@@ -776,7 +776,7 @@
 
 
                         <tr>
-                            <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] max-sm:text-[16px] font-[500] py-[10px] pl-[14px] rounded-[5px]"
+                            <td class="bg-[#380D37] text-[#f2f2f2] font-[jost] max-sm:text-[16px] font-[500] py-[10px] pl-[14px] rounded-[5px]"
                                 colspan="3">Power:</td>
                         </tr>
 
@@ -818,7 +818,7 @@
                         </tr>
 
                         <tr>
-                            <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] max-sm:text-[16px] font-[500] py-[10px]  pl-[14px] rounded-[5px]"
+                            <td class="bg-[#380D37] text-[#f2f2f2] font-[jost] max-sm:text-[16px] font-[500] py-[10px]  pl-[14px] rounded-[5px]"
                                 colspan="3">Physical Specification:</td>
                         </tr>
 
@@ -858,17 +858,17 @@
                         </tr>
 
                         <tr>
-                            <td class="bg-[#380D37] text-[#F2F2F2] font-[jost] max-sm:text-[16px] font-[500] py-[10px] pl-[14px] rounded-[5px]"
+                            <td class="bg-[#380D37] text-[#f2f2f2] font-[jost] max-sm:text-[16px] font-[500] py-[10px] pl-[14px] rounded-[5px]"
                                 colspan="3">Warranty :</td>
                         </tr>
 
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td
-                                class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[400] max-sm:translate-y-[-16px] pl-[20px]">
+                                class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[400] pl-[20px]">
                                 Warranty Details
                             </td>
                             <td
-                                class="text-[#353535] text-[16px] max-lg:text-[14px] max-sm:leading-[30px] font-[jost] font-[500]">
+                                class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
                                 {{ $product->w_details }}
                             </td>
                         </tr>
@@ -1054,19 +1054,19 @@
                                                 @csrf
                                                 <div class="flex justify-between gap-[10px] my-[10px]">
                                                     <input x-model='f_name' type="text" placeholder="First Name"
-                                                        class="relative p-[10px] m-0 -mr-0.5 block w-full flex-auto rounded-l bg-[#F2F2F2] font-[jost] font-[400] text-[12px] text-[#000000] italic" />
+                                                        class="relative p-[10px] m-0 -mr-0.5 block w-full flex-auto rounded-l bg-[#f2f2f2] font-[jost] font-[400] text-[12px] text-[#000000] italic" />
                                                     @error('f_name')
                                                         <span class="text-[red] text-[12px]">{{ $message }}</span>
                                                     @enderror
                                                     <input x-model='l_name' type="text" placeholder="Last Name"
-                                                        class="relative p-[10px]  m-0 -mr-0.5 block w-full flex-auto rounded-l bg-[#F2F2F2] font-[jost] font-[400] text-[12px] text-[#000000] italic" />
+                                                        class="relative p-[10px]  m-0 -mr-0.5 block w-full flex-auto rounded-l bg-[#f2f2f2] font-[jost] font-[400] text-[12px] text-[#000000] italic" />
                                                     @error('l_name')
                                                         <span class="text-[red] text-[12px]">{{ $message }}</span>
                                                     @enderror
                                                 </div>
                                                 <div class="mt-[20px]">
                                                     <textarea x-model='msg' placeholder="Write your review here..."
-                                                        class="relative pl-[10px] pt-[10px] pb-[100px] m-0 -mr-0.5 block w-full flex-auto rounded-l bg-[#F2F2F2] font-[jost] font-[jost] font-[400] text-[12px] text-[#000000] italic"
+                                                        class="relative pl-[10px] pt-[10px] pb-[100px] m-0 -mr-0.5 block w-full flex-auto rounded-l bg-[#f2f2f2] font-[jost] font-[jost] font-[400] text-[12px] text-[#000000] italic"
                                                         id="message-text"></textarea>
                                                     @error('msg')
                                                         <span class="text-[red] text-[12px]">{{ $message }}</span>
@@ -1128,7 +1128,7 @@
                                                                 <span x-text='v_msg' class="text-[red]"></span>
                                                             </template>
                                                             <button type="button" @click='submit'
-                                                                class='fill-up-btn relative px-[25px] max-sm:px-[15px] max-sm:py-[8px] py-[12px] rounded-[4px] items-center text-[16px] max-lg:text-[14px] text-[#F2F2F2] font-[jost] font-[500] leading-[28.9px] bg-gradient-to-r from-[#380D37] to-[#DC275C]'>
+                                                                class='fill-up-btn relative px-[25px] max-sm:px-[15px] max-sm:py-[8px] py-[12px] rounded-[4px] items-center text-[16px] max-lg:text-[14px] text-[#f2f2f2] font-[jost] font-[500] leading-[28.9px] bg-gradient-to-r from-[#380D37] to-[#DC275C]'>
                                                                 <span>Post your review</span>
                                                                 <div x-show='loading'
                                                                     class="absolute inline-block h-6 w-6 top-4 mr-2 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-success motion-reduce:animate-[spin_1.5s_linear_infinite]"
@@ -1233,28 +1233,28 @@
     <script>
         $(document).ready(function() {
             $('.spf_btn').on('click', function() {
-                $(this).addClass('bg-[#380D37] text-[#F2F2F2]');
-                $(this).removeClass('bg-[#F2F2F2] text-[#380D37]');
-                $('.dst_btn').removeClass('bg-[#380D37] text-[#F2F2F2]')
-                $('.dst_btn').addClass('bg-[#F2F2F2] text-[#380D37]');
-                $('.rev_btn').removeClass('bg-[#380D37] text-[#F2F2F2]')
-                $('.rev_btn').addClass('bg-[#F2F2F2] text-[#380D37]');
+                $(this).addClass('bg-[#380D37] text-[#f2f2f2]');
+                $(this).removeClass('bg-[#f2f2f2] text-[#380D37]');
+                $('.dst_btn').removeClass('bg-[#380D37] text-[#f2f2f2]')
+                $('.dst_btn').addClass('bg-[#f2f2f2] text-[#380D37]');
+                $('.rev_btn').removeClass('bg-[#380D37] text-[#f2f2f2]')
+                $('.rev_btn').addClass('bg-[#f2f2f2] text-[#380D37]');
             });
             $('.dst_btn').on('click', function() {
-                $(this).addClass('bg-[#380D37] text-[#F2F2F2]');
-                $(this).removeClass('bg-[#F2F2F2] text-[#380D37]');
-                $('.spf_btn').removeClass('bg-[#380D37] text-[#F2F2F2]')
-                $('.spf_btn').addClass('bg-[#F2F2F2] text-[#380D37]');
-                $('.rev_btn').removeClass('bg-[#380D37] text-[#F2F2F2]')
-                $('.rev_btn').addClass('bg-[#F2F2F2] text-[#380D37]');
+                $(this).addClass('bg-[#380D37] text-[#f2f2f2]');
+                $(this).removeClass('bg-[#f2f2f2] text-[#380D37]');
+                $('.spf_btn').removeClass('bg-[#380D37] text-[#f2f2f2]')
+                $('.spf_btn').addClass('bg-[#f2f2f2] text-[#380D37]');
+                $('.rev_btn').removeClass('bg-[#380D37] text-[#f2f2f2]')
+                $('.rev_btn').addClass('bg-[#f2f2f2] text-[#380D37]');
             });
             $('.rev_btn').on('click', function() {
-                $(this).addClass('bg-[#380D37] text-[#F2F2F2]');
-                $(this).removeClass('bg-[#F2F2F2] text-[#380D37]');
+                $(this).addClass('bg-[#380D37] text-[#f2f2f2]');
+                $(this).removeClass('bg-[#f2f2f2] text-[#380D37]');
                 $('.spf_btn').removeClass('bg-[#380D37] text-[#f2f2f2]');
-                $('.spf_btn').addClass('bg-[#F2F2F2] text-[#380D37]');
-                $('.dst_btn').removeClass('bg-[#380D37] text-[#F2F2F2]');
-                $('.dst_btn').addClass('bg-[#F2F2F2] text-[#380D37]');
+                $('.spf_btn').addClass('bg-[#f2f2f2] text-[#380D37]');
+                $('.dst_btn').removeClass('bg-[#380D37] text-[#f2f2f2]');
+                $('.dst_btn').addClass('bg-[#f2f2f2] text-[#380D37]');
             });
         })
         // --------------------large--size--img--cursor --effect--------------

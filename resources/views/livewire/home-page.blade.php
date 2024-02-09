@@ -1319,7 +1319,7 @@
     <!-- Drop/submit a review  -->
     <section class="mt-16 mb-5 max-md:mt-6">
         <div
-            class="text-center text-[#380D37] text-[42px] font-[jost] font-[500] max-md:my-[35px] leading-[61px] max-sm:leading-[5px]">
+            class="text-center text-[#380D37] text-[42px] font-[jost] font-[500] max-md:my-[35px] leading-[61px] max-sm:leading-[40px]">
             <h1 class="max-sm:text-[34px] max-md:text-[45] max-lg:text-[] max-xl:text-[]"> Please Drop a Review!</h1>
         </div>
         <div
@@ -1391,17 +1391,17 @@
                 class="max-md:border-[1px] max-md:border-[#380D37] max-md:rounded-[4px] max-sm:p-[10px] max-md:p-[15px] max-sm:mt-[15px] max-md:my-[22px]">
 
                 <div class="grid grid-cols-2 gap-2">
-                    <span>
+                    <span class="w-full">
                         <input x-model="name"
-                            class=" h-[64px] max-sm:h-[40px] max-lg:h-[55px] rounded-[4px] bg-[#F2F2F2] font-[jost] text-[16px] max-sm:text-[12px] italic font-[500] leading-[23px] py-[8px] px-[16px] max-sm:pl-[12px]"
+                            class=" h-[64px] max-sm:h-[40px] max-lg:h-[55px] rounded-[4px] bg-[#F2F2F2] font-[jost] text-[16px] max-sm:text-[12px] italic font-[500] leading-[23px] py-[8px] pl-3 w-full"
                             id="name" type="text" placeholder="Name*">
                         @error('name')
                             <span class="text-[red] text-[12px] block ml-1">{{ $message }}</span>
                         @enderror
                     </span>
-                    <span>
+                    <span class="w-full">
                         <input x-model='email'
-                            class=" h-[64px] max-sm:h-[40px] max-lg:h-[55px] rounded-[4px] bg-[#F2F2F2] font-[jost] text-[16px] max-sm:text-[12px] italic font-[500] leading-[23px]  py-[8px] px-[16px]"
+                            class=" h-[64px] max-sm:h-[40px] max-lg:h-[55px] rounded-[4px] bg-[#F2F2F2] font-[jost] text-[16px] max-sm:text-[12px] italic font-[500] leading-[23px] py-[8px] pl-3 w-full"
                             id="email" type="email" placeholder="Email*">
                         @error('email')
                             <span class="text-[red] text-[12px] block ml-1">{{ $message }}</span>
@@ -1601,6 +1601,7 @@
                 margin: 10,
                 nav: true,
                 dots: true,
+                pagination: true,
                 autoplay: true,
                 autoplayTimeout: 3000,
                 autoplayHoverPause: true,
