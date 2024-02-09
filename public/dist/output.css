@@ -897,10 +897,6 @@ input[type="range"]:active::-webkit-slider-thumb{
   right: 2.25rem;
 }
 
-.right-\[6\.5rem\]{
-  right: 6.5rem;
-}
-
 .top-0{
   top: 0px;
 }
@@ -1344,10 +1340,6 @@ input[type="range"]:active::-webkit-slider-thumb{
   margin-left: 0.75rem;
 }
 
-.ml-4{
-  margin-left: 1rem;
-}
-
 .ml-5{
   margin-left: 1.25rem;
 }
@@ -1374,10 +1366,6 @@ input[type="range"]:active::-webkit-slider-thumb{
 
 .ml-\[40px\]{
   margin-left: 40px;
-}
-
-.ml-\[5px\]{
-  margin-left: 5px;
 }
 
 .ml-auto{
@@ -2202,6 +2190,7 @@ input[type="range"]:active::-webkit-slider-thumb{
 
 .w-\[364px\]{
   width: 364px;
+
 }
 
 .w-\[400px\]{
@@ -4113,10 +4102,6 @@ input[type="range"]:active::-webkit-slider-thumb{
 
 .pb-32{
   padding-bottom: 8rem;
-}
-
-.pb-4{
-  padding-bottom: 1rem;
 }
 
 .pb-\[100px\]{

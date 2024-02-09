@@ -7,7 +7,6 @@
 
   <!-- Page Wrapper -->
   <div id="wrapper">
-
     <!-- Sidebar -->
     @include('backend.layouts.sidebar')
     <!-- End of Sidebar -->
