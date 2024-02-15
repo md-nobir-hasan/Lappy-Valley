@@ -183,6 +183,9 @@ class ProductController extends Controller
         $data=$request->all();
         // dd($request->durations);
         $special_feature = '';
+        if(!$request->inventory_cost){
+            $data['inventory_cost'] = 0;
+        }
         if($request->special_feature){
         foreach($request->special_feature as $sp){
             $special_feature = $special_feature.', '.$sp;
