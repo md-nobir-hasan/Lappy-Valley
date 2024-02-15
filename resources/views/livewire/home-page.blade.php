@@ -338,7 +338,7 @@
                                 class="w-[221px] h-[376px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white px-2 pt-2 pb-3 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
 
                                 <div class="image-container h-[180px] relative">
-                                    <a @click.stop='redirect("{{ route('product.details', [$f_product->slug]) }}")'
+                                    <a @click.stop='redirect("{{ route('product.details', [$a_product->slug]) }}")'
                                         href="{{ route('product.details', [$a_product->slug]) }}" wire:navigate
                                         class="h-full">
                                         <img src="{{ $a_product->img()[0] }}" alt=""
@@ -351,7 +351,7 @@
                                     @endif
                                 </div>
                                 <div class="">
-                                    <a @click.stop='redirect("{{ route('product.details', [$f_product->slug]) }}")'
+                                    <a @click.stop='redirect("{{ route('product.details', [$a_product->slug]) }}")'
                                         href="{{ route('product.details', [$a_product->slug]) }}" wire:navigate
                                         class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-300 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-1 hover:underline hover:underline-offset-4">
                                         {{ Str::of($a_product->title)->words(5) }}
