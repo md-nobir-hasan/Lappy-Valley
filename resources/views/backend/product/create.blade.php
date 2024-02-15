@@ -178,7 +178,7 @@
 
                     <div class="form-group">
                         <label for="speacial_feature">Special Features </label>
-                        <select name="special_feature[]" class="form-control" id="speacial_feature">
+                        <select name="special_feature[]" class="form-control" id="speacial_feature" multiple>
                             <option value="" hidden>Choose....</option>
                             @foreach ($special_features as $sp)
                                 <option value="{{ $sp->name }}" @selected($sp->name == old('speacial_feature'))>{{ $sp->name }}
