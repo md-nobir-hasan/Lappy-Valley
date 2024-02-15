@@ -87,7 +87,8 @@ class ProductController extends Controller
             'final_price'=> 'required|numeric',
             'model'=>'string|nullable|max:255',
             'mpn'=>'string|nullable|max:255',
-            'discount'=>'nullable|numeric',
+            'discount'=>'required|numeric',
+            'inventory_cost'=>'required|numeric',
             'summary'=>'string|nullable',
             'description'=>'string|nullable',
             'stock'=>"nullable|numeric",
@@ -183,9 +184,6 @@ class ProductController extends Controller
         $data=$request->all();
         // dd($request->durations);
         $special_feature = '';
-        if(!$request->inventory_cost){
-            $data['inventory_cost'] = 0;
-        }
         if($request->special_feature){
         foreach($request->special_feature as $sp){
             $special_feature = $special_feature.', '.$sp;
