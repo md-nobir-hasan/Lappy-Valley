@@ -271,19 +271,19 @@
             <!-- Swiper -->
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper mt-[20px] mb-[10px]">
-                    @foreach ($features->where('cat_id', 7) as $f_product)
+                    @forelse ($features->where('cat_id', 7) as $f_product)
                         <div class="swiper-slide">
                             <div
                                 class="w-[221px] h-[376px] max-xl:w-full mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white px-2 pt-2 pb-3 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
 
                                 <div class="image-container h-[180px] relative">
-                                    <a @click.stop='redirect("{{ route('product.details', [$f_product->slug]) }}")'
-                                        href="{{ route('product.details', [$f_product->slug]) }}" wire:navigate
+                                    <a @click.stop='redirect("{{ route('product.details', [$f_product?->slug]) }}")'
+                                        href="{{ route('product.details', [$f_product?->slug]) }}" wire:navigate
                                         class="h-full">
-                                        <img src="{{ $f_product->img()[0] }}" alt=""
+                                        <img src="{{ $f_product?->img()[0] }}" alt=""
                                             class="object-contain h-full img-contain">
                                     </a>
-                                    @if ($product->stock < 1)
+                                    @if ($product?->stock < 1)
                                         <span
                                             class="text-[14px] bg-[#ef4a23] text-[#fff] absolute top-[-8px] left-[-8px] px-2 py-[2px] rounded-r-lg">Out
                                             Of Stock</span>
@@ -314,7 +314,7 @@
                                 </div>
                             </div>
                         </div>
-                    @endforeach
+                    @endforelse
 
                 </div>
                 <div class="swiper-button-next"></div>
@@ -330,7 +330,7 @@
             <!-- Swiper -->
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper mt-[20px] mb-[10px]">
-                    @foreach ($features->where('cat_id', 6) as $a_product)
+                    @forelse ($features->where('cat_id', 6) as $a_product)
                         <div class="swiper-slide">
                             <div
                                 class="w-[221px] h-[376px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white px-2 pt-2 pb-3 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
@@ -375,7 +375,7 @@
                                 </div>
                             </div>
                         </div>
-                    @endforeach
+                    @endforelse
                     {{-- <div class="swiper-slide">
                         <div
                             class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
