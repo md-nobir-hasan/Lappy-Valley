@@ -1040,7 +1040,8 @@
             display: none;
         }
     </style>
-    <link rel="stylesheet" {{-- href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" /> --}} <link rel="stylesheet"
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+    <link rel="stylesheet"
         href="{{ asset('backend/summernote/summernote-lite.css') }}">
 @endpush
 @push('scripts')
