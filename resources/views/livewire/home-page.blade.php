@@ -314,8 +314,8 @@
                                 </div>
                             </div>
                         </div>
-                    @else
-                    
+                    @empty
+
                     @endforelse
 
                 </div>
@@ -377,7 +377,7 @@
                                 </div>
                             </div>
                         </div>
-                    @else
+                    @empty
 
                     @endforelse
                     {{-- <div class="swiper-slide">
