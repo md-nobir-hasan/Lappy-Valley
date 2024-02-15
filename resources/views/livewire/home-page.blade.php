@@ -314,6 +314,8 @@
                                 </div>
                             </div>
                         </div>
+                    @else
+                    
                     @endforelse
 
                 </div>
@@ -375,6 +377,8 @@
                                 </div>
                             </div>
                         </div>
+                    @else
+
                     @endforelse
                     {{-- <div class="swiper-slide">
                         <div
