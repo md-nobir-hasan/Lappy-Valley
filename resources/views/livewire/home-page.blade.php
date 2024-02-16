@@ -644,7 +644,7 @@
         <div class="usa_prds">
             <div
                 class="grid grid-cols-5 max-md:grid-cols-2 max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 mt-6 mb-[78px] max-sm:mb-[50px]">
-                @foreach ($dpds->where('cat_id', 6) as $d_product)
+                @foreach ($dpds->where('cat_id', 7) as $d_product)
                     <x-product :product="$d_product"></x-product>
                 @endforeach
             </div>
@@ -653,7 +653,7 @@
         <div class="hidden asian_prds">
             <div
                 class="grid grid-cols-5 max-md:grid-cols-2 max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 mt-6 mb-[78px] max-sm:mb-[50px]">
-                @foreach ($dpds->where('cat_id', 7) as $da_product)
+                @foreach ($dpds->where('cat_id', 6) as $da_product)
                     <x-product :product="$da_product"></x-product>
                 @endforeach
             </div>
