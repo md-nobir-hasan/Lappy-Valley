@@ -84,14 +84,14 @@ class CompanyReviewController extends Controller
             'status'=> 'required|in:active,inactive',
         ]);
         $review = CompanyReview::find($id);
-        $data=[
-            'name' => $request->name,
-            'subject' => $request->subject,
-            'msg' => $request->msg,
-            'status' => $request->status,
-        ];
+
         if ($review) {
-           $status = $review->update($data);
+           $review->status = $request->status;
+           $review->name = $request->name;
+           $review->subject = $request->subject;
+           $review->msg = $request->msg;
+           $status = $review->save();
+        //    dd($review,$status);
             // dd($review,$request->status);
             if ($status) {
                 request()->session()->flash('success', 'Review Successfully updated');

@@ -5,9 +5,6 @@
 @section('title', 'Review Edit')
 
 @section('main-content')
-@if ($errors->any())
-@dd($errors->all())
-@endif
     <div class="card">
         <h5 class="card-header">Review Edit</h5>
         <div class="card-body">
@@ -25,15 +22,15 @@
                     <label for="subject">Subject</label>
                     <input type="text" name="subject" id="subject" class="form-control" value="{{ $review->subject }}">
                     @error('subject')
-                    <span>{{ $message }}</span>
-                @enderror
+                        <span>{{ $message }}</span>
+                    @enderror
                 </div>
                 <div class="form-group">
                     <label for="msg">Message</label>
                     <textarea name="msg" id="" cols="20" rows="10" class="form-control">{{ $review->msg }}</textarea>
                     @error('msg')
-                    <span>{{ $message }}</span>
-                @enderror
+                        <span>{{ $message }}</span>
+                    @enderror
                 </div>
                 <div class="form-group">
                     <label for="status">Status :</label>
@@ -43,8 +40,8 @@
                         <option value="inactive" {{ $review->status == 'inactive' ? 'selected' : '' }}>Inactive</option>
                     </select>
                     @error('status')
-                    <span>{{ $message }}</span>
-                @enderror
+                        <span>{{ $message }}</span>
+                    @enderror
                 </div>
                 <button type="submit" class="btn btn-primary">Update</button>
             </form>
