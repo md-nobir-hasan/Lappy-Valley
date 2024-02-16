@@ -168,13 +168,13 @@ Route::get('blog-tag/{slug}', [FrontendController::class, 'blogByTag'])->name('b
 // NewsLetter
 Route::post('/subscribe', [FrontendController::class, 'subscribe'])->name('subscribe');
 
-// Product Review
-Route::resource('/product-review', ProductReviewController::class);
-Route::post('product/{slug}/review', [ProductReviewController::class, 'store'])->name('review.store');
-Route::post('review-status/change', [ProductReviewController::class, 'reviewStatusChange'])->name('review_status.change');
-
 // Company Review
-Route::post('/review/index', [CompanyReviewController::class, 'index'])->name('review.index');;
+Route::resource('/review', CompanyReviewController::class);
+Route::post('product/{slug}/review', [CompanyReviewController::class, 'store'])->name('review.store');
+Route::post('review-status/change', [CompanyReviewController::class, 'reviewStatusChange'])->name('review_status.change');
+
+// Product Review
+Route::get('/productreview', [ProductReviewController::class,'index'])->name('productreview.index');
 
 // Post Comment
 Route::post('post/{slug}/comment', [PostCommentController::class, 'store'])->name('post-comment.store');

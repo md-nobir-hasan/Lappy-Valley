@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CompanyReview;
+use App\User;
 use Illuminate\Http\Request;
 
 class CompanyReviewController extends Controller
@@ -18,7 +19,7 @@ class CompanyReviewController extends Controller
 
         $n['reviews'] = CompanyReview::latest()->paginate(10);
         $n['count'] = CompanyReview::get();
-        return view('backend.review.index',$n);
+        return view('backend.review.index', $n);
     }
 
     public function create()
@@ -32,7 +33,7 @@ class CompanyReviewController extends Controller
         $this->validate($request, [
             'rate' => 'required|numeric|min:1'
         ]);
-        $product_info = Product::getProductBySlug($request->slug);
+        $product_info = CompanyReview::getProductBySlug($request->slug);
         //  return $product_info;
         // return $request->all();
         $data = $request->all();
@@ -40,7 +41,7 @@ class CompanyReviewController extends Controller
         $data['user_id'] = $request->user()->id;
         $data['status'] = 'active';
         // dd($data);
-        $status = ProductReview::create($data);
+        $status = CompanyReview::create($data);
 
         $user = User::where('role', 'admin')->get();
         $details = [
@@ -59,39 +60,39 @@ class CompanyReviewController extends Controller
 
     public function show($id)
     {
-        $n['review'] = ProductReview::with('images', 'product')->find($id);
-        return view('backend.product-review.show', $n);
+        $n['review'] = CompanyReview::with('images', 'product')->find($id);
+        return view('backend.review.show', $n);
     }
 
     public function edit($id)
     {
         $this->ccan('Edit Review');
 
-        $review = ProductReview::find($id);
+        $review = CompanyReview::find($id);
         // return $review;
-        return view('backend.product-review.edit')->with('review', $review);
+        return view('backend.review.edit')->with('review', $review);
     }
 
     public function update(Request $request, $id)
     {
         $this->ccan('Edit Review');
 
-        $review = ProductReview::find($id);
+        $request->validate([
+            'name'=> 'required|string',
+            'subject'=> 'required|string',
+            'msg'=> 'required|string',
+            'status'=> 'required|in:active,inactive',
+        ]);
+        $review = CompanyReview::find($id);
+        $data=[
+            'name' => $request->name,
+            'subject' => $request->subject,
+            'msg' => $request->msg,
+            'status' => $request->status,
+        ];
         if ($review) {
-            // $product_info=Product::getProductBySlug($request->slug);
-            //  return $product_info;
-            // return $request->all();
-            $data = $request->all();
-            $status = $review->fill($data)->update();
-
-            // $user=User::where('role','admin')->get();
-            // return $user;
-            // $details=[
-            //     'title'=>'Update Product Rating!',
-            //     'actionURL'=>route('product-detail',$product_info->id),
-            //     'fas'=>'fa-star'
-            // ];
-            // Notification::send($user,new StatusNotification($details));
+           $status = $review->update($data);
+            // dd($review,$request->status);
             if ($status) {
                 request()->session()->flash('success', 'Review Successfully updated');
             } else {

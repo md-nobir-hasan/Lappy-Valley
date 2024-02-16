@@ -8,25 +8,6 @@
     <div class="card">
         <div class="card-header" style="display: flex !important ; justify-content: space-between; align-items: center">
             <h2>Product</h2>
-
-            <h2>
-                {{-- @for ($i = 1; $i < 6; $i++)
-                    @if ($i <= $review->rate)
-                        <img class="h-7" src="/storage/product/star2.svg" alt="">
-                    @else
-                        <img class="h-7" src="/storage/product/star-white.svg" alt="">
-                    @endif
-                @endfor --}}
-                @for ($i = 1; $i <= 5; $i++)
-                    @if ($review->rate >= $i)
-                        <i class="fa fa-star" style="float:left;color:#F7941D;"></i>
-                    @else
-                        <i class="far fa-star" style="float:left;color:#F7941D;"></i>
-                    @endif
-                @endfor
-                {{-- ({{$review->rate}} stars) --}}
-            </h2>
-
             <a href="{{ url()->previous() }}" class="shadow-sm d btn btn-sm btn-primary" style="display: inline-block">
                 {{-- <i class="fas fa-download fa-sm text-white-50"></i> --}}
                 back</a>
@@ -153,7 +134,7 @@
                 'method': 'post',
                 url: "{{ route('review_status.change') }}",
                 data: {
-                    id: '{{ $review->id }}',
+                    id: 1,
                     _token: "{{ csrf_token() }}",
                 },
                 success: (res) => {
@@ -170,7 +151,6 @@
                         alert('Something went wrong');
                     }
                 }
-
             })
         })
     </script>
