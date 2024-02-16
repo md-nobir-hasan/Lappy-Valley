@@ -91,8 +91,6 @@ class CompanyReviewController extends Controller
            $review->subject = $request->subject;
            $review->msg = $request->msg;
            $status = $review->save();
-        //    dd($review,$status);
-            // dd($review,$request->status);
             if ($status) {
                 request()->session()->flash('success', 'Review Successfully updated');
             } else {
