@@ -2,48 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CompanyReview;
 use Illuminate\Http\Request;
-use App\Models\Product;
-use Notification;
-use App\Notifications\StatusNotification;
-use App\User;
-use App\Models\ProductReview;
 
-class ProductReviewController extends Controller
+class CompanyReviewController extends Controller
 {
     public function __construct()
     {
         $this->middleware(['can:Show Review']);
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $this->ccan('Show Review');
 
-        $n['reviews'] = ProductReview::latest()->paginate(10);
-        $n['count'] = ProductReview::get();
-        return view('backend.product-review.index',$n);
+        $n['reviews'] = CompanyReview::latest()->paginate(10);
+        $n['count'] = CompanyReview::get();
+        return view('backend.review.index',$n);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $this->ccan('Create Review');
@@ -76,24 +57,12 @@ class ProductReviewController extends Controller
         return redirect()->back();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $n['review'] = ProductReview::with('images', 'product')->find($id);
         return view('backend.product-review.show', $n);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $this->ccan('Edit Review');
@@ -103,13 +72,6 @@ class ProductReviewController extends Controller
         return view('backend.product-review.edit')->with('review', $review);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $this->ccan('Edit Review');
@@ -140,40 +102,5 @@ class ProductReviewController extends Controller
         }
 
         return redirect()->route('review.index');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        $review = ProductReview::find($id);
-        $status = $review->delete();
-        if ($status) {
-            request()->session()->flash('success', 'Successfully deleted review');
-        } else {
-            request()->session()->flash('error', 'Something went wrong! Try again');
-        }
-        return redirect()->route('review.index');
-    }
-
-    public function reviewStatusChange(Request $req)
-    {
-        $review = ProductReview::find($req->id);
-        if($review){
-            if ($review->status == 'active') {
-                $review->update(['status' => 'inactive']);
-                return 'inactive';
-            } else {
-                $review->update(['status' => 'active']);
-                return 'active';
-            }
-        }else{
-            return false;
-        }
-
     }
 }

@@ -58,6 +58,7 @@ class AdminSidebar extends Component
                 ['access' => 'Show Order Status', 'title' => 'Order Status', 'route' => 'order-status.index']
             ]],
             ['access' => 'Show Review','title' => 'Reviews', 'route' => 'review.index', 'child' => []],
+            ['access' => 'Show Review','title' => 'Product Reviews', 'route' => 'product_review.index', 'child' => []],
         ]],
 
         ['access' => ['Show Post', 'Show pCategory', 'Show Tag', 'Show Comment'],'title' => 'Posts', 'child' => [
