@@ -770,7 +770,7 @@
             Us</h2>
         <style>
             .owl-nav {
-                /* gap: {{ (count($reviews) + 5) * 10 + 200 }}px; */
+                gap: {{ (count($reviews) + 5) * 10 + 200 }}px;
             }
         </style>
         <div class="container mx-auto">
@@ -794,10 +794,6 @@
                                                         class="font-[Lato] font-[700] leo-h text-[24px] text-center text-[#353535]">
                                                         {{ $review->name }}
                                                     </h1>
-                                                    {{-- <p
-                                                        class="font-[Lato] font-[500] leo-p text-[18px] text-center text-[#353535]">
-                                                        {{ $review->email }}
-                                                    </p> --}}
                                                 </div>
                                             </div>
 
