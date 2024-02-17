@@ -315,7 +315,6 @@
                             </div>
                         </div>
                     @empty
-
                     @endforelse
 
                 </div>
@@ -378,7 +377,6 @@
                             </div>
                         </div>
                     @empty
-
                     @endforelse
                     {{-- <div class="swiper-slide">
                         <div
@@ -770,549 +768,106 @@
             class="mb-12 max-lg:mb-4 font-[jost] font-[500] text-center text-[42px] max-lg:text-[30px] max-md:text-[25px] max-sm:text-[24px] text-[#353535]">
             What Our Clients Say About
             Us</h2>
+        <style>
+            .owl-nav {
+                /* gap: {{ (count($reviews) + 5) * 10 + 200 }}px; */
+            }
+        </style>
         <div class="container mx-auto">
-
             <section id="slider" class="pt-5 mx-auto">
                 <div class="container mx-auto">
                     {{-- <h1 class="text-center"><b>Responsive Owl Carousel</b></h1> --}}
                     <div class="slider">
                         <div class="owl-carousel">
-                            <div
-                                class="slider-card rounded-[16px] py-4 px-4 bg-[#fff] shadow-[2px_2px_5px_2px_#0000001A]">
-                                <div class="">
-                                    <div class="flex justify-center">
-                                        <div class="flex items-center">
-                                            <div>
-                                                <img class="rounded-[100%] w-[72px] h-[72px] client-img"
-                                                    src="/storage/product/client-photo.svg" alt="">
+                            @foreach ($reviews as $review)
+                                <div
+                                    class="slider-card rounded-[16px] py-4 px-4 bg-[#fff] shadow-[2px_2px_5px_2px_#0000001A]">
+                                    <div class="">
+                                        <div class="flex justify-center">
+                                            <div class="flex items-center">
+                                                <div>
+                                                    <img class="rounded-[100%] w-[72px] h-[72px] client-img"
+                                                        src="/storage/@if ($review->user?->photo){{$review->user->photo}}@else{{'default/face.png'}}@endif" alt="">
+                                                </div>
+                                                <div class="ml-2">
+                                                    <h1
+                                                        class="font-[Lato] font-[700] leo-h text-[24px] text-center text-[#353535]">
+                                                        {{ $review->name }}
+                                                    </h1>
+                                                    {{-- <p
+                                                        class="font-[Lato] font-[500] leo-p text-[18px] text-center text-[#353535]">
+                                                        {{ $review->email }}
+                                                    </p> --}}
+                                                </div>
                                             </div>
-                                            <div class="ml-2">
-                                                <h1
-                                                    class="font-[Lato] font-[700] leo-h text-[24px] text-center text-[#353535]">
-                                                    Leo</h1>
-                                                <p
-                                                    class="font-[Lato] font-[500] leo-p text-[18px] text-center text-[#353535]">
-                                                    Lead Designer</p>
+
+                                            <div class="flex star-div mt-[40px]  ml-auto">
+                                                @foreach ([1, 2, 3, 4, 5] as $star)
+                                                    <a href="javascript:void(0)">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="22"
+                                                            height="22" class="star" viewBox="0 0 22 22"
+                                                            fill="#FFA033">
+                                                            <path
+                                                                d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
+                                                                fill="#FFA033" stroke="#FFA033"
+                                                                stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                    </a>
+                                                @endforeach
+
+                                                {{-- <a href="#"><svg xmlns="http://www.w3.org/2000/svg"
+                                                        width="22" height="22" class="star"
+                                                        viewBox="0 0 22 22" fill="#FFA033">
+                                                        <path
+                                                            d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
+                                                            fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
+                                                            stroke-linejoin="round" />
+                                                    </svg></a>
+
+                                                <a href="#"><svg xmlns="http://www.w3.org/2000/svg"
+                                                        width="22" height="22" class="star"
+                                                        viewBox="0 0 22 22" fill="#FFA033">
+                                                        <path
+                                                            d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
+                                                            fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
+                                                            stroke-linejoin="round" />
+                                                    </svg></a>
+
+                                                <a href="#"><svg xmlns="http://www.w3.org/2000/svg"
+                                                        width="22" height="22" class="star"
+                                                        viewBox="0 0 22 22" fill="#FFA033">
+                                                        <path
+                                                            d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
+                                                            fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
+                                                            stroke-linejoin="round" />
+                                                    </svg></a>
+
+                                                <a href="#"><svg xmlns="http://www.w3.org/2000/svg"
+                                                        width="22" height="22" class="star"
+                                                        viewBox="0 0 15 15" fill="none">
+                                                        <path
+                                                            d="M7.5 1.25L9.43125 5.1625L13.75 5.79375L10.625 8.8375L11.3625 13.1375L7.5 11.1062L3.6375 13.1375L4.375 8.8375L1.25 5.79375L5.56875 5.1625L7.5 1.25Z"
+                                                            stroke="#FFA033" stroke-linecap="round"
+                                                            stroke-linejoin="round" />
+                                                    </svg></a> --}}
                                             </div>
+                                            <!-- </div> -->
                                         </div>
-
-                                        <div class="flex star-div mt-[40px]  ml-auto">
-
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
-                                                    height="22" class="star" viewBox="0 0 22 22"
-                                                    fill="#FFA033">
-                                                    <path
-                                                        d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
-                                                        fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
-                                                        stroke-linejoin="round" />
-                                                </svg></a>
-
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
-                                                    height="22" class="star" viewBox="0 0 22 22"
-                                                    fill="#FFA033">
-                                                    <path
-                                                        d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
-                                                        fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
-                                                        stroke-linejoin="round" />
-                                                </svg></a>
-
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
-                                                    height="22" class="star" viewBox="0 0 22 22"
-                                                    fill="#FFA033">
-                                                    <path
-                                                        d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
-                                                        fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
-                                                        stroke-linejoin="round" />
-                                                </svg></a>
-
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
-                                                    height="22" class="star" viewBox="0 0 22 22"
-                                                    fill="#FFA033">
-                                                    <path
-                                                        d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
-                                                        fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
-                                                        stroke-linejoin="round" />
-                                                </svg></a>
-
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
-                                                    height="22" class="star" viewBox="0 0 15 15"
-                                                    fill="none">
-                                                    <path
-                                                        d="M7.5 1.25L9.43125 5.1625L13.75 5.79375L10.625 8.8375L11.3625 13.1375L7.5 11.1062L3.6375 13.1375L4.375 8.8375L1.25 5.79375L5.56875 5.1625L7.5 1.25Z"
-                                                        stroke="#FFA033" stroke-linecap="round"
-                                                        stroke-linejoin="round" />
-                                                </svg></a>
+                                        <div>
+                                            <h1
+                                                class="my-[19px] leo-h1 leo-h1 font-[Lato] font-[700] text-[24px] text-center text-[#353535] leading-[28.8px]">
+                                                {{ $review->subject }}
+                                            </h1>
                                         </div>
-                                        <!-- </div> -->
-                                    </div>
-                                    <div>
-                                        <h1
-                                            class="my-[19px] leo-h1 leo-h1 font-[Lato] font-[700] text-[24px] text-center text-[#353535] leading-[28.8px]">
-                                            It was a very good experience</h1>
-                                    </div>
-                                    <div>
-                                        <p
-                                            class="my-[17px] leo-p1 leo-p1 font-[jost] font-[500] text-[18px] leading-[23.13px] text-left text-[#353535]">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursusnibh mauris,
-                                            nec turpis orci
-                                            lectus maecenas.
-                                            Suspendisse sed magnaeget nibh in turpis. Consequat duis diam lacus arcu.
-                                            Faucibus venenatis
-                                            felis id augue
-                                            sit cursus pellentesqueenim arcu.Elementum felis magna pretium in tincidunt.
-                                            Suspendisse sed magna eget nibh in turpis. Consequat duis diam lacUSArcu.s
-                                        </p>
+                                        <div>
+                                            <p
+                                                class="my-[17px] leo-p1 leo-p1 font-[jost] font-[500] text-[18px] leading-[23.13px] text-left text-[#353535]">
+                                                {{ $review->msg }}
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div
-                                class="slider-card rounded-[16px] py-4 px-4 bg-[#fff] shadow-[2px_2px_5px_2px_#0000001A]">
-                                <div class="">
-                                    <div class="flex justify-center">
-                                        <div class="flex items-center">
-                                            <div>
-                                                <img class="rounded-[100%] w-[72px] h-[72px] client-img"
-                                                    src="/storage/product/client-photo.svg" alt="">
-                                            </div>
-                                            <div class="ml-2">
-                                                <h1
-                                                    class="font-[Lato] text-[24px] font-[700]  text-center text-[#353535] leo-h">
-                                                    Leo</h1>
-                                                <p
-                                                    class="font-[Lato] text-[18px] font-[500] text-center text-[#353535] leo-p">
-                                                    Lead Designer</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="flex mt-[40px] ml-auto star-div">
-
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
-                                                    class="star" height="22" viewBox="0 0 22 22"
-                                                    fill="#FFA033">
-                                                    <path
-                                                        d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
-                                                        fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
-                                                        stroke-linejoin="round" />
-                                                </svg></a>
-
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
-                                                    class="star" height="22" viewBox="0 0 22 22"
-                                                    fill="#FFA033">
-                                                    <path
-                                                        d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
-                                                        fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
-                                                        stroke-linejoin="round" />
-                                                </svg></a>
-
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
-                                                    class="star" height="22" viewBox="0 0 22 22"
-                                                    fill="#FFA033">
-                                                    <path
-                                                        d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
-                                                        fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
-                                                        stroke-linejoin="round" />
-                                                </svg></a>
-
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
-                                                    class="star" height="22" viewBox="0 0 22 22"
-                                                    fill="#FFA033">
-                                                    <path
-                                                        d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
-                                                        fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
-                                                        stroke-linejoin="round" />
-                                                </svg></a>
-
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
-                                                    class="star" height="22" viewBox="0 0 15 15"
-                                                    fill="none">
-                                                    <path
-                                                        d="M7.5 1.25L9.43125 5.1625L13.75 5.79375L10.625 8.8375L11.3625 13.1375L7.5 11.1062L3.6375 13.1375L4.375 8.8375L1.25 5.79375L5.56875 5.1625L7.5 1.25Z"
-                                                        stroke="#FFA033" stroke-linecap="round"
-                                                        stroke-linejoin="round" />
-                                                </svg></a>
-                                        </div>
-                                        <!-- </div> -->
-                                    </div>
-                                    <div>
-                                        <h1
-                                            class="my-[19px] leo-h1 font-[Lato] font-[700] text-[24px]  text-center text-[#353535] leading-[28.8px]">
-                                            It was a very good experience</h1>
-                                    </div>
-                                    <div>
-                                        <p
-                                            class="my-[17px] leo-p1 font-[jost] font-[500] text-[18px] leading-[23.13px] text-left text-[#353535]">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursusnibh mauris,
-                                            nec turpis orci
-                                            lectus maecenas.
-                                            Suspendisse sed magnaeget nibh in turpis. Consequat duis diam lacus arcu.
-                                            Faucibus venenatis
-                                            felis id augue
-                                            sit cursus pellentesqueenim arcu.Elementum felis magna pretium in tincidunt.
-                                            Suspendisse sed magna eget nibh in turpis. Consequat duis diam lacUSArcu.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div
-                                class="slider-card rounded-[16px] py-4 px-4 bg-[#fff] shadow-[2px_2px_5px_2px_#0000001A]">
-                                <div class="">
-                                    <div class="flex justify-center">
-                                        <div class="flex items-center">
-                                            <div>
-                                                <img class="rounded-[100%] w-[72px] h-[72px] client-img"
-                                                    src="/storage/product/client-photo.svg" alt="">
-                                            </div>
-                                            <div class="ml-2">
-                                                <h1
-                                                    class="font-[Lato] text-[24px] font-[700]  text-center text-[#353535] leo-h">
-                                                    Leo</h1>
-                                                <p
-                                                    class="font-[Lato] text-[18px] font-[500] text-center text-[#353535] leo-p">
-                                                    Lead Designer</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="flex mt-[40px] ml-auto star-div">
-
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
-                                                    class="star" height="22" viewBox="0 0 22 22"
-                                                    fill="#FFA033">
-                                                    <path
-                                                        d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
-                                                        fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
-                                                        stroke-linejoin="round" />
-                                                </svg></a>
-
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
-                                                    class="star" height="22" viewBox="0 0 22 22"
-                                                    fill="#FFA033">
-                                                    <path
-                                                        d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
-                                                        fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
-                                                        stroke-linejoin="round" />
-                                                </svg></a>
-
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
-                                                    class="star" height="22" viewBox="0 0 22 22"
-                                                    fill="#FFA033">
-                                                    <path
-                                                        d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
-                                                        fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
-                                                        stroke-linejoin="round" />
-                                                </svg></a>
-
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
-                                                    class="star" height="22" viewBox="0 0 22 22"
-                                                    fill="#FFA033">
-                                                    <path
-                                                        d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
-                                                        fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
-                                                        stroke-linejoin="round" />
-                                                </svg></a>
-
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
-                                                    class="star" height="22" viewBox="0 0 15 15"
-                                                    fill="none">
-                                                    <path
-                                                        d="M7.5 1.25L9.43125 5.1625L13.75 5.79375L10.625 8.8375L11.3625 13.1375L7.5 11.1062L3.6375 13.1375L4.375 8.8375L1.25 5.79375L5.56875 5.1625L7.5 1.25Z"
-                                                        stroke="#FFA033" stroke-linecap="round"
-                                                        stroke-linejoin="round" />
-                                                </svg></a>
-                                        </div>
-                                        <!-- </div> -->
-                                        <!-- </div> -->
-
-                                    </div>
-                                    <div>
-                                        <h1
-                                            class="my-[19px] leo-h1 font-[Lato] font-[700] text-[24px]  text-center text-[#353535] leading-[28.8px]">
-                                            It was a very good experience</h1>
-                                    </div>
-                                    <div>
-                                        <p
-                                            class="my-[17px] leo-p1 font-[jost] font-[500] text-[18px] leading-[23.13px] text-left text-[#353535]">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursusnibh mauris,
-                                            nec turpis orci
-                                            lectus maecenas.
-                                            Suspendisse sed magnaeget nibh in turpis. Consequat duis diam lacus arcu.
-                                            Faucibus venenatis
-                                            felis id augue
-                                            sit cursus pellentesqueenim arcu.Elementum felis magna pretium in tincidunt.
-                                            Suspendisse sed magna eget nibh in turpis. Consequat duis diam lacUSArcu.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div
-                                class="slider-card rounded-[16px] py-4 px-4 bg-[#fff] shadow-[2px_2px_5px_2px_#0000001A]">
-                                <div class="">
-                                    <div class="flex justify-center">
-                                        <div class="flex items-center">
-                                            <div>
-                                                <img class="rounded-[100%] w-[72px] h-[72px] client-img"
-                                                    src="/storage/product/client-photo.svg" alt="">
-                                            </div>
-                                            <div class="ml-2">
-                                                <h1
-                                                    class="font-[Lato] text-[24px] font-[700]  text-center text-[#353535] leo-h">
-                                                    Leo</h1>
-                                                <p
-                                                    class="font-[Lato] text-[18px] font-[500] text-center text-[#353535] leo-p">
-                                                    Lead Designer</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="flex mt-[40px] ml-auto star-div">
-
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
-                                                    class="star" height="22" viewBox="0 0 22 22"
-                                                    fill="#FFA033">
-                                                    <path
-                                                        d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
-                                                        fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
-                                                        stroke-linejoin="round" />
-                                                </svg></a>
-
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
-                                                    class="star" height="22" viewBox="0 0 22 22"
-                                                    fill="#FFA033">
-                                                    <path
-                                                        d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
-                                                        fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
-                                                        stroke-linejoin="round" />
-                                                </svg></a>
-
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
-                                                    class="star" height="22" viewBox="0 0 22 22"
-                                                    fill="#FFA033">
-                                                    <path
-                                                        d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
-                                                        fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
-                                                        stroke-linejoin="round" />
-                                                </svg></a>
-
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
-                                                    class="star" height="22" viewBox="0 0 22 22"
-                                                    fill="#FFA033">
-                                                    <path
-                                                        d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
-                                                        fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
-                                                        stroke-linejoin="round" />
-                                                </svg></a>
-
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
-                                                    class="star" height="22" viewBox="0 0 15 15"
-                                                    fill="none">
-                                                    <path
-                                                        d="M7.5 1.25L9.43125 5.1625L13.75 5.79375L10.625 8.8375L11.3625 13.1375L7.5 11.1062L3.6375 13.1375L4.375 8.8375L1.25 5.79375L5.56875 5.1625L7.5 1.25Z"
-                                                        stroke="#FFA033" stroke-linecap="round"
-                                                        stroke-linejoin="round" />
-                                                </svg></a>
-                                        </div>
-                                        <!-- </div> -->
-                                        <!-- </div> -->
-
-                                    </div>
-                                    <div>
-                                        <h1
-                                            class="my-[19px] leo-h1 font-[Lato] font-[700] text-[24px]  text-center text-[#353535] leading-[28.8px]">
-                                            It was a very good experience</h1>
-                                    </div>
-                                    <div>
-                                        <p
-                                            class="my-[17px] leo-p1 font-[jost] font-[500] text-[18px] leading-[23.13px] text-left text-[#353535]">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursusnibh mauris,
-                                            nec turpis orci
-                                            lectus maecenas.
-                                            Suspendisse sed magnaeget nibh in turpis. Consequat duis diam lacus arcu.
-                                            Faucibus venenatis
-                                            felis id augue
-                                            sit cursus pellentesqueenim arcu.Elementum felis magna pretium in tincidunt.
-                                            Suspendisse sed magna eget nibh in turpis. Consequat duis diam lacUSArcu.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div
-                                class="slider-card rounded-[16px] py-4 px-4 bg-[#fff] shadow-[2px_2px_5px_2px_#0000001A]">
-                                <div class="">
-                                    <div class="flex justify-center">
-                                        <div class="flex items-center">
-                                            <div>
-                                                <img class="rounded-[100%] w-[72px] h-[72px] client-img"
-                                                    src="/storage/product/client-photo.svg" alt="">
-                                            </div>
-                                            <div class="ml-2">
-                                                <h1
-                                                    class="font-[Lato] text-[24px] font-[700]  text-center text-[#353535] leo-h">
-                                                    Leo</h1>
-                                                <p
-                                                    class="font-[Lato] text-[18px] font-[500] text-center text-[#353535] leo-p">
-                                                    Lead Designer</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="flex mt-[40px] ml-auto star-div">
-
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
-                                                    class="star" height="22" viewBox="0 0 22 22"
-                                                    fill="#FFA033">
-                                                    <path
-                                                        d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
-                                                        fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
-                                                        stroke-linejoin="round" />
-                                                </svg></a>
-
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
-                                                    class="star" height="22" viewBox="0 0 22 22"
-                                                    fill="#FFA033">
-                                                    <path
-                                                        d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
-                                                        fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
-                                                        stroke-linejoin="round" />
-                                                </svg></a>
-
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
-                                                    class="star" height="22" viewBox="0 0 22 22"
-                                                    fill="#FFA033">
-                                                    <path
-                                                        d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
-                                                        fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
-                                                        stroke-linejoin="round" />
-                                                </svg></a>
-
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
-                                                    class="star" height="22" viewBox="0 0 22 22"
-                                                    fill="#FFA033">
-                                                    <path
-                                                        d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
-                                                        fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
-                                                        stroke-linejoin="round" />
-                                                </svg></a>
-
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
-                                                    class="star" height="22" viewBox="0 0 15 15"
-                                                    fill="none">
-                                                    <path
-                                                        d="M7.5 1.25L9.43125 5.1625L13.75 5.79375L10.625 8.8375L11.3625 13.1375L7.5 11.1062L3.6375 13.1375L4.375 8.8375L1.25 5.79375L5.56875 5.1625L7.5 1.25Z"
-                                                        stroke="#FFA033" stroke-linecap="round"
-                                                        stroke-linejoin="round" />
-                                                </svg></a>
-                                        </div>
-                                        <!-- </div> -->
-                                        <!-- </div> -->
-
-                                    </div>
-                                    <div>
-                                        <h1
-                                            class="my-[19px] leo-h1 font-[Lato] font-[700] text-[24px]  text-center text-[#353535] leading-[28.8px]">
-                                            It was a very good experience</h1>
-                                    </div>
-                                    <div>
-                                        <p
-                                            class="my-[17px] leo-p1 font-[jost] font-[500] text-[18px] leading-[23.13px] text-left text-[#353535]">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursusnibh mauris,
-                                            nec turpis orci
-                                            lectus maecenas.
-                                            Suspendisse sed magnaeget nibh in turpis. Consequat duis diam lacus arcu.
-                                            Faucibus venenatis
-                                            felis id augue
-                                            sit cursus pellentesqueenim arcu.Elementum felis magna pretium in tincidunt.
-                                            Suspendisse sed magna eget nibh in turpis. Consequat duis diam lacUSArcu.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div
-                                class="slider-card rounded-[16px] py-4 px-4 bg-[#fff] shadow-[2px_2px_5px_2px_#0000001A]">
-                                <div class="">
-                                    <div class="flex justify-center">
-                                        <div class="flex items-center">
-                                            <div>
-                                                <img class="rounded-[100%] w-[72px] h-[72px] client-img"
-                                                    src="/storage/product/client-photo.svg" alt="">
-                                            </div>
-                                            <div class="ml-2">
-                                                <h1
-                                                    class="font-[Lato] text-[24px] font-[700]  text-center text-[#353535] leo-h">
-                                                    Leo</h1>
-                                                <p
-                                                    class="font-[Lato] text-[18px] font-[500] text-center text-[#353535] leo-p">
-                                                    Lead Designer</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="flex mt-[40px] ml-auto star-div">
-
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
-                                                    class="star" height="22" viewBox="0 0 22 22"
-                                                    fill="#FFA033">
-                                                    <path
-                                                        d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
-                                                        fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
-                                                        stroke-linejoin="round" />
-                                                </svg></a>
-
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
-                                                    class="star" height="22" viewBox="0 0 22 22"
-                                                    fill="#FFA033">
-                                                    <path
-                                                        d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
-                                                        fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
-                                                        stroke-linejoin="round" />
-                                                </svg></a>
-
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
-                                                    class="star" height="22" viewBox="0 0 22 22"
-                                                    fill="#FFA033">
-                                                    <path
-                                                        d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
-                                                        fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
-                                                        stroke-linejoin="round" />
-                                                </svg></a>
-
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
-                                                    class="star" height="22" viewBox="0 0 22 22"
-                                                    fill="#FFA033">
-                                                    <path
-                                                        d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
-                                                        fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
-                                                        stroke-linejoin="round" />
-                                                </svg></a>
-
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22"
-                                                    class="star" height="22" viewBox="0 0 15 15"
-                                                    fill="none">
-                                                    <path
-                                                        d="M7.5 1.25L9.43125 5.1625L13.75 5.79375L10.625 8.8375L11.3625 13.1375L7.5 11.1062L3.6375 13.1375L4.375 8.8375L1.25 5.79375L5.56875 5.1625L7.5 1.25Z"
-                                                        stroke="#FFA033" stroke-linecap="round"
-                                                        stroke-linejoin="round" />
-                                                </svg></a>
-                                        </div>
-                                        <!-- </div> -->
-                                        <!-- </div> -->
-
-                                    </div>
-                                    <div>
-                                        <h1
-                                            class="my-[19px] leo-h1 font-[Lato] font-[700] text-[24px]  text-center text-[#353535] leading-[28.8px]">
-                                            It was a very good experience</h1>
-                                    </div>
-                                    <div>
-                                        <p
-                                            class="my-[17px] leo-p1 font-[jost] font-[500] text-[18px] leading-[23.13px] text-left text-[#353535]">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursusnibh mauris,
-                                            nec turpis orci
-                                            lectus maecenas.
-                                            Suspendisse sed magnaeget nibh in turpis. Consequat duis diam lacus arcu.
-                                            Faucibus venenatis
-                                            felis id augue
-                                            sit cursus pellentesqueenim arcu.Elementum felis magna pretium in tincidunt.
-                                            Suspendisse sed magna eget nibh in turpis. Consequat duis diam lacUSArcu.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -1429,13 +984,6 @@
                     @enderror
                 </div>
                 <div class="flex items-center max-md:justify-center flex-col">
-                    {{-- @if ($post_success_msg)
-                        <span class="block text-[green]">{{ $post_success_msg }}</span>
-                    @endif
-                    @if ($post_error_msg)
-                        <span class="block text-[red]">{{ $post_error_msg }}</span>
-                    @endif --}}
-
                     <button @click="postSubmit()"
                         class="fill-up-btn text-[#f2f2f2] text-center text-[16px] h-[44px] px-[40px] py-[10px] rounded-[4px] font-[500] font-[jost] mt-[15px]  bg-gradient-to-r from-[#380D37] to-[#DC275C] "
                         type="button">
