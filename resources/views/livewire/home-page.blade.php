@@ -296,8 +296,6 @@
                                         {{ Str::of($f_product->title)->words(5) }}
                                     </a>
                                 </div>
-
-
                                 <div
                                     class="flex justify-between items-end text-[14px] mt-auto font-[jost] font-[700] leading-[20.23px]">
                                     <div class="flex flex-col">
@@ -321,7 +319,6 @@
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
             </div>
-
             <!-- Swiper JS -->
             <!-- Initialize Swiper -->
         </div>
@@ -335,7 +332,6 @@
                         <div class="swiper-slide">
                             <div
                                 class="w-[221px] h-[376px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white px-2 pt-2 pb-3 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-
                                 <div class="image-container h-[180px] relative">
                                     <a @click.stop='redirect("{{ route('product.details', [$a_product->slug]) }}")'
                                         href="{{ route('product.details', [$a_product->slug]) }}" wire:navigate
@@ -345,8 +341,8 @@
                                     </a>
                                     @if ($product->stock < 1)
                                         <span
-                                            class="text-[14px] bg-[#ef4a23] text-[#fff] absolute top-[-8px] left-[-8px] px-2 py-[2px] rounded-r-lg">Out
-                                            Of Stock</span>
+                                            class="text-[14px] bg-[#ef4a23] text-[#fff] absolute top-[-8px] left-[-8px] px-2 py-[2px] rounded-r-lg">
+                                            Out Of Stock</span>
                                     @endif
                                 </div>
                                 <div class="">
@@ -758,7 +754,8 @@
                 <div class="p-3 mt-auto">
                     <p class="font-[jost] text-[14px] font-[500] leading-[20px] text-left text-[#380D37]">
                         We deliver
-                        our products carefully as fast as possible at your door step.</p>
+                        our products carefully as fast as possible at your door step.
+                    </p>
                 </div>
             </div>
     </section>
@@ -770,7 +767,7 @@
             Us</h2>
         <style>
             .owl-nav {
-                gap: {{ (count($reviews) + 5) * 10 + 200 }}px;
+                /* gap: {{ (count($reviews) + 5) * 10 + 200 }}px; */
             }
         </style>
         <div class="container mx-auto">
@@ -787,7 +784,8 @@
                                             <div class="flex items-center">
                                                 <div>
                                                     <img class="rounded-[100%] w-[72px] h-[72px] client-img"
-                                                        src="/storage/@if ($review->user?->photo){{$review->user->photo}}@else{{'default/face.png'}}@endif" alt="">
+                                                        src="/storage/@if ($review->user?->photo) {{ $review->user->photo }}@else{{ 'default/face.png' }} @endif"
+                                                        alt="">
                                                 </div>
                                                 <div class="ml-2">
                                                     <h1
@@ -1081,38 +1079,27 @@
 @script
     <script>
         // ----hero--section---
+        // main banner slider funcito
+
         // Hero section slide
         $('#move_back').on('click', function() {
-            console.log($(this).attr('value'));
-            let current_slide = Number($(this).attr('value')) - 1;
             let total_slide = $('.slide').length;
-            console.log(current_slide, total_slide, 'yes');
-            // if(current_slide>=total_slide){
-            //     current_slide == 1
-            // }
-            if (current_slide < 0) {
-
-                current_slide = 2;
-                console.log(current_slide, total_slide, 'after if');
+            let current_slide = Number($(this).attr('value')) - 1;
+            if (current_slide < 1) {
+                current_slide = total_slide-1;
             }
             $('.slide').hide();
             $('.slide').eq(current_slide).show();
             $('.slide_icon').attr('value', current_slide);
             $(this).addClass('slide-active');
             $('#move_front').removeClass('slide-active')
-        })
-        $('#move_front').on('click', function() {
-            console.log($(this).attr('value'));
-            let current_slide = Number($(this).attr('value')) + 1;
-            let total_slide = $('.slide').length;
-            console.log(current_slide, total_slide, 'yes');
-            // if(current_slide>=total_slide){
-            //     current_slide == 1
-            // }
-            if (current_slide > 2) {
+        });
 
+        $('#move_front').on('click', function() {
+            let total_slide = $('.slide').length;
+            let current_slide = Number($(this).attr('value')) + 1;
+            if (current_slide > total_slide-1) {
                 current_slide = 0;
-                console.log(current_slide, total_slide, 'after if');
             }
             $('.slide').hide();
             $('.slide').eq(current_slide).show();
@@ -1120,6 +1107,7 @@
             $(this).addClass('slide-active');
             $('#move_back').removeClass('slide-active')
         });
+
         // hero---section--end-----
         $(document).ready(function() {
             $('.usa_btn').each(function(index) {
