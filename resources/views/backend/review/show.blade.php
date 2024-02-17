@@ -8,21 +8,13 @@
     <div class="card">
         <div class="card-header" style="display: flex !important ; justify-content: space-between; align-items: center">
             <h2>Product</h2>
-
             <h2>
-                {{-- @for ($i = 1; $i < 6; $i++)
-                    @if ($i <= $review->rate)
-                        <img class="h-7" src="/storage/product/star2.svg" alt="">
-                    @else
-                        <img class="h-7" src="/storage/product/star-white.svg" alt="">
-                    @endif
-                @endfor --}}
                 @for ($i = 1; $i <= 5; $i++)
-                    @if ($review->rate >= $i)
+                    {{-- @if ($review->rate >= $i) --}}
                         <i class="fa fa-star" style="float:left;color:#F7941D;"></i>
-                    @else
+                    {{-- @else
                         <i class="far fa-star" style="float:left;color:#F7941D;"></i>
-                    @endif
+                    @endif --}}
                 @endfor
                 {{-- ({{$review->rate}} stars) --}}
             </h2>
@@ -36,16 +28,19 @@
                 <table class="table table-striped table-hover">
                     <thead>
                         <tr>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Status</th>
+                            <th>Name</th>
+                            <th>E-mail</th>
+                            <th>Subject</th>
+                            {{-- <th>Message</th> --}}
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>{{ $review->f_name }}</td>
-                            <td>{{ $review->l_name }}</td>
+                            <td>{{ $review->name }}</td>
+                            <td>{{ $review->email }}</td>
+                            <td>{{ $review->subject }}</td>
+                            {{-- <td>{{ $review->msg }}</td> --}}
                             <td>
                                 @if ($review->status == 'active')
                                     <span class="btn badge-success status-update">{{ $review->status }}</span>
@@ -75,23 +70,35 @@
                         <div class="row">
                             <div class="col-lg-6 col-lx-4">
                                 <div class="order-info">
-                                    <h4 class="pb-4 text-center">Product Details</h4>
+                                    <h4 class="pb-4 text-center">User Details</h4>
                                     <table class="table">
                                         <tr class="">
-                                            <td>Title</td>
-                                            <td> : {{ $review->product->title }}</td>
+                                            <td>Name</td>
+                                            <td> : {{ $review->user?->name }}</td>
                                         </tr>
                                         <tr class="">
-                                            <td>Model</td>
-                                            <td> : {{ $review->product->model }}</td>
+                                            <td>Last Name</td>
+                                            <td> : {{ $review->user?->l_name }}</td>
                                         </tr>
                                         <tr>
-                                            <td>Brand</td>
-                                            <td> : {{ $review->product->brand?->title }}</td>
+                                            <td>E-mail</td>
+                                            <td> : {{ $review->user?->email }}</td>
                                         </tr>
                                         <tr class="">
-                                            <td>Category</td>
-                                            <td> : {{ $review->product->cat_info?->title }}</td>
+                                            <td>Phone</td>
+                                            <td> : {{ $review->user?->phone }}</td>
+                                        </tr>
+                                        <tr class="">
+                                            <td>Address</td>
+                                            <td> : {{ $review->user?->address }}</td>
+                                        </tr>
+                                        <tr class="">
+                                            <td>City</td>
+                                            <td> : {{ $review->user?->city }}</td>
+                                        </tr>
+                                        <tr class="">
+                                            <td>Role</td>
+                                            <td> : {{ $review->user?->role }}</td>
                                         </tr>
 
                                     </table>
@@ -103,7 +110,7 @@
                                     <div class="shipping-info">
                                         <h4 class="pb-4 text-center">Review Message</h4>
                                         <P>
-                                            {{ $review->review }}
+                                            {{ $review->msg }}
                                         </P>
                                     </div>
                                 </div>
@@ -112,12 +119,12 @@
                 </section>
 
                 <section class="mt-5">
-                    <h1 class="text-center" style="text-decoration: underline">Review's Photos</h1>
+                    <h1 class="text-center" style="text-decoration: underline;" >Review's Photos</h1>
                     <div class="text-center">
-                        @foreach ($review->images as $pto)
-                            <img src="/storage/{{ $pto->img }}"
-                                class="mx-auto rounded img-fluid img-thumbnail img-gallery" alt="...">
-                        @endforeach
+                        {{-- @foreach ($review->images as $pto) --}}
+                            <img src="/storage/{{ $review->user?->photo?? 'default/face.png' }}"
+                                class="mx-auto rounded img-fluid img-thumbnail img-gallery" alt="{{$review->subject}}">
+                        {{-- @endforeach --}}
                     </div>
                 </section>
             @endif

@@ -23,7 +23,7 @@ class ProductReviewController extends Controller
     public function index()
     {
         $this->ccan('Show Review');
-        
+
         $n['reviews'] = ProductReview::latest()->paginate(10);
         $n['count'] = ProductReview::get();
         return view('backend.product-review.index',$n);
@@ -99,6 +99,7 @@ class ProductReviewController extends Controller
         $this->ccan('Edit Review');
 
         $review = ProductReview::find($id);
+        // dd($review);
         // return $review;
         return view('backend.product-review.edit')->with('review', $review);
     }
@@ -139,7 +140,7 @@ class ProductReviewController extends Controller
             request()->session()->flash('error', 'Review not found!!');
         }
 
-        return redirect()->route('review.index');
+        return redirect()->route('productreview.index');
     }
 
     /**

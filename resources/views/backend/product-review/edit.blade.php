@@ -8,7 +8,7 @@
 <div class="card">
   <h5 class="card-header">Review Edit</h5>
   <div class="card-body">
-    <form action="{{route('review.update',$review->id)}}" method="POST">
+    <form action="{{route('productreview.update',$review->id)}}" method="POST">
       @csrf
       @method('PATCH')
       <div class="form-group">

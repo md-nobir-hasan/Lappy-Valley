@@ -174,7 +174,8 @@ Route::post('product/{slug}/review', [CompanyReviewController::class, 'store'])-
 Route::post('review-status/change', [CompanyReviewController::class, 'reviewStatusChange'])->name('review_status.change');
 
 // Product Review
-Route::get('/productreview', [ProductReviewController::class,'index'])->name('productreview.index');
+Route::resource('/productreview', ProductReviewController::class);
+// Route::get('/productreview', [ProductReviewController::class,'index'])->name('productreview.index');
 
 // Post Comment
 Route::post('post/{slug}/comment', [PostCommentController::class, 'store'])->name('post-comment.store');

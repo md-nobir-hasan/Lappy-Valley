@@ -60,7 +60,7 @@ class CompanyReviewController extends Controller
 
     public function show($id)
     {
-        $n['review'] = CompanyReview::with('images', 'product')->find($id);
+        $n['review'] = CompanyReview::with('user')->find($id);
         return view('backend.review.show', $n);
     }
 
@@ -100,6 +100,21 @@ class CompanyReviewController extends Controller
             request()->session()->flash('error', 'Review not found!!');
         }
 
+        return redirect()->route('review.index');
+    }
+
+    public function destroy($id)
+    {
+        $review = CompanyReview::find($id);
+        if(!$review){
+            return back();
+        }
+        $status = $review->delete();
+        if ($status) {
+            request()->session()->flash('success', 'Successfully deleted review');
+        } else {
+            request()->session()->flash('error', 'Something went wrong! Try again');
+        }
         return redirect()->route('review.index');
     }
 }
