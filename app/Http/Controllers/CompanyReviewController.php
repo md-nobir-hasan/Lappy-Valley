@@ -30,9 +30,9 @@ class CompanyReviewController extends Controller
     {
         $this->ccan('Create Review');
 
-        $this->validate($request, [
-            'rate' => 'required|numeric|min:1'
-        ]);
+        // $this->validate($request, [
+        //     'rate' => 'required|numeric|min:1'
+        // ]);
         $product_info = CompanyReview::getProductBySlug($request->slug);
         //  return $product_info;
         // return $request->all();
@@ -79,7 +79,7 @@ class CompanyReviewController extends Controller
 
         $request->validate([
             'name'=> 'required|string',
-            'subject'=> 'required|string',
+            'subject'=> 'nullable|string',
             'msg'=> 'required|string',
             'status'=> 'required|in:active,inactive',
         ]);

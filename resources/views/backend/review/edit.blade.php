@@ -8,6 +8,9 @@
     <div class="card">
         <h5 class="card-header">Review Edit</h5>
         <div class="card-body">
+            @if ($errors->any())
+@dd($errors->all())
+            @endif
             <form action="{{ route('review.update', $review->id) }}" method="POST">
                 @csrf
                 @method('PATCH')
