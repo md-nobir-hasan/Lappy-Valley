@@ -5,9 +5,15 @@ namespace App\Http\Controllers;
 use DB;
 use Illuminate\Http\Request;
 use App\Library\SslCommerz\SslCommerzNotification;
+use App\Mail\OrderMail;
+use App\Mail\OrderMailToAdmin;
+use App\Models\Cart;
 use App\Models\Order;
+use App\Notifications\StatusNotification;
 use App\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Session;
 
 class SslCommerzPaymentController extends Controller
@@ -164,7 +170,6 @@ class SslCommerzPaymentController extends Controller
 
      public function success(Request $request)
     {
-
         $tran_id = $request->input('tran_id');
         $amount = $request->input('amount');
         $currency = $request->input('currency');
@@ -173,10 +178,12 @@ class SslCommerzPaymentController extends Controller
 
         #Check order status in order tabel against the transaction id or order id.
         $order_details = Order::where('transaction_id', $tran_id)->first();
+        $mail_content = [
+            'order' => $order_details,
+        ];
 
         if ($order_details->status == 'Pending') {
             $validation = $sslc->orderValidate($request->all(), $tran_id, $amount, $currency);
-
             if ($validation) {
                 /*
                 That means IPN did not work or IPN URL was not set in your merchant panel. Here you need to update order status
@@ -190,22 +197,48 @@ class SslCommerzPaymentController extends Controller
                 $order_details->payment_status = 'paid';
                 $order_details->save();
 
-                echo "<br >Transaction is successfully Completed";
+                //Left Stock
+                $carts = Cart::with('product')->where('order_id',$order_details->id)->get();
+                foreach($carts as $cart){
+                    $product = $cart->product;
+                    $product->stock = $product->stock - $cart->quantity;
+                    $product->save();
+                }
+
+               $mail_content['sub'] = "Transaction is successfully Completed";
                 request()->session()->flash('success', 'Transaction is successfully Completed');
             }
         } else if ($order_details->status == 'Processing' || $order_details->status == 'Complete') {
             /*
              That means through IPN Order status already updated. Now you can just show the customer that transaction is completed. No need to udate database.
              */
-            echo "Transaction is successfully Completed";
+            $mail_content['sub'] = "Transaction is successfully Completed";
             request()->session()->flash('success', 'Transaction is successfully Completed');
         } else {
             #That means something wrong happened. You can redirect customer to your product page.
-            echo "Invalid Transaction";
+            $mail_content['sub'] = "Invalid Transaction";
             request()->session()->flash('error', 'Invalid Transaction');
         }
         $user = User::find($order_details->user_id);
         Auth::login($user);
+
+        // send mail to admin
+        $mail_content['view'] = 'mail.order-mail-to-admin';
+        $users = User::role('Admin')->get();
+        foreach($users as $us){
+            Mail::to($us->email)->send(new OrderMailToAdmin($mail_content));
+        }
+        //Notification
+        $details = [
+            'title' => 'Payment through SSL commerce',
+            'actionURL' => route('order.show', $order_details->id),
+            'fas' => 'fa-file-alt'
+        ];
+        Notification::send($users, new StatusNotification($details));
+        
+        // send mail to user
+        $mail_content['view'] = 'mail.order-mail-to-user';
+        Mail::to($user->email)->send(new OrderMail($mail_content));
         return to_route('oc');
     }
 

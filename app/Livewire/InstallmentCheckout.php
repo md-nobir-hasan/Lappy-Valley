@@ -2,6 +2,8 @@
 
 namespace App\Livewire;
 
+use App\Mail\OrderMail;
+use App\Mail\OrderMailToAdmin;
 use App\Models\Cart;
 use App\Models\Divission;
 use App\Models\InstallmentOrder;
@@ -12,6 +14,7 @@ use App\Models\UserAddress;
 use App\Notifications\StatusNotification;
 use App\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
 use Livewire\Attributes\Title;
@@ -109,6 +112,7 @@ class InstallmentCheckout extends Component
             }
             Auth::login($user);
         }
+
         //update user
         $user->name = $this->name;
         $user->l_name = $this->l_name;
@@ -143,10 +147,21 @@ class InstallmentCheckout extends Component
         ];
 
         Notification::send($users, new StatusNotification($details));
-
         $product = $this->product;
-        $product->stock -= 1;
-        $product->save();
+        //Mail content
+        $mail_content = [
+            'order' => $order,
+            'sub' => "A new order has been created",
+            'view' => 'mail.order-mail-to-admin',
+        ];
+        // send mail to admin
+        foreach($users as $us){
+            Mail::to($us->email)->send(new OrderMailToAdmin($mail_content));
+        }
+
+        // send mail to user
+        $mail_content['view'] = 'mail.order-mail-to-user';
+        Mail::to($user->email)->send(new OrderMail($mail_content));
 
         //insert into installment table
         InstallmentOrder::create([
@@ -171,6 +186,17 @@ class InstallmentCheckout extends Component
 
     public function render()
     {
+        if ($user = Auth()->user()) {
+            $address = UserAddress::where('user_id',$user->id)->where('is_default',true)->first();
+            $this->name = $user->name;
+            $this->l_name = $user->l_name;
+            $this->email = $user->email;
+            $this->phone = $user->phone;
+            $this->address = $address?->address;
+            $this->city = $address?->city;
+            $this->divission_id = $user?->divission_id;
+        }
+        dd($this->all());
         $n['divissions'] = Divission::get();
         $n['shipping'] = Shipping::where('status', 'active')->first();
         return view('livewire.installment-checkout', $n);

@@ -16,10 +16,14 @@ class OrderMail extends Mailable implements ShouldQueue
     /**
      * Create a new message instance.
      */
+    public $sub;
+    public $view;
     public $order;
-    public function __construct($order)
+    public function __construct($mail_content)
     {
-       $this->order = $order;
+       $this->sub = $mail_content['sub'];
+       $this->view = $mail_content['view'];
+       $this->order = $mail_content['order'];
     }
 
     /**
@@ -28,7 +32,7 @@ class OrderMail extends Mailable implements ShouldQueue
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Your Order Has been received',
+            subject: $this->sub,
         );
     }
 
@@ -38,7 +42,7 @@ class OrderMail extends Mailable implements ShouldQueue
     public function content(): Content
     {
         return new Content(
-            view: 'mail.order-mail-to-user',
+            view: $this->view,
         );
     }
 

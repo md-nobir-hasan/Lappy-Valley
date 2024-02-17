@@ -1,23 +1,37 @@
 <div class="h-[360px]">
     <style>
         .button0 {
-            animation: anime 1s infinite ease-in-out;
+            animation: anime 1.5s infinite linear;
 
         }
 
         .button0 {
-            animation-delay: .3s;
+            animation-delay: .1s;
         }
 
         @keyframes anime {
+            0%{
+                scale: 1;
+            }
+            25%{
+                scale: 1.2;
+            }
+            50%{
+                scale: 1.5
+            }
+            75%{
+                scale: 1.2
+            }
             100% {
-                transform: : translateY(20px);
+                /* transform: : translateY(20px);
                 -webkit-transform: translateY(20px);
                 -moz-transform: translateY(20px);
                 -ms-transform: translateY(20px);
                 -o-transform: translateY(20px);
-                box-shadow: 0 40px 10px -18px rgba (0, 0, 0, 0.2);
+                box-shadow: 0 40px 10px -18px rgba (0, 0, 0, 0.2); */
+                scale: 1;
             }
+
         }
     </style>
     <div class="flex h-full justify-center items-center mt-[50px]">

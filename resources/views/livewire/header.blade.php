@@ -126,7 +126,7 @@
                 </a>
             </div>
             <div id="search-bar"
-                class="search-bar max-xl:fixed max-sm:top-[49px] max-md:top-[67px] max-xl:top-[67px] max-xl:left-0 max-xl:w-full z-[9999]">
+                class="search-bar max-xl:fixed max-sm:top-[49px] max-md:top-[67px] max-xl:top-[67px] max-xl:left-0 max-xl:w-full">
                 <div>
                     <div>
                         <div class="relative" x-data="{
