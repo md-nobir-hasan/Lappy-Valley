@@ -6,6 +6,7 @@
 
 @section('main-content')
     <div class="card">
+
         <h5 class="card-header">Order Edit</h5>
         <div class="card-body">
             <form action="{{ route('order.update', $order->id) }}" method="POST">
@@ -18,15 +19,21 @@
                         <option value="paid" @selected($order->payment_status == 'paid')>paid</option>
                         <option value="unpaid" @selected($order->payment_status == 'unpaid')>uppaid</option>
                     </select>
+                    @error('payment_status')
+                        <span class="text-danger">{{$message}}</span>
+                    @enderror
                 </div>
 
                 <div class="form-group">
                     <label for="order_status_id">Status :</label>
-                    <select name="status" id="order_status_id" class="form-control">
+                    <select name="order_status_id" id="order_status_id" class="form-control">
                         @foreach ($order_status as $item)
                             <option value="{{ $item->title }}" @selected($order->status == $item->title)>{{ $item->title }}</option>
                         @endforeach
                     </select>
+                    @error('order_status_id')
+                    <span class="text-danger">{{$message}}</span>
+                @enderror
                 </div>
 
                 <button type="submit" class="btn btn-primary">Update</button>
