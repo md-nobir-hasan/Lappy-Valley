@@ -34,7 +34,7 @@
          }
      }">
          <div>
-             <h1 class='font-[jost] text-[16px] font-[400] leading-[25.3px] text-[#353535]'>Shopping Cart/ Checkout
+             <h1 class='font-[jost] text-[16px] font-[400] leading-[25.3px] text-[#353535]'><a href="{{route('vcart')}}">Shopping Cart</a>/ Checkout
              </h1>
              <div class='h-1 bg-[#764A8733]'></div>
          </div>
