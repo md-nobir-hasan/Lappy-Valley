@@ -767,7 +767,13 @@
             Us</h2>
         <style>
             .owl-nav {
-                 gap: {{ (count($reviews) + 5) * 10 + 200 }}px;
+                gap: {{ (count($reviews) + 5) * 10 + 200 }}px !important;
+            }
+
+            @media only screen and (max-width: 640px) {
+                .owl-nav {
+                    gap: {{ (count($reviews) + 5) * 10 + 80 }}px !important;
+                }
             }
         </style>
         <div class="container mx-auto">
@@ -1086,7 +1092,7 @@
             let total_slide = $('.slide').length;
             let current_slide = Number($(this).attr('value')) - 1;
             if (current_slide < 1) {
-                current_slide = total_slide-1;
+                current_slide = total_slide - 1;
             }
             $('.slide').hide();
             $('.slide').eq(current_slide).show();
@@ -1098,7 +1104,7 @@
         $('#move_front').on('click', function() {
             let total_slide = $('.slide').length;
             let current_slide = Number($(this).attr('value')) + 1;
-            if (current_slide > total_slide-1) {
+            if (current_slide > total_slide - 1) {
                 current_slide = 0;
             }
             $('.slide').hide();

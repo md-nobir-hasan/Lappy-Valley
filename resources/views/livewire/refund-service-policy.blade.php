@@ -32,7 +32,7 @@
         <p class='text-[16px] max-sm:tex-[14px] text-[#353535] font-[jost] font-[400] tracking-[.48px] my-[10px]'>If you haven’t received a refund yet, first check your bank account again.</p>
         <p class='text-[16px] max-sm:tex-[14px] text-[#353535] font-[jost] font-[400] tracking-[.48px] my-[10px]'>Then contact your credit card company, it may take some time before your refund is officially posted.</p>
         <p class='text-[16px] max-sm:tex-[14px] text-[#353535] font-[jost] font-[400] tracking-[.48px] my-[10px]'>Next contact your bank. There is often some processing time before a refund is posted.</p>
-        <p class='text-[16px] max-sm:tex-[14px] text-[#353535] font-[jost] font-[400] tracking-[.48px] my-[10px]'>If you’ve done all of this and you still have not received your refund yet, please contact us at {info@lappyvalley.com}.</p>
+        <p class='text-[16px] max-sm:tex-[14px] text-[#353535] font-[jost] font-[400] tracking-[.48px] my-[10px]'>If you’ve done all of this and you still have not received your refund yet, please contact us at { <a href="mailto:{{$other_setting->email}}" title="E-mail">{{$other_setting->email}}</a> }.</p>
        </div>
 
        <div class='my-[10px]'>
@@ -56,7 +56,7 @@
 
        <div class='my-[10px]'>
         <h1  class='text-[20px] text-[#353535] font-[jost] font-[700] tracking-[.6px]'> Need Help?</h1>
-        <p class='text-[16px] max-sm:tex-[14px] text-[#353535] font-[jost] font-[400] tracking-[.48px] my-[10px]'>Contact us at <span class="transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">info@lappyvalley.com</span> for questions related to refunds and returns.</p>
+        <p class='text-[16px] max-sm:tex-[14px] text-[#353535] font-[jost] font-[400] tracking-[.48px] my-[10px]'>Contact us at <span class="transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4"><a href="mailto:{{$other_setting->email}}" title="E-mail">{{$other_setting->email}}</a></span> for questions related to refunds and returns.</p>
        </div>
     </div>
     <div class='h-[2px] bg-[#764A8733] mb-[150px]'></div>

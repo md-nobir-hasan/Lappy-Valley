@@ -118,8 +118,8 @@
                       </span>
                   </li>
                   <li class="mb-[15px]">
-                      <a href="mailto:info@lappyvalley.com" class="px-1 hover:bg-blue-700 nav-colors">
-                          info@lappyvalley.com
+                      <a href="mailto:{{$other_setting->email}}" class="px-1 hover:bg-blue-700 nav-colors">
+                          {{$other_setting->email}}
                       </a>
                   </li>
                   <li>
@@ -137,7 +137,7 @@
               <!-- -------social----------icon------------- -->
               <div
                   class="mt-[20px] flex max-sm:justify-center max-sm:items-center gap-4 text-[24px] max-sm:pb-[100px] max-sm:pt-[20px]">
-                  <a href="#"
+                  <a href="{{$other_setting->fb}}" title="Facebook" target="_nobir"
                       class="bg-[#f2f2f2] rounded-[100%] hover:bg-blue-400 w-[25.08px] h-[24px] flex justify-center items-center">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" id="facebook"
                           class="w-[25.08px] h-[24px]">
@@ -147,7 +147,7 @@
                           </path>
                       </svg>
                   </a>
-                  <a href="#" class="hover:bg-blue-400 w-[25.08px] h-[24px] flex justify-center items-center">
+                  <a href="{{$other_setting->twitter}}" title="Twitter" target="_nobir" class="hover:bg-blue-400 w-[25.08px] h-[24px] flex justify-center items-center">
                       <svg xmlns="http://www.w3.org/2000/svg" class="w-[25.08px] h-[24px] hover:bg-blue-400" x="0px"
                           fill="#F2F2F2" y="0px" viewBox="0 0 50 50">
                           <path
@@ -155,7 +155,7 @@
                           </path>
                       </svg>
                   </a>
-                  <a href="#"
+                  <a href="javascript:void(0)"
                       class="bg-[#f2f2f2] rounded-[20%] hover:bg-blue-400 w-[25.08px] h-[24px] flex justify-center items-center">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="instagram">
                           <g data-name="Brand Logos">
@@ -167,7 +167,7 @@
                           </g>
                       </svg>
                   </a>
-                  <a href="#"
+                  <a href="{{$other_setting->youtube}}" title="Youtube" target="_nobir"
                       class="rounded-[20%] hover:bg-blue-400 w-[25.08px] h-[24px] flex justify-center items-center">
                       <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 512 512" viewBox="0 0 512 512"
                           id="youtube">
@@ -176,7 +176,7 @@
                         C496,114.5,473.2,90.2,443.9,88.2z M212.1,331.2V180.8L342.3,256L212.1,331.2z"></path>
                       </svg>
                   </a>
-                  <a href="{{ $other_setting->email }}"
+                  <a href="mailto:{{$other_setting->email}}" title="E-mail"
                       class="rounded-[20%] hover:bg-blue-400 w-[25.08px] h-[24px] flex justify-center items-center">
 
                       <svg xmlns="http://www.w3.org/2000/svg" width="25.08" height="24"
