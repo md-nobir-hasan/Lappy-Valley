@@ -34,7 +34,7 @@
          }
      }">
          <div>
-             <h1 class='font-[jost] text-[16px] font-[400] leading-[25.3px] text-[#353535]'>Shopping Cart/ Checkout
+             <h1 class='font-[jost] text-[16px] font-[400] leading-[25.3px] text-[#353535]'><a href="{{route('vcart')}}">Shopping Cart</a>/ Checkout
              </h1>
              <div class='h-1 bg-[#764A8733]'></div>
          </div>
@@ -61,10 +61,10 @@
                      <div class="flex max-xl:flex-col gap-[15px] my-[10px] w-full">
                          <div class="w-full">
                              <label class="block font-[jost] font-[500] text-[#353535] text-[12px]" for="name">
-                                 First Name*</label>
+                                 First Name<span class="text-[red]">*</span></label>
                              <input name="name" id="name"
                                  class=" w-full py-[10px] pl-[10px] border-[1px] border-[#380D37] italic rounded-[4px] font-[jost] font-[500] text-[12px] text-[#380D37] placeholder-[#C4C4C4]"
-                                 type="text" placeholder="First Name*"
+                                 type="text" placeholder="First Name"
                                  @if (auth()->user()) value='{{ auth()->user()->name ?? old('name') }}' @else value='{{ old('name') }}' @endif
                                  wire:model='name'>
                              @error('name')
@@ -73,13 +73,13 @@
                          </div>
                          <div class="w-full">
                              <label class="block font-[jost] font-[500] text-[#353535] text-[12px]" for="f_name">
-                                 Last Name*</label>
+                                 Last Name<span class="text-[red]">*</span></label>
                              <input name="l_name" id="l_name"
                                  class=" w-full py-[10px] pl-[10px] border-[1px] border-[#380D37] italic rounded-[4px] font-[jost] font-[500] text-[12px] text-[#380D37] placeholder-[#C4C4C4]"
                                  type="text"
                                  @if (auth()->user()) value='@if (auth()->user()->l_name) {{ auth()->user()->l_name }} @else {{ old('l_name') }} @endif'
                              @else value='{{ old('l_name') }}' @endif
-                             placeholder="Last Name*"
+                             placeholder="Last Name"
                              wire:model='l_name'>
                              @error('l_name')
                                  <span class="text-[red] text-[12px]">{{ $message }}</span>
@@ -89,10 +89,10 @@
 
                      <div class="my-[10px]">
                          <label class="block font-[jost] font-[500] text-[#353535] text-[12px]"
-                             for="address">Address*</label>
+                             for="address">Address<span class="text-[red]">*</span></label>
                          <input name="address" id="address"
                              class="w-full py-[10px] pl-[10px] border-[1px] border-[#380D37] italic rounded-[4px] font-[jost] font-[500] text-[12px] text-[#380D37] placeholder-[#C4C4C4]"
-                             type="text" placeholder="Address*"
+                             type="text" placeholder="Address"
                              @if (auth()->user()) value='{{ auth()->user()->address ?? 'address' }}' @else value='{{ old('address') }}' @endif
                              wire:model='address'>
                          @error('address')
@@ -102,10 +102,10 @@
 
                      <div class="my-[10px]">
                          <label class="block font-[jost] font-[500] text-[#353535] text-[12px]"
-                             for="phone">Mobile*</label>
+                             for="phone">Mobile<span class="text-[red]">*</span></label>
                          <input name="phone" id="phone"
                              class="w-full py-[10px] pl-[10px] border-[1px] border-[#380D37] italic rounded-[4px] font-[jost] font-[500] text-[12px] text-[#380D37] placeholder-[#C4C4C4]"
-                             type="number" placeholder="Mobile Number*"
+                             type="number" placeholder="Mobile Number"
                              @if (auth()->user()) value='{{ auth()->user()->phone ?? old('phone') }}' @else value='{{ old('phone') }}' @endif
                              wire:model='phone'>
                          @error('phone')
@@ -129,11 +129,11 @@
                      <div class="flex max-xl:flex-col gap-[15px] my-[10px] w-full">
                          <div class="w-full">
                              <label class="block font-[jost] font-[500] text-[#353535] text-[12px]"
-                                 for="city">City*</label>
+                                 for="city">City<span class="text-[red]">*</span></label>
 
                              <input name="city" id="city"
                                  class=" w-full py-[10px] pl-[10px] border-[1px] border-[#380D37] italic rounded-[4px] font-[jost] font-[500] text-[12px] text-[#380D37] placeholder-[#C4C4C4]"
-                                 type="text" placeholder="City*"
+                                 type="text" placeholder="City"
                                  @if (auth()->user()) value='{{ auth()->user()->city }}' @else value="{{ old('city') }}" @endif
                                  wire:model='city'>
                              @error('city')
@@ -143,7 +143,7 @@
                          {{-- @dd(auth()->user()) --}}
                          <div class="w-full">
                              <label class="block font-[jost] font-[500] text-[#353535] text-[12px]"
-                                 for="divission_id">Zone*</label>
+                                 for="divission_id">Zone <span class="text-[red]">*</span></label>
                              <select name="divission_id" id="divission_id"
                                  class="w-full py-[10px] pl-[10px] border-[1px] rounded-[4px] italic border-[#380D37] font-[jost] font-[500] text-[12px] text-[#380D37] placeholder-[#C4C4C4]"
                                  wire:model='divission_id'>
