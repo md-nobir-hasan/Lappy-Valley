@@ -250,7 +250,7 @@
                 } */
 
     .owl-nav {
-        gap: 190px;
+        gap: 200px;
         transform: translateY(36px);
     }
 }
@@ -310,7 +310,7 @@
     }
 
     .owl-nav {
-        gap: 130px !important;
+        gap: 195px !important;
         transform: translateY(32px) !important;
     }
 

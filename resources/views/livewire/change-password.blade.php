@@ -2,7 +2,6 @@
     class='px-[100px] max-2xl:px-[70px] max-xl:px-[60px] max-lg:px-[38px] max-md:px-[35px] max-sm:px-[15px] max-sm:mt-[70px] max-xl:mt-[100px]'>
 
     <livewire:user-account-menu />
-
     <form wire:submit='save'>
         <div
             class='flex flex-col max-lg:border-[2px] max-lg:border-[#353535] max-md:w-full max-lg:w-[545px] max-lg:mx-auto max-lg:py-[20px] max-md:px-[40px] max-lg:pl-[40px] max-sm:pl-[30px] max-lg:rounded-[4px] mt-[20px] gap-[20px]'>
@@ -18,15 +17,16 @@
                     Password:</label>
                 <div
                     class="password-input flex justify-between items-center w-[344px] max-lg:w-full h-[44px] bg-[#F2F2F2] px-[10px] rounded-[4px]">
-                    <input type="password" wire:model='old_password' id="old_password" placeholder='Old Password' data-eyeicon="eyeicon1"
+                    <input type="password" wire:model='old_password' id="old_password" placeholder='Old Password'
+                        data-eyeicon="eyeicon1"
                         class='password w-full bg-[#F2F2F2] font-[jost] font-[500] text-[16px] text-[#353535] italic outline-none'>
-                    <img class="eyeicon toggle-eye w-[20px] h-[20px] max-sm:w-[15px] max-sm:h-[15px]" data-eyeicon="eyeicon1" src="/storage/product/eyeclose.svg">
+                    <img class="eyeicon toggle-eye w-[20px] h-[20px] max-sm:w-[15px] max-sm:h-[15px]"
+                        data-eyeicon="eyeicon1" src="/storage/product/eyeclose.svg">
                     @error('old_password')
                         <span class="text-[red] text-[12px] block">{{ $message }}</span>
                     @enderror
                 </div>
             </div>
-
             <div class="password-container">
                 <label for="password"
                     class='text-[16px] text-[#353535] font-[jost] font-[500] leading-[23.12px] tracking-[3%] block my-[5px]'>New
@@ -38,9 +38,11 @@
                 @enderror --}}
                 <div
                     class="password-input flex justify-between items-center w-[344px] max-lg:w-full h-[44px] bg-[#F2F2F2] px-[10px] rounded-[4px]">
-                    <input type="password" wire:model='password' id="password" placeholder='New Password' data-eyeicon="eyeicon2"
+                    <input type="password" wire:model='password' id="password" placeholder='New Password'
+                        data-eyeicon="eyeicon2"
                         class='password w-full bg-[#F2F2F2] font-[jost] font-[500] text-[16px] text-[#353535] italic outline-none'>
-                    <img class="eyeicon toggle-eye w-[20px] h-[20px] max-sm:w-[15px] max-sm:h-[15px]" data-eyeicon="eyeicon2" src="/storage/product/eyeclose.svg">
+                    <img class="eyeicon toggle-eye w-[20px] h-[20px] max-sm:w-[15px] max-sm:h-[15px]"
+                        data-eyeicon="eyeicon2" src="/storage/product/eyeclose.svg">
                     @error('old_password')
                         <span class="text-[red] text-[12px] block">{{ $message }}</span>
                     @enderror
@@ -56,14 +58,16 @@
                     <span class="text-[red] text-[12px] block">{{ $message }}</span>
                 @enderror --}}
                 <div
-                class="password-input flex justify-between items-center w-[344px] max-lg:w-full h-[44px] bg-[#F2F2F2] px-[10px] rounded-[4px]">
-                <input type="password" wire:model='confirmed' id="confirmed" placeholder='Confirm Password' data-eyeicon="eyeicon3"
-                    class='password w-full bg-[#F2F2F2] font-[jost] font-[500] text-[16px] text-[#353535] italic outline-none'>
-                <img class="eyeicon toggle-eye w-[20px] h-[20px] max-sm:w-[15px] max-sm:h-[15px]" data-eyeicon="eyeicon3" src="/storage/product/eyeclose.svg">
-                @error('old_password')
-                    <span class="text-[red] text-[12px] block">{{ $message }}</span>
-                @enderror
-            </div>
+                    class="password-input flex justify-between items-center w-[344px] max-lg:w-full h-[44px] bg-[#F2F2F2] px-[10px] rounded-[4px]">
+                    <input type="password" wire:model='confirmed' id="confirmed" placeholder='Confirm Password'
+                        data-eyeicon="eyeicon3"
+                        class='password w-full bg-[#F2F2F2] font-[jost] font-[500] text-[16px] text-[#353535] italic outline-none'>
+                    <img class="eyeicon toggle-eye w-[20px] h-[20px] max-sm:w-[15px] max-sm:h-[15px]"
+                        data-eyeicon="eyeicon3" src="/storage/product/eyeclose.svg">
+                    @error('old_password')
+                        <span class="text-[red] text-[12px] block">{{ $message }}</span>
+                    @enderror
+                </div>
             </div>
             <div class=''>
                 @if ($msg)
@@ -87,10 +91,7 @@
             </div>
         </div>
     </form>
-
-
     <div class='h-[1px] bg-[#764A8733] my-[20px]'></div>
-
     <script>
         $(document).ready(function() {
             $('.toggle-eye').click(function() {
@@ -102,7 +103,8 @@
                     var newType = (passwordType === 'password') ? 'text' : 'password';
 
                     passwordInput.prop('type', newType);
-                    $(this).attr('src', '/storage/product/' + (newType === 'password' ? 'eyeclose' : 'eyeopen') + '.svg');
+                    $(this).attr('src', '/storage/product/' + (newType === 'password' ? 'eyeclose' :
+                        'eyeopen') + '.svg');
                 }
             });
         });
