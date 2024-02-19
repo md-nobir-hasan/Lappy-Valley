@@ -1,3 +1,128 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:3306
+-- Generation Time: Feb 17, 2024 at 10:50 AM
+-- Server version: 10.6.17-MariaDB
+-- PHP Version: 8.1.27
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `sultanbr_lappy`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `products`
+--
+
+CREATE TABLE `products` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `slug` varchar(191) NOT NULL,
+  `title` varchar(191) NOT NULL,
+  `price` bigint(20) UNSIGNED NOT NULL,
+  `photo` text NOT NULL,
+  `final_price` bigint(20) UNSIGNED NOT NULL,
+  `discount` double(8,2) NOT NULL DEFAULT 0.00,
+  `inventory_cost` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
+  `model` text DEFAULT NULL,
+  `mpn` varchar(191) DEFAULT NULL,
+  `summary` text DEFAULT NULL,
+  `description` longtext DEFAULT NULL,
+  `stock` int(11) DEFAULT 1,
+  `brand_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `cat_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `child_cat_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `upcomming` date DEFAULT NULL,
+  `is_featured` tinyint(1) NOT NULL,
+  `status` enum('active','inactive') NOT NULL DEFAULT 'active',
+  `special_feature` longtext DEFAULT NULL,
+  `average_rating` int(11) NOT NULL DEFAULT 5,
+  `views` bigint(20) UNSIGNED DEFAULT NULL,
+  `product_offer_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `processor_model_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `processor_generation_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `p_brand` varchar(191) DEFAULT NULL,
+  `c_speed` varchar(191) DEFAULT NULL,
+  `l1_cache` varchar(191) DEFAULT NULL,
+  `l2_cache` varchar(191) DEFAULT NULL,
+  `l3_cache` varchar(191) DEFAULT NULL,
+  `p_core` int(11) DEFAULT NULL,
+  `p_thread` int(11) DEFAULT NULL,
+  `p_other` text DEFAULT NULL,
+  `display_size_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `display_type_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `d_resolution` varchar(191) DEFAULT NULL,
+  `touch_screen` tinyint(1) NOT NULL DEFAULT 0,
+  `d_other` text DEFAULT NULL,
+  `ram_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `m_type` varchar(191) DEFAULT NULL,
+  `bus_speed` int(11) DEFAULT NULL,
+  `m_slot` int(11) DEFAULT NULL,
+  `m_removal` tinyint(1) NOT NULL DEFAULT 0,
+  `m_other` text DEFAULT NULL,
+  `ssd_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `hdd_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `s_slot` int(11) DEFAULT NULL,
+  `s_extra_m2_slot` tinyint(1) NOT NULL DEFAULT 0,
+  `s_support_type` varchar(191) DEFAULT NULL,
+  `s_upgrade` varchar(191) DEFAULT NULL,
+  `stor_other` text DEFAULT NULL,
+  `g_model` varchar(191) DEFAULT NULL,
+  `graphic_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `g_other` varchar(191) DEFAULT NULL,
+  `k_type` varchar(191) DEFAULT NULL,
+  `touchpad` tinyint(1) NOT NULL DEFAULT 0,
+  `k_other` varchar(191) DEFAULT NULL,
+  `webcam` varchar(191) DEFAULT NULL,
+  `microphone` varchar(191) DEFAULT NULL,
+  `speaker` varchar(191) DEFAULT NULL,
+  `ca_other` text DEFAULT NULL,
+  `optical_drive` varchar(191) DEFAULT NULL,
+  `card_reader` varchar(191) DEFAULT NULL,
+  `hdmi_p` varchar(191) DEFAULT NULL,
+  `usb2_p` varchar(191) DEFAULT NULL,
+  `usb3_p` varchar(191) DEFAULT NULL,
+  `type_c_tb_p` varchar(191) DEFAULT NULL,
+  `headphone_p` varchar(191) DEFAULT NULL,
+  `microphone_p` varchar(191) DEFAULT NULL,
+  `ps_other` text DEFAULT NULL,
+  `wifi` varchar(191) DEFAULT NULL,
+  `bluetooth` varchar(191) DEFAULT NULL,
+  `nc_other` text DEFAULT NULL,
+  `finger_print` varchar(191) DEFAULT NULL,
+  `facelock` varchar(191) DEFAULT NULL,
+  `s_other` text DEFAULT NULL,
+  `operating_system` varchar(191) DEFAULT NULL,
+  `soft_other` text DEFAULT NULL,
+  `battery_type` varchar(191) DEFAULT NULL,
+  `battery_capacity` varchar(191) DEFAULT NULL,
+  `adapter_type` varchar(191) DEFAULT NULL,
+  `power_other` text DEFAULT NULL,
+  `color` varchar(191) DEFAULT NULL,
+  `dimension` varchar(191) DEFAULT NULL,
+  `weight` varchar(191) DEFAULT NULL,
+  `physi_other` text DEFAULT NULL,
+  `w_details` varchar(191) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `products`
+--
+
 INSERT INTO `products` (`id`, `slug`, `title`, `price`, `photo`, `final_price`, `discount`, `inventory_cost`, `model`, `mpn`, `summary`, `description`, `stock`, `brand_id`, `cat_id`, `child_cat_id`, `upcomming`, `is_featured`, `status`, `special_feature`, `average_rating`, `views`, `product_offer_id`, `processor_model_id`, `processor_generation_id`, `p_brand`, `c_speed`, `l1_cache`, `l2_cache`, `l3_cache`, `p_core`, `p_thread`, `p_other`, `display_size_id`, `display_type_id`, `d_resolution`, `touch_screen`, `d_other`, `ram_id`, `m_type`, `bus_speed`, `m_slot`, `m_removal`, `m_other`, `ssd_id`, `hdd_id`, `s_slot`, `s_extra_m2_slot`, `s_support_type`, `s_upgrade`, `stor_other`, `g_model`, `graphic_id`, `g_other`, `k_type`, `touchpad`, `k_other`, `webcam`, `microphone`, `speaker`, `ca_other`, `optical_drive`, `card_reader`, `hdmi_p`, `usb2_p`, `usb3_p`, `type_c_tb_p`, `headphone_p`, `microphone_p`, `ps_other`, `wifi`, `bluetooth`, `nc_other`, `finger_print`, `facelock`, `s_other`, `operating_system`, `soft_other`, `battery_type`, `battery_capacity`, `adapter_type`, `power_other`, `color`, `dimension`, `weight`, `physi_other`, `w_details`, `created_at`, `updated_at`) VALUES
 (100, 'f321d4ac-a537-357a-bba6-0bd2276e2d7f', 'Apple IdeaPad 15AMN7 AMD Ryzen 57520U non', 21718, '/storage/product/large-size-laptop.jpg,/storage/product/large-size-laptop.jpg,/storage/product/large-size-laptop.jpg', 307120, 31.00, 0, '15AMN7', '82VG0088YIN', 'Tenetur qui tempora doloribus veritatis vero molestiae. Enim et iste laborum enim enim minus. Quo voluptatem sed quia nisi sequi in consequatur. Laudantium vel quia officiis saepe repudiandae vel quidem.', 'Aperiam quo est et fugiat repellendus dolor nulla. Quam provident ducimus at quos.', 6, 4, 8, 11, NULL, 0, 'active', 'Backlit Keyboard', 1, 11, NULL, 4, 12, 'Intel', '2.8 GHz upto 4.3 GHz', '256 KB', '2 MB', '4 MB', NULL, 4, NULL, 6, 2, '1920*1080', 0, '220 nits, anti-glare, 171* Viewing Angle', 4, NULL, NULL, 1, 0, NULL, 4, 1, NULL, 0, 'PCle NVMe M.2', 'Installed SSD can be upgradeable', NULL, 'AMD Radeon 610M', 1, NULL, 'Standard', 1, NULL, 'Yes', 'Yes', 'Yes', NULL, NULL, 'SD Media Card Reader', '1x HDMI 1.4b', '1x USB 2.0 Type-A', '1x USB 3.2 Gen 1 Type-A', '1x USB-C 3.2 Gen 1 (Support data transfer only)', '1x Headphone', 'Microphone Port Combo', NULL, '11ax, 2x2', 'Bluetooth 5.0', NULL, NULL, NULL, NULL, 'Windows', NULL, '3 Cell Li-ion', '42Whr', '65W Round Tip(3-pin)', NULL, 'Cloud Grey', '325.3 x 216.5 x 17.9 mm', '1.58 kg', NULL, '2 years warranty (Battery adapter 1 year)', '2024-02-14 18:37:12', '2024-02-14 18:37:12'),
 (103, 'apple-ipad-8th-generation-32-gb-wi-fi-brand-new', 'Apple iPad 8th Generation 32 GB Wi-Fi Brand New', 62000, 'https://lappy.innovativeskillsbd.com/storage/photos/1/Products/apple-ipad-10-2-2020-32gb-4g-gris.jpg', 35500, 43.00, 30000, 'Apple Ipad 8th Gen', 'Apple', NULL, NULL, 1, 6, 1, 12, NULL, 1, 'active', '', 5, NULL, NULL, 19, 15, NULL, 'speeds up to 866 Mbps MIMO technology', NULL, NULL, NULL, NULL, NULL, NULL, 8, 5, '2160 x 1620 pixel resolution, 264 ppi', 0, NULL, NULL, NULL, NULL, NULL, 0, NULL, 8, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, 'Yes	8-megapixel wide-angle camera', 'Yes', 'Yes', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'IPadOS', NULL, 'up to 10 hours of use', '10 Hours', NULL, NULL, NULL, NULL, '1.08 lb', NULL, NULL, '2024-02-15 02:54:07', '2024-02-15 02:54:07'),
@@ -87,3 +212,62 @@ INSERT INTO `products` (`id`, `slug`, `title`, `price`, `photo`, `final_price`, 
 (194, 'lenovo-v15-g4-amn-amd-athlon-8-256-gb-brand-new-2402164025-47', 'Lenovo V15 G4 AMN AMD Athlon 8-256 GB Brand New', 70500, 'https://lappy.innovativeskillsbd.com/storage/photos/1/Products4/b0a6745e-425b-403a-be39-d1e1fe81c26f.jpg', 52170, 26.00, 0, 'Lenovo V15 G4 AMN', 'Lenovo', NULL, NULL, 1, 4, 1, 11, NULL, 0, 'active', '', 5, NULL, NULL, 1, 1, 'AMD Athlon Silver 7120U', NULL, NULL, NULL, NULL, 2, 4, NULL, 12, 3, '1920 x 1080', 0, 'TN 250 nits Antiglare 16:9 500:1 45% NTSC 60Hz', 2, 'DDR5', 5500, NULL, 0, NULL, 10, NULL, NULL, 0, NULL, NULL, NULL, 'AMD Radeon 610M Graphics (2GB Dedicated)', NULL, NULL, NULL, 1, NULL, 'HD 720p, with privacy shutter, fixed focus', 'Yes', 'Yes', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Windows 10', NULL, NULL, 'Up to 6 hours and 15 minutes', NULL, NULL, NULL, NULL, '1.65 kg', NULL, NULL, '2024-02-16 08:40:25', '2024-02-16 08:40:25'),
 (195, 'msi-sword-15-a12uc-295us-core-i5-12th-gen-8-512-gb-brand-new-gaming-laptop-2402160033-952', 'Msi Sword 15 A12UC-295US Core i5-12th Gen 8-512 GB Brand New Gaming Laptop', 142000, 'https://lappy.innovativeskillsbd.com/storage/photos/1/Products4/81yb3aWShRL._SX522_.jpg', 129220, 9.00, 0, 'Msi Sword 15 A12UC-295US', 'Msi', NULL, NULL, 1, 9, 1, NULL, NULL, 0, 'active', '', 5, NULL, NULL, 2, 8, 'Intel Core i5-12450H', 'Base speed 1.3 up to 4.4GHz', NULL, NULL, NULL, NULL, NULL, NULL, 12, 3, NULL, 0, 'anti glare, IPS-Level 144Hz 45%NTSC', 2, 'DDR4', 3200, NULL, 0, NULL, 3, NULL, NULL, 0, 'NVMe SSD Gen 4×4', NULL, NULL, 'NVIDIA® GeForce RTX™ 3050/4GB GDDR6', NULL, NULL, 'Single backlight (blue) with Anti-Ghost key (99 Key)', 1, NULL, '720p HD Webcam', 'Yes', 'Yes', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Windows 11 home', NULL, '3-cell Li-ion', 'Maximum 6.15 hours', '53Whr', NULL, NULL, NULL, '4.96 pounds (2.23 kg)', NULL, NULL, '2024-02-16 09:00:33', '2024-02-16 09:00:33'),
 (196, 'omen-by-hp-gaming-laptop-16-k0033dx-core-i9-12th-gen-16-1tb-ssd-brand-new-2402161005-751', 'OMEN by HP Gaming Laptop 16-k0033dx Core i9-12th Gen 16-1TB SSD Brand New', 280000, 'https://lappy.innovativeskillsbd.com/storage/photos/1/Products4/HP-OMEN-16-K0023DX.jpg', 240800, 14.00, 0, 'OMEN by HP Gaming Laptop 16-k0033dx', 'Hp', NULL, NULL, 1, 2, 1, 9, NULL, 1, 'active', '', 5, NULL, NULL, 4, 8, '® Core™ i9-12900H', 'Up to 5.0 GHz with Intel® Turbo Boost', NULL, NULL, '24 MB', 14, NULL, NULL, 5, 14, '2560 x 1440', 0, '165 Hz, 3 ms response time, IPS, micro-edge, anti-glare, Low Blue Light', 3, 'DDR5', 4800, NULL, 0, NULL, 4, NULL, NULL, 0, 'PCIe® Gen4 NVMe™ M.2 SSD', NULL, NULL, 'NVIDIA® GeForce RTX™ 3060 Laptop GPU (6 GB GDDR6 dedicated)', NULL, NULL, 'Backlight', 1, NULL, 'HP Wide Vision 720p HD camera', 'Yes', 'Yes', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Windows 11', NULL, NULL, 'Up to 6  hours and 30 minutes', NULL, NULL, NULL, NULL, '5.19 lb', NULL, NULL, '2024-02-16 09:10:05', '2024-02-16 09:10:05');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `products_slug_unique` (`slug`),
+  ADD KEY `products_brand_id_foreign` (`brand_id`),
+  ADD KEY `products_cat_id_foreign` (`cat_id`),
+  ADD KEY `products_child_cat_id_foreign` (`child_cat_id`),
+  ADD KEY `products_product_offer_id_foreign` (`product_offer_id`),
+  ADD KEY `products_processor_model_id_foreign` (`processor_model_id`),
+  ADD KEY `products_processor_generation_id_foreign` (`processor_generation_id`),
+  ADD KEY `products_display_size_id_foreign` (`display_size_id`),
+  ADD KEY `products_display_type_id_foreign` (`display_type_id`),
+  ADD KEY `products_ram_id_foreign` (`ram_id`),
+  ADD KEY `products_ssd_id_foreign` (`ssd_id`),
+  ADD KEY `products_hdd_id_foreign` (`hdd_id`),
+  ADD KEY `products_graphic_id_foreign` (`graphic_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `products`
+--
+ALTER TABLE `products`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=197;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `products`
+--
+ALTER TABLE `products`
+  ADD CONSTRAINT `products_brand_id_foreign` FOREIGN KEY (`brand_id`) REFERENCES `brands` (`id`) ON DELETE SET NULL,
+  ADD CONSTRAINT `products_cat_id_foreign` FOREIGN KEY (`cat_id`) REFERENCES `categories` (`id`) ON DELETE SET NULL,
+  ADD CONSTRAINT `products_child_cat_id_foreign` FOREIGN KEY (`child_cat_id`) REFERENCES `categories` (`id`) ON DELETE SET NULL,
+  ADD CONSTRAINT `products_display_size_id_foreign` FOREIGN KEY (`display_size_id`) REFERENCES `display_sizes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `products_display_type_id_foreign` FOREIGN KEY (`display_type_id`) REFERENCES `display_types` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `products_graphic_id_foreign` FOREIGN KEY (`graphic_id`) REFERENCES `graphics` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `products_hdd_id_foreign` FOREIGN KEY (`hdd_id`) REFERENCES `hdds` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `products_processor_generation_id_foreign` FOREIGN KEY (`processor_generation_id`) REFERENCES `processor_generations` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `products_processor_model_id_foreign` FOREIGN KEY (`processor_model_id`) REFERENCES `processor_models` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `products_product_offer_id_foreign` FOREIGN KEY (`product_offer_id`) REFERENCES `product_offers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `products_ram_id_foreign` FOREIGN KEY (`ram_id`) REFERENCES `rams` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `products_ssd_id_foreign` FOREIGN KEY (`ssd_id`) REFERENCES `ssds` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

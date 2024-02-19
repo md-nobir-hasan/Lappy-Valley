@@ -6,18 +6,8 @@
     <div class="card">
         <h5 class="card-header">Add Product</h5>
         <div class="card-body">
-            {{-- @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif --}}
             <form method="post" action="{{ route('product.store') }}">
                 {{ csrf_field() }}
-
                 <div>
                     <div class="form-group">
                         <label for="inputTitle" class="col-form-label">Title<span class="text-danger">*</span></label>
@@ -57,7 +47,7 @@
                     <div class="form-group">
                         <label for="discount" class="col-form-label">Discount(%)</label>
                         <input id="discount" type="number" name="discount" min="0" max="100"
-                            placeholder="Exp:- Enter discount" value="{{ old('discount') }}" class="form-control">
+                            placeholder="Exp:- Enter discount" value="{{ old('discount') ?? '0'}}" class="form-control">
                         @error('discount')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -76,7 +66,7 @@
                     <div class="form-group">
                         <label for="inventory_cost" class="col-form-label">Inventory Cost</label>
                         <input id="inventory_cost" type="number" name="inventory_cost" min="0" max="1000000"
-                            placeholder="Exp:- Enter Inventory Cost" value="{{ old('inventory_cost') }}"
+                            placeholder="Exp:- Enter Inventory Cost" value="{{ old('inventory_cost') ?? "0" }}"
                             class="form-control">
                         @error('inventory_cost')
                             <span class="text-danger">{{ $message }}</span>
@@ -178,7 +168,7 @@
 
                     <div class="form-group">
                         <label for="speacial_feature">Special Features </label>
-                        <select name="special_feature[]" class="form-control" id="speacial_feature" multiple>
+                        <select name="special_feature[]" class="form-control selectpicker" id="speacial_feature" multiple>
                             <option value="" hidden>Choose....</option>
                             @foreach ($special_features as $sp)
                                 <option value="{{ $sp->name }}" @selected($sp->name == old('speacial_feature'))>{{ $sp->name }}
@@ -1040,12 +1030,13 @@
             display: none;
         }
     </style>
-    <link rel="stylesheet" {{-- href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" /> --}} <link rel="stylesheet"
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+    <link rel="stylesheet"
         href="{{ asset('backend/summernote/summernote-lite.css') }}">
 @endpush
 @push('scripts')
     <script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script> --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
     <script src="{{ asset('backend/summernote/summernote-lite.js') }}"></script>
 
     <script>

@@ -51,7 +51,7 @@
                              <input name="name" id="name"
                                  class=" w-full py-[10px] pl-[10px] border-[1px] border-[#380D37] italic rounded-[4px] font-[jost] font-[500] text-[12px] text-[#380D37] placeholder-[#C4C4C4]"
                                  type="text" placeholder="First Name*"
-                                 @if (auth()->user()) value='{{ auth()->user()->name ?? old('name') }}' @else value='{{ old('name') }}' @endif
+                                 {{-- @if (auth()->user()) value='{{ auth()->user()->name ?? old('name') }}' @else value='{{ old('name') }}' @endif --}}
                                  wire:model='name'>
                              @error('name')
                                  <span class="text-[red] text-[12px]">{{ $message }}</span>
@@ -63,7 +63,7 @@
                              <input name="l_name" id="l_name"
                                  class=" w-full py-[10px] pl-[10px] border-[1px] border-[#380D37] italic rounded-[4px] font-[jost] font-[500] text-[12px] text-[#380D37] placeholder-[#C4C4C4]"
                                  type="text"
-                                 @if (auth()->user()) value='{{ auth()->user()->l_name ?? old('l_name') }}' @else value='{{ old('l_name') }}' @endif
+                                 {{-- @if (auth()->user()) value='{{ auth()->user()->l_name ?? old('l_name') }}' @else value='{{ old('l_name') }}' @endif --}}
                                  placeholder="Last Name*"
                                  wire:model='l_name'>
                              @error('l_name')
@@ -78,7 +78,7 @@
                          <input name="address" id="address"
                              class="w-full py-[10px] pl-[10px] border-[1px] border-[#380D37] italic rounded-[4px] font-[jost] font-[500] text-[12px] text-[#380D37] placeholder-[#C4C4C4]"
                              type="text" placeholder="Address*"
-                             @if (auth()->user()) value='{{ auth()->user()->name ?? old('address') }}' @else value='{{ old('address') }}' @endif
+                             {{-- @if (auth()->user()) value='{{ auth()->user()->name ?? old('address') }}' @else value='{{ old('address') }}' @endif --}}
                              wire:model='address'>
                          @error('address')
                              <span class="text-[red] text-[12px]">{{ $message }}</span>
@@ -91,7 +91,7 @@
                          <input name="phone" id="phone"
                              class=" w-full py-[10px] pl-[10px] border-[1px] border-[#380D37] italic rounded-[4px] font-[jost] font-[500] text-[12px] text-[#380D37] placeholder-[#C4C4C4]"
                              type="number" placeholder="Mobile Number*"
-                             @if (auth()->user()) value='{{ auth()->user()->phone ?? old('phone') }}' @else value='{{ old('phone') }}' @endif
+                             {{-- @if (auth()->user()) value='{{ auth()->user()->phone ?? old('phone') }}' @else value='{{ old('phone') }}' @endif --}}
                              wire:model='phone'>
                          @error('phone')
                              <span class="text-[red] text-[12px]">{{ $message }}</span>
@@ -104,7 +104,7 @@
                          <input name="email" id="email"
                              class=" w-full py-[10px] pl-[10px] border-[1px] border-[#380D37] italic rounded-[4px] font-[jost] font-[500] text-[12px] text-[#380D37] placeholder-[#C4C4C4]"
                              type="email" placeholder="Email:"
-                             @if (auth()->user()) value='{{ auth()->user()->email ?? old('email') }}' @else value='{{ old('email') }}' @endif
+                             {{-- @if (auth()->user()) value='{{ auth()->user()->email ?? old('email') }}' @else value='{{ old('email') }}' @endif --}}
                              wire:model='email'>
                          @error('email')
                              <span class="text-[red] text-[12px]">{{ $message }}</span>
@@ -118,7 +118,7 @@
                              <input name="city" id="city"
                                  class=" w-full py-[10px] pl-[10px] border-[1px] border-[#380D37] italic rounded-[4px] font-[jost] font-[500] text-[12px] text-[#380D37] placeholder-[#C4C4C4]"
                                  type="text" placeholder="City*"
-                                 @if (auth()->user()) value='{{ auth()->user()->city ?? old('city') }}' @else value='{{ old('city') }}' @endif
+                                 {{-- @if (auth()->user()) value='{{ auth()->user()->city ?? old('city') }}' @else value='{{ old('city') }}' @endif --}}
                                  wire:model='city'>
                              @error('city')
                                  <span class="text-[red] text-[12px]">{{ $message }}</span>
@@ -132,7 +132,7 @@
                                  wire:model='divission_id'>
                                  <option value="">Choose...</option>
                                  @foreach ($divissions as $division)
-                                     <option value="{{ $division->id }}" @selected($division->id == old('divission_id'))>
+                                     <option value="{{ $division->id }}">
                                          {{ $division->name }}</option>
                                  @endforeach
                              </select>

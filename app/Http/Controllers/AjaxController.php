@@ -24,13 +24,8 @@ class AjaxController extends Controller
     }
     public function addToCart(Request $request)
     {
-        // if (empty($request->pid)) {
         $id = $request->pid;
-        //     return response()->json(['msg' => "Invalid Product"]);
-        // }
         $product = Product::find($id);
-
-        // return $product;
         if (empty($product)) {
             return response()->json(['msg' => "Invalid Product"]);
         }
@@ -49,7 +44,6 @@ class AjaxController extends Controller
         if ($already_cart) {
             return response()->json(['msg' => "This product is already in your cart"]);
         } else {
-
             $cart = new Cart;
             if (auth()->user()) {
                 $cart->user_id = auth()->user()->id;
@@ -67,7 +61,6 @@ class AjaxController extends Controller
             } else {
                 $wishlist = Wishlist::where('ip', request()->ip())->where('cart_id', null)->update(['cart_id' => $cart->id]);
             }
-
             return response()->json($fetch_cart);
         }
     }

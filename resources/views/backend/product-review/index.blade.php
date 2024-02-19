@@ -12,9 +12,7 @@
         </div>
         <div class="py-3 card-header d-flex justify-content-between">
             <h6 class="float-left m-0 font-weight-bold text-primary">Review Lists</h6>
-            <h6 class="font-weight-bold text-primary">Total: {{ count($count) }} || Active:
-                {{ count($count->where('status', 'active')) }} || Inactive: {{ count($count->where('status', 'inactive')) }}
-            </h6>
+            <h6 class="font-weight-bold text-primary">Total: {{count($count)}} || Active: {{count($count->where('status','active'))}} || Inactive: {{count($count->where('status','inactive'))}}</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -24,9 +22,9 @@
                             <tr>
                                 <th>S.N.</th>
                                 <th>Review By</th>
-                                <th>E-mail</th>
-                                <th>Subject</th>
-                                <th>Message</th>
+                                <th>Product Title</th>
+                                <th>Review</th>
+                                <th>Rate</th>
                                 <th>Date</th>
                                 <th>Status</th>
                                 @canany(['Edit Review', 'Delete Review'])
@@ -38,9 +36,9 @@
                             <tr>
                                 <th>S.N.</th>
                                 <th>Review By</th>
-                                <th>E-mail</th>
-                                <th>Subject</th>
-                                <th>Message</th>
+                                <th>Product Title</th>
+                                <th>Review</th>
+                                <th>Rate</th>
                                 <th>Date</th>
                                 <th>Status</th>
                                 @canany(['Edit Review', 'Delete Review'])
@@ -53,33 +51,37 @@
                                 <tr>
                                     <td>{{ $review->id }}</td>
                                     <td>{{ $review->name }}</td>
-                                    <td>{{ $review->email }}</td>
-                                    <td>{{ $review->subject }}</td>
-                                    <td>{{ $review->msg }}</td>
-
+                                    <td>{{ $review->product->title }}</td>
+                                    <td>{{ $review->review }}</td>
+                                    <td>
+                                        <ul style="list-style:none">
+                                            @for ($i = 1; $i <= 5; $i++)
+                                                @if ($review->rate >= $i)
+                                                    <li style="float:left;color:#F7941D;"><i class="fa fa-star"></i></li>
+                                                @else
+                                                    <li style="float:left;color:#F7941D;"><i class="far fa-star"></i></li>
+                                                @endif
+                                            @endfor
+                                        </ul>
+                                    </td>
                                     <td>{{ $review->created_at->format('M d D, Y g: i a') }}</td>
                                     <td>
                                         @if ($review->status == 'active')
-                                            <span class="badge badge-success status-update" style="cursor: pointer;"
-                                                id="{{ $review->id }}">{{ $review->status }}</span>
+                                            <span class="badge badge-success status-update" style="cursor: pointer;" id="{{$review->id}}">{{ $review->status }}</span>
                                         @else
-                                            <span class="badge badge-warning status-update"
-                                                style="cursor: pointer;">{{ $review->status }}</span>
+                                            <span class="badge badge-warning status-update" style="cursor: pointer;">{{ $review->status }}</span>
                                         @endif
                                     </td>
                                     <td>
-                                        <a target="_blank" href="{{ route('review.show', $review->id) }}"
-                                            class="float-left mr-1 btn btn-warning btn-sm"
-                                            style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip"
-                                            title="view" data-placement="bottom"><i class="fas fa-eye"></i></a>
+                                         <a target="_blank" href="{{route('productreview.show',$review->id)}}" class="float-left mr-1 btn btn-warning btn-sm" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="view" data-placement="bottom"><i class="fas fa-eye"></i></a>
                                         @can('Edit Review')
-                                            <a href="{{ route('review.edit', $review->id) }}"
+                                            <a href="{{ route('productreview.edit', $review->id) }}"
                                                 class="float-left mr-1 btn btn-primary btn-sm"
                                                 style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip"
                                                 title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
                                         @endcan
                                         @can('Delete Review')
-                                            <form method="POST" action="{{ route('review.destroy', [$review->id]) }}">
+                                            <form method="POST" action="{{ route('productreview.destroy', [$review->id]) }}">
                                                 @csrf
                                                 @method('delete')
                                                 <button class="btn btn-danger btn-sm dltBtn" data-id={{ $review->id }}
@@ -94,7 +96,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    <span>{{ $reviews->links('vendor.pagination.bootstrap-5') }}</span>
+                    <span >{{ $reviews->links('vendor.pagination.bootstrap-5') }}</span>
                 @else
                     <h6 class="text-center">No reviews found!!!</h6>
                 @endif
@@ -128,16 +130,20 @@
                 "targets": [5, 6]
             }]
         });
+
+        // Sweet alert
+
+        function deleteData(id) {
+
+        }
     </script>
     <script>
         $(document).ready(function() {
-
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
-
             $('.dltBtn').click(function(e) {
                 var form = $(this).closest('form');
                 var dataID = $(this).data('id');
@@ -159,35 +165,34 @@
                     });
             })
 
-            // $('.status-update').on('click', function(e) {
-            //     let This = this;
-            //     let rev_id = $(this).attr('id');
-            //     console.log(rev_id);
-            //     $.ajax({
-            //         'method': 'post',
-            //         url: "{{ route('review_status.change') }}",
-            //         data: {
-            //             id: rev_id,
-            //             dm: 'CompanyReview',
-            //             _token: "{{ csrf_token() }}",
-            //         },
-            //         success: (res) => {
-            //             console.log(res);
-            //             if (res == 'inactive') {
-            //                 $(This).text('Inactive');
-            //                 $(This).removeClass('badge-success');
-            //                 $(This).addClass('badge-warning');
-            //             } else if (res == 'active') {
-            //                 $(This).text('Active');
-            //                 $(This).addClass('badge-success');
-            //                 $(This).removeClass('badge-warning');
-            //             } else {
-            //                 alert('Something went wrong');
-            //             }
-            //         }
+             $('.status-update').on('click', function(e) {
+            let This = this;
+            let rev_id = $(this).attr('id');
+            console.log(rev_id);
+            $.ajax({
+                'method': 'post',
+                url: "{{ route('review_status.change') }}",
+                data: {
+                    id: rev_id,
+                    _token: "{{ csrf_token() }}",
+                },
+                success: (res) => {
+                    console.log(res);
+                    if (res == 'inactive') {
+                        $(This).text('Inactive');
+                        $(This).removeClass('badge-success');
+                        $(This).addClass('badge-warning');
+                    } else if (res == 'active') {
+                        $(This).text('Active');
+                        $(This).addClass('badge-success');
+                        $(This).removeClass('badge-warning');
+                    } else {
+                        alert('Something went wrong');
+                    }
+                }
 
-            //     })
-            // })
+            })
+        })
         })
     </script>
 @endpush

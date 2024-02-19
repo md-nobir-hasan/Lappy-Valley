@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('subject')->nullable();
             $table->longText('msg');
+            $table->enum('status',['active','inactive'])->default('inactive');
             $table->foreignIdFor(User::class)->nullable()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
