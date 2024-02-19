@@ -32,7 +32,7 @@
         <p class='text-[16px] max-sm:tex-[14px] text-[#353535] font-[jost] font-[400] tracking-[.48px] my-[10px]'>If you haven’t received a refund yet, first check your bank account again.</p>
         <p class='text-[16px] max-sm:tex-[14px] text-[#353535] font-[jost] font-[400] tracking-[.48px] my-[10px]'>Then contact your credit card company, it may take some time before your refund is officially posted.</p>
         <p class='text-[16px] max-sm:tex-[14px] text-[#353535] font-[jost] font-[400] tracking-[.48px] my-[10px]'>Next contact your bank. There is often some processing time before a refund is posted.</p>
-        <p class='text-[16px] max-sm:tex-[14px] text-[#353535] font-[jost] font-[400] tracking-[.48px] my-[10px]'>If you’ve done all of this and you still have not received your refund yet, please contact us at { {{$other_setting->email}} }.</p>
+        <p class='text-[16px] max-sm:tex-[14px] text-[#353535] font-[jost] font-[400] tracking-[.48px] my-[10px]'>If you’ve done all of this and you still have not received your refund yet, please contact us at { <a href="mailto:{{$other_setting->email}}" title="E-mail">{{$other_setting->email}}</a> }.</p>
        </div>
 
        <div class='my-[10px]'>
