@@ -196,7 +196,6 @@ class InstallmentCheckout extends Component
             $this->city = $address?->city;
             $this->divission_id = $user?->divission_id;
         }
-        dd($this->all());
         $n['divissions'] = Divission::get();
         $n['shipping'] = Shipping::where('status', 'active')->first();
         return view('livewire.installment-checkout', $n);
