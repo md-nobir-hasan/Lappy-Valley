@@ -2,6 +2,8 @@
 
 namespace App\Livewire;
 
+use App\Mail\OrderMail;
+use App\Mail\OrderMailToAdmin;
 use App\Models\Cart;
 use App\Models\Divission;
 use App\Models\Order;
@@ -11,6 +13,7 @@ use App\Models\UserAddress;
 use App\Notifications\StatusNotification;
 use App\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
 use Livewire\Attributes\Title;
@@ -67,12 +70,11 @@ class SingleCheckout extends Component
     public function mount()
     {
         $product = Product::where('slug', $this->pslug)->first();
-        if($product->stock < 1){
-            session()->flash('error','Stock not sufficient');
-            $this->redirect(url()->previous(),navigate:true);
+        if ($product->stock < 1) {
+            session()->flash('error', 'Stock not sufficient');
+            $this->redirect(url()->previous(), navigate: true);
         }
         $this->product = $product;
-
     }
 
     public function orderSubmit()
@@ -123,6 +125,21 @@ class SingleCheckout extends Component
         $status = $order->save();
         $users = User::role('Admin')->get();
 
+        //Mail content
+        $mail_content = [
+            'order' => $order,
+            'sub' => "A new order has been created",
+            'view' => 'mail.order-mail-to-admin',
+        ];
+        // send mail to admin
+        foreach ($users as $us) {
+            Mail::to($us->email)->send(new OrderMailToAdmin($mail_content));
+        }
+
+        // send mail to user
+        $mail_content['view'] = 'mail.order-mail-to-user';
+        Mail::to($user->email)->send(new OrderMail($mail_content));
+
         $details = [
             'title' => 'New order created',
             'actionURL' => route('order.show', $order->id),
@@ -130,10 +147,7 @@ class SingleCheckout extends Component
         ];
 
         Notification::send($users, new StatusNotification($details));
-
         $product = $this->product;
-        $product->stock -= 1;
-        $product->save();
         Cart::create([
             'product_id' => $product->id,
             'order_id' => $order->id,
@@ -150,6 +164,16 @@ class SingleCheckout extends Component
 
     public function render()
     {
+        if ($user = Auth()->user()) {
+            $address = UserAddress::where('user_id', $user->id)->where('is_default', true)->first();
+            $this->name = $user->name;
+            $this->l_name = $user->l_name;
+            $this->email = $user->email;
+            $this->phone = $user->phone;
+            $this->address = $address?->address;
+            $this->city = $address?->city;
+            $this->divission_id = $user?->divission_id;
+        }
         $n['divissions'] = Divission::get();
         $n['shippings'] = Shipping::where('status', 'active')->get();
         return view('livewire.single-checkout', $n);

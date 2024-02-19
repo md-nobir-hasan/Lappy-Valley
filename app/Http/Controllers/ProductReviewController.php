@@ -26,7 +26,7 @@ class ProductReviewController extends Controller
 
         $n['reviews'] = ProductReview::latest()->paginate(10);
         $n['count'] = ProductReview::get();
-        return view('backend.review.index',$n);
+        return view('backend.product-review.index',$n);
     }
 
     /**
@@ -85,7 +85,7 @@ class ProductReviewController extends Controller
     public function show($id)
     {
         $n['review'] = ProductReview::with('images', 'product')->find($id);
-        return view('backend.review.show', $n);
+        return view('backend.product-review.show', $n);
     }
 
     /**
@@ -99,8 +99,9 @@ class ProductReviewController extends Controller
         $this->ccan('Edit Review');
 
         $review = ProductReview::find($id);
+        // dd($review);
         // return $review;
-        return view('backend.review.edit')->with('review', $review);
+        return view('backend.product-review.edit')->with('review', $review);
     }
 
     /**
@@ -139,7 +140,7 @@ class ProductReviewController extends Controller
             request()->session()->flash('error', 'Review not found!!');
         }
 
-        return redirect()->route('review.index');
+        return redirect()->route('productreview.index');
     }
 
     /**

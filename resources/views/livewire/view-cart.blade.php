@@ -1,22 +1,30 @@
  <div x-data="{
-     total: '{{ $carts->sum('amount') }}',
-     all_total: {{ $carts->sum('amount') }},
+     total: 0,
+     all_total: 0,
      carts: {{ $carts }},
      discode: '',
+     coupon_dis: '00.00',
+     coupon_dis_percent: '00',
+     coupon_array: {{ $coupon }},
      coupon_msg: '',
-     discount: '00.00',
-     discountFormat(coupon_array) {
-         if (coupon_array.type == 'percent') {
-             this.all_total = this.total - (this.total * Number(coupon_array.value) / 100);
-             return coupon_array.value + '%';
-         } else if(coupon_array.type == 'fixed'){
-             this.all_total = this.total - Number(coupon_array.value);
-             return 'BDT ' + coupon_array.value;
-         }else{
-            return '00.00';
+     total_discount: {{ $carts->sum('product.price') - $carts->sum('product.final_price') }},
+     CouponCal(coupon_array) {
+         if (coupon_array) {
+             if (coupon_array.type == 'percent') {
+                 coupon_dis = this.total * Number(coupon_array.value) / 100;
+                 this.all_total = this.all_total - coupon_dis + Number(this.coupon_dis);
+                 this.coupon_dis = coupon_dis;
+                 this.coupon_dis_percent = coupon_array.value;
+             } else if (coupon_array.type == 'fixed') {
+                 const coupon_dis = Number(coupon_array.value);
+                 this.coupon_dis = coupon_dis;
+                 this.all_total = this.all_total - coupon_dis + Number(this.coupon_dis);
+             } else {
+                 this.coupon_dis = '00.00';
+             }
          }
      },
-     discountCal() {
+     couponFetch() {
          $.ajax({
              method: 'get',
              url: '{{ route('coupon.fetch') }}',
@@ -26,17 +34,17 @@
                      this.coupon_msg = 'Invalid Coupon Code';
                  } else {
                      this.coupon_msg = 'Coupon Added';
-                     this.discount = this.discountFormat(res);
-
+                     this.coupon_array = res;
+                     this.CouponCal(res);
                  }
              },
          });
      },
- }" x-init='discount = discountFormat({{$coupon}}) '
+ }"
      class="px-[100px] max-2xl:px-[70px] max-xl:px-[60px] max-lg:px-[38px] max-md:px-[35px] max-sm:px-[15px] max-sm:mt-[70px] max-xl:mt-[100px]">
      <div class="">
          <h1 class='font-[jost] xl:text-[20px] font-[400] leading-[25.3px] text-[#353535]'>
-            <a href="{{route('home')}}" wire:navigate>Home</a> / Shopping Cart
+             <a href="{{ route('home') }}" wire:navigate>Home</a> / Shopping Cart
          </h1>
          <div class='h-[2px] bg-[#764A8733]'></div>
      </div>
@@ -78,7 +86,7 @@
                              </div>
                              <div class="flex items-center justify-center w-full">
                                  <span data-te-modal-dismiss>
-                                     <button type="button" @click='discountCal'
+                                     <button type="button" @click='couponFetch'
                                          class="text-[#F2F2F2] text-[14px] font-[jost] font-[500] px-[60px] py-[14px] leading-[20.23px] rounded-[4px] bg-gradient-to-r from-[#380D37] to-[#DC275C]"
                                          data-te-ripple-init data-te-ripple-color="light" data-te-toggle="modal"
                                          data-te-target="#exampleModalSecond" data-te-ripple-init
@@ -153,27 +161,52 @@
                      <template x-for='cart in carts' :key='cart.id'>
                          <tr class="items-center bg-white" x-data="{
                              qty: cart.quantity,
-                             price: cart.price,
-                             amount: cart.amount,
+                             price: cart.product.price,
+                             dis_price: cart.product.final_price,
+                             amount: 0,
+                             dis_amount: 0,
+                             discount: 0,
                              cp_show: true,
+                             inita() {
+                                 this.amount = Number((this.qty * this.price));
+                                 this.dis_amount = Number((this.qty * this.dis_price));
+                                 this.discount = Number((this.amount - this.dis_amount));
+
+                                 total+=this.amount;
+                                 all_total+=this.dis_amount;
+                                 CouponCal(coupon_array);
+                             },
+                             subtoalTotalDisCal(new_qty) {
+                                 const new_amount = new_qty * this.price;
+                                 const new_dis_amount = new_qty * this.dis_price;
+                                 const new_discount = new_amount - new_dis_amount;
+
+                                 total = total - (this.amount) + new_amount;
+                                 all_total = all_total - this.dis_amount + new_dis_amount;
+                                 total_discount = total_discount - this.discount + new_discount;
+
+                                 this.amount = new_amount;
+                                 this.dis_amount = new_dis_amount;
+                                 this.discount = new_discount;
+                             },
                              plus() {
                                  if (this.qty >= 5) {
                                      toastr.warning('You cant add more then 5 products');
                                      return false;
                                  }
-                                 const pq = ++this.qty;
-                                 const stotal = pq * this.price;
-                                 total = total - this.amount + stotal;
-                                 this.amount = stotal;
-                                 discountCal();
+
                                  $.ajax({
                                      url: '{{ route('plus') }}',
                                      method: 'get',
                                      data: { id: cart.id },
-                                     success: function(res) {
+                                     success: (res) => {
                                          if (res.msg) {
-                                             toastr.warning($res.msg)
+                                             toastr.warning(res.msg)
+                                             return false;
                                          } else {
+                                             const new_qty = ++this.qty;
+                                             this.subtoalTotalDisCal(new_qty);
+                                             CouponCal(coupon_array);
                                              console.log('Successfully increase quantity')
                                          }
                                      }
@@ -184,19 +217,20 @@
                                      toastr.warning('You cant remove all quantity');
                                      return false;
                                  }
-                                 const mq = --this.qty;
-                                 const stotal = mq * this.price;
-                                 total = total - this.amount + stotal;
-                                 discountCal();
-                                 this.amount = stotal;
+
                                  $.ajax({
                                      url: '{{ route('minus') }}',
                                      method: 'get',
                                      data: { id: cart.id },
-                                     success: function(res) {
+                                     success: (res) => {
                                          if (res.msg) {
-                                             toastr.warning($res.msg)
+                                             toastr.warning(res.msg)
+                                             return false;
                                          } else {
+                                            const new_qty = --this.qty;
+                                            console.log(new_qty,this.qty);
+                                             this.subtoalTotalDisCal(new_qty);
+                                             CouponCal(coupon_array);
                                              console.log('Successfully decrease quantity')
                                          }
                                      }
@@ -213,8 +247,8 @@
                                          if (res.msg) {
                                              toastr.warning(res.msg)
                                          } else {
-                                             total = total - this.amount;
-                                             discountCal();
+                                             this.subtoalTotalDisCal(0);
+                                             CouponCal(coupon_array);
                                              this.cp_show = false;
 
                                          }
@@ -235,7 +269,7 @@
                                      }
                                  });
                              },
-                         }">
+                         }" x-init="inita()">
                              <td class=" p-3 tracking-wide text-left text-[14px] whitespace-nowrap">
                                  <img class="w-[48px] h-[48px]" :src='cart.product.photo.split(",")[0]'
                                      {{-- src="{{ $cart->product->img()[0] }}" --}} :alt="cart.product.title">
@@ -317,7 +351,7 @@
                              <td
                                  class=" tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]">
                                  {{-- {{ $cart->amount }} --}}
-                                 <span x-text='mFormat(amount)'></span>
+                                 <span x-text='mFormat(price*qty)'></span>
                                  ৳
                              </td>
                          </tr>
@@ -341,10 +375,18 @@
                  <td class="text-[20px] max-sm:text-[16px] text-[#DC275C] font-[jost] font-[500]">
                      {{-- {{ number_format($carts->sum('amount')) }} --}}
                      {{-- <span x-text='mFormat(total)'></span> --}}
-                     <span x-text='discount'></span>
+                     <span><span x-text='total_discount'></span>৳</span>
                  </td>
              </tr>
-
+             <template x-if='Number(coupon_dis)'>
+                 <tr class="p-3 flex justify-between border-b-[2px] max-sm:border-b-[1px] border-[#380D37]">
+                     <td class="text-[20px] max-sm:text-[16px] text-[#380D37] font-[jost] font-[500]">Discount(Coupon: <template x-if=(Number(coupon_dis_percent))> <span><span x-text='Number(coupon_dis_percent)'></span>%</span></template>):
+                     </td>
+                     <td class="text-[20px] max-sm:text-[16px] text-[#DC275C] font-[jost] font-[500]">
+                         <span><span x-text='coupon_dis'></span>৳</span>
+                     </td>
+                 </tr>
+             </template>
              <tr class="p-3 flex justify-between border-b-[2px] max-sm:border-b-[1px] border-[#380D37]">
                  <td
                      class="text-[20px] max-sm:text-[16px] text-[#380D37] font-[jost] font-[500] w-[80px] max-sm:w-[66px] flex justify-end">

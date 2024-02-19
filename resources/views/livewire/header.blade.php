@@ -13,7 +13,6 @@
                 <div class="bar"></div>
             </div>
             <div class="menu">
-
                 {{-- Mobile menue  --}}
                 <nav class="bg-[#f2f2f2] ">
                     <ul class="flex flex-col scroll-auto">
@@ -59,7 +58,17 @@
                                             <a href="{{ route('cate_wise.shop', [$menu->slug]) }}"
                                                 wire:navigate>{{ $menu->title }}</a>
                                         </div>
-                                        @if (count($menu->child_cat) > 0)
+                                        @php
+                                            $has_child = 0;
+                                        @endphp
+                                        @foreach ($menu->child_cat as $menu2)
+                                            @if (count($menu2->sub_products) > 0)
+                                            @php
+                                                ++$has_child;
+                                            @endphp
+                                            @endif
+                                        @endforeach
+                                        @if (count($menu->child_cat) > 0 && $has_child > 0)
                                             <div class="toggleBtn2">
                                                 <svg class="plus text-[black]" xmlns="http://www.w3.org/2000/svg"
                                                     viewBox="0 0 24 24" width="24" height="24" fill="none"
@@ -80,7 +89,7 @@
                                             </div>
                                         @endif
                                     </div>
-                                    @if (count($menu->child_cat) > 0)
+                                    @if (count($menu->child_cat) > 0 && $has_child > 0)
                                         <ul
                                             class="toggleDiv2 hidden list-none bg-[#fff] mt-[10px] text-[#380D37] hover:text-[#f2f2f2] text-[16px] max-sm:text-[14px] font-[jost] font-[400] w-full transition-opacity duration-[3s] ease-in-out origin-top">
                                             @foreach ($menu->child_cat as $menu2)
@@ -117,7 +126,7 @@
                 </a>
             </div>
             <div id="search-bar"
-                class="search-bar max-xl:fixed max-sm:top-[49px] max-md:top-[67px] max-xl:top-[67px] max-xl:left-0 max-xl:w-full z-[9999]">
+                class="search-bar max-xl:fixed max-sm:top-[49px] max-md:top-[67px] max-xl:top-[67px] max-xl:left-0 max-xl:w-full">
                 <div>
                     <div>
                         <div class="relative" x-data="{
@@ -297,11 +306,11 @@
     <script>
         // Session message
         @if (session('error'))
-        toastr.error("{{ session('error') }}");
+            toastr.error("{{ session('error') }}");
         @endif
 
         @if (session('success'))
-        toastr.error("{{ session('success') }}");
+            toastr.error("{{ session('success') }}");
         @endif
 
         $('.menu-toggle').click(function(e) {

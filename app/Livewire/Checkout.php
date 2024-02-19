@@ -91,6 +91,7 @@ class Checkout extends Component
                 $ct->update(['user_id', $user->id]);
             }
         }
+
         //update user
         $user->name = $this->name;
         $user->l_name = $this->l_name;
@@ -99,6 +100,7 @@ class Checkout extends Component
         $user->city = $this->city;
         $user->divission_id = $this->divission_id;
         $user->save();
+
         //cart check
         if (count($carts) < 1) {
             request()->session()->flash('error', 'Cart is Empty !');
@@ -110,12 +112,6 @@ class Checkout extends Component
         $order_data = $this->all();
         $order_data['order_number'] = 'ORD-' . strtoupper(Str::random(10));
         $order_data['user_id'] = $user->id;
-        // $order_data['status'] = OrderStatus::first()->id;
-
-
-        // $order_data['shipping_id'] = $request->shipping;
-        // $shipping = Shipping::where('id', $order_data['shipping_id'])->pluck('price');
-        // $order_data['sub_total'] = $carts->sum('amount');
 
         if ($c_id = Session::get('coupon_id')) {
             $coupon = Coupon::find($c_id);
@@ -125,45 +121,17 @@ class Checkout extends Component
         }
 
         $shipngs = Shipping::find($this->shipping_id);
-        // dd($shipngs);
         $installment1 = $order_data['sub_total'] + $shipngs->price;
         $order_data['amount'] = $installment1;
         $order_data['payable'] = $installment1;
         $order_data['installment_count'] = 1;
         $order_data['inventory_cost'] = $carts->sum('inventory_cost');
         $order_data['quantity'] = $carts->sum('quantity');
-
-
-        // if (session('coupon')) {
-        //     $order_data['coupon'] = session('coupon')['value'];
-        // }
-        // if ($request->shipping) {
-        //     if (session('coupon')) {
-        //         $order_data['total_amount'] = Helper::totalCartPrice() + $shipping[0] - session('coupon')['value'];
-        //     } else {
-        //         $order_data['total_amount'] = Helper::totalCartPrice() + $shipping[0];
-        //     }
-        // } else {
-        //     if (session('coupon')) {
-        //         $order_data['total_amount'] = Helper::totalCartPrice() - session('coupon')['value'];
-        //     } else {
-        //         $order_data['total_amount'] = Helper::totalCartPrice();
-        //     }
-        // }
-        // return $order_data['total_amount'];
         $order_data['status'] = "Pending";
         $order_data['payment_status'] = 'Unpaid';
-        // if (request('payment_method') == 'online') {
-        //     $order_data['payment_method'] = 'online';
-        //     $order_data['payment_status'] = 'Unpaid';
-        // } else {
-        //     $order_data['payment_method'] = 'cod';
-        //     $order_data['payment_status'] = 'Unpaid';
-        // }
         $order->fill($order_data);
         $status = $order->save();
         if ($order)
-            // dd($order->id);
             $users = User::role('Admin')->get();
         $details = [
             'title' => 'New order created',
@@ -172,31 +140,25 @@ class Checkout extends Component
         ];
         Notification::send($users, new StatusNotification($details));
 
+        //Mail content
+        $mail_content = [
+            'order' => $order,
+            'sub' => "A new order has been created",
+            'view' => 'mail.order-mail-to-admin',
+        ];
         // send mail to admin
         foreach($users as $us){
-            Mail::to($us->email)->send(new OrderMailToAdmin($order));
-
+            Mail::to($us->email)->send(new OrderMailToAdmin($mail_content));
         }
 
         // send mail to user
-        Mail::to($user->email)->send(new OrderMail($order));
-        // if (request('payment_method') == 'paypal') {
-        //     return redirect()->route('payment')->with(['id' => $order->id]);
-        // } else {
-        //     session()->forget('cart');
-        //     session()->forget('coupon');
-        // }
+        $mail_content['view'] = 'mail.order-mail-to-user';
+        Mail::to($user->email)->send(new OrderMail($mail_content));
+
         foreach ($carts as $cart) {
-            $product = $cart->product;
-            // return $product;
-            $product->stock -= $cart->quantity;
-            $product->save();
             $cart->update(['order_id' => $order->id]);
         }
-
-        // dd($users);
         request()->session()->flash('success', 'Your Order successfully placed in order');
-        // return $this->redirect(HomePage::class, navigate: true);
         return $this->redirect(route('order.receive', [$order->order_number]));
     }
 
@@ -222,7 +184,6 @@ class Checkout extends Component
         }
 
         $n['divissions'] = Divission::get();
-        // dd($n);
         $n['shippings'] = Shipping::where('status', 'active')->get();
         return view('livewire.checkout', $n);
     }

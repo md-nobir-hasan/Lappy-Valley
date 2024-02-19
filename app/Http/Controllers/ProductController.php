@@ -87,7 +87,8 @@ class ProductController extends Controller
             'final_price'=> 'required|numeric',
             'model'=>'string|nullable|max:255',
             'mpn'=>'string|nullable|max:255',
-            'discount'=>'nullable|numeric',
+            'discount'=>'required|numeric',
+            'inventory_cost'=>'required|numeric',
             'summary'=>'string|nullable',
             'description'=>'string|nullable',
             'stock'=>"nullable|numeric",
@@ -388,10 +389,13 @@ class ProductController extends Controller
         if($status){
             if ($drs = $request->durations) {
                 foreach ($drs as $dr) {
-                    Installment::updateOrCreate([
-                        'duration_id' => $dr,
-                        'product_id' => $product->id,
-                    ]);
+                    if($dr){
+                        Installment::updateOrCreate([
+                            'duration_id' => $dr,
+                            'product_id' => $product->id,
+                        ]);
+                    }
+
                 }
             }
             request()->session()->flash('success','Product Successfully updated');

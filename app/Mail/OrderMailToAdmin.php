@@ -16,10 +16,12 @@ class OrderMailToAdmin extends Mailable implements ShouldQueue
     /**
      * Create a new message instance.
      */
+    public $mail_content;
     public $order;
-    public function __construct($order)
+    public function __construct($mail_content)
     {
-        $this->order = $order;
+        $this->mail_content = $mail_content;
+        $this->order = $mail_content['order'];
     }
 
     /**
@@ -28,7 +30,7 @@ class OrderMailToAdmin extends Mailable implements ShouldQueue
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'A new order from '.$this->order?->name,
+            subject: $this->mail_content['sub'],
         );
     }
 
@@ -38,7 +40,7 @@ class OrderMailToAdmin extends Mailable implements ShouldQueue
     public function content(): Content
     {
         return new Content(
-            view: 'mail.order-mail-to-admin',
+            view: $this->mail_content['view'],
         );
     }
 

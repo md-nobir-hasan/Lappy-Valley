@@ -11,6 +11,7 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CompanyReviewController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductReviewController;
@@ -167,10 +168,14 @@ Route::get('blog-tag/{slug}', [FrontendController::class, 'blogByTag'])->name('b
 // NewsLetter
 Route::post('/subscribe', [FrontendController::class, 'subscribe'])->name('subscribe');
 
+// Company Review
+Route::resource('/review', CompanyReviewController::class);
+Route::post('product/{slug}/review', [CompanyReviewController::class, 'store'])->name('review.store');
+Route::post('review-status/change', [CompanyReviewController::class, 'reviewStatusChange'])->name('review_status.change');
+
 // Product Review
-Route::resource('/review', ProductReviewController::class);
-Route::post('product/{slug}/review', [ProductReviewController::class, 'store'])->name('review.store');
-Route::post('review-status/change', [ProductReviewController::class, 'reviewStatusChange'])->name('review_status.change');
+Route::resource('/productreview', ProductReviewController::class);
+// Route::get('/productreview', [ProductReviewController::class,'index'])->name('productreview.index');
 
 // Post Comment
 Route::post('post/{slug}/comment', [PostCommentController::class, 'store'])->name('post-comment.store');

@@ -31,7 +31,6 @@
              @endforeach
          </ul>
      </div>
-     {{-- @dd($menus) --}}
      @foreach ($menus as $men)
          @if (count($men->products) > 0)
              <div class="relative">
@@ -40,8 +39,6 @@
                      type="button" id="dropdownMenuButton2">
                      <a class="nav-color" href="{{ route('cate_wise.shop', [$men->slug]) }}"
                          wire:navigate>{{ $men->title }}</a>
-
-                     {{-- checking child has child  --}}
                      @php
                          $has_child = 0;
                      @endphp
@@ -63,7 +60,8 @@
                          </span>
                      @endif
                  </span>
-                 @if (count($men->child_cat) > 0)
+
+                 @if (count($men->child_cat) > 0 && $has_child)
                      <ul
                          class="nav-colors1 submenu absolute z-[1000] float-left p-2  hidden w-[200px] list-none overflow-hidden border-none bg-[#f2f2f2] text-[#353535] text-left [&[data-te-dropdown-show]]:block">
                          @foreach ($men->child_cat as $cc)
@@ -79,15 +77,6 @@
                      </ul>
                  @endif
              </div>
-             {{-- @else --}}
-             {{-- <div class="relative">
-                 <a class="nav-color flex items-center whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]"
-                     href="{{ route('cate_wise.shop', [$men->slug]) }}" wire:navigate type="button"
-                     id="dropdownMenuButton2">
-                     {{ $men->title }}
-
-                 </a>
-             </div> --}}
          @endif
      @endforeach
 
@@ -104,12 +93,9 @@
              $('.menue').each(function(index) {
                  $(this).on('click', function() {
                      if ($('.submenu').eq(index).is(':hidden')) {
-                         console.log('i am hidden')
                          $('.submenu').hide(200);
                          $('.submenu').eq(index).show(200);
                      } else {
-                         // $('.submenu').hide(200);
-                         console.log('i am vissible');
                          $('.submenu').eq(index).hide(200);
                      }
                  })
