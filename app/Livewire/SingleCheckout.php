@@ -70,12 +70,11 @@ class SingleCheckout extends Component
     public function mount()
     {
         $product = Product::where('slug', $this->pslug)->first();
-        if($product->stock < 1){
-            session()->flash('error','Stock not sufficient');
-            $this->redirect(url()->previous(),navigate:true);
+        if ($product->stock < 1) {
+            session()->flash('error', 'Stock not sufficient');
+            $this->redirect(url()->previous(), navigate: true);
         }
         $this->product = $product;
-
     }
 
     public function orderSubmit()
@@ -133,7 +132,7 @@ class SingleCheckout extends Component
             'view' => 'mail.order-mail-to-admin',
         ];
         // send mail to admin
-        foreach($users as $us){
+        foreach ($users as $us) {
             Mail::to($us->email)->send(new OrderMailToAdmin($mail_content));
         }
 
@@ -166,15 +165,15 @@ class SingleCheckout extends Component
     public function render()
     {
         if ($user = Auth()->user()) {
-        $address = UserAddress::where('user_id',$user->id)->where('is_default',true)->first();
-        $this->name = $user->name;
-        $this->l_name = $user->l_name;
-        $this->email = $user->email;
-        $this->phone = $user->phone;
-        $this->address = $address?->address;
-        $this->city = $address?->city;
-        $this->divission_id = $user?->divission_id;
-    }
+            $address = UserAddress::where('user_id', $user->id)->where('is_default', true)->first();
+            $this->name = $user->name;
+            $this->l_name = $user->l_name;
+            $this->email = $user->email;
+            $this->phone = $user->phone;
+            $this->address = $address?->address;
+            $this->city = $address?->city;
+            $this->divission_id = $user?->divission_id;
+        }
         $n['divissions'] = Divission::get();
         $n['shippings'] = Shipping::where('status', 'active')->get();
         return view('livewire.single-checkout', $n);
