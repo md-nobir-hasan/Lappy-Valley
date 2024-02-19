@@ -767,13 +767,13 @@
             Us</h2>
         <style>
             .owl-nav {
-                /* gap: {{ (count($reviews) + 5) * 10 + 200 }}px; */
+                 gap: {{ (count($reviews) + 5) * 10 + 200 }}px;
             }
         </style>
         <div class="container mx-auto">
             <section id="slider" class="pt-5 mx-auto">
                 <div class="container mx-auto">
-                    {{-- <h1 class="text-center"><b>Responsive Owl Carousel</b></h1> --}}
+                    <h1 class="text-center"><b>Responsive Owl Carousel</b></h1>
                     <div class="slider">
                         <div class="owl-carousel">
                             @foreach ($reviews as $review)
