@@ -167,7 +167,6 @@ class OrderController extends Controller
     public function update(Request $request, $id)
     {
         $this->ccan('Edit Order');
-
         $order = Order::find($id);
         $validator = $this->validate($request, [
             'payment_status' => ['required', 'in:paid,unpaid'],
