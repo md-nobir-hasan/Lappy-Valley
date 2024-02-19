@@ -112,10 +112,10 @@
                 <td colspan="2">
                     <table>
                         <tr>
-                            <td class="title">
-                                <img src="{{ asset('storage/' . $setting->logo) }}" alt="{{ env('APP_NAME') }}"
-                                    style="width: 100%; max-width: 300px" />
-                            </td>
+                            {{-- <td class="title">
+                                <img src="https://lappyvalley.com/storage/product/Logo.svg" alt="{{ env('APP_NAME') }}"
+                                    style="width: 100%; max-width: 300px; border-radius: 10px" />
+                            </td> --}}
 
                             <td>
                                 Invoice #: {{ $order->order_number }}<br />
