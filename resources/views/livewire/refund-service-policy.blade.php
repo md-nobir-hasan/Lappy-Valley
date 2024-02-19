@@ -56,7 +56,7 @@
 
        <div class='my-[10px]'>
         <h1  class='text-[20px] text-[#353535] font-[jost] font-[700] tracking-[.6px]'> Need Help?</h1>
-        <p class='text-[16px] max-sm:tex-[14px] text-[#353535] font-[jost] font-[400] tracking-[.48px] my-[10px]'>Contact us at <span class="transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">info@lappyvalley.com</span> for questions related to refunds and returns.</p>
+        <p class='text-[16px] max-sm:tex-[14px] text-[#353535] font-[jost] font-[400] tracking-[.48px] my-[10px]'>Contact us at <span class="transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4"><a href="mailto:{{$other_setting->email}}" title="E-mail">{{$other_setting->email}}</a></span> for questions related to refunds and returns.</p>
        </div>
     </div>
     <div class='h-[2px] bg-[#764A8733] mb-[150px]'></div>
