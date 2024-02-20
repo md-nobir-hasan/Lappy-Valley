@@ -222,13 +222,16 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'admin']], function
         Route::resource('gtag', GtagController::class);
         Route::resource('pixel', PixelController::class);
     });
+
     // Banner
     Route::resource('banner', BannerController::class);
     // Brand
     Route::resource('brand', BrandController::class);
+
     // Profile
     Route::get('/profile', [AdminController::class, 'profile'])->name('admin-profile');
     Route::post('/profile/{id}', [AdminController::class, 'profileUpdate'])->name('profile-update');
+    
     // Category
     Route::resource('/category', CategoryController::class);
     //Product Attribute

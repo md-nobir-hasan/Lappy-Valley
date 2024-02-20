@@ -33,7 +33,7 @@ class AdminController extends Controller
     public function profile(){
         $profile=Auth()->user();
         // return $profile;
-        return view('backend.users.profile')->with('profile',$profile);
+        return view('backend.auser.users.profile')->with('profile',$profile);
     }
 
     public function profileUpdate(Request $request,$id){
