@@ -69,6 +69,9 @@ class AjaxController extends Controller
     {
         $cart = Cart::with('product')->find($req->id);
         $qty = $cart->quantity + 1;
+        if($cart->product->stock < $qty){
+            return response()->json(['msg' => 'Stock is not sufficient']);
+        }
         $amount = $cart->price * $qty;
         $inventory_cost = $cart->inventory_cost * $qty;
         if ($cart->product->stock != null) {
