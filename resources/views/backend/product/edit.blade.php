@@ -1042,16 +1042,15 @@
             $('#summary').summernote({
                 placeholder: "Write short description.....",
                 tabsize: 2,
-                height: 150
+                height: 150,
             });
-        });
-        $(document).ready(function() {
             $('#description').summernote({
-                placeholder: "Write detail Description.....",
+                placeholder: "Write detail description.....",
                 tabsize: 2,
-                height: 150
+                height: 200
             });
 
+            let show = false;
             $('#upcomming_toggler').on('click', function() {
                 $('#div_lunch_date').toggle();
                 //  show = true;
@@ -1062,54 +1061,70 @@
                 //  show = true;
 
             });
-        });
-    </script>
 
-    <script>
-        var child_cat_id = '{{ $product->child_cat_id }}';
-        // alert(child_cat_id);
-        $('#cat_id').change(function() {
-            var cat_id = $(this).val();
+            $('#final_price_div').hide();
 
-            if (cat_id != null) {
-                // ajax call
-                $.ajax({
-                    url: "/admin/category/" + cat_id + "/child",
-                    type: "POST",
-                    data: {
-                        _token: "{{ csrf_token() }}"
-                    },
-                    success: function(response) {
-                        if (typeof(response) != 'object') {
-                            response = $.parseJSON(response);
-                        }
-                        var html_option = "<option value=''>--Select any one--</option>";
-                        if (response.status) {
-                            var data = response.data;
-                            if (response.data) {
-                                $('#child_cat_div').removeClass('d-none');
-                                $.each(data, function(id, title) {
-                                    html_option += "<option value='" + id + "' " + (
-                                            child_cat_id == id ? 'selected ' : '') + ">" +
-                                        title + "</option>";
-                                });
-                            } else {
-                                console.log('no response data');
+            $('#price').on('keyup', function() {
+                // let price = Number(this.val);
+                let price = Number($('#price').val()) ?? 0;
+                let discount = Number($('#discount').val()) ?? 0;
+                let final_price = price - Math.round(price * discount / 100);
+                console.log(price, discount, final_price);
+
+                $('#final_price').val(final_price);
+                $('#final_price_div').show();
+            });
+
+            $('#discount').on('keyup', function() {
+                // let price = Number(this.val);
+                let price = Number($('#price').val()) ?? 0;
+                let discount = Number($('#discount').val()) ?? 0;
+                let final_price = price - Math.round(price * discount / 100);
+                console.log(price, discount, final_price);
+
+                $('#final_price').val(final_price);
+                $('#final_price_div').show();
+            });
+
+            $('#cat_id').change(function() {
+                var cat_id = $(this).val();
+                // alert(cat_id);
+                if (cat_id != null) {
+                    // Ajax call
+                    $.ajax({
+                        url: "/admin/category/" + cat_id + "/child",
+                        data: {
+                            _token: "{{ csrf_token() }}",
+                            id: cat_id
+                        },
+                        type: "POST",
+                        success: function(response) {
+                            if (typeof(response) != 'object') {
+                                response = $.parseJSON(response)
                             }
-                        } else {
-                            $('#child_cat_div').addClass('d-none');
+                            // console.log(response);
+                            var html_option =
+                                "<option value=''>----Select sub category----</option>"
+                            if (response.status) {
+                                var data = response.data;
+                                // alert(data);
+                                if (response.data) {
+                                    $('#child_cat_div').removeClass('d-none');
+                                    $.each(data, function(id, title) {
+                                        html_option += "<option value='" + id + "'>" +
+                                            title +
+                                            "</option>"
+                                    });
+                                } else {}
+                            } else {
+                                $('#child_cat_div').addClass('d-none');
+                            }
+                            $('#child_cat_id').html(html_option);
                         }
-                        $('#child_cat_id').html(html_option);
-
-                    }
-                });
-            } else {
-
-            }
+                    });
+                } else {}
+            });
 
         });
-        if (child_cat_id != null) {
-            $('#cat_id').change();
-        }
     </script>
 @endpush
