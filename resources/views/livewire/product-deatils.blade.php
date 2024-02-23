@@ -352,10 +352,7 @@
                         </tr>
 
 
-
-
-                        <!-- --------3rd---------part (Memory Attributes )---------- -->
-
+                        {{-- (Memory Attributes ) --}}
                         <tr>
                             <td class="bg-[#380D37] text-[#f2f2f2] font-[jost] max-sm:text-[16px] font-[500] py-[10px] pl-[14px] rounded-[5px]"
                                 colspan="3">Memory:</td>
@@ -377,7 +374,7 @@
                                 RAM Type:</td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->ram?->type }}
+                                {{ $product->m_type }}
                             </td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
@@ -395,7 +392,7 @@
                                 BUS Speed:</td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->ram?->bus_speed }}
+                                {{ $product->bus_speed }}
                             </td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
