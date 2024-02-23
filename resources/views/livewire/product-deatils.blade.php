@@ -570,7 +570,7 @@
                                 WebCam:</td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->webcam ? 'Yes' : 'NO' }}</td>
+                                {{ $product->webcam ? $product->webcam : 'NO' }}</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td
@@ -578,7 +578,7 @@
                                 Microphone:</td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->microphone ? 'Yes' : 'NO' }}</td>
+                                {{ $product->microphone ? $product->microphone : 'NO' }}</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td
@@ -586,7 +586,7 @@
                                 Speaker:</td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->speaker ? 'Yes' : 'NO' }}</td>
+                                {{ $product->speaker ? $product->speaker  : 'NO' }}</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td
