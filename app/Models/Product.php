@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-
+ 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Cart;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -24,7 +24,7 @@ class Product extends Model
         //Graphics Attributes
         'g_model', 'graphic_id', 'g_other',
         //Keyboard & Touchpad Attributes
-        'k_type', 'touchpad', 'k_other',
+        'k_type', 'touchpad', 'k_other', 'k_backlight',
         //Camera & Audio Attributes
         'webcam', 'microphone', 'speaker', 'ca_other',
         //Port & Slots Attributes
@@ -169,18 +169,16 @@ class Product extends Model
 
     public function statusWiseOrderCount($status)
     {
-        if(count($this->carts)>0){
+        if (count($this->carts) > 0) {
             $count = 0;
-            foreach($this->carts as $cart){
-                if($cart->order->status == $status){
+            foreach ($this->carts as $cart) {
+                if ($cart->order->status == $status) {
                     $count++;
                 }
             }
             return $count;
-
-        }else{
+        } else {
             return 0;
         }
     }
-
 }

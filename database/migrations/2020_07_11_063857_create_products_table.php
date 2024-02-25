@@ -100,6 +100,7 @@ class CreateProductsTable extends Migration
 
             //Keyboard & Touchpad => (3)
             $table->string('k_type')->nullable();
+            $table->boolean('k_backlight')->default(false);
             $table->boolean('touchpad')->default(false);
             $table->string('k_other')->nullable();
 
