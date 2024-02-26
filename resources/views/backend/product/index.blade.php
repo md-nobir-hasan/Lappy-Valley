@@ -57,11 +57,12 @@
                             </tr>
                         </tfoot>
                         <tbody>
-
                             @foreach ($products as $product)
                                 <tr>
                                     <td>{{ $loop->index + 1 }}</td>
-                                    <td>{{ $product->title }}</td>
+                                    <td>
+                                        <a target="_black" href="{{route('product.show',$product->id)}}">{{ $product->title }}</a>
+                                    </td>
                                     <td>{{ $product->cat_info?->title }}
                                         <sub>
                                             {{ $product->sub_cat_info?->title ?? '' }}

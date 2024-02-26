@@ -27,7 +27,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="mpn" class="col-form-label">MPN</label>
+                        <label for="mpn" class="col-form-label">Manufacture Name</label>
                         <input id="mpn" type="text" name="mpn" placeholder="Exp:- Enter mpn"
                             value="{{ old('mpn') }}" class="form-control">
                         @error('mpn')
@@ -37,7 +37,7 @@
 
                     <div class="form-group">
                         <label for="price" class="col-form-label">Price(BDT)<span class="text-danger">*</span> </label>
-                        <input id="price" type="number" name="price" placeholder="Exp:- Enter price" step="1"
+                        <input id="price" type="text" name="price" placeholder="Exp:- Enter price" step="1"
                             value="{{ old('price') }}" class="form-control">
                         @error('price')
                             <span class="text-danger">{{ $message }}</span>
@@ -47,7 +47,7 @@
                     <div class="form-group">
                         <label for="discount" class="col-form-label">Discount(%)</label>
                         <input id="discount" type="number" name="discount" min="0" max="100"
-                            placeholder="Exp:- Enter discount" value="{{ old('discount') ?? '0'}}" class="form-control">
+                            placeholder="Exp:- Enter discount" value="{{ old('discount') ?? '0' }}" class="form-control">
                         @error('discount')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -66,7 +66,7 @@
                     <div class="form-group">
                         <label for="inventory_cost" class="col-form-label">Inventory Cost</label>
                         <input id="inventory_cost" type="number" name="inventory_cost" min="0" max="1000000"
-                            placeholder="Exp:- Enter Inventory Cost" value="{{ old('inventory_cost') ?? "0" }}"
+                            placeholder="Exp:- Enter Inventory Cost" value="{{ old('inventory_cost') ?? '0' }}"
                             class="form-control">
                         @error('inventory_cost')
                             <span class="text-danger">{{ $message }}</span>
@@ -168,7 +168,8 @@
 
                     <div class="form-group">
                         <label for="speacial_feature">Special Features </label>
-                        <select name="special_feature[]" class="form-control selectpicker" id="speacial_feature" multiple>
+                        <select name="special_feature[]" class="form-control selectpicker" id="speacial_feature"
+                            multiple>
                             <option value="" hidden>Choose....</option>
                             @foreach ($special_features as $sp)
                                 <option value="{{ $sp->name }}" @selected($sp->name == old('speacial_feature'))>{{ $sp->name }}
@@ -204,9 +205,9 @@
                             @enderror
                         </div>
 
-                        {{-- Processore Model  --}}
+                        {{-- Processore Type  --}}
                         <div class="form-group">
-                            <label for="processor_model_id">Prosessor Model </label>
+                            <label for="processor_model_id">Prosessor Type </label>
                             <select name="processor_model_id" class="form-control" id="processor_model_id">
                                 <option value="" hidden>Choose....</option>
                                 @foreach ($p_models as $pm)
@@ -572,9 +573,9 @@
                     </div>
                 </div>
 
-                {{-- ========== Keyboard & Touchpad Attributes  --}}
+                {{-- ========== Keyboard Attributes  --}}
                 <div class="mt-4">
-                    <h4>Keyboard & Touchpad Attributes</h4>
+                    <h4>Keyboard Attributes</h4>
                     <div class="ml-3">
                         {{-- k_type  --}}
                         <div class="form-group">
@@ -585,14 +586,14 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
-
-                        {{-- touchpad  --}}
+                        
+                        {{-- Backlight  --}}
                         <div class="form-group">
-                            <label for="touchpad">Touchpad</label><br>
-                            <input type="checkbox" name='touchpad' @checked(old('touchpad')) id='touchpad'
+                            <label for="k_backlight">Backlight</label><br>
+                            <input type="checkbox" name='k_backlight' @checked(old('backlight')) id='k_backlight'
                                 value='1'>
-                            <label for="touchpad">Yes</label>
-                            @error('touchpad')
+                            <label for="k_backlight">Yes</label>
+                            @error('k_backlight')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
@@ -1030,9 +1031,9 @@
             display: none;
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
     <link rel="stylesheet"
-        href="{{ asset('backend/summernote/summernote-lite.css') }}">
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+    <link rel="stylesheet" href="{{ asset('backend/summernote/summernote-lite.css') }}">
 @endpush
 @push('scripts')
     <script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
