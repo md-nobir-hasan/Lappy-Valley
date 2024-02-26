@@ -949,6 +949,18 @@ input[type="range"]:active::-webkit-slider-thumb{
   top: 100%;
 }
 
+.top-20{
+  top: 5rem;
+}
+
+.top-\[\]{
+  top: ;
+}
+
+.top-\[20px\]{
+  top: 20px;
+}
+
 .\!z-40{
   z-index: 40 !important;
 }
