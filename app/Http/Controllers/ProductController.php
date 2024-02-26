@@ -385,6 +385,7 @@ class ProductController extends Controller
         $data['is_featured']=$request->input('is_featured',0);
 
         // return $data;
+        // dd($data);
         $status=$product->fill($data)->save();
         if($status){
             if ($drs = $request->durations) {

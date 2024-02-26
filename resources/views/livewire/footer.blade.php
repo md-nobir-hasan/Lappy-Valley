@@ -118,8 +118,8 @@
                       </span>
                   </li>
                   <li class="mb-[15px]">
-                      <a href="mailto:info@lappyvalley.com" class="px-1 hover:bg-blue-700 nav-colors">
-                          info@lappyvalley.com
+                      <a href="mailto:{{ $other_setting->email }}" class="px-1 hover:bg-blue-700 nav-colors">
+                          {{ $other_setting->email }}
                       </a>
                   </li>
                   <li>
@@ -137,7 +137,7 @@
               <!-- -------social----------icon------------- -->
               <div
                   class="mt-[20px] flex max-sm:justify-center max-sm:items-center gap-4 text-[24px] max-sm:pb-[100px] max-sm:pt-[20px]">
-                  <a href="#"
+                  <a href="{{ $other_setting->fb }}" title="Facebook" target="_nobir"
                       class="bg-[#f2f2f2] rounded-[100%] hover:bg-blue-400 w-[25.08px] h-[24px] flex justify-center items-center">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" id="facebook"
                           class="w-[25.08px] h-[24px]">
@@ -147,7 +147,8 @@
                           </path>
                       </svg>
                   </a>
-                  <a href="#" class="hover:bg-blue-400 w-[25.08px] h-[24px] flex justify-center items-center">
+                  <a href="{{ $other_setting->twitter }}" title="Twitter" target="_nobir"
+                      class="hover:bg-blue-400 w-[25.08px] h-[24px] flex justify-center items-center">
                       <svg xmlns="http://www.w3.org/2000/svg" class="w-[25.08px] h-[24px] hover:bg-blue-400" x="0px"
                           fill="#F2F2F2" y="0px" viewBox="0 0 50 50">
                           <path
@@ -155,7 +156,7 @@
                           </path>
                       </svg>
                   </a>
-                  <a href="#"
+                  <a href="javascript:void(0)"
                       class="bg-[#f2f2f2] rounded-[20%] hover:bg-blue-400 w-[25.08px] h-[24px] flex justify-center items-center">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="instagram">
                           <g data-name="Brand Logos">
@@ -167,7 +168,7 @@
                           </g>
                       </svg>
                   </a>
-                  <a href="#"
+                  <a href="{{ $other_setting->youtube }}" title="Youtube" target="_nobir"
                       class="rounded-[20%] hover:bg-blue-400 w-[25.08px] h-[24px] flex justify-center items-center">
                       <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 512 512" viewBox="0 0 512 512"
                           id="youtube">
@@ -176,7 +177,7 @@
                         C496,114.5,473.2,90.2,443.9,88.2z M212.1,331.2V180.8L342.3,256L212.1,331.2z"></path>
                       </svg>
                   </a>
-                  <a href="{{ $other_setting->email }}"
+                  <a href="mailto:{{ $other_setting->email }}" title="E-mail"
                       class="rounded-[20%] hover:bg-blue-400 w-[25.08px] h-[24px] flex justify-center items-center">
 
                       <svg xmlns="http://www.w3.org/2000/svg" width="25.08" height="24"
@@ -221,75 +222,81 @@
                               toastr.error(response.msg);
                           } else {
                               const product = `
-                                <div x-data="{ qty: 1,price:'${response.price}', subtotal:'${response.amount}', cp_show:true,
-                                    mplus() {
-                                         if(this.qty>= 5){
-                                            toastr.warning('You cant add more then 5 products');
-                                            return false;
-                                        }
-                                        const pq = ++this.qty; const stotal = pq*this.price;
-                                        total = total - this.subtotal + stotal; this.subtotal = stotal;
-
-                                         $.ajax({
-                                                url:'{{ route('plus') }}',
-                                                method:'get',
-                                                data:{id:${response.id}},
-                                                success:function(res){
-                                                    if(res.msg){
-                                                        toastr.warning($res.msg)
-                                                    }else{
-                                                        console.log('Successfully decrease quantity')
+                                <div x-data="{
+                                        qty: 1,
+                                        price:'${response.product.price}',
+                                        dis_price:'${response.product.final_price}',
+                                        subtotal:0,
+                                        cp_show:true,
+                                        setup() {
+                                            this.subtotal = Number(this.dis_price) * Number(this.qty);
+                                            total = Number(total) + Number(this.subtotal);
+                                        },
+                                        priceCal(new_qty) {
+                                            const new_subtotal = new_qty * Number(this.dis_price);
+                                            total = total - Number(this.subtotal) + new_subtotal;
+                                            this.subtotal = new_subtotal;
+                                        },
+                                        mplus() {
+                                            if(this.qty>= 5){
+                                                toastr.warning('You can not add more then 5 products');
+                                                return false;
+                                            }
+                                            $.ajax({
+                                                    url:'{{ route('plus') }}',
+                                                    method:'get',
+                                                    data:{id:${response.id}},
+                                                    success:(res)=>{
+                                                        if(res.msg){
+                                                            toastr.warning(res.msg)
+                                                        }else{
+                                                            this.priceCal(++this.qty);
+                                                            console.log('Successfully decrease quantity')
+                                                        }
                                                     }
-                                                }
-                                            });
-                                    }, mminus() {
-                                        if(this.qty <= 1){
-                                            toastr.warning('You cant remove all quantity');
-                                            return false;
-                                        }
-                                        const mq =  --this.qty; const stotal = mq*this.price;
-                                        total = total - this.subtotal + stotal; this.subtotal = stotal;
-                                         $.ajax({
-                                                url:'{{ route('minus') }}',
-                                                method:'get',
-                                                data:{id:${response.id}},
-                                                success:function(res){
-                                                    if(res.msg){
-                                                        toastr.warning($res.msg)
-                                                    }else{
-                                                        console.log('Successfully decrease quantity')
+                                                });
+                                        }, mminus() {
+                                            if(this.qty <= 1){
+                                                toastr.warning('You can not remove all quantity');
+                                                return false;
+                                            }
+                                            $.ajax({
+                                                    url:'{{ route('minus') }}',
+                                                    method:'get',
+                                                    data:{id:${response.id}},
+                                                    success:(res)=>{
+                                                        if(res.msg){
+                                                            toastr.warning(res.msg)
+                                                        }else{
+                                                            this.priceCal(--this.qty)
+                                                            console.log('Successfully decrease quantity')
+                                                        }
                                                     }
-                                                }
-                                            });
+                                                });
 
-                                    },addtototal(){
-                                        total = Number(total) + Number(this.price);
-                                        console.log(total,Number(this.price),'I am addtototal()');
-                                    },removeProd(){
-
-                                        $.ajax({
-                                                url:'{{ route('delete') }}',
-                                                method:'get',
-                                                data:{id:${response.id},mt:'Cart'},
-                                                success:(res)=>{
-                                                    if(res.msg){
-                                                        toastr.warning(res.msg)
-                                                    }else{
-                                                        total = total - this.subtotal;
-                                                        this.cp_show = false;
-                                                        let cart_count =  Number($('.cart_count:eq(1)').text());
-                                                        $('.cart_count').text(cart_count-1);
+                                        },removeProd(){
+                                            $.ajax({
+                                                    url:'{{ route('delete') }}',
+                                                    method:'get',
+                                                    data:{id:${response.id},mt:'Cart'},
+                                                    success:(res)=>{
+                                                        if(res.msg){
+                                                            toastr.warning(res.msg)
+                                                        }else{
+                                                            this.priceCal(0)
+                                                            this.cp_show = false;
+                                                            let cart_count =  Number($('.cart_count:eq(1)').text());
+                                                            $('.cart_count').text(cart_count-1);
+                                                        }
                                                     }
-                                                }
-                                            });
-                                    } }" x-show='cp_show'
+                                                });
+                                        } }" x-init='setup()' x-show='cp_show'
                                     class='cart-product flex justify-around mt-[10px] border-t-[#3535354D] border-t-[2px] border-b-[#3535354D] border-b-[2px] py-[10px] px-[5px] gap-[10px]'>
 
                                     <input type="hidden" name="cps[${cart_product_no}][product_id]"
                                         value="${response.product_id}">
                                     <input type="hidden" name="cps[${cart_product_no}][qty]"
                                         value="${response.id}">
-                                    <span x-init="addtototal" class='hidden'></span>
                                     <div class='flex items-center'>
                                         <img class="w-[80px] h-[px]" src="${response.product.photo ? response.product.photo.split(',')[0] : '/backend/img/thumbnail-default.jpg' }"
                                             alt="${response.product.title}">
@@ -315,7 +322,7 @@
                                         </div>
                                         <div>
                                             <p class='text-[#353535] text-[16px] font-[jost] font-[500] text-center'>
-                                                <span x-text="qty"></span> x <span class='text-[#DC275C]' x-text="mFormat(Number(price))"></span>
+                                                <span x-text="qty"></span> x <span class='text-[#DC275C]' x-text="mFormat(Number(dis_price))"></span>
                                                 TAKA
                                             </p>
 

@@ -122,12 +122,12 @@
 
         <div class='my-[0px]'>
             <p class='text-[16px] max-sm:text-[14px] text-[#353535] font-[jost] font-[400] tracking-[.48px] my-[10px]'>To start a return,
-                you can contact us at info@lappyvalley.com. If your return is accepted, we’ll send you a return shipping
+                you can contact us at <a href="mailto:{{$other_setting->email}}" title="E-mail">{{$other_setting->email}}</a>. If your return is accepted, we’ll send you a return shipping
                 label, as well as instructions on how and where to send your package.
                 Items sent back to us without first requesting a return will not be accepted.
             </p>
             <p class='text-[16px] max-sm:text-[14px] text-[#353535] font-[jost] font-[400] tracking-[.48px] my-[10px]'>You can always
-                contact us for any return question at <span class="transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">info@lappyvalley.com</span>
+                contact us for any return question at <span class="transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4"><a href="mailto:{{$other_setting->email}}" title="E-mail">{{$other_setting->email}}</a></span>
             </p>
         </div>
     </div>

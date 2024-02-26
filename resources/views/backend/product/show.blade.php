@@ -143,7 +143,7 @@
                                     <table class="table">
                                         <tr>
                                             <td>RAM</td>
-                                            <td> : {{ $product->Ram?->name }}</td>
+                                            <td> : {{ $product->ram?->ram }} GB</td>
                                         </tr>
                                         <tr>
                                             <td>Memory Type</td>
@@ -171,7 +171,7 @@
 
                                 {{-- Storage attributes  --}}
                                 <div class="order-info">
-                                    <h4 class="pb-4 text-center">Memory Attributes</h4>
+                                    <h4 class="pb-4 text-center">Storage Attributes</h4>
                                     <table class="table">
                                         <tr>
                                             <td>Storage</td>
