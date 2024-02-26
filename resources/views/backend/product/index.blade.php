@@ -57,7 +57,6 @@
                             </tr>
                         </tfoot>
                         <tbody>
-
                             @foreach ($products as $product)
                                 <tr>
                                     <td>{{ $loop->index + 1 }}</td>
