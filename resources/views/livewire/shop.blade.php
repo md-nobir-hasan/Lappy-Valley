@@ -1124,6 +1124,9 @@
                                                     class="text-[14px] bg-[#ef4a23] text-[#fff] absolute top-0 left-[-5px] px-2 py-[2px] rounded-r-lg">Out
                                                     Of Stock</span>
                                             </template>
+                                            <span class="text-[14px] text-[#fff] bg-[#ef4a23] absolute top-0 right-[-5px] px-2 py-[2px] rounded-l-lg">
+                                                -10%
+                                            </span>
                                         </div>
 
                                         <div class="p-4 max-sm:p-[8px] border-t-[1px] border-[#380D3733]">
