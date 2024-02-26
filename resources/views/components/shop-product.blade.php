@@ -24,9 +24,11 @@
             Out Of Stock
         </span>
         @endif
+        @if ($product->discount)
         <span class="text-[14px] text-[#fff] bg-[#ef4a23] absolute top-0 right-[-5px] px-2 py-[2px] rounded-l-lg">
-            -10%
+            -{{$product->discount}}%
         </span>
+        @endif
      </div>
      {{-- @else
              <img src="{{ asset('backend/img/thumbnail-default.jpg') }}" class="rounded-t-lg img-fluid "

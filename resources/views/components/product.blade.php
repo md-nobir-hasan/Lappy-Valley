@@ -18,9 +18,12 @@
                 Out Of Stock
             </span>
         @endif
+        @if ($product->discount)
         <span class="text-[14px] text-[#fff] bg-[#ef4a23] absolute top-[-8px] right-[-8px] px-2 py-[2px] rounded-l-lg">
-            -10%
+           -{{$product->discount}}%
         </span>
+        @endif
+
     </div>
     <div>
         <a href="{{ route('product.details', [$product->slug]) }}" wire:navigate>
