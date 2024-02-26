@@ -288,6 +288,9 @@
                                             class="text-[14px] bg-[#ef4a23] text-[#fff] absolute top-[-8px] left-[-8px] px-2 py-[2px] rounded-r-lg">Out
                                             Of Stock</span>
                                     @endif
+                                    <span class="text-[14px] text-[#fff] bg-[#ef4a23] absolute top-[-8px] right-[-8px] px-2 py-[2px] rounded-l-lg">
+                                        -10%
+                                    </span>
                                 </div>
                                 <div>
                                     <a @click.stop='redirect("{{ route('product.details', [$f_product->slug]) }}")'
@@ -344,6 +347,9 @@
                                             class="text-[14px] bg-[#ef4a23] text-[#fff] absolute top-[-8px] left-[-8px] px-2 py-[2px] rounded-r-lg">
                                             Out Of Stock</span>
                                     @endif
+                                    <span class="text-[14px] text-[#fff] bg-[#ef4a23] absolute top-[-8px] right-[-8px] px-2 py-[2px] rounded-l-lg">
+                                        -10%
+                                    </span>
                                 </div>
                                 <div class="">
                                     <a @click.stop='redirect("{{ route('product.details', [$a_product->slug]) }}")'

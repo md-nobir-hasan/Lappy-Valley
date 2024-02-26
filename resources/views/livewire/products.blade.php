@@ -17,6 +17,9 @@
             {{-- <img class="object-center pimg" src="{{$product->photo}}" alt=""> --}}
         </a>
             <span class="text-[14px] bg-[#ef4a23] text-[#fff] absolute top-[-8px] left-[-8px] px-2 py-[2px] rounded-r-lg">Out Of Stock</span>
+            <span class="text-[14px] text-[#fff] bg-[#ef4a23] absolute top-[-8px] right-[-8px] px-2 py-[2px] rounded-l-lg">
+                -10%
+            </span>
         <div>
             <div
                 class="w-[221px] mx-auto max-sm:mb-[10px] max-md:mb-[10px] max-md:gap-[8px] flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
