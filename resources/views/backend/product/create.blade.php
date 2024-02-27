@@ -28,7 +28,7 @@
 
                     <div class="form-group">
                         <label for="mpn" class="col-form-label">Manufacture Name</label>
-                        <input id="mpn" type="text" name="mpn" placeholder="Exp:- Enter mpn"
+                        <input id="mpn" type="text" name="mpn" placeholder="Exp:- Enter Manufacture Name"
                             value="{{ old('mpn') }}" class="form-control">
                         @error('mpn')
                             <span class="text-danger">{{ $message }}</span>

@@ -367,7 +367,7 @@
                     <div class="flex justify-between p-[12px]">
                         <span class='text-[#380D37] font-[jost] font-[500] text-[12px] leading-[25.23px] '
                             for="text">Processor
-                            Models</span>
+                            Types</span>
                         <img src="/storage/product/down-arrow.svg" @click="toggle()" :class="{ 'rotate-180': !open }"
                             class="text-[#000000] text-[14px] cursor-pointer w-[20px]" aria-hidden="true">
                     </div>
