@@ -173,6 +173,10 @@ class Helper{
     public static function shipping(){
         return Shipping::orderBy('id','DESC')->get();
     }
+
+    public static function commaRemove($with_comma){
+        return ((float)str_replace(',','',$with_comma));
+    }
 }
 
 ?>

@@ -50,7 +50,7 @@
                         <tr>
                             <td>{{ $product->title }}</td>
                             <td>{{ $product->stock }}</td>
-                            <td>৳{{ number_format($product->price, 2) }}</td>
+                            <td>৳{{ $product->price }}</td>
                             <td>{{ $product->discount }}%</td>
                             <td>৳{{ $product->final_price }}</td>
                             <td>৳{{ $product->inventory_cost }}</td>

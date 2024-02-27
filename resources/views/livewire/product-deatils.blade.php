@@ -152,12 +152,10 @@
                                 <input type="radio" name="payment_process" value="installment"
                                     wire:model="payment_process" class="w-[20px] accent-[#380D37]">
                             </div>
-
-
                             <div class="flex flex-col py-3 cursor-pointer">
                                 <span>
                                     <span
-                                        class="max-lg:text-[18px] text-[20px] text-[#353535] font-[jost] font-[700]">{{ number_format($product->price / $month, 2) }}৳/month
+                                        class="max-lg:text-[18px] text-[20px] text-[#353535] font-[jost] font-[700]">{{ Helper::commaRemove($product->price)/ $month, 2 }}৳/month
                                     </span>
                                     <span>({{ $month }} months)</span>
                                 </span>
@@ -1210,7 +1208,7 @@
                                 <p
                                     class="text-[#DC275C] text-[16px] max-lg:text-[14px] font-[jost] font-[700] my-[10px]">
                                     <a>
-                                        <span>{{ number_format($rp->price) }}</span>
+                                        <span>{{ $rp->price }}</span>
                                         ৳
                                     </a>
                                 </p>

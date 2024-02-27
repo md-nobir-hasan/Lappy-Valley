@@ -34,7 +34,7 @@ class CreateProductsTable extends Migration
             $table->text('photo');
             $table->string('final_price');
             $table->float('discount')->default(0);
-            $table->unsignedBigInteger('inventory_cost')->default(0);
+            $table->string('inventory_cost');
             $table->text('model')->nullable();
             $table->string('mpn')->nullable();
             $table->text('summary')->nullable();
