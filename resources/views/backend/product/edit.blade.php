@@ -38,7 +38,7 @@
 
                     <div class="form-group">
                         <label for="price" class="col-form-label">Price(BDT)<span class="text-danger">*</span> </label>
-                        <input id="price" type="number" name="price" placeholder="Exp:- Enter price" step="1"
+                        <input id="price" type="text" name="price" placeholder="Exp:- Enter price" step="1"
                             value="{{ $product->price }}" class="form-control">
                         @error('price')
                             <span class="text-danger">{{ $message }}</span>
@@ -57,7 +57,7 @@
                     <div class="form-group" id="final_price_div">
                         <label for="final_price" class="col-form-label">Final Price(tk)<span
                                 class="text-danger">*</span></label>
-                        <input id="final_price" type="number" name="final_price" min="0" max="500000"
+                        <input id="final_price" type="text" name="final_price" min="0" max="500000"
                             placeholder="Exp:- Enter Final Price" value="{{ $product->final_price }}" class="form-control">
                         @error('final_price')
                             <span class="text-danger">{{ $message }}</span>
@@ -66,7 +66,7 @@
 
                     <div class="form-group">
                         <label for="inventory_cost" class="col-form-label">Inventory Cost</label>
-                        <input id="inventory_cost" type="number" name="inventory_cost" min="0" max="1000000"
+                        <input id="inventory_cost" type="text" name="inventory_cost" min="0" max="1000000"
                             placeholder="Exp:- Enter Inventory Cost" value="{{ $product->inventory_cost }}"
                             class="form-control">
                         @error('inventory_cost')
@@ -1065,9 +1065,10 @@
             $('#final_price_div').hide();
 
             $('#price').on('keyup', function() {
-                // let price = Number(this.val);
-                let price = Number($('#price').val()) ?? 0;
-                let discount = Number($('#discount').val()) ?? 0;
+                let price_with_comma = $('#price').val() ? $('#price').val() : '0';
+                let discount = $('#discount').val() ? $('#discount').val() : 0;
+
+                let price = parseInt(price_with_comma.replace(/,/g, ''));
                 let final_price = price - Math.round(price * discount / 100);
                 console.log(price, discount, final_price);
 
@@ -1076,9 +1077,10 @@
             });
 
             $('#discount').on('keyup', function() {
-                // let price = Number(this.val);
-                let price = Number($('#price').val()) ?? 0;
-                let discount = Number($('#discount').val()) ?? 0;
+                let price_with_comma = $('#price').val() ? $('#price').val() : '0';
+                let discount = $('#discount').val() ? $('#discount').val() : 0;
+
+                let price = parseInt(price_with_comma.replace(/,/g, ''));
                 let final_price = price - Math.round(price * discount / 100);
                 console.log(price, discount, final_price);
 

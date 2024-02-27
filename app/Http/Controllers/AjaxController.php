@@ -50,10 +50,7 @@ class AjaxController extends Controller
             }
             $cart->ip = request()->ip();
             $cart->product_id = $product->id;
-            $cart->price = $product->final_price;
             $cart->quantity = 1;
-            $cart->amount = $product->final_price;
-            $cart->inventory_cost = $product->inventory_cost;
             $cart->save();
             $fetch_cart = Cart::with('product')->find($cart->id);
             if (auth()->user()) {

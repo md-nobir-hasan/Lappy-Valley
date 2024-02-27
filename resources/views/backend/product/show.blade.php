@@ -89,6 +89,10 @@
 
                                     <table class="table">
                                         <tr class="">
+                                            <td>Slug</td>
+                                            <td> : {{ $product->slug }}</td>
+                                        </tr>
+                                        <tr class="">
                                             <td>Model</td>
                                             <td> : {{ $product->model }}</td>
                                         </tr>
