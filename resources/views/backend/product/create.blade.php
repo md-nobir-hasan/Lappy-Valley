@@ -56,7 +56,7 @@
                     <div class="form-group" id="final_price_div">
                         <label for="final_price" class="col-form-label">Final Price(tk)<span
                                 class="text-danger">*</span></label>
-                        <input id="final_price" type="number" name="final_price" min="0" max="500000"
+                        <input id="final_price" type="text" name="final_price" min="0" max="500000"
                             placeholder="Exp:- Enter Final Price" value="{{ old('final_price') }}" class="form-control">
                         @error('final_price')
                             <span class="text-danger">{{ $message }}</span>
@@ -586,7 +586,7 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
-                        
+
                         {{-- Backlight  --}}
                         <div class="form-group">
                             <label for="k_backlight">Backlight</label><br>
@@ -1058,34 +1058,29 @@
             let show = false;
             $('#upcomming_toggler').on('click', function() {
                 $('#div_lunch_date').toggle();
-                //  show = true;
-
             });
+
             $('#isOfferToggler').on('click', function() {
                 $('#div_product_offer').toggle();
-                //  show = true;
-
             });
 
             $('#final_price_div').hide();
-
             $('#price').on('keyup', function() {
-                // let price = Number(this.val);
-                let price = Number($('#price').val()) ?? 0;
-                let discount = Number($('#discount').val()) ?? 0;
+                let price_with_comma = $('#price').val() ? $('#price').val() : '0';
+                let discount = $('#discount').val() ? $('#discount').val() : 0;
+
+                let price = parseInt(price_with_comma.replace(/,/g, ''));
                 let final_price = price - Math.round(price * discount / 100);
-                console.log(price, discount, final_price);
 
                 $('#final_price').val(final_price);
                 $('#final_price_div').show();
             });
 
             $('#discount').on('keyup', function() {
-                // let price = Number(this.val);
-                let price = Number($('#price').val()) ?? 0;
-                let discount = Number($('#discount').val()) ?? 0;
+                let price_with_comma = $('#price').val() ? $('#price').val() : '0';
+                let discount = $('#discount').val() ? $('#discount').val() : 0;
+                let price = parseInt(price_with_comma.replace(/,/g, ''));
                 let final_price = price - Math.round(price * discount / 100);
-                console.log(price, discount, final_price);
 
                 $('#final_price').val(final_price);
                 $('#final_price_div').show();
