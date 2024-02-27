@@ -77,8 +77,6 @@ class AjaxController extends Controller
 
         $cart->update([
             'quantity' => $qty,
-            'amount' => $amount,
-            'inventory_cost' => $inventory_cost,
         ]);
         return response()->json($cart);
     }
@@ -95,8 +93,6 @@ class AjaxController extends Controller
 
         $cart->update([
             'quantity' => $qty,
-            'amount' => $amount,
-            'inventory_cost' => $inventory_cost,
         ]);
         return response()->json($cart);
     }

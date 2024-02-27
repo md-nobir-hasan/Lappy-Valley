@@ -172,8 +172,8 @@
                         <template x-for='cart in carts' :key='cart.id'>
                             <tr class="items-center bg-white" x-data="{
                                 qty: cart.quantity,
-                                price: cart.product.price.replace(',',''),
-                                dis_price: cart.product.final_price,
+                                price: cart.product.price.replace(/,/g,''),
+                                dis_price: cart.product.final_price.replace(/,/g,''),
                                 amount: 0,
                                 dis_amount: 0,
                                 discount: 0,
@@ -356,7 +356,7 @@
 
                                 <td
                                     class="p-4 tracking-wide text-left text-[14px] whitespace-nowrap text-[#000000] font-[jost] font-[500]">
-                                    {{-- {{ number_format($cart->amount) }} --}} <span x-text='mFormat(price)'></span>
+                                    {{-- {{ number_format($cart->amount) }} --}} <span x-text='cart.product.price'></span>
                                     ৳
                                 </td>
                                 <td
