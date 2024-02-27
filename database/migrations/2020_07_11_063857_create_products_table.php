@@ -30,9 +30,9 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('slug')->unique();
             $table->string('title');
-            $table->unsignedBigInteger('price');
+            $table->string('price');
             $table->text('photo');
-            $table->unsignedBigInteger('final_price');
+            $table->string('final_price');
             $table->float('discount')->default(0);
             $table->unsignedBigInteger('inventory_cost')->default(0);
             $table->text('model')->nullable();
