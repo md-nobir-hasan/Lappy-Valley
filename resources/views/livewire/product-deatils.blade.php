@@ -243,11 +243,20 @@
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[400] pl-[20px]">
-                                Processor Model:
+                                Processor Type:
                             </td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
                                 {{ $product->ProcessorModel?->name }}</td>
+                        </tr>
+                        <tr class="border-[#764A8733] border-b-[2px]">
+                            <td
+                                class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[400] pl-[20px]">
+                                Generation:
+                            </td>
+                            <td
+                                class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
+                                {{ $product->ProcessorGeneration?->name }}</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td
