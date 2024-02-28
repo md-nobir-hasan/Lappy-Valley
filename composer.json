@@ -47,7 +47,7 @@
             "database/factories"
         ],
         "files":[
-            "app/Http/Helpers.php"
+            "app/Http/Helper.php"
         ]
     },
     "scripts": {

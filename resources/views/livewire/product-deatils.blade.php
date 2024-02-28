@@ -83,7 +83,7 @@
                 </li>
                 <li class=" text-[16px] max-lg:text-[14px] text-[#353535] font-[jost] font-[400]">
 
-                    RAM: {{ $product->ram->ram }} GB, Storage: {{ $product->storage() }}
+                    RAM: {{ $product->ram?->ram }} GB, Storage: {{ $product->storage() }}
                 </li>
                 <li class=" text-[16px] max-lg:text-[14px] text-[rgb(53,53,53)] font-[jost] font-[400]">
                     Display:
@@ -155,7 +155,7 @@
                             <div class="flex flex-col py-3 cursor-pointer">
                                 <span>
                                     <span
-                                        class="max-lg:text-[18px] text-[20px] text-[#353535] font-[jost] font-[700]">{{ Helper::commaRemove($product->price)/ $month, 2 }}৳/month
+                                        class="max-lg:text-[18px] text-[20px] text-[#353535] font-[jost] font-[700]">{{ App\Http\Helper::commaRemove($product->price)/ $month, 2 }}৳/month
                                     </span>
                                     <span>({{ $month }} months)</span>
                                 </span>
@@ -372,7 +372,7 @@
                                 RAM:</td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->ram->ram }}GB
+                                {{ $product->ram?->ram }}GB
                             </td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">

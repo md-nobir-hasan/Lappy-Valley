@@ -1062,7 +1062,7 @@
 
             });
 
-            $('#final_price_div').hide();
+            // $('#final_price_div').hide();
 
             $('#price').on('keyup', function() {
                 let price_with_comma = $('#price').val() ? $('#price').val() : '0';
@@ -1073,7 +1073,7 @@
                 console.log(price, discount, final_price);
 
                 $('#final_price').val(final_price);
-                $('#final_price_div').show();
+                // $('#final_price_div').show();
             });
 
             $('#discount').on('keyup', function() {
@@ -1085,7 +1085,7 @@
                 console.log(price, discount, final_price);
 
                 $('#final_price').val(final_price);
-                $('#final_price_div').show();
+                // $('#final_price_div').show();
             });
 
             $('#cat_id').change(function() {

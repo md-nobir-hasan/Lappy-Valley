@@ -10,9 +10,9 @@
         </script>
     @endif
      <form wire:submit='orderSubmit' x-data="{
-         total: {{ $product->final_price }},
+         total: {{ App\Http\Helper::commaRemove($product->final_price) }},
          shipping_price: 0,
-         sub_total: {{ $product->final_price }},
+         sub_total: {{ App\Http\Helper::commaRemove($product->final_price) }},
          shipChange(price) {
              this.total -= this.shipping_price;
              this.total += price;

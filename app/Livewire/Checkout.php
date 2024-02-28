@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Http\Helper;
 use App\Mail\OrderMail;
 use App\Mail\OrderMailToAdmin;
 use App\Models\Cart;
@@ -115,9 +116,9 @@ class Checkout extends Component
 
         if ($c_id = Session::get('coupon_id')) {
             $coupon = Coupon::find($c_id);
-            $order_data['sub_total'] = $carts->sum('amount') - $coupon->discount($carts->sum('amount'));
+            $order_data['sub_total'] = Helper::cartTotal($carts) - $coupon->discount(Helper::cartSubTotal($carts));
         } else {
-            $order_data['sub_total'] = $carts->sum('amount');
+            $order_data['sub_total'] = Helper::cartTotal($carts);
         }
 
         $shipngs = Shipping::find($this->shipping_id);
@@ -167,7 +168,7 @@ class Checkout extends Component
         if ($coupon_id = Session::get('coupon_id')) {
             $n['coupon'] = Coupon::find($coupon_id);
         } else {
-            $n['coupon'] = 0;
+            $n['coupon'] = new Coupon();
         }
         if ($user = Auth()->user()) {
             $n['carts'] = Cart::with(['product'])->where('user_id', $user->id)->where('order_id', null)->latest()->get();

@@ -5,8 +5,8 @@
     @endphp
     @foreach ($carts as $cart)
         @php
-            $price_sum += Helper::commaRemove($cart->product->price);
-            $final_price_sum += Helper::commaRemove($cart->product->final_price);
+            $price_sum += App\Http\Helper::commaRemove($cart->product->price);
+            $final_price_sum += App\Http\Helper::commaRemove($cart->product->final_price);
         @endphp
     @endforeach
     <div x-data="{

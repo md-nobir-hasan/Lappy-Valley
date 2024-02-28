@@ -1,4 +1,5 @@
 <?php
+namespace App\Http;
 use App\Models\Message;
 use App\Models\Category;
 use App\Models\PostTag;
@@ -176,6 +177,30 @@ class Helper{
 
     public static function commaRemove($with_comma){
         return ((float)str_replace(',','',$with_comma));
+    }
+    public static function cartSubTotal($carts){
+        $price_sum = 0;
+        foreach($carts as $cart){
+            $price_sum += self::commaRemove($cart->product->price) * $cart->quantity;
+        }
+        return $price_sum;
+    }
+    public static function cartTotal($carts){
+        $final_price_sum = 0;
+        foreach($carts as $cart){
+            $final_price_sum += self::commaRemove($cart->product->final_price) * $cart->quantity;
+        }
+        return $final_price_sum;
+    }
+
+    public static function cartDisAmount($carts){
+        $price_sum = 0;
+        $final_price_sum = 0;
+        foreach($carts as $cart){
+            $price_sum += self::commaRemove($cart->product->price) * $cart->quantity;
+            $final_price_sum += self::commaRemove($cart->product->final_price) * $cart->quantity;
+        }
+        return  ($price_sum - $final_price_sum);
     }
 }
 

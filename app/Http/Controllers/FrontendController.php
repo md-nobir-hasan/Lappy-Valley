@@ -86,8 +86,8 @@ class FrontendController extends Controller
         if(!empty($_GET['price'])){
             $price=explode('-',$_GET['price']);
             // return $price;
-            // if(isset($price[0]) && is_numeric($price[0])) $price[0]=floor(Helper::base_amount($price[0]));
-            // if(isset($price[1]) && is_numeric($price[1])) $price[1]=ceil(Helper::base_amount($price[1]));
+            // if(isset($price[0]) && is_numeric($price[0])) $price[0]=floor(App\Http\Helper::::base_amount($price[0]));
+            // if(isset($price[1]) && is_numeric($price[1])) $price[1]=ceil(App\Http\Helper::::base_amount($price[1]));
 
             $products->whereBetween('price',$price);
         }
@@ -134,8 +134,8 @@ class FrontendController extends Controller
         if(!empty($_GET['price'])){
             $price=explode('-',$_GET['price']);
             // return $price;
-            // if(isset($price[0]) && is_numeric($price[0])) $price[0]=floor(Helper::base_amount($price[0]));
-            // if(isset($price[1]) && is_numeric($price[1])) $price[1]=ceil(Helper::base_amount($price[1]));
+            // if(isset($price[0]) && is_numeric($price[0])) $price[0]=floor(App\Http\Helper::::base_amount($price[0]));
+            // if(isset($price[1]) && is_numeric($price[1])) $price[1]=ceil(App\Http\Helper::::base_amount($price[1]));
 
             $products->whereBetween('price',$price);
         }

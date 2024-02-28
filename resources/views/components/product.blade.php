@@ -37,7 +37,7 @@
     <div class="flex justify-between items-end text-[14px] mt-auto font-[jost] font-[700] leading-[20.23px]">
         <div class="flex flex-col">
             <span class="pprice text-[#DC275C]"
-                value='{{ Helper::commaRemove($product->final_price) }}'>{{ $product->final_price }} ৳
+                value='{{ App\Http\Helper::commaRemove($product->final_price) }}'>{{ $product->final_price }} ৳
             </span>
             <span class="text-[#380D37] text-[14px] font-[jost] font-[700] line-through">
                 {{ $product->price }} ৳
