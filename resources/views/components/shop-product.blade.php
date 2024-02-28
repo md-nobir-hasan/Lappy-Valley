@@ -1,18 +1,12 @@
  <div
      class="relative overflow-hidden border-[1px] border-[#380D37] rounded-[4px] box-border px-[5px] mt-2 flex flex-col bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] ">
-     {{-- <a href="#"> --}}
-     {{-- <img class="object-center"
-         src="{{$product->photo}}"
-         alt="{{$product->title}}"> --}}
      @if ($product->photo)
          @php
              $photo = explode(',', $product->photo)[0];
-             // dd($photo);
          @endphp
      @else
          @php
              $photo = '/backend/img/thumbnail-default.jpg';
-             // dd($photo);
          @endphp
      @endif
      <div class="flex items-center justify-center image-container relative">
