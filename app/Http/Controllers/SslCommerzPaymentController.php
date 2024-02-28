@@ -235,7 +235,7 @@ class SslCommerzPaymentController extends Controller
             'fas' => 'fa-file-alt'
         ];
         Notification::send($users, new StatusNotification($details));
-        
+
         // send mail to user
         $mail_content['view'] = 'mail.order-mail-to-user';
         Mail::to($user->email)->send(new OrderMail($mail_content));
@@ -277,9 +277,11 @@ class SslCommerzPaymentController extends Controller
                 ->update(['status' => 'Canceled']);
             echo "Transaction is Cancel";
         } else if ($order_details->status == 'Processing' || $order_details->status == 'Complete') {
-            echo "Transaction is already Successful";
+            request()->flash('success','"Transaction is already Successful"');
+            return to_route('account');
         } else {
-            echo "Transaction is Invalid";
+            request()->flash('error','Transaction is Invalid');
+            return to_route('home');
         }
 
 
