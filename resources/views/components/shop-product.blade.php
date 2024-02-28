@@ -55,7 +55,7 @@
      <div class="px-6 py-6 mt-auto text-center border-t-[2px] border-[#380D3733]">
          <div class="flex flex-col justify-center">
              <span href="#" class="font-[jost] text-[12px] font-[700] leading-[24px] text-[#DC275C] flex justify-center items-center">
-                 {{ number_format($product->final_price) }}
+                 {{ $product->final_price }}
                  <span class="text-[12px] font-[jost] font-[700]">৳</span>
              </span>
              <span class="text-[#380D37] text-[12px] font-[jost] font-[700] line-through">

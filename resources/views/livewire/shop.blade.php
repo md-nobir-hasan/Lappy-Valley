@@ -354,7 +354,6 @@
                                         type="checkbox" x-model='brands' @change='productFetch'>
                                     <label for="brand{{ $brand->id }}"
                                         class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>{{ $brand->title }}
-
                                     </label>
                                 </span>
                             @endforeach
@@ -1125,7 +1124,8 @@
                                                     Of Stock</span>
                                             </template>
                                             <template x-if='product.discount > 0'>
-                                                <span class="text-[14px] text-[#fff] bg-[#ef4a23] absolute top-0 right-[-5px] px-2 py-[2px] rounded-l-lg">
+                                                <span
+                                                    class="text-[14px] text-[#fff] bg-[#ef4a23] absolute top-0 right-[-5px] px-2 py-[2px] rounded-l-lg">
                                                     -<span x-text='product.discount'></span>%
                                                 </span>
                                             </template>
