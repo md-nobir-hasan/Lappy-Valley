@@ -202,6 +202,13 @@ class Helper{
         }
         return  ($price_sum - $final_price_sum);
     }
+    public static function TotalInventoryCostFromCart($carts){
+        $inventory_cost = 0;
+        foreach($carts as $cart){
+            $inventory_cost += self::commaRemove($cart->product->inventory_cost) * $cart->quantity;
+        }
+        return  $inventory_cost;
+    }
 }
 
 ?>

@@ -126,7 +126,7 @@ class Checkout extends Component
         $order_data['amount'] = $installment1;
         $order_data['payable'] = $installment1;
         $order_data['installment_count'] = 1;
-        $order_data['inventory_cost'] = $carts->sum('inventory_cost');
+        $order_data['inventory_cost'] = Helper::TotalInventoryCostFromCart($carts);
         $order_data['quantity'] = $carts->sum('quantity');
         $order_data['status'] = "Pending";
         $order_data['payment_status'] = 'Unpaid';
@@ -157,7 +157,12 @@ class Checkout extends Component
         Mail::to($user->email)->send(new OrderMail($mail_content));
 
         foreach ($carts as $cart) {
-            $cart->update(['order_id' => $order->id]);
+            $cart->update([
+                'order_id' => $order->id,
+                'price' => $cart->product->final_price,
+                'amount' => $cart->product->final_price * $cart->quantity,
+                'inventory_cost' => $cart->product->inventory_cost,
+            ]);
         }
         request()->session()->flash('success', 'Your Order successfully placed in order');
         return $this->redirect(route('order.receive', [$order->order_number]));
