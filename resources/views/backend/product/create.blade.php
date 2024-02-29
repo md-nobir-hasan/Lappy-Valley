@@ -573,9 +573,9 @@
                     </div>
                 </div>
 
-                {{-- ========== Keyboard Attributes  --}}
+                {{-- ========== Keyboard and Touchpad Attributes  --}}
                 <div class="mt-4">
-                    <h4>Keyboard Attributes</h4>
+                    <h4>Keyboard & Touchpad Attributes</h4>
                     <div class="ml-3">
                         {{-- k_type  --}}
                         <div class="form-group">
@@ -594,6 +594,17 @@
                                 value='1'>
                             <label for="k_backlight">Yes</label>
                             @error('k_backlight')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        {{-- Touchpad  --}}
+                        <div class="form-group">
+                            <label for="touchpad">Touchpad</label><br>
+                            <input type="checkbox" name='touchpad' @checked(old('backlight')) id='touchpad'
+                                value='1'>
+                            <label for="touchpad">Yes</label>
+                            @error('touchpad')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>

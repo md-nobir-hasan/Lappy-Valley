@@ -2,7 +2,9 @@
     class="px-[100px] max-2xl:px-[70px] max-xl:px-[60px] max-lg:px-[38px] max-md:px-[35px] max-sm:px-[15px] max-sm:mt-[70px] max-xl:mt-[100px]">
     <div>
         <h1 class='font-[jost] max-lg:text-[18px] text-[20px] font-[400] leading-[25.3px] text-[#353535]'>
-            <a href="{{route('home')}}" wire:navigate>Home</a>/{{ $product->cat_info?->title }}/{{ $product->brand?->title }}/{{ $product->title }}</h1>
+            <a href="{{ route('home') }}"
+                wire:navigate>Home</a>/{{ $product->cat_info?->title }}/{{ $product->brand?->title }}/{{ $product->title }}
+        </h1>
         <div class='h-1 bg-[#764A8733]'></div>
     </div>
     <!-- -----------key-Feature -section----- -->
@@ -19,13 +21,16 @@
                 @endphp
             @endif
             <div
-                class="overflow-hidden h-[450px] w-[440px] max-md:w-full max-lg:w-[340px] mx-auto max-md:flex justify-center items-center">
+                class="relative overflow-hidden h-[450px] w-[440px] max-md:w-full max-lg:w-[340px] mx-auto max-md:flex justify-center items-center">
                 <div class="flex items-center w-[432px] max-lg:w-[350px] max-md:w-[432px] justify-center transition duration-50 ease-in-out hover:scale-125 overflow-hidden"
                     id="imageContainer">
                     <img id="hoverImage"
                         class="object-center w-[600] max-lg:w-[400px] transition duration-50 ease-in-out hover:scale-125 overflow-hidden"
                         src="{{ $photo }}" alt="{{ $product->title }}">
                 </div>
+                <span class="text-[14px] text-[#fff] bg-[#ef4a23] absolute top-0 right-[-5px] px-2 py-[2px] rounded-l-lg">
+                    -20%
+                </span>
             </div>
 
 
@@ -95,6 +100,12 @@
                     <span>{{ $product->price }}</span> TK
                 </li>
                 <li class="max-lg:text-[18px] text-[20px] text-[#353535] font-[jost] font-[500] mt-[16px]">
+                    Discount:
+                </li>
+                <li class="max-lg:text-[18px] text-[20px] text-[#DC275C] font-[jost] font-[700]">
+                    {{ $product->discount }}%
+                </li>
+                <li class="max-lg:text-[18px] text-[20px] text-[#353535] font-[jost] font-[500] mt-[16px]">
                     Discounted Price:
                 </li>
                 <li class="max-lg:text-[18px] text-[20px] text-[#DC275C] font-[jost] font-[700]">
@@ -152,7 +163,7 @@
                             <div class="flex flex-col py-3 cursor-pointer">
                                 <span>
                                     <span
-                                        class="max-lg:text-[18px] text-[20px] text-[#353535] font-[jost] font-[700]">{{ App\Http\Helper::commaRemove($product->price)/ $month, 2 }}৳/month
+                                        class="max-lg:text-[18px] text-[20px] text-[#353535] font-[jost] font-[700]">{{ App\Http\Helper::commaRemove($product->price) / $month, 2 }}৳/month
                                     </span>
                                     <span>({{ $month }} months)</span>
                                 </span>
@@ -169,23 +180,23 @@
                 </div>
                 <div class="flex gap-[30px]">
                     @if ($product->stock > 0)
-                            <button wire:click='checkout("{{$product->slug}}")'
-                                class="fill-up-btn text-[#f2f2f2] bg-gradient-to-r from-[#380D37] to-[#DC275C] max-lg:text-[18px] max-sm:text-[16px] text-[20px] py-[12px] max-lg:py-[14px] px-[40px] max-lg:px-[30px] max-md:px-[30px] font-[jost] font-[700] mt-auto rounded-[5px]">
-                                BUY NOW
-                            </button>
+                        <button wire:click='checkout("{{ $product->slug }}")'
+                            class="fill-up-btn text-[#f2f2f2] bg-gradient-to-r from-[#380D37] to-[#DC275C] max-lg:text-[18px] max-sm:text-[16px] text-[20px] py-[12px] max-lg:py-[14px] px-[40px] max-lg:px-[30px] max-md:px-[30px] font-[jost] font-[700] mt-auto rounded-[5px]">
+                            BUY NOW
+                        </button>
                         <button id="{{ $product->id }}"
                             class="add-to-cart fill-up-btn text-[#f2f2f2] bg-gradient-to-r from-[#380D37] to-[#DC275C] max-lg:text-[18px] max-sm:text-[16px] text-[20px] py-[12px] max-lg:py-[14px] px-[40px] max-lg:px-[30px] max-md:px-[30px] font-[jost] font-[700] mt-auto rounded-[5px]">
                             Add To Cart</button>
                     @else
-                    {{-- Mora buttons  --}}
-                    <a>
+                        {{-- Mora buttons  --}}
+                        <a>
+                            <button disabled
+                                class="cursor-not-allowed text-[#f2f2f2] bg-[#b6b5b5] max-lg:text-[18px] max-sm:text-[16px] text-[20px] py-[12px] max-lg:py-[14px] px-[40px] max-lg:px-[30px] max-md:px-[30px] font-[jost] font-[700] mt-auto rounded-[5px]">
+                                BUY NOW</button>
+                        </a>
                         <button disabled
-                            class="cursor-not-allowed text-[#f2f2f2] bg-[#b6b5b5] max-lg:text-[18px] max-sm:text-[16px] text-[20px] py-[12px] max-lg:py-[14px] px-[40px] max-lg:px-[30px] max-md:px-[30px] font-[jost] font-[700] mt-auto rounded-[5px]">
-                            BUY NOW</button>
-                    </a>
-                    <button disabled
-                        class="cursor-not-allowed text-[#f2f2f2] bg-[#b6b5b5] max-lg:text-[18px] max-sm:text-[16px] text-[20px] py-[12px] max-lg:py-[14px] px-[40px] max-lg:px-[30px] max-md:px-[30px]  font-[jost] font-[700] mt-auto rounded-[5px]">
-                        Add To Cart</button>
+                            class="cursor-not-allowed text-[#f2f2f2] bg-[#b6b5b5] max-lg:text-[18px] max-sm:text-[16px] text-[20px] py-[12px] max-lg:py-[14px] px-[40px] max-lg:px-[30px] max-md:px-[30px]  font-[jost] font-[700] mt-auto rounded-[5px]">
+                            Add To Cart</button>
                     @endif
                 </div>
             </div>
@@ -211,7 +222,8 @@
     <!-- -----table--section---start----- -->
     <div class="grid grid-cols-4 gap-10 max-lg:grid-cols-1 max-lg:gap-0">
         <div class="col-span-3">
-            <section class="border-[2px] max-sm:border-[1px] border-[#380D37] max-sm:p-[5px] max-md:p-[8px] max-lg-[12px] p-[20px] rounded-[5px]"
+            <section
+                class="border-[2px] max-sm:border-[1px] border-[#380D37] max-sm:p-[5px] max-md:p-[8px] max-lg-[12px] p-[20px] rounded-[5px]"
                 id="specification">
                 <div class="text-[#353535] max-lg:text-[18px] text-[20px] font-[jost] font-[500]">
                     <h2>Specification</h2>
@@ -477,8 +489,7 @@
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[400] pl-[20px]">
                                 Storage Upgrade:
                             </td>
-                            <td
-                                class="text-[#353535] text-[16px] max-lg:text-[14px]  font-[jost] font-[500]">
+                            <td class="text-[#353535] text-[16px] max-lg:text-[14px]  font-[jost] font-[500]">
                                 {{ $product->s_upgrade }}
                             </td>
                         </tr>
@@ -532,7 +543,7 @@
 
                         <tr>
                             <td class="bg-[#380D37] text-[#f2f2f2] font-[jost] max-sm:text-[16px] font-[500] py-[10px] pl-[14px] rounded-[5px]"
-                                colspan="3">Keyboard & Touchpad:</td>
+                                colspan="3">Keyboard:</td>
                         </tr>
 
                         <tr class="border-[#764A8733] border-b-[2px]">
@@ -546,10 +557,10 @@
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[400] pl-[20px]">
-                                TouchPad:</td>
+                                Backlight:</td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->touchpad ? 'Yes' : 'NO' }}</td>
+                                {{ $product->k_backlight ? 'Yes' : 'NO' }}</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td
@@ -590,7 +601,7 @@
                                 Speaker:</td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->speaker ? $product->speaker  : 'NO' }}</td>
+                                {{ $product->speaker ? $product->speaker : 'NO' }}</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td
@@ -603,13 +614,11 @@
                         </tr>
 
                         <!-- -----------8th---part (Ports & Slots) ----- -->
-
+                        {{--
                         <tr>
                             <td class="bg-[#380D37] text-[#f2f2f2] font-[jost] max-sm:text-[16px] font-[500] py-[10px] pl-[14px] rounded-[5px]"
                                 colspan="3">Ports & Slots:</td>
                         </tr>
-
-
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[400] pl-[20px]">
@@ -656,8 +665,7 @@
                                 USB
                                 Type-C /<br />
                                 Thunderbolt Port:</td>
-                            <td
-                                class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
+                            <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
                                 {{ $product->type_c_tb_p ?? 'NO' }}</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
@@ -665,8 +673,7 @@
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[400] max-sm:translate-y-[-2px] pl-[20px] leading-[20px]">
                                 Headphone &<br /> Microphone
                                 Port:</td>
-                            <td
-                                class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
+                            <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
                                 {{ $product->headphone_p }}/
                                 {{ $product->microphone_p }}</td>
                         </tr>
@@ -678,7 +685,7 @@
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
                                 {{ $product->ps_other }}</td>
-                        </tr>
+                        </tr> --}}
 
                         <!-- ---------------9th--part (Network & Connectivity) ------ -->
 
@@ -868,8 +875,7 @@
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[400] pl-[20px]">
                                 Warranty Details
                             </td>
-                            <td
-                                class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
+                            <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
                                 {{ $product->w_details }}
                             </td>
                         </tr>
@@ -1208,7 +1214,9 @@
                             </div>
                             <div class="col-span-3">
                                 <a href="{{ route('product.details', [$rp->slug]) }}">
-                                    <p class="text-[#000000] text-[14px] font-[jost] font-[400] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-1 hover:underline hover:underline-offset-4">{{ $rp->title }}
+                                    <p
+                                        class="text-[#000000] text-[14px] font-[jost] font-[400] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-1 hover:underline hover:underline-offset-4">
+                                        {{ $rp->title }}
                                     </p>
                                 </a>
                                 <p

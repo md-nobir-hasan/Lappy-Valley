@@ -1008,8 +1008,8 @@
                 <div class="form-group">
                     <label for="status" class="col-form-label">Status </label>
                     <select name="status" class="form-control">
-                        <option value="active">Active</option>
-                        <option value="inactive">Inactive</option>
+                        <option value="active" @selected($product->status == 'active')>Active</option>
+                        <option value="inactive"  @selected($product->status == 'inactive')>Inactive</option>
                     </select>
                     @error('status')
                         <span class="text-danger">{{ $message }}</span>

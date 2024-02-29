@@ -418,6 +418,10 @@
                                                     <td> : {{ $product->k_type }}</td>
                                                 </tr>
                                                 <tr>
+                                                    <td>Backlight</td>
+                                                    <td> : {{ $product->k_backlight ? 'Yes' : 'No' }}</td>
+                                                </tr>
+                                                <tr>
                                                     <td>Touchpad</td>
                                                     <td> : {{ $product->touchpad ? 'Yes' : 'No' }}</td>
                                                 </tr>
