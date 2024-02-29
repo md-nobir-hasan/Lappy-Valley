@@ -303,6 +303,18 @@
                                     <h4 class="pb-4 text-center">Warranty Attributes</h4>
                                     <table class="table">
                                         <tr>
+                                            <td>Replacement Warranty</td>
+                                            <td> : {{ $product->replacement_warranty }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Motherboard Warranty</td>
+                                            <td> : {{ $product->motherboard_warranty }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Service Warranty</td>
+                                            <td> : {{ $product->service_warranty }}</td>
+                                        </tr>
+                                        <tr>
                                             <td>Warranty Details</td>
                                             <td> : {{ $product->w_details }}</td>
                                         </tr>
