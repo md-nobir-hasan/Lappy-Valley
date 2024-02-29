@@ -76,20 +76,35 @@
                                 <span class="badge badge-warning">OUT OF STOCK</span>
                             @endif
                         @endif
-                    </span></li>
+                    </span>
+                </li>
                 <li class="max-lg:text-[18px] text-[20px] text-[#353535] font-[jost] font-[500]">Key Features:</li>
-                <li class="text-[16px] max-lg:text-[14px] text-[#353535] font-[jost] font-[400]">
-                    Manufacture: {{ $product->mpn }}
-                </li>
-                <li class=" text-[16px] max-lg:text-[14px] text-[#353535] font-[jost] font-[400]">
-                    Model: {{ $product->model }}
-                </li>
-                <li class=" text-[16px] max-lg:text-[14px] text-[#353535] font-[jost] font-[400]">
-                    Processor: {{ $product->ProcessorModel?->name }} @if($product->c_speed)({{ $product->c_speed }}) @endif
-                </li>
-                <li class=" text-[16px] max-lg:text-[14px] text-[#353535] font-[jost] font-[400]">
+                @if ($product->mpn)
+                    <li class="text-[16px] max-lg:text-[14px] text-[#353535] font-[jost] font-[400]">
+                        Manufacture: {{ $product->mpn }}
+                    </li>
+                @endif
+                @if ($product->model)
+                    <li class=" text-[16px] max-lg:text-[14px] text-[#353535] font-[jost] font-[400]">
+                        Model: {{ $product->model }}
+                    </li>
+                @endif
+                @if ($product->ProcessorModel?->name)
+                    <li class=" text-[16px] max-lg:text-[14px] text-[#353535] font-[jost] font-[400]">
 
-                    RAM: {{ $product->ram?->ram }} GB, Storage: {{ $product->storage() }}
+                        Processor: {{ $product->ProcessorModel?->name }} @if ($product->c_speed)
+                            ({{ $product->c_speed }})
+                        @endif
+                    </li>
+                @endif
+                <li class=" text-[16px] max-lg:text-[14px] text-[#353535] font-[jost] font-[400]">
+                    @if ($product->ram?->ram)
+                        RAM: {{ $product->ram?->ram }} GB,
+                    @endif
+
+                    @if ($product->storage())
+                        Storage: {{ $product->storage() }}
+                    @endif
                 </li>
                 <li class=" text-[16px] max-lg:text-[14px] text-[rgb(53,53,53)] font-[jost] font-[400]">
                     Display:
@@ -100,12 +115,14 @@
                 <li class=" max-lg:text-[18px] text-[20px] text-[#DC275C] font-[jost] font-[700] line-through">
                     <span>{{ $product->price }}</span> TK
                 </li>
-                <li class="max-lg:text-[18px] text-[20px] text-[#353535] font-[jost] font-[500] mt-[16px]">
-                    Discount:
-                </li>
-                <li class="max-lg:text-[18px] text-[20px] text-[#DC275C] font-[jost] font-[700]">
-                    {{ $product->discount }}%
-                </li>
+                @if ($product->discount)
+                    <li class="max-lg:text-[18px] text-[20px] text-[#353535] font-[jost] font-[500] mt-[16px]">
+                        Discount:
+                    </li>
+                    <li class="max-lg:text-[18px] text-[20px] text-[#DC275C] font-[jost] font-[700]">
+                        {{ $product->discount }}%
+                    </li>
+                @endif
                 <li class="max-lg:text-[18px] text-[20px] text-[#353535] font-[jost] font-[500] mt-[16px]">
                     Discounted Price:
                 </li>
@@ -885,7 +902,7 @@
                             <tr class="border-[#764A8733] border-b-[2px]">
                                 <td
                                     class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[400] pl-[20px]">
-                                   Motherboard Warranty
+                                    Motherboard Warranty
                                 </td>
                                 <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
                                     {{ $product->motherboard_warranty }}
@@ -897,7 +914,7 @@
                             <tr class="border-[#764A8733] border-b-[2px]">
                                 <td
                                     class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[400] pl-[20px]">
-                                   Service Warranty
+                                    Service Warranty
                                 </td>
                                 <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
                                     {{ $product->service_warranty }}
