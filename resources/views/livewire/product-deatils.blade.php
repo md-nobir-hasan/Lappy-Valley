@@ -29,7 +29,7 @@
                         src="{{ $photo }}" alt="{{ $product->title }}">
                 </div>
                 <span class="text-[14px] text-[#fff] bg-[#ef4a23] absolute top-0 right-[-5px] px-2 py-[2px] rounded-l-lg">
-                    -20%
+                  <span>-{{$product->discount}}%</span>
                 </span>
             </div>
 
