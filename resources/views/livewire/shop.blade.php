@@ -256,7 +256,7 @@
                     }
                 }
             }">
-            <!-- ------------right---part--start--- -->
+            {{-- right---part--start --}}
             <div class="col-span-1 max-xl:hidden">
                 <!-- ----price-range------ -->
                 <div class=" w-full bg-[#F2F2F2] flex flex-col gap-2 shadow-[0_2px_4px_rgba(0,0,0,.1)] pb-[10px]">
@@ -591,7 +591,6 @@
                 </div>
 
             </div>
-            {{-- <livewire:side-nav/> --}}
             <div class="col-span-4 max-xl:col-span-full">
                 <!-- Sidenav -->
                 <nav
@@ -1068,32 +1067,7 @@
                     <div
                         class='grid grid-cols-4 max-lg:grid-cols-3 max-sm:grid-cols-2 gap-8 max-sm:gap-[5px] mx-auto mt-4 product_pdiv'>
                         @foreach ($products as $product)
-                            <x-shop-product :product="$product">
-                                <div class='mt-2'>
-                                    <ul
-                                        class='text-[#353535] text-[10px] font-[jost] font-[400] list-decimal px-4 leading-[20px]'>
-                                        <li>Processor: {{ $product->ProcessorModel?->name }}
-                                            {{ $product->ProcessorModel?->c_speed }}</li>
-                                        {{-- <li>Processor: AMD Ryzen 5 7520U (2.8 GHz up to 4.3 GHz)</li> --}}
-                                        @if ($product->ram || $product->ssd)
-                                            <li>RAM: {{ $product->ram?->ram }} {{ $product->ram?->type }}
-                                                {{ $product->ram?->bus_speed }}, Storage: {{ $product->storage() }}
-                                            </li>
-                                            {{-- <li>RAM: 8GB DDR5 5500MHz, Storage: 256GB SSD</li> --}}
-                                        @endif
-                                        @if ($ds = $product->DisplaySize?->size)
-                                            <li>Display:
-                                                {{ $ds . '"' . $product->DisplayType?->name . ' (' . $product->d_resolution }})
-                                            </li>
-                                            {{-- <li>Display: 15.6" FHD (1920X1080)</li> --}}
-                                        @endif
-                                        @if ($sp = $product->special_feature)
-                                            <li>Features: {{ $sp }}</li>
-                                            {{-- <li>Features: Type-C</li> --}}
-                                        @endif
-                                    </ul>
-                                </div>
-                            </x-shop-product>
+                            <x-shop-product :product="$product"></x-shop-product>
                         @endforeach
                     </div>
                     <div class="mt-8">

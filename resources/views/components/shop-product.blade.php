@@ -14,47 +14,64 @@
              <img src="{{ $photo }}" class="object-container h-[130px]" alt="{{ $product->title }}">
          </a>
          @if ($product->stock < 1)
-         <span class="text-[14px] bg-[#ef4a23] text-[#fff] absolute top-0 left-[-5px] px-2 py-[2px] rounded-r-lg">
-            Out Of Stock
-        </span>
-        @endif
-        @if ($product->discount)
-        <span class="text-[14px] text-[#fff] bg-[#ef4a23] absolute top-0 right-[-5px] px-2 py-[2px] rounded-l-lg">
-            -{{$product->discount}}%
-        </span>
-        @endif
+             <span class="text-[14px] bg-[#ef4a23] text-[#fff] absolute top-0 left-[-5px] px-2 py-[2px] rounded-r-lg">
+                 Out Of Stock
+             </span>
+         @endif
+         @if ($product->discount)
+             <span class="text-[14px] text-[#fff] bg-[#ef4a23] absolute top-0 right-[-5px] px-2 py-[2px] rounded-l-lg">
+                 -{{ $product->discount }}%
+             </span>
+         @endif
      </div>
-     {{-- @else
-             <img src="{{ asset('backend/img/thumbnail-default.jpg') }}" class="rounded-t-lg img-fluid "
-                 data-te-ripple-init data-te-ripple-color="dark" alt="avatar.png">
-         @endif --}}
-     {{-- </a> --}}
+
      <div class="p-4 max-sm:p-[8px] border-t-[2px] border-[#380D3733]">
          <div class=' border-[#380D3733] mb-2'>
-             <a href="{{ route('product.details', [$product->slug])}}"
+             <a href="{{ route('product.details', [$product->slug]) }}"
                  class="font-[jost] text-[12px] font-[500] leading-[20px] text-left text-[#380D37] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-1 hover:underline hover:underline-offset-4">
                  {{ $product->title }}
              </a>
          </div>
          <div class='mb-4 mt-auto'>
              <ul class='text-[#353535] text-[10px] font-[jost] font-[400] list-decimal px-4 leading-[20px]'>
-                 <li>Processor: AMD Ryzen 5 7520U (2.8 GHz up to 4.3 GHz)</li>
-                 <li>RAM: 8GB DDR5 5500MHz, Storage: 256GB SSD</li>
-                 <li>Display: 15.6" FHD (1920X1080)</li>
-                 <li>Features: Type-C</li>
+                 <li>Processor: {{ $product->ProcessorModel?->name }}
+                     {{ $product->ProcessorModel?->c_speed }}</li>
+                 {{-- <li>Processor: AMD Ryzen 5 7520U (2.8 GHz up to 4.3 GHz)</li> --}}
+                 @if ($product->ram || $product->ssd)
+                     <li>
+                         @if ($product->ram)
+                             RAM: {{ $product->ram?->ram }} {{ $product->ram?->type }} {{ $product->ram?->bus_speed }}
+                         @endif
+                         @if ($product->ssd)
+                              Storage: {{ $product->storage() }}
+                         @endif
+                     </li>
+                     {{-- <li>RAM: 8GB DDR5 5500MHz, Storage: 256GB SSD</li> --}}
+                 @endif
+                 @if ($ds = $product->DisplaySize?->size)
+                     <li>Display:
+                         {{ $ds . '"' . $product->DisplayType?->name . ' (' . $product->d_resolution }})
+                     </li>
+                     {{-- <li>Display: 15.6" FHD (1920X1080)</li> --}}
+                 @endif
+                 @if ($sp = $product->special_feature)
+                     <li>Features: {{ $sp }}</li>
+                     {{-- <li>Features: Type-C</li> --}}
+                 @endif
              </ul>
          </div>
      </div>
 
      <div class="px-6 py-6 mt-auto text-center border-t-[2px] border-[#380D3733]">
          <div class="flex flex-col justify-center">
-             <span href="#" class="font-[jost] text-[12px] font-[700] leading-[24px] text-[#DC275C] flex justify-center items-center">
+             <span href="#"
+                 class="font-[jost] text-[12px] font-[700] leading-[24px] text-[#DC275C] flex justify-center items-center">
                  {{ $product->final_price }}
                  <span class="text-[12px] font-[jost] font-[700]">৳</span>
              </span>
              <span class="text-[#380D37] text-[12px] font-[jost] font-[700] line-through">
-                {{$product->price}} ৳
-            </span>
+                 {{ $product->price }} ৳
+             </span>
          </div>
          <div class="my-3 text-center">
 
@@ -69,7 +86,5 @@
                  button='<p  class="font-[jost] text-[10px] text-[#380D37] font-[500] leading-[20px]">Add to Cart</p>' />
 
          </div>
-         {{-- <livewire:add-to-cart :id="$product->id"
-             button=' <p class="font-[jost] text-[10px] font-[600] leading-[30px]">Add to Cart</p>' /> --}}
      </div>
  </div>
