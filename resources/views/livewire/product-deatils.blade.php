@@ -73,7 +73,7 @@
                     </span></li>
                 <li class="max-lg:text-[18px] text-[20px] text-[#353535] font-[jost] font-[500]">Key Features:</li>
                 <li class="text-[16px] max-lg:text-[14px] text-[#353535] font-[jost] font-[400]">
-                    Manufacture Name: {{ $product->mpn }}
+                    Manufacture: {{ $product->mpn }}
                 </li>
                 <li class=" text-[16px] max-lg:text-[14px] text-[#353535] font-[jost] font-[400]">
                     Model: {{ $product->model }}
