@@ -490,7 +490,7 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
-{{-- @dd($durations) --}}
+                        {{-- @dd($durations) --}}
                         {{-- s_support_type  --}}
                         <div class="form-group">
                             <label for="s_support_type" class="col-form-label">Support SSD/HDD type </label>
@@ -945,10 +945,39 @@
                 <div class="mt-4">
                     <h4>Warranty Attributes</h4>
                     <div class="ml-3">
-                        {{-- w_details  --}}
+                        {{-- replacement_warranty  --}}
+                        <div class="form-group">
+                            <label for="replacement_warranty" class="col-form-label">Replacement Warranty</label>
+                            <input id="replacement_warranty" type="text" name="replacement_warranty"
+                                placeholder="2 months" value="{{ $product->replacement_warranty }}" class="form-control">
+                            @error('replacement_warranty')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        {{-- motherboard_warranty  --}}
+                        <div class="form-group">
+                            <label for="motherboard_warranty" class="col-form-label">Motherboard Warranty</label>
+                            <input id="motherboard_warranty" type="text" name="motherboard_warranty"
+                                placeholder="1 year" value="{{ $product->motherboard_warranty }}" class="form-control">
+                            @error('motherboard_warranty')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        {{-- service_warranty  --}}
+                        <div class="form-group">
+                            <label for="service_warranty" class="col-form-label">Service Warranty</label>
+                            <input id="service_warranty" type="text" name="service_warranty" placeholder="Lifetime"
+                                value="{{ $product->service_warranty }}" class="form-control">
+                            @error('service_warranty')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
                         {{-- w_details  --}}
                         <div class="form-group">
-                            <label for="w_details" class="col-form-label">Warranty Details</label>
+                            <label for="w_details" class="col-form-label">Other Warranty</label>
                             <input id="w_details" type="text" name="w_details"
                                 placeholder="Exp:- 2 years warranty (Battery adapter 1 year)"
                                 value="{{ $product->w_details }}" class="form-control">
@@ -956,15 +985,6 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
-                        {{-- <div class="form-group">
-                            <label for="w_details" class="col-form-label">Warranty Details</label>
-                            <input id="w_details" type="text" name="w_details"
-                                placeholder="Exp:- 2 years warranty (Battery adapter 1 year)"
-                                value="{{ $product->w_details }}" class="form-control">
-                            @error('w_details')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div> --}}
                     </div>
                 </div>
                 {{-- Installment process --}}
@@ -1009,7 +1029,7 @@
                     <label for="status" class="col-form-label">Status </label>
                     <select name="status" class="form-control">
                         <option value="active" @selected($product->status == 'active')>Active</option>
-                        <option value="inactive"  @selected($product->status == 'inactive')>Inactive</option>
+                        <option value="inactive" @selected($product->status == 'inactive')>Inactive</option>
                     </select>
                     @error('status')
                         <span class="text-danger">{{ $message }}</span>

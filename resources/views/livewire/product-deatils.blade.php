@@ -874,7 +874,7 @@
                             <tr class="border-[#764A8733] border-b-[2px]">
                                 <td
                                     class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[400] pl-[20px]">
-                                    Warranty Details
+                                    Replacement Details
                                 </td>
                                 <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
                                     {{ $product->replacement_warranty }}
@@ -885,7 +885,7 @@
                             <tr class="border-[#764A8733] border-b-[2px]">
                                 <td
                                     class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[400] pl-[20px]">
-                                    Warranty Details
+                                   Motherboard Warranty
                                 </td>
                                 <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
                                     {{ $product->motherboard_warranty }}
@@ -897,7 +897,7 @@
                             <tr class="border-[#764A8733] border-b-[2px]">
                                 <td
                                     class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[400] pl-[20px]">
-                                    Warranty Details
+                                   Service Warranty
                                 </td>
                                 <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
                                     {{ $product->service_warranty }}
@@ -908,7 +908,7 @@
                             <tr class="border-[#764A8733] border-b-[2px]">
                                 <td
                                     class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[400] pl-[20px]">
-                                    Warranty Details
+                                    Other Warranty
                                 </td>
                                 <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
                                     {{ $product->w_details }}

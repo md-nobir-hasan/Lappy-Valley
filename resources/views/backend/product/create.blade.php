@@ -964,8 +964,7 @@
                         <div class="form-group">
                             <label for="replacement_warranty" class="col-form-label">Replacement Warranty</label>
                             <input id="replacement_warranty" type="text" name="replacement_warranty"
-                                placeholder="2 months"
-                                value="{{ old('replacement_warranty') }}" class="form-control">
+                                placeholder="2 months" value="{{ old('replacement_warranty') }}" class="form-control">
                             @error('replacement_warranty')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -975,8 +974,7 @@
                         <div class="form-group">
                             <label for="motherboard_warranty" class="col-form-label">Motherboard Warranty</label>
                             <input id="motherboard_warranty" type="text" name="motherboard_warranty"
-                                placeholder="1 year"
-                                value="{{ old('motherboard_warranty') }}" class="form-control">
+                                placeholder="1 year" value="{{ old('motherboard_warranty') }}" class="form-control">
                             @error('motherboard_warranty')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -985,17 +983,16 @@
                         {{-- service_warranty  --}}
                         <div class="form-group">
                             <label for="service_warranty" class="col-form-label">Service Warranty</label>
-                            <input id="service_warranty" type="text" name="service_warranty"
-                                placeholder="Lifetime"
+                            <input id="service_warranty" type="text" name="service_warranty" placeholder="Lifetime"
                                 value="{{ old('service_warranty') }}" class="form-control">
                             @error('service_warranty')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
-
+ 
                         {{-- w_details  --}}
                         <div class="form-group">
-                            <label for="w_details" class="col-form-label">Other warranty</label>
+                            <label for="w_details" class="col-form-label">Other Warranty</label>
                             <input id="w_details" type="text" name="w_details"
                                 placeholder="Exp:- 2 years warranty (Battery adapter 1 year)"
                                 value="{{ old('w_details') }}" class="form-control">
