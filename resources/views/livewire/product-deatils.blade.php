@@ -85,7 +85,7 @@
                     Model: {{ $product->model }}
                 </li>
                 <li class=" text-[16px] max-lg:text-[14px] text-[#353535] font-[jost] font-[400]">
-                    Processor: {{ $product->ProcessorModel?->name }} ({{ $product->c_speed }})
+                    Processor: {{ $product->ProcessorModel?->name }} @if($product->c_speed)({{ $product->c_speed }}) @endif
                 </li>
                 <li class=" text-[16px] max-lg:text-[14px] text-[#353535] font-[jost] font-[400]">
 
