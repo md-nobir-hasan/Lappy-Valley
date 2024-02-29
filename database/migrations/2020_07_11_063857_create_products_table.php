@@ -148,7 +148,10 @@ class CreateProductsTable extends Migration
             $table->text('physi_other')->nullable();
 
             //Warranty => (1)
-            $table->string('w_details')->nullable(); //wrranty details
+            $table->string('replacement_warranty')->nullable(); //wrranty details
+            $table->string('motherboard_warranty')->nullable(); //wrranty details
+            $table->string('service_warranty')->nullable(); //wrranty details
+            $table->string('w_details')->nullable(); //Other warranty
 
 
             $table->timestamps();

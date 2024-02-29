@@ -28,8 +28,9 @@
                         class="object-center w-[600] max-lg:w-[400px] transition duration-50 ease-in-out hover:scale-125 overflow-hidden"
                         src="{{ $photo }}" alt="{{ $product->title }}">
                 </div>
-                <span class="text-[14px] text-[#fff] bg-[#ef4a23] absolute top-0 right-[-5px] px-2 py-[2px] rounded-l-lg">
-                  <span>-{{$product->discount}}%</span>
+                <span
+                    class="text-[14px] text-[#fff] bg-[#ef4a23] absolute top-0 right-[-5px] px-2 py-[2px] rounded-l-lg">
+                    <span>-{{ $product->discount }}%</span>
                 </span>
             </div>
 
@@ -869,17 +870,51 @@
                             <td class="bg-[#380D37] text-[#f2f2f2] font-[jost] max-sm:text-[16px] font-[500] py-[10px] pl-[14px] rounded-[5px]"
                                 colspan="3">Warranty :</td>
                         </tr>
+                        @if ($product->replacement_warranty)
+                            <tr class="border-[#764A8733] border-b-[2px]">
+                                <td
+                                    class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[400] pl-[20px]">
+                                    Warranty Details
+                                </td>
+                                <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
+                                    {{ $product->replacement_warranty }}
+                                </td>
+                            </tr>
+                        @endif
+                        @if ($product->motherboard_warranty)
+                            <tr class="border-[#764A8733] border-b-[2px]">
+                                <td
+                                    class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[400] pl-[20px]">
+                                    Warranty Details
+                                </td>
+                                <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
+                                    {{ $product->motherboard_warranty }}
+                                </td>
+                            </tr>
+                        @endif
 
-                        <tr class="border-[#764A8733] border-b-[2px]">
-                            <td
-                                class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[400] pl-[20px]">
-                                Warranty Details
-                            </td>
-                            <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
-                                {{ $product->w_details }}
-                            </td>
-                        </tr>
-
+                        @if ($product->service_warranty)
+                            <tr class="border-[#764A8733] border-b-[2px]">
+                                <td
+                                    class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[400] pl-[20px]">
+                                    Warranty Details
+                                </td>
+                                <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
+                                    {{ $product->service_warranty }}
+                                </td>
+                            </tr>
+                        @endif
+                        @if ($product->w_details)
+                            <tr class="border-[#764A8733] border-b-[2px]">
+                                <td
+                                    class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[400] pl-[20px]">
+                                    Warranty Details
+                                </td>
+                                <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
+                                    {{ $product->w_details }}
+                                </td>
+                            </tr>
+                        @endif
                     </tbody>
                 </table>
             </section>

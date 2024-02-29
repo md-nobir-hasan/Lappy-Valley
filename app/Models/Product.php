@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
- 
+
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Cart;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -40,7 +40,7 @@ class Product extends Model
         //Physical Specification Attributes
         'color', 'dimension', 'weight', 'physi_other',
         //Warranty Attributes
-        'w_details',
+        'w_details','replacement_warranty','motherboard_warranty','service_warranty'
     ];
 
     public function cat_info()
