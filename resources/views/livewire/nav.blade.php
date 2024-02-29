@@ -100,6 +100,12 @@
                      }
                  })
              })
+             $(document).click(function(event) {
+                 var dropdown = $(".menue");
+                 if (!dropdown.is(event.target) && dropdown.has(event.target).length === 0) {
+                    $('.submenu').hide(200);
+                 }
+             });
          })
      </script>
  @endscript
