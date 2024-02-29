@@ -89,9 +89,6 @@
                     Display:
                     {{ $product->DisplaySize?->size . '" ' . $product->DisplayType?->name . ' (' . $product->d_resolution }})
                 </li>
-                <li class=" text-[16px] max-lg:text-[14px] text-[#353535] font-[jost] font-[400]">
-                    Features: {{ $product->special_feature }}
-                </li>
                 <li class=" max-lg:text-[18px] text-[20px] text-[#353535] font-[jost] font-[500] mt-[16px]">
                     Regular Price:</li>
                 <li class=" max-lg:text-[18px] text-[20px] text-[#DC275C] font-[jost] font-[700] line-through">
