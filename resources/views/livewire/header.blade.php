@@ -22,7 +22,7 @@
 <!-- Your Messenger Plugin Code -->
 <div class="fb-customerchat"
   attribution="setup_tool"
-  page_id="Lappy.BD"
+  page_id="201046873102870"
   theme_color="#0084FF">
 </div>
 
