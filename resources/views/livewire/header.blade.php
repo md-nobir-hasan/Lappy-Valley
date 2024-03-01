@@ -1,15 +1,31 @@
 <div>
     <div>
         <!-- Facebook Messenger Plugin Code -->
-<div id="fb-root"></div>
+        <div id="fb-root"></div>
 
+@script
+ {{-- messenger implementation code  --}}
+ <script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            xfbml: true,
+            version: 'v12.0'
+        });
+    };
 
-<!-- Your Messenger Plugin Code -->
-<div class="fb-customerchat"
-  attribution="setup_tool"
-  page_id="201046873102870"
-  theme_color="#0084FF">
-</div>
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+@endscript
+        <!-- Your Messenger Plugin Code -->
+        <div class="fb-customerchat" attribution="setup_tool" page_id="201046873102870" theme_color="#0084FF">
+        </div>
 
     </div>
     <header
@@ -76,9 +92,9 @@
                                         @endphp
                                         @foreach ($menu->child_cat as $menu2)
                                             @if (count($menu2->sub_products) > 0)
-                                            @php
-                                                ++$has_child;
-                                            @endphp
+                                                @php
+                                                    ++$has_child;
+                                                @endphp
                                             @endif
                                         @endforeach
                                         @if (count($menu->child_cat) > 0 && $has_child > 0)
@@ -400,23 +416,7 @@
         });
     </script>
 
-    {{-- messenger implementation code  --}}
-    <script>
-        window.fbAsyncInit = function() {
-          FB.init({
-            xfbml            : true,
-            version          : 'v12.0'
-          });
-        };
 
-        (function(d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) return;
-          js = d.createElement(s); js.id = id;
-          js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-          fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-      </script>
 @endscript
 
 @assets
