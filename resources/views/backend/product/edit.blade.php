@@ -579,7 +579,16 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
-
+                        {{-- Backlight  --}}
+                        <div class="form-group">
+                            <label for="k_backlight">Backlight</label><br>
+                            <input type="checkbox" name='k_backlight' @checked($product->k_backlight) id='k_backlight'
+                                value='1'>
+                            <label for="k_backlight">Yes</label>
+                            @error('k_backlight')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
                         {{-- touchpad  --}}
                         <div class="form-group">
                             <label for="touchpad">Touchpad</label><br>
@@ -949,7 +958,8 @@
                         <div class="form-group">
                             <label for="replacement_warranty" class="col-form-label">Replacement Warranty</label>
                             <input id="replacement_warranty" type="text" name="replacement_warranty"
-                                placeholder="2 months" value="{{ $product->replacement_warranty }}" class="form-control">
+                                placeholder="2 months" value="{{ $product->replacement_warranty }}"
+                                class="form-control">
                             @error('replacement_warranty')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
