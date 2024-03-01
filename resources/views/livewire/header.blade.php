@@ -3,7 +3,7 @@
         <!-- Facebook Messenger Plugin Code -->
         <div id="fb-root"></div>
 
-@script
+{{-- @script --}}
  {{-- messenger implementation code  --}}
  <script>
     window.fbAsyncInit = function() {
@@ -22,7 +22,7 @@
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 </script>
-@endscript
+{{-- @endscript --}}
         <!-- Your Messenger Plugin Code -->
         <div class="fb-customerchat" attribution="setup_tool" page_id="201046873102870" theme_color="#0084FF">
         </div>
