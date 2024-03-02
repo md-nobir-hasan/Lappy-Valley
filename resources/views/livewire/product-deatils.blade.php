@@ -373,7 +373,7 @@
                                 Touch Screen:</td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->touch_screen == 1 ? $product->touch_screen : 'N/A' }}</td>
+                                {{ $product->touch_screen ? 'Yes' : 'N/A' }}</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td
