@@ -373,7 +373,7 @@
                                 Touch Screen:</td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->touch_screen ? 'Yes' : 'N/A' }}</td>
+                                {{ $product->touch_screen ? 'Yes' : 'No' }}</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td
@@ -417,7 +417,7 @@
                                 Removable:</td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->m_removal ? 'Yes' : 'NO' }}
+                                {{ $product->m_removal ? 'Yes' : 'No' }}
                             </td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
@@ -578,7 +578,7 @@
                                 Backlight:</td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->k_backlight ? 'Yes' : 'NO' }}</td>
+                                {{ $product->k_backlight ? 'Yes' : 'No' }}</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td
@@ -603,7 +603,7 @@
                                 WebCam:</td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->webcam ? $product->webcam : 'NO' }}</td>
+                                {{ $product->webcam ? $product->webcam : 'No' }}</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td
@@ -611,7 +611,7 @@
                                 Microphone:</td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->microphone ? $product->microphone : 'NO' }}</td>
+                                {{ $product->microphone ? $product->microphone : 'No' }}</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td
@@ -619,7 +619,7 @@
                                 Speaker:</td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->speaker ? $product->speaker : 'NO' }}</td>
+                                {{ $product->speaker ? $product->speaker : 'No' }}</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td
@@ -651,7 +651,7 @@
                                 Card Reader:</td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->card_reader ?? 'NO' }}</td>
+                                {{ $product->card_reader ?? 'No' }}</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td
@@ -659,7 +659,7 @@
                                 HDMI Port:</td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->hdmi_p ?? 'NO' }}</td>
+                                {{ $product->hdmi_p ?? 'No' }}</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td
@@ -667,7 +667,7 @@
                                 USB 2 Port:</td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->usb2_p ?? 'NO' }}</td>
+                                {{ $product->usb2_p ?? 'No' }}</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td
@@ -675,7 +675,7 @@
                                 USB 3 Port:</td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->usb3_p ?? 'NO' }}</td>
+                                {{ $product->usb3_p ?? 'No' }}</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td
@@ -684,7 +684,7 @@
                                 Type-C /<br />
                                 Thunderbolt Port:</td>
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
-                                {{ $product->type_c_tb_p ?? 'NO' }}</td>
+                                {{ $product->type_c_tb_p ?? 'No' }}</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td
