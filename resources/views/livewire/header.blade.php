@@ -1,7 +1,7 @@
 <div>
     <div>
         <!-- Facebook Messenger Plugin Code -->
-        <div id="fb-root"></div>
+        {{-- <div id="fb-root"></div> --}}
 
 {{-- @script --}}
  {{-- messenger implementation code  --}}
@@ -24,8 +24,8 @@
 </script> --}}
 {{-- @endscript --}}
         <!-- Your Messenger Plugin Code -->
-        <div class="fb-customerchat" attribution="setup_tool" page_id="201046873102870" theme_color="#0084FF">
-        </div>
+        {{-- <div class="fb-customerchat" attribution="setup_tool" page_id="201046873102870" theme_color="#0084FF">
+        </div> --}}
 
     </div>
     <header
