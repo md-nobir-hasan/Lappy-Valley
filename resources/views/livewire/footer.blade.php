@@ -192,6 +192,9 @@
               </ul>
           </div>
       </div>
+      <div class="py-[10px] bg-[#9dc209]">
+        <h3 class="text-center text-[18px] text-[#f2f2f2]">Developed By Innovative Skills BD</h3>
+      </div>
   </footer>
   @assets
       {{-- add to cart functionality by jquery --}}
