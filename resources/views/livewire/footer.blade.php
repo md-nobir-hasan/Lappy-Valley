@@ -193,7 +193,7 @@
           </div>
       </div>
       <div class="py-[5px] bg-[#7575cd] mt-[25px]">
-        <h3 class="text-center text-[14px] text-[#f2f2f2]">Developed By Innovative Skills BD</h3>
+        <h3 class="text-center text-[14px] text-[#f2f2f2]">2024 freshtodaybd.com,All Rights Reserved | Developed By Innovative Skills BD</h3>
       </div>
   </footer>
   @assets
