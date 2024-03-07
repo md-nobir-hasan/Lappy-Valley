@@ -5,9 +5,9 @@
         <button id="sidebarToggleTop" class="mr-3 btn btn-link rounded-circle">
             <i class="fa fa-bars"></i>
         </button>
-        <a href="{{ route('storage.link') }}" class="mr-3 btn btn-outline-warning btn-sm">
+        {{-- <a href="{{ route('storage.link') }}" class="mr-3 btn btn-outline-warning btn-sm">
             Storage Link
-        </a>
+        </a> --}}
         <a href="{{ route('cache.clear') }}" class="mr-3 btn btn-outline-danger btn-sm">
             Cache Clear
         </a>
