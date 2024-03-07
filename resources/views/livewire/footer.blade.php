@@ -192,6 +192,15 @@
               </ul>
           </div>
       </div>
+<<<<<<< Updated upstream
+=======
+      <div class="py-[5px] bg-[#7575cd] mt-[25px]">
+          <h3 class="text-center text-[14px] text-[#f2f2f2]">© {{ now()->format('Y') }} <a target="_blank"
+                  href="{{ env('APP_URL') }}">lappyvalley.com</a>, All Rights Reserved || Developed By
+              <a href="https://innovativeskillsbd.com/" target="_blank">Innovative Skills BD</a>
+          </h3>
+      </div>
+>>>>>>> Stashed changes
   </footer>
   @assets
       {{-- add to cart functionality by jquery --}}
