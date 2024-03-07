@@ -30,8 +30,8 @@
                     @foreach ($carts as $cart)
                         <div x-data="{
                             qty: '{{ $cart->quantity }}',
-                            price: '{{ $cart->product->price }}',
-                            dis_price: '{{ $cart->product->final_price }}',
+                            price: '{{ App\Http\Helper::commaRemove($cart->product->price) }}',
+                            dis_price: '{{ App\Http\Helper::commaRemove($cart->product->final_price) }}',
                             subtotal: 0,
                             cp_show: true,
                             setup() {
@@ -149,8 +149,7 @@
                                 <div class="flex text-left">
                                     <p class='text-[#353535] text-[14px] font-[jost] font-[400] text-left'>
                                         <span x-text="qty"></span> x <span
-                                            class='text-[16px] font-[500] text-[#DC275C]'
-                                            x-text="mFormat(Number(dis_price))"></span>
+                                            class='text-[16px] font-[500] text-[#DC275C]'> {{ $cart->product->final_price }}</span>
 
                                         TAKA
                                     </p>

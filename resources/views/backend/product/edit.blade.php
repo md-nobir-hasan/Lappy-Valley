@@ -28,8 +28,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="mpn" class="col-form-label">MPN </label>
-                        <input id="mpn" type="text" name="mpn" placeholder="Exp:- Enter mpn"
+                        <label for="mpn" class="col-form-label">Manufacture Name </label>
+                        <input id="mpn" type="text" name="mpn" placeholder="Exp:- Enter Manufacture Name"
                             value="{{ $product->mpn }}" class="form-control">
                         @error('mpn')
                             <span class="text-danger">{{ $message }}</span>
@@ -38,7 +38,7 @@
 
                     <div class="form-group">
                         <label for="price" class="col-form-label">Price(BDT)<span class="text-danger">*</span> </label>
-                        <input id="price" type="number" name="price" placeholder="Exp:- Enter price" step="1"
+                        <input id="price" type="text" name="price" placeholder="Exp:- Enter price" step="1"
                             value="{{ $product->price }}" class="form-control">
                         @error('price')
                             <span class="text-danger">{{ $message }}</span>
@@ -57,7 +57,7 @@
                     <div class="form-group" id="final_price_div">
                         <label for="final_price" class="col-form-label">Final Price(tk)<span
                                 class="text-danger">*</span></label>
-                        <input id="final_price" type="number" name="final_price" min="0" max="500000"
+                        <input id="final_price" type="text" name="final_price" min="0" max="500000"
                             placeholder="Exp:- Enter Final Price" value="{{ $product->final_price }}" class="form-control">
                         @error('final_price')
                             <span class="text-danger">{{ $message }}</span>
@@ -66,7 +66,7 @@
 
                     <div class="form-group">
                         <label for="inventory_cost" class="col-form-label">Inventory Cost</label>
-                        <input id="inventory_cost" type="number" name="inventory_cost" min="0" max="1000000"
+                        <input id="inventory_cost" type="text" name="inventory_cost" min="0" max="1000000"
                             placeholder="Exp:- Enter Inventory Cost" value="{{ $product->inventory_cost }}"
                             class="form-control">
                         @error('inventory_cost')
@@ -490,7 +490,7 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
-{{-- @dd($durations) --}}
+                        {{-- @dd($durations) --}}
                         {{-- s_support_type  --}}
                         <div class="form-group">
                             <label for="s_support_type" class="col-form-label">Support SSD/HDD type </label>
@@ -579,7 +579,16 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
-
+                        {{-- Backlight  --}}
+                        <div class="form-group">
+                            <label for="k_backlight">Backlight</label><br>
+                            <input type="checkbox" name='k_backlight' @checked($product->k_backlight) id='k_backlight'
+                                value='1'>
+                            <label for="k_backlight">Yes</label>
+                            @error('k_backlight')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
                         {{-- touchpad  --}}
                         <div class="form-group">
                             <label for="touchpad">Touchpad</label><br>
@@ -945,10 +954,40 @@
                 <div class="mt-4">
                     <h4>Warranty Attributes</h4>
                     <div class="ml-3">
-                        {{-- w_details  --}}
+                        {{-- replacement_warranty  --}}
+                        <div class="form-group">
+                            <label for="replacement_warranty" class="col-form-label">Replacement Warranty</label>
+                            <input id="replacement_warranty" type="text" name="replacement_warranty"
+                                placeholder="2 months" value="{{ $product->replacement_warranty }}"
+                                class="form-control">
+                            @error('replacement_warranty')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        {{-- motherboard_warranty  --}}
+                        <div class="form-group">
+                            <label for="motherboard_warranty" class="col-form-label">Motherboard Warranty</label>
+                            <input id="motherboard_warranty" type="text" name="motherboard_warranty"
+                                placeholder="1 year" value="{{ $product->motherboard_warranty }}" class="form-control">
+                            @error('motherboard_warranty')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        {{-- service_warranty  --}}
+                        <div class="form-group">
+                            <label for="service_warranty" class="col-form-label">Service Warranty</label>
+                            <input id="service_warranty" type="text" name="service_warranty" placeholder="Lifetime"
+                                value="{{ $product->service_warranty }}" class="form-control">
+                            @error('service_warranty')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
                         {{-- w_details  --}}
                         <div class="form-group">
-                            <label for="w_details" class="col-form-label">Warranty Details</label>
+                            <label for="w_details" class="col-form-label">Other Warranty</label>
                             <input id="w_details" type="text" name="w_details"
                                 placeholder="Exp:- 2 years warranty (Battery adapter 1 year)"
                                 value="{{ $product->w_details }}" class="form-control">
@@ -956,15 +995,6 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
-                        {{-- <div class="form-group">
-                            <label for="w_details" class="col-form-label">Warranty Details</label>
-                            <input id="w_details" type="text" name="w_details"
-                                placeholder="Exp:- 2 years warranty (Battery adapter 1 year)"
-                                value="{{ $product->w_details }}" class="form-control">
-                            @error('w_details')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div> --}}
                     </div>
                 </div>
                 {{-- Installment process --}}
@@ -1008,8 +1038,8 @@
                 <div class="form-group">
                     <label for="status" class="col-form-label">Status </label>
                     <select name="status" class="form-control">
-                        <option value="active">Active</option>
-                        <option value="inactive">Inactive</option>
+                        <option value="active" @selected($product->status == 'active')>Active</option>
+                        <option value="inactive" @selected($product->status == 'inactive')>Inactive</option>
                     </select>
                     @error('status')
                         <span class="text-danger">{{ $message }}</span>
@@ -1062,28 +1092,30 @@
 
             });
 
-            $('#final_price_div').hide();
+            // $('#final_price_div').hide();
 
             $('#price').on('keyup', function() {
-                // let price = Number(this.val);
-                let price = Number($('#price').val()) ?? 0;
-                let discount = Number($('#discount').val()) ?? 0;
+                let price_with_comma = $('#price').val() ? $('#price').val() : '0';
+                let discount = $('#discount').val() ? $('#discount').val() : 0;
+
+                let price = parseInt(price_with_comma.replace(/,/g, ''));
                 let final_price = price - Math.round(price * discount / 100);
                 console.log(price, discount, final_price);
 
                 $('#final_price').val(final_price);
-                $('#final_price_div').show();
+                // $('#final_price_div').show();
             });
 
             $('#discount').on('keyup', function() {
-                // let price = Number(this.val);
-                let price = Number($('#price').val()) ?? 0;
-                let discount = Number($('#discount').val()) ?? 0;
+                let price_with_comma = $('#price').val() ? $('#price').val() : '0';
+                let discount = $('#discount').val() ? $('#discount').val() : 0;
+
+                let price = parseInt(price_with_comma.replace(/,/g, ''));
                 let final_price = price - Math.round(price * discount / 100);
                 console.log(price, discount, final_price);
 
                 $('#final_price').val(final_price);
-                $('#final_price_div').show();
+                // $('#final_price_div').show();
             });
 
             $('#cat_id').change(function() {

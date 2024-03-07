@@ -50,7 +50,7 @@
                         <tr>
                             <td>{{ $product->title }}</td>
                             <td>{{ $product->stock }}</td>
-                            <td>৳{{ number_format($product->price, 2) }}</td>
+                            <td>৳{{ $product->price }}</td>
                             <td>{{ $product->discount }}%</td>
                             <td>৳{{ $product->final_price }}</td>
                             <td>৳{{ $product->inventory_cost }}</td>
@@ -88,6 +88,10 @@
                                     {{-- <h5 class="pb-4 text-center">Main Attributes</h5> --}}
 
                                     <table class="table">
+                                        <tr class="">
+                                            <td>Slug</td>
+                                            <td> : {{ $product->slug }}</td>
+                                        </tr>
                                         <tr class="">
                                             <td>Model</td>
                                             <td> : {{ $product->model }}</td>
@@ -299,6 +303,18 @@
                                     <h4 class="pb-4 text-center">Warranty Attributes</h4>
                                     <table class="table">
                                         <tr>
+                                            <td>Replacement Warranty</td>
+                                            <td> : {{ $product->replacement_warranty }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Motherboard Warranty</td>
+                                            <td> : {{ $product->motherboard_warranty }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Service Warranty</td>
+                                            <td> : {{ $product->service_warranty }}</td>
+                                        </tr>
+                                        <tr>
                                             <td>Warranty Details</td>
                                             <td> : {{ $product->w_details }}</td>
                                         </tr>
@@ -412,6 +428,10 @@
                                                 <tr>
                                                     <td>Keyboard Type</td>
                                                     <td> : {{ $product->k_type }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Backlight</td>
+                                                    <td> : {{ $product->k_backlight ? 'Yes' : 'No' }}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Touchpad</td>

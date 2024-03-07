@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Http\Helper;
 use App\Mail\OrderMail;
 use App\Mail\OrderMailToAdmin;
 use App\Models\Cart;
@@ -127,12 +128,12 @@ class InstallmentCheckout extends Component
         $order_data['order_number'] = 'ORD-' . strtoupper(Str::random(10));
         $order_data['user_id'] = $user->id;
         $order_data['status'] = 'New';
-        $order_data['sub_total'] = $this->product->price;
-        $installment1 = $this->product->price/$this->month;
+        $order_data['sub_total'] = Helper::commaRemove($this->product->price);
+        $installment1 = Helper::commaRemove($this->product->price)/$this->month;
         $order_data['amount'] = $installment1;
-        $order_data['payable'] = $this->product->price;
+        $order_data['payable'] = Helper::commaRemove($this->product->price);
         $order_data['installment_count'] = $this->month;
-        $order_data['inventory_cost'] = $this->product->inventory_cost;
+        $order_data['inventory_cost'] = Helper::commaRemove($this->product->inventory_cost);
         $order_data['quantity'] = 1;
         $order_data['status'] = "Pending";
         $order_data['payment_status'] = 'Unpaid';

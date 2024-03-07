@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Http\Helper;
 use App\Mail\OrderMail;
 use App\Mail\OrderMailToAdmin;
 use App\Models\Cart;
@@ -113,11 +114,12 @@ class SingleCheckout extends Component
         $order_data['order_number'] = 'ORD-' . strtoupper(Str::random(10));
         $order_data['user_id'] = $user->id;
         $order_data['status'] = 'New';
-        $order_data['sub_total'] = $this->product->final_price;
-        $order_data['amount'] = $this->product->final_price;
-        $order_data['payable'] = $this->product->final_price;
+        $final_price = Helper::commaRemove($this->product->final_price);
+        $order_data['sub_total'] = $final_price;
+        $order_data['amount'] = $final_price;
+        $order_data['payable'] = $final_price;
         $order_data['installment_count'] = 1;
-        $order_data['inventory_cost'] = $this->product->inventory_cost;
+        $order_data['inventory_cost'] = Helper::commaRemove($this->product->inventory_cost);
         $order_data['quantity'] = 1;
         $order_data['status'] = "Pending";
         $order_data['payment_status'] = 'Unpaid';

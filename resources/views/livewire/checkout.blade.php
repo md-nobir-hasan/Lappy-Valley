@@ -10,31 +10,40 @@
              toastr.error("{{ $error }}")
          </script>
      @endif
+
+     @php
+         $sub_total = 0;
+         $final_price_sum = 0;
+     @endphp
+
+     @foreach ($carts as $cart)
+         @php
+             $sub_total += (App\Http\Helper::commaRemove($cart->product->price) * $cart->quantity);
+             $final_price_sum += (App\Http\Helper::commaRemove($cart->product->final_price)* $cart->quantity);
+         @endphp
+     @endforeach
+
+     @php
+        $coupon_discount = $coupon->discount($sub_total);
+         $discount = $sub_total - $final_price_sum + $coupon_discount;
+         $total = $final_price_sum - $coupon_discount;
+     @endphp
+
      <form wire:submit='orderSubmit' x-data="{
-         total: {{ $carts->sum('amount') }},
+         total: {{ $total }},
          shipping_price: 0,
-         sub_total: {{ $carts->sum('amount') }},
-         all_total: {{ $carts->sum('amount') }},
+         sub_total: {{ $sub_total }},
+         all_total: {{ $total }},
+         discount: {{$discount}},
          shipChange(price) {
-             this.total -= this.shipping_price;
-             this.total += price;
+             this.all_total -= this.shipping_price;
+             this.all_total += price;
              this.shipping_price = price;
          },
-         discount() {
-             let res = {{ $coupon }};
-             if (res.type == 'percent') {
-                 this.all_total = Math.round(this.total - (this.total * Number(res.value) / 100));
-                 return res.value + '%';
-             } else if (res.type == 'fixed') {
-                 this.all_total = Math.round(this.total - Number(res.value));
-                 return 'BDT ' + res.value;
-             } else {
-                 return 'BDT' + 0;
-             }
-         }
      }">
          <div>
-             <h1 class='font-[jost] text-[16px] font-[400] leading-[25.3px] text-[#353535]'><a href="{{route('vcart')}}">Shopping Cart</a>/ Checkout
+             <h1 class='font-[jost] text-[16px] font-[400] leading-[25.3px] text-[#353535]'><a
+                     href="{{ route('vcart') }}">Shopping Cart</a>/ Checkout
              </h1>
              <div class='h-1 bg-[#764A8733]'></div>
          </div>
@@ -149,7 +158,7 @@
                                  wire:model='divission_id'>
                                  <option value="">Choose...</option>
                                  @foreach ($divissions as $division)
-                                     <option value="{{ $division->id }}" @selected($division->id ==( auth()->user() ? auth()->user()->divission_id : 0))>
+                                     <option value="{{ $division->id }}" @selected($division->id == (auth()->user() ? auth()->user()->divission_id : 0))>
                                          {{ $division->name }}</option>
                                  @endforeach
                              </select>
@@ -284,11 +293,11 @@
                                          </td>
                                          <td
                                              class="text-right text-[12px] max-sm:text-[10px] font-[700] text-[#353535]">
-                                             {{ $cart->price }} Taka x {{ $cart->quantity }}
+                                             {{ $cart->product->price }} Taka x {{ $cart->quantity }}
                                          </td>
                                          <td
                                              class="text-right text-[#DC275C] text-[12px] max-sm:text-[10px] font-[700]">
-                                             {{ number_format($cart->amount) }}.00 Taka
+                                             {{ App\Http\Helper::commaRemove($cart->product->price) * $cart->quantity }} Taka
                                          </td>
                                      </tr>
                                  @endforeach
@@ -302,17 +311,7 @@
                                          <span x-text="mFormat(sub_total)"></span> Taka
                                      </td>
                                  </tr>
-                                 <tr class="border-b-[rgba(#00000033] border-b-[1px] font-[jost]">
-                                     <td></td>
-                                     <td
-                                         class="text-right py-[10px] text-[12px] max-sm:text-[10px] font-[700] text-[#353535]">
-                                         Delivery
-                                         Charge:
-                                     </td>
-                                     <td class="text-right text-[#DC275C] text-[12px] max-sm:text-[10px] font-[700]">
-                                         <span x-text='shipping_price'></span> Taka
-                                     </td>
-                                 </tr>
+
                                  <tr class="border-b-[rgba(#00000033] border-b-[1px] font-[jost]">
                                      <td></td>
                                      <td
@@ -320,9 +319,22 @@
                                          Discount:
                                      </td>
                                      <td class="text-right text-[#DC275C] text-[12px] max-sm:text-[10px] font-[700]">
-                                         <span x-text='discount'></span>
+                                         <span><span x-text='discount'></span>৳</span>
                                      </td>
                                  </tr>
+
+                                 <tr class="border-b-[rgba(#00000033] border-b-[1px] font-[jost]">
+                                    <td></td>
+                                    <td
+                                        class="text-right py-[10px] text-[12px] max-sm:text-[10px] font-[700] text-[#353535]">
+                                        Delivery
+                                        Charge:
+                                    </td>
+                                    <td class="text-right text-[#DC275C] text-[12px] max-sm:text-[10px] font-[700]">
+                                        <span x-text='shipping_price'></span> Taka
+                                    </td>
+                                </tr>
+
                                  <tr class="border-b-[rgba(#00000033] border-b-[1px] font-[jost]">
                                      <td></td>
                                      <td

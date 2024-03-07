@@ -200,7 +200,7 @@
                                 </div>
                                 <div
                                     class="flex justify-between gap-5 text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
-                                    <span class="text-[#DC275C]">{{ number_format($f_product->final_price) }} TK</span>
+                                    <span class="text-[#DC275C]">{{ $f_product->final_price }} TK</span>
                                     <livewire:add-to-cart :id="$f_product->id"
                                         button='<a class="text-[#380D37]">Add to Cart</a>' />
 
@@ -247,7 +247,7 @@
                                 </div>
                                 <div
                                     class="flex flex justify-between gap-5 text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
-                                    <span class="text-[#DC275C]">{{ number_format($a_product->final_price) }} TK</span>
+                                    <span class="text-[#DC275C]">{{ $a_product->final_price }} TK</span>
                                     <livewire:add-to-cart :id="$a_product->id"
                                         button='<a class="text-[#380D37]">Add to Cart</a>' />
 
@@ -303,7 +303,7 @@
                                     class="flex justify-between items-end text-[14px] mt-auto font-[jost] font-[700] leading-[20.23px]">
                                     <div class="flex flex-col">
                                         <span class="pprice text-[#DC275C]"
-                                            value='{{ $product->final_price }}'>{{ number_format($product->final_price) }}
+                                            value='{{ $product->final_price }}'>{{$product->final_price }}
                                             ৳
                                         </span>
                                         <span class="text-[#380D37] text-[14px] font-[jost] font-[700] line-through">
@@ -364,7 +364,7 @@
                                     class="flex justify-between items-end text-[14px] mt-auto font-[jost] font-[700] leading-[20.23px]">
                                     <div class="flex flex-col">
                                         <span class="pprice text-[#DC275C]"
-                                            value='{{ $product->final_price }}'>{{ number_format($product->final_price) }}
+                                            value='{{ $product->final_price }}'>{{ $product->final_price }}
                                             ৳
                                         </span>
                                         <span class="text-[#380D37] text-[14px] font-[jost] font-[700] line-through">

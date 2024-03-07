@@ -11,9 +11,9 @@
         </script>
     @endif
     <form wire:submit='orderSubmit' x-data="{
-        total: {{ $product->price }},
+        total: {{ App\Http\Helper::commaRemove($product->price) }},
         shipping_price: 0,
-        sub_total: {{ $product->price }},
+        sub_total: {{ App\Http\Helper::commaRemove($product->price) }},
 
     }">
         <div>
@@ -271,7 +271,7 @@
                                         {{ $product->price }} Taka x 1
                                     </td>
                                     <td class="text-right text-[#DC275C] text-[12px] max-sm:text-[10px] font-[700]">
-                                        {{ number_format($product->price) }}.00 Taka
+                                        {{ $product->price }} Taka
                                     </td>
                                 </tr>
                                 <tr class="border-b-[rgba(#00000033] border-b-[1px] font-[jost]">

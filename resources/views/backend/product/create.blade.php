@@ -28,7 +28,7 @@
 
                     <div class="form-group">
                         <label for="mpn" class="col-form-label">Manufacture Name</label>
-                        <input id="mpn" type="text" name="mpn" placeholder="Exp:- Enter mpn"
+                        <input id="mpn" type="text" name="mpn" placeholder="Exp:- Enter Manufacture Name"
                             value="{{ old('mpn') }}" class="form-control">
                         @error('mpn')
                             <span class="text-danger">{{ $message }}</span>
@@ -56,7 +56,7 @@
                     <div class="form-group" id="final_price_div">
                         <label for="final_price" class="col-form-label">Final Price(tk)<span
                                 class="text-danger">*</span></label>
-                        <input id="final_price" type="number" name="final_price" min="0" max="500000"
+                        <input id="final_price" type="text" name="final_price" min="0" max="500000"
                             placeholder="Exp:- Enter Final Price" value="{{ old('final_price') }}" class="form-control">
                         @error('final_price')
                             <span class="text-danger">{{ $message }}</span>
@@ -65,7 +65,7 @@
 
                     <div class="form-group">
                         <label for="inventory_cost" class="col-form-label">Inventory Cost</label>
-                        <input id="inventory_cost" type="number" name="inventory_cost" min="0" max="1000000"
+                        <input id="inventory_cost" type="text" name="inventory_cost" min="0" max="1000000"
                             placeholder="Exp:- Enter Inventory Cost" value="{{ old('inventory_cost') ?? '0' }}"
                             class="form-control">
                         @error('inventory_cost')
@@ -573,9 +573,9 @@
                     </div>
                 </div>
 
-                {{-- ========== Keyboard Attributes  --}}
+                {{-- ========== Keyboard and Touchpad Attributes  --}}
                 <div class="mt-4">
-                    <h4>Keyboard Attributes</h4>
+                    <h4>Keyboard & Touchpad Attributes</h4>
                     <div class="ml-3">
                         {{-- k_type  --}}
                         <div class="form-group">
@@ -586,7 +586,7 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
-                        
+
                         {{-- Backlight  --}}
                         <div class="form-group">
                             <label for="k_backlight">Backlight</label><br>
@@ -594,6 +594,17 @@
                                 value='1'>
                             <label for="k_backlight">Yes</label>
                             @error('k_backlight')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        {{-- Touchpad  --}}
+                        <div class="form-group">
+                            <label for="touchpad">Touchpad</label><br>
+                            <input type="checkbox" name='touchpad' @checked(old('backlight')) id='touchpad'
+                                value='1'>
+                            <label for="touchpad">Yes</label>
+                            @error('touchpad')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
@@ -949,9 +960,39 @@
                 <div class="mt-4">
                     <h4>Warranty Attributes</h4>
                     <div class="ml-3">
+                        {{-- replacement_warranty  --}}
+                        <div class="form-group">
+                            <label for="replacement_warranty" class="col-form-label">Replacement Warranty</label>
+                            <input id="replacement_warranty" type="text" name="replacement_warranty"
+                                placeholder="2 months" value="{{ old('replacement_warranty') }}" class="form-control">
+                            @error('replacement_warranty')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        {{-- motherboard_warranty  --}}
+                        <div class="form-group">
+                            <label for="motherboard_warranty" class="col-form-label">Motherboard Warranty</label>
+                            <input id="motherboard_warranty" type="text" name="motherboard_warranty"
+                                placeholder="1 year" value="{{ old('motherboard_warranty') }}" class="form-control">
+                            @error('motherboard_warranty')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        {{-- service_warranty  --}}
+                        <div class="form-group">
+                            <label for="service_warranty" class="col-form-label">Service Warranty</label>
+                            <input id="service_warranty" type="text" name="service_warranty" placeholder="Lifetime"
+                                value="{{ old('service_warranty') }}" class="form-control">
+                            @error('service_warranty')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+ 
                         {{-- w_details  --}}
                         <div class="form-group">
-                            <label for="w_details" class="col-form-label">Warranty Details</label>
+                            <label for="w_details" class="col-form-label">Other Warranty</label>
                             <input id="w_details" type="text" name="w_details"
                                 placeholder="Exp:- 2 years warranty (Battery adapter 1 year)"
                                 value="{{ old('w_details') }}" class="form-control">
@@ -1058,34 +1099,29 @@
             let show = false;
             $('#upcomming_toggler').on('click', function() {
                 $('#div_lunch_date').toggle();
-                //  show = true;
-
             });
+
             $('#isOfferToggler').on('click', function() {
                 $('#div_product_offer').toggle();
-                //  show = true;
-
             });
 
             $('#final_price_div').hide();
-
             $('#price').on('keyup', function() {
-                // let price = Number(this.val);
-                let price = Number($('#price').val()) ?? 0;
-                let discount = Number($('#discount').val()) ?? 0;
+                let price_with_comma = $('#price').val() ? $('#price').val() : '0';
+                let discount = $('#discount').val() ? $('#discount').val() : 0;
+
+                let price = parseInt(price_with_comma.replace(/,/g, ''));
                 let final_price = price - Math.round(price * discount / 100);
-                console.log(price, discount, final_price);
 
                 $('#final_price').val(final_price);
                 $('#final_price_div').show();
             });
 
             $('#discount').on('keyup', function() {
-                // let price = Number(this.val);
-                let price = Number($('#price').val()) ?? 0;
-                let discount = Number($('#discount').val()) ?? 0;
+                let price_with_comma = $('#price').val() ? $('#price').val() : '0';
+                let discount = $('#discount').val() ? $('#discount').val() : 0;
+                let price = parseInt(price_with_comma.replace(/,/g, ''));
                 let final_price = price - Math.round(price * discount / 100);
-                console.log(price, discount, final_price);
 
                 $('#final_price').val(final_price);
                 $('#final_price_div').show();

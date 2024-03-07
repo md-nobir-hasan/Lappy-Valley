@@ -30,11 +30,11 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('slug')->unique();
             $table->string('title');
-            $table->unsignedBigInteger('price');
+            $table->string('price');
             $table->text('photo');
-            $table->unsignedBigInteger('final_price');
+            $table->string('final_price');
             $table->float('discount')->default(0);
-            $table->unsignedBigInteger('inventory_cost')->default(0);
+            $table->string('inventory_cost');
             $table->text('model')->nullable();
             $table->string('mpn')->nullable();
             $table->text('summary')->nullable();
@@ -148,7 +148,10 @@ class CreateProductsTable extends Migration
             $table->text('physi_other')->nullable();
 
             //Warranty => (1)
-            $table->string('w_details')->nullable(); //wrranty details
+            $table->string('replacement_warranty')->nullable(); //wrranty details
+            $table->string('motherboard_warranty')->nullable(); //wrranty details
+            $table->string('service_warranty')->nullable(); //wrranty details
+            $table->string('w_details')->nullable(); //Other warranty
 
 
             $table->timestamps();

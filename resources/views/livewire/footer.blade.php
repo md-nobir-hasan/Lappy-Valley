@@ -224,8 +224,8 @@
                               const product = `
                                 <div x-data="{
                                         qty: 1,
-                                        price:'${response.product.price}',
-                                        dis_price:'${response.product.final_price}',
+                                        price:'${response.product.price.replace(/,/g,'')}',
+                                        dis_price:'${response.product.final_price.replace(/,/g,'')}',
                                         subtotal:0,
                                         cp_show:true,
                                         setup() {
@@ -322,7 +322,7 @@
                                         </div>
                                         <div>
                                             <p class='text-[#353535] text-[16px] font-[jost] font-[500] text-center'>
-                                                <span x-text="qty"></span> x <span class='text-[#DC275C]' x-text="mFormat(Number(dis_price))"></span>
+                                                <span x-text="qty"></span> x <span class='text-[#DC275C]'> ${response.product.final_price}</span>
                                                 TAKA
                                             </p>
 

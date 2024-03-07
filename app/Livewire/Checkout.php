@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Http\Helper;
 use App\Mail\OrderMail;
 use App\Mail\OrderMailToAdmin;
 use App\Models\Cart;
@@ -115,9 +116,9 @@ class Checkout extends Component
 
         if ($c_id = Session::get('coupon_id')) {
             $coupon = Coupon::find($c_id);
-            $order_data['sub_total'] = $carts->sum('amount') - $coupon->discount($carts->sum('amount'));
+            $order_data['sub_total'] = Helper::cartTotal($carts) - $coupon->discount(Helper::cartSubTotal($carts));
         } else {
-            $order_data['sub_total'] = $carts->sum('amount');
+            $order_data['sub_total'] = Helper::cartTotal($carts);
         }
 
         $shipngs = Shipping::find($this->shipping_id);
@@ -125,7 +126,7 @@ class Checkout extends Component
         $order_data['amount'] = $installment1;
         $order_data['payable'] = $installment1;
         $order_data['installment_count'] = 1;
-        $order_data['inventory_cost'] = $carts->sum('inventory_cost');
+        $order_data['inventory_cost'] = Helper::TotalInventoryCostFromCart($carts);
         $order_data['quantity'] = $carts->sum('quantity');
         $order_data['status'] = "Pending";
         $order_data['payment_status'] = 'Unpaid';
@@ -156,7 +157,12 @@ class Checkout extends Component
         Mail::to($user->email)->send(new OrderMail($mail_content));
 
         foreach ($carts as $cart) {
-            $cart->update(['order_id' => $order->id]);
+            $cart->update([
+                'order_id' => $order->id,
+                'price' => $cart->product->final_price,
+                'amount' => $cart->product->final_price * $cart->quantity,
+                'inventory_cost' => $cart->product->inventory_cost,
+            ]);
         }
         request()->session()->flash('success', 'Your Order successfully placed in order');
         return $this->redirect(route('order.receive', [$order->order_number]));
@@ -167,7 +173,7 @@ class Checkout extends Component
         if ($coupon_id = Session::get('coupon_id')) {
             $n['coupon'] = Coupon::find($coupon_id);
         } else {
-            $n['coupon'] = 0;
+            $n['coupon'] = new Coupon();
         }
         if ($user = Auth()->user()) {
             $n['carts'] = Cart::with(['product'])->where('user_id', $user->id)->where('order_id', null)->latest()->get();

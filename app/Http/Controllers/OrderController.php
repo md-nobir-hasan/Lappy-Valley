@@ -10,7 +10,7 @@ use App\Models\Shipping;
 use App\User;
 use PDF;
 use Notification;
-use Helper;
+use App\Http\Helper;
 use Illuminate\Support\Str;
 use App\Notifications\StatusNotification;
 
