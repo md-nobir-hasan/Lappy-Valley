@@ -1,5 +1,5 @@
   <footer
-      class="bg-gradient-to-r from-[#380D37] to-[#DC275C] pt-4 text-white mt-20 max-sm:mt-14 max-md:mt-16 max-lg:mt-18 h-[400px] max-sm:h-[100%] max-md:h-[380px] max-lg:h-[390px]">
+      class="bg-gradient-to-r from-[#380D37] to-[#DC275C] pt-4 text-white max-xl:mb-[70px] max-lg:mb-[45px] max-md:mb-[38px] max-sm:mb-[50px] mt-20 max-sm:mt-14 max-md:mt-16 max-lg:mt-18 h-[400px] max-sm:h-[100%] max-md:h-[380px] max-lg:h-[390px] ">
       <div class="flex justify-evenly max-sm:block max-sm:px-[18px]">
 
           <div class="">
@@ -191,6 +191,12 @@
               </div>
               </ul>
           </div>
+      </div>
+      <div class="py-[5px] bg-[#7575cd] mt-[25px]">
+          <h3 class="text-center text-[14px] text-[#f2f2f2]">© {{ now()->year() }} <a
+                  href="{{ env('APP_URL') }}">lappyvalley.com</a>, All Rights Reserved || Developed By
+              <a href="https://innovativeskillsbd.com/">Innovative Skills BD</a>
+          </h3>
       </div>
   </footer>
   @assets

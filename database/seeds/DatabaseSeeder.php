@@ -30,7 +30,7 @@ class DatabaseSeeder extends Seeder
 
 // dd();
         // Category::factory()->count(35)->create();
-        Product::factory()->count(100)->create();
+        // Product::factory()->count(100)->create();
         // DB::unprepared(file_get_contents(base_path('needs/seeder/categories.sql')));
         // DB::unprepared(file_get_contents(base_path('needs/seeder/product_seed.sql')));
         //ProductReview::factory()->count(10)->create();
