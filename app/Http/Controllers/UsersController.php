@@ -65,6 +65,7 @@ class UsersController extends Controller
         // dd($data);
         $status= User::create($data);
         // dd($status);
+        // dd($data,$status);
         $status->syncRoles($request->role);
         if($status){
             request()->session()->flash('success','Successfully added user');

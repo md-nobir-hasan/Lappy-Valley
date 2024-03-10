@@ -10,6 +10,8 @@ use FontLib\Table\Type\name;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
@@ -31,6 +33,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // $user = DB::table('users')->where('email','rakib@lappyvalley.com')->first();
+        // dd(Hash::check('rakib1234',$user->password));
         Schema::defaultStringLength(191);
         // Paginator::useBootstrapFour();
         $n =[];

@@ -15,6 +15,7 @@ class Admin
      */
     public function handle($request, Closure $next)
     {
+        
         if($request->user()->can('Dashboard')){
             return $next($request);
         }

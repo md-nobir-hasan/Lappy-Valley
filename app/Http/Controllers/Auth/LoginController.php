@@ -29,7 +29,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = RouteServiceProvider::ADMIN_REDIRECT;
 
     /**
      * Create a new controller instance.
@@ -38,7 +38,8 @@ class LoginController extends Controller
      */
 
     public function credentials(Request $request){
-        return ['email'=>$request->email,'password'=>$request->password,'status'=>'active','role'=>'admin'];
+        // return ['email'=>$request->email,'password'=>$request->password,'status'=>'active','role'=>'admin'];
+        return ['email'=>$request->email,'password'=>$request->password,'status'=>'active'];
     }
     public function __construct()
     {
