@@ -105,6 +105,7 @@ Route::get('storage-link', [AdminController::class, 'storageLink'])->name('stora
 
 
 Auth::routes(['register' => false]);
+Auth::routes(['login' => false]);
 Route::get('/lfksdjfls/klfsjdfkl',[LoginController::class,'showLoginForm'])->name('login');
 Route::post('/lfksdjfls/klfsjdfkl',[LoginController::class,'login'])->name('login');
 
