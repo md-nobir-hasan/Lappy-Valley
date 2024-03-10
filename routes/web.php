@@ -231,7 +231,7 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'admin']], function
     // Profile
     Route::get('/profile', [AdminController::class, 'profile'])->name('admin-profile');
     Route::post('/profile/{id}', [AdminController::class, 'profileUpdate'])->name('profile-update');
-    
+
     // Category
     Route::resource('/category', CategoryController::class);
     //Product Attribute
@@ -336,7 +336,7 @@ Route::group(['prefix' => '/user', 'middleware' => ['user']], function () {
 
     // Password Change
     Route::get('change-password', [HomeController::class, 'changePassword'])->name('user.change.password.form');
-    Route::post('change-password', [HomeController::class, 'changPasswordStore'])->name('change.password');
+    Route::post('change-password', [HomeController::class, 'changPasswordStore'])->name('user.change.password');
 });
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
