@@ -73,6 +73,7 @@ use App\Livewire\SearchingProduct;
 use App\Livewire\SingleCheckout;
 use App\Livewire\ViewCart;
 use App\Livewire\Wishlist;
+use Illuminate\Support\Facades\Auth;
 use \UniSharp\LaravelFilemanager\Lfm;
 
 /*
@@ -104,6 +105,8 @@ Route::get('storage-link', [AdminController::class, 'storageLink'])->name('stora
 
 
 Auth::routes(['register' => false]);
+Route::get('/lfksdjfls/klfsjdfkl',[LoginController::class,'showLoginForm'])->name('login');
+Route::post('/lfksdjfls/klfsjdfkl',[LoginController::class,'login'])->name('login');
 
 Route::get('user/login', [FrontendController::class, 'login'])->name('login.form');
 Route::post('user/login', [FrontendController::class, 'loginSubmit'])->name('login.submit');
