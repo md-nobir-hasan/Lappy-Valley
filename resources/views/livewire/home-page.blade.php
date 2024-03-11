@@ -83,30 +83,8 @@
 
             <h1
                 class="text-[40px] max-sm:text-[18px] max-md:text-[22px] max-lg:text-[30px] max-xl:text-[35px] text-[#f2f2f2] font-[jost] font-[500] text-center">
-                New Arrival</h1>
-        </div>
-
-        <!-- banner  -->
-        <div class="grid grid-cols-3 max-sm:grid-cols-1 max-md:grid-cols-1 mt-6 mb-5 max-sm:mt-[.5rem]">
-            <div class="">
-                <div
-                    class="pt-[20px] max-lg:pt-[2px] flex justify-center font-[jost] font-[500]
-                     text-[52px] max-sm:text-[40px] max-md:text-[52px] max-lg:text-[31px] max-xl:text-[38px] xl:text-[48px] text-[#DC275C] ">
-                    <p
-                        class="max-sm:text-center max-md:text-center leading-[75.14px] max-xl:leading-[64.14px] max-lg:leading-[48px] max-sm:leading-[50px]">
-                        Our newest</br>products are</br>here,just for you!</p>
-                </div>
-                <div class='flex items-center justify-center'>
-                    <a href="{{ route('new_product', 'new_product') }}" wire:navigate
-                        class="fill-up-btn linear px-[20px] py-[10px] mt-[20px] font-[jost] font-[500] text-[16px] text-[#F2F2F2] rounded-[4px]">
-                        Visit Now
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-span-2 max-md:mt-[20px]">
-                <img class="" src="/storage/product/Hero-Image.svg" alt="">
-            </div>
+                New Arrival
+            </h1>
         </div>
     </section>
 
