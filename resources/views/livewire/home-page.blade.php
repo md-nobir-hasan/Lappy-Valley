@@ -57,39 +57,17 @@
         <div class="py-1 text-center">
             <h2
                 class="font-[jost] text-[40px] font-[500] max-lg:text-[30px] max-md:text-[25px] max-sm:text-[24px] text-[#353535]">
-                Featured Laptops </h2>
+                Student Budgeted Laptop
+            </h2>
             <p
                 class="font-[jost] text-[16px] font-[500] max-lg:text-[14px] max-md:text-[12px] max-sm:text-[12px] text-[#380D37]">
                 The best we offer is here</p>
         </div>
-        <div class="pt-[60px]">
-            <button
-                class="usa_btn w-[241px] max-xl:w-[200px] max-lg:w-[180px] max-md:w-[150px] max-sm:w-[100px] h-[48px] max-lg:h-[43px] max-md:h-[40px] max-sm:h-[35px] max-lg:text-[18px] max-md:text-[16px] max-sm:text-[14px]
-                items-center text-center rounded-[4px] bg-[#380D37] text-[#F2F2F2] font-[500] text-[20px] font-[jost]">
-                USA
-            </button>
-            <button
-                class="asian_btn w-[241px] max-xl:w-[200px] max-lg:w-[180px] max-md:w-[150px] max-sm:w-[100px]  h-[48px] max-lg:h-[43px] max-md:h-[40px] max-sm:h-[35px] max-lg:text-[18px] max-md:text-[16px] max-sm:text-[14px]
-                items-center text-center rounded-[4px] bg-[#F2F2F2] text-[#380D37] font-[500] text-[20px] font-[jost]">
-                ASIAN
-            </button>
-            <div class="h-[2px] bg-[#380D37] rouned-[2px]"></div>
-        </div>
         <!-- Product  -->
-        <div class="usa_prds">
+        <div>
             <div
                 class="grid grid-cols-5 max-sm:grid-cols-2 max-md:grid-cols-2 max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 mt-6 mb-[78px] max-sm:mb-[50px]">
-                @foreach ($features->where('cat_id', 7) as $product)
-                    <x-product :product="$product"></x-product>
-                    {{-- <livewire:products :product="$product" /> --}}
-                @endforeach
-            </div>
-        </div>
-
-        <div class="hidden asian_prds">
-            <div
-                class="grid grid-cols-5 max-md:grid-cols-2  max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 mt-6 mb-[78px] max-sm:mb-[50px]">
-                @foreach ($features->where('cat_id', 6) as $product)
+                @foreach ($features->where('cat_id', 5) as $product)
                     <x-product :product="$product"></x-product>
                     {{-- <livewire:products :product="$product" /> --}}
                 @endforeach
@@ -288,7 +266,8 @@
                                             class="text-[14px] bg-[#ef4a23] text-[#fff] absolute top-[-8px] left-[-8px] px-2 py-[2px] rounded-r-lg">Out
                                             Of Stock</span>
                                     @endif
-                                    <span class="text-[14px] text-[#fff] bg-[#ef4a23] absolute top-[-8px] right-[-8px] px-2 py-[2px] rounded-l-lg">
+                                    <span
+                                        class="text-[14px] text-[#fff] bg-[#ef4a23] absolute top-[-8px] right-[-8px] px-2 py-[2px] rounded-l-lg">
                                         -10%
                                     </span>
                                 </div>
@@ -303,7 +282,7 @@
                                     class="flex justify-between items-end text-[14px] mt-auto font-[jost] font-[700] leading-[20.23px]">
                                     <div class="flex flex-col">
                                         <span class="pprice text-[#DC275C]"
-                                            value='{{ $product->final_price }}'>{{$product->final_price }}
+                                            value='{{ $product->final_price }}'>{{ $product->final_price }}
                                             ৳
                                         </span>
                                         <span class="text-[#380D37] text-[14px] font-[jost] font-[700] line-through">
@@ -347,7 +326,8 @@
                                             class="text-[14px] bg-[#ef4a23] text-[#fff] absolute top-[-8px] left-[-8px] px-2 py-[2px] rounded-r-lg">
                                             Out Of Stock</span>
                                     @endif
-                                    <span class="text-[14px] text-[#fff] bg-[#ef4a23] absolute top-[-8px] right-[-8px] px-2 py-[2px] rounded-l-lg">
+                                    <span
+                                        class="text-[14px] text-[#fff] bg-[#ef4a23] absolute top-[-8px] right-[-8px] px-2 py-[2px] rounded-l-lg">
                                         -10%
                                     </span>
                                 </div>
