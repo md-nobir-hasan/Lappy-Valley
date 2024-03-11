@@ -19,6 +19,7 @@ class Nav extends Component
         if (count($n['menus']) > 7) {
             $n['menus'] = $n['menus']->take(7);
         }
+        // dd($n);
         return view('livewire.nav', $n);
     }
 }

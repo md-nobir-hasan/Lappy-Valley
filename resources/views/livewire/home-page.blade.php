@@ -52,7 +52,7 @@
     @endif
     <!-- --------hero--section --end ----  -->
 
-    <!-- Feature Laptops -->
+    <!-- Student Budgeted Laptop -->
     <section class='mt-[50px]'>
         <div class="py-1 text-center">
             <h2
@@ -77,35 +77,63 @@
 
     <!-- New arrival  -->
     <section>
-        <!-- heading -->
-        <div
-            class=" fill-up-btn h-[130px] max-sm:h-[52px] max-md:h-[68px] max-lg:h-[85px] max-xl:h-[100px]  flex justify-center items-center text-white bg-gradient-to-r from-[#380D37] to-[#DC275C]">
+        <!-- New text  -->
+        <section>
+            <!-- heading -->
+            <div
+                class=" fill-up-btn h-[130px] max-sm:h-[52px] max-md:h-[68px] max-lg:h-[85px] max-xl:h-[100px]  flex justify-center items-center text-white bg-gradient-to-r from-[#380D37] to-[#DC275C]">
 
-            <h1
-                class="text-[40px] max-sm:text-[18px] max-md:text-[22px] max-lg:text-[30px] max-xl:text-[35px] text-[#f2f2f2] font-[jost] font-[500] text-center">
-                New Arrival
-            </h1>
+                <h1
+                    class="text-[40px] max-sm:text-[18px] max-md:text-[22px] max-lg:text-[30px] max-xl:text-[35px] text-[#f2f2f2] font-[jost] font-[500] text-center">
+                    New Arrival
+                </h1>
+            </div>
+        </section>
+
+        <!-- Product  -->
+        <section>
+            <div
+                class="grid grid-cols-5 max-md:grid-cols-2 max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 mt-6 mb-[78px] max-sm:mb-[50px]">
+                {{-- @for ($i = 1; $i < 6; $i++)
+                <livewire:products />
+            @endfor --}}
+                @foreach ($new_arrival->take(5) as $product)
+                    <x-product :product="$product"></x-product>
+                @endforeach
+            </div>
+        </section>
+        <!-- Product  -->
+    </section>
+
+
+    <!-- Attractive Gaming Laptop -->
+    <section class='mt-[50px]'>
+        <div class="py-1 text-center">
+            <h2
+                class="font-[jost] text-[40px] font-[500] max-lg:text-[30px] max-md:text-[25px] max-sm:text-[24px] text-[#353535]">
+                Attractive Gaming Laptop
+            </h2>
+            <p
+                class="font-[jost] text-[16px] font-[500] max-lg:text-[14px] max-md:text-[12px] max-sm:text-[12px] text-[#380D37]">
+                The best product we offer is here</p>
+        </div>
+        <!-- Product  -->
+        <div>
+            <div
+                class="grid grid-cols-5 max-sm:grid-cols-2 max-md:grid-cols-2 max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 mt-6 mb-[78px] max-sm:mb-[50px]">
+                @foreach ($features->where('cat_id', 4) as $product)
+                    <x-product :product="$product"></x-product>
+                    {{-- <livewire:products :product="$product" /> --}}
+                @endforeach
+            </div>
         </div>
     </section>
 
-    <!-- Product  -->
-    <section>
-        <div
-            class="grid grid-cols-5 max-md:grid-cols-2 max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 mt-6 mb-[78px] max-sm:mb-[50px]">
-            {{-- @for ($i = 1; $i < 6; $i++)
-            <livewire:products />
-        @endfor --}}
-            @foreach ($new_arrival->take(5) as $product)
-                <x-product :product="$product"></x-product>
-            @endforeach
-        </div>
-    </section>
-    <!-- Product  -->
 
     <!-- Feature Laptops Sliders -->
     <section x-data='{redirect(url){
         window.open(url,"_blank");
-    }}'>
+        }}'>
         <div class="py-1 text-center">
             <h2
                 class="font-[jost] text-[40px] font-[500] max-lg:text-[30px] max-md:text-[25px] max-sm:text-[24px] text-[#353535]">
@@ -127,100 +155,6 @@
             </button>
             <div class="h-[2px] bg-[#380D37]"></div>
         </div>
-
-        {{-- Swiper slide  --}}
-        {{-- <div class="usa_prds">
-            <div class="relative mx-auto overflow-hidden swiper-container mySwiper">
-                <div class="swiper-wrapper gap-[5px] py-[20px]">
-                    @foreach ($features->where('cat_id', 7) as $f_product)
-                        <div class="swiper-slide">
-                            <div
-                                class="w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                                <div class="relative max-w-xs overflow-hidden bg-no-repeat bg-cover
-                                    data-te-ripple-init data-te-ripple-color="light">
-                                    <a href="{{ route('product.details', [$f_product->slug]) }}" wire:navigate>
-                                        <img src="{{ $f_product->img()[0] }}" alt="Product"></a>
-                                    <a href="{{ route('product.details', [$f_product->slug]) }}" wire:navigate>
-                                        <div
-                                            class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsl(0,0%,98.4%,0.2)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-50">
-                                        </div>
-                                    </a>
-                                </div>
-                                <div>
-                                    <a href="{{ route('product.details', [$f_product->slug]) }}" wire:navigate>
-                                        <p
-                                            class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                            {{ $f_product->title }}
-                                        </p>
-                                    </a>
-                                </div>
-                                <div
-                                    class="flex justify-between gap-5 text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
-                                    <span class="text-[#DC275C]">{{ $f_product->final_price }} TK</span>
-                                    <livewire:add-to-cart :id="$f_product->id"
-                                        button='<a class="text-[#380D37]">Add to Cart</a>' />
-
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-
-            </div>
-            <div class="relative">
-                <div class="swiper-button-next translate-x-[55px] max-sm:translate-x-[20px] translate-y-[-192px] bs">
-                </div>
-                <div class="swiper-button-prev translate-x-[-40px] max-sm:translate-x-[-20px] translate-y-[-192px] bs">
-                </div>
-            </div>
-        </div> --}}
-
-        {{-- <div class="hidden asian_prds">
-            <div class="relative mx-auto overflow-hidden swiper-container mySwiper">
-
-                <div class="swiper-wrapper gap-[5px] py-[20px]">
-                    @foreach ($features->where('cat_id', 6) as $a_product)
-                        <div class="swiper-slide">
-                            <div
-                                class="w-[221px] mx-auto flex flex-col bg-white p-2 gap-[16px] text-left shadow-[2px_2px_5px_2px_#0000001A]">
-                                <div class="relative max-w-xs overflow-hidden bg-no-repeat bg-cover
-                                    data-te-ripple-init data-te-ripple-color="light">
-                                    <a href="{{ route('product.details', [$a_product->slug]) }}" wire:navigate>
-                                        <img src="{{ $a_product->img()[0] }}" alt="Product"></a>
-                                    <a href="{{ route('product.details', [$a_product->slug]) }}" wire:navigate>
-                                        <div
-                                            class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsl(0,0%,98.4%,0.2)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-50">
-                                        </div>
-                                    </a>
-                                </div>
-                                <div>
-                                    <a href="{{ route('product.details', [$a_product->slug]) }}" wire:navigate>
-                                        <p
-                                            class="text-[16px] text-[#380D37] font-[jost] font-[500] leading-[23.12px] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4 transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-2 hover:underline hover:underline-offset-4">
-                                            {{ $a_product->title }}
-                                        </p>
-                                    </a>
-                                </div>
-                                <div
-                                    class="flex flex justify-between gap-5 text-[14px] font-[jost] font-[700] py-[10px] mt-auto leading-[20.23px]">
-                                    <span class="text-[#DC275C]">{{ $a_product->final_price }} TK</span>
-                                    <livewire:add-to-cart :id="$a_product->id"
-                                        button='<a class="text-[#380D37]">Add to Cart</a>' />
-
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-
-            </div>
-            <div class="relative">
-                <div class="swiper-button-next translate-x-[55px] max-sm:translate-x-[20px] translate-y-[-192px] bs">
-                </div>
-                <div class="swiper-button-prev translate-x-[-40px] max-sm:translate-x-[-20px] translate-y-[-192px] bs">
-                </div>
-            </div>
-        </div> --}}
 
         {{-- Swiper for usa  --}}
         <div class="usa_prds">
@@ -570,6 +504,7 @@
             <!-- Initialize Swiper -->
         </div>
     </section>
+
     <div class='mt-[40px] mb-[30px]'>
         <div class="h-[2px] bg-[#380D37]"></div>
     </div>
@@ -964,87 +899,6 @@
             </form>
         </div>
     </section>
-
-    {{-- <div class="mt-20 px-30">
-        <style>
-            .menu-container2 {
-                position: relative;
-                display: inline-block;
-                cursor: pointer;
-            }
-
-            .menu2 {
-                display: none;
-                position: absolute;
-                list-style: none;
-                padding: 0;
-                margin: 0;
-                background-color: #380d;
-                border: 1px solid #ccc;
-                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-                z-index: 1;
-            }
-
-            .menu2 li {
-                padding: 8px;
-                cursor: pointer;
-            }
-
-            .toggle-btn2 {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                width: 30px;
-                height: 30px;
-                /* border: 1px solid #ccc;
-                border-radius: 50%; */
-                transition: background-color 0.3s ease;
-            }
-
-            .toggle-btn2 .minus {
-                display: none;
-            }
-
-            .toggle-btn2.active {
-                background-color: black;
-            }
-        </style>
-        <div class="menu-container2">
-            <div class="flex toggleBtn2">
-                <div>
-                    <span>
-                        sumon
-                    </span>
-                </div>
-              <div id="toggle-btn2">
-                <svg class="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
-                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="12" y1="5" x2="12" y2="19"></line>
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-            </svg>
-            <svg class="minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
-                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                style="display: none;">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-            </svg>
-              </div>
-            </div>
-            <ul class="menu2">
-                <li>Item 1</li>
-                <li>Item 2</li>
-                <li>Item 3</li>
-            </ul>
-        </div>
-        <script>
-            $(document).ready(function() {
-                $('.toggleBtn2').click(function() {
-                    $('.menu2').toggle();
-                    $('#toggle-btn2 .plus, #toggle-btn2 .minus').toggle();
-                });
-            });
-        </script>
-
-    </div> --}}
 </div>
 @script
     <script>
