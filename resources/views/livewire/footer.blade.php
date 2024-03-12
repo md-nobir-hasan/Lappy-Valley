@@ -40,7 +40,7 @@
                   </li>
                   <li>
                       <span class="px-1 hover:bg-blue-700">
-                          Trade license : 202984t
+                          Trade license : 202984
                       </span>
                   </li>
                   <li>

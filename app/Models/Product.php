@@ -42,7 +42,7 @@ class Product extends Model
         //Physical Specification Attributes
         'color', 'dimension', 'weight', 'physi_other',
         //Warranty Attributes
-        'w_details', 'replacement_warranty', 'motherboard_warranty', 'service_warranty'
+        'w_details', 'replacement_warranty', 'motherboard_warranty', 'service_warranty','disclaimer','note',
     ];
 
     static public function orderByFinalpriceAsc()

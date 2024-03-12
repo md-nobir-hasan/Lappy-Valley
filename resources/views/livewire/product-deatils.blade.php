@@ -895,6 +895,19 @@
                             <td class="bg-[#380D37] text-[#f2f2f2] font-[jost] max-sm:text-[16px] font-[500] py-[10px] pl-[14px] rounded-[5px]"
                                 colspan="3">Warranty :</td>
                         </tr>
+                        <tr class="border-[#764A8733] border-b-[2px]">
+                            <td
+                                class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[400] pl-[20px]">
+                                Warranty Year
+                            </td>
+                            <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
+                                @if ($product->cat_info->slug == 'brand-new')
+                                    1 Year
+                                @else
+                                    3 Months
+                                @endif
+                            </td>
+                        </tr>
                         {{-- @if ($product->replacement_warranty) --}}
                             <tr class="border-[#764A8733] border-b-[2px]">
                                 <td
@@ -926,6 +939,28 @@
                                 </td>
                                 <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
                                     {{ $product->service_warranty ? $product->service_warranty : 'N/A' }}
+                                </td>
+                            </tr>
+                        {{-- @endif --}}
+                        {{-- @if ($product->service_warranty) --}}
+                            <tr class="border-[#764A8733] border-b-[2px]">
+                                <td
+                                    class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[400] pl-[20px]">
+                                    Disclaimer
+                                </td>
+                                <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
+                                    {{ $product->disclaimer  ? $product->disclaimer : 'N/A' }}
+                                </td>
+                            </tr>
+                        {{-- @endif --}}
+                        {{-- @if ($product->service_warranty) --}}
+                            <tr class="border-[#764A8733] border-b-[2px]">
+                                <td
+                                    class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[400] pl-[20px]">
+                                    Note
+                                </td>
+                                <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
+                                    {{ $product->note  ? $product->note  : 'N/A' }}
                                 </td>
                             </tr>
                         {{-- @endif --}}

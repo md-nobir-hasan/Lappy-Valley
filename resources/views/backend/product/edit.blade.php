@@ -985,6 +985,26 @@
                             @enderror
                         </div>
 
+                        {{-- disclaimer  --}}
+                        <div class="form-group">
+                            <label for="disclaimer" class="col-form-label">Disclaimer</label>
+                            <input id="disclaimer" type="text" name="disclaimer" placeholder=""
+                                value="{{ $product->disclaimer }}" class="form-control">
+                            @error('disclaimer')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        {{-- note  --}}
+                        <div class="form-group">
+                            <label for="note" class="col-form-label">Note</label>
+                            <input id="note" type="text" name="note" placeholder=""
+                                value="{{ $product->note }}" class="form-control">
+                            @error('note')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
                         {{-- w_details  --}}
                         <div class="form-group">
                             <label for="w_details" class="col-form-label">Other Warranty</label>

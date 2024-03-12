@@ -151,6 +151,8 @@ class CreateProductsTable extends Migration
             $table->string('replacement_warranty')->nullable(); //replacement_warranty
             $table->string('motherboard_warranty')->nullable(); //motherboard_warranty
             $table->string('service_warranty')->nullable(); //service_warranty
+            $table->text('disclaimer')->nullable(); //service_warranty
+            $table->text('note')->nullable(); //service_warranty
             $table->string('w_details')->nullable(); //Other warranty
 
 
