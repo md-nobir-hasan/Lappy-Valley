@@ -29,7 +29,7 @@ class Shop extends Component
     }
     public function render()
     {
-        $n['products'] = Product::with(['ProcessorModel','ram','ssd','hdd','DisplaySize','DisplayType','cat_info'])
+        $n['products'] = Product::with(['ProcessorModel','ram','ssd','hdd','DisplaySize','DisplayType'])
                                 ->where('status', 'active')->paginate(20);
         $n['brands'] = Brand::get();
         $n['p_models'] = ProcessorModel::get();

@@ -58,11 +58,6 @@
                      <li>Features: {{ $sp }}</li>
                      {{-- <li>Features: Type-C</li> --}}
                  @endif
-                 @if ($sp = $product->cat_info)
-                 <li>Condition: {{ $sp->title }}</li>
-                 {{-- <li>Features: Type-C</li> --}}
-                 @endif
-                 @dd($product)
              </ul>
          </div>
      </div>

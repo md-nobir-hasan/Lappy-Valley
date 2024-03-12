@@ -37,14 +37,14 @@ class NewProduct extends Component
     {
       $os =  OtherSetting::first();
         if($this->product_type == 'new_product'){
-            $n['products'] = Product::with(['ProcessorModel','ram','ssd','hdd','DisplaySize','DisplayType','cat_info'])
+            $n['products'] = Product::with(['ProcessorModel','ram','ssd','hdd','DisplaySize','DisplayType'])
                                     ->where('status', 'active')->whereBetween('created_at', [Carbon::now()->subDays($os->new_product), Carbon::now()])->paginate(20);
             if(count($n['products'])<1){
-                $n['products'] = Product::with(['ProcessorModel','ram','ssd','hdd','DisplaySize','DisplayType','cat_info'])
+                $n['products'] = Product::with(['ProcessorModel','ram','ssd','hdd','DisplaySize','DisplayType'])
                                         ->where('status', 'active')->latest()->paginate(20);
             }
         }else{
-            $n['products'] = Product::with(['ProcessorModel','ram','ssd','hdd','DisplaySize','DisplayType','cat_info'])
+            $n['products'] = Product::with(['ProcessorModel','ram','ssd','hdd','DisplaySize','DisplayType'])
                                     ->where('status', 'active')->paginate(20);
         }
         $n['brands'] = Brand::get();

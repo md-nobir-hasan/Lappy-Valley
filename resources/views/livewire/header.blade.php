@@ -185,6 +185,7 @@
                                                 <input name="search_text" wire:model.live="search"
                                                     wire:keyup="searchFuc" @click="open = true" type="search"
                                                     id="search-dropdown"
+                                                    autocomplete="off"
                                                     class=" z-20 block p-2.5 w-full bg-[#f2f2f2] text-[#380D37]"
                                                     placeholder="I am shopping for..." required>
                                                 <div wire:loading wire:target='prdouctFetch,searchFuc'

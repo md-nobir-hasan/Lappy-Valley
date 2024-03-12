@@ -42,11 +42,11 @@ class CatWiseShop extends Component
         $n['s_features'] = SpecialFeature::get();
         if($this->subcat){
             $subcat = Category::where('slug', $this->subcat)->first();
-            $n['products'] = Product::with(['ProcessorModel','ram','ssd','hdd','DisplaySize','DisplayType','cat_info'])
+            $n['products'] = Product::with(['ProcessorModel','ram','ssd','hdd','DisplaySize','DisplayType'])
                                     ->where('child_cat_id', $subcat->id)->where('status', 'active')->paginate(20);
         }else{
             $cat = Category::where('slug', $this->cat)->first();
-            $n['products'] = Product::with(['ProcessorModel','ram','ssd','hdd','DisplaySize','DisplayType','cat_info'])
+            $n['products'] = Product::with(['ProcessorModel','ram','ssd','hdd','DisplaySize','DisplayType'])
                                     ->where('cat_id', $cat->id)->where('status', 'active')->paginate(20);
         }
 

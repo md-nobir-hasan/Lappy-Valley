@@ -110,6 +110,13 @@
                     Display:
                     {{ $product->DisplaySize?->size . '" ' . $product->DisplayType?->name . ' (' . $product->d_resolution }})
                 </li>
+                @if ($product->cat_info)
+                    <li class=" text-[16px] max-lg:text-[14px] text-[rgb(53,53,53)] font-[jost] font-[400]">
+                        Condition:
+                        {{ $product->cat_info?->title }}
+                    </li>
+                @endif
+
                 <li class=" max-lg:text-[18px] text-[20px] text-[#353535] font-[jost] font-[500] mt-[16px]">
                     Regular Price:</li>
                 <li class=" max-lg:text-[18px] text-[20px] text-[#DC275C] font-[jost] font-[700] line-through">
@@ -264,17 +271,8 @@
                             </td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->p_brand }}
+                                {{ $product->p_brand ? $product->p_brand : 'N/A'}}
                             </td>
-                        </tr>
-                        <tr class="border-[#764A8733] border-b-[2px]">
-                            <td
-                                class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[400] pl-[20px]">
-                                Processor Type:
-                            </td>
-                            <td
-                                class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->ProcessorModel?->name }}</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td
@@ -283,8 +281,18 @@
                             </td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->ProcessorGeneration?->name }}</td>
+                                {{ $product->ProcessorGeneration ? $product->ProcessorGeneration->name : "N/A" }}</td>
                         </tr>
+                        <tr class="border-[#764A8733] border-b-[2px]">
+                            <td
+                                class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[400] pl-[20px]">
+                                Processor Type:
+                            </td>
+                            <td
+                                class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
+                                {{ $product->ProcessorModel ? $product->ProcessorModel->name : 'N/A' }}</td>
+                        </tr>
+
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[400] max-sm:w-[180px] pl-[20px]">
@@ -292,7 +300,7 @@
                             </td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->c_speed }}</td>
+                                {{ $product->c_speed ? $product->c_speed : 'N/A' }}</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td
@@ -300,7 +308,7 @@
                                 Processor Core:</td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->p_core ?? 'N/A' }}</td>
+                                {{ $product->p_core ? $product->p_core : 'N/A' }}</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td
@@ -309,7 +317,7 @@
                             </td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->p_thread }}</td>
+                                {{ $product->p_thread ? $product->p_thread : 'N/A' }}</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td
@@ -317,9 +325,9 @@
                                 CPU Cache:</td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500] leading-[30px]">
-                                <li class="list-none">L1 Cache: {{ $product->l1_cache }}</li>
-                                <li class="list-none">L2 Cache: {{ $product->l2_cache }}</li>
-                                <li class="list-none">L3 Cache: {{ $product->l3_cache }}</li>
+                                <li class="list-none">L1 Cache: {{ $product->l1_cache ? $product->l1_cache : 'N/A'}}</li>
+                                <li class="list-none">L2 Cache: {{ $product->l2_cache ? $product->l2_cache : 'N/A' }}</li>
+                                <li class="list-none">L3 Cache: {{ $product->l3_cache ? $product->l3_cache : 'N/A' }}</li>
                             </td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
@@ -329,7 +337,7 @@
                             </td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->p_other }}</td>
+                                {{ $product->p_other ? $product->p_other : 'N/A' }}</td>
                         </tr>
 
 
@@ -347,7 +355,7 @@
                                 Display Size:</td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->DisplaySize?->size }}"</td>
+                                {{ $product->DisplaySize ? $product->DisplaySize->size : 'N/A' }}"</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td
@@ -355,7 +363,7 @@
                                 Display Type:</td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->DisplayType?->name }}</td>
+                                {{ $product->DisplayType ? $product->DisplayType->name : 'N/A' }}</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td
@@ -364,7 +372,7 @@
                             </td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->d_resolution }}
+                                {{ $product->d_resolution ? $product->d_resolution : 'N/A' }}
                             </td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
@@ -382,7 +390,7 @@
                             </td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->d_other }}</td>
+                                {{ $product->d_other ? $product->d_other : 'N/A' }}</td>
                         </tr>
 
 
@@ -399,7 +407,7 @@
                                 RAM:</td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->ram?->ram }}GB
+                                {{ $product->ram ?  $product->ram?->ram : 'N/A' }}GB
                             </td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
@@ -408,7 +416,7 @@
                                 RAM Type:</td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->m_type }}
+                                {{ $product->m_type ?  $product->m_type : 'N/A' }}
                             </td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
@@ -426,7 +434,7 @@
                                 BUS Speed:</td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->bus_speed }}
+                                {{ $product->bus_speed ? $product->bus_speed : 'N/A' }}
                             </td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
@@ -436,7 +444,7 @@
                             </td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->m_slot }}</td>
+                                {{ $product->m_slot ? $product->m_slot : 'N/A'}}</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td
@@ -445,7 +453,7 @@
                             </td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->m_other }}</td>
+                                {{ $product->m_other ? $product->m_other : 'N/A' }}</td>
                         </tr>
 
 
@@ -499,7 +507,7 @@
                             </td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->s_support_type }}
+                                {{ $product->s_support_type ? $product->s_support_type : 'N/A' }}
                             </td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
@@ -508,7 +516,7 @@
                                 Storage Upgrade:
                             </td>
                             <td class="text-[#353535] text-[16px] max-lg:text-[14px]  font-[jost] font-[500]">
-                                {{ $product->s_upgrade }}
+                                {{ $product->s_upgrade ? $product->s_upgrade : 'N/A' }}
                             </td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
@@ -518,7 +526,7 @@
                             </td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->stor_other }}</td>
+                                {{ $product->stor_other ? $product->stor_other : 'N/A' }}</td>
                         </tr>
 
 
@@ -535,7 +543,7 @@
                             </td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->g_model }}</td>
+                                {{ $product->g_model ? $product->g_model : 'N/A'}}</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td
@@ -544,7 +552,7 @@
                             </td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->Graphic?->name }}
+                                {{ $product->Graphic ?  $product->Graphic->name : 'N/A' }}
                             </td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
@@ -554,7 +562,7 @@
                             </td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->g_other }}</td>
+                                {{ $product->g_other ? $product->g_other : 'N/A' }}</td>
                         </tr>
 
                         <!-- -------------------6th--part------------ -->
@@ -570,7 +578,7 @@
                                 Keyboard Type:</td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->k_type }}</td>
+                                {{ $product->k_type ? $product->k_type : 'N/A'}}</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td
@@ -587,7 +595,7 @@
                             </td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->k_other }}</td>
+                                {{ $product->k_other ? $product->k_other : 'N/A' }}</td>
                         </tr>
 
                         <!-- ----------7th--part------------- -->
@@ -628,7 +636,7 @@
                             </td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->ca_other }}</td>
+                                {{ $product->ca_other ? $product->ca_other : 'N/A' }}</td>
                         </tr>
 
                         <!-- -----------8th---part (Ports & Slots) ----- -->
@@ -718,7 +726,7 @@
                                 WiFi:</td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->wifi }}</td>
+                                {{ $product->wifi ?  $product->wifi : 'N/A'}}</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td
@@ -726,7 +734,7 @@
                                 Bluetooth:</td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->bluetooth }}
+                                {{ $product->bluetooth ? $product->bluetooth : 'N/A'}}
                             </td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
@@ -736,7 +744,7 @@
                             </td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->nc_other }}</td>
+                                {{ $product->nc_other ?  $product->nc_other : 'N/A'}}</td>
                         </tr>
 
                         <!-- ---------------10th---part---------- -->
@@ -754,7 +762,7 @@
                             </td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->finger_print }}</td>
+                                {{ $product->finger_print ? $product->finger_print : 'N/A' }}</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td
@@ -763,7 +771,7 @@
                             </td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->facelock }}</td>
+                                {{ $product->facelock ? $product->facelock : 'N/A' }}</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td
@@ -772,7 +780,7 @@
                             </td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->s_other }}</td>
+                                {{ $product->s_other ? $product->s_other : 'N/A' }}</td>
                         </tr>
 
 
@@ -788,7 +796,7 @@
                             </td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->operating_system }}</td>
+                                {{ $product->operating_system ? $product->operating_system  : 'N/A'}}</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td
@@ -797,7 +805,7 @@
                             </td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->soft_other }}</td>
+                                {{ $product->soft_other ? $product->soft_other : 'N/A' }}</td>
                         </tr>
 
 
@@ -812,7 +820,7 @@
                                 Battery Type:</td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->battery_type }}
+                                {{ $product->battery_type ?  $product->battery_type : 'N/A' }}
                             </td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
@@ -822,7 +830,7 @@
                             </td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->battery_capacity }}</td>
+                                {{ $product->battery_capacity ? $product->battery_capacity : 'N/A' }}</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td
@@ -830,7 +838,7 @@
                                 Adapter Type:</td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->adapter_type }}
+                                {{ $product->adapter_type ? $product->adapter_type : 'N/A' }}
                             </td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
@@ -840,7 +848,7 @@
                             </td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->power_other }}</td>
+                                {{ $product->power_other ?  $product->power_other : 'N/A' }}</td>
                         </tr>
 
                         <tr>
@@ -854,7 +862,7 @@
                                 Color:</td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->color }}</td>
+                                {{ $product->color ? $product->color : 'N/A' }}</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td
@@ -862,7 +870,7 @@
                                 Dimensions:</td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->dimension }}
+                                {{ $product->dimension ? $product->dimension : 'N/A' }}
                             </td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
@@ -871,7 +879,7 @@
                                 Weight:</td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->weight }}</td>
+                                {{ $product->weight ? $product->weight : 'N/A' }}</td>
                         </tr>
                         <tr class="border-[#764A8733] border-b-[2px]">
                             <td
@@ -880,58 +888,58 @@
                             </td>
                             <td
                                 class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[500]">
-                                {{ $product->physi_other }}</td>
+                                {{ $product->physi_other ? $product->physi_other : 'N/A' }}</td>
                         </tr>
 
                         <tr>
                             <td class="bg-[#380D37] text-[#f2f2f2] font-[jost] max-sm:text-[16px] font-[500] py-[10px] pl-[14px] rounded-[5px]"
                                 colspan="3">Warranty :</td>
                         </tr>
-                        @if ($product->replacement_warranty)
+                        {{-- @if ($product->replacement_warranty) --}}
                             <tr class="border-[#764A8733] border-b-[2px]">
                                 <td
                                     class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[400] pl-[20px]">
                                     Replacement Details
                                 </td>
                                 <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
-                                    {{ $product->replacement_warranty }}
+                                    {{ $product->replacement_warranty ? $product->replacement_warranty : 'N/A' }}
                                 </td>
                             </tr>
-                        @endif
-                        @if ($product->motherboard_warranty)
+                        {{-- @endif --}}
+                        {{-- @if ($product->motherboard_warranty) --}}
                             <tr class="border-[#764A8733] border-b-[2px]">
                                 <td
                                     class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[400] pl-[20px]">
                                     Motherboard Warranty
                                 </td>
                                 <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
-                                    {{ $product->motherboard_warranty }}
+                                    {{ $product->motherboard_warranty ? $product->motherboard_warranty : 'N/A'}}
                                 </td>
                             </tr>
-                        @endif
+                        {{-- @endif --}}
 
-                        @if ($product->service_warranty)
+                        {{-- @if ($product->service_warranty) --}}
                             <tr class="border-[#764A8733] border-b-[2px]">
                                 <td
                                     class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[400] pl-[20px]">
                                     Service Warranty
                                 </td>
                                 <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
-                                    {{ $product->service_warranty }}
+                                    {{ $product->service_warranty ? $product->service_warranty : 'N/A' }}
                                 </td>
                             </tr>
-                        @endif
-                        @if ($product->w_details)
+                        {{-- @endif --}}
+                        {{-- @if ($product->w_details) --}}
                             <tr class="border-[#764A8733] border-b-[2px]">
                                 <td
                                     class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] py-[14px] max-sm:py-[10px] font-[400] pl-[20px]">
                                     Other Warranty
                                 </td>
                                 <td class="text-[#353535] text-[16px] max-lg:text-[14px] font-[jost] font-[500]">
-                                    {{ $product->w_details }}
+                                    {{ $product->w_details ?  $product->w_details : 'N/A' }}
                                 </td>
                             </tr>
-                        @endif
+                        {{-- @endif --}}
                     </tbody>
                 </table>
             </section>
