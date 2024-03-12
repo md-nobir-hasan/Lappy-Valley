@@ -131,6 +131,13 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="is_student">Is Student Laptop</label><br>
+                        <input type="checkbox" name='is_student' @checked($product->is_student) id='is_student'
+                            value='1'>
+                        <label for="is_student">Yes</label>
+                    </div>
+
+                    <div class="form-group">
                         <label for="upcomming_toggler">Up Comming</label><br>
                         <input type="checkbox" name='upcomming_toggler' @checked($product->upcomming)
                             id='upcomming_toggler' value='1'>
@@ -366,7 +373,7 @@
                         {{-- touch_screen  --}}
                         <div class="form-group">
                             <label for="touch_screen">Touch Screen</label><br>
-                            <input type="checkbox" name='touch_screen' @checked($product->touch_screen) id='is_featured'
+                            <input type="checkbox" name='touch_screen' @checked($product->touch_screen) id='touch_screen'
                                 value="1">
                             Yes
                             @error('touch_screen')

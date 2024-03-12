@@ -130,6 +130,13 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="is_student">Is Student Laptop</label><br>
+                        <input type="checkbox" name='is_student' @checked(old('is_student')) id='is_student'
+                            value='1'>
+                        <label for="is_student">Yes</label>
+                    </div>
+
+                    <div class="form-group">
                         <label for="upcomming_toggler">Up Comming</label><br>
                         <input type="checkbox" name='upcomming_toggler' @checked(old('upcomming_toggler'))
                             id='upcomming_toggler' value='1'>
