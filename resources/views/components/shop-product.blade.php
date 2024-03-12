@@ -29,7 +29,7 @@
          <div class=' border-[#380D3733] mb-2'>
              <a href="{{ route('product.details', [$product->slug]) }}"
                  class="font-[jost] text-[12px] font-[500] leading-[20px] text-left text-[#380D37] transition duration-150 ease-in-out hover:text-[#ef4a23] decoration-[#ef4a23] decoration-1 hover:underline hover:underline-offset-4">
-                 {{ $product->title }}
+                 {{ Str::of($product->title)->limit(45) }}
              </a>
          </div>
          <div class='mb-4 mt-auto'>
