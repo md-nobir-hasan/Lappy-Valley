@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Cart;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Str;
 
 class Product extends Model
 {
@@ -40,9 +41,27 @@ class Product extends Model
         //Physical Specification Attributes
         'color', 'dimension', 'weight', 'physi_other',
         //Warranty Attributes
-        'w_details','replacement_warranty','motherboard_warranty','service_warranty'
+        'w_details', 'replacement_warranty', 'motherboard_warranty', 'service_warranty'
     ];
 
+    static protected function serachByTitleOrNothing($search_text = null)
+    {
+        $seraching_products = self::where('status', 'active')
+            ->orderByRaw("CAST(REPLACE(final_price, ',', '') AS UNSIGNED)")
+            ->orderBy('final_price', 'asc');
+
+        if ($search_text) {
+            $remove_white_space = Str::of($search_text)->squish();
+            $searching_words =  explode(' ', $remove_white_space);
+
+            foreach ($searching_words as $word) {
+                $seraching_products->where('title', 'like', "%$word%");
+            }
+            return $seraching_products->get();
+        }
+
+        return $seraching_products->get();
+    }
     public function cat_info()
     {
         return $this->hasOne('App\Models\Category', 'id', 'cat_id');

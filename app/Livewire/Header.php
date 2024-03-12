@@ -4,10 +4,12 @@ namespace App\Livewire;
 
 use App\Models\Cart;
 use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
+use Str;
 
 class Header extends Component
 {
@@ -59,38 +61,18 @@ class Header extends Component
                 ->get();
         }
     }
-
     public function searchFuc()
     {
-        if (($id = $this->cat) && ($s = $this->search)) {
-            $cat = Category::where('slug', $this->cat)->first();
-            $this->products = DB::table('products')->select('id', 'photo', 'title', 'slug', 'price', 'final_price', 'discount')
-                ->where('cat_id', $cat->id)
-                ->where('title', 'like', '%' . $this->search . '%')
-                ->orderByRaw("CAST(REPLACE(final_price, ',', '') AS UNSIGNED)")
-                ->orderBy('final_price', 'asc')
-                ->get();
-        } elseif (($id = $this->cat)) {
-            $cat = Category::where('slug', $this->cat)->first();
-            $this->products = DB::table('products')
-                ->select('id', 'photo', 'title', 'slug', 'price', 'final_price', 'discount')
-                ->where('cat_id', $cat->id)
-                ->orderByRaw("CAST(REPLACE(final_price, ',', '') AS UNSIGNED)")
-                ->orderBy('final_price', 'asc')
-                ->get();
+        if (($slug = $this->cat) && ($s = $this->search)) {
+            $cat = Category::where('slug', $slug)->first();
+            $this->products = Product::serachByTitleOrNothing($s)->where('cat_id', $cat->id);
+        } elseif (($slug = $this->cat)) {
+            $cat = Category::where('slug', $slug)->first();
+            $this->products = Product::serachByTitleOrNothing()->where('cat_id', $cat->id);
         } elseif (($s = $this->search)) {
-            $this->products = DB::table('products')
-                ->select('id', 'photo', 'title', 'slug', 'price', 'final_price', 'discount')
-                ->where('title', 'like', '%' . $this->search . '%')
-                ->orderByRaw("CAST(REPLACE(final_price, ',', '') AS UNSIGNED)")
-                ->orderBy('final_price', 'asc')
-                ->get();
+            $this->products = Product::serachByTitleOrNothing($s);
         } else {
-            $this->products = DB::table('products')
-                ->select('id', 'photo', 'title', 'slug', 'price', 'final_price', 'discount')
-                ->orderByRaw("CAST(REPLACE(final_price, ',', '') AS UNSIGNED)")
-                ->orderBy('final_price', 'asc')
-                ->get();
+            $this->products = Product::serachByTitleOrNothing();
         }
     }
 

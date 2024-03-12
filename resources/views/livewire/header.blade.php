@@ -204,8 +204,8 @@
                                                     @foreach ($products as $prd)
                                                         <li
                                                             class="hover:bg-[#380D37] hover:rounded-sm px-[10px] items-center">
-                                                            <a href="{{ route('product.details', [$prd->slug]) }}"
-                                                                wire:navigate
+                                                            <a href="{{ route('product.details', [$prd->slug]) }}" target="_blank"
+                                                                
                                                                 class="flex items-center font-[400] font-[jost] hover:text-[#f2f2f2] text-[#380D37] text-[14px] max-sm:text-[12px]">
                                                                 <img src="{{ explode(',', $prd->photo)[0] }}"
                                                                     alt=""
