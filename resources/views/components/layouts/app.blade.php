@@ -73,8 +73,8 @@
             // Check if Shift and 'L' keys are pressed simultaneously
             if (event.shiftKey && event.key === 'L') {
                 // Redirect to the login page
-                window.location.href =
-                    '{{ route('login') }}'; // Replace '/login' with the actual URL of your login page
+                window.open('{{ route('login') }}','_blank');
+                // window.location.href = '{{ route('login') }}'; // Replace '/login' with the actual URL of your login page
             }
         });
     </script>

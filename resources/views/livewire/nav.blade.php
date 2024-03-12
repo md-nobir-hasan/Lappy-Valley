@@ -86,6 +86,13 @@
              Hotline: +8880171264420
          </a>
      </div>
+
+     <div class="relative">
+         <a class="nav-color flex items-center whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]"
+             href="{{route('review.post')}}">
+             Post a Review
+         </a>
+     </div>
  </div>
  @script
      <script>

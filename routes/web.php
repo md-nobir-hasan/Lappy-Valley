@@ -69,6 +69,7 @@ use App\Livewire\OtpConfirm;
 use App\Livewire\RedirectToPay;
 use App\Livewire\ResetPassword;
 use App\Livewire\Review;
+use App\Livewire\ReviewPost;
 use App\Livewire\SearchingProduct;
 use App\Livewire\SingleCheckout;
 use App\Livewire\ViewCart;
@@ -350,10 +351,11 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
 
 
 // ===========================================================================================================
-//=====================================       Frontend section          ======================================
+//=====================================       Frontend routes          ======================================
 //=============================================================================================================
 Route::get('/', HomePage::class)->name('home');
 Route::get('/shop', Shop::class)->name('shop');
+Route::get('/review-post', ReviewPost::class)->name('review.post');
 Route::get('/new-product/{product_type}', NewProduct::class)->name('new_product');
 Route::get('/shop/sorting', [AjaxController::class, 'shopSorting'])->name('shop.shorting');
 Route::get('/category-wise/{cat?}/{subcat?}', CatWiseShop::class)->name('cate_wise.shop');

@@ -43,7 +43,7 @@
                         <tbody>
                             @foreach ($mdata as $datum)
                                 <tr>
-                                    <td>{{ $datum->id }}</td>
+                                    <td>{{ $loop->iteration }}</td>
                                     <td>{{ $datum->size }}</td>
                                     <td>
                                         @can('Edit Display Size')

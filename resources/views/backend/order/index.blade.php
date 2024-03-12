@@ -55,7 +55,7 @@
                         <tbody>
                             @foreach ($orders as $order)
                                 <tr>
-                                    <td>{{ $order->id }}</td>
+                                    <td>{{ $loop->iteration }}</td>
                                     <td>{{ $order->order_number }}</td>
                                     <td>{{ $order->name }} {{ $order->l_name }}</td>
                                     <td>{{ $order->email }}</td>

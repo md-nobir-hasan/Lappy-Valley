@@ -47,7 +47,7 @@
                         <tbody>
                             @foreach ($data as $datum)
                                 <tr>
-                                    <td>{{ $datum->id }}</td>
+                                    <td>{{ $loop->iteration }}</td>
                                     <td>{{ $datum->year ?? 0 }}</td>
                                     <td>{{ $datum->month ?? 0 }}</td>
                                     <td>

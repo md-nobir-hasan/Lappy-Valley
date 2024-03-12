@@ -43,7 +43,7 @@
                         <tbody>
                             @foreach ($mdata as $datum)
                                 <tr>
-                                    <td>{{ $datum->id }}</td>
+                                    <td>{{ $loop->iteration }}</td>
                                     <td>{{ $datum->name }}</td>
                                     <td>
                                         @can('Edit Special Feature')

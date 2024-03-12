@@ -62,7 +62,7 @@
                                     // dd($author_info);
                                 @endphp
                                 <tr>
-                                    <td>{{ $post->id }}</td>
+                                    <td>{{ $loop->iteration }}</td>
                                     <td>{{ $post->title }}</td>
                                     <td>{{ $post->cat_info->title }}</td>
                                     <td>{{ $post->tags }}</td>

@@ -51,7 +51,7 @@
                         <tbody>
                             @foreach ($reviews as $review)
                                 <tr>
-                                    <td>{{ $review->id }}</td>
+                                    <td>{{ $loop->iteration }}</td>
                                     <td>{{ $review->name }}</td>
                                     <td>{{ $review->email }}</td>
                                     <td>{{ $review->subject }}</td>

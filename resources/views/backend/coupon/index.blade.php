@@ -49,7 +49,7 @@
                         <tbody>
                             @foreach ($coupons as $coupon)
                                 <tr>
-                                    <td>{{ $coupon->id }}</td>
+                                    <td>{{ $loop->iteration }}</td>
                                     <td>{{ $coupon->code }}</td>
                                     <td>
                                         @if ($coupon->type == 'fixed')

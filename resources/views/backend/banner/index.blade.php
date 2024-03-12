@@ -50,7 +50,7 @@
                         <tbody>
                             @foreach ($banners as $banner)
                                 <tr>
-                                    <td>{{ $banner->id }}</td>
+                                    <td>{{ $loop->iteration }}</td>
                                     <td>{{ $banner->title }}</td>
                                     <td>{{ $banner->slug }}</td>
                                     <td>

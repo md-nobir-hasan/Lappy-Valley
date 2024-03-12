@@ -34,7 +34,7 @@
           <tbody>
             @foreach($permissions as $perm)
                 <tr>
-                    <td>{{$perm->id}}</td>
+                    <td>{{$loop->iteration}}</td>
                     <td>{{$perm->name}}</td>
 
                     {{-- <td>

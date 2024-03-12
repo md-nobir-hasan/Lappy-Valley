@@ -48,7 +48,7 @@
                         <tbody>
                             @foreach ($data as $datum)
                                 <tr>
-                                    <td>{{ $datum->id }}</td>
+                                    <td>{{ $loop->iteration }}</td>
                                     <td>{{ $datum->title }}</td>
                                     <td>{{ $datum->slug }}</td>
                                     <td>

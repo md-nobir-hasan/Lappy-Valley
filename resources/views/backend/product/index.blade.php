@@ -59,7 +59,7 @@
                         <tbody>
                             @foreach ($products as $product)
                                 <tr>
-                                    <td>{{ $loop->index + 1 }}</td>
+                                    <td>{{ $loop->iteration }}</td>
                                     <td>
                                         <a target="_black" href="{{route('product.show',$product->id)}}">{{ $product->title }}</a>
                                     </td>

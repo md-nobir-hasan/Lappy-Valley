@@ -48,7 +48,7 @@
                         <tbody>
                             @foreach ($comments as $comment)
                                 <tr>
-                                    <td>{{ $comment->id }}</td>
+                                    <td>{{ $loop->iteration }}</td>
                                     <td>{{ $comment->user_info['name'] }}</td>
                                     <td>{{ $comment->post->title }}</td>
                                     <td>{{ $comment->comment }}</td>

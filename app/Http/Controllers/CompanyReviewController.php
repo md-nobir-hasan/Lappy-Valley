@@ -17,7 +17,7 @@ class CompanyReviewController extends Controller
     {
         $this->ccan('Show Review');
 
-        $n['reviews'] = CompanyReview::latest()->paginate(10);
+        $n['reviews'] = CompanyReview::orderBy('id','desc')->paginate(10);
         $n['count'] = CompanyReview::get();
         return view('backend.review.index', $n);
     }

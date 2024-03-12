@@ -47,7 +47,7 @@
                         <tbody>
                             @foreach ($mdata as $datum)
                                 <tr>
-                                    <td>{{ $datum->id }}</td>
+                                    <td>{{ $loop->iteration }}</td>
                                     <td>{{ $datum->ram }}</td>
                                     <td>{{ $datum->type }}</td>
                                     <td>{{ $datum->bus_speed }}</td>
