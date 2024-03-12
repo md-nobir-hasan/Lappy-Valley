@@ -67,9 +67,8 @@
         <div>
             <div
                 class="grid grid-cols-5 max-sm:grid-cols-2 max-md:grid-cols-2 max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 mt-6 mb-[78px] max-sm:mb-[50px]">
-                @foreach ($features->where('cat_id', 5) as $product)
+                @foreach ($student_laptops as $product)
                     <x-product :product="$product"></x-product>
-                    {{-- <livewire:products :product="$product" /> --}}
                 @endforeach
             </div>
         </div>
