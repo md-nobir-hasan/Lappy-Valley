@@ -47,10 +47,10 @@
                     </a>
                 </div>
             </div>
-            <button type="button" id="whatsapp-button" class="flex items-center justify-center rounded-full bg-green-500 hover:bg-green-700 py-2 text-white shadow-md">
-              
-             
-              </button>
+            
+             <a href="">
+                <img src="/storage/product/whatsapp-symbol-logo-svgrepo-com.svg" alt="" class="fixed bottom-20 max-sm:bottom-18 right-10 max-sm:right-8 z-40 max-sm:w-12 w-14 max-sm:h-12 h-14">
+             </a>
               
         </section>
     @endif
