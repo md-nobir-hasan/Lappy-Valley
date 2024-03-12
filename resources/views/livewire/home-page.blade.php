@@ -47,7 +47,11 @@
                     </a>
                 </div>
             </div>
-
+            <button type="button" id="whatsapp-button" class="flex items-center justify-center rounded-full bg-green-500 hover:bg-green-700 py-2 text-white shadow-md">
+              
+             
+              </button>
+              
         </section>
     @endif
     <!-- --------hero--section --end ----  -->
