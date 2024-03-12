@@ -30,8 +30,6 @@ class CatWiseShop extends Component
     // }
     public function render()
     {
-        // dd($this->cat,$cat);
-        // $n['products'] = Product::where('status', 'active')->paginate(20);
         $n['brands'] = Brand::get();
         $n['p_models'] = ProcessorModel::get();
         $n['p_generations'] = ProcessorGeneration::get();
@@ -44,10 +42,12 @@ class CatWiseShop extends Component
         $n['s_features'] = SpecialFeature::get();
         if($this->subcat){
             $subcat = Category::where('slug', $this->subcat)->first();
-            $n['products'] = Product::where('child_cat_id', $subcat->id)->where('status', 'active')->paginate(20);
+            $n['products'] = Product::with(['ProcessorModel','ram','ssd','hdd','DisplaySize','DisplayType','cat_info'])
+                                    ->where('child_cat_id', $subcat->id)->where('status', 'active')->paginate(20);
         }else{
             $cat = Category::where('slug', $this->cat)->first();
-            $n['products'] = Product::where('cat_id', $cat->id)->where('status', 'active')->paginate(20);
+            $n['products'] = Product::with(['ProcessorModel','ram','ssd','hdd','DisplaySize','DisplayType','cat_info'])
+                                    ->where('cat_id', $cat->id)->where('status', 'active')->paginate(20);
         }
 
         return view('livewire.shop', $n);

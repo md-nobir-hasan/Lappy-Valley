@@ -10,7 +10,7 @@
          @endphp
      @endif
      <div class="flex items-center justify-center image-container relative">
-         <a href="{{ route('product.details', [$product->slug]) }}">
+         <a href="{{ route('product.details', [$product->slug]) }}" class="p-5">
              <img src="{{ $photo }}" class="object-container h-[130px]" alt="{{ $product->title }}">
          </a>
          @if ($product->stock < 1)
@@ -58,6 +58,11 @@
                      <li>Features: {{ $sp }}</li>
                      {{-- <li>Features: Type-C</li> --}}
                  @endif
+                 @if ($sp = $product->cat_info)
+                 <li>Condition: {{ $sp->title }}</li>
+                 {{-- <li>Features: Type-C</li> --}}
+                 @endif
+                 @dd($product)
              </ul>
          </div>
      </div>

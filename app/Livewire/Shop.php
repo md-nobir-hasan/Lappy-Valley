@@ -29,7 +29,8 @@ class Shop extends Component
     }
     public function render()
     {
-        $n['products'] = Product::where('status', 'active')->paginate(20);
+        $n['products'] = Product::with(['ProcessorModel','ram','ssd','hdd','DisplaySize','DisplayType','cat_info'])
+                                ->where('status', 'active')->paginate(20);
         $n['brands'] = Brand::get();
         $n['p_models'] = ProcessorModel::get();
         $n['p_generations'] = ProcessorGeneration::get();
@@ -40,7 +41,6 @@ class Shop extends Component
         $n['hdds'] = hdd::get();
         $n['graphics'] = Graphic::get();
         $n['s_features'] = SpecialFeature::get();
-
         return view('livewire.shop',$n);
     }
 }
