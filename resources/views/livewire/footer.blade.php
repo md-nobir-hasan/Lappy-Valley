@@ -132,6 +132,16 @@
                           Bin Number : 0049818790102
                       </span>
                   </li>
+                  <li class="mt-[15px]">
+                      <span class="px-1 hover:bg-blue-700">
+                          Map Link : <a href="https://maps.app.goo.gl/Vv61kHPXdfG5ykA56">In Uttra (Dhaka)</a>
+                      </span>
+                  </li>
+                  <li>
+                      <span class="px-1 hover:bg-blue-700">
+                        Map Link: <a href="https://maps.app.goo.gl/UEBP1XWufz1RkdjK7">In Jamuna Future Park (Dhaka)</a>
+                      </span>
+                  </li>
               </ul>
 
               <!-- -------social----------icon------------- -->
