@@ -39,30 +39,32 @@ class Header extends Component
     }
 
 
-    public function prdouctFetch()
-    {
-        if (($id = $this->cat) && ($s = $this->search)) {
-            $cat = Category::where('slug', $this->cat)->first();
-            $this->products = DB::table('products')->select('id', 'photo', 'title', 'slug', 'price', 'final_price', 'discount')
-                ->where('cat_id', $cat->id)
-                ->where('title', 'like', '%' . $this->search . '%')
-                ->get();
-        } elseif (($id = $this->cat)) {
-            $cat = Category::where('slug', $this->cat)->first();
-            $this->products = DB::table('products')->select('id', 'photo', 'title', 'slug', 'price', 'final_price', 'discount')
-                ->where('cat_id', $cat->id)
-                ->get();
-        } elseif (($s = $this->search)) {
-            $this->products = DB::table('products')->select('id', 'photo', 'title', 'slug', 'price', 'final_price', 'discount')
-                ->where('title', 'like', '%' . $this->search . '%')
-                ->get();
-        } else {
-            $this->products = DB::table('products')->select('id', 'photo', 'title', 'slug', 'price', 'final_price', 'discount')
-                ->get();
-        }
-    }
+    // public function prdouctFetch()
+    // {
+    //     dd($this->cat);
+    //     if (($id = $this->cat) && ($s = $this->search)) {
+    //         $cat = Category::where('slug', $this->cat)->first();
+    //         $this->products = DB::table('products')->select('id', 'photo', 'title', 'slug', 'price', 'final_price', 'discount')
+    //             ->where('cat_id', $cat->id)
+    //             ->where('title', 'like', '%' . $this->search . '%')
+    //             ->get();
+    //     } elseif (($id = $this->cat)) {
+    //         $cat = Category::where('slug', $this->cat)->first();
+    //         $this->products = DB::table('products')->select('id', 'photo', 'title', 'slug', 'price', 'final_price', 'discount')
+    //             ->where('cat_id', $cat->id)
+    //             ->get();
+    //     } elseif (($s = $this->search)) {
+    //         $this->products = DB::table('products')->select('id', 'photo', 'title', 'slug', 'price', 'final_price', 'discount')
+    //             ->where('title', 'like', '%' . $this->search . '%')
+    //             ->get();
+    //     } else {
+    //         $this->products = DB::table('products')->select('id', 'photo', 'title', 'slug', 'price', 'final_price', 'discount')
+    //             ->get();
+    //     }
+    // }
     public function searchFuc()
     {
+
         if (($slug = $this->cat) && ($s = $this->search)) {
             $cat = Category::where('slug', $slug)->first();
             $this->products = Product::serachByTitleOrNothing($s)->where('cat_id', $cat->id);

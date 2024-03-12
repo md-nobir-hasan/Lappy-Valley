@@ -171,7 +171,7 @@
 
                             <form wire:submit='searchTo' class='h-[44px] max-xl:h-full w-[655px] max-xl:w-full'>
                                 <div class="flex" @click.outside='open = false'>
-                                    <select name="cat_id" wire:model.live='cat' wire:change='prdouctFetch'
+                                    <select name="cat_id" wire:model.live='cat' wire:change='searchFuc'
                                         @change='open=true'
                                         class="block w-[80px] p-2.5 text-[#380D37] text-[14px] bg-[#f2f2f2] font-[jost] font-[400] leading-[20.23px] border-r-[2px] border-[#380D37]">
                                         <option value="" selected>All</option>
@@ -188,7 +188,7 @@
                                                     autocomplete="off"
                                                     class=" z-20 block p-2.5 w-full bg-[#f2f2f2] text-[#380D37]"
                                                     placeholder="I am shopping for..." required>
-                                                <div wire:loading wire:target='prdouctFetch,searchFuc'
+                                                <div wire:loading wire:target='searchFuc'
                                                     class="absolute right-0 top-2.5 inline-block h-6 w-6 mr-[7px] animate-spin rounded-full
                                                             border-4 border-solid border-current border-r-transparent align-[-0.125em]
                                                              text-success motion-reduce:animate-[spin_1.5s_linear_infinite]"
@@ -205,7 +205,7 @@
                                                         <li
                                                             class="hover:bg-[#380D37] hover:rounded-sm px-[10px] items-center">
                                                             <a href="{{ route('product.details', [$prd->slug]) }}" target="_blank"
-                                                                
+
                                                                 class="flex items-center font-[400] font-[jost] hover:text-[#f2f2f2] text-[#380D37] text-[14px] max-sm:text-[12px]">
                                                                 <img src="{{ explode(',', $prd->photo)[0] }}"
                                                                     alt=""
