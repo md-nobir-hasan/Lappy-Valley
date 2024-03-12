@@ -235,7 +235,7 @@
         <div class="flex gap-[20px]">
             <a href="#specification" data-te-smooth-scroll-init data-te-offset="25"
                 class="spf_btn flex items-center justify-center bg-[#380D37] text-[#f2f2f2] max-lg:text-[18px] text-[20px] max-sm:text-[12px] text-center font-[700] font-[jost] py-[14px] max-sm:py-[10px] px-6 max-sm:px-3 rounded-[5px] max-md:w-full md:w-[168px] h-[50px] max-md:h-full">
-                Specification</a>
+                Specifications</a>
             <a href="#description" data-te-smooth-scroll-init data-te-offset="25"
                 class="dst_btn flex items-center justify-center bg-[#f2f2f2] max-lg:text-[18px] text-[20px] max-sm:text-[12px] text-[#380D37] text-center font-[700] font-[jost] py-[14px] max-sm:py-[10px] px-6 max-sm:px-3 rounded-[5px] max-md:w-full w-[168px] h-[50px] max-md:h-full">
                 Description</a>
