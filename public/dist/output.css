@@ -8012,6 +8012,26 @@ input[type="range"]:active::-webkit-slider-thumb{
     height: 3rem;
   }
 
+  .max-sm\:h-\[\]{
+    height: ;
+  }
+
+  .max-sm\:h-\[400px\]{
+    height: 400px;
+  }
+
+  .max-sm\:h-\[0px\]{
+    height: 0px;
+  }
+
+  .max-sm\:h-\[5000px\]{
+    height: 5000px;
+  }
+
+  .max-sm\:h-\[500px\]{
+    height: 500px;
+  }
+
   .max-sm\:w-\[100px\]{
     width: 100px;
   }
