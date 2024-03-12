@@ -14,6 +14,7 @@ use Exception;
 use Hamcrest\Type\IsBoolean;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class AjaxController extends Controller
@@ -66,7 +67,7 @@ class AjaxController extends Controller
     {
         $cart = Cart::with('product')->find($req->id);
         $qty = $cart->quantity + 1;
-        if($cart->product->stock < $qty){
+        if ($cart->product->stock < $qty) {
             return response()->json(['msg' => 'Stock is not sufficient']);
         }
         $amount = $cart->price * $qty;
@@ -114,7 +115,8 @@ class AjaxController extends Controller
         }
     }
 
-    public function sync(){
+    public function sync()
+    {
         if ($user = auth()->user()) {
             $n['carts'] = Cart::with('product')->where('user_id', $user->id)->where('order_id', null)->latest()->get();
         } else {
@@ -129,23 +131,35 @@ class AjaxController extends Controller
         if ($srt = $req->sorting) {
             switch ($srt) {
                 case 'sbp': //short by popularity
-                    $product = Product::whereBetween('price', [$req->minPrice, $req->maxPrice])->orderBy('views', 'desc')->get();
+                    $product = Product::whereRaw('CAST(REPLACE(final_price, ",", "") AS UNSIGNED) BETWEEN ? AND ?', [$req->minPrice, $req->maxPrice])
+                    ->orderBy('views', 'desc')
+                    ->get();
                     break;
                 case 'sbar': //sort by average rating
-                    $product = Product::whereBetween('price', [$req->minPrice, $req->maxPrice])->orderBy('average_rating', 'desc')->get();
+                    $product = Product::whereRaw('CAST(REPLACE(final_price, ",", "") AS UNSIGNED) BETWEEN ? AND ?', [$req->minPrice, $req->maxPrice])
+                    ->orderBy('average_rating', 'desc')
+                    ->get();
                     break;
                 case 'sbl': //sort by latest
-                    $product = Product::whereBetween('price', [$req->minPrice, $req->maxPrice])->latest()->get();
+                    $product = Product::whereRaw('CAST(REPLACE(final_price, ",", "") AS UNSIGNED) BETWEEN ? AND ?', [$req->minPrice, $req->maxPrice])
+                    ->latest()
+                    ->get();
                     break;
                 case 'lth': //low to high price
-                    $product = Product::whereBetween('price', [$req->minPrice, $req->maxPrice])->orderBy('final_price', 'asc')->get();
+                    $product = Product::stringToNumber()
+                        ->whereRaw('CAST(REPLACE(final_price, ",", "") AS UNSIGNED) BETWEEN ? AND ?', [$req->minPrice, $req->maxPrice])
+                        ->orderBy('nfinal_price', 'asc')
+                        ->get();
                     break;
                 case 'htl': // high to low price
-                    $product = Product::whereBetween('price', [$req->minPrice, $req->maxPrice])->orderBy('final_price', 'desc')->get();
+                    $product = Product::stringToNumber()
+                        ->whereRaw('CAST(REPLACE(final_price, ",", "") AS UNSIGNED) BETWEEN ? AND ?', [$req->minPrice, $req->maxPrice])
+                        ->orderBy('nfinal_price', 'desc')
+                        ->get();
                     break;
             }
         } else {
-            $product = Product::whereBetween('price', [$req->minPrice, $req->maxPrice])->get();
+            $product = Product::whereRaw('CAST(REPLACE(final_price, ",", "") AS UNSIGNED) BETWEEN ? AND ?', [$req->minPrice, $req->maxPrice])->get();
         }
 
 
@@ -154,8 +168,7 @@ class AjaxController extends Controller
             $subcat = Category::where('slug', $subcat)->first();
 
             $product = $product->where('child_cat_id', $subcat->id);
-
-        }else{
+        } else {
             if ($cat = $req->cat) {
                 $cat = Category::where('slug', $cat)->first();
                 $product = $product->where('cat_id', $cat->id);
@@ -200,16 +213,17 @@ class AjaxController extends Controller
             $product = $product->whereIn('ssd_id', $req->ssds);
         }
         $n['product'] = $product;
-
+        // dd($n,$product->first()->nfinal_price);
         return response()->json($n);
     }
-    public function couponFetch(Request $req){
+    public function couponFetch(Request $req)
+    {
         $coupon = Coupon::where('code', $req->code)->first();
         // dd($coupon,$discode);
-        if($coupon){
-            Session::put('coupon_id',$coupon->id);
+        if ($coupon) {
+            Session::put('coupon_id', $coupon->id);
             return response()->json($coupon);
-        }else{
+        } else {
             return 'invalid';
         }
     }
@@ -219,9 +233,9 @@ class AjaxController extends Controller
         $data['l_name'] = $req->l_name;
         $data['review'] = $req->msg;
         $data['product_id'] = $req->product_id;
-        if(auth()->user()){
+        if (auth()->user()) {
             $data['user_id'] = auth()->user()->id;
-        }else{
+        } else {
             $data['ip'] = $req->ip();
         }
 
@@ -245,14 +259,15 @@ class AjaxController extends Controller
         }
     }
 
-    public function post(Request $req){
-        if(!$req->name){
+    public function post(Request $req)
+    {
+        if (!$req->name) {
             return response()->json(['msg' => 'Please, Enter a name']);
         }
-        if(!$req->email){
+        if (!$req->email) {
             return response()->json(['msg' => 'Please, Enter an email']);
         }
-        if(!$req->msg){
+        if (!$req->msg) {
             return response()->json(['msg' => 'Please, Write something as message']);
         }
 

@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\gtag;
 use App\Models\OtherSetting;
 use App\Models\Pixel;
+use App\Models\Product;
 use App\Models\Settings;
 use FontLib\Table\Type\name;
 use Illuminate\Support\ServiceProvider;
@@ -33,21 +34,17 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // $user = DB::table('users')->where('email','rakib@lappyvalley.com')->first();
-        // dd(Hash::check('rakib1234',$user->password));
-        Schema::defaultStringLength(191);
-        // Paginator::useBootstrapFour();
-        $n =[];
-        if(Schema::hasTable('settings')){
+        $n = [];
+        if (Schema::hasTable('settings')) {
             $n['setting'] = Settings::first();
         }
-        if(Schema::hasTable('other_settings')){
+        if (Schema::hasTable('other_settings')) {
             $n['other_setting'] = OtherSetting::first();
         }
-        if(Schema::hasTable('pixels')){
+        if (Schema::hasTable('pixels')) {
             $n['pixels'] = Pixel::first();
         }
-        if(Schema::hasTable('gtags')){
+        if (Schema::hasTable('gtags')) {
             $n['gtags'] = gtag::first();
         }
         View::share($n);

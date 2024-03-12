@@ -168,35 +168,36 @@
     <div class="mt-4">
         <div class="grid grid-cols-5 gap-8  max-xl:grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1"
             x-data="{
+                ajaxProduct: false,
+                brands: [],
                 cat: '{{ isset($cat) ? $cat : '' }}',
-                subcat: '{{ isset($subcat) ? $subcat : '' }}',
-                products: '',
+                current_page: 1,
+                d_types: [],
+                d_sizes: [],
+                graphics: [],
+                hdds: [],
+                in_stock: '',
                 minPrice: 0,
                 maxPrice: 500000,
+                products: '',
                 pre_order: '',
-                in_stock: '',
-                upcomming: '',
-                brands: [],
                 pmodels: [],
                 pgenerations: [],
-                d_sizes: [],
-                d_types: [],
-                rams: [],
-                ssds: [],
-                hdds: [],
-                graphics: [],
-                s_features: [],
-                sorting: '',
-                ajaxProduct: false,
+                pagi_products: 1,
                 productShow: true,
                 page_num: 0,
-                total_product: 0,
-                pagi_products: 1,
+                product_fetching_animation: false,
+                rams: [],
+                subcat: '{{ isset($subcat) ? $subcat : '' }}',
+                ssds: [],
+                s_features: [],
                 show_from: 1,
                 show_to: 20,
-                current_page: 1,
+                sorting: '',
+                total_product: 0,
+                upcomming: '',
                 productFetch() {
-                    console.log(this.cat, this.subcat)
+                    console.log(this.shorting);
                     $.ajax({
                         type: 'get',
                         url: '{{ route('shop.shorting') }}',
@@ -222,6 +223,7 @@
                         },
 
                         success: (res) => {
+                            console.log(res);
                             this.products = res.product;
                             total_product = Object.keys(res.product).length;
                             if (total_product < 21) {
@@ -1128,7 +1130,7 @@
                                             <div class="flex flex-col justify-center">
                                                 <span
                                                     class="font-[jost] text-[12px] font-[700] leading-[24px] text-[#DC275C] flex items-center justify-center gap-[4px]">
-                                                    <span x-text='product.price'></span>
+                                                    <span x-text='product.final_price'></span>
                                                     <span class="text-[12px] font-[jost] font-[700]">৳</span>
                                                 </span>
                                                 <span
@@ -1244,7 +1246,6 @@
                             </div>
                         </template>
                     </div>
-
                 </template>
 
             </div>

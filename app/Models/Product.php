@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Cart;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Facades\DB;
 use Str;
 
 class Product extends Model
@@ -44,11 +45,48 @@ class Product extends Model
         'w_details', 'replacement_warranty', 'motherboard_warranty', 'service_warranty'
     ];
 
+    static public function orderByFinalpriceAsc()
+    {
+        return self::select(
+            'id',
+            'price',
+            'final_price',
+            'title',
+            'slug',
+            'cat_id',
+            'photo',
+            DB::raw('CAST(REPLACE(final_price, ",", "") AS UNSIGNED) AS nfinal_price'),
+        )->orderBy('nfinal_price', 'desc');
+    }
+    static public function orderByFinalpriceDesc()
+    {
+        return self::select(
+            'id',
+            'price',
+            'final_price',
+            'title',
+            'slug',
+            'cat_id',
+            'photo',
+            DB::raw('CAST(REPLACE(price, ",", "") AS UNSIGNED) AS nprice'),
+            DB::raw('CAST(REPLACE(final_price, ",", "") AS UNSIGNED) AS nfinal_price'),
+            DB::raw('CAST(REPLACE(inventory_cost, ",", "") AS UNSIGNED) AS ninventory_cost')
+        )->orderBy('nfinal_price', 'desc');
+    }
+    static public function stringToNumber()
+    {
+        return self::with(['ProcessorModel', 'ram', 'ssd', 'hdd', 'DisplaySize', 'DisplayType'])
+            ->select(
+                '*',
+                DB::raw('CAST(REPLACE(price, ",", "") AS UNSIGNED) AS nprice'),
+                DB::raw('CAST(REPLACE(final_price, ",", "") AS UNSIGNED) AS nfinal_price'),
+                DB::raw('CAST(REPLACE(inventory_cost, ",", "") AS UNSIGNED) AS ninventory_cost')
+            );
+    }
+
     static protected function serachByTitleOrNothing($search_text = null)
     {
-        $seraching_products = self::where('status', 'active')
-            ->orderByRaw("CAST(REPLACE(final_price, ',', '') AS UNSIGNED)")
-            ->orderBy('final_price', 'asc');
+        $seraching_products = self::orderByFinalpriceAsc()->where('status', 'active');
 
         if ($search_text) {
             $remove_white_space = Str::of($search_text)->squish();

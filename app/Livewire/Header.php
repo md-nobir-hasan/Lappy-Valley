@@ -64,7 +64,6 @@ class Header extends Component
     // }
     public function searchFuc()
     {
-
         if (($slug = $this->cat) && ($s = $this->search)) {
             $cat = Category::where('slug', $slug)->first();
             $this->products = Product::serachByTitleOrNothing($s)->where('cat_id', $cat->id);
