@@ -176,6 +176,11 @@ class ProductController extends Controller
 
             //Warranty Attributes
             'w_details' => 'nullable|string|max:255',
+            'replacement_warranty' => 'nullable|string|max:255',
+            'motherboard_warranty' => 'nullable|string|max:255',
+            'service_warranty' => 'nullable|string|max:255',
+            'desclaimer ' => 'nullable|string|max:2000',
+            'note' => 'nullable|string|max:2000',
 
             //installment
             'durations.*' => 'nullable|exists:durations,id',

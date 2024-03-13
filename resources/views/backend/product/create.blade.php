@@ -130,6 +130,13 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="is_student">Is Student Laptop</label><br>
+                        <input type="checkbox" name='is_student' @checked(old('is_student')) id='is_student'
+                            value='1'>
+                        <label for="is_student">Yes</label>
+                    </div>
+
+                    <div class="form-group">
                         <label for="upcomming_toggler">Up Comming</label><br>
                         <input type="checkbox" name='upcomming_toggler' @checked(old('upcomming_toggler'))
                             id='upcomming_toggler' value='1'>
@@ -989,7 +996,27 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
- 
+
+                        {{-- disclaimer  --}}
+                        <div class="form-group">
+                            <label for="disclaimer" class="col-form-label">Disclaimer</label>
+                            <input id="disclaimer" type="text" name="disclaimer" placeholder=""
+                                value="{{ old('disclaimer') }}" class="form-control">
+                            @error('disclaimer')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        {{-- note  --}}
+                        <div class="form-group">
+                            <label for="note" class="col-form-label">Note</label>
+                            <input id="note" type="text" name="note" placeholder=""
+                                value="{{ old('note') }}" class="form-control">
+                            @error('note')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
                         {{-- w_details  --}}
                         <div class="form-group">
                             <label for="w_details" class="col-form-label">Other Warranty</label>

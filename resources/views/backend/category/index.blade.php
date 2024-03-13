@@ -85,7 +85,7 @@
                                                 style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip"
                                                 title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
                                         @endcan
-                                        @can('Delete Category')
+                                        {{-- @can('Delete Category')
                                             <form method="POST" action="{{ route('category.destroy', [$category->id]) }}">
                                                 @csrf
                                                 @method('delete')
@@ -94,7 +94,7 @@
                                                     data-placement="bottom" title="Delete"><i
                                                         class="fas fa-trash-alt"></i></button>
                                             </form>
-                                        @endcan
+                                        @endcan --}}
                                     </td>
                                 </tr>
                             @endforeach
