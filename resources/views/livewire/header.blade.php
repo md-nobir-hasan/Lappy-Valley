@@ -29,7 +29,7 @@
 
     </div>
     <header
-        class="h-[78px] z-[10000] max-sm:h-[50px] max-xl:h-[68px] max-xl:fixed max-xl:top-0 max-xl:left-0 max-xl:right-0 max-xl:z-150 max-xl:flex max-xl:justify-between max-xl:items-center max-xl:border-b-[2px] max-xl:border-[#f2f2f2]
+        class="h-[78px] z-[10000] max-sm:h-[50px] max-xl:h-[68px] max-xl:fixed max-xl:top-0 max-xl:left-0 max-xl:right-0 max-xl:z-150 max-xl:flex max-xl:justify-between max-xl:items-center max-xl:border-b-[2px] max-xl:border-[#f2f2f2] relative
          bg-gradient-to-r from-[#380D37] to-[#DC275C] text-[#f2f2f2] px-[72px] max-xl:px-[40px]">
         <div id="body-overlay1"></div>
 
@@ -284,6 +284,13 @@
             </svg>
         </div>
         {{-- ------search--icon--end----- --}}
+        {{-- ---whatsapp-icon--- --}}
+        <a href="" class="fixed flex items-center justify-center bg-green-500 rounded-[50%] bottom-20 max-sm:bottom-18 right-10 max-sm:right-8 z-40 hover:w-16 duration-300 hover:h-16 max-sm:w-12 w-14 max-sm:h-12 h-14">
+            <div>
+              <img src="/storage/product/whatsapp-symbol-logo-svgrepo-com.svg" alt="" class=" w-8 h-10" >
+            </div>
+           </a>
+        {{-- ---whatsapp-icon--- --}}
     </header>
 
     <div
