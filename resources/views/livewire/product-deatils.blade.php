@@ -364,7 +364,7 @@
                         </label>
                     @endif
                 </div>
-                <div class="flex gap-[30px] mt-[8px]">
+                <div class="flex gap-[30px] max-sm:gap-[12px] mt-[8px]">
                     @if ($product->stock > 0)
                         <button wire:click='checkout("{{ $product->slug }}")'
                             class="fill-up-btn mt-auto rounded-[5px] bg-gradient-to-r from-[#380D37] to-[#DC275C] px-[35px] py-[12px] font-[jost] text-[18px] font-[600] text-[#f2f2f2] max-lg:px-[30px] max-lg:py-[14px] max-lg:text-[18px] max-md:px-[30px] max-sm:text-[16px]">
@@ -394,7 +394,7 @@
 
     <!-- -----------------description------ -->
     <div class="my-[15px]">
-        <div class="flex gap-[20px]">
+        <div class="flex gap-[20px] max-sm:gap-[10px]">
             <a href="#specification" data-te-smooth-scroll-init data-te-offset="25"
                 class="spf_btn flex h-[50px] items-center justify-center rounded-[5px] bg-[#380D37] px-6 py-[14px] text-center font-[jost] text-[20px] font-[700] text-[#f2f2f2] max-lg:text-[18px] max-md:h-full max-md:w-full max-sm:px-3 max-sm:py-[10px] max-sm:text-[12px] md:w-[168px]">
                 Specifications</a>
@@ -1333,7 +1333,7 @@
                                                 </div>
                                                 <div class="mt-[20px]">
                                                     <textarea x-model='msg' placeholder="Write your review here..."
-                                                        class="relative m-0 -mr-0.5 block w-full flex-auto rounded-l bg-[#f2f2f2] pb-[100px] pl-[10px] pt-[10px] font-[jost] font-[jost] text-[12px] font-[400] italic text-[#000000]"
+                                                        class="relative m-0 -mr-0.5 block w-full flex-auto rounded-l bg-[#f2f2f2] pb-[100px] pl-[10px] pt-[10px] font-[jost] text-[12px] font-[400] italic text-[#000000]"
                                                         id="message-text"></textarea>
                                                     @error('msg')
                                                         <span class="text-[12px] text-[red]">{{ $message }}</span>
