@@ -4423,6 +4423,10 @@ input[type="range"]:active::-webkit-slider-thumb{
   font-weight: 600;
 }
 
+.font-\[900\]{
+  font-weight: 900;
+}
+
 .uppercase{
   text-transform: uppercase;
 }

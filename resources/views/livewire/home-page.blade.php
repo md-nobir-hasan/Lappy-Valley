@@ -47,6 +47,11 @@
                     </a>
                 </div>
             </div>
+            <div>
+                <marquee behavior="" direction="">
+                    Lorem ipsum dolor sit amet
+                </marquee>
+            </div>
             
              <a href="" class="fixed flex items-center justify-center bg-green-500 rounded-[50%] bottom-20 max-sm:bottom-18 right-10 max-sm:right-8 z-40 hover:w-16 duration-300 hover:h-16 max-sm:w-12 w-14 max-sm:h-12 h-14">
               <div>
@@ -79,7 +84,6 @@
             </div>
         </div>
     </section>
-
     <!-- New arrival  -->
     <section>
         <!-- New text  -->
@@ -109,8 +113,6 @@
         </section>
         <!-- Product  -->
     </section>
-
-
     <!-- Attractive Gaming Laptop -->
     <section class='mt-[50px]'>
         <div class="py-1 text-center">
@@ -133,8 +135,6 @@
             </div>
         </div>
     </section>
-
-
     <!-- Feature Laptops Sliders -->
     <section x-data='{redirect(url){
         window.open(url,"_blank");
@@ -513,7 +513,6 @@
     <div class='mt-[40px] mb-[30px]'>
         <div class="h-[2px] bg-[#380D37]"></div>
     </div>
-
     <!-- Differential Variants  -->
     <section class='mt-[70px] max-sm:mt-[22px]'>
         <div class="py-1 text-center">
