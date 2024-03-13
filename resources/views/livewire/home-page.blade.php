@@ -49,7 +49,7 @@
             </div>
             <div class="mq">
                 <marquee class="blink"
-                direction='right'
+                direction='left'
                 >This is an example of blinking text using CSS within a marquee.</marquee>
             </div>
             
