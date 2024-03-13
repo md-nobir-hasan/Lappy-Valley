@@ -26,6 +26,7 @@ use App\Http\Controllers\hddController;
 use App\Http\Controllers\PayPalController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\OrderStatusController;
 use App\Http\Controllers\PixelController;
 use App\Http\Controllers\PostCategoryController;
@@ -232,6 +233,9 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'admin']], function
     Route::resource('banner', BannerController::class);
     // Brand
     Route::resource('brand', BrandController::class);
+
+    // News
+    Route::resource('news', NewsController::class);
 
     // Profile
     Route::get('/profile', [AdminController::class, 'profile'])->name('admin-profile');
