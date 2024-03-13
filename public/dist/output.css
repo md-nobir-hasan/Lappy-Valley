@@ -1539,6 +1539,10 @@ input[type="range"]:active::-webkit-slider-thumb{
   margin-top: auto;
 }
 
+.mt-\[14px\]{
+  margin-top: 14px;
+}
+
 .box-border{
   box-sizing: border-box;
 }
@@ -2924,6 +2928,14 @@ input[type="range"]:active::-webkit-slider-thumb{
 
 .gap-\[5px\]{
   gap: 5px;
+}
+
+.gap-\[\]{
+  gap: ;
+}
+
+.gap-\[2px\]{
+  gap: 2px;
 }
 
 .space-x-2 > :not([hidden]) ~ :not([hidden]){
@@ -4371,6 +4383,10 @@ input[type="range"]:active::-webkit-slider-thumb{
   line-height: 1rem;
 }
 
+.text-\[2px\]{
+  font-size: 2px;
+}
+
 .font-\[400\]{
   font-weight: 400;
 }
@@ -4549,6 +4565,10 @@ input[type="range"]:active::-webkit-slider-thumb{
 
 .leading-normal{
   line-height: 1.5;
+}
+
+.leading-3{
+  line-height: .75rem;
 }
 
 .tracking-\[-0\.00833em\]{
@@ -4937,6 +4957,11 @@ input[type="range"]:active::-webkit-slider-thumb{
 .text-white{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-\[\#919191\]{
+  --tw-text-opacity: 1;
+  color: rgb(145 145 145 / var(--tw-text-opacity));
 }
 
 .underline{
@@ -5706,6 +5731,11 @@ input[type="range"]:active::-webkit-slider-thumb{
 .hover\:text-white:hover{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.hover\:text-\[\#919191\]:hover{
+  --tw-text-opacity: 1;
+  color: rgb(145 145 145 / var(--tw-text-opacity));
 }
 
 .hover\:underline:hover{
