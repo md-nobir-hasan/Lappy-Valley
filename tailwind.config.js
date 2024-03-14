@@ -14,7 +14,7 @@ module.exports = {
         fontFamily: {
             // alkalami: ['Alkalami', serif],
             // comme: ['Comme', sans-serif],
-            jost: ['sans-serif'],
+            jost: ['jost','sans-serif'],
             // lato: ['Lato', sans-serif],
         }
     }

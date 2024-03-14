@@ -1911,6 +1911,14 @@ input[type="range"]:active::-webkit-slider-thumb{
   height: 100vh;
 }
 
+.h-2{
+  height: 0.5rem;
+}
+
+.h-20{
+  height: 5rem;
+}
+
 .max-h-20{
   max-height: 5rem;
 }
@@ -4424,6 +4432,10 @@ input[type="range"]:active::-webkit-slider-thumb{
 
 .font-semibold{
   font-weight: 600;
+}
+
+.font-\[900\]{
+  font-weight: 900;
 }
 
 .uppercase{

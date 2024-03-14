@@ -3,9 +3,9 @@
         <!-- Facebook Messenger Plugin Code -->
         {{-- <div id="fb-root"></div> --}}
 
-{{-- @script --}}
- {{-- messenger implementation code  --}}
- {{-- <script>
+        {{-- @script --}}
+        {{-- messenger implementation code  --}}
+        {{-- <script>
     window.fbAsyncInit = function() {
         FB.init({
             xfbml: true,
@@ -22,7 +22,7 @@
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 </script> --}}
-{{-- @endscript --}}
+        {{-- @endscript --}}
         <!-- Your Messenger Plugin Code -->
         {{-- <div class="fb-customerchat" attribution="setup_tool" page_id="201046873102870" theme_color="#0084FF">
         </div> --}}
@@ -184,8 +184,7 @@
                                             <span class="">
                                                 <input name="search_text" wire:model.live="search"
                                                     wire:keyup="searchFuc" @click="open = true" type="search"
-                                                    id="search-dropdown"
-                                                    autocomplete="off"
+                                                    id="search-dropdown" autocomplete="off"
                                                     class=" z-20 block p-2.5 w-full bg-[#f2f2f2] text-[#380D37]"
                                                     placeholder="I am shopping for..." required>
                                                 <div wire:loading wire:target='searchFuc'
@@ -204,8 +203,8 @@
                                                     @foreach ($products as $prd)
                                                         <li
                                                             class="hover:bg-[#380D37] hover:rounded-sm px-[10px] items-center">
-                                                            <a href="{{ route('product.details', [$prd->slug]) }}" target="_blank"
-
+                                                            <a href="{{ route('product.details', [$prd->slug]) }}"
+                                                                target="_blank"
                                                                 class="flex items-center font-[400] font-[jost] hover:text-[#f2f2f2] text-[#380D37] text-[14px] max-sm:text-[12px]">
                                                                 <img src="{{ explode(',', $prd->photo)[0] }}"
                                                                     alt=""
@@ -285,11 +284,12 @@
         </div>
         {{-- ------search--icon--end----- --}}
         {{-- ---whatsapp-icon--- --}}
-        <a href="" class="fixed flex items-center justify-center bg-green-500 rounded-[50%] bottom-20 max-sm:bottom-18 right-10 max-sm:right-8 z-40 hover:w-16 duration-300 hover:h-16 max-sm:w-12 w-14 max-sm:h-12 h-14">
+        <a href="https://wa.me/0171264420" target="_blank"
+            class="fixed flex items-center justify-center bg-green-500 rounded-[50%] bottom-20 max-sm:bottom-18 right-10 max-sm:right-8 z-40 hover:w-16 duration-300 hover:h-16 max-sm:w-12 w-14 max-sm:h-12 h-14">
             <div>
-              <img src="/storage/product/whatsapp-symbol-logo-svgrepo-com.svg" alt="" class=" w-8 h-10" >
+                <img src="/storage/product/whatsapp-symbol-logo-svgrepo-com.svg" alt="" class=" w-8 h-10">
             </div>
-           </a>
+        </a>
         {{-- ---whatsapp-icon--- --}}
     </header>
 
@@ -423,8 +423,6 @@
             });
         });
     </script>
-
-
 @endscript
 
 @assets
