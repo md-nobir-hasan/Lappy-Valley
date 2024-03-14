@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('news', function (Blueprint $table) {
             $table->id();
             $table->longText('title');
-            $table->string('serial');
+            $table->integer('serial');
             $table->enum('status',['active','inactive'])->default('active');
             $table->timestamps();
         });

@@ -17,6 +17,14 @@
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
+                <div class="form-group">
+                    <label for="serial" class="col-form-label">Serial </label>
+                    <input id="serial" type="number" name="serial" placeholder="Enter serial"
+                        value="{{ old('serial') }}" class="form-control">
+                    @error('serial')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
 
                 <div class="form-group">
                     <label for="status" class="col-form-label">Status <span class="text-danger">*</span></label>

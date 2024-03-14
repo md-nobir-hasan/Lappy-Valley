@@ -73,7 +73,7 @@ class HomePage extends Component
     public function render()
     {
         $os =  OtherSetting::first();
-        $n['news'] = DB::table('news')->where('status','active')->orderBy('id','desc')->get();
+        $n['news'] = DB::table('news')->where('status','active')->orderBy('serial','desc')->get();
         $pd = Product::orderBy('views')->get();
         $n['new_arrival'] = $pd->whereBetween('created_at', [Carbon::now()->subDays($os->new_product), Carbon::now()]);
         $n['features'] = $pd;

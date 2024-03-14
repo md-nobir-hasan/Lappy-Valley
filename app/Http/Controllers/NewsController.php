@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\News;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 class NewsController extends Controller
 {
@@ -22,7 +23,7 @@ class NewsController extends Controller
     {
         $this->ccan('Show News');
         $n['count'] = News::get();
-        $n['data']=News::orderBy('id','DESC')->paginate();
+        $n['data']=News::orderBy('serial','DESC')->paginate();
         return view('backend.news.index',$n);
     }
 
@@ -50,9 +51,15 @@ class NewsController extends Controller
 
         $this->validate($request,[
             'title'=>'string|required',
+            'serial'=>'number|nullable',
         ]);
 
         $data=$request->all();
+        if(!$request->serial){
+            $news = DB::table('news')->orderBy('serial','desc')->first();
+            $data['serial'] = $news->serial + 1 ;
+        }
+
         $status=News::create($data);
 
         if($status){
