@@ -7,6 +7,7 @@ use App\Models\CompanyReview;
 use App\Models\OtherSetting;
 use App\Models\Product;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 use Livewire\Attributes\Rule;
 use Livewire\Attributes\Title;
 use Livewire\Component;
@@ -72,6 +73,7 @@ class HomePage extends Component
     public function render()
     {
         $os =  OtherSetting::first();
+        $n['news'] = DB::table('news')->where('status','active')->orderBy('id','desc')->get();
         $pd = Product::orderBy('views')->get();
         $n['new_arrival'] = $pd->whereBetween('created_at', [Carbon::now()->subDays($os->new_product), Carbon::now()]);
         $n['features'] = $pd;

@@ -47,14 +47,19 @@
                     </a>
                 </div>
             </div>
+            @if (count($news)>0)
             <div class="mq">
-                <marquee class="blink"
-                direction='left'
-                >This is an example of blinking text using CSS within a marquee.</marquee>
+                <marquee class="blink" direction='left'>
+                    @foreach ($news as $nes)
+                        {{$nes->title}} @if (!$loop->last) || @endif
+                    @endforeach
+                </marquee>
             </div>
-            
-             
-              
+            @endif
+
+
+
+
         </section>
     @endif
     <!-- --------hero--section --end ----  -->
