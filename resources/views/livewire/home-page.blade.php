@@ -47,7 +47,14 @@
                     </a>
                 </div>
             </div>
-
+            <div class="mq">
+                <marquee class="blink"
+                direction='left'
+                >This is an example of blinking text using CSS within a marquee.</marquee>
+            </div>
+            
+             
+              
         </section>
     @endif
     <!-- --------hero--section --end ----  -->
@@ -67,14 +74,12 @@
         <div>
             <div
                 class="grid grid-cols-5 max-sm:grid-cols-2 max-md:grid-cols-2 max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 mt-6 mb-[78px] max-sm:mb-[50px]">
-                @foreach ($features->where('cat_id', 5) as $product)
+                @foreach ($student_laptops as $product)
                     <x-product :product="$product"></x-product>
-                    {{-- <livewire:products :product="$product" /> --}}
                 @endforeach
             </div>
         </div>
     </section>
-
     <!-- New arrival  -->
     <section>
         <!-- New text  -->
@@ -104,8 +109,6 @@
         </section>
         <!-- Product  -->
     </section>
-
-
     <!-- Attractive Gaming Laptop -->
     <section class='mt-[50px]'>
         <div class="py-1 text-center">
@@ -128,8 +131,6 @@
             </div>
         </div>
     </section>
-
-
     <!-- Feature Laptops Sliders -->
     <section x-data='{redirect(url){
         window.open(url,"_blank");
@@ -508,7 +509,6 @@
     <div class='mt-[40px] mb-[30px]'>
         <div class="h-[2px] bg-[#380D37]"></div>
     </div>
-
     <!-- Differential Variants  -->
     <section class='mt-[70px] max-sm:mt-[22px]'>
         <div class="py-1 text-center">

@@ -37,6 +37,12 @@ class RolePermissionSeeder extends Seeder
             ['name' => 'Edit Brand','guard_name'=>'web'],
             ['name' => 'Delete Brand','guard_name'=>'web'],
 
+            //News
+            ['name' => 'Show News','guard_name'=>'web'],
+            ['name' => 'Create News','guard_name'=>'web'],
+            ['name' => 'Edit News','guard_name'=>'web'],
+            ['name' => 'Delete News','guard_name'=>'web'],
+
             //Duration
             ['name' => 'Show Duration','guard_name'=>'web'],
             ['name' => 'Create Duration','guard_name'=>'web'],

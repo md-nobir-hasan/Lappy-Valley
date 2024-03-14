@@ -45,6 +45,10 @@ class AdminSidebar extends Component
                 ['access' => 'Show Brand','title' => 'Brands', 'route' => 'brand.index',],
                 ['access' => 'Create Brand','title' => 'Add Brands', 'route' => 'brand.create']
             ]],
+            ['access' => 'Show News','title' => 'News', 'route' => 'news.*', 'child' => [
+                ['access' => 'Show News','title' => 'News', 'route' => 'news.index',],
+                ['access' => 'Create News','title' => 'Add News', 'route' => 'news.create']
+            ]],
             ['access' => 'Show Duration','title' => 'Duration', 'route' => 'duration.*', 'child' => [
                 ['access' => 'Show Duration','title' => 'Duration', 'route' => 'duration.index',],
                 ['access' => 'Create Duration','title' => 'Add Duration', 'route' => 'duration.create']
