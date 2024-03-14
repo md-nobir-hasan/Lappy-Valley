@@ -47,7 +47,14 @@
                     </a>
                 </div>
             </div>
-
+            <div class="mq">
+                <marquee class="blink"
+                direction='left'
+                >This is an example of blinking text using CSS within a marquee.</marquee>
+            </div>
+            
+             
+              
         </section>
     @endif
     <!-- --------hero--section --end ----  -->
@@ -73,7 +80,6 @@
             </div>
         </div>
     </section>
-
     <!-- New arrival  -->
     <section>
         <!-- New text  -->
@@ -103,8 +109,6 @@
         </section>
         <!-- Product  -->
     </section>
-
-
     <!-- Attractive Gaming Laptop -->
     <section class='mt-[50px]'>
         <div class="py-1 text-center">
@@ -127,8 +131,6 @@
             </div>
         </div>
     </section>
-
-
     <!-- Feature Laptops Sliders -->
     <section x-data='{redirect(url){
         window.open(url,"_blank");
@@ -507,7 +509,6 @@
     <div class='mt-[40px] mb-[30px]'>
         <div class="h-[2px] bg-[#380D37]"></div>
     </div>
-
     <!-- Differential Variants  -->
     <section class='mt-[70px] max-sm:mt-[22px]'>
         <div class="py-1 text-center">
