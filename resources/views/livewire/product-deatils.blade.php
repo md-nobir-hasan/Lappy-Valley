@@ -81,7 +81,7 @@
                 </span>
                 <span class="flex items-center">
                     <a href="" class="text-[12px] text-[#000000] hover:text-[#919191] text-center decoration-none duration-200 font-[500] hover:underline">
-                        10 reviews 
+                        10 reviews
                     </a>
                 </span>
             </div>
@@ -107,7 +107,7 @@
                 <p class="font-[jost] text-[16px] font-[500] text-[#f2f2f2] max-lg:text-[18px] text-center">Key Features
                 </p>
             </div>
-          
+
             <div class="flex flex-col mt-[5px]">
                 <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
                   <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
@@ -119,7 +119,7 @@
                              Attribute
                             </th>
                             <th scope="col" class="font-[jost] text-[18px] font-[500] text-[#353535] max-lg:text-[18px] px-4 py-[6px] border border-[black] ">
-                            
+
                             </th>
                             <th scope="col" class="font-[jost] text-[16px] font-[600] text-[#353535] max-lg:text-[18px] px-4 py-[6px] border border-[black] ">
                             Value
@@ -132,7 +132,7 @@
                                 Manufacture:
                             </td>
                             <td class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
-                             
+
                             </td>
                             <td class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
                               Lorem ipsum dolor sit amet.
@@ -143,7 +143,7 @@
                                 Model:
                             </td>
                             <td class="font-[jost] text-[16px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
-                          
+
                             </td>
                             <td class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
                              Lorem ipsum dolor sit amet.
@@ -154,7 +154,7 @@
                                 Processor:
                             </td>
                             <td class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
-                          
+
                             </td>
                             <td class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
                             Lorem ipsum dolor sit amet.
@@ -165,7 +165,7 @@
                                 RAM:
                             </td>
                             <td class="font-[jost] text-[16px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
-                            
+
                             </td>
                             <td class="font-[jost] text-[16px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
                              Lorem ipsum dolor sit amet.
@@ -176,7 +176,7 @@
                                 Display:
                             </td>
                             <td class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
-                             
+
                             </td>
                             <td class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
                              Lorem ipsum dolor sit amet.
@@ -187,7 +187,7 @@
                                 Condition:
                             </td>
                             <td class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
-                              
+
                             </td>
                             <td class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
                              Lorem ipsum dolor sit amet.
@@ -198,7 +198,7 @@
                                 Regular Price:
                             </td>
                             <td class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
-                              
+
                             </td>
                             <td class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
                               Lorem ipsum dolor sit amet.
@@ -209,7 +209,7 @@
                                 Discount:
                             </td>
                             <td class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
-                         
+
                             </td>
                             <td class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
                             Lorem ipsum dolor sit amet.
@@ -1060,7 +1060,7 @@
                             <td class="rounded-[5px] bg-[#380D37] py-[10px] pl-[14px] font-[jost] font-[500] text-[#f2f2f2] max-sm:text-[16px]"
                                 colspan="3">Warranty :</td>
                         </tr>
-                        <tr class="border-b-[2px] border-[#764A8733]">
+                        {{-- <tr class="border-b-[2px] border-[#764A8733]">
                             <td
                                 class="py-[14px] pl-[20px] font-[jost] text-[16px] font-[400] text-[#353535] max-lg:text-[14px] max-sm:py-[10px]">
                                 Warranty Year
@@ -1072,7 +1072,7 @@
                                     3 Months
                                 @endif
                             </td>
-                        </tr>
+                        </tr> --}}
                         {{-- @if ($product->replacement_warranty) --}}
                         <tr class="border-b-[2px] border-[#764A8733]">
                             <td
@@ -1282,7 +1282,7 @@
                                                 }).catch(error => {
                                                     console.error(error)
                                                 })
-                                        
+
                                             },
                                             fileHandle(event) {
                                                 for (const file of event.target.files) {
@@ -1291,7 +1291,7 @@
                                                     reader.readAsDataURL(file)
                                                     this.img.push(file)
                                                 }
-                                        
+
                                             },
                                             stared(star) {
                                                 console.log(star);
