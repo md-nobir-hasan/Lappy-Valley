@@ -1094,7 +1094,7 @@
                                                     class="rounded-t-lg img-fluid h-[130px] object-container"
                                                     data-te-ripple-init data-te-ripple-color="dark" alt="avatar.png">
                                             </a>
-                                            <template x-if='product.stock < 1'>
+                                            <template x-if='product.stock < 0'>
                                                 <span
                                                     class="text-[14px] bg-[#ef4a23] text-[#fff] absolute top-0 left-[-5px] px-2 py-[2px] rounded-r-lg">Out
                                                     Of Stock</span>
