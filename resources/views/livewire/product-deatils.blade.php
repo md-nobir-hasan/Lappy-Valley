@@ -283,7 +283,7 @@
                                     <tr>
                                         <td
                                             class="font-[jost] text-[14px] font-[700] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
-                                            storage
+                                            Storage
                                         </td>
                                         <td
                                             class="font-[jost] text-[16px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
@@ -557,9 +557,9 @@
                 <section
                     class="max-lg-[12px] rounded-[5px] border-[2px] border-[#380D37] p-[20px] max-md:p-[8px] max-sm:border-[1px] max-sm:p-[5px]"
                     id="specification">
-                    <div class="font-[jost] text-[20px] font-[500] text-[#353535] max-lg:text-[18px]">
+                    {{-- <div class="font-[jost] text-[20px] font-[500] text-[#353535] max-lg:text-[18px]">
                         <h2>Specification</h2>
-                    </div>
+                    </div> --}}
                     <table class="w-full">
                         {{-- Processore Attributes  --}}
                         <tbody class="mb-[30px] ml-[20px]">
@@ -1259,7 +1259,7 @@
                             {{-- @if ($product->service_warranty) --}}
                             <tr class="border-b-[2px] border-[#764A8733]">
                                 <td
-                                    class="py-[14px] pl-[20px] font-[jost] text-[16px] font-[400] text-[#353535] max-lg:text-[14px] max-sm:py-[10px]">
+                                    class="py-[14px] text-[red] pl-[20px] font-[jost] text-[16px] font-[400] max-lg:text-[14px] max-sm:py-[10px]">
                                     Disclaimer
                                 </td>
                                 <td class="font-[jost] text-[16px] font-[500] text-[#353535] max-lg:text-[14px]">
