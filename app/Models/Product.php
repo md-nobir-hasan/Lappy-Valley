@@ -48,13 +48,7 @@ class Product extends Model
     static public function orderByFinalpriceAsc()
     {
         return self::select(
-            'id',
-            'price',
-            'final_price',
-            'title',
-            'slug',
-            'cat_id',
-            'photo',
+            '*',
             DB::raw('CAST(REPLACE(final_price, ",", "") AS UNSIGNED) AS nfinal_price'),
         )->orderBy('nfinal_price', 'desc');
     }
