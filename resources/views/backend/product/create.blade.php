@@ -413,7 +413,7 @@
                         {{-- bus_speed  --}}
                         <div class="form-group">
                             <label for="bus_speed" class="col-form-label">Bus Speed</label>
-                            <input id="bus_speed" type="number" name="bus_speed" placeholder="Exp:- 5100"
+                            <input id="bus_speed" type="text" name="bus_speed" placeholder="Exp:- 5100"
                                 value="{{ old('bus_speed') }}" class="form-control">
                             @error('bus_speed')
                                 <span class="text-danger">{{ $message }}</span>

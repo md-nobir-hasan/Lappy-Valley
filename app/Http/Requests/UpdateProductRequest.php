@@ -62,7 +62,7 @@ class UpdateProductRequest extends FormRequest
             //Memory Attributes
             'ram_id' => 'nullable|exists:rams,id',
             'm_type' => 'nullable|string',
-            'bus_speed' => 'nullable|numeric',
+            'bus_speed' => 'nullable|string|max:255',
             'm_slot' => 'nullable|numeric',
             'm_removal' => 'sometimes|in:1',
 
