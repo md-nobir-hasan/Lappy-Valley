@@ -139,7 +139,6 @@ class ProductReviewController extends Controller
         } else {
             request()->session()->flash('error', 'Review not found!!');
         }
-
         return redirect()->route('productreview.index');
     }
 

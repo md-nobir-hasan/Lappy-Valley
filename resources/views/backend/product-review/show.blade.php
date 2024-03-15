@@ -35,11 +35,11 @@
                                 @endif
                             </td>
                             <td>
-                                <a href="{{ route('review.edit', $review->id) }}"
+                                <a href="{{ route('productreview.edit', $review->id) }}"
                                     class="float-left mr-1 btn btn-primary btn-sm"
                                     style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit"
                                     data-placement="bottom"><i class="fas fa-edit"></i></a>
-                                <form method="POST" action="{{ route('review.destroy', [$review->id]) }}">
+                                <form method="POST" action="{{ route('productreview.destroy', [$review->id]) }}">
                                     @csrf
                                     @method('delete')
                                     <button class="btn btn-danger btn-sm dltBtn" data-id={{ $review->id }}
