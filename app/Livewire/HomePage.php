@@ -83,7 +83,6 @@ class HomePage extends Component
                                 ->get();
         // $n['menus'] = Category::with('child_cat')->where('status', 'active')->where('is_parent', 1)->orderBy('title', 'ASC')->get();
         $n['home_banner'] = Banner::where('status', 'active')->where('slug', 'home-page')->first();
-        $n['reviews'] = CompanyReview::with(['user'])->where('status', 'active')->take(10)->get();
 
         if (auth()->user()) {
             $this->name = auth()->user()->name;

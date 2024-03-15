@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\CompanyReview;
 use Illuminate\Support\Facades\DB;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
@@ -38,7 +39,7 @@ class ReviewPost extends Component
             $this->user_id = $user->id;
         }
     }
-    
+
     public function render()
     {
         $n['posts'] = DB::table('company_reviews')
@@ -50,6 +51,8 @@ class ReviewPost extends Component
             $this->name = auth()->user()->name;
             $this->email = auth()->user()->email;
         }
-        return view('livewire.review-post');
+
+        $n['reviews'] = CompanyReview::with(['user'])->where('status', 'active')->take(10)->get();
+        return view('livewire.review-post',$n);
     }
 }

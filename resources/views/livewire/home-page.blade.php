@@ -47,14 +47,16 @@
                     </a>
                 </div>
             </div>
-            @if (count($news)>0)
-            <div class="mq">
-                <marquee class="blink" direction='left'>
-                    @foreach ($news as $nes)
-                        {{$nes->title}} @if (!$loop->last) || @endif
-                    @endforeach
-                </marquee>
-            </div>
+            @if (count($news) > 0)
+                <div class="mq">
+                    <marquee class="blink" direction='left'>
+                        @foreach ($news as $nes)
+                            {{ $nes->title }} @if (!$loop->last)
+                                ||
+                            @endif
+                        @endforeach
+                    </marquee>
+                </div>
             @endif
         </section>
     @endif
@@ -81,35 +83,7 @@
             </div>
         </div>
     </section>
-    <!-- New arrival  -->
-    <section>
-        <!-- New text  -->
-        <section>
-            <!-- heading -->
-            <div
-                class=" fill-up-btn h-[130px] max-sm:h-[52px] max-md:h-[68px] max-lg:h-[85px] max-xl:h-[100px]  flex justify-center items-center text-white bg-gradient-to-r from-[#380D37] to-[#DC275C]">
 
-                <h1
-                    class="text-[40px] max-sm:text-[18px] max-md:text-[22px] max-lg:text-[30px] max-xl:text-[35px] text-[#f2f2f2] font-[jost] font-[500] text-center">
-                    New Arrival
-                </h1>
-            </div>
-        </section>
-
-        <!-- Product  -->
-        <section>
-            <div
-                class="grid grid-cols-5 max-md:grid-cols-2 max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 mt-6 mb-[78px] max-sm:mb-[50px]">
-                {{-- @for ($i = 1; $i < 6; $i++)
-                <livewire:products />
-            @endfor --}}
-                @foreach ($new_arrival->take(5) as $product)
-                    <x-product :product="$product"></x-product>
-                @endforeach
-            </div>
-        </section>
-        <!-- Product  -->
-    </section>
     <!-- Attractive Gaming Laptop -->
     <section class='mt-[50px]'>
         <div class="py-1 text-center">
@@ -132,6 +106,7 @@
             </div>
         </div>
     </section>
+
     <!-- Feature Laptops Sliders -->
     <section x-data='{redirect(url){
         window.open(url,"_blank");
@@ -507,6 +482,36 @@
         </div>
     </section>
 
+    <!-- New arrival  -->
+    <section class="mt-[40px]">
+        <!-- New text  -->
+        <section>
+            <!-- heading -->
+            <div
+                class=" fill-up-btn h-[130px] max-sm:h-[52px] max-md:h-[68px] max-lg:h-[85px] max-xl:h-[100px]  flex justify-center items-center text-white bg-gradient-to-r from-[#380D37] to-[#DC275C]">
+
+                <h1
+                    class="text-[40px] max-sm:text-[18px] max-md:text-[22px] max-lg:text-[30px] max-xl:text-[35px] text-[#f2f2f2] font-[jost] font-[500] text-center">
+                    New Arrival
+                </h1>
+            </div>
+        </section>
+
+        <!-- Product  -->
+        <section>
+            <div
+                class="grid grid-cols-5 max-md:grid-cols-2 max-lg:grid-cols-3 max-xl:grid-cols-4 gap-2 mt-6 mb-[78px] max-sm:mb-[50px]">
+                {{-- @for ($i = 1; $i < 6; $i++)
+                    <livewire:products />
+                @endfor --}}
+                @foreach ($new_arrival->take(5) as $product)
+                    <x-product :product="$product"></x-product>
+                @endforeach
+            </div>
+        </section>
+        <!-- Product  -->
+    </section>
+
     <div class='mt-[40px] mb-[30px]'>
         <div class="h-[2px] bg-[#380D37]"></div>
     </div>
@@ -659,122 +664,6 @@
                 </div>
             </div>
     </section>
-    <!-- What our client says  -->
-    <section class="mt-16 max-xl:mt-4">
-        <h2
-            class="mb-12 max-lg:mb-4 font-[jost] font-[500] text-center text-[42px] max-lg:text-[30px] max-md:text-[25px] max-sm:text-[24px] text-[#353535]">
-            What Our Clients Say About
-            Us</h2>
-        <style>
-            .owl-nav {
-                gap: {{ (count($reviews) + 5) * 10 + 200 }}px !important;
-            }
-
-            @media only screen and (max-width: 640px) {
-                .owl-nav {
-                    gap: {{ (count($reviews) + 5) * 10 + 80 }}px !important;
-                }
-            }
-        </style>
-        <div class="container mx-auto">
-            <section id="slider" class="pt-5 mx-auto">
-                <div class="container mx-auto">
-                    <h1 class="text-center"><b>Responsive Owl Carousel</b></h1>
-                    <div class="slider">
-                        <div class="owl-carousel">
-                            @foreach ($reviews as $review)
-                                <div
-                                    class="slider-card rounded-[16px] py-4 px-4 bg-[#fff] shadow-[2px_2px_5px_2px_#0000001A]">
-                                    <div class="">
-                                        <div class="flex justify-center">
-                                            <div class="flex items-center">
-                                                <div>
-                                                    <img class="rounded-[100%] w-[72px] h-[72px] client-img"
-                                                        src="/storage/@if ($review->user?->photo) {{ $review->user->photo }}@else{{ 'default/face.png' }} @endif"
-                                                        alt="">
-                                                </div>
-                                                <div class="ml-2">
-                                                    <h1
-                                                        class="font-[Lato] font-[700] leo-h text-[24px] text-center text-[#353535]">
-                                                        {{ $review->name }}
-                                                    </h1>
-                                                </div>
-                                            </div>
-
-                                            <div class="flex star-div mt-[40px]  ml-auto">
-                                                @foreach ([1, 2, 3, 4, 5] as $star)
-                                                    <a href="javascript:void(0)">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="22"
-                                                            height="22" class="star" viewBox="0 0 22 22"
-                                                            fill="#FFA033">
-                                                            <path
-                                                                d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
-                                                                fill="#FFA033" stroke="#FFA033"
-                                                                stroke-linecap="round" stroke-linejoin="round" />
-                                                        </svg>
-                                                    </a>
-                                                @endforeach
-
-                                                {{-- <a href="#"><svg xmlns="http://www.w3.org/2000/svg"
-                                                        width="22" height="22" class="star"
-                                                        viewBox="0 0 22 22" fill="#FFA033">
-                                                        <path
-                                                            d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
-                                                            fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
-                                                            stroke-linejoin="round" />
-                                                    </svg></a>
-
-                                                <a href="#"><svg xmlns="http://www.w3.org/2000/svg"
-                                                        width="22" height="22" class="star"
-                                                        viewBox="0 0 22 22" fill="#FFA033">
-                                                        <path
-                                                            d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
-                                                            fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
-                                                            stroke-linejoin="round" />
-                                                    </svg></a>
-
-                                                <a href="#"><svg xmlns="http://www.w3.org/2000/svg"
-                                                        width="22" height="22" class="star"
-                                                        viewBox="0 0 22 22" fill="#FFA033">
-                                                        <path
-                                                            d="M11 1.8335L13.8325 7.57183L20.1667 8.49766L15.5833 12.9618L16.665 19.2685L11 16.2893L5.335 19.2685L6.41667 12.9618L1.83334 8.49766L8.1675 7.57183L11 1.8335Z"
-                                                            fill="#FFA033" stroke="#FFA033" stroke-linecap="round"
-                                                            stroke-linejoin="round" />
-                                                    </svg></a>
-
-                                                <a href="#"><svg xmlns="http://www.w3.org/2000/svg"
-                                                        width="22" height="22" class="star"
-                                                        viewBox="0 0 15 15" fill="none">
-                                                        <path
-                                                            d="M7.5 1.25L9.43125 5.1625L13.75 5.79375L10.625 8.8375L11.3625 13.1375L7.5 11.1062L3.6375 13.1375L4.375 8.8375L1.25 5.79375L5.56875 5.1625L7.5 1.25Z"
-                                                            stroke="#FFA033" stroke-linecap="round"
-                                                            stroke-linejoin="round" />
-                                                    </svg></a> --}}
-                                            </div>
-                                            <!-- </div> -->
-                                        </div>
-                                        <div>
-                                            <h1
-                                                class="my-[19px] leo-h1 leo-h1 font-[Lato] font-[700] text-[24px] text-center text-[#353535] leading-[28.8px]">
-                                                {{ $review->subject }}
-                                            </h1>
-                                        </div>
-                                        <div>
-                                            <p
-                                                class="my-[17px] leo-p1 leo-p1 font-[jost] font-[500] text-[18px] leading-[23.13px] text-left text-[#353535]">
-                                                {{ $review->msg }}
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </section>
-    <div class="mt-16 h-[2px] bg-[#380D37]"></div>
 
 </div>
 @script
@@ -833,37 +722,6 @@
                 });
             });
 
-            $(".owl-carousel").owlCarousel({
-                loop: true,
-                margin: 10,
-                nav: true,
-                dots: true,
-                pagination: true,
-                autoplay: true,
-                autoplayTimeout: 3000,
-                autoplayHoverPause: true,
-                center: true,
-                navText: [
-                    '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-18 h-9 arrow"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>',
-                    '<svg xmlns="http:www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-18 h-9 arrow"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /> </svg>'
-                ],
-                responsive: {
-                    0: {
-                        items: 1,
-
-                    },
-                    640: {
-                        items: 1,
-
-
-                    },
-                    1024: {
-                        items: 3,
-
-
-                    }
-                }
-            });
         });
         var swiper = new Swiper(".mySwiper", {
             slidesPerView: 5,
