@@ -116,7 +116,7 @@
         </div>
     </section>
     <div class="mt-16 h-[2px] bg-[#380D37]"></div>
-    
+
     <!-- Drop/submit a review  -->
     <section class="mt-16 md:mt-8 mb-5 md:px-28 px-12">
         <div

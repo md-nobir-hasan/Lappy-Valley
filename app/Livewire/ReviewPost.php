@@ -52,7 +52,7 @@ class ReviewPost extends Component
             $this->email = auth()->user()->email;
         }
 
-        $n['reviews'] = CompanyReview::with(['user'])->where('status', 'active')->take(10)->get();
+        $n['reviews'] = CompanyReview::with(['user'])->where('status', 'active')->latest()->get();
         return view('livewire.review-post',$n);
     }
 }
