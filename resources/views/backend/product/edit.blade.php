@@ -1121,14 +1121,13 @@
 
             // $('#final_price_div').hide();
 
-            $('#price').on('keyup', function() {
+            $('#price').on('keyup change', function() {
                 let price_with_comma = $(this).val() ? $(this).val() : '0';
                 let final_price_with_comma = $('#final_price').val() ? $('#final_price').val() : '0';
 
                 let price = parseInt(price_with_comma.replace(/,/g, ''));
                 let final_price = parseInt(final_price_with_comma.replace(/,/g, ''));
                 let discount = Math.round(((price - final_price) * 100) / price);
-
                 $('#discount').val(discount);
             });
 
