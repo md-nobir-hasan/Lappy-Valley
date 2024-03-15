@@ -56,10 +56,6 @@
                 </marquee>
             </div>
             @endif
-
-
-
-
         </section>
     @endif
     <!-- --------hero--section --end ----  -->

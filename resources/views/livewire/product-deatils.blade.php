@@ -195,144 +195,122 @@
                     Features
                 </p>
             </div>
-
             <div class="flex flex-col mt-[5px]">
                 <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-                    <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
-                        <div class="overflow-hidden">
-                            <table class="min-w-full text-left">
-                                <thead>
-                                    <tr class="border border-[black]">
-                                        <th scope="col"
-                                            class="font-[jost] text-[18px] font-[500] text-[#353535] max-lg:text-[18px] px-4 py-[6px] border border-[black] ">
-                                            Attribute
-                                        </th>
-                                        <th scope="col"
-                                            class="font-[jost] text-[18px] font-[500] text-[#353535] max-lg:text-[18px] px-4 py-[6px] border border-[black] ">
-
-                                        </th>
-                                        <th scope="col"
-                                            class="font-[jost] text-[16px] font-[600] text-[#353535] max-lg:text-[18px] px-4 py-[6px] border border-[black] ">
-                                            Value
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td
-                                            class="font-[jost] text-[14px] font-[600] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
-                                            Manufacture:
-                                        </td>
-                                        <td
-                                            class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
-
-                                        </td>
-                                        <td
-                                            class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
-                                            Lorem ipsum dolor sit amet.
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td
-                                            class="font-[jost] text-[14px] font-[600] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
-                                            Model:
-                                        </td>
-                                        <td
-                                            class="font-[jost] text-[16px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
-
-                                        </td>
-                                        <td
-                                            class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
-                                            Lorem ipsum dolor sit amet.
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td
-                                            class="font-[jost] text-[14px] font-[600] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
-                                            Processor:
-                                        </td>
-                                        <td
-                                            class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
-
-                                        </td>
-                                        <td
-                                            class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
-                                            Lorem ipsum dolor sit amet.
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td
-                                            class="font-[jost] text-[14px] font-[600] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
-                                            RAM:
-                                        </td>
-                                        <td
-                                            class="font-[jost] text-[16px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
-
-                                        </td>
-                                        <td
-                                            class="font-[jost] text-[16px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
-                                            Lorem ipsum dolor sit amet.
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td
-                                            class="font-[jost] text-[14px] font-[600] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
-                                            Display:
-                                        </td>
-                                        <td
-                                            class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
-
-                                        </td>
-                                        <td
-                                            class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
-                                            Lorem ipsum dolor sit amet.
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td
-                                            class="font-[jost] text-[14px] font-[600] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
-                                            Condition:
-                                        </td>
-                                        <td
-                                            class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
-
-                                        </td>
-                                        <td
-                                            class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
-                                            Lorem ipsum dolor sit amet.
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td
-                                            class="font-[jost] text-[16px] font-[600] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
-                                            Regular Price:
-                                        </td>
-                                        <td
-                                            class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
-
-                                        </td>
-                                        <td
-                                            class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
-                                            Lorem ipsum dolor sit amet.
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td
-                                            class="font-[jost] text-[14px] font-[600] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
-                                            Discount:
-                                        </td>
-                                        <td
-                                            class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
-
-                                        </td>
-                                        <td
-                                            class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
-                                            Lorem ipsum dolor sit amet.
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                  <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+                    <div class="overflow-hidden">
+                      <table class="min-w-full text-left">
+                        <thead>
+                          <tr class="border border-[black]">
+                            <th scope="col" class="font-[jost] text-[18px] font-[700] text-[#353535] max-lg:text-[18px] px-4 py-[6px] border border-[black] ">
+                             Attribute
+                            </th>
+                            <th scope="col" class="font-[jost] text-[18px] font-[500] text-[#353535] max-lg:text-[18px] px-4 py-[6px] border border-[black] ">
+                            </th>
+                            <th scope="col" class="font-[jost] text-[18px] font-[700] text-[#353535] max-lg:text-[18px] px-4 py-[6px] border border-[black] ">
+                            Value
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="font-[jost] text-[14px] font-[700] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
+                                Manufacture
+                            </td>
+                            <td class="font-[jost] text-[14px] font-[900] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap items-center text-center">
+                                <div class="w-2 h-2 bg-black rounded-[100%] mx-auto">
+                                </div>
+                            </td>
+                            <td class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
+                              Lorem ipsum dolor sit amet.
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="font-[jost] text-[14px] font-[700] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
+                                Model
+                            </td>
+                            <td class="font-[jost] text-[16px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
+                                <div class="w-2 h-2 bg-black rounded-[100%] mx-auto">
+                                </div>
+                            </td>
+                            <td class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
+                             Lorem ipsum dolor sit amet.
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="font-[jost] text-[14px] font-[700] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
+                                Processor
+                            </td>
+                            <td class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
+                                <div class="w-2 h-2 bg-black rounded-[100%] mx-auto">
+                                </div>
+                            </td>
+                            <td class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
+                            Lorem ipsum dolor sit amet.
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="font-[jost] text-[14px] font-[700] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
+                                RAM
+                            </td>
+                            <td class="font-[jost] text-[16px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
+                                <div class="w-2 h-2 bg-black rounded-[100%] mx-auto">
+                                </div>
+                            </td>
+                            <td class="font-[jost] text-[16px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
+                             Lorem ipsum dolor sit amet.
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="font-[jost] text-[14px] font-[700] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
+                                Display
+                            </td>
+                            <td class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
+                                <div class="w-2 h-2 bg-black rounded-[100%] mx-auto">
+                                </div>
+                            </td>
+                            <td class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
+                             Lorem ipsum dolor sit amet.
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="font-[jost] text-[14px] font-[700] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
+                                Condition
+                            </td>
+                            <td class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
+                                <div class="w-2 h-2 bg-black rounded-[100%] mx-auto">
+                                </div>
+                            </td>
+                            <td class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
+                             Lorem ipsum dolor sit amet.
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="font-[jost] text-[16px] font-[700] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
+                                Regular Price
+                            </td>
+                            <td class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
+                                <div class="w-2 h-2 bg-black rounded-[100%] mx-auto">
+                                </div>
+                            </td>
+                            <td class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
+                              Lorem ipsum dolor sit amet.
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="font-[jost] text-[14px] font-[700] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
+                                Discount
+                            </td>
+                            <td class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
+                                <div class="w-2 h-2 bg-black rounded-[100%] mx-auto">
+                                </div>
+                            </td>
+                            <td class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
+                            Lorem ipsum dolor sit amet.
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </div>
                 </div>
             </div>
