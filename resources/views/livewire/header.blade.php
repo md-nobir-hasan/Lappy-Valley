@@ -186,7 +186,7 @@
                                                     wire:keyup="searchFuc" @click="open = true" type="search"
                                                     id="search-dropdown" autocomplete="off"
                                                     class=" z-20 block p-2.5 w-full bg-[#f2f2f2] text-[#380D37]"
-                                                    placeholder="I am shopping for..." required>
+                                                    placeholder="I am shopping for...">
                                                 <div wire:loading wire:target='searchFuc'
                                                     class="absolute right-0 top-2.5 inline-block h-6 w-6 mr-[7px] animate-spin rounded-full
                                                             border-4 border-solid border-current border-r-transparent align-[-0.125em]

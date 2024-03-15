@@ -18,7 +18,7 @@ class Header extends Component
     public $cats;
     public $cat;
 
-    #[Rule("required", message: "Please,Enter a email")]
+    // #[Rule("required", message: "Please,Enter any search text")]
     public $search;
 
     public function mount()
@@ -35,10 +35,14 @@ class Header extends Component
 
     public function searchTo()
     {
-        $this->redirect(route('searching_product', [$this->search, $this->cat]), navigate: true);
+
+        if (($slug = $this->cat) && !($s = $this->search)) {
+            $this->redirect(route('cat.search.product', [$this->cat]), navigate: true);
+            // dd($this->cat,$this->search);
+        }else {
+            $this->redirect(route('searching_product', [$this->search, $this->cat]), navigate: true);
+        }
     }
-
-
     // public function prdouctFetch()
     // {
     //     dd($this->cat);
@@ -66,14 +70,14 @@ class Header extends Component
     {
         if (($slug = $this->cat) && ($s = $this->search)) {
             $cat = Category::where('slug', $slug)->first();
-            $this->products = Product::serachByTitleOrNothing($s)->where('cat_id', $cat->id);
+            $this->products = Product::serachByTitleOrNothing($s)->where('cat_id', $cat->id)->get();
         } elseif (($slug = $this->cat)) {
             $cat = Category::where('slug', $slug)->first();
-            $this->products = Product::serachByTitleOrNothing()->where('cat_id', $cat->id);
+            $this->products = Product::serachByTitleOrNothing()->where('cat_id', $cat->id)->get();
         } elseif (($s = $this->search)) {
-            $this->products = Product::serachByTitleOrNothing($s);
+            $this->products = Product::serachByTitleOrNothing($s)->get();
         } else {
-            $this->products = Product::serachByTitleOrNothing();
+            $this->products = Product::serachByTitleOrNothing()->get();
         }
     }
 
