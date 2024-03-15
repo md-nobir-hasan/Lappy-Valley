@@ -533,6 +533,7 @@
                 </div>
             </div>
         </div>
+        </div>
         <!-- -------------ideapad---section---end--- -->
         <div class="my-[50px] h-[2px] bg-[#380D37] max-sm:my-[30px] max-sm:h-[1px]"></div>
 
