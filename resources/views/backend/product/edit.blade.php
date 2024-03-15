@@ -394,7 +394,7 @@
                                 <option value="" hidden>Choose....</option>
                                 @foreach ($rams as $ram)
                                     <option value="{{ $ram->id }}" @selected($ram->id == $product->ram_id)>
-                                        {{ $ram->ram }}GB
+                                        {{ $ram->capacity }}GB
                                     </option>
                                 @endforeach
                             </select>
