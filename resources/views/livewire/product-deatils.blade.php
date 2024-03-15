@@ -277,7 +277,7 @@
                                         </td>
                                         <td
                                             class="font-[jost] text-[16px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
-                                            {{ $product->ram ? $product->ram->ram : 'N/A' }}GB
+                                            {{ $product->ram ? $product->ram->capacity : 'N/A' }}GB
                                         </td>
                                     </tr>
                                     <tr>
@@ -399,8 +399,8 @@
                     </li>
                 @endif
                 <li class="font-[jost] text-[16px] font-[400] text-[#353535] max-lg:text-[14px]">
-                    @if ($product->ram?->ram)
-                        RAM: {{ $product->ram?->ram }} GB,
+                    @if ($product->ram?->capacity)
+                        RAM: {{ $product->ram?->capacity }} GB,
                     @endif
 
                     @if ($product->storage())
@@ -720,7 +720,7 @@
                                     RAM:</td>
                                 <td
                                     class="py-[14px] font-[jost] text-[16px] font-[500] text-[#353535] max-lg:text-[14px] max-sm:py-[10px]">
-                                    {{ $product->ram ? $product->ram?->ram : 'N/A' }}GB
+                                    {{ $product->ram ? $product->ram->capacity : 'N/A' }}GB
                                 </td>
                             </tr>
                             <tr class="border-b-[2px] border-[#764A8733]">
