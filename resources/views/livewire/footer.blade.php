@@ -1,5 +1,5 @@
   <footer
-      class="bg-gradient-to-r from-[#380D37] to-[#DC275C] pt-4 text-white max-xl:mb-[70px] max-lg:mb-[45px] max-md:mb-[38px] max-sm:mb-[50px] mt-20 max-sm:mt-14 max-md:mt-16 max-lg:mt-18 h-[420px] max-sm:h-[100%] max-md:h-[420px] max-lg:h-[435px] max-xl:h-[449px]">
+      class="bg-gradient-to-r from-[#380D37] to-[#DC275C] pt-4 text-white max-xl:mb-[70px] max-lg:mb-[45px] max-md:mb-[38px] max-sm:mb-[50px] mt-20 max-sm:mt-14 max-md:mt-16 max-lg:mt-18 ">
       <div class="flex justify-evenly max-sm:block max-sm:px-[18px]">
 
           <div class="">
@@ -47,6 +47,12 @@
                       <span class="px-1 hover:bg-blue-700">
                           Bin Number : 0049818790102
                       </span>
+                  </li>
+                  <li>
+                    Payment Methods :
+                    <span>
+                        <img class="w-[400px] md:w-[550px] rounded-md" src="{{asset('/storage/default/Payment-Brands.jpg')}}" alt="">
+                    </span>
                   </li>
               </ul>
           </div>
