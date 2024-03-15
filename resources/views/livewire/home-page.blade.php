@@ -14,7 +14,84 @@
     <!-- Hero Section  -->
     @if ($home_banner)
         <section class="w-full mx-auto">
-            <div class="relative items-center w-full mx-auto px-auto" x-data="{ active: true }">
+            {{-- this style for autoplay swiper  --}}
+            <style>
+                .swiper {
+                    width: 100%;
+                    height: 100%;
+                }
+
+                .swiper-slide {
+                    text-align: center;
+                    font-size: 18px;
+                    background: #fff;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .swiper-slide img {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+
+                .autoplay-progress {
+                    position: absolute;
+                    right: 16px;
+                    bottom: 16px;
+                    z-index: 10;
+                    width: 48px;
+                    height: 48px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: bold;
+                    color: var(--swiper-theme-color);
+                }
+
+                .autoplay-progress svg {
+                    --progress: 0;
+                    position: absolute;
+                    left: 0;
+                    top: 0px;
+                    z-index: 10;
+                    width: 100%;
+                    height: 100%;
+                    stroke-width: 4px;
+                    stroke: var(--swiper-theme-color);
+                    fill: none;
+                    stroke-dashoffset: calc(125.6 * (1 - var(--progress)));
+                    stroke-dasharray: 125.6;
+                    transform: rotate(-90deg);
+                }
+            </style>
+            @php
+                $bnrs = explode(',', $home_banner->photo);
+            @endphp
+            <!-- Swiper -->
+            <div class="swiper mainslider">
+                <div class="swiper-wrapper">
+                    @foreach ($bnrs as $banner)
+                        <div class="swiper-slide">
+                            <img class="object-cover w-full mx-auto" src="{{ $banner }}"
+                                alt="{{ $home_banner->title }}">
+                        </div>
+                    @endforeach
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+                <div class="autoplay-progress">
+                    <svg viewBox="0 0 48 48">
+                        <circle cx="24" cy="24" r="20"></circle>
+                    </svg>
+                    <span></span>
+                </div>
+            </div>
+
+            {{-- <div class="relative items-center w-full mx-auto px-auto" x-data="{ active: true }">
                 @php
                     $bnrs = explode(',', $home_banner->photo);
                 @endphp
@@ -46,7 +123,9 @@
 
                     </a>
                 </div>
-            </div>
+            </div> --}}
+
+            {{-- News section  --}}
             @if (count($news) > 0)
                 <div class="mq">
                     <marquee class="blink" direction='left'>
@@ -666,40 +745,31 @@
     </section>
 
 </div>
+
 @script
     <script>
-        // ----hero--section---
-        // main banner slider funcito
-
-        // Hero section slide
-        $('#move_back').on('click', function() {
-            let total_slide = $('.slide').length;
-            let current_slide = Number($(this).attr('value')) - 1;
-            if (current_slide < 1) {
-                current_slide = total_slide - 1;
-            }
-            $('.slide').hide();
-            $('.slide').eq(current_slide).show();
-            $('.slide_icon').attr('value', current_slide);
-            $(this).addClass('slide-active');
-            $('#move_front').removeClass('slide-active')
-        });
-
-        $('#move_front').on('click', function() {
-            let total_slide = $('.slide').length;
-            let current_slide = Number($(this).attr('value')) + 1;
-            if (current_slide > total_slide - 1) {
-                current_slide = 0;
-            }
-            $('.slide').hide();
-            $('.slide').eq(current_slide).show();
-            $('.slide_icon').attr('value', current_slide);
-            $(this).addClass('slide-active');
-            $('#move_back').removeClass('slide-active')
-        });
-
-        // hero---section--end-----
         $(document).ready(function() {
+            // ----hero--section---
+            // main banner slider funcito
+            var autopaly_swiper = new Swiper(".mainslider", {
+                spaceBetween: 30,
+                centeredSlides: true,
+                loop: true,
+                autoplay: {
+                    delay: 2500,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev"
+                },
+            });
+            // hero---section--end-----
             $('.usa_btn').each(function(index) {
                 $(this).on('click', function() {
                     $(this).addClass('bg-[#380D37] text-[#F2F2F2]');
