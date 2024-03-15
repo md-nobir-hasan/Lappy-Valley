@@ -260,9 +260,9 @@
                                         </td>
                                         <td
                                             class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
-                                            {{-- {{$product->mpn ? $product->mpn : 'N/A'}} --}}
-                                            {{ $product->ProcessorModel?->name }} @if ($product->c_speed)
-                                                ({{ $product->c_speed }}) @endif
+                                            {{$product->mpn ? ($product->mpn. ' '.$product->c_speed ?? '') : 'N/A'}}
+                                            {{-- {{ $product->ProcessorModel?->name }} @if ($product->c_speed)
+                                                ({{ $product->c_speed }}) @endif --}}
                                         </td>
                                     </tr>
                                     <tr>
