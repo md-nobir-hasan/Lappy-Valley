@@ -896,7 +896,7 @@
                                                         class='border-[1px] border-[#380D37] bg-[#f2f2f2] w-[11px] h-[12px]'
                                                         type="checkbox" x-model='rams' @change='productFetch'>
                                                     <label for="ram{{ $ram->id }}"
-                                                        class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>{{ $ram->ram }}
+                                                        class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>{{ $ram->capacity }}
                                                         GB
                                                     </label>
                                                 </span>
