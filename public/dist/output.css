@@ -1069,6 +1069,10 @@ input[type="range"]:active::-webkit-slider-thumb{
   order: 3;
 }
 
+.col-auto{
+  grid-column: auto;
+}
+
 .col-span-1{
   grid-column: span 1 / span 1;
 }
@@ -1161,6 +1165,11 @@ input[type="range"]:active::-webkit-slider-thumb{
 .my-4{
   margin-top: 1rem;
   margin-bottom: 1rem;
+}
+
+.my-5{
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
 }
 
 .my-\[0px\]{
@@ -1387,10 +1396,6 @@ input[type="range"]:active::-webkit-slider-thumb{
   margin-left: 40px;
 }
 
-.ml-\[5px\]{
-  margin-left: 5px;
-}
-
 .ml-auto{
   margin-left: auto;
 }
@@ -1457,6 +1462,10 @@ input[type="range"]:active::-webkit-slider-thumb{
 
 .mt-4{
   margin-top: 1rem;
+}
+
+.mt-5{
+  margin-top: 1.25rem;
 }
 
 .mt-6{
@@ -2788,6 +2797,10 @@ input[type="range"]:active::-webkit-slider-thumb{
   resize: both;
 }
 
+.scroll-mt-5{
+  scroll-margin-top: 1.25rem;
+}
+
 .list-decimal{
   list-style-type: decimal;
 }
@@ -3007,6 +3020,10 @@ input[type="range"]:active::-webkit-slider-thumb{
 
 .scroll-auto{
   scroll-behavior: auto;
+}
+
+.scroll-smooth{
+  scroll-behavior: smooth;
 }
 
 .truncate{
@@ -3743,6 +3760,10 @@ input[type="range"]:active::-webkit-slider-thumb{
 
 .p-4{
   padding: 1rem;
+}
+
+.p-5{
+  padding: 1.25rem;
 }
 
 .p-6{
@@ -4905,9 +4926,24 @@ input[type="range"]:active::-webkit-slider-thumb{
   color: rgb(55 65 81 / var(--tw-text-opacity));
 }
 
+.text-gray-800{
+  --tw-text-opacity: 1;
+  color: rgb(31 41 55 / var(--tw-text-opacity));
+}
+
+.text-gray-900{
+  --tw-text-opacity: 1;
+  color: rgb(17 24 39 / var(--tw-text-opacity));
+}
+
 .text-green-600{
   --tw-text-opacity: 1;
   color: rgb(22 163 74 / var(--tw-text-opacity));
+}
+
+.text-info{
+  --tw-text-opacity: 1;
+  color: rgb(84 180 211 / var(--tw-text-opacity));
 }
 
 .text-neutral-200{
@@ -4963,6 +4999,11 @@ input[type="range"]:active::-webkit-slider-thumb{
 .text-success{
   --tw-text-opacity: 1;
   color: rgb(20 164 77 / var(--tw-text-opacity));
+}
+
+.text-warning{
+  --tw-text-opacity: 1;
+  color: rgb(228 161 27 / var(--tw-text-opacity));
 }
 
 .text-white{
