@@ -362,7 +362,7 @@
                 <div>
                     <ul class="mb-3 mt-4 leading-[29px] max-lg:leading-[26px]">
                         <li class="mt-[10px] font-[jost] text-[18px] font-[500] text-[#353535] max-lg:text-[16px]">
-                            <div class="bg-gradient-to-r from-[#380D37] rounded p-2 w-[130px] text-center to-[#DC275C]  mt-[5px] ">
+                            <div class="flex items-center justify-center h-[29px] bg-gradient-to-r from-[#380D37] rounded p-2 w-[128px] text-center to-[#DC275C]  mt-[5px] ">
                                 <span class="text-[white]">
                                     Regular Price:
                                 </span>
@@ -374,7 +374,7 @@
                         @if ($product->discount)
                             <li class="mt-[10px] font-[jost] text-[16px] font-[500] text-[#353535] max-lg:text-[18px]">
                                 <div
-                                    class="bg-gradient-to-r from-[#380D37] to-[#DC275C] rounded p-2 w-[85px] text-center mt-[5px]">
+                                    class="flex items-center justify-center h-[29px] rounded p-2 w-[85px] bg-gradient-to-r from-[#380D37] to-[#DC275C]  text-center mt-[5px]">
                                     <span class="text-[white]">Discount:</span>
                                 </div>
                             </li>
@@ -383,7 +383,7 @@
                             </li>
                         @endif
                         <li class="mt-[10px] font-[jost] text-[16px] font-[500] text-[#353535] max-lg:text-[16px]">
-                            <div class="bg-gradient-to-r from-[#380D37] to-[#DC275C] rounded p-2 w-[158px] text-center mt-[5px]">
+                            <div class="flex items-center justify-center h-[29px] rounded p-2 w-[143px] bg-gradient-to-r from-[#380D37] to-[#DC275C] text-center mt-[5px]">
                                 <span class="text-[white]">Discounted Price:</span>
                             </div>
                         </li>

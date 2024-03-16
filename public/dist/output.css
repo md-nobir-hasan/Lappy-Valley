@@ -1733,6 +1733,10 @@ input[type="range"]:active::-webkit-slider-thumb{
   height: 29.81px;
 }
 
+.h-\[29px\]{
+  height: 29px;
+}
+
 .h-\[2px\]{
   height: 2px;
 }
@@ -2013,6 +2017,10 @@ input[type="range"]:active::-webkit-slider-thumb{
   width: 11px;
 }
 
+.w-\[128px\]{
+  width: 128px;
+}
+
 .w-\[12px\]{
   width: 12px;
 }
@@ -2035,10 +2043,6 @@ input[type="range"]:active::-webkit-slider-thumb{
 
 .w-\[150px\]{
   width: 150px;
-}
-
-.w-\[152px\]{
-  width: 152px;
 }
 
 .w-\[155px\]{
@@ -2299,6 +2303,10 @@ input[type="range"]:active::-webkit-slider-thumb{
 
 .w-screen{
   width: 100vw;
+}
+
+.w-\[143px\]{
+  width: 143px;
 }
 
 .min-w-0{
