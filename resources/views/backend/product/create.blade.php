@@ -112,20 +112,34 @@
                                 </option>
                             @endforeach
                         </select>
+                        @error('cat_id')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div class="form-group d-none" id="child_cat_div">
                         <label for="child_cat_id">Sub Category</label>
                         <select name="child_cat_id" id="child_cat_id" class="form-control">
                             <option value="">--Select any category--</option>
-
                         </select>
                     </div>
 
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <label for="condition" class="col-form-label">Condition</label>
                         <input id="condition" type="text" name="condition" placeholder="Exp:- Enter condition"
                             value="{{ old('condition') }}" class="form-control">
+                        @error('condition')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div> --}}
+
+                    <div class="form-group">
+                        <label for="condition">Condtion </label>
+                        <select name="condition" id="condition" class="form-control">
+                            <option value="">--Select any condition--</option>
+                            <option value="Pre-Owned">Pre-Owned</option>
+                            <option value="Brand New">Brand New</option>
+                        </select>
                         @error('condition')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror

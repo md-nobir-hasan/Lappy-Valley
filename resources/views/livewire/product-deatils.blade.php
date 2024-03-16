@@ -309,10 +309,11 @@
                                             {{ $product->DisplaySize?->size . ' "' . $product->DisplayType?->name . ' (' . $product->d_resolution }})
                                         </td>
                                     </tr>
+        
                                     <tr>
                                         <td
                                             class="font-[jost] text-[14px] font-[700] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
-                                            Category
+                                            Condition
                                         </td>
                                         <td
                                             class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
@@ -321,7 +322,7 @@
                                         </td>
                                         <td
                                             class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
-                                            {{ $product->cat_info ? $product->cat_info->title : 'N/A' }}
+                                            {{ $product->condition ? $product->condition : 'N/A' }}
                                         </td>
                                     </tr>
                                     {{-- <tr>

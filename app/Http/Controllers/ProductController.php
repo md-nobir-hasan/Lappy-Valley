@@ -182,8 +182,7 @@ class ProductController extends Controller
 
         $data['special_feature'] = $special_feature;
         $data['is_featured'] = $request->input('is_featured', 0);
-
-        // return $data;
+        $data['is_student'] = $request->input('is_student', 0);
 
         $status = $product->fill($data)->save();
         if ($status) {

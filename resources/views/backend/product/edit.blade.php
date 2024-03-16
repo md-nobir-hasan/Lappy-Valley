@@ -124,9 +124,12 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="condition" class="col-form-label">Condition</label>
-                        <input id="condition" type="text" name="condition" placeholder="Exp:- Enter condition"
-                            value="{{ $product->condition }}" class="form-control">
+                        <label for="condition">Condtion </label>
+                        <select name="condition" id="condition" class="form-control">
+                            <option value="">--Select any condition--</option>
+                            <option value="Pre-Owned" @selected('Pre-Owned' == $product->condition)>Pre-Owned</option>
+                            <option value="Brand New" @selected('Brand New' == $product->condition)>Brand New</option>
+                        </select>
                         @error('condition')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
