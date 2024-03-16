@@ -82,7 +82,6 @@ class ProductController extends Controller
     {
         $this->ccan('Create Product');
         $data = $request->all();
-        // dd($data);/
         $special_feature = '';
         if ($request->special_feature) {
             foreach ($request->special_feature as $sp) {
@@ -171,8 +170,6 @@ class ProductController extends Controller
             ]);
             $data['graphic_id'] = $graphic_first->id;
         }
-
-dd($data);
         $status = Product::create($data);
         if ($status) {
             if ($drs = $request->durations) {
