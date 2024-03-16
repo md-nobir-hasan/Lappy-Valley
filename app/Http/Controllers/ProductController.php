@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
-use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Brand;
@@ -20,8 +19,6 @@ use App\Models\ProductOffer;
 use App\Models\Ram;
 use App\Models\SpecialFeature;
 use App\Models\ssd;
-use Illuminate\Contracts\Auth\Access\Authorizable;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class ProductController extends Controller

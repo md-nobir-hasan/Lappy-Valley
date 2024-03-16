@@ -176,12 +176,18 @@ class CategoryController extends Controller
         // return $request->all();
         $category=Category::findOrFail($request->id);
         $child_cat=Category::getChildByParentID($request->id);
+        $n['categories'] = Category::where('id','!=',$category->id)
+                                    ->where('status','active')
+                                    ->where('is_parent',1)
+                                    ->get();
         // return $child_cat;
         if(count($child_cat)<=0){
-            return response()->json(['status'=>false,'msg'=>'','data'=>null]);
+            $n['child_cats'] = null;
+            return response()->json(['status'=>false,'msg'=>'','data'=>$n]);
         }
         else{
-            return response()->json(['status'=>true,'msg'=>'','data'=>$child_cat]);
+            $n['child_cats'] = $child_cat;
+            return response()->json(['status'=>true,'msg'=>'','data'=>$n]);
         }
     }
 }

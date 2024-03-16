@@ -134,7 +134,7 @@
                     </div> --}}
 
                     {{-- {{$categories}} --}}
-                    <div class="form-group">
+                    <div class="form-group" id="cat_div">
                         <label for="cat_id">Category</label>
                         <select name="cat_id" id="cat_id" class="form-control">
                             <option value="">--Select any category--</option>
@@ -148,6 +148,14 @@
                         @enderror
                     </div>
 
+                    {{-- rest of categories  --}}
+                    <div class="d-none" id="paren_other_cat">
+                        <span>Other Categories:</span>
+                        <div class="input-group mb-3 " id="other_cat_div">
+
+                        </div>
+                    </div>
+
                     <div class="form-group d-none" id="child_cat_div">
                         <label for="child_cat_id">Sub Category</label>
                         <select name="child_cat_id" id="child_cat_id" class="form-control">
@@ -156,15 +164,6 @@
                     </div>
 
                     {{-- <div class="form-group">
-                        <label for="condition" class="col-form-label">Condition</label>
-                        <input id="condition" type="text" name="condition" placeholder="Exp:- Enter condition"
-                            value="{{ old('condition') }}" class="form-control">
-                        @error('condition')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                    </div> --}}
-
-                    <div class="form-group">
                         <label for="condition">Condtion </label>
                         <select name="condition" id="condition" class="form-control">
                             <option value="">--Select any condition--</option>
@@ -174,7 +173,7 @@
                         @error('condition')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
-                    </div>
+                    </div> --}}
 
                     <div class="form-group">
                         <label for="is_featured">Is Featured</label><br>
@@ -1274,23 +1273,34 @@
                             if (typeof(response) != 'object') {
                                 response = $.parseJSON(response)
                             }
-                            // console.log(response);
+
                             var html_option =
-                                "<option value=''>----Select sub category----</option>"
+                                "<option value=''>----Select sub category----</option>";
                             if (response.status) {
-                                var data = response.data;
-                                // alert(data);
-                                if (response.data) {
+                                var data = response.data.child_cats;
+                                if (data) {
                                     $('#child_cat_div').removeClass('d-none');
                                     $.each(data, function(id, title) {
                                         html_option += "<option value='" + id + "'>" +
                                             title +
                                             "</option>"
                                     });
-                                } else {}
+                                }
                             } else {
                                 $('#child_cat_div').addClass('d-none');
                             }
+                            let other_cats = '';
+                            $.each(response.data.categories, function(index, cat) {
+                                other_cats += `<div class="input-group-prepend ml-1">
+                                                    <div class="input-group-text bg-white">
+                                                        <input id="other_cats${index}" name="other_cats_id[${index}]" value="${cat.id}" type="checkbox">
+                                                    </div>
+                                                    <label for="other_cats${index}" class="input-group-text">${cat.title}</label>
+                                                </div>`;
+                            });
+
+                            $('#paren_other_cat').removeClass('d-none');
+                            $('#other_cat_div').html(other_cats);
                             $('#child_cat_id').html(html_option);
                         }
                     });
