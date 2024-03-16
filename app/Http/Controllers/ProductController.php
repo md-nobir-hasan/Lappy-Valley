@@ -21,6 +21,7 @@ use App\Models\Ram;
 use App\Models\SpecialFeature;
 use App\Models\ssd;
 use Illuminate\Contracts\Auth\Access\Authorizable;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class ProductController extends Controller
@@ -95,6 +96,35 @@ class ProductController extends Controller
         }
         $data['slug'] = $slug;
         $data['is_featured'] = $request->input('is_featured', 0);
+
+        //brand firstOrCreate
+        if ($request->brand_name) {
+            $slug = Str::slug($request->brand_name);
+            $brand_first = Brand::firstOrCreate([
+                'title' => $request->brand_name,
+                'slug' => $slug
+            ]);
+            $data['brand_id'] = $brand_first->id;
+        }
+
+        //processor_model firstOrCreate
+        if ($request->processor_model_name) {
+            $slug = Str::slug($request->processor_model_name);
+            $processor_model_first = ProcessorModel::firstOrCreate([
+                'title' => $request->processor_model_name,
+                'slug' => $slug
+            ]);
+            $data['processor_model_id'] = $processor_model_first->id;
+        }
+
+        // '    processor_generation'
+        //     'display_size'
+        //     'display_type'
+        //     'ram'
+        //     'ssd'
+        //     'hdd'
+        //     'graphic'
+
         $status = Product::create($data);
         if ($status) {
             if ($drs = $request->durations) {
