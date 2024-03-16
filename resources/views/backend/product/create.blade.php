@@ -89,17 +89,23 @@
                         @enderror
                     </div>
 
+
                     <div class="form-group">
                         <label for="brand_id">Brand</label>
                         {{-- {{$brands}} --}}
+                        <div class="input-group mb-3">
+                            <select name="brand_id" class="form-control">
+                                <option value="">--Select Brand--</option>
+                                @foreach ($brands as $brand)
+                                    <option value="{{ $brand->id }}" @selected($brand->id == old('brand_id'))>{{ $brand->title }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="basic-addon2">@example.com</span>
+                            </div>
+                        </div>
 
-                        <select name="brand_id" class="form-control">
-                            <option value="">--Select Brand--</option>
-                            @foreach ($brands as $brand)
-                                <option value="{{ $brand->id }}" @selected($brand->id == old('brand_id'))>{{ $brand->title }}
-                                </option>
-                            @endforeach
-                        </select>
                     </div>
 
                     {{-- {{$categories}} --}}
