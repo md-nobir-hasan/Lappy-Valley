@@ -124,6 +124,18 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="condition">Condtion </label>
+                        <select name="condition" id="condition" class="form-control">
+                            <option value="">--Select any condition--</option>
+                            <option value="Pre-Owned" @selected('Pre-Owned' == $product->condition)>Pre-Owned</option>
+                            <option value="Brand New" @selected('Brand New' == $product->condition)>Brand New</option>
+                        </select>
+                        @error('condition')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
                         <label for="is_featured">Is Featured</label><br>
                         <input type="checkbox" name='is_featured' @checked($product->is_featured) id='is_featured'
                             value='1'>

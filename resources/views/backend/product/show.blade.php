@@ -109,6 +109,10 @@
                                             <td> : {{ $product->sub_cat_info?->title }} </td>
                                         </tr>
                                         <tr>
+                                            <td>Condition</td>
+                                            <td> : {{ $product->condition }} </td>
+                                        </tr>
+                                        <tr>
                                             <td>Brand</td>
                                             <td> : {{ $product->brand?->title }}</td>
                                         </tr>
@@ -133,6 +137,10 @@
                                         <tr>
                                             <td>Is Featured</td>
                                             <td> : {{ $product->is_featured == 1 ? 'Yes' : 'No' }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Is Student</td>
+                                            <td> : {{ $product->is_student == 1 ? 'Yes' : 'No' }}</td>
                                         </tr>
                                         <tr>
                                             <td>Special features</td>

@@ -14,7 +14,7 @@ class Product extends Model
     use HasFactory;
     protected $fillable = [
         'slug', 'title', 'model', 'mpn', 'price', 'discount', 'final_price', 'inventory_cost', 'summary', 'description', 'photo', 'stock', 'brand_id',
-        'cat_id', 'child_cat_id', 'upcomming', 'is_featured', 'is_student', 'status', 'special_feature', 'average_rating', 'views', 'product_offer_id',
+        'cat_id', 'child_cat_id', 'upcomming', 'is_featured', 'is_student', 'status', 'special_feature', 'average_rating', 'views','condition', 'product_offer_id',
         //processor Attributes
         'processor_model_id', 'processor_generation_id', 'p_brand', 'c_speed', 'l1_cache', 'l2_cache', 'l3_cache', 'p_core', 'p_thread', 'p_other',
         //Display attributes

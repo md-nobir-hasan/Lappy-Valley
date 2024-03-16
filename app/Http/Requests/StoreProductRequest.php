@@ -36,8 +36,10 @@ class StoreProductRequest extends FormRequest
             'brand_id' => 'nullable|exists:brands,id',
             'cat_id' => 'nullable|exists:categories,id',
             'child_cat_id' => 'nullable|exists:categories,id',
+            'condition' => 'string|nullable|max:255',
             // 'upcomming'=> "sometimes|in:1",
             'is_featured' => 'sometimes|in:1',
+
             'status' => 'nullable|in:active,inactive',
             // 'condition'=> 'nullable|in:default,new,hot',
             'special_feature' => 'nullable',
