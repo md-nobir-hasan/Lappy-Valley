@@ -35,6 +35,7 @@ class StoreProductRequest extends FormRequest
             'stock' => "nullable|numeric",
             'brand_id' => 'nullable|exists:brands,id',
             'cat_id' => 'nullable|exists:categories,id',
+            'other_cats.*' => 'nullable|exists:categories,id',
             'child_cat_id' => 'nullable|exists:categories,id',
             'brand_name' => 'nullable|string|max:255',
             'processor_model_name' => 'nullable|string|max:255',
