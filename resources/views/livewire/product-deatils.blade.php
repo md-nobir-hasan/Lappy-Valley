@@ -260,7 +260,7 @@
                                         </td>
                                         <td
                                             class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
-                                            {{ $product->mpn ? $product->mpn . ' ' . $product->c_speed ?? '' : 'N/A' }}
+                                            {{ $product->ProcessorModel ? $product->ProcessorModel->name . ', ' . $product->c_speed ?? '' : 'N/A' }}
                                         </td>
                                     </tr>
                                     <tr>
@@ -309,7 +309,7 @@
                                             {{ $product->DisplaySize?->size . ' "' . $product->DisplayType?->name . ' (' . $product->d_resolution }})
                                         </td>
                                     </tr>
-        
+
                                     <tr>
                                         <td
                                             class="font-[jost] text-[14px] font-[700] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
