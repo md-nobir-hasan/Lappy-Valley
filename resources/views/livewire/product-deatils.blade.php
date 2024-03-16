@@ -219,6 +219,21 @@
                                     <tr>
                                         <td
                                             class="font-[jost] text-[14px] font-[700] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
+                                            Condition
+                                        </td>
+                                        <td
+                                            class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
+                                            <div class="w-2 h-2 bg-black rounded-[100%] mx-auto">
+                                            </div>
+                                        </td>
+                                        <td
+                                            class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
+                                            {{ $product->condition ? $product->condition : 'N/A' }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                            class="font-[jost] text-[14px] font-[700] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
                                             Manufacture
                                         </td>
                                         <td
@@ -310,21 +325,6 @@
                                         </td>
                                     </tr>
 
-                                    <tr>
-                                        <td
-                                            class="font-[jost] text-[14px] font-[700] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
-                                            Condition
-                                        </td>
-                                        <td
-                                            class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
-                                            <div class="w-2 h-2 bg-black rounded-[100%] mx-auto">
-                                            </div>
-                                        </td>
-                                        <td
-                                            class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
-                                            {{ $product->condition ? $product->condition : 'N/A' }}
-                                        </td>
-                                    </tr>
                                     {{-- <tr>
                                         <td
                                             class="font-[jost] text-[16px] font-[700] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
@@ -394,7 +394,7 @@
                     </ul>
                     <div>
                         <div class="mt-[8px]">
-                            <div class="flex items-center justify-center h-[29px] rounded p-2 w-[143px] bg-gradient-to-r from-[#380D37] to-[#DC275C] text-center mt-[5px]">
+                            <div class="flex items-center justify-center h-[29px] rounded p-2 w-[155px] bg-gradient-to-r from-[#380D37] to-[#DC275C] text-center mt-[5px]">
                                 <span class="text-[white]">Payment Options:</span>
                             </div>
                             {{-- <h1 class="font-[jost] text-[18px] font-[600] text-[#353535] max-lg:text-[18px]">
