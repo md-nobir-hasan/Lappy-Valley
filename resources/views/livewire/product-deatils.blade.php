@@ -394,7 +394,7 @@
                     </ul>
                     <div>
                         <div class="mt-[8px]">
-                            <div class="flex items-center justify-center h-[29px] rounded p-2 w-[143px] bg-gradient-to-r from-[#380D37] to-[#DC275C] text-center mt-[5px]">
+                            <div class="flex items-center justify-center h-[29px] rounded p-2 w-[155px] bg-gradient-to-r from-[#380D37] to-[#DC275C] text-center mt-[5px]">
                                 <span class="text-[white]">Payment Options:</span>
                             </div>
                             {{-- <h1 class="font-[jost] text-[18px] font-[600] text-[#353535] max-lg:text-[18px]">
