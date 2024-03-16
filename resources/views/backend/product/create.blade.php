@@ -94,24 +94,38 @@
                         <label for="brand_id">Brand</label>
                         {{-- {{$brands}} --}}
                         <div class="input-group mb-3">
-                            <select name="brand_id" class="form-control">
-                                <option value="">--Select Brand--</option>
-                                @foreach ($brands as $brand)
-                                    <option value="{{ $brand->id }}" @selected($brand->id == old('brand_id'))>{{ $brand->title }}
-                                    </option>
-                                @endforeach
-                            </select>
+                            <div class="exchangable_select">
+                                <select name="brand_id" class="form-control ">
+                                    <option value="">--Select Brand--</option>
+                                    @foreach ($brands as $brand)
+                                        <option value="{{ $brand->id }}" @selected($brand->id == old('brand_id'))>
+                                            {{ $brand->title }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                @error('brand_id')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="exchangable_input">
+                                <input id="brand_name" type="text" name="brand_name" min="0" max="1000000"
+                                    placeholder="Exp:- Enter brand name" value="{{ old('brand_name') }}"
+                                    class="form-control" >
+                                @error('brand_name')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
                             <div class="input-group-append">
-                                <button type="button" class="btn btn-success"><svg xmlns="http://www.w3.org/2000/svg"
-                                        fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                        class="w-6 h-6">
+                                <button type="button" class="btn btn-success  m-0 p-0 input_instead_select"><svg
+                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                         <path stroke-linecap="round" stroke-linejoin="round"
                                             d="M13.5 16.875h3.375m0 0h3.375m-3.375 0V13.5m0 3.375v3.375M6 10.5h2.25a2.25 2.25 0 0 0 2.25-2.25V6a2.25 2.25 0 0 0-2.25-2.25H6A2.25 2.25 0 0 0 3.75 6v2.25A2.25 2.25 0 0 0 6 10.5Zm0 9.75h2.25A2.25 2.25 0 0 0 10.5 18v-2.25a2.25 2.25 0 0 0-2.25-2.25H6a2.25 2.25 0 0 0-2.25 2.25V18A2.25 2.25 0 0 0 6 20.25Zm9.75-9.75H18a2.25 2.25 0 0 0 2.25-2.25V6A2.25 2.25 0 0 0 18 3.75h-2.25A2.25 2.25 0 0 0 13.5 6v2.25a2.25 2.25 0 0 0 2.25 2.25Z" />
                                     </svg>
                                 </button>
-                                <button type="button" class="btn btn-danger m-0 p-0"><svg xmlns="http://www.w3.org/2000/svg"
-                                        fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                        class="w-6 h-6">
+                                <button type="button" class="btn btn-danger m-0 p-0 select_restore"><svg
+                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                         <path stroke-linecap="round" stroke-linejoin="round"
                                             d="M8.25 9.75h4.875a2.625 2.625 0 0 1 0 5.25H12M8.25 9.75 10.5 7.5M8.25 9.75 10.5 12m9-7.243V21.75l-3.75-1.5-3.75 1.5-3.75-1.5-3.75 1.5V4.757c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0c1.1.128 1.907 1.077 1.907 2.185Z" />
                                     </svg>
@@ -1140,6 +1154,7 @@
         #div_product_offer {
             display: none;
         }
+
         .h-6 {
             height: 32px;
         }
@@ -1245,6 +1260,26 @@
                         }
                     });
                 } else {}
+            });
+
+            $('.select_restore,.exchangable_input').hide();
+
+            //custom input instead of select
+            $('.input_instead_select').each(function(index) {
+                $(this).on('click', function() {
+                    $('.exchangable_select').eq(index).hide(600);
+                    $('.exchangable_input').eq(index).show(600);
+                    $(this).hide(600);
+                    $('.select_restore').eq(index).show(600);
+                });
+            });
+            $('.select_restore').each(function(index) {
+                $(this).on('click', function() {
+                    $('.exchangable_input').eq(index).hide(600);
+                    $('.exchangable_select').eq(index).show(600);
+                    $(this).hide(600);
+                    $('.input_instead_select').eq(index).show(600);
+                });
             });
 
         });
