@@ -82,6 +82,7 @@ class ProductController extends Controller
     {
         $this->ccan('Create Product');
         $data = $request->all();
+        // dd($data);/
         $special_feature = '';
         if ($request->special_feature) {
             foreach ($request->special_feature as $sp) {
@@ -109,22 +110,69 @@ class ProductController extends Controller
 
         //processor_model firstOrCreate
         if ($request->processor_model_name) {
-            $slug = Str::slug($request->processor_model_name);
             $processor_model_first = ProcessorModel::firstOrCreate([
-                'title' => $request->processor_model_name,
-                'slug' => $slug
+                'name' => $request->processor_model_name
             ]);
             $data['processor_model_id'] = $processor_model_first->id;
         }
 
-        // '    processor_generation'
-        //     'display_size'
-        //     'display_type'
-        //     'ram'
-        //     'ssd'
-        //     'hdd'
-        //     'graphic'
+        //processor_generation firstOrCreate
+        if ($request->processor_generation_name) {
+            $processor_generation_first = ProcessorGeneration::firstOrCreate([
+                'name' => $request->processor_generation_name
+            ]);
+            $data['processor_generation_id'] = $processor_generation_first->id;
+        }
 
+        //display_size firstOrCreate
+        if ($request->display_size_name) {
+            $display_size_first = DisplaySize::firstOrCreate([
+                'size' => $request->display_size_name
+            ]);
+            $data['display_size_id'] = $display_size_first->id;
+        }
+
+        //display_type firstOrCreate
+        if ($request->display_type_name) {
+            $display_type_first = DisplayType::firstOrCreate([
+                'name' => $request->display_type_name
+            ]);
+            $data['display_type_id'] = $display_type_first->id;
+        }
+
+        //ram firstOrCreate
+        if ($request->ram_name) {
+            $ram_first = Ram::firstOrCreate([
+                'capacity' => $request->ram_name
+            ]);
+            $data['ram_id'] = $ram_first->id;
+        }
+
+        //ssd firstOrCreate
+        if ($request->ssd_name) {
+            $ssd_first = ssd::firstOrCreate([
+                'name' => $request->ssd_name
+            ]);
+            $data['ssd_id'] = $ssd_first->id;
+        }
+
+        //hdd firstOrCreate
+        if ($request->hdd_name) {
+            $hdd_first = hdd::firstOrCreate([
+                'name' => $request->hdd_name
+            ]);
+            $data['hdd_id'] = $hdd_first->id;
+        }
+
+        //graphic firstOrCreate
+        if ($request->graphic_name) {
+            $graphic_first = Graphic::firstOrCreate([
+                'name' => $request->graphic_name
+            ]);
+            $data['graphic_id'] = $graphic_first->id;
+        }
+
+dd($data);
         $status = Product::create($data);
         if ($status) {
             if ($drs = $request->durations) {
