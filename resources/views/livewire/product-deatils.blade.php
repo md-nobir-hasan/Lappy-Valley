@@ -312,7 +312,7 @@
                                     <tr>
                                         <td
                                             class="font-[jost] text-[14px] font-[700] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
-                                            Condition
+                                            Category
                                         </td>
                                         <td
                                             class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
@@ -339,7 +339,7 @@
                                             BDT {{ $product->price ? $product->price : 'N/A' }}
                                         </td>
                                     </tr> --}}
-                                    <tr>
+                                    {{-- <tr>
                                         <td
                                             class="font-[jost] text-[14px] font-[700] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
                                             Discount
@@ -353,7 +353,7 @@
                                             class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
                                             {{ $product->discount ? $product->discount . '%' : 'N/A' }}
                                         </td>
-                                    </tr>
+                                    </tr> --}}
                                 </tbody>
                             </table>
                         </div>
@@ -369,7 +369,7 @@
                             </div>
                         </li>
                         <li class="font-[jost] text-[18px] font-[700] text-[#DC275C] line-through max-lg:text-[18px]">
-                            <span>{{ $product->price }}</span> TK
+                            TK <span>{{ $product->price }}</span>
                         </li>
                         @if ($product->discount)
                             <li class="mt-[10px] font-[jost] text-[16px] font-[500] text-[#353535] max-lg:text-[18px]">
@@ -388,14 +388,17 @@
                             </div>
                         </li>
                         <li class="font-[jost] text-[18px] font-[700] text-[#DC275C] max-lg:text-[18px]">
-                            {{ $product->final_price }} TK
+                            TK {{ $product->final_price }}
                         </li>
                     </ul>
                     <div>
                         <div class="mt-[8px]">
-                            <h1 class="font-[jost] text-[18px] font-[600] text-[#353535] max-lg:text-[18px]">
+                            <div class="flex items-center justify-center h-[29px] rounded p-2 w-[143px] bg-gradient-to-r from-[#380D37] to-[#DC275C] text-center mt-[5px]">
+                                <span class="text-[white]">Payment Options:</span>
+                            </div>
+                            {{-- <h1 class="font-[jost] text-[18px] font-[600] text-[#353535] max-lg:text-[18px]">
                                 Payment Options
-                            </h1>
+                            </h1> --}}
                         </div>
                         <div class="my-[10px] grid w-full grid-cols-2 gap-4 max-xl:grid-cols-1">
                             {{-- buying option without installment --}}
@@ -451,7 +454,7 @@
                                         </span>
                                         <span
                                             class="font-[jost] text-[16px] font-[400] text-[#353535] max-lg:text-[14px]">Regular
-                                            Price: {{ $product->price }}৳ </span>
+                                            Price: TK {{ $product->price }} </span>
                                         <span
                                             class="font-[jost] text-[16px] font-[400] text-[#353535] max-lg:text-[14px]">0%
                                             EMI

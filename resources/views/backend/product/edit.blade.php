@@ -124,6 +124,15 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="condition" class="col-form-label">Condition</label>
+                        <input id="condition" type="text" name="condition" placeholder="Exp:- Enter condition"
+                            value="{{ $product->condition }}" class="form-control">
+                        @error('condition')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
                         <label for="is_featured">Is Featured</label><br>
                         <input type="checkbox" name='is_featured' @checked($product->is_featured) id='is_featured'
                             value='1'>

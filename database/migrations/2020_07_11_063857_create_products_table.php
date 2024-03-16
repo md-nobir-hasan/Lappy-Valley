@@ -51,7 +51,7 @@ class CreateProductsTable extends Migration
             $table->integer('average_rating')->default(5);
             $table->unsignedBigInteger('views')->nullable();
             // $table->string('size')->default('M')->nullable();
-            // $table->enum('condition',['default','new','hot'])->default('default');
+            $table->string('condition')->nullable();
             $table->foreign('brand_id')->references('id')->on('brands')->onDelete('SET NULL');
             $table->foreign('cat_id')->references('id')->on('categories')->onDelete('SET NULL');
             $table->foreign('child_cat_id')->references('id')->on('categories')->onDelete('SET NULL');
