@@ -168,6 +168,12 @@ class ProductController extends Controller
             $data['graphic_id'] = $graphic_first->id;
         }
         $status = Product::create($data);
+        if($ocats = $request->other_cats_id){
+            foreach($ocats as $ocat){
+                $data['cat_id'] = $ocat;
+                Product::create($data);
+            }
+        }
         if ($status) {
             if ($drs = $request->durations) {
                 foreach ($drs as $dr) {
