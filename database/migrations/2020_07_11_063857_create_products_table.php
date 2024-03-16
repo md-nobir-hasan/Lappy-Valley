@@ -80,7 +80,7 @@ class CreateProductsTable extends Migration
             //Memory Attributes (RAM) => (6)
             $table->foreignIdFor(Ram::class)->nullable()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('m_type')->nullable();
-            $table->integer('bus_speed')->nullable();
+            $table->string('bus_speed')->nullable();
             $table->integer('m_slot')->nullable();
             $table->boolean('m_removal')->default(false);
             $table->text('m_other')->nullable();

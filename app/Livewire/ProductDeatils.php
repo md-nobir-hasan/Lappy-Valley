@@ -80,7 +80,10 @@ class ProductDeatils extends Component
         $n['product'] = Product::with('cat_info', 'sub_cat_info', 'brand', 'ProcessorGeneration', 'ProcessorModel', 'DisplayType', 'DisplaySize', 'Ram', 'ssd', 'hdd', 'Graphic', 'SpecialFeature', 'installment', 'installment.duration')
                         ->where('slug', $this->slug)->first();
         $n['recent_views'] = RecentViewedProduct::get();
-        $n['product_reviews'] = ProductReview::with('images')->where('status', 'active')->get();
+        $n['product_reviews'] = ProductReview::with('images')
+                                ->where('product_id', $n['product']->id)
+                                ->where('status', 'active')
+                                ->get();
         $n['related_products'] = Product::where('status', 'active')->where('cat_id', $n['product']->cat_id)->get();
         return view('livewire.product-deatils', $n);
     }

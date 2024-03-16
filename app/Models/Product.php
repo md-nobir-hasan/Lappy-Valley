@@ -48,26 +48,14 @@ class Product extends Model
     static public function orderByFinalpriceAsc()
     {
         return self::select(
-            'id',
-            'price',
-            'final_price',
-            'title',
-            'slug',
-            'cat_id',
-            'photo',
+            '*',
             DB::raw('CAST(REPLACE(final_price, ",", "") AS UNSIGNED) AS nfinal_price'),
         )->orderBy('nfinal_price', 'desc');
     }
     static public function orderByFinalpriceDesc()
     {
         return self::select(
-            'id',
-            'price',
-            'final_price',
-            'title',
-            'slug',
-            'cat_id',
-            'photo',
+            '*',
             DB::raw('CAST(REPLACE(price, ",", "") AS UNSIGNED) AS nprice'),
             DB::raw('CAST(REPLACE(final_price, ",", "") AS UNSIGNED) AS nfinal_price'),
             DB::raw('CAST(REPLACE(inventory_cost, ",", "") AS UNSIGNED) AS ninventory_cost')
@@ -91,14 +79,13 @@ class Product extends Model
         if ($search_text) {
             $remove_white_space = Str::of($search_text)->squish();
             $searching_words =  explode(' ', $remove_white_space);
-
             foreach ($searching_words as $word) {
                 $seraching_products->where('title', 'like', "%$word%");
             }
-            return $seraching_products->get();
+            return $seraching_products;
         }
 
-        return $seraching_products->get();
+        return $seraching_products;
     }
     public function cat_info()
     {

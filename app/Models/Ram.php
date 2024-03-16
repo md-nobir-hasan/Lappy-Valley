@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Ram extends Model
 {
     use HasFactory;
-    protected $fillable = ['ram','type','bus_speed'];
+    protected $fillable = ['capacity'];
     public function Product()
     {
         return $this->hasMany(Product::class);

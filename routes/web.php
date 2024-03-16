@@ -366,6 +366,7 @@ Route::get('/shop/sorting', [AjaxController::class, 'shopSorting'])->name('shop.
 Route::get('/shop/student-laptop', StudentLaptop::class)->name('shop.student_laptop');
 Route::get('/category-wise/{cat?}/{subcat?}', CatWiseShop::class)->name('cate_wise.shop');
 Route::get('/search/{stext?}/{cat?}', SearchingProduct::class)->name('searching_product');
+Route::get('/category-searching-product/{cat?}', SearchingProduct::class)->name('cat.search.product');
 Route::get('/product-details/{slug}', ProductDeatils::class)->name('product.details');
 Route::get('/checkout', Checkout::class)->name('checkout');
 Route::get('/view-cart', ViewCart::class)->name('vcart');

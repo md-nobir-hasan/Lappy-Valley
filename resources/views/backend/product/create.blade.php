@@ -391,7 +391,7 @@
                                 <option value="" hidden>Choose....</option>
                                 @foreach ($rams as $ram)
                                     <option value="{{ $ram->id }}" @selected($ram->id == old('ram_id'))>
-                                        {{ $ram->ram }}GB
+                                        {{ $ram->capacity }}GB
                                     </option>
                                 @endforeach
                             </select>
@@ -413,7 +413,7 @@
                         {{-- bus_speed  --}}
                         <div class="form-group">
                             <label for="bus_speed" class="col-form-label">Bus Speed</label>
-                            <input id="bus_speed" type="number" name="bus_speed" placeholder="Exp:- 5100"
+                            <input id="bus_speed" type="text" name="bus_speed" placeholder="Exp:- 5100"
                                 value="{{ old('bus_speed') }}" class="form-control">
                             @error('bus_speed')
                                 <span class="text-danger">{{ $message }}</span>
@@ -1131,17 +1131,26 @@
             $('#isOfferToggler').on('click', function() {
                 $('#div_product_offer').toggle();
             });
-
-            $('#final_price_div').hide();
             $('#price').on('keyup', function() {
-                let price_with_comma = $('#price').val() ? $('#price').val() : '0';
-                let discount = $('#discount').val() ? $('#discount').val() : 0;
+                let price_with_comma = $(this).val() ? $(this).val() : '0';
+                let final_price_with_comma = $('#final_price').val() ? $('#final_price').val() : '0';
 
                 let price = parseInt(price_with_comma.replace(/,/g, ''));
-                let final_price = price - Math.round(price * discount / 100);
+                let final_price = parseInt(final_price_with_comma.replace(/,/g, ''));
+                let discount = Math.round(((price - final_price) * 100) / price);
 
-                $('#final_price').val(final_price);
-                $('#final_price_div').show();
+                $('#discount').val(discount);
+            });
+
+            $('#final_price').on('keyup change', function() {
+                let price_with_comma = $('#price').val() ? $('#price').val() : '0';
+                let final_price_with_comma = $(this).val() ? $(this).val() : '0';
+
+                let price = parseInt(price_with_comma.replace(/,/g, ''));
+                let final_price = parseInt(final_price_with_comma.replace(/,/g, ''));
+                let discount = Math.round(((price - final_price) * 100) / price);
+
+                $('#discount').val(discount);
             });
 
             $('#discount').on('keyup', function() {

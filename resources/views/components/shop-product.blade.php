@@ -10,6 +10,7 @@
          @endphp
      @endif
      <div class="flex items-center justify-center image-container relative">
+
          <a href="{{ route('product.details', [$product->slug]) }}" class="p-5">
              <img src="{{ $photo }}" class="object-container h-[130px]" alt="{{ $product->title }}">
          </a>
@@ -19,8 +20,7 @@
              </span>
          @endif
          @if ($product->discount)
-             <span class="text-[14px] text-[#fff] bg-[#ef4a23] absolute top-0 right-[-5px] px-2 py-[2px] rounded-l-lg">
-                 -{{ $product->discount }}%
+             <span class="text-[14px] text-[#fff] bg-[#ef4a23] absolute top-0 right-[-5px] px-2 py-[2px] rounded-l-lg">-{{ $product->discount }}%
              </span>
          @endif
      </div>

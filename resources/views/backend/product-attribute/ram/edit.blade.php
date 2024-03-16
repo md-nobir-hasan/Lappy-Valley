@@ -11,30 +11,13 @@
                 {{ csrf_field() }}
                 @method('PUT')
                 <div class="form-group">
-                    <label for="inputTitle" class="col-form-label">Ram (GB) <span class="text-danger">*</span></label>
-                    <input id="inputTitle" type="number" name="ram" placeholder="Enter title"
-                        value="{{$datum->ram}}" class="form-control">
-                    @error('ram')
+                    <label for="capacity" class="col-form-label">Ram (GB) <span class="text-danger">*</span></label>
+                    <input id="capacity" type="number" name="capacity" placeholder="Enter capacity"
+                        value="{{$datum->capacity}}" class="form-control">
+                    @error('capacity')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
-                <div class="form-group">
-                    <label for="inputTitle" class="col-form-label">Type <span class="text-danger">*</span></label>
-                    <input id="inputTitle" type="text" name="type" placeholder="Enter title"
-                        value="{{$datum->type}}" class="form-control">
-                    @error('type')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                </div>
-                <div class="form-group">
-                    <label for="inputTitle" class="col-form-label">Bus Speed <span class="text-danger">*</span></label>
-                    <input id="inputTitle" type="number" name="bus_speed" placeholder="Enter title"
-                        value="{{$datum->bus_speed}}" class="form-control">
-                    @error('bus_speed')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                </div>
-
                 <div class="mb-3 form-group">
                     <button type="reset" class="btn btn-warning">Reset</button>
                     <button class="btn btn-success" type="submit">Update</button>

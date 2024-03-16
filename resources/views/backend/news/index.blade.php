@@ -26,6 +26,7 @@
                             <tr>
                                 <th>S.N.</th>
                                 <th>Title</th>
+                                <th>Serial</th>
                                 <th>Slug</th>
                                 <th>Status</th>
                                 @canany(['Edit News', 'Delete News'])
@@ -37,6 +38,7 @@
                             <tr>
                                 <th>S.N.</th>
                                 <th>Title</th>
+                                <th>Serial</th>
                                 <th>Slug</th>
                                 <th>Status</th>
                                 @canany(['Edit News', 'Delete News'])
@@ -49,6 +51,7 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $datum->title }}</td>
+                                    <td>{{ $datum->serial }}</td>
                                     <td>{{ $datum->slug }}</td>
                                     <td>
                                         @if ($datum->status == 'active')

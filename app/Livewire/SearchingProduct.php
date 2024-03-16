@@ -29,25 +29,21 @@ class SearchingProduct extends Component
 
     public function mount()
     {
+        // dd($this->stext,$this->cat);
     }
 
     public function render()
     {
         if (($id = $this->cat) && ($s = $this->stext)) {
             $cat = Category::where('slug', $id)->first();
-            // DB::table('products')->select('id', 'photo', 'title', 'slug', 'price', 'discount', 'final_price')
-            $slug_wise_product = Product::where('cat_id', $cat->id)
-                ->where('title', 'like', '%' . $this->stext . '%')
-                ->paginate(20);
+            $slug_wise_product = Product::serachByTitleOrNothing($s)->where('cat_id', $cat->id)->paginate(20);
         } elseif (($id = $this->cat)) {
             $cat = Category::where('slug', $id)->first();
-            $slug_wise_product = Product::where('cat_id', $cat->id)
-                ->paginate(20);
+            $slug_wise_product = Product::serachByTitleOrNothing()->where('cat_id', $cat->id)->paginate(20);
         } elseif (($s = $this->stext)) {
-            $slug_wise_product = Product::where('title', 'like', '%' . $this->stext . '%')
-                ->paginate(20);
+            $slug_wise_product = Product::serachByTitleOrNothing($s)->paginate(20);
         } else {
-            $slug_wise_product = Product::paginate(20);
+            $slug_wise_product = Product::serachByTitleOrNothing()->paginate(20);
         }
         $n['products'] = $slug_wise_product;
         $n['brands'] = Brand::get();
