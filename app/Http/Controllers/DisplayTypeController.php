@@ -17,7 +17,7 @@ class DisplayTypeController extends Controller
      */
     public function index()
     {
-        $n['mdata'] = DisplayType::paginate(10);
+        $n['mdata'] = DisplayType::orderBy('id','desc')->paginate(10);
         $n['count'] = DisplayType::get();
         return view('backend.product-attribute.dt.index', $n);
     }

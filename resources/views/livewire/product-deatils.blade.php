@@ -290,7 +290,7 @@
                                         </td>
                                         <td
                                             class="font-[jost] text-[16px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
-                                            {{ $product->ram ? $product->ram->capacity : 'N/A' }}GB
+                                            {{ $product->ram ? $product->ram->capacity : 'N/A' }}
                                         </td>
                                     </tr>
                                     <tr>
@@ -678,7 +678,7 @@
                                 RAM:</td>
                             <td
                                 class="py-[14px] font-[jost] text-[16px] font-[500] text-[#353535] max-lg:text-[14px] max-sm:py-[10px]">
-                                {{ $product->ram ? $product->ram->capacity : 'N/A' }}GB
+                                {{ $product->ram ? $product->ram->capacity : 'N/A' }}
                             </td>
                         </tr>
                         <tr class="border-b-[2px] border-[#764A8733]">

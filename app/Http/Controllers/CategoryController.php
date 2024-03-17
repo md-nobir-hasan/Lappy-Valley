@@ -179,6 +179,7 @@ class CategoryController extends Controller
         $n['categories'] = Category::where('id','!=',$category->id)
                                     ->where('status','active')
                                     ->where('is_parent',1)
+                                    ->orderBy('id','desc')
                                     ->get();
         // return $child_cat;
         if(count($child_cat)<=0){

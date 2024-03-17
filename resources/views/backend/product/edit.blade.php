@@ -114,15 +114,35 @@
                             @endforeach
                         </select>
                     </div>
+                    {{-- rest of categories  --}}
+                    <div>
+                        <span>Other Categories:</span>
+                        <div class="input-group mb-3 " id="other_cat_div">
+                            @foreach ($others_cats as $other_cat)
+                            <div class="input-group-prepend ml-1">
+                                <div class="input-group-text bg-white">
+                                    <input type="checkbox" @checked($other_cat->isHasThisProduct($product->slug)) id="other_cats{{$loop->index}}" name="other_cats_id[{{$loop->index}}]" value="{{$other_cat->id}}" >
+                                </div>
+                                <label for="other_cats{{$loop->index}}" class="input-group-text">{{$other_cat->title}}</label>
+                            </div>
+                            @endforeach
 
-                    <div class="form-group d-none" id="child_cat_div">
+                        </div>
+                        @error('condition.*')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    {{-- @dd($product->child_cat_id) --}}
+                    <div class="form-group">
                         <label for="child_cat_id">Sub Category</label>
                         <select name="child_cat_id" id="child_cat_id" class="form-control">
                             <option value="" hidden>--Select any category--</option>
-                            <option value="{{ $product->child_cat_id }}"> {{ $product->sub_cat_info?->title }} </option>
+                            @foreach ($sub_categories as $sub_cat)
+                            <option value="{{ $sub_cat->id }}" @selected($sub_cat->id == $product->child_cat_id)> {{ $sub_cat->title }} </option>
+                            @endforeach
                         </select>
                     </div>
-
+{{--
                     <div class="form-group">
                         <label for="condition">Condtion </label>
                         <select name="condition" id="condition" class="form-control">
@@ -133,7 +153,7 @@
                         @error('condition')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
-                    </div>
+                    </div> --}}
 
                     <div class="form-group">
                         <label for="is_featured">Is Featured</label><br>
@@ -1182,23 +1202,29 @@
                             if (typeof(response) != 'object') {
                                 response = $.parseJSON(response)
                             }
-                            // console.log(response);
+
                             var html_option =
-                                "<option value=''>----Select sub category----</option>"
+                                "<option value=''>----Select sub category----</option>";
                             if (response.status) {
-                                var data = response.data;
-                                // alert(data);
-                                if (response.data) {
-                                    $('#child_cat_div').removeClass('d-none');
+                                var data = response.data.child_cats;
+                                if (data) {
                                     $.each(data, function(id, title) {
                                         html_option += "<option value='" + id + "'>" +
                                             title +
                                             "</option>"
                                     });
-                                } else {}
-                            } else {
-                                $('#child_cat_div').addClass('d-none');
+                                }
                             }
+                            let other_cats = '';
+                            $.each(response.data.categories, function(index, cat) {
+                                other_cats += `<div class="input-group-prepend ml-1">
+                                                    <div class="input-group-text bg-white">
+                                                        <input id="other_cats${index}" @checked($other_cat->isHasThisProduct($product->slug)) name="other_cats_id[${index}]" value="${cat.id}" type="checkbox">
+                                                    </div>
+                                                    <label for="other_cats${index}" class="input-group-text">${cat.title}</label>
+                                                </div>`;
+                            });
+                            $('#other_cat_div').html(other_cats);
                             $('#child_cat_id').html(html_option);
                         }
                     });

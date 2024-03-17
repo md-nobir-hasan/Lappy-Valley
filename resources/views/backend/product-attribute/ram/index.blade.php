@@ -44,7 +44,7 @@
                             @foreach ($mdata as $datum)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $datum->capacity }} GB </td>
+                                    <td>{{ $datum->capacity }} </td>
                                     <td>
                                         @can('Edit RAM')
                                             <a href="{{ route('pa.ram.edit', $datum->id) }}"

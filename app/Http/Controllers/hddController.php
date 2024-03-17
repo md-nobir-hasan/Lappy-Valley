@@ -17,7 +17,7 @@ class hddController extends Controller
      */
     public function index()
     {
-        $n['mdata'] = hdd::paginate(10);
+        $n['mdata'] = hdd::orderBy('id','desc')->paginate(10);
         $n['count'] = hdd::get();
         return view('backend.product-attribute.hdd.index', $n);
     }

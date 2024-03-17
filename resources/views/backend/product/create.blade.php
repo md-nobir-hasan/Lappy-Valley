@@ -156,12 +156,13 @@
                         </div>
                     </div>
 
-                    <div class="form-group d-none" id="child_cat_div">
+                    <x-exchangable-input-select-div label_for='child_cat' label_title='Sub Category' />
+                    {{-- <div class="form-group">
                         <label for="child_cat_id">Sub Category</label>
-                        <select name="child_cat_id" id="child_cat_id" class="form-control">
+                        <select name="child_cat" id="child_cat" class="form-control">
                             <option value="">--Select any category--</option>
                         </select>
-                    </div>
+                    </div> --}}
 
                     {{-- <div class="form-group">
                         <label for="condition">Condtion </label>
@@ -1279,15 +1280,12 @@
                             if (response.status) {
                                 var data = response.data.child_cats;
                                 if (data) {
-                                    $('#child_cat_div').removeClass('d-none');
                                     $.each(data, function(id, title) {
                                         html_option += "<option value='" + id + "'>" +
                                             title +
                                             "</option>"
                                     });
                                 }
-                            } else {
-                                $('#child_cat_div').addClass('d-none');
                             }
                             let other_cats = '';
                             $.each(response.data.categories, function(index, cat) {
@@ -1301,7 +1299,7 @@
 
                             $('#paren_other_cat').removeClass('d-none');
                             $('#other_cat_div').html(other_cats);
-                            $('#child_cat_id').html(html_option);
+                            $('#child_cat').html(html_option);
                         }
                     });
                 } else {}

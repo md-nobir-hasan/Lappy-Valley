@@ -11,7 +11,7 @@
                 {{ csrf_field() }}
                 <div class="form-group">
                     <label for="inputTitle" class="col-form-label">Size (inch)<span class="text-danger">*</span></label>
-                    <input id="inputTitle" step=".1" type="number" name="size" placeholder="Enter Display Size"
+                    <input id="inputTitle"  type="text" name="size" placeholder="Enter Display Size"
                         value="{{ old('size') }}" class="form-control">
                     @error('size')
                         <span class="text-danger">{{ $message }}</span>

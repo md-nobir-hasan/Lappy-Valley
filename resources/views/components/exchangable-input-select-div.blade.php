@@ -4,16 +4,18 @@
     <div class="input-group mb-3">
         <select name="{{$attributes['label_for']}}_id" class="exchangable_select form-control" id="{{$attributes['label_for']}}">
             <option value="" hidden>Choose {{$attributes['label_title']}} </option>
+            @if ($attributes['select_data'])
             @foreach ($attributes['select_data'] as $sdatum)
-                <option value="{{ $sdatum->id }}" @selected($sdatum->id == old($attributes['label_for'].'_id'))>
-                    {{-- {{ $sdatum->name }} --}}
+            <option value="{{ $sdatum->id }}" @selected($sdatum->id == old($attributes['label_for'].'_id'))>
+                {{-- {{ $sdatum->name }} --}}
 
-                    {{ $sdatum->{$attributes['select_data_echo']} }}
-                </option>
-            @endforeach
+                {{ $sdatum->{$attributes['select_data_echo']} }}
+            </option>
+        @endforeach
+            @endif
         </select>
         <input  type="text" name="{{$attributes['label_for']}}_name" id="{{$attributes['label_for']}}"
-            placeholder="Enter the {{$attributes['label_title']}} name" value="{{ old($attributes['label_for'].'_name') }}"
+            placeholder="Enter the {{$attributes['label_title']}}" value="{{ old($attributes['label_for'].'_name') }}"
             class="form-control exchangable_input">
 
         <div class="input-group-append">

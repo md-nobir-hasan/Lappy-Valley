@@ -20,13 +20,14 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                @if (count($products) > 0)
+                @if (count($products_group_by) > 0)
                     <table class="table table-bordered table-striped" id="product-dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th>S.N.</th>
                                 <th>Title</th>
                                 <th>Category</th>
+                                <th>Other Categories</th>
                                 {{-- <th>Is Featured</th> --}}
                                 <th>Price</th>
                                 <th>Discount</th>
@@ -44,6 +45,7 @@
                                 <th>S.N.</th>
                                 <th>Title</th>
                                 <th>Category</th>
+                                <th>Other Categories</th>
                                 {{-- <th>Is Featured</th> --}}
                                 <th>Price</th>
                                 <th>Discount</th>
@@ -57,7 +59,10 @@
                             </tr>
                         </tfoot>
                         <tbody>
-                            @foreach ($products as $product)
+                            @foreach ($products_group_by as $products)
+                            @php
+                                $product = $products->last();
+                            @endphp
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>
@@ -67,6 +72,19 @@
                                         <sub>
                                             {{ $product->sub_cat_info?->title ?? '' }}
                                         </sub>
+                                    </td>
+
+                                    <td>
+                                        @foreach ($products as $prod)
+                                        @if (!$loop->last)
+                                            {{ $prod->cat_info?->title }}
+                                            <sub>
+                                                {{ $prod->sub_cat_info?->title ?? '' }}
+                                            </sub>
+                                             @if ($loop->index != (count($products)-2)) || @endif
+                                        @endif
+
+                                        @endforeach
                                     </td>
                                     {{-- <td>{{ $product->is_featured == 1 ? 'Yes' : 'No' }}</td> --}}
                                     <td>BDT. {{ $product->price }} /-</td>

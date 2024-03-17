@@ -35,6 +35,7 @@ class UpdateProductRequest extends FormRequest
             'description' => 'string|nullable',
             'brand_id' => 'nullable|exists:brands,id',
             'cat_id' => 'nullable|exists:categories,id',
+            'other_cats.*' => 'nullable|exists:categories,id',
             'child_cat_id' => 'nullable|exists:categories,id',
             'condition' => 'string|nullable|max:255',
             'brand_name' => 'nullable|string|max:255',

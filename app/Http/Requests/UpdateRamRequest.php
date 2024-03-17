@@ -21,9 +21,8 @@ class UpdateRamRequest extends FormRequest
      */
     public function rules(): array
     {
-        dd($this->ram);
         return [
-            'capacity' => "numeric|max:1024|unique:rams,capacity,".$this->ram->id,
+            'capacity' => "string|max:1024|unique:rams,capacity,".$this->ram->id,
         ];
     }
 }

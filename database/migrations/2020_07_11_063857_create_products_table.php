@@ -28,7 +28,7 @@ class CreateProductsTable extends Migration
             //  😯😲😲 (88 fields) .. 😯😲😲
             // main attributes => (22)
             $table->id();
-            $table->string('slug')->unique();
+            $table->string('slug');
             $table->string('title');
             $table->string('price');
             $table->text('photo');
