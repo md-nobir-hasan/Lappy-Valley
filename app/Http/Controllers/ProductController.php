@@ -276,6 +276,7 @@ class ProductController extends Controller
 
         $product = Product::findOrFail($id);
 
+        Product::where('slug',$product->slug)->delete();
 
         $data = $request->all();
 
@@ -299,7 +300,7 @@ class ProductController extends Controller
             $updated_data['updated_at']
         );
         $child_cat_id = $updated_data['child_cat_id'];
-        $data['is_showable_to_user'] = 0;
+        $updated_data['is_showable_to_user'] = 0;
         if ($ocats = $request->other_cats_id) {
             foreach ($ocats as $ocat) {
                 $updated_data['cat_id'] = $ocat;
@@ -308,10 +309,7 @@ class ProductController extends Controller
                 if (!$is_exit_sub_cat) {
                     unset($updated_data['child_cat_id']);
                 }
-                DB::table('products')->updateOrInsert([
-                    'slug' => $updated_data['slug'],
-                    'cat_id' => $updated_data['cat_id']
-                ], $updated_data);
+                DB::table('products')->insert($updated_data);
             }
         }
         // dd(Product::where('slug',$updated_data['slug'])->latest()->get()->take(10),$updated_data['slug'],$request->other_cats_id);
