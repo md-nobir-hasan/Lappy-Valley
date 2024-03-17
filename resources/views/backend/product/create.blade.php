@@ -1305,9 +1305,9 @@
                 } else {}
             });
 
-            $('.select_restore,.exchangable_input').hide();
 
             //custom input instead of select
+            $('.select_restore,.exchangable_input').hide();
             $('.input_instead_select').each(function(index) {
                 $(this).on('click', function() {
                     $('.exchangable_select').eq(index).hide(100);

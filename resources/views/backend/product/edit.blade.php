@@ -90,10 +90,12 @@
                         @enderror
                     </div>
 
-                    <div class="form-group">
-                        <label for="brand_id">Brand</label>
-                        {{-- {{$brands}} --}}
+                    {{-- Brand  --}}
+                    <x-exchangable-input-select-div label_for='brand' label_title='Brand' :select_data="$brands"
+                        select_data_echo='title' :id_for_selected="$product->brand_id" />
 
+                    {{-- <div class="form-group">
+                        <label for="brand_id">Brand</label>
                         <select name="brand_id" class="form-control">
                             <option value="">--Select Brand--</option>
                             @foreach ($brands as $brand)
@@ -101,7 +103,7 @@
                                 </option>
                             @endforeach
                         </select>
-                    </div>
+                    </div> --}}
 
                     {{-- {{$categories}} --}}
                     <div class="form-group">
@@ -119,12 +121,15 @@
                         <span>Other Categories:</span>
                         <div class="input-group mb-3 " id="other_cat_div">
                             @foreach ($others_cats as $other_cat)
-                            <div class="input-group-prepend ml-1">
-                                <div class="input-group-text bg-white">
-                                    <input type="checkbox" @checked($other_cat->isHasThisProduct($product->slug)) id="other_cats{{$loop->index}}" name="other_cats_id[{{$loop->index}}]" value="{{$other_cat->id}}" >
+                                <div class="input-group-prepend ml-1">
+                                    <div class="input-group-text bg-white">
+                                        <input type="checkbox" @checked($other_cat->isHasThisProduct($product->slug))
+                                            id="other_cats{{ $loop->index }}" name="other_cats_id[{{ $loop->index }}]"
+                                            value="{{ $other_cat->id }}">
+                                    </div>
+                                    <label for="other_cats{{ $loop->index }}"
+                                        class="input-group-text">{{ $other_cat->title }}</label>
                                 </div>
-                                <label for="other_cats{{$loop->index}}" class="input-group-text">{{$other_cat->title}}</label>
-                            </div>
                             @endforeach
 
                         </div>
@@ -132,17 +137,21 @@
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
-                    {{-- @dd($product->child_cat_id) --}}
-                    <div class="form-group">
+
+                    {{-- sub categories --}}
+                    <x-exchangable-input-select-div label_for='child_cat' label_title='Sub Category'
+                    :select_data="$sub_categories" select_data_echo='title' :id_for_selected="$product->child_cat_id" />
+                    {{-- <div class="form-group">
                         <label for="child_cat_id">Sub Category</label>
                         <select name="child_cat_id" id="child_cat_id" class="form-control">
                             <option value="" hidden>--Select any category--</option>
                             @foreach ($sub_categories as $sub_cat)
-                            <option value="{{ $sub_cat->id }}" @selected($sub_cat->id == $product->child_cat_id)> {{ $sub_cat->title }} </option>
+                                <option value="{{ $sub_cat->id }}" @selected($sub_cat->id == $product->child_cat_id)> {{ $sub_cat->title }}
+                                </option>
                             @endforeach
                         </select>
-                    </div>
-{{--
+                    </div> --}}
+                    {{--
                     <div class="form-group">
                         <label for="condition">Condtion </label>
                         <select name="condition" id="condition" class="form-control">
@@ -247,7 +256,9 @@
                         </div>
 
                         {{-- Processore Model  --}}
-                        <div class="form-group">
+                        <x-exchangable-input-select-div label_for='processor_model' label_title='Prosessor Type'
+                        :select_data="$p_models" select_data_echo='name' :id_for_selected="$product->processor_model_id"/>
+                        {{-- <div class="form-group">
                             <label for="processor_model_id">Prosessor Model </label>
                             <select name="processor_model_id" class="form-control" id="processor_model_id">
                                 <option value="" hidden>Choose....</option>
@@ -259,10 +270,13 @@
                             @error('processor_model_id')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
-                        </div>
+                        </div> --}}
 
                         {{-- Processore Generation --}}
-                        <div class="form-group">
+                        <x-exchangable-input-select-div label_for='processor_generation' label_title='Prosessor Generation'
+                         :select_data="$p_generations" select_data_echo='name' :id_for_selected="$product->processor_generation_id" />
+
+                        {{-- <div class="form-group">
                             <label for="processor_generation_id">Prosessor Generation </label>
                             <select name="processor_generation_id" class="form-control" id="processor_generation_id">
                                 <option value="" hidden>Choose....</option>
@@ -274,7 +288,7 @@
                             @error('processor_generation_id')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
-                        </div>
+                        </div> --}}
 
                         {{-- Processor Speed  --}}
                         <div class="form-group">
@@ -352,7 +366,9 @@
                     <h4>Display Attributes:</h4>
                     <div class="ml-3">
                         {{-- display Size --}}
-                        <div class="form-group">
+                        <x-exchangable-input-select-div label_for='display_size' label_title='Display Size'
+                        :select_data="$d_sizes" select_data_echo='size'  :id_for_selected="$product->display_size_id" />
+                        {{-- <div class="form-group">
                             <label for="display_size_id">Display Size </label>
                             <select name="display_size_id" class="form-control" id="display_size_id">
                                 <option value="" hidden>Choose....</option>
@@ -364,9 +380,13 @@
                             @error('display_size_id')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
-                        </div>
+                        </div> --}}
+
                         {{-- display type --}}
-                        <div class="form-group">
+                        <x-exchangable-input-select-div label_for='display_type' label_title='Display Type'
+                        :select_data="$d_types" select_data_echo='name' :id_for_selected="$product->display_type_id" />
+
+                        {{-- <div class="form-group">
                             <label for="display_type_id">Display Type </label>
                             <select name="display_type_id" class="form-control" id="display_type_id">
                                 <option value="" hidden>Choose....</option>
@@ -378,7 +398,7 @@
                             @error('display_type_id')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
-                        </div>
+                        </div> --}}
 
 
                         {{-- d_resolution  --}}
@@ -419,8 +439,10 @@
                 <div class="mt-4">
                     <h4 class="font-weight-bold">Memory Attributes</h4>
                     <div class="ml-3">
-
-                        <div class="form-group">
+                        {{-- Ram  --}}
+                        <x-exchangable-input-select-div label_for='ram' label_title='RAM (GB)' :select_data="$rams"
+                            select_data_echo='capacity' :id_for_selected="$product->ram_id"  />
+                        {{-- <div class="form-group">
                             <label for="ram_id">RAM (GB)</label>
                             <select name="ram_id" class="form-control" id="ram_id">
                                 <option value="" hidden>Choose....</option>
@@ -433,7 +455,8 @@
                             @error('ram_id')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
-                        </div>
+                        </div> --}}
+
                         {{-- m_type  --}}
                         <div class="form-group">
                             <label for="m_type" class="col-form-label">Memory Type</label>
@@ -491,7 +514,9 @@
                     <div class="ml-3">
 
                         {{-- SSD  --}}
-                        <div class="form-group">
+                        <x-exchangable-input-select-div label_for='ssd' label_title='SSD' :select_data="$ssds"
+                            select_data_echo='name' :id_for_selected="$product->ssd_id" />
+                        {{-- <div class="form-group">
                             <label for="ssd_id">SSD </label>
                             <select name="ssd_id" class="form-control" id="ssd_id">
                                 <option value="">Choose....</option>
@@ -503,9 +528,12 @@
                             @error('ssd_id')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
-                        </div>
+                        </div> --}}
+
                         {{-- HDD --}}
-                        <div class="form-group">
+                        <x-exchangable-input-select-div label_for='hdd' label_title='HDD' :select_data="$hdds"
+                            select_data_echo='name' :id_for_selected="$product->hdd_id" />
+                        {{-- <div class="form-group">
                             <label for="hdd_id">HDD </label>
                             <select name="hdd_id" class="form-control" id="hdd_id">
                                 <option value="">Choose....</option>
@@ -517,7 +545,7 @@
                             @error('hdd_id')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
-                        </div>
+                        </div> --}}
 
                         {{-- s_extra_m2_slot  --}}
                         <div class="form-group">
@@ -579,7 +607,9 @@
                         </div>
 
                         {{-- Graphics Capcity  --}}
-                        <div class="form-group">
+                        <x-exchangable-input-select-div label_for='graphic' label_title='Capacity' :select_data="$graphics"
+                        select_data_echo='name' :id_for_selected="$product->graphic_id"  />
+                        {{-- <div class="form-group">
                             <label for="graphic_id">Capacity</label>
                             <select name="graphic_id" class="form-control" id="graphic_id">
                                 <option value="" hidden>Choose....</option>
@@ -592,7 +622,7 @@
                             @error('graphic_id')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
-                        </div>
+                        </div> --}}
 
                         {{-- Other's information --}}
                         <div class="form-group">
@@ -1118,6 +1148,11 @@
     <link rel="stylesheet" href="{{ asset('backend/summernote/summernote-lite.css') }}">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+        <style>
+                    .h-6 {
+            height: 32px;
+        }
+        </style>
 @endpush
 @push('scripts')
     <script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
@@ -1231,6 +1266,24 @@
                 } else {}
             });
 
+            //custom input instead of select
+            $('.select_restore,.exchangable_input').hide();
+            $('.input_instead_select').each(function(index) {
+                $(this).on('click', function() {
+                    $('.exchangable_select').eq(index).hide(100);
+                    $('.exchangable_input').eq(index).show(100);
+                    $(this).hide(100);
+                    $('.select_restore').eq(index).show(100);
+                });
+            });
+            $('.select_restore').each(function(index) {
+                $(this).on('click', function() {
+                    $('.exchangable_input').eq(index).hide(100);
+                    $('.exchangable_select').eq(index).show(100);
+                    $(this).hide(100);
+                    $('.input_instead_select').eq(index).show(100);
+                });
+            });
         });
     </script>
 @endpush
