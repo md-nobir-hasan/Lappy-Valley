@@ -7,7 +7,7 @@
         </h1>
         <div class='h-1 bg-[#764A8733]'></div>
     </div>
-    <!-- -----------key-Feature -section----- -->
+
     <div class="mt-[30px] grid grid-cols-2 items-center max-md:grid-cols-1">
         <div>
             @if ($product->photo)
@@ -228,7 +228,7 @@
                                         </td>
                                         <td
                                             class="font-[jost] text-[14px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
-                                            {{ $product->condition ? $product->condition : 'N/A' }}
+                                            {{ $product->condition() }}
                                         </td>
                                     </tr>
                                     <tr>
@@ -290,7 +290,7 @@
                                         </td>
                                         <td
                                             class="font-[jost] text-[16px] font-[400] text-[#353535] max-lg:text-[14px] px-4 py-[6px] border border-[black] whitespace-nowrap">
-                                            {{ $product->ram ? $product->ram->capacity : 'N/A' }}GB
+                                            {{ $product->ram ? $product->ram->capacity : 'N/A' }}
                                         </td>
                                     </tr>
                                     <tr>
@@ -678,7 +678,7 @@
                                 RAM:</td>
                             <td
                                 class="py-[14px] font-[jost] text-[16px] font-[500] text-[#353535] max-lg:text-[14px] max-sm:py-[10px]">
-                                {{ $product->ram ? $product->ram->capacity : 'N/A' }}GB
+                                {{ $product->ram ? $product->ram->capacity : 'N/A' }}
                             </td>
                         </tr>
                         <tr class="border-b-[2px] border-[#764A8733]">

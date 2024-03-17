@@ -28,7 +28,7 @@ class CreateProductsTable extends Migration
             //  😯😲😲 (88 fields) .. 😯😲😲
             // main attributes => (22)
             $table->id();
-            $table->string('slug')->unique();
+            $table->string('slug');
             $table->string('title');
             $table->string('price');
             $table->text('photo');
@@ -52,6 +52,7 @@ class CreateProductsTable extends Migration
             $table->unsignedBigInteger('views')->nullable();
             // $table->string('size')->default('M')->nullable();
             $table->string('condition')->nullable();
+            $table->boolean('is_showable_to_user')->nullable();
             $table->foreign('brand_id')->references('id')->on('brands')->onDelete('SET NULL');
             $table->foreign('cat_id')->references('id')->on('categories')->onDelete('SET NULL');
             $table->foreign('child_cat_id')->references('id')->on('categories')->onDelete('SET NULL');

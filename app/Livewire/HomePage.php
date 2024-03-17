@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Banner;
+use App\Models\Category;
 use App\Models\CompanyReview;
 use App\Models\OtherSetting;
 use App\Models\Product;
@@ -74,13 +75,12 @@ class HomePage extends Component
     {
         $os =  OtherSetting::first();
         $n['news'] = DB::table('news')->where('status','active')->orderBy('serial','desc')->get();
-        $pd = Product::orderBy('views')->get();
+        $pd = Product::orderBy('views')->where('is_showable_to_user',1)->get();
         $n['new_arrival'] = $pd->whereBetween('created_at', [Carbon::now()->subDays($os->new_product), Carbon::now()]);
         $n['features'] = $pd;
-        $n['dpds'] = Product::where('status', 'active')->get();
-        $n['student_laptops'] = Product::where('status', 'active')
-                                ->where('is_student',1)
-                                ->get();
+        $n['dpds'] = Product::where('status', 'active')
+                            ->where('is_showable_to_user',1)
+                            ->get();
         // $n['menus'] = Category::with('child_cat')->where('status', 'active')->where('is_parent', 1)->orderBy('title', 'ASC')->get();
         $n['home_banner'] = Banner::where('status', 'active')->where('slug', 'home-page')->first();
 

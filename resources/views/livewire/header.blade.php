@@ -167,8 +167,6 @@
                                 return this.items.filter((i) => i.title.toLowerCase().startsWith(searchLower));
                             }
                         }">
-
-
                             <form wire:submit='searchTo' class='h-[44px] max-xl:h-full w-[655px] max-xl:w-full'>
                                 <div class="flex" @click.outside='open = false'>
                                     <select name="cat_id" wire:model.live='cat' wire:change='searchFuc'
@@ -199,8 +197,14 @@
                                             </span>
                                             @if (count($products) > 0)
                                                 <ul x-show='open'
-                                                    class="absolute z-50 bg-[white] text-[black] overflow-scroll w-[100%]">
-                                                    @foreach ($products as $prd)
+                                                    class="absolute z-50 bg-[white] max-h-[500px] text-[black] overflow-scroll w-[100%]">
+                                                    @php
+                                                        $products_group = $products->groupBy('slug');
+                                                    @endphp
+                                                    @foreach ($products_group as $products)
+                                                        @php
+                                                            $prd = $products->last();
+                                                        @endphp
                                                         <li
                                                             class="hover:bg-[#380D37] hover:rounded-sm px-[10px] items-center">
                                                             <a href="{{ route('product.details', [$prd->slug]) }}"
@@ -223,7 +227,6 @@
                                                 </ul>
                                             @endif
                                         </div>
-
                                     </div>
                                     <button type="submit"
                                         class=" top-0 end-0 py-2.5 px-[30px] h-full bg-[#df146e] text-[#f2f2f2] rounded-r-[2px] overflow-hidden">

@@ -25,12 +25,16 @@ class Shop extends Component
     public $cat;
     public $subcat;
     public function mount(){
-        $this->prds = Product::where('status', 'active')->get();
+        $this->prds = Product::where('status', 'active')
+                        ->where('is_showable_to_user',1)
+                        ->get();
     }
     public function render()
     {
         $n['products'] = Product::with(['ProcessorModel','ram','ssd','hdd','DisplaySize','DisplayType'])
-                                ->where('status', 'active')->paginate(20);
+                                ->where('status', 'active')
+                                ->where('is_showable_to_user',1)
+                                ->paginate(20);
         $n['brands'] = Brand::get();
         $n['p_models'] = ProcessorModel::get();
         $n['p_generations'] = ProcessorGeneration::get();

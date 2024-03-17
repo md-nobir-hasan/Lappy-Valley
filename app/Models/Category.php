@@ -52,4 +52,13 @@ class Category extends Model
         }
         return 0;
     }
+
+    public function isHasThisProduct($product_slug){
+      $product =  Product::where('slug',$product_slug)->where('cat_id',$this->id)->first();
+    //   dd($product,$product_slug);
+        if($product){
+            return true;
+        }
+        return false;
+    }
 }

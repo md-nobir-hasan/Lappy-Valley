@@ -75,9 +75,9 @@ class Header extends Component
             $cat = Category::where('slug', $slug)->first();
             $this->products = Product::serachByTitleOrNothing()->where('cat_id', $cat->id)->get();
         } elseif (($s = $this->search)) {
-            $this->products = Product::serachByTitleOrNothing($s)->get();
+            $this->products = Product::serachByTitleOrNothing($s)->where('is_showable_to_user',1)->get();
         } else {
-            $this->products = Product::serachByTitleOrNothing()->get();
+            $this->products = Product::serachByTitleOrNothing()->where('is_showable_to_user',1)->get();
         }
     }
 

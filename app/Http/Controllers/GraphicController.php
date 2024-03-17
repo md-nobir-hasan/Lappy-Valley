@@ -17,7 +17,7 @@ class GraphicController extends Controller
      */
     public function index()
     {
-        $n['mdata'] = Graphic::paginate(10);
+        $n['mdata'] = Graphic::orderBy('id','desc')->paginate(10);
         $n['count'] = Graphic::get();
         return view('backend.product-attribute.graphic.index', $n);
     }

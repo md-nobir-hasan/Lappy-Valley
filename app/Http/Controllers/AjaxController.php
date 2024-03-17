@@ -132,49 +132,46 @@ class AjaxController extends Controller
             switch ($srt) {
                 case 'sbp': //short by popularity
                     $product = Product::whereRaw('CAST(REPLACE(final_price, ",", "") AS UNSIGNED) BETWEEN ? AND ?', [$req->minPrice, $req->maxPrice])
-                    ->orderBy('views', 'desc')
-                    ->get();
+                        ->orderBy('views', 'desc')
+                        ->where('is_showable_to_user', 1);
                     break;
                 case 'sbar': //sort by average rating
                     $product = Product::whereRaw('CAST(REPLACE(final_price, ",", "") AS UNSIGNED) BETWEEN ? AND ?', [$req->minPrice, $req->maxPrice])
-                    ->orderBy('average_rating', 'desc')
-                    ->get();
+                        ->orderBy('average_rating', 'desc')
+                        ->where('is_showable_to_user', 1);
                     break;
                 case 'sbl': //sort by latest
                     $product = Product::whereRaw('CAST(REPLACE(final_price, ",", "") AS UNSIGNED) BETWEEN ? AND ?', [$req->minPrice, $req->maxPrice])
-                    ->latest()
-                    ->get();
+                        ->where('is_showable_to_user', 1)
+                        ->orderBy('id', 'desc');
                     break;
                 case 'lth': //low to high price
                     $product = Product::stringToNumber()
                         ->whereRaw('CAST(REPLACE(final_price, ",", "") AS UNSIGNED) BETWEEN ? AND ?', [$req->minPrice, $req->maxPrice])
                         ->orderBy('nfinal_price', 'asc')
-                        ->get();
+                        ->where('is_showable_to_user', 1);
                     break;
                 case 'htl': // high to low price
                     $product = Product::stringToNumber()
                         ->whereRaw('CAST(REPLACE(final_price, ",", "") AS UNSIGNED) BETWEEN ? AND ?', [$req->minPrice, $req->maxPrice])
-                        ->orderBy('nfinal_price', 'desc')
-                        ->get();
+                        ->where('is_showable_to_user', 1)
+                        ->orderBy('nfinal_price', 'desc');
                     break;
             }
         } else {
-            $product = Product::whereRaw('CAST(REPLACE(final_price, ",", "") AS UNSIGNED) BETWEEN ? AND ?', [$req->minPrice, $req->maxPrice])->get();
+            $product = Product::whereRaw('CAST(REPLACE(final_price, ",", "") AS UNSIGNED) BETWEEN ? AND ?', [$req->minPrice, $req->maxPrice]);
         }
-
-
 
         if ($subcat = $req->subcat) {
             $subcat = Category::where('slug', $subcat)->first();
-
             $product = $product->where('child_cat_id', $subcat->id);
+        } elseif ($cat = $req->cat) {
+            $cat = Category::where('slug', $cat)->first();
+            $product = $product->where('cat_id', $cat->id);
         } else {
-            if ($cat = $req->cat) {
-                $cat = Category::where('slug', $cat)->first();
-                $product = $product->where('cat_id', $cat->id);
-            }
+            $product->where('is_showable_to_user', 1);
         }
-        // dd($product);
+
         if ($req->in_stock) {
             $product = $product->where('stock', '>', 0);
         }
@@ -212,8 +209,7 @@ class AjaxController extends Controller
         if ($req->ssds) {
             $product = $product->whereIn('ssd_id', $req->ssds);
         }
-        $n['product'] = $product;
-        // dd($n,$product->first()->nfinal_price);
+        $n['product'] = $product->get();
         return response()->json($n);
     }
     public function couponFetch(Request $req)

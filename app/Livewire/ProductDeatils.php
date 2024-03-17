@@ -53,7 +53,9 @@ class ProductDeatils extends Component
     public function mount()
     {
        $product = Product::with('cat_info', 'sub_cat_info', 'brand', 'ProcessorGeneration', 'ProcessorModel', 'DisplayType', 'DisplaySize', 'Ram', 'ssd', 'hdd', 'Graphic', 'SpecialFeature')
-                ->where('slug', $this->slug)->first();
+                ->where('slug', $this->slug)
+                ->where('is_showable_to_user',1)
+                ->first();
 
        //increase views
          $product->update([
@@ -78,13 +80,18 @@ class ProductDeatils extends Component
     {
 
         $n['product'] = Product::with('cat_info', 'sub_cat_info', 'brand', 'ProcessorGeneration', 'ProcessorModel', 'DisplayType', 'DisplaySize', 'Ram', 'ssd', 'hdd', 'Graphic', 'SpecialFeature', 'installment', 'installment.duration')
-                        ->where('slug', $this->slug)->first();
+                        ->where('slug', $this->slug)
+                        ->where('is_showable_to_user',1)
+                        ->first();
         $n['recent_views'] = RecentViewedProduct::get();
         $n['product_reviews'] = ProductReview::with('images')
                                 ->where('product_id', $n['product']->id)
                                 ->where('status', 'active')
                                 ->get();
-        $n['related_products'] = Product::where('status', 'active')->where('cat_id', $n['product']->cat_id)->get();
+        $n['related_products'] = Product::where('status', 'active')
+                                    ->where('cat_id', $n['product']->cat_id)
+                                    // ->where('is_showable_to_user',1)
+                                    ->get();
         return view('livewire.product-deatils', $n);
     }
 }

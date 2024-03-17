@@ -14,7 +14,7 @@ class Product extends Model
     use HasFactory;
     protected $fillable = [
         'slug', 'title', 'model', 'mpn', 'price', 'discount', 'final_price', 'inventory_cost', 'summary', 'description', 'photo', 'stock', 'brand_id',
-        'cat_id', 'child_cat_id', 'upcomming', 'is_featured', 'is_student', 'status', 'special_feature', 'average_rating', 'views','condition', 'product_offer_id',
+        'cat_id', 'child_cat_id', 'upcomming', 'is_featured', 'is_student', 'status', 'special_feature', 'average_rating', 'views', 'condition','is_showable_to_user', 'product_offer_id',
         //processor Attributes
         'processor_model_id', 'processor_generation_id', 'p_brand', 'c_speed', 'l1_cache', 'l2_cache', 'l3_cache', 'p_core', 'p_thread', 'p_other',
         //Display attributes
@@ -111,6 +111,36 @@ class Product extends Model
     {
         return Product::with(['cat_info', 'rel_prods', 'getReview'])->where('slug', $slug)->first();
     }
+
+    public function condition()
+    {
+        $products = Product::with(['cat_info'])->where('slug', $this->slug)->get();
+        $condition = 'N/A';
+        foreach ($products as $product) {
+            if ($product->cat_info->slug == "brand-new") {
+                $condition =  "Brand New";
+            } elseif ($product->cat_info->slug == 'pre-owned') {
+                $condition = 'Pre-Owned';
+            }
+        }
+        return $condition;
+    }
+    public function otherCats()
+    {
+        $products = Product::with(['cat_info'])
+                            ->where('id','!=',$this->id)
+                            ->where('slug', $this->slug)
+                            ->get();
+        $cats_are = '';
+        foreach ($products as $product) {
+           $cats_are .= $product?->cat_info?->title.' || ';
+        }
+        if(!$cats_are){
+            return 'N/A';
+        }
+        return  Str::substr($cats_are,0,-3);
+    }
+
     public static function countActiveProduct()
     {
         $data = Product::where('status', 'active')->count();

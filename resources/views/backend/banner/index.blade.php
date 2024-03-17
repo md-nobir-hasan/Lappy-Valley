@@ -78,7 +78,7 @@
                                                 style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip"
                                                 title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
                                         @endcan
-                                        @can('Delete Banner')
+                                        {{-- @can('Delete Banner')
                                             <form method="POST" action="{{ route('banner.destroy', [$banner->id]) }}">
                                                 @csrf
                                                 @method('delete')
@@ -87,7 +87,7 @@
                                                     data-placement="bottom" title="Delete"><i
                                                         class="fas fa-trash-alt"></i></button>
                                             </form>
-                                        @endcan
+                                        @endcan --}}
                                     </td>
                                     {{-- Delete Modal --}}
                                     {{-- <div class="modal fade" id="delModal{{$user->id}}" tabindex="-1" role="dialog" aria-labelledby="#delModal{{$user->id}}Label" aria-hidden="true">

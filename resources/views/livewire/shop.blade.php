@@ -431,7 +431,7 @@
                                     class='border-[1px] border-[#380D37] bg-[#f2f2f2] w-[11px] h-[12px]'
                                     type="checkbox" x-model='d_sizes' @change='productFetch'>
                                 <label for="d_size{{ $d_size->id }}"
-                                    class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>{{ $d_size->size - 0.4 . ' to ' . $d_size->size + 0.4 }}
+                                    class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>{{ $d_size->size }}
                                     inch
                                 </label>
                             </span>
@@ -484,7 +484,7 @@
                                     type="checkbox" x-model='rams' @change='productFetch'>
                                 <label for="ram{{ $ram->id }}"
                                     class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>{{ $ram->capacity }}
-                                    GB
+
                                 </label>
                             </span>
                         @endforeach
@@ -837,7 +837,7 @@
                                                         class='border-[1px] border-[#380D37] bg-[#f2f2f2] w-[11px] h-[12px]'
                                                         type="checkbox" x-model='d_sizes' @change='productFetch'>
                                                     <label for="d_size{{ $d_size->id }}"
-                                                        class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>{{ $d_size->size - 0.4 . ' to ' . $d_size->size + 0.4 }}
+                                                        class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>{{ $d_size->size }}
                                                         inch
                                                     </label>
                                                 </span>
@@ -897,7 +897,7 @@
                                                         type="checkbox" x-model='rams' @change='productFetch'>
                                                     <label for="ram{{ $ram->id }}"
                                                         class='font-[jost] text-[12px] leading-[17.34px] text-[#380D37]'>{{ $ram->capacity }}
-                                                        GB
+
                                                     </label>
                                                 </span>
                                             @endforeach

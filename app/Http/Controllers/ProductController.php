@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
-use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Brand;
@@ -20,7 +19,7 @@ use App\Models\ProductOffer;
 use App\Models\Ram;
 use App\Models\SpecialFeature;
 use App\Models\ssd;
-use Illuminate\Contracts\Auth\Access\Authorizable;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class ProductController extends Controller
@@ -39,9 +38,10 @@ class ProductController extends Controller
     public function index()
     {
         $n['products'] = Product::with('cat_info', 'sub_cat_info', 'brand', 'ProcessorGeneration', 'ProcessorModel', 'DisplayType', 'DisplaySize', 'Ram', 'ssd', 'hdd', 'Graphic', 'SpecialFeature')
-            ->latest()->get();
+            ->orderBy('id', 'desc')
+            ->where('is_showable_to_user',1)
+            ->get();
         $n['count'] = Product::get();
-        // return $products;
         return view('backend.product.index', $n);
     }
 
@@ -54,19 +54,19 @@ class ProductController extends Controller
     {
         $this->ccan('Create Product');
 
-        $n['brands'] = Brand::get();
-        $n['p_generations'] = ProcessorGeneration::get();
-        $n['durations'] = Duration::where('status', true)->get();
-        $n['p_models'] = ProcessorModel::get();
-        $n['d_sizes'] = DisplaySize::get();
-        $n['d_types'] = DisplayType::get();
-        $n['rams'] = Ram::get();
-        $n['ssds'] = ssd::get();
-        $n['hdds'] = hdd::get();
-        $n['graphics'] = Graphic::get();
-        $n['special_features'] = SpecialFeature::get();
-        $n['product_offers'] = ProductOffer::get();
-        $n['categories'] = Category::where('is_parent', 1)->get();
+        $n['brands'] = Brand::orderBy('id','desc')->get();
+        $n['p_generations'] = ProcessorGeneration::orderBy('id','desc')->get();
+        $n['durations'] = Duration::where('status', true)->orderBy('id','desc')->get();
+        $n['p_models'] = ProcessorModel::orderBy('id','desc')->get();
+        $n['d_sizes'] = DisplaySize::orderBy('id','desc')->get();
+        $n['d_types'] = DisplayType::orderBy('id','desc')->get();
+        $n['rams'] = Ram::orderBy('id','desc')->get();
+        $n['ssds'] = ssd::orderBy('id','desc')->get();
+        $n['hdds'] = hdd::orderBy('id','desc')->get();
+        $n['graphics'] = Graphic::orderBy('id','desc')->get();
+        $n['special_features'] = SpecialFeature::orderBy('id','desc')->get();
+        $n['product_offers'] = ProductOffer::orderBy('id','desc')->get();
+        $n['categories'] = Category::where('is_parent', 1)->orderBy('id','desc')->get();
         // return $category;
         return view('backend.product.create', $n);
     }
@@ -95,7 +95,111 @@ class ProductController extends Controller
         }
         $data['slug'] = $slug;
         $data['is_featured'] = $request->input('is_featured', 0);
+
+        //brand firstOrCreate
+        if ($request->brand_name) {
+            $slug = Str::slug($request->brand_name);
+            $brand_first = Brand::firstOrCreate([
+                'title' => $request->brand_name,
+                'slug' => $slug
+            ]);
+            $data['brand_id'] = $brand_first->id;
+        }
+
+        //child_cat firstOrCreate
+        if ($request->child_cat_name && $data['cat_id']) {
+            $slug = Str::slug($request->child_cat_name);
+            $child_cat_first = Category::firstOrCreate([
+                'title' => $request->child_cat_name,
+                'slug' => $slug,
+                'is_parent' => 0,
+                'parent_id' => $data['cat_id'],
+            ]);
+            $data['child_cat_id'] = $child_cat_first->id;
+        }
+
+        //processor_model firstOrCreate
+        if ($request->processor_model_name) {
+            $processor_model_first = ProcessorModel::firstOrCreate([
+                'name' => $request->processor_model_name
+            ]);
+            $data['processor_model_id'] = $processor_model_first->id;
+        }
+
+        //processor_generation firstOrCreate
+        if ($request->processor_generation_name) {
+            $processor_generation_first = ProcessorGeneration::firstOrCreate([
+                'name' => $request->processor_generation_name
+            ]);
+            $data['processor_generation_id'] = $processor_generation_first->id;
+        }
+
+        //display_size firstOrCreate
+        if ($request->display_size_name) {
+            $display_size_first = DisplaySize::firstOrCreate([
+                'size' => $request->display_size_name
+            ]);
+            $data['display_size_id'] = $display_size_first->id;
+        }
+
+        //display_type firstOrCreate
+        if ($request->display_type_name) {
+            $display_type_first = DisplayType::firstOrCreate([
+                'name' => $request->display_type_name
+            ]);
+            $data['display_type_id'] = $display_type_first->id;
+        }
+
+        //ram firstOrCreate
+        if ($request->ram_name) {
+            $ram_first = Ram::firstOrCreate([
+                'capacity' => $request->ram_name
+            ]);
+            $data['ram_id'] = $ram_first->id;
+        }
+
+        //ssd firstOrCreate
+        if ($request->ssd_name) {
+            $ssd_first = ssd::firstOrCreate([
+                'name' => $request->ssd_name
+            ]);
+            $data['ssd_id'] = $ssd_first->id;
+        }
+
+        //hdd firstOrCreate
+        if ($request->hdd_name) {
+            $hdd_first = hdd::firstOrCreate([
+                'name' => $request->hdd_name
+            ]);
+            $data['hdd_id'] = $hdd_first->id;
+        }
+
+        //graphic firstOrCreate
+        if ($request->graphic_name) {
+            $graphic_first = Graphic::firstOrCreate([
+                'name' => $request->graphic_name
+            ]);
+            $data['graphic_id'] = $graphic_first->id;
+        }
+        $data['is_showable_to_user'] = 1;
         $status = Product::create($data);
+        // dd($data);
+        $data['is_showable_to_user'] = 0;
+        $child_cat_id = $data['child_cat_id'];
+        if ($ocats = $request->other_cats_id) {
+            foreach ($ocats as $ocat) {
+                $data['cat_id'] = $ocat;
+                $data['child_cat_id'] = $child_cat_id;
+
+                $is_exit_sub_cat = Category::where('parent_id', $ocat)->where('id', $data['child_cat_id'])->first();
+                if (!$is_exit_sub_cat) {
+                    unset($data['child_cat_id']);
+                }
+
+                Product::create($data);
+            }
+        }
+
         if ($status) {
             if ($drs = $request->durations) {
                 foreach ($drs as $dr) {
@@ -153,7 +257,9 @@ class ProductController extends Controller
         $n['graphics'] = Graphic::get();
         $n['special_features'] = SpecialFeature::get();
         $n['product_offers'] = ProductOffer::get();
-        $n['categories'] = Category::where('is_parent', 1)->get();
+        $n['categories'] = Category::where('is_parent', 1)->where('status', 'active')->get();
+        $n['sub_categories'] = Category::where('parent_id', $n['product']->cat_id)->where('status', 'active')->get();
+        $n['others_cats'] = Category::where('is_parent', 1)->where('id', '!=', $n['product']->cat_id)->where('status', 'active')->get();
         return view('backend.product.edit', $n);
     }
 
@@ -184,7 +290,31 @@ class ProductController extends Controller
         $data['is_featured'] = $request->input('is_featured', 0);
         $data['is_student'] = $request->input('is_student', 0);
 
-        $status = $product->fill($data)->save();
+        $seted_data = $product->fill($data);
+        $status = $seted_data->save();
+        $updated_data = $seted_data->toArray();
+        unset(
+            $updated_data['id'],
+            $updated_data['created_at'],
+            $updated_data['updated_at']
+        );
+        $child_cat_id = $updated_data['child_cat_id'];
+        $data['is_showable_to_user'] = 0;
+        if ($ocats = $request->other_cats_id) {
+            foreach ($ocats as $ocat) {
+                $updated_data['cat_id'] = $ocat;
+                $updated_data['child_cat_id'] = $child_cat_id;
+                $is_exit_sub_cat = Category::where('parent_id', $ocat)->where('id', $updated_data['child_cat_id'])->first();
+                if (!$is_exit_sub_cat) {
+                    unset($updated_data['child_cat_id']);
+                }
+                DB::table('products')->updateOrInsert([
+                    'slug' => $updated_data['slug'],
+                    'cat_id' => $updated_data['cat_id']
+                ], $updated_data);
+            }
+        }
+        // dd(Product::where('slug',$updated_data['slug'])->latest()->get()->take(10),$updated_data['slug'],$request->other_cats_id);
         if ($status) {
             if ($drs = $request->durations) {
                 foreach ($drs as $dr) {

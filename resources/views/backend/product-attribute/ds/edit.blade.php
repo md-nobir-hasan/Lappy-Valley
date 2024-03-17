@@ -12,7 +12,7 @@
                 @method('PUT')
                 <div class="form-group">
                     <label for="inputTitle" class="col-form-label">Size (inch)<span class="text-danger">*</span></label>
-                    <input id="inputTitle" step=".1" type="number" name="size" placeholder="Enter display size"
+                    <input id="inputTitle" type="text" name="size" placeholder="Enter display size"
                         value="{{$datum->size}}" class="form-control">
                     @error('size')
                         <span class="text-danger">{{ $message }}</span>

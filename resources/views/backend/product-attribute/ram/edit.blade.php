@@ -12,7 +12,7 @@
                 @method('PUT')
                 <div class="form-group">
                     <label for="capacity" class="col-form-label">Ram (GB) <span class="text-danger">*</span></label>
-                    <input id="capacity" type="number" name="capacity" placeholder="Enter capacity"
+                    <input id="capacity" type="text" name="capacity" placeholder="Enter capacity"
                         value="{{$datum->capacity}}" class="form-control">
                     @error('capacity')
                         <span class="text-danger">{{ $message }}</span>

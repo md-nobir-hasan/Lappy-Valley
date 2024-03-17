@@ -31,21 +31,30 @@ class NewProduct extends Component
     public $cat;
     // public function mount()
     // {
-    //     $this->prds = Product::where('status', 'active')->get();
+    //     $this->prds = Product::where('status', 'active')->where('is_showable_to_user',1)->get();
     // }
     public function render()
     {
       $os =  OtherSetting::first();
         if($this->product_type == 'new_product'){
             $n['products'] = Product::with(['ProcessorModel','ram','ssd','hdd','DisplaySize','DisplayType'])
-                                    ->where('status', 'active')->whereBetween('created_at', [Carbon::now()->subDays($os->new_product), Carbon::now()])->paginate(20);
+                                    ->where('status', 'active')
+                                    ->where('is_showable_to_user',1)
+                                    ->whereBetween('created_at', [Carbon::now()->subDays($os->new_product), Carbon::now()])->orderBy('id','desc')
+                                    ->paginate(20);
             if(count($n['products'])<1){
                 $n['products'] = Product::with(['ProcessorModel','ram','ssd','hdd','DisplaySize','DisplayType'])
-                                        ->where('status', 'active')->latest()->paginate(20);
+                                        ->where('status', 'active')
+                                        ->where('is_showable_to_user',1)
+                                        ->orderBy('id','desc')
+                                        ->paginate(20);
             }
         }else{
             $n['products'] = Product::with(['ProcessorModel','ram','ssd','hdd','DisplaySize','DisplayType'])
-                                    ->where('status', 'active')->paginate(20);
+                                    ->where('status', 'active')
+                                    ->where('is_showable_to_user',1)
+                                    ->orderBy('id','desc')
+                                    ->paginate(20);
         }
         $n['brands'] = Brand::get();
         $n['p_models'] = ProcessorModel::get();

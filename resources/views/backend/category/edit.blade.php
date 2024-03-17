@@ -29,7 +29,7 @@
                 <div class="form-group">
                     <label for="is_parent">Is Parent</label><br>
                     <input type="checkbox" name='is_parent' id='is_parent' value='{{ $category->is_parent }}'
-                        {{ $category->is_parent == 1 ? 'checked' : '' }}> Yes
+                        {{ $category->is_parent == 1 ? 'checked' : '' }}> <label for="is_parent">Yes</label>
                 </div>
                 {{-- {{$parent_cats}} --}}
                 {{-- {{$category}} --}}

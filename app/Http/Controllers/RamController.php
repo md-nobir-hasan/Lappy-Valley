@@ -17,7 +17,7 @@ class RamController extends Controller
      */
     public function index()
     {
-        $n['mdata'] = Ram::paginate(10);
+        $n['mdata'] = Ram::orderBy('id','desc')->paginate(10);
         $n['count'] = Ram::get();
         return view('backend.product-attribute.ram.index', $n);
     }

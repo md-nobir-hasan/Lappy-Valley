@@ -22,7 +22,7 @@ class StoreRamRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'capacity' => 'numeric|max:1024|unique:rams,capacity',
+            'capacity' => 'string|max:1024|unique:rams,capacity',
         ];
     }
 }
