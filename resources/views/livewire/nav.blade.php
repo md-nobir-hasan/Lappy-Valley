@@ -80,12 +80,12 @@
          @endif
      @endforeach
 
-     <div class="relative">
+     {{-- <div class="relative">
          <a class="nav-color flex items-center whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]"
              href="{{route('shop.student_laptop')}}" wire:navigate>
              Student Laptop
          </a>
-     </div>
+     </div> --}}
 
      <div class="relative">
          <a class="nav-color flex items-center whitespace-nowrap rounded font-[jost] font-[500] text-[#353535] text-[16px] bg-[#f2f2f2]"
