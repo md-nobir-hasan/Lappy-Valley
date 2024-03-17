@@ -115,15 +115,15 @@ class Product extends Model
     public function condition()
     {
         $products = Product::with(['cat_info'])->where('slug', $this->slug)->get();
+        $condition = 'N/A';
         foreach ($products as $product) {
-            if ($product->cat_info?->title == 'Brand New') {
-                return "Brand New";
-            } elseif ($product->cat_info?->title == 'Pre-Owned') {
-                return 'Pre-Owned';
-            }else{
-                return 'N/A';
+            if ($product->cat_info->slug == "brand-new") {
+                $condition =  "Brand New";
+            } elseif ($product->cat_info->slug == 'pre-owned') {
+                $condition = 'Pre-Owned';
             }
         }
+        return $condition;
     }
     public function otherCats()
     {

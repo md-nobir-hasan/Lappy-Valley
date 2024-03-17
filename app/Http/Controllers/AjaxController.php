@@ -133,34 +133,29 @@ class AjaxController extends Controller
                 case 'sbp': //short by popularity
                     $product = Product::whereRaw('CAST(REPLACE(final_price, ",", "") AS UNSIGNED) BETWEEN ? AND ?', [$req->minPrice, $req->maxPrice])
                         ->orderBy('views', 'desc')
-                        ->where('is_showable_to_user', 1)
-                        ->get();
+                        ->where('is_showable_to_user', 1);
                     break;
                 case 'sbar': //sort by average rating
                     $product = Product::whereRaw('CAST(REPLACE(final_price, ",", "") AS UNSIGNED) BETWEEN ? AND ?', [$req->minPrice, $req->maxPrice])
                         ->orderBy('average_rating', 'desc')
-                        ->where('is_showable_to_user', 1)
-                        ->get();
+                        ->where('is_showable_to_user', 1);
                     break;
                 case 'sbl': //sort by latest
                     $product = Product::whereRaw('CAST(REPLACE(final_price, ",", "") AS UNSIGNED) BETWEEN ? AND ?', [$req->minPrice, $req->maxPrice])
                         ->where('is_showable_to_user', 1)
-                        ->orderBy('id', 'desc')
-                        ->get();
+                        ->orderBy('id', 'desc');
                     break;
                 case 'lth': //low to high price
                     $product = Product::stringToNumber()
                         ->whereRaw('CAST(REPLACE(final_price, ",", "") AS UNSIGNED) BETWEEN ? AND ?', [$req->minPrice, $req->maxPrice])
                         ->orderBy('nfinal_price', 'asc')
-                        ->where('is_showable_to_user', 1)
-                        ->get();
+                        ->where('is_showable_to_user', 1);
                     break;
                 case 'htl': // high to low price
                     $product = Product::stringToNumber()
                         ->whereRaw('CAST(REPLACE(final_price, ",", "") AS UNSIGNED) BETWEEN ? AND ?', [$req->minPrice, $req->maxPrice])
                         ->where('is_showable_to_user', 1)
-                        ->orderBy('nfinal_price', 'desc')
-                        ->get();
+                        ->orderBy('nfinal_price', 'desc');
                     break;
             }
         } else {
@@ -214,7 +209,7 @@ class AjaxController extends Controller
         if ($req->ssds) {
             $product = $product->whereIn('ssd_id', $req->ssds);
         }
-        $n['product'] = $product;
+        $n['product'] = $product->get();
         return response()->json($n);
     }
     public function couponFetch(Request $req)

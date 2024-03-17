@@ -289,6 +289,7 @@ class ProductController extends Controller
         $data['special_feature'] = $special_feature;
         $data['is_featured'] = $request->input('is_featured', 0);
         $data['is_student'] = $request->input('is_student', 0);
+
         $seted_data = $product->fill($data);
         $status = $seted_data->save();
         $updated_data = $seted_data->toArray();
@@ -298,6 +299,7 @@ class ProductController extends Controller
             $updated_data['updated_at']
         );
         $child_cat_id = $updated_data['child_cat_id'];
+        $data['is_showable_to_user'] = 0;
         if ($ocats = $request->other_cats_id) {
             foreach ($ocats as $ocat) {
                 $updated_data['cat_id'] = $ocat;
