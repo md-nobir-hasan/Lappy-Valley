@@ -26,7 +26,7 @@ class CatWiseShop extends Component
     public $prds=null;
     // public $slug_wise_product;
     // public function mount(){
-    //     $this->slug_wise_product = Product::where('cat_id',$cat->id)->where('status','active')->orderBy('id','desc')->paginate(20);
+    //     $this->slug_wise_product = Product::where('cat_id',$cat->id)->orderBy('id','desc')->paginate(20)->where('status','active')->orderBy('id','desc')->paginate(20);
     // }
     public function render()
     {
@@ -43,11 +43,18 @@ class CatWiseShop extends Component
         if($this->subcat){
             $subcat = Category::where('slug', $this->subcat)->first();
             $n['products'] = Product::with(['ProcessorModel','ram','ssd','hdd','DisplaySize','DisplayType'])
-                                    ->where('child_cat_id', $subcat->id)->where('status', 'active')->orderBy('id','desc')->paginate(20);
+                                    // ->where('is_showable_to_user',1)
+                                    ->where('child_cat_id', $subcat->id)
+                                    ->where('status', 'active')
+                                    ->orderBy('id','desc')
+                                    ->paginate(20);
         }else{
             $cat = Category::where('slug', $this->cat)->first();
             $n['products'] = Product::with(['ProcessorModel','ram','ssd','hdd','DisplaySize','DisplayType'])
-                                    ->where('cat_id', $cat->id)->where('status', 'active')->orderBy('id','desc')->paginate(20);
+                                    // ->where('is_showable_to_user',1)
+                                    ->where('cat_id', $cat->id)
+                                    ->where('status', 'active')
+                                    ->orderBy('id','desc')->paginate(20);
         }
 
         return view('livewire.shop', $n);

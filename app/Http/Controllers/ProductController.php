@@ -37,13 +37,11 @@ class ProductController extends Controller
 
     public function index()
     {
-        $n['products_group_by'] = Product::with('cat_info', 'sub_cat_info', 'brand', 'ProcessorGeneration', 'ProcessorModel', 'DisplayType', 'DisplaySize', 'Ram', 'ssd', 'hdd', 'Graphic', 'SpecialFeature')
+        $n['products'] = Product::with('cat_info', 'sub_cat_info', 'brand', 'ProcessorGeneration', 'ProcessorModel', 'DisplayType', 'DisplaySize', 'Ram', 'ssd', 'hdd', 'Graphic', 'SpecialFeature')
             ->orderBy('id', 'desc')
-            // ->where('child_cat_id','!=',null)
-            ->get()
-            ->groupBy('slug');
+            ->where('is_showable_to_user',1)
+            ->get();
         $n['count'] = Product::get();
-        // return $products;
         return view('backend.product.index', $n);
     }
 
@@ -183,8 +181,10 @@ class ProductController extends Controller
             ]);
             $data['graphic_id'] = $graphic_first->id;
         }
+        $data['is_showable_to_user'] = 1;
         $status = Product::create($data);
         // dd($data);
+        $data['is_showable_to_user'] = 0;
         $child_cat_id = $data['child_cat_id'];
         if ($ocats = $request->other_cats_id) {
             foreach ($ocats as $ocat) {

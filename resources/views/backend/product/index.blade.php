@@ -12,7 +12,9 @@
         </div>
         <div class="py-3 card-header d-flex justify-content-between">
             <h6 class="float-left m-0 font-weight-bold text-primary">Product Lists</h6>
-            <h6 class="font-weight-bold text-primary">Total: {{count($count)}} || Active: {{count($count->where('status','active'))}} || Inactive: {{count($count->where('status','inactive'))}}</h6>
+            <h6 class="font-weight-bold text-primary">Total: {{ count($count) }} || Active:
+                {{ count($count->where('status', 'active')) }} || Inactive: {{ count($count->where('status', 'inactive')) }}
+            </h6>
             @can('Create Product')
                 <a href="{{ route('product.create') }}" class="float-right btn btn-primary btn-sm" data-toggle="tooltip"
                     data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add Product</a>
@@ -20,7 +22,7 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                @if (count($products_group_by) > 0)
+                @if (count($products) > 0)
                     <table class="table table-bordered table-striped" id="product-dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
@@ -59,14 +61,12 @@
                             </tr>
                         </tfoot>
                         <tbody>
-                            @foreach ($products_group_by as $products)
-                            @php
-                                $product = $products->last();
-                            @endphp
+                            @foreach ($products as $product)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>
-                                        <a target="_black" href="{{route('product.show',$product->id)}}">{{ $product->title }}</a>
+                                        <a target="_black"
+                                            href="{{ route('product.show', $product->id) }}">{{ $product->title }}</a>
                                     </td>
                                     <td>{{ $product->cat_info?->title }}
                                         <sub>
@@ -75,16 +75,7 @@
                                     </td>
 
                                     <td>
-                                        @foreach ($products as $prod)
-                                        @if (!$loop->last)
-                                            {{ $prod->cat_info?->title }}
-                                            <sub>
-                                                {{ $prod->sub_cat_info?->title ?? '' }}
-                                            </sub>
-                                             @if ($loop->index != (count($products)-2)) || @endif
-                                        @endif
-
-                                        @endforeach
+                                       {{$product->otherCats()}}
                                     </td>
                                     {{-- <td>{{ $product->is_featured == 1 ? 'Yes' : 'No' }}</td> --}}
                                     <td>BDT. {{ $product->price }} /-</td>
@@ -120,7 +111,10 @@
                                     </td>
 
                                     <td class="d-flex">
-                                         <a target="_blank" href="{{route('product.show',$product->id)}}" class="float-left mr-1 btn btn-warning btn-sm" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="view" data-placement="bottom"><i class="fas fa-eye"></i></a>
+                                        <a target="_blank" href="{{ route('product.show', $product->id) }}"
+                                            class="float-left mr-1 btn btn-warning btn-sm"
+                                            style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip"
+                                            title="view" data-placement="bottom"><i class="fas fa-eye"></i></a>
                                         @can('Edit Product')
                                             <a href="{{ route('product.edit', $product->id) }}"
                                                 class="float-left mr-1 btn btn-primary btn-sm"
@@ -187,7 +181,7 @@
             "scrollX": false,
             "columnDefs": [{
                 "orderable": false,
-                "targets": [1,2,3,4,5,6,7,8]
+                "targets": [1, 2, 3, 4, 5, 6, 7, 8]
             }]
         });
 

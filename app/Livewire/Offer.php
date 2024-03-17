@@ -12,7 +12,12 @@ class Offer extends Component
 {
     public function render()
     {
-        $n['offers'] = Product::with('ProductOffer')->where('product_offer_id','!=',null)->where('status','active')->orderBy('id','desc')->paginate(12);
+        $n['offers'] = Product::with('ProductOffer')
+                                ->where('is_showable_to_user',1)
+                                ->where('product_offer_id','!=',null)
+                                ->where('status','active')
+                                ->orderBy('id','desc')
+                                ->paginate(12);
         return view('livewire.offer',$n);
     }
 }
