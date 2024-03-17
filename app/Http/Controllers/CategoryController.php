@@ -22,7 +22,7 @@ class CategoryController extends Controller
     public function index()
     {
         $this->ccan('Show Category');
-        $n['categories']=Category::where('status','active')->orderBy('serial','asc')->paginate();
+        $n['categories']=Category::orderBy('serial','asc')->paginate(10);
         $n['count'] = Category::get();
         return view('backend.category.index',$n);
     }

@@ -127,13 +127,14 @@
 
     <!-- Page level custom scripts -->
     {{-- <script src="{{asset('backend/js/demo/datatables-demo.js')}}"></script> --}}
+
     <script>
-        // $('#banner-dataTable').DataTable({
-        //     "columnDefs": [{
-        //         "orderable": false,
-        //         "targets": [3, 4, 5]
-        //     }]
-        // });
+        $('#banner-dataTable').DataTable({
+            "columnDefs": [{
+                "orderable": false,
+                "targets": [3, 4, 5]
+            }]
+        });
     </script>
     <script>
         $(document).ready(function() {
