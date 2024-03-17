@@ -193,14 +193,14 @@
                                         <img src="{{ $f_product?->img()[0] }}" alt=""
                                             class="object-contain h-full img-contain">
                                     </a>
-                                    @if ($product?->stock < 1)
+                                    @if ($f_product?->stock < 1)
                                         <span
                                             class="text-[14px] bg-[#ef4a23] text-[#fff] absolute top-[-8px] left-[-8px] px-2 py-[2px] rounded-r-lg">Out
                                             Of Stock</span>
                                     @endif
                                     <span
                                         class="text-[14px] text-[#fff] bg-[#ef4a23] absolute top-[-8px] right-[-8px] px-2 py-[2px] rounded-l-lg">
-                                        -10%
+                                        {{$f_product->discount}}
                                     </span>
                                 </div>
                                 <div>
@@ -214,11 +214,11 @@
                                     class="flex justify-between items-end text-[14px] mt-auto font-[jost] font-[700] leading-[20.23px]">
                                     <div class="flex flex-col">
                                         <span class="pprice text-[#DC275C]"
-                                            value='{{ $product->final_price }}'>{{ $product->final_price }}
+                                            value='{{ $f_product->final_price }}'>{{ $f_product->final_price }}
                                             ৳
                                         </span>
                                         <span class="text-[#380D37] text-[14px] font-[jost] font-[700] line-through">
-                                            {{ $product->price }} ৳
+                                            {{ $f_product->price }} ৳
                                         </span>
                                     </div>
                                     <livewire:add-to-cart :id="$f_product->id"
