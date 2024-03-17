@@ -162,12 +162,12 @@
                         <label for="is_featured">Yes</label>
                     </div>
 
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <label for="is_student">Is Student Laptop</label><br>
                         <input type="checkbox" name='is_student' @checked($product->is_student) id='is_student'
                             value='1'>
                         <label for="is_student">Yes</label>
-                    </div>
+                    </div> --}}
 
                     <div class="form-group">
                         <label for="upcomming_toggler">Up Comming</label><br>
