@@ -260,7 +260,7 @@
                                     @endif
                                     <span
                                         class="text-[14px] text-[#fff] bg-[#ef4a23] absolute top-[-8px] right-[-8px] px-2 py-[2px] rounded-l-lg">
-                                        -10{{$a_product->discount}}%
+                                        -{{$a_product->discount}}%
                                     </span>
                                 </div>
                                 <div class="">
