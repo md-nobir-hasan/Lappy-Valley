@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $title ? $title . ' || ' : '' }} {{ ENV('APP_NAME') }}</title>
-    <link rel="icon" href="{{ asset('storage/product/Logo.svg') }}" type="img/svg">
+    <link rel="icon" href="{{ asset('storage/default/logo-lappy.png') }}" type="img/svg">
     <link rel="stylesheet" href="{{ asset('dist/toastr/toastr.css') }}">
     <link rel="stylesheet" href="{{ asset('library/tailwind-eliment/te.min.css') }}">
     <script type="text/javascript" src="{{ asset('dist/toastr/tastr-helper.js') }}"></script>
