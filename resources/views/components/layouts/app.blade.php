@@ -4,6 +4,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Open Graph meta tags for sharing -->
+    <meta property="og:title" content="{{ENV('APP_NAME')}}">
+    <meta property="og:description" content="Brand New and used Laptop import from USA, Dubai & Japan. MacBook, HP, ASUS, Dell, Lenovo, Acer, MSI & Razer Blade.">
+    <meta property="og:image" content="{{ asset('storage/default/logo-lappy.png') }}">
+    <meta property="og:url" content="https://lappyvalley.com/">
+    <meta property="og:type" content="website">
+
     <title>{{ $title ? $title . ' || ' : '' }} {{ ENV('APP_NAME') }}</title>
     <link rel="icon" href="{{ asset('storage/default/logo-lappy.png') }}" type="img/svg">
     <link rel="stylesheet" href="{{ asset('dist/toastr/toastr.css') }}">

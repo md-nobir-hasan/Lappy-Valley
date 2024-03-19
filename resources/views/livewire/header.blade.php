@@ -151,7 +151,7 @@
             <div class='items-center'>
                 <a href="{{ route('home') }}" wire:navigate>
                     <img class="h-[60px] max-xl:h-[40px] w-[232px] max-sm:w-[150px] max-xl:w-[180px] max-xl:flex max-xl:items-center"
-                        src="/storage/product/Logo.svg" alt="Your Logo">
+                        src="/storage/product/Logo.svg" alt="">
                 </a>
             </div>
             <div id="search-bar"
