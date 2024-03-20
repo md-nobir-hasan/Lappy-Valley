@@ -1,13 +1,9 @@
 <?php
 
-use App\Models\Category;
-use App\Models\Product;
-use App\Models\ProductReview;
 use Database\Seeders\RolePermissionSeeder;
 use Database\Seeders\ProductAttributeSeeder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -21,11 +17,11 @@ class DatabaseSeeder extends Seeder
     {
 
         $this->call([
-            ProductAttributeSeeder::class,
+            // ProductAttributeSeeder::class,
             UsersTableSeeder::class,
-            RolePermissionSeeder::class,
-            SettingTableSeeder::class,
-            CouponSeeder::class,
+            // RolePermissionSeeder::class,
+            // SettingTableSeeder::class,
+            // CouponSeeder::class,
         ]);
 
 // dd();
