@@ -1133,7 +1133,7 @@
                                                         <template x-if='product.ssd'>
                                                             <span>
                                                                 Storage:
-                                                            <span x-text='console.log(product.ssd.name)'></span>
+                                                            <span x-text='product.ssd.name'></span>
                                                             </span>
                                                         </template>
                                                     </li>
