@@ -40,7 +40,7 @@
                  @if ($product->ram || $product->ssd)
                      <li>
                          @if ($product->ram)
-                             RAM: {{ $product->ram?->ram }} {{ $product->ram?->type }} {{ $product->ram?->bus_speed }}
+                             RAM: {{ $product->ram?->capacity }} {{ $product->m_type }} {{ $product->bus_speed }}
                          @endif
                          @if ($product->ssd)
                               Storage: {{ $product->storage() }}

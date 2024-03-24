@@ -1118,10 +1118,48 @@
                                             <div class='mb-4 mt-auto'>
                                                 <ul
                                                     class='text-[#353535] list-decimal px-4 text-[10px] leading-[20px]'>
-                                                    <li>Processor: AMD Ryzen 5 7520U (2.8 GHz up to 4.3 GHz)</li>
-                                                    <li>RAM: 8GB DDR5 5500MHz, Storage: 256GB SSD</li>
-                                                    <li>Display: 15.6" FHD (1920X1080)</li>
-                                                    <li>Features: Type-C</li>
+                                                    <li>Processor: <span x-text='product.processor_model.name'></span>
+                                                        <span x-text='product.processor_model.c_speed'></span>
+                                                    </li>
+                                                    {{-- <li>Processor: AMD Ryzen 5 7520U (2.8 GHz up to 4.3 GHz)</li> --}}
+                                                    <li>
+                                                        <template x-if='product.ram'>
+                                                            <span>
+                                                                RAM: <span x-text='product.capacity'></span> <span
+                                                                    x-text='product.m_type'></span> <span
+                                                                    x-text='product.bus_speed'></span>
+                                                            </span>
+                                                        </template>
+                                                        <template x-if='product.ssd'>
+                                                            <span>
+                                                                Storage:
+                                                            <span x-text='console.log(product.ssd.name)'></span>
+                                                            </span>
+                                                        </template>
+                                                    </li>
+                                                    {{-- <li>RAM: 8GB DDR5 5500MHz, Storage: 256GB SSD</li> --}}
+                                                    <li>
+
+                                                        <template x-if='product.display_size'>
+                                                            <span>
+                                                                <span>Display:</span>
+                                                            <span x-text='product.display_size.size'></span> <span
+                                                                x-text='product.display_type.name'></span> <span
+                                                                x-text='"("+prouduct.d_resolution+")"'></span>
+                                                            </span>
+                                                        </template>
+                                                    </li>
+                                                    {{-- <li>Display: 15.6" FHD (1920X1080)</li> --}}
+                                                    <li>
+
+                                                        <template x-if='product.special_feature'>
+                                                            <span>
+                                                                Features:
+                                                            <span x-text='product.special_feature'></span>
+                                                            </span>
+                                                        </template>
+                                                    </li>
+                                                    {{-- <li>Features: Type-C</li> --}}
                                                 </ul>
                                             </div>
                                         </div>

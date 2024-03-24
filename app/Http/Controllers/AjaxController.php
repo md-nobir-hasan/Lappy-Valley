@@ -131,35 +131,35 @@ class AjaxController extends Controller
         if ($srt = $req->sorting) {
             switch ($srt) {
                 case 'sbp': //short by popularity
-                    $product = Product::whereRaw('CAST(REPLACE(final_price, ",", "") AS UNSIGNED) BETWEEN ? AND ?', [$req->minPrice, $req->maxPrice])
+                    $product = Product::with(['ProcessorGeneration', 'ProcessorModel', 'DisplayType', 'DisplaySize', 'Ram', 'ssd', 'hdd', 'Graphic', 'SpecialFeature'])->whereRaw('CAST(REPLACE(final_price, ",", "") AS UNSIGNED) BETWEEN ? AND ?', [$req->minPrice, $req->maxPrice])
                         ->orderBy('views', 'desc')
                         ->where('is_showable_to_user', 1);
                     break;
                 case 'sbar': //sort by average rating
-                    $product = Product::whereRaw('CAST(REPLACE(final_price, ",", "") AS UNSIGNED) BETWEEN ? AND ?', [$req->minPrice, $req->maxPrice])
+                    $product = Product::with(['ProcessorGeneration', 'ProcessorModel', 'DisplayType', 'DisplaySize', 'Ram', 'ssd', 'hdd', 'Graphic', 'SpecialFeature'])->whereRaw('CAST(REPLACE(final_price, ",", "") AS UNSIGNED) BETWEEN ? AND ?', [$req->minPrice, $req->maxPrice])
                         ->orderBy('average_rating', 'desc')
                         ->where('is_showable_to_user', 1);
                     break;
                 case 'sbl': //sort by latest
-                    $product = Product::whereRaw('CAST(REPLACE(final_price, ",", "") AS UNSIGNED) BETWEEN ? AND ?', [$req->minPrice, $req->maxPrice])
+                    $product = Product::with(['ProcessorGeneration', 'ProcessorModel', 'DisplayType', 'DisplaySize', 'Ram', 'ssd', 'hdd', 'Graphic', 'SpecialFeature'])->whereRaw('CAST(REPLACE(final_price, ",", "") AS UNSIGNED) BETWEEN ? AND ?', [$req->minPrice, $req->maxPrice])
                         ->where('is_showable_to_user', 1)
                         ->orderBy('id', 'desc');
                     break;
                 case 'lth': //low to high price
-                    $product = Product::stringToNumber()
+                    $product = Product::with(['ProcessorGeneration', 'ProcessorModel', 'DisplayType', 'DisplaySize', 'Ram', 'ssd', 'hdd', 'Graphic', 'SpecialFeature'])->stringToNumber()
                         ->whereRaw('CAST(REPLACE(final_price, ",", "") AS UNSIGNED) BETWEEN ? AND ?', [$req->minPrice, $req->maxPrice])
                         ->orderBy('nfinal_price', 'asc')
                         ->where('is_showable_to_user', 1);
                     break;
                 case 'htl': // high to low price
-                    $product = Product::stringToNumber()
+                    $product = Product::with(['ProcessorGeneration', 'ProcessorModel', 'DisplayType', 'DisplaySize', 'Ram', 'ssd', 'hdd', 'Graphic', 'SpecialFeature'])->stringToNumber()
                         ->whereRaw('CAST(REPLACE(final_price, ",", "") AS UNSIGNED) BETWEEN ? AND ?', [$req->minPrice, $req->maxPrice])
                         ->where('is_showable_to_user', 1)
                         ->orderBy('nfinal_price', 'desc');
                     break;
             }
         } else {
-            $product = Product::whereRaw('CAST(REPLACE(final_price, ",", "") AS UNSIGNED) BETWEEN ? AND ?', [$req->minPrice, $req->maxPrice]);
+            $product = Product::with(['ProcessorGeneration', 'ProcessorModel', 'DisplayType', 'DisplaySize', 'Ram', 'ssd', 'hdd', 'Graphic', 'SpecialFeature'])->whereRaw('CAST(REPLACE(final_price, ",", "") AS UNSIGNED) BETWEEN ? AND ?', [$req->minPrice, $req->maxPrice]);
         }
 
         if ($subcat = $req->subcat) {
