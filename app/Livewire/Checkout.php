@@ -157,10 +157,11 @@ class Checkout extends Component
         Mail::to($user->email)->send(new OrderMail($mail_content));
 
         foreach ($carts as $cart) {
+            dd($cart);
             $cart->update([
                 'order_id' => $order->id,
                 'price' => $cart->product->final_price,
-                'amount' => $cart->product->final_price * $cart->quantity,
+                'amount' => Helper::commaRemove($cart->product->final_price) * $cart->quantity,
                 'inventory_cost' => $cart->product->inventory_cost,
             ]);
         }

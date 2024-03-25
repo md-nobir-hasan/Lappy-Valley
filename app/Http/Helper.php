@@ -178,6 +178,7 @@ class Helper{
     public static function commaRemove($with_comma){
         return ((float)str_replace(',','',$with_comma));
     }
+
     public static function cartSubTotal($carts){
         $price_sum = 0;
         foreach($carts as $cart){
