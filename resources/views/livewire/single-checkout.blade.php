@@ -273,7 +273,7 @@
                                          </td>
                                          <td
                                              class="text-right text-[#DC275C] text-[12px] max-sm:text-[10px] font-[700]">
-                                             {{ number_format($product->final_price) }}.00 Taka
+                                             {{ $product->final_price }}.00 Taka
                                          </td>
                                      </tr>
                                  <tr class="border-b-[rgba(#00000033] border-b-[1px] font-[jost]">
