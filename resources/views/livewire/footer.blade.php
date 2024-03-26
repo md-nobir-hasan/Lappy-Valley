@@ -112,11 +112,11 @@
                   </li>
                   <li class="mb-[15px]">
                       <a href="tel:01736361123" class="px-1 hover:bg-blue-700 nav-colors">
-                          +8801736361123,
+                          +8801736361123
                       </a>
-                      <a href="tel:01757773557" class="px-1 hover:bg-blue-700 nav-colors">
+                      {{-- <a href="tel:01757773557" class="px-1 hover:bg-blue-700 nav-colors">
                           +8801757773557,
-                      </a>
+                      </a> --}}
                   </li>
                   <li>
                       <span class="px-1 hover:bg-blue-700">
