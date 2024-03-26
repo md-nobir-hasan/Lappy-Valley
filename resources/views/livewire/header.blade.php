@@ -258,7 +258,7 @@
         </div>
         {{-- ------search--icon--end----- --}}
         {{-- ---whatsapp-icon--- --}}
-        <a href="https://wa.me/01712644209" target="_blank"
+        <a href="https://wa.me/+8801712644209" target="_blank"
             class="fixed flex items-center justify-center bg-green-500 rounded-[50%] bottom-20 max-sm:bottom-18 right-10 max-sm:right-8 z-40 hover:w-16 duration-300 hover:h-16 max-sm:w-12 w-14 max-sm:h-12 h-14">
             <div>
                 <img src="/storage/product/whatsapp-symbol-logo-svgrepo-com.svg" alt="" class=" w-8 h-10">
