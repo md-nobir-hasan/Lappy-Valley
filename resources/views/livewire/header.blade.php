@@ -138,7 +138,7 @@
                                 return this.items.filter((i) => i.title.toLowerCase().startsWith(searchLower));
                             }
                         }">
-                            <form wire:submit='searchTo' class='h-[44px] max-xl:h-full w-[655px] max-xl:w-full'>
+                            <div  class='h-[44px] max-xl:h-full w-[655px] max-xl:w-full'>
                                 <div class="flex" @click.outside='open = false'>
                                     <select name="cat_id" wire:model.live='cat' wire:change='searchFuc'
                                         @change='open=true'
@@ -151,7 +151,7 @@
                                     <div class="relative flex w-full">
                                         <div class="w-full">
                                             <span class="">
-                                                <input name="search_text" wire:model.live="search"
+                                                <input name="search_text" wire:model.live="search" wire:keyup.enter="searchTo"
                                                     wire:keyup="searchFuc" @click="open = true" type="search"
                                                     id="search-dropdown" autocomplete="off"
                                                     class=" z-20 block p-2.5 w-full bg-[#f2f2f2] text-[#380D37]"
@@ -199,13 +199,13 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <button type="submit"
+                                    <button type="button" wire:click='searchTo'
                                         class=" top-0 end-0 py-2.5 px-[30px] h-full bg-[#df146e] text-[#f2f2f2] rounded-r-[2px] overflow-hidden">
                                         <span class="">Search</span>
                                     </button>
 
                                 </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -35,13 +35,14 @@ class Header extends Component
 
     public function searchTo()
     {
-
+// dd('search to');
         if (($slug = $this->cat) && !($s = $this->search)) {
             $this->redirect(route('cat.search.product', [$this->cat]), navigate: true);
             // dd($this->cat,$this->search);
         }else {
             $this->redirect(route('searching_product', [$this->search, $this->cat]), navigate: true);
         }
+        return false;
     }
     // public function prdouctFetch()
     // {
@@ -68,6 +69,7 @@ class Header extends Component
     // }
     public function searchFuc()
     {
+        // dd('search func');
         if (($slug = $this->cat) && ($s = $this->search)) {
             $cat = Category::where('slug', $slug)->first();
             $this->products = Product::serachByTitleOrNothing($s)->where('cat_id', $cat->id)->get();
